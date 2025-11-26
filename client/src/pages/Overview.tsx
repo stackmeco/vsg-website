@@ -86,55 +86,28 @@ export default function Overview() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-sm font-mono uppercase tracking-wider text-primary mb-4">
-                AI, Bitcoin & digital scarcity
-              </p>
-              <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-[3.4rem] text-foreground leading-tight tracking-tight mb-6">
-                We explore the edge of AI and digital assets — with our own capital on the line.
-              </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                Verified Systems (VSG) is a two-founder studio working at the intersection of AI, Bitcoin, and digital scarcity. We run a Bitcoin treasury, borrow against it carefully, and use that fuel to design systems we'd trust with our own balance sheet.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="/system">
-                  <Button size="lg" data-testid="button-how-we-work">
-                    How we work
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
-                </Link>
-                <Link href="/library">
-                  <Button variant="outline" size="lg" data-testid="button-read-thesis">
-                    Read our thesis
-                  </Button>
-                </Link>
-              </div>
-            </div>
-            <div className="hidden lg:block">
-              <Card className="bg-card/80 backdrop-blur-sm border-card-border">
-                <CardContent className="p-8">
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-3 h-3 rounded-full bg-primary" />
-                      <span className="font-mono text-sm text-foreground">AI</span>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="w-3 h-3 rounded-full bg-accent" />
-                      <span className="font-mono text-sm text-foreground">Bitcoin</span>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="w-3 h-3 rounded-full bg-muted-foreground" />
-                      <span className="font-mono text-sm text-foreground">Digital Scarcity</span>
-                    </div>
-                    <div className="pt-4 border-t border-border">
-                      <div className="bg-secondary rounded-lg p-4 text-center">
-                        <span className="font-heading font-semibold text-foreground">Studio</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+          <div className="max-w-3xl">
+            <p className="text-sm font-mono uppercase tracking-wider text-primary mb-4">
+              AI, Bitcoin & digital scarcity
+            </p>
+            <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-[3.4rem] text-foreground leading-tight tracking-tight mb-6">
+              We explore the edge of AI and digital assets — with our own capital on the line.
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+              Verified Systems (VSG) is a two-founder studio working at the intersection of AI, Bitcoin, and digital scarcity. We run a Bitcoin treasury, borrow against it carefully, and use that fuel to design systems we'd trust with our own balance sheet.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/system">
+                <Button size="lg" data-testid="button-how-we-work">
+                  How we work
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </Link>
+              <Link href="/library">
+                <Button variant="outline" size="lg" data-testid="button-read-thesis">
+                  Read our thesis
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
