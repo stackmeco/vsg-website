@@ -99,6 +99,8 @@ export default function Overview() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroImage})` }}
+          role="img"
+          aria-label="Abstract data flow visualization"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-background from-40% via-background/90 via-60% to-background/50" />
         </div>

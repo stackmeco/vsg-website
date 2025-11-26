@@ -86,14 +86,42 @@ export default function Governance() {
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               We work at the edge of AI, Bitcoin, and digital scarcity. That edge only matters if people can understand the risks and the rules.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed mb-8">
               This page explains how Verified Systems (Verified Systems Group LLC, "VSG") is governed today: who decides what, how we treat our Bitcoin treasury, and how we approach regulation and compliance as we move projects from R&D to reality.
             </p>
+
+            <nav className="bg-card border border-border rounded-lg p-5" aria-label="Table of contents">
+              <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-3">
+                On this page
+              </p>
+              <ul className="space-y-2">
+                <li>
+                  <a href="#structure" className="text-sm text-foreground hover:text-primary transition-colors">
+                    Legal structure
+                  </a>
+                </li>
+                <li>
+                  <a href="#treasury" className="text-sm text-foreground hover:text-primary transition-colors">
+                    BTC treasury policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#risk" className="text-sm text-foreground hover:text-primary transition-colors">
+                    Risk governance
+                  </a>
+                </li>
+                <li>
+                  <a href="#regulatory" className="text-sm text-foreground hover:text-primary transition-colors">
+                    Regulatory stance
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-card" data-testid="section-structure">
+      <section id="structure" className="py-16 bg-card scroll-mt-20" data-testid="section-structure">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
@@ -163,7 +191,7 @@ export default function Governance() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-treasury">
+      <section id="treasury" className="py-20 scroll-mt-20" data-testid="section-treasury">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
@@ -249,7 +277,7 @@ export default function Governance() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-risk">
+      <section id="risk" className="py-20 bg-card scroll-mt-20" data-testid="section-risk">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
@@ -318,7 +346,7 @@ export default function Governance() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-regulatory">
+      <section id="regulatory" className="py-20 scroll-mt-20" data-testid="section-regulatory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">

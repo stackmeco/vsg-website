@@ -18,8 +18,6 @@ interface LibraryItem {
   slug: string;
 }
 
-const categories: ContentType[] = ["All", "Insight", "Note", "Update"];
-
 const items: LibraryItem[] = [
   {
     title: "The Verification Standard: Charting the Great Reallocation",
@@ -30,6 +28,15 @@ const items: LibraryItem[] = [
     slug: "verification-standard",
   },
 ];
+
+const getAvailableCategories = (): ContentType[] => {
+  const typesWithContent = new Set(items.map(item => item.type));
+  const categories: ContentType[] = ["All"];
+  if (typesWithContent.has("Insight")) categories.push("Insight");
+  if (typesWithContent.has("Note")) categories.push("Note");
+  if (typesWithContent.has("Update")) categories.push("Update");
+  return categories;
+};
 
 const changelog = [
   { date: "Nov 2025", entry: "Initial site launch with Overview, System, Pipeline, Governance, Library, and Contact pages." },
@@ -66,7 +73,7 @@ export default function Library() {
       <section className="py-8 bg-card" data-testid="section-filters">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2">
-            {categories.map((type) => (
+            {getAvailableCategories().map((type) => (
               <Badge
                 key={type}
                 variant={activeType === type ? "default" : "outline"}

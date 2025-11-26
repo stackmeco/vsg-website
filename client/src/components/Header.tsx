@@ -23,6 +23,10 @@ export function Header() {
     return location.startsWith(href);
   };
 
+  const handleMobileNavClick = () => {
+    setMobileOpen(false);
+  };
+
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border"
@@ -36,7 +40,7 @@ export function Header() {
             </span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-1" data-testid="nav-desktop">
+          <nav className="hidden lg:flex items-center gap-1" data-testid="nav-desktop" aria-label="Main navigation">
             {navItems.map((item) => (
               <Link key={item.name} href={item.href}>
                 <span
@@ -46,6 +50,7 @@ export function Header() {
                       ? "text-primary underline underline-offset-4"
                       : "text-muted-foreground hover:text-foreground hover:bg-secondary"
                   )}
+                  aria-current={isActive(item.href) ? "page" : undefined}
                   data-testid={`nav-${item.name.toLowerCase()}`}
                 >
                   {item.name}
@@ -56,7 +61,12 @@ export function Header() {
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon" data-testid="button-mobile-menu">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                aria-label="Open navigation menu"
+                data-testid="button-mobile-menu"
+              >
                 <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
@@ -68,16 +78,17 @@ export function Header() {
                     variant="ghost"
                     size="icon"
                     onClick={() => setMobileOpen(false)}
+                    aria-label="Close navigation menu"
                   >
                     <X className="w-5 h-5" />
                   </Button>
                 </div>
-                <nav className="flex flex-col p-6 gap-2">
+                <nav className="flex flex-col p-6 gap-2" aria-label="Mobile navigation">
                   {navItems.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
-                      onClick={() => setMobileOpen(false)}
+                      onClick={handleMobileNavClick}
                     >
                       <div
                         className={cn(
@@ -86,6 +97,7 @@ export function Header() {
                             ? "bg-primary/10"
                             : "hover:bg-secondary"
                         )}
+                        aria-current={isActive(item.href) ? "page" : undefined}
                       >
                         <span className="text-2xl font-mono text-muted-foreground">
                           {item.number}

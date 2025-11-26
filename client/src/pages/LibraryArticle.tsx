@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Calendar, Clock } from "lucide-react";
 
 const article = {
   title: "The Verification Standard: Charting the Great Reallocation",
@@ -50,37 +50,54 @@ const article = {
 };
 
 export default function LibraryArticle() {
+  const readingTime = Math.ceil(
+    article.content.reduce((acc, section) => 
+      acc + section.paragraphs.join(" ").split(" ").length, 0
+    ) / 200
+  );
+
   return (
     <Layout>
       <PageMeta
         title={article.title}
         description="Our thesis on fiscal dominance, Bitcoin as verified scarcity, and the multi-decade capital migration from depreciating fiat to appreciating hard assets."
+        type="article"
+        publishedTime="2025-11-26"
       />
 
       <article className="py-20 lg:py-28" data-testid="article-verification-standard">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/library"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-10 transition-colors"
             data-testid="link-back-library"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Library
           </Link>
 
-          <header className="mb-12">
-            <div className="flex items-center gap-3 mb-4">
+          <header className="mb-14">
+            <div className="flex flex-wrap items-center gap-3 mb-6">
               <Badge variant="secondary">{article.type}</Badge>
-              <span className="text-sm text-muted-foreground">{article.date}</span>
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5" />
+                  {article.date}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5" />
+                  {readingTime} min read
+                </span>
+              </div>
             </div>
-            <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[2.75rem] text-foreground leading-[1.15] tracking-tight mb-8">
               {article.title}
             </h1>
             <div className="flex flex-wrap gap-2">
               {article.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs font-mono text-muted-foreground bg-secondary px-2 py-1 rounded"
+                  className="text-xs font-mono text-muted-foreground bg-secondary px-2.5 py-1 rounded"
                 >
                   {tag}
                 </span>
@@ -88,16 +105,16 @@ export default function LibraryArticle() {
             </div>
           </header>
 
-          <div className="prose prose-lg max-w-none">
+          <div className="article-content">
             {article.content.map((section, index) => (
-              <section key={index} className="mb-12" data-testid={`section-${index + 1}`}>
-                <h2 className="font-heading font-semibold text-xl text-foreground mb-4">
+              <section key={index} className="mb-14" data-testid={`section-${index + 1}`}>
+                <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6 leading-snug">
                   {section.heading}
                 </h2>
                 {section.paragraphs.map((paragraph, pIndex) => (
                   <p
                     key={pIndex}
-                    className="text-foreground/90 leading-relaxed mb-4"
+                    className="text-foreground/90 text-[1.0625rem] leading-[1.8] mb-6 last:mb-0"
                   >
                     {paragraph}
                   </p>
@@ -106,10 +123,17 @@ export default function LibraryArticle() {
             ))}
           </div>
 
-          <footer className="mt-16 pt-8 border-t border-border">
-            <p className="text-sm text-muted-foreground italic">
+          <footer className="mt-20 pt-8 border-t border-border">
+            <p className="text-sm text-muted-foreground">
               Published by Verified System Group
             </p>
+            <Link 
+              href="/library"
+              className="inline-flex items-center gap-2 text-sm text-primary hover:underline mt-4"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              Back to Library
+            </Link>
           </footer>
         </div>
       </article>

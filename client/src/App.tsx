@@ -11,7 +11,8 @@ import Governance from "@/pages/Governance";
 import Library from "@/pages/Library";
 import LibraryArticle from "@/pages/LibraryArticle";
 import Contact from "@/pages/Contact";
-import Status from "@/pages/Status";
+import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -25,7 +26,8 @@ function Router() {
       <Route path="/library" component={Library} />
       <Route path="/library/verification-standard" component={LibraryArticle} />
       <Route path="/contact" component={Contact} />
-      <Route path="/status" component={Status} />
+      <Route path="/legal/privacy" component={Privacy} />
+      <Route path="/legal/terms" component={Terms} />
       <Route component={NotFound} />
     </Switch>
   );
