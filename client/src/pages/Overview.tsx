@@ -90,7 +90,7 @@ export default function Overview() {
     <Layout>
       <PageMeta 
         title="Overview" 
-        description="Verified Systems is a two-founder studio exploring AI, Bitcoin, and digital scarcity. We build honest systems for an AI-powered economy, funded by our own BTC treasury." 
+        description="Engineering verifiable systems at the frontier of AI, digital assets, and digital scarcity. We enable new forms of value without compromising ownership or control." 
       />
       <section
         className="relative min-h-[90vh] flex items-center"
@@ -156,39 +156,42 @@ export default function Overview() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-why">
+      <section className="py-20 bg-card" data-testid="section-directive">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-8">
-            Why this exists
+            The VSG Directive
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="bg-background border-border">
               <CardContent className="p-6">
-                <h3 className="text-sm font-mono uppercase tracking-wider text-primary mb-3">
+                <h3 className="text-sm font-mono uppercase tracking-wider text-primary mb-1">
                   Purpose
                 </h3>
+                <p className="text-xs text-muted-foreground mb-3">Engineering Verifiable Systems</p>
                 <p className="text-foreground leading-relaxed">
-                  To explore and build honest systems at the edge of AI, digital assets, and digital scarcity, so people can use new forms of value without losing ownership, clarity, or control.
+                  To engineer verifiable systems at the frontier of AI, digital assets, and digital scarcity. We enable the use of new forms of value without compromising ownership or control — reclaiming human attention for higher-value work.
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-background border-border">
               <CardContent className="p-6">
-                <h3 className="text-sm font-mono uppercase tracking-wider text-primary mb-3">
+                <h3 className="text-sm font-mono uppercase tracking-wider text-primary mb-1">
                   Vision
                 </h3>
+                <p className="text-xs text-muted-foreground mb-3">Compounding Productivity</p>
                 <p className="text-foreground leading-relaxed">
-                  A world where people and AI agents can hold and use digital assets with the same clarity and durability as good money: ownership is real, risks are visible, and systems don't quietly erode what you've built.
+                  A future where digital assets possess the clarity and durability of physical currency. We build for a reality where ownership is absolute, risks are visible, and systems compound human productivity rather than extract from it.
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-background border-border">
               <CardContent className="p-6">
-                <h3 className="text-sm font-mono uppercase tracking-wider text-primary mb-3">
+                <h3 className="text-sm font-mono uppercase tracking-wider text-primary mb-1">
                   Mission
                 </h3>
+                <p className="text-xs text-muted-foreground mb-3">Verification via Capital</p>
                 <p className="text-foreground leading-relaxed">
-                  To explore the edge of AI and digital assets with our own capital on the line, learn out loud, and ship only the systems we'd trust with our own balance sheet.
+                  To navigate the edge of AI and digital assets with our own capital at risk. We learn in the open and graduate only the systems we have verified with our own balance sheet.
                 </p>
               </CardContent>
             </Card>
