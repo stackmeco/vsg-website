@@ -10,18 +10,22 @@ interface PolicyChipProps {
   className?: string;
 }
 
-const variantStyles: Record<ChipVariant, { dot: string }> = {
+const variantStyles: Record<ChipVariant, { dot: string; glow: string }> = {
   limit: {
     dot: "bg-emerald-500",
+    glow: "shadow-[0_0_8px_rgba(34,197,94,0.5)]",
   },
   info: {
-    dot: "bg-primary",
+    dot: "bg-teal-400",
+    glow: "shadow-[0_0_8px_rgba(20,184,166,0.5)]",
   },
   exception: {
-    dot: "bg-amber-500",
+    dot: "bg-amber-500 animate-pulse",
+    glow: "shadow-[0_0_8px_rgba(245,158,11,0.5)]",
   },
   breach: {
-    dot: "bg-destructive",
+    dot: "bg-red-500",
+    glow: "shadow-[0_0_8px_rgba(239,68,68,0.7)]",
   },
 };
 
@@ -32,25 +36,25 @@ export function PolicyChip({
   meta,
   className,
 }: PolicyChipProps) {
-  const { dot } = variantStyles[variant];
+  const { dot, glow } = variantStyles[variant];
 
   return (
     <div
       className={cn(
         "inline-flex items-center gap-2 px-3 py-1.5 rounded-full",
-        "bg-secondary border border-border",
+        "bg-slate-900/90 border border-slate-700/50",
         "font-mono text-xs tracking-wide",
         className
       )}
       data-testid={`chip-${label.toLowerCase().replace(/\s+/g, "-")}`}
     >
       <span
-        className={cn("w-2 h-2 rounded-full flex-shrink-0", dot)}
+        className={cn("w-2 h-2 rounded-full flex-shrink-0", dot, glow)}
         aria-hidden="true"
       />
-      <span className="text-muted-foreground">{label}</span>
-      <span className="text-foreground font-medium">{value}</span>
-      {meta && <span className="text-muted-foreground/70">{meta}</span>}
+      <span className="text-slate-400">{label}</span>
+      <span className="text-slate-200 font-medium">{value}</span>
+      {meta && <span className="text-slate-500">{meta}</span>}
     </div>
   );
 }
