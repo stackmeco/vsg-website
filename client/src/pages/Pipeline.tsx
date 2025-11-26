@@ -5,12 +5,31 @@ import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 
 const stages = [
-  { name: "Idea", description: "A question worth asking." },
-  { name: "Requirements", description: "Define what a good answer looks like." },
-  { name: "Architecture", description: "Design how it works technically and operationally." },
-  { name: "Prototype", description: "Build a minimal version to find where it breaks." },
-  { name: "Internal tests", description: "Run it with our own capital under tight limits." },
-  { name: "Ship or archive", description: "If it earns long-term trust, it ships. If not, we document what we learned." },
+  { 
+    name: "Strategic Definition", 
+    focus: "Alignment & ROI",
+    description: "We start with the problem, not the code. Before development begins, we verify the 'Why.' We define clear, measurable objectives for every project, ensuring every hour of engineering time translates directly to business value." 
+  },
+  { 
+    name: "Rapid Validation", 
+    focus: "Risk Mitigation",
+    description: "We prove the concept early. Risk is best managed before the build. We utilize rapid prototyping and user modeling to validate assumptions immediately — saving time and resources for the features that truly matter." 
+  },
+  { 
+    name: "The Verified Build", 
+    focus: "Security & Stability",
+    description: "Engineering with automated safeguards. We build in iterative cycles using a 'Continuous Verification' model. Automated testing suites check system integrity thousands of times per day, ensuring stability and security are baked into the DNA." 
+  },
+  { 
+    name: "Controlled Deployment", 
+    focus: "Reliability",
+    description: "Zero-downtime delivery. We don't rely on a 'big bang' release. We utilize controlled rollout strategies, deploying features incrementally to ensure seamless performance under real-world loads." 
+  },
+  { 
+    name: "Data-Driven Evolution", 
+    focus: "Continuous Growth",
+    description: "Launch is just the beginning. A system is a living entity. Once live, we monitor performance metrics and user interactions in real-time, continuously optimizing efficiency and user experience." 
+  },
 ];
 
 const projects = [
@@ -86,22 +105,35 @@ export default function Pipeline() {
 
       <section className="py-16 bg-card" data-testid="section-stages">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-bold text-2xl text-foreground mb-8">
-            How the Pipeline works
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="max-w-3xl mb-10">
+            <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
+              Precision Engineering. Proven Results.
+            </p>
+            <h2 className="font-heading font-bold text-2xl text-foreground mb-4">
+              How we verify value at every step
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              We treat software development as a rigorous science. Our R&D architecture is designed to eliminate risk and deliver systems that are scalable, secure, and ready for the real world.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {stages.map((stage, index) => (
               <Card key={stage.name} className="bg-background border-border">
-                <CardContent className="p-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-lg font-mono text-muted-foreground">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-3 mb-3">
+                    <span className="text-2xl font-mono text-primary font-bold">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-heading font-semibold text-foreground">
-                      {stage.name}
-                    </span>
+                    <div>
+                      <h3 className="font-heading font-semibold text-foreground">
+                        {stage.name}
+                      </h3>
+                      <p className="text-xs font-mono uppercase tracking-wider text-primary">
+                        {stage.focus}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-sm text-muted-foreground pl-9">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {stage.description}
                   </p>
                 </CardContent>
