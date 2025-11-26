@@ -18,7 +18,7 @@ const stages = [
   { 
     name: "The Verified Build", 
     focus: "Security & Stability",
-    description: "Engineering with automated safeguards. We build in iterative cycles using a 'Continuous Verification' model. Automated testing suites check system integrity thousands of times per day, ensuring stability and security are baked into the DNA." 
+    description: "Engineering with automated safeguards. We build in iterative cycles with continuous verification. Automated testing suites check system integrity throughout development, so stability and security are foundational." 
   },
   { 
     name: "Controlled Deployment", 
@@ -27,8 +27,8 @@ const stages = [
   },
   { 
     name: "Data-Driven Evolution", 
-    focus: "Continuous Growth",
-    description: "Launch is just the beginning. A system is a living entity. Once live, we monitor performance metrics and user interactions in real-time, continuously optimizing efficiency and user experience." 
+    focus: "Continuous Improvement",
+    description: "Launch is the starting point. Once live, we monitor performance and user interactions, continuously refining based on real data." 
   },
 ];
 
@@ -94,7 +94,7 @@ export default function Pipeline() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight tracking-tight mb-6">
-              The Pipeline.
+              The Pipeline
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Our R&D projects, tied to our BTC treasury, moving through defined stages. All self-funded. None public yet.
@@ -107,13 +107,13 @@ export default function Pipeline() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
-              Precision Engineering. Proven Results.
+              Our R&D process
             </p>
             <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
               How we verify value at every step
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              We treat software development as a rigorous science. Our R&D architecture is designed to eliminate risk and deliver systems that are scalable, secure, and ready for the real world.
+              We treat software development as a rigorous discipline. Our process is designed to surface risk early and build systems designed for stability and security.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -158,7 +158,7 @@ export default function Pipeline() {
 
       <NextStepBlock
         nextPage="Governance"
-        description="See how we govern risk, treasury, and compliance."
+        description="See how we manage risk, treasury, and compliance."
         href="/governance"
       />
     </Layout>

@@ -61,7 +61,7 @@ export default function Library() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight tracking-tight mb-6">
-              Library.
+              Library
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Notes, insights, and updates from the studio. We publish when we have something useful to share — not on a schedule.
@@ -161,7 +161,7 @@ export default function Library() {
 
       <NextStepBlock
         nextPage="Contact"
-        description="Reach out if you want to talk."
+        description="Reach out if you'd like to connect."
         href="/contact"
       />
     </Layout>

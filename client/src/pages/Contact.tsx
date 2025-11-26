@@ -13,10 +13,10 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight tracking-tight mb-6">
-              Get in touch.
+              Get in touch
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              We're a two-founder studio. We read every message and respond to things that seem like a good fit.
+              We're a two-founder studio. We read every message and respond to inquiries that align with our work.
             </p>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function Contact() {
                     What to expect
                   </h4>
                   <p className="text-sm text-muted-foreground">
-                    We respond to messages that fit within a few business days. We don't do cold outreach, and we don't share your information.
+                    We typically respond within a few business days. We don't do cold outreach, and we don't share your information.
                   </p>
                 </div>
               </div>

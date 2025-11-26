@@ -19,14 +19,14 @@ import {
 const capitalControls = [
   "Member loans, not mystery money — funds from members are documented loans, not hidden equity",
   "Distribution waterfall — creditors first, then loan repayment, then (if any) equity distributions",
-  "No unsupervised on-chain moves — every treasury transaction requires a signed Transaction Authorization Record",
+  "No unsupervised on-chain moves — every treasury transaction requires a signed Transaction Authorization Record (TAR)",
 ];
 
 const thingsWeWontDo = [
   "We do not offer or sell tokens as investments",
   "No opaque yield products where you can't inspect the mechanics",
   "No hidden rehypothecation of user assets",
-  "No routing around sanctions, KYC/AML, or geofencing obligations",
+  "No routing around sanctions, identity verification (KYC/AML), or geofencing obligations",
 ];
 
 const projectGovernance = [
@@ -81,7 +81,7 @@ export default function Governance() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight tracking-tight mb-6">
-              Governance, risk & compliance.
+              Governance, risk & compliance
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               We work at the edge of AI, Bitcoin, and digital scarcity. That edge only matters if people can understand the risks and the rules.
@@ -217,7 +217,7 @@ export default function Governance() {
                 </li>
                 <li className="flex gap-4">
                   <span className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 text-sm font-mono">2</span>
-                  <p className="text-foreground pt-1">Borrow stablecoins at conservative LTV (target ~35%, hard cap 50%).</p>
+                  <p className="text-foreground pt-1">Borrow stablecoins at conservative loan-to-value ratio (LTV) (target ~35%, hard cap 50%).</p>
                 </li>
                 <li className="flex gap-4">
                   <span className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 text-sm font-mono">3</span>
@@ -368,7 +368,7 @@ export default function Governance() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3 text-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  US-based LLC with crypto-first accounting (books in Xero, digital asset sub-ledgers via Cryptoworth, specific-ID cost basis)
+                  US-based LLC with crypto-first accounting (books in Xero, digital asset sub-ledgers via Cryptoworth, specific-identification cost basis for tax reporting)
                 </li>
                 <li className="flex items-start gap-3 text-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
@@ -449,7 +449,7 @@ export default function Governance() {
 
       <NextStepBlock
         nextPage="Library"
-        description="Read our notes, updates, and learnings as they evolve."
+        description="Read our notes, insights, and updates."
         href="/library"
       />
     </Layout>

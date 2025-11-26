@@ -15,32 +15,32 @@ const projects = [
     name: "Helios",
     stage: "Early Development",
     stageVariant: "development" as const,
-    description: "Internal BTC-backed strategy engine. Helios automates a portion of our borrowing into bounded, rule-driven DeFi positions with real-time monitoring.",
-    exploring: ["Yield strategies with strict limits", "Multi-venue execution", "Risk monitoring"],
+    description: "Internal BTC-backed strategy engine. Requirements and architecture defined; implementation and early testing in progress.",
+    exploring: ["Automated yield strategies with strict risk bounds", "Multi-venue position management", "Real-time health monitoring"],
     href: "/pipeline/helios",
   },
   {
     name: "stackme",
     stage: "Early Development",
     stageVariant: "development" as const,
-    description: "A borrower-first BTC credit app. Architecture and flows center on clarity, conservative leverage, and plain-language risk disclosure.",
-    exploring: ["User-friendly risk display", "Conservative LTV ladders", "Clear liquidation paths"],
+    description: "A borrower-first BTC credit app. Requirements and technical architecture defined; prototypes and flows in development.",
+    exploring: ["Plain-language risk explanation", "Conservative leverage limits", "Gentle liquidation ladders"],
     href: "/pipeline/stackme",
   },
   {
     name: "Lumina",
     stage: "Requirements",
     stageVariant: "requirements" as const,
-    description: "Trading cards for real-world assets, with quality and scarcity encoded on-chain. Requirements defined; system design and grading pipelines in progress.",
-    exploring: ["Asset grading systems", "On-chain provenance", "Scarcity mechanics"],
+    description: "Trading cards encoding real-world qualities and scarcity on-chain. Requirements complete; system design and data pipelines in progress.",
+    exploring: ["Asset grading and verification", "On-chain provenance tracking", "Scarcity and edition mechanics"],
     href: "/pipeline/lumina",
   },
   {
     name: "Uniqueness Engine",
     stage: "Research",
     stageVariant: "research" as const,
-    description: "Research into 'one-per-person' signals that help systems stay fair without sliding into surveillance.",
-    exploring: ["Privacy-preserving signals", "Sybil resistance patterns", "Identity minimization"],
+    description: "Research into signals that help systems enforce 'one per person' rules without centralizing identity data.",
+    exploring: ["Privacy-preserving uniqueness proofs", "Sybil resistance without surveillance", "Minimal identity footprint patterns"],
     href: "/pipeline/uniqueness-engine",
   },
 ];
@@ -114,7 +114,7 @@ export default function Overview() {
               Honest systems for an AI-powered economy.
             </h1>
             <p className="text-lg text-foreground/80 leading-relaxed mb-8">
-              We explore AI, Bitcoin, and digital scarcity — with our own capital on the line. BTC treasury funds the work. Nothing launches until we'd trust it with our own balance sheet.
+              We explore AI, Bitcoin, and digital scarcity — with our own capital on the line. Our Bitcoin (BTC) treasury funds the work. Nothing launches until we'd trust it with our own balance sheet.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-10">
@@ -252,7 +252,7 @@ export default function Overview() {
 
       <NextStepBlock
         nextPage="System"
-        description="See how Verified Systems actually works day to day."
+        description="See how Verified Systems operates day to day."
         href="/system"
       />
     </Layout>
