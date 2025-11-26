@@ -22,52 +22,12 @@ const categories: ContentType[] = ["All", "Insight", "Note", "Update"];
 
 const items: LibraryItem[] = [
   {
-    title: "Why we start with Bitcoin",
-    excerpt: "Our thesis on using BTC as a treasury asset and the constraints that come with it.",
-    date: "Nov 20, 2025",
+    title: "The Verification Standard: Charting the Great Reallocation",
+    excerpt: "Our thesis on fiscal dominance, Bitcoin as verified scarcity, and the multi-decade capital migration from depreciating fiat to appreciating hard assets.",
+    date: "Nov 26, 2025",
     type: "Insight",
-    tags: ["Bitcoin", "Treasury"],
-    slug: "why-we-start-with-bitcoin",
-  },
-  {
-    title: "What 'honest systems' means to us",
-    excerpt: "Defining clarity, ownership, and control in the context of AI-native finance.",
-    date: "Nov 15, 2025",
-    type: "Insight",
-    tags: ["Philosophy", "AI"],
-    slug: "honest-systems",
-  },
-  {
-    title: "Helios architecture notes",
-    excerpt: "Early thinking on how we're structuring our internal strategy engine.",
-    date: "Nov 10, 2025",
-    type: "Note",
-    tags: ["Helios", "Architecture"],
-    slug: "helios-architecture",
-  },
-  {
-    title: "Conservative leverage: why 50% LTV is our ceiling",
-    excerpt: "The math and philosophy behind our borrowing limits.",
-    date: "Nov 5, 2025",
-    type: "Insight",
-    tags: ["Risk", "Treasury"],
-    slug: "conservative-leverage",
-  },
-  {
-    title: "stackme: designing for the borrower",
-    excerpt: "What it means to build a lending product around borrower clarity, not lender yield.",
-    date: "Oct 28, 2025",
-    type: "Note",
-    tags: ["stackme", "Design"],
-    slug: "stackme-borrower-first",
-  },
-  {
-    title: "Site launch",
-    excerpt: "Verified Systems website is now live. Here's what you'll find.",
-    date: "Oct 20, 2025",
-    type: "Update",
-    tags: ["Announcement"],
-    slug: "site-launch",
+    tags: ["Bitcoin", "Macro", "Thesis"],
+    slug: "verification-standard",
   },
 ];
 

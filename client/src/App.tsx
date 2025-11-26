@@ -9,6 +9,7 @@ import Pipeline from "@/pages/Pipeline";
 import PipelineDetail from "@/pages/PipelineDetail";
 import Governance from "@/pages/Governance";
 import Library from "@/pages/Library";
+import LibraryArticle from "@/pages/LibraryArticle";
 import Contact from "@/pages/Contact";
 import Status from "@/pages/Status";
 import NotFound from "@/pages/not-found";
@@ -22,6 +23,7 @@ function Router() {
       <Route path="/pipeline/:slug" component={PipelineDetail} />
       <Route path="/governance" component={Governance} />
       <Route path="/library" component={Library} />
+      <Route path="/library/verification-standard" component={LibraryArticle} />
       <Route path="/contact" component={Contact} />
       <Route path="/status" component={Status} />
       <Route component={NotFound} />
