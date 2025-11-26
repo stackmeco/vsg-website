@@ -6,6 +6,7 @@ import { NextStepBlock } from "@/components/NextStepBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Eye, Coins, Layers, BookOpen, Compass } from "lucide-react";
+import heroImage from "@assets/generated_images/abstract_data_flow_hero.png";
 
 const projects = [
   {
@@ -73,8 +74,18 @@ const values = [
 export default function Overview() {
   return (
     <Layout>
-      <section className="py-20 lg:py-28" data-testid="section-hero">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        className="relative min-h-[85vh] flex items-center"
+        data-testid="section-hero"
+      >
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-sm font-mono uppercase tracking-wider text-primary mb-4">
@@ -101,7 +112,7 @@ export default function Overview() {
               </div>
             </div>
             <div className="hidden lg:block">
-              <Card className="bg-card border-card-border">
+              <Card className="bg-card/80 backdrop-blur-sm border-card-border">
                 <CardContent className="p-8">
                   <div className="space-y-6">
                     <div className="flex items-center gap-4">
