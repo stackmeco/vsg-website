@@ -19,7 +19,7 @@ export function Footer() {
               Verified Systems Group LLC
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Verified Systems (VSG) is a two-founder studio exploring AI, Bitcoin, and digital scarcity.
+              Verified Systems (VSG) is a two-founder studio exploring AI, Digital Assets, and Verifiable Systems.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-4 md:gap-6">

@@ -1,5 +1,6 @@
 # VSG Website - Full Source Code Review
-# Generated: Wed Nov 26 10:52:26 PM UTC 2025
+# Generated: Wed Nov 26 11:01:28 PM UTC 2025
+# Updated based on Gemini feedback - Round 2
 
 ==================== client/src/App.tsx ====================
 import { Switch, Route } from "wouter";
@@ -49,61 +50,6 @@ function App() {
 }
 
 export default App;
-
-
-==================== client/src/components/AudienceCard.tsx ====================
-import { Link } from "wouter";
-import { cn } from "@/lib/utils";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
-
-interface AudienceCardProps {
-  title: string;
-  pain: string;
-  outcome: string;
-  href: string;
-  icon: React.ReactNode;
-  className?: string;
-}
-
-export function AudienceCard({
-  title,
-  pain,
-  outcome,
-  href,
-  icon,
-  className,
-}: AudienceCardProps) {
-  return (
-    <Card
-      className={cn(
-        "group bg-card border-card-border hover-elevate transition-all duration-200",
-        className
-      )}
-      data-testid={`audience-card-${title.toLowerCase().replace(/\s+/g, "-")}`}
-    >
-      <CardContent className="p-6">
-        <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-primary mb-4">
-          {icon}
-        </div>
-        <h3 className="font-heading font-semibold text-lg text-foreground mb-2">
-          {title}
-        </h3>
-        <p className="text-sm text-muted-foreground mb-2">{pain}</p>
-        <p className="text-sm text-foreground mb-4">{outcome}</p>
-        <Link
-          href={href}
-          className="inline-flex items-center gap-1 text-sm text-primary font-medium group-hover:gap-2 transition-all"
-        >
-          Start here
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-      </CardContent>
-    </Card>
-  );
-}
-
-export default AudienceCard;
 
 
 ==================== client/src/components/ChangeLogEntry.tsx ====================
@@ -672,7 +618,7 @@ export function Footer() {
               Verified Systems Group LLC
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Verified Systems (VSG) is a two-founder studio exploring AI, Bitcoin, and digital scarcity.
+              Verified Systems (VSG) is a two-founder studio exploring AI, Digital Assets, and Verifiable Systems.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-4 md:gap-6">
@@ -707,7 +653,7 @@ import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Search } from "lucide-react";
 
 const navItems = [
   { name: "Overview", href: "/", number: "01" },
@@ -761,6 +707,22 @@ export function Header() {
                 </span>
               </Link>
             ))}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="ml-2 text-xs font-mono text-muted-foreground hover:text-foreground gap-1.5"
+              onClick={() => {
+                const event = new KeyboardEvent("keydown", { key: "k", metaKey: true });
+                document.dispatchEvent(event);
+              }}
+              data-testid="button-command-palette"
+              aria-label="Open command palette"
+            >
+              <Search className="w-3.5 h-3.5" />
+              <kbd className="pointer-events-none hidden sm:inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
+                <span className="text-xs">⌘</span>K
+              </kbd>
+            </Button>
           </nav>
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -6249,6 +6211,92 @@ export function ValueCard({
 export default ValueCard;
 
 
+==================== client/src/data/articles.ts ====================
+export type ContentType = "All" | "Insight" | "Note" | "Update";
+
+export interface LibraryItem {
+  title: string;
+  excerpt: string;
+  date: string;
+  type: Exclude<ContentType, "All">;
+  tags: string[];
+  slug: string;
+}
+
+export const articles: LibraryItem[] = [
+  {
+    title: "The Verification Standard: Charting the Great Reallocation",
+    excerpt: "Our thesis on fiscal dominance, Bitcoin as verified scarcity, and the multi-decade capital migration from depreciating fiat to appreciating hard assets.",
+    date: "Nov 26, 2025",
+    type: "Insight",
+    tags: ["Bitcoin", "Macro", "Thesis"],
+    slug: "verification-standard",
+  },
+];
+
+export const changelog = [
+  { date: "Nov 2025", entry: "Initial site launch with Overview, System, Pipeline, Governance, Library, and Contact pages." },
+  { date: "Oct 2025", entry: "Brand and messaging finalized. Pipeline projects documented." },
+];
+
+export const getAvailableCategories = (items: LibraryItem[]): ContentType[] => {
+  const typesWithContent = new Set(items.map(item => item.type));
+  const categories: ContentType[] = ["All"];
+  if (typesWithContent.has("Insight")) categories.push("Insight");
+  if (typesWithContent.has("Note")) categories.push("Note");
+  if (typesWithContent.has("Update")) categories.push("Update");
+  return categories;
+};
+
+
+==================== client/src/data/projects.ts ====================
+export type StageVariant = "research" | "requirements" | "architecture" | "development" | "prototype" | "testing";
+
+export interface Project {
+  name: string;
+  stage: string;
+  stageVariant: StageVariant;
+  description: string;
+  exploring: string[];
+  href: string;
+}
+
+export const projects: Project[] = [
+  {
+    name: "Helios",
+    stage: "Early Development",
+    stageVariant: "development",
+    description: "Internal BTC-backed strategy engine. Requirements and architecture defined; implementation and early testing in progress.",
+    exploring: ["Automated yield strategies with strict risk bounds", "Multi-venue position management", "Real-time health monitoring"],
+    href: "/pipeline/helios",
+  },
+  {
+    name: "stackme",
+    stage: "Early Development",
+    stageVariant: "development",
+    description: "A borrower-first BTC credit app. Requirements and technical architecture defined; prototypes and flows in development.",
+    exploring: ["Plain-language risk explanation", "Conservative leverage limits", "Gentle liquidation ladders"],
+    href: "/pipeline/stackme",
+  },
+  {
+    name: "Lumina",
+    stage: "Requirements",
+    stageVariant: "requirements",
+    description: "Trading cards encoding real-world qualities and scarcity on-chain. Requirements complete; system design and data pipelines in progress.",
+    exploring: ["Asset grading and verification", "On-chain provenance tracking", "Scarcity and edition mechanics"],
+    href: "/pipeline/lumina",
+  },
+  {
+    name: "Uniqueness Engine",
+    stage: "Research",
+    stageVariant: "research",
+    description: "Research into signals that help systems enforce 'one per person' rules without centralizing identity data.",
+    exploring: ["Privacy-preserving uniqueness proofs", "Sybil resistance without surveillance", "Minimal identity footprint patterns"],
+    href: "/pipeline/uniqueness-engine",
+  },
+];
+
+
 ==================== client/src/hooks/use-mobile.tsx ====================
 import * as React from "react"
 
@@ -6870,7 +6918,7 @@ export default function Contact() {
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     <span>
-                      <strong className="text-foreground">Builders & founders</strong> working on AI, Bitcoin, or digital scarcity who want to compare notes.
+                      <strong className="text-foreground">Builders & founders</strong> working on AI, Digital Assets, or Verifiable Systems who want to compare notes.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -6882,7 +6930,7 @@ export default function Contact() {
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     <span>
-                      <strong className="text-foreground">Media or researchers</strong> looking for honest perspectives on AI-native finance.
+                      <strong className="text-foreground">Media or researchers</strong> looking for honest perspectives on AI and Digital Assets.
                     </span>
                   </li>
                 </ul>
@@ -6996,7 +7044,7 @@ export default function Governance() {
               Governance, risk & compliance
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              We work at the edge of AI, Bitcoin, and digital scarcity. That edge only matters if people can understand the risks and the rules.
+              We work at the edge of AI, Digital Assets, and Verifiable Systems. That edge only matters if people can understand the risks and the rules.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
               This page explains how Verified Systems (Verified Systems Group LLC, "VSG") is governed today: who decides what, how we treat our Bitcoin treasury, and how we approach regulation and compliance as we move projects from R&D to reality.
@@ -7523,50 +7571,15 @@ import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
-
-type ContentType = "All" | "Insight" | "Note" | "Update";
-
-interface LibraryItem {
-  title: string;
-  excerpt: string;
-  date: string;
-  type: ContentType;
-  tags: string[];
-  slug: string;
-}
-
-const items: LibraryItem[] = [
-  {
-    title: "The Verification Standard: Charting the Great Reallocation",
-    excerpt: "Our thesis on fiscal dominance, Bitcoin as verified scarcity, and the multi-decade capital migration from depreciating fiat to appreciating hard assets.",
-    date: "Nov 26, 2025",
-    type: "Insight",
-    tags: ["Bitcoin", "Macro", "Thesis"],
-    slug: "verification-standard",
-  },
-];
-
-const getAvailableCategories = (): ContentType[] => {
-  const typesWithContent = new Set(items.map(item => item.type));
-  const categories: ContentType[] = ["All"];
-  if (typesWithContent.has("Insight")) categories.push("Insight");
-  if (typesWithContent.has("Note")) categories.push("Note");
-  if (typesWithContent.has("Update")) categories.push("Update");
-  return categories;
-};
-
-const changelog = [
-  { date: "Nov 2025", entry: "Initial site launch with Overview, System, Pipeline, Governance, Library, and Contact pages." },
-  { date: "Oct 2025", entry: "Brand and messaging finalized. Pipeline projects documented." },
-];
+import { articles, changelog, getAvailableCategories, type ContentType } from "@/data/articles";
 
 export default function Library() {
   const [activeType, setActiveType] = useState<ContentType>("All");
 
   const filteredItems =
     activeType === "All"
-      ? items
-      : items.filter((item) => item.type === activeType);
+      ? articles
+      : articles.filter((item) => item.type === activeType);
 
   return (
     <Layout>
@@ -7591,7 +7604,7 @@ export default function Library() {
       <section className="py-8 bg-card" data-testid="section-filters">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2">
-            {getAvailableCategories().map((type) => (
+            {getAvailableCategories(articles).map((type) => (
               <Badge
                 key={type}
                 variant={activeType === type ? "default" : "outline"}
@@ -7739,41 +7752,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Eye, Coins, Layers, BookOpen, Compass } from "lucide-react";
 import heroImage from "@assets/generated_images/abstract_data_flow_hero.png";
-
-const projects = [
-  {
-    name: "Helios",
-    stage: "Early Development",
-    stageVariant: "development" as const,
-    description: "Internal BTC-backed strategy engine. Requirements and architecture defined; implementation and early testing in progress.",
-    exploring: ["Automated yield strategies with strict risk bounds", "Multi-venue position management", "Real-time health monitoring"],
-    href: "/pipeline/helios",
-  },
-  {
-    name: "stackme",
-    stage: "Early Development",
-    stageVariant: "development" as const,
-    description: "A borrower-first BTC credit app. Requirements and technical architecture defined; prototypes and flows in development.",
-    exploring: ["Plain-language risk explanation", "Conservative leverage limits", "Gentle liquidation ladders"],
-    href: "/pipeline/stackme",
-  },
-  {
-    name: "Lumina",
-    stage: "Requirements",
-    stageVariant: "requirements" as const,
-    description: "Trading cards encoding real-world qualities and scarcity on-chain. Requirements complete; system design and data pipelines in progress.",
-    exploring: ["Asset grading and verification", "On-chain provenance tracking", "Scarcity and edition mechanics"],
-    href: "/pipeline/lumina",
-  },
-  {
-    name: "Uniqueness Engine",
-    stage: "Research",
-    stageVariant: "research" as const,
-    description: "Research into signals that help systems enforce 'one per person' rules without centralizing identity data.",
-    exploring: ["Privacy-preserving uniqueness proofs", "Sybil resistance without surveillance", "Minimal identity footprint patterns"],
-    href: "/pipeline/uniqueness-engine",
-  },
-];
+import { projects } from "@/data/projects";
 
 const values = [
   {
@@ -7846,7 +7825,7 @@ export default function Overview() {
                 Honest systems for an AI-powered economy.
               </h1>
               <p className="text-lg text-foreground/80 leading-relaxed mb-8">
-                We explore AI, Bitcoin, and digital scarcity — with our own capital on the line. Our Bitcoin (BTC) treasury funds the work. Nothing launches until we'd trust it with our own balance sheet.
+                We explore AI, Digital Assets, and Verifiable Systems — with our own capital on the line. Our Bitcoin (BTC) treasury funds the work. Nothing launches until we'd trust it with our own balance sheet.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -7944,7 +7923,7 @@ export default function Overview() {
                 </p>
                 <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Compounding Productivity</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  A future where digital assets possess the clarity and durability of physical currency. We build for a reality where ownership is absolute, risks are visible, and systems compound human productivity rather than extract from it.
+                  A future where digital assets possess the clarity and durability of hard currency. We build for a reality where ownership is absolute, risks are visible, and systems compound human productivity rather than extract from it.
                 </p>
               </CardContent>
             </Card>
@@ -7955,7 +7934,7 @@ export default function Overview() {
                 </p>
                 <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Verification via Capital</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  To navigate the edge of AI and digital assets with our own capital at risk. We learn in the open and graduate only the systems we have verified with our own balance sheet.
+                  To navigate the frontier of AI and digital assets with our own capital as the first customer. We learn in the open and graduate only the systems we have verified with our own balance sheet.
                 </p>
               </CardContent>
             </Card>
@@ -8536,15 +8515,15 @@ import { Shield, Scale, Wallet, Cog, MessageSquare, HelpCircle } from "lucide-re
 
 const definitions = [
   {
-    term: "Honest systems",
-    definition: "Systems where the rules are visible, ownership is real, and risks don't hide behind complexity. A system is honest when you can inspect how it works, understand what you're exposed to, and verify that it does what it claims.",
+    term: "Verifiable Systems",
+    definition: "Systems where the rules are visible, ownership is real, and risks don't hide behind complexity. A system is verifiable when you can inspect how it works, understand what you're exposed to, and verify that it does what it claims.",
   },
   {
-    term: "AI-native finance",
-    definition: "Financial infrastructure built assuming AI agents will be participants — not just tools. This means explicit governance rails, machine-readable policies, and controls designed for millisecond-speed decisions that humans can still audit and override.",
+    term: "AI",
+    definition: "Financial and operational infrastructure built assuming AI agents will be participants — not just tools. This means explicit governance rails, machine-readable policies, and controls designed for millisecond-speed decisions that humans can still audit and override.",
   },
   {
-    term: "Digital scarcity",
+    term: "Digital Assets",
     definition: "The ability to make digital things genuinely limited and ownable — not just copyable files with licenses, but assets with provable uniqueness and transferable ownership. Bitcoin is the clearest example; we're exploring what else can work this way.",
   },
 ];
@@ -8776,78 +8755,33 @@ export default function Terms() {
 
 
 ==================== shared/schema.ts ====================
-import { sql } from "drizzle-orm";
-import { pgTable, text, varchar } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const users = pgTable("users", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+export const contactFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email"),
+  company: z.string().optional(),
+  message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
-});
-
-export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
+export type ContactFormData = z.infer<typeof contactFormSchema>;
 
 ==================== server/routes.ts ====================
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // put application routes here
-  // prefix all routes with /api
-
-  // use storage to perform CRUD operations on the storage interface
-  // e.g. storage.insertUser(user) or storage.getUserByUsername(username)
-
   const httpServer = createServer(app);
-
   return httpServer;
 }
 
 ==================== server/storage.ts ====================
-import { type User, type InsertUser } from "@shared/schema";
-import { randomUUID } from "crypto";
-
-// modify the interface with any CRUD methods
-// you might need
-
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  // Add storage methods as needed
 }
 
 export class MemStorage implements IStorage {
-  private users: Map<string, User>;
-
-  constructor() {
-    this.users = new Map();
-  }
-
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
-  }
-
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
-  }
-
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
-  }
+  constructor() {}
 }
 
 export const storage = new MemStorage();

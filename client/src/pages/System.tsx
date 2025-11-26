@@ -7,15 +7,15 @@ import { Shield, Scale, Wallet, Cog, MessageSquare, HelpCircle } from "lucide-re
 
 const definitions = [
   {
-    term: "Honest systems",
-    definition: "Systems where the rules are visible, ownership is real, and risks don't hide behind complexity. A system is honest when you can inspect how it works, understand what you're exposed to, and verify that it does what it claims.",
+    term: "Verifiable Systems",
+    definition: "Systems where the rules are visible, ownership is real, and risks don't hide behind complexity. A system is verifiable when you can inspect how it works, understand what you're exposed to, and verify that it does what it claims.",
   },
   {
-    term: "AI-native finance",
-    definition: "Financial infrastructure built assuming AI agents will be participants — not just tools. This means explicit governance rails, machine-readable policies, and controls designed for millisecond-speed decisions that humans can still audit and override.",
+    term: "AI",
+    definition: "Financial and operational infrastructure built assuming AI agents will be participants — not just tools. This means explicit governance rails, machine-readable policies, and controls designed for millisecond-speed decisions that humans can still audit and override.",
   },
   {
-    term: "Digital scarcity",
+    term: "Digital Assets",
     definition: "The ability to make digital things genuinely limited and ownable — not just copyable files with licenses, but assets with provable uniqueness and transferable ownership. Bitcoin is the clearest example; we're exploring what else can work this way.",
   },
 ];

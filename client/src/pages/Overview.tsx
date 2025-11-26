@@ -10,41 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Eye, Coins, Layers, BookOpen, Compass } from "lucide-react";
 import heroImage from "@assets/generated_images/abstract_data_flow_hero.png";
-
-const projects = [
-  {
-    name: "Helios",
-    stage: "Early Development",
-    stageVariant: "development" as const,
-    description: "Internal BTC-backed strategy engine. Requirements and architecture defined; implementation and early testing in progress.",
-    exploring: ["Automated yield strategies with strict risk bounds", "Multi-venue position management", "Real-time health monitoring"],
-    href: "/pipeline/helios",
-  },
-  {
-    name: "stackme",
-    stage: "Early Development",
-    stageVariant: "development" as const,
-    description: "A borrower-first BTC credit app. Requirements and technical architecture defined; prototypes and flows in development.",
-    exploring: ["Plain-language risk explanation", "Conservative leverage limits", "Gentle liquidation ladders"],
-    href: "/pipeline/stackme",
-  },
-  {
-    name: "Lumina",
-    stage: "Requirements",
-    stageVariant: "requirements" as const,
-    description: "Trading cards encoding real-world qualities and scarcity on-chain. Requirements complete; system design and data pipelines in progress.",
-    exploring: ["Asset grading and verification", "On-chain provenance tracking", "Scarcity and edition mechanics"],
-    href: "/pipeline/lumina",
-  },
-  {
-    name: "Uniqueness Engine",
-    stage: "Research",
-    stageVariant: "research" as const,
-    description: "Research into signals that help systems enforce 'one per person' rules without centralizing identity data.",
-    exploring: ["Privacy-preserving uniqueness proofs", "Sybil resistance without surveillance", "Minimal identity footprint patterns"],
-    href: "/pipeline/uniqueness-engine",
-  },
-];
+import { projects } from "@/data/projects";
 
 const values = [
   {
@@ -117,7 +83,7 @@ export default function Overview() {
                 Honest systems for an AI-powered economy.
               </h1>
               <p className="text-lg text-foreground/80 leading-relaxed mb-8">
-                We explore AI, Bitcoin, and digital scarcity — with our own capital on the line. Our Bitcoin (BTC) treasury funds the work. Nothing launches until we'd trust it with our own balance sheet.
+                We explore AI, Digital Assets, and Verifiable Systems — with our own capital on the line. Our Bitcoin (BTC) treasury funds the work. Nothing launches until we'd trust it with our own balance sheet.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -215,7 +181,7 @@ export default function Overview() {
                 </p>
                 <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Compounding Productivity</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  A future where digital assets possess the clarity and durability of physical currency. We build for a reality where ownership is absolute, risks are visible, and systems compound human productivity rather than extract from it.
+                  A future where digital assets possess the clarity and durability of hard currency. We build for a reality where ownership is absolute, risks are visible, and systems compound human productivity rather than extract from it.
                 </p>
               </CardContent>
             </Card>
@@ -226,7 +192,7 @@ export default function Overview() {
                 </p>
                 <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Verification via Capital</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  To navigate the edge of AI and digital assets with our own capital at risk. We learn in the open and graduate only the systems we have verified with our own balance sheet.
+                  To navigate the frontier of AI and digital assets with our own capital as the first customer. We learn in the open and graduate only the systems we have verified with our own balance sheet.
                 </p>
               </CardContent>
             </Card>

@@ -85,7 +85,7 @@ export default function Governance() {
               Governance, risk & compliance
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              We work at the edge of AI, Bitcoin, and digital scarcity. That edge only matters if people can understand the risks and the rules.
+              We work at the edge of AI, Digital Assets, and Verifiable Systems. That edge only matters if people can understand the risks and the rules.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
               This page explains how Verified Systems (Verified Systems Group LLC, "VSG") is governed today: who decides what, how we treat our Bitcoin treasury, and how we approach regulation and compliance as we move projects from R&D to reality.

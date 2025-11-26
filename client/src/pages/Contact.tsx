@@ -35,7 +35,7 @@ export default function Contact() {
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     <span>
-                      <strong className="text-foreground">Builders & founders</strong> working on AI, Bitcoin, or digital scarcity who want to compare notes.
+                      <strong className="text-foreground">Builders & founders</strong> working on AI, Digital Assets, or Verifiable Systems who want to compare notes.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -47,7 +47,7 @@ export default function Contact() {
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     <span>
-                      <strong className="text-foreground">Media or researchers</strong> looking for honest perspectives on AI-native finance.
+                      <strong className="text-foreground">Media or researchers</strong> looking for honest perspectives on AI and Digital Assets.
                     </span>
                   </li>
                 </ul>

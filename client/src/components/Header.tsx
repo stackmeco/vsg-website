@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Search } from "lucide-react";
 
 const navItems = [
   { name: "Overview", href: "/", number: "01" },
@@ -57,6 +57,22 @@ export function Header() {
                 </span>
               </Link>
             ))}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="ml-2 text-xs font-mono text-muted-foreground hover:text-foreground gap-1.5"
+              onClick={() => {
+                const event = new KeyboardEvent("keydown", { key: "k", metaKey: true });
+                document.dispatchEvent(event);
+              }}
+              data-testid="button-command-palette"
+              aria-label="Open command palette"
+            >
+              <Search className="w-3.5 h-3.5" />
+              <kbd className="pointer-events-none hidden sm:inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
+                <span className="text-xs">⌘</span>K
+              </kbd>
+            </Button>
           </nav>
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>

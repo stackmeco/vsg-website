@@ -6,50 +6,15 @@ import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
-
-type ContentType = "All" | "Insight" | "Note" | "Update";
-
-interface LibraryItem {
-  title: string;
-  excerpt: string;
-  date: string;
-  type: ContentType;
-  tags: string[];
-  slug: string;
-}
-
-const items: LibraryItem[] = [
-  {
-    title: "The Verification Standard: Charting the Great Reallocation",
-    excerpt: "Our thesis on fiscal dominance, Bitcoin as verified scarcity, and the multi-decade capital migration from depreciating fiat to appreciating hard assets.",
-    date: "Nov 26, 2025",
-    type: "Insight",
-    tags: ["Bitcoin", "Macro", "Thesis"],
-    slug: "verification-standard",
-  },
-];
-
-const getAvailableCategories = (): ContentType[] => {
-  const typesWithContent = new Set(items.map(item => item.type));
-  const categories: ContentType[] = ["All"];
-  if (typesWithContent.has("Insight")) categories.push("Insight");
-  if (typesWithContent.has("Note")) categories.push("Note");
-  if (typesWithContent.has("Update")) categories.push("Update");
-  return categories;
-};
-
-const changelog = [
-  { date: "Nov 2025", entry: "Initial site launch with Overview, System, Pipeline, Governance, Library, and Contact pages." },
-  { date: "Oct 2025", entry: "Brand and messaging finalized. Pipeline projects documented." },
-];
+import { articles, changelog, getAvailableCategories, type ContentType } from "@/data/articles";
 
 export default function Library() {
   const [activeType, setActiveType] = useState<ContentType>("All");
 
   const filteredItems =
     activeType === "All"
-      ? items
-      : items.filter((item) => item.type === activeType);
+      ? articles
+      : articles.filter((item) => item.type === activeType);
 
   return (
     <Layout>
@@ -74,7 +39,7 @@ export default function Library() {
       <section className="py-8 bg-card" data-testid="section-filters">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2">
-            {getAvailableCategories().map((type) => (
+            {getAvailableCategories(articles).map((type) => (
               <Badge
                 key={type}
                 variant={activeType === type ? "default" : "outline"}
