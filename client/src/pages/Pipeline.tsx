@@ -16,6 +16,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { LayoutGrid, List, ArrowRight } from "lucide-react";
+import { projects } from "@/data/projects";
 
 const stages = [
   { 
@@ -45,57 +46,6 @@ const stages = [
   },
 ];
 
-const projects = [
-  {
-    name: "Helios",
-    stage: "Early Development",
-    stageVariant: "development" as const,
-    description: "Internal BTC-backed strategy engine. Requirements and architecture defined; implementation and early testing in progress.",
-    exploring: [
-      "Automated yield strategies with strict risk bounds",
-      "Multi-venue position management",
-      "Real-time health monitoring and alerts",
-    ],
-    href: "/pipeline/helios",
-  },
-  {
-    name: "stackme",
-    stage: "Early Development",
-    stageVariant: "development" as const,
-    description: "A borrower-first BTC credit app. Requirements and technical architecture defined; prototypes and flows in development.",
-    exploring: [
-      "Plain-language risk explanation",
-      "Conservative leverage limits",
-      "Gentle liquidation ladders",
-    ],
-    href: "/pipeline/stackme",
-  },
-  {
-    name: "Lumina",
-    stage: "Requirements",
-    stageVariant: "requirements" as const,
-    description: "Trading cards encoding real-world qualities and scarcity on-chain. Requirements complete; system design and data pipelines in progress.",
-    exploring: [
-      "Asset grading and verification",
-      "On-chain provenance tracking",
-      "Scarcity and edition mechanics",
-    ],
-    href: "/pipeline/lumina",
-  },
-  {
-    name: "Uniqueness Engine",
-    stage: "Research",
-    stageVariant: "research" as const,
-    description: "Research into signals that help systems enforce 'one per person' rules without centralizing identity data.",
-    exploring: [
-      "Privacy-preserving uniqueness proofs",
-      "Sybil resistance without surveillance",
-      "Minimal identity footprint patterns",
-    ],
-    href: "/pipeline/uniqueness-engine",
-  },
-];
-
 export default function Pipeline() {
   const [viewMode, setViewMode] = useState<"cards" | "table">(() => {
     if (typeof window !== "undefined") {
@@ -114,7 +64,7 @@ export default function Pipeline() {
     <Layout>
       <PageMeta 
         title="Pipeline" 
-        description="Our R&D projects: Helios, stackme, Lumina, and Uniqueness Engine. All self-funded, none public yet." 
+        description="Our R&D projects: Axiom, Helios, stackme, Lumina, and Uniqueness Engine. All self-funded, none public yet." 
       />
       <section className="py-20 lg:py-28 relative" data-testid="section-hero">
         <div className="absolute inset-0 dot-grid opacity-40" />

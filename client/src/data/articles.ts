@@ -11,6 +11,14 @@ export interface LibraryItem {
 
 export const articles: LibraryItem[] = [
   {
+    title: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate",
+    excerpt: "In creative writing, hallucination is a feature. In automated treasury management, it is a felony. Why we are building our own inference layer before letting agents touch the balance sheet.",
+    date: "Dec 15, 2025",
+    type: "Insight",
+    tags: ["AI Safety", "Determinism", "Infrastructure"],
+    slug: "insolvency-of-fiction",
+  },
+  {
     title: "The Verification Standard: Charting the Great Reallocation",
     excerpt: "Our thesis on fiscal dominance, Bitcoin as verified scarcity, and the multi-decade capital migration from depreciating fiat to appreciating hard assets.",
     date: "Nov 26, 2025",

@@ -57,7 +57,7 @@ export default function Overview() {
     <Layout>
       <PageMeta 
         title="Overview" 
-        description="Engineering verifiable systems at the frontier of AI and Digital Assets. We enable new forms of value without compromising ownership or control." 
+        description="Engineering verifiable infrastructure for intelligence and value. Bitcoin verifies value; our AI verifies truth. A two-founder studio building deterministic systems." 
       />
       <section
         className="relative min-h-[90vh] flex items-center"
@@ -80,10 +80,10 @@ export default function Overview() {
                 Two-founder studio
               </p>
               <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-[3.5rem] text-foreground leading-[1.1] tracking-tight mb-6">
-                Honest systems for an AI-powered economy.
+                Engineering verifiable systems for intelligence and value.
               </h1>
               <p className="text-lg text-foreground/80 leading-relaxed mb-8">
-                We explore AI, Digital Assets, and Verifiable Systems — with our own capital on the line. Our Bitcoin (BTC) treasury funds the work. Nothing launches until we'd trust it with our own balance sheet.
+                We engineer deterministic systems for Value and Intelligence — with our own capital on the line. Bitcoin verifies value; our AI verifies truth. Nothing launches until we'd trust it with our own balance sheet.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -109,9 +109,9 @@ export default function Overview() {
               </div>
 
               <div className="flex flex-wrap items-center gap-2 text-sm">
-                <span className="text-foreground/60 font-mono">4 projects in flight:</span>
+                <span className="text-foreground/60 font-mono">5 projects in flight:</span>
                 <div className="flex flex-wrap gap-2">
-                  {["Helios", "stackme", "Lumina", "Uniqueness Engine"].map((name) => (
+                  {["Axiom", "Helios", "stackme", "Lumina", "Uniqueness Engine"].map((name) => (
                     <Link key={name} href={`/pipeline/${name.toLowerCase().replace(" ", "-")}`}>
                       <span className="px-2.5 py-1 rounded-md bg-secondary/80 text-foreground/90 text-xs font-mono hover:bg-secondary transition-colors cursor-pointer">
                         {name}
@@ -130,7 +130,7 @@ export default function Overview() {
                 <div className="space-y-6">
                   <div data-testid="stat-projects">
                     <StatBlock
-                      value="4"
+                      value="5"
                       label="Active projects"
                       subtext="In R&D pipeline"
                       variant="primary"
@@ -210,7 +210,7 @@ export default function Overview() {
               What's on the workbench
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Four projects in our Pipeline. All have requirements; Helios and stackme have technical architecture. None are live products yet.
+              Five projects in our Pipeline. Axiom is in prototype; Helios and stackme have technical architecture. None are live products yet.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">

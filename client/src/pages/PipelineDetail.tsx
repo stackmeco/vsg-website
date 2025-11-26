@@ -29,6 +29,29 @@ interface ProjectData {
 }
 
 const projectData: Record<string, ProjectData> = {
+  axiom: {
+    name: "Axiom",
+    stage: "Prototype",
+    stageVariant: "prototype",
+    tagline: "High-integrity LLM reasoning with enforced citation.",
+    description: "Standard LLMs are probabilistic engines—they guess the next word. Axiom is a constraint layer that forces the model to anchor every claim to a cryptographically verified record. It turns 'creative writing' into 'auditable reporting'.",
+    currentState: [
+      "Core RAG architecture functional",
+      "Citation enforcement layer active (refuses to answer without source)",
+      "Internal dogfooding for VSG research summaries",
+    ],
+    exploring: [
+      "Automated fact-checking loops",
+      "Connecting the 'Truth' layer (Axiom) to the 'Value' layer (Helios)",
+      "Latency optimization for real-time verification",
+    ],
+    notYet: [
+      "No public API",
+      "Not a general-purpose chatbot",
+      "Restricted domain knowledge only",
+    ],
+    nextProject: { name: "Helios", href: "/pipeline/helios" },
+  },
   helios: {
     name: "Helios",
     stage: "Early Development",

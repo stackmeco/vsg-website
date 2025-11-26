@@ -12,7 +12,7 @@ const definitions = [
   },
   {
     term: "AI",
-    definition: "Financial and operational infrastructure built assuming AI agents will be participants — not just tools. This means explicit governance rails, machine-readable policies, and controls designed for millisecond-speed decisions that humans can still audit and override.",
+    definition: "Deterministic Intelligence. Systems designed to constrain stochastic models (LLMs) with rigid verification layers, ensuring outputs are auditable, cited, and hallucination-resistant. We build infrastructure that treats AI as a reasoning engine, not a knowledge base.",
   },
   {
     term: "Digital Assets",
@@ -54,7 +54,7 @@ export default function System() {
     <Layout>
       <PageMeta 
         title="System" 
-        description="How Verified Systems works: Bitcoin treasury, governance, risk management, and our path from idea to Venture." 
+        description="How Verified Systems works: deterministic infrastructure, Bitcoin treasury, governance, and building verifiable systems for intelligence and value." 
       />
       <section className="py-20 lg:py-28 relative" data-testid="section-hero">
         <div className="absolute inset-0 dot-grid opacity-40" />
