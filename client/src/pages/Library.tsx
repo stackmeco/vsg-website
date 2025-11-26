@@ -19,18 +19,18 @@ export default function Library() {
   return (
     <Layout>
       <PageMeta 
-        title="Library" 
-        description="Notes, insights, and updates from Verified Systems. We publish when we have something useful to share." 
+        title="Thesis" 
+        description="The foundational thinking behind Verified Systems. Our manifesto on building verifiable, high-integrity systems." 
       />
       <section className="py-20 lg:py-28 relative" data-testid="section-hero">
         <div className="absolute inset-0 dot-grid opacity-40" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight tracking-tight mb-6">
-              Library
+              Thesis
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Notes, insights, and updates from the studio. We publish when we have something useful to share — not on a schedule.
+              The foundational thinking behind our work. We publish when we have something substantive to share — not on a schedule.
             </p>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function Library() {
               {filteredItems.map((item) => (
                 <Card
                   key={item.slug}
-                  className="bg-card border-card-border hover:border-primary/40 transition-colors duration-150"
+                  className="bg-card border-card-border hover:border-primary/50 hover:bg-card/80 transition-colors duration-150"
                 >
                   <CardContent className="p-6">
                     <div className="flex items-center gap-2 mb-3">
@@ -91,7 +91,7 @@ export default function Library() {
                       ))}
                     </div>
                     <Link
-                      href={`/library/${item.slug}`}
+                      href={`/thesis/${item.slug}`}
                       className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
                     >
                       Read more

@@ -68,12 +68,12 @@ export default function LibraryArticle() {
       <article className="py-20 lg:py-28" data-testid="article-verification-standard">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
-            href="/library"
+            href="/thesis"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-10 transition-colors"
-            data-testid="link-back-library"
+            data-testid="link-back-thesis"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Library
+            Back to Thesis
           </Link>
 
           <header className="mb-14">
@@ -132,7 +132,7 @@ export default function LibraryArticle() {
               className="inline-flex items-center gap-2 text-sm text-primary hover:underline mt-4"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              Back to Library
+              Back to Thesis
             </Link>
           </footer>
         </div>

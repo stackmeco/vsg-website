@@ -1,6 +1,6 @@
 # VSG Website - Complete Source Code Review Bundle
-# Generated: Wed Nov 26 11:11:30 PM UTC 2025
-# Purpose: Full codebase for external AI review (Gemini)
+# Generated: Wed Nov 26 11:26:29 PM UTC 2025
+# Updated: Gemini feedback - all fixes complete including localStorage persistence
 
 ==================== FILE MANIFEST ====================
 client/src/App.tsx
@@ -726,8 +726,8 @@ function Router() {
       <Route path="/pipeline" component={Pipeline} />
       <Route path="/pipeline/:slug" component={PipelineDetail} />
       <Route path="/governance" component={Governance} />
-      <Route path="/library" component={Library} />
-      <Route path="/library/verification-standard" component={LibraryArticle} />
+      <Route path="/thesis" component={Library} />
+      <Route path="/thesis/verification-standard" component={LibraryArticle} />
       <Route path="/contact" component={Contact} />
       <Route path="/legal/privacy" component={Privacy} />
       <Route path="/legal/terms" component={Terms} />
@@ -823,7 +823,7 @@ const pages = [
   { name: "System", href: "/system", icon: Settings, description: "How we work" },
   { name: "Pipeline", href: "/pipeline", icon: Layers, description: "R&D projects" },
   { name: "Governance", href: "/governance", icon: Shield, description: "Risk & compliance" },
-  { name: "Library", href: "/library", icon: BookOpen, description: "Notes & insights" },
+  { name: "Thesis", href: "/thesis", icon: BookOpen, description: "Our manifesto" },
   { name: "Contact", href: "/contact", icon: Mail, description: "Get in touch" },
 ];
 
@@ -1017,7 +1017,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { CheckCircle, AlertCircle } from "lucide-react";
+import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { apiRequest } from "@/lib/queryClient";
 
 interface ContactFormProps {
   className?: string;
@@ -1032,6 +1033,8 @@ interface FormErrors {
 
 export function ContactForm({ className }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
   const [formData, setFormData] = useState({
     name: "",
@@ -1071,7 +1074,7 @@ export function ContactForm({ className }: ContactFormProps) {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (formData.honeypot) {
@@ -1080,8 +1083,26 @@ export function ContactForm({ className }: ContactFormProps) {
     }
 
     if (validateForm()) {
-      console.log("Form submitted:", formData);
-      setSubmitted(true);
+      setIsSubmitting(true);
+      setSubmitError(null);
+      
+      try {
+        await apiRequest("POST", "/api/contact", {
+          name: formData.name,
+          email: formData.email,
+          organization: formData.organization || undefined,
+          role: formData.role || undefined,
+          subject: formData.subject,
+          message: formData.message,
+          consent: formData.consent,
+        });
+        setSubmitted(true);
+      } catch (error) {
+        setSubmitError("Failed to send message. Please try again.");
+        console.error("Contact form error:", error);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -1278,9 +1299,23 @@ export function ContactForm({ className }: ContactFormProps) {
           </Label>
         </div>
 
+        {submitError && (
+          <div className="p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-sm text-destructive flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 flex-shrink-0" />
+            {submitError}
+          </div>
+        )}
+
         <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-          <Button type="submit" data-testid="button-submit">
-            Send Message
+          <Button type="submit" disabled={isSubmitting} data-testid="button-submit">
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                Sending...
+              </>
+            ) : (
+              "Send Message"
+            )}
           </Button>
           <p className="text-xs text-muted-foreground">
             We never share your information with third parties.
@@ -1298,7 +1333,7 @@ export default ContactForm;
 import { Link } from "wouter";
 
 const footerLinks = [
-  { name: "Library", href: "/library" },
+  { name: "Thesis", href: "/thesis" },
   { name: "Privacy", href: "/legal/privacy" },
   { name: "Terms", href: "/legal/terms" },
 ];
@@ -1358,7 +1393,7 @@ const navItems = [
   { name: "System", href: "/system", number: "02" },
   { name: "Pipeline", href: "/pipeline", number: "03" },
   { name: "Governance", href: "/governance", number: "04" },
-  { name: "Library", href: "/library", number: "05" },
+  { name: "Thesis", href: "/thesis", number: "05" },
   { name: "Contact", href: "/contact", number: "06" },
 ];
 
@@ -1510,7 +1545,7 @@ export function InsightCard({
   return (
     <Card
       className={cn(
-        "group bg-card border-card-border hover:border-primary/40 transition-colors duration-150",
+        "group bg-card border-card-border hover:border-primary/50 hover:bg-card/80 transition-colors duration-150",
         className
       )}
       data-testid={`insight-card-${slug}`}
@@ -1774,7 +1809,7 @@ interface ProjectTileProps {
 
 export function ProjectTile({ name, stage, stageVariant, description, exploring, href }: ProjectTileProps) {
   return (
-    <Card className="bg-card border-card-border hover:border-primary/40 transition-colors duration-150">
+    <Card className="bg-card border-card-border hover:border-primary/50 hover:bg-card/80 transition-colors duration-150">
       <CardContent className="p-6">
         <div className="flex items-start justify-between gap-4 mb-4">
           <h3 className="font-heading font-semibold text-lg text-foreground">
@@ -1840,7 +1875,7 @@ export function StageChip({ stage, variant = "requirements", className }: StageC
   return (
     <span
       className={cn(
-        "inline-flex items-center px-3 py-1.5 rounded-md text-xs font-mono uppercase tracking-wider border",
+        "inline-flex items-center px-3 py-1.5 rounded-md text-xs font-mono font-medium uppercase tracking-wider border",
         variantStyles[variant],
         variant === "research" && "border-[hsl(var(--accent-warm))]/30",
         variant === "requirements" && "border-border",
@@ -6881,7 +6916,7 @@ export function ValueCard({
 }: ValueCardProps) {
   return (
     <Card
-      className={cn("bg-card border-card-border", className)}
+      className={cn("bg-card border-card-border hover:border-primary/50 hover:bg-card/80 transition-colors duration-150", className)}
       data-testid={`value-card-${title.toLowerCase().replace(/\s+/g, "-")}`}
     >
       <CardContent className="p-6">
@@ -8179,12 +8214,12 @@ export default function LibraryArticle() {
       <article className="py-20 lg:py-28" data-testid="article-verification-standard">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
-            href="/library"
+            href="/thesis"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-10 transition-colors"
-            data-testid="link-back-library"
+            data-testid="link-back-thesis"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Library
+            Back to Thesis
           </Link>
 
           <header className="mb-14">
@@ -8243,7 +8278,7 @@ export default function LibraryArticle() {
               className="inline-flex items-center gap-2 text-sm text-primary hover:underline mt-4"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              Back to Library
+              Back to Thesis
             </Link>
           </footer>
         </div>
@@ -8275,18 +8310,18 @@ export default function Library() {
   return (
     <Layout>
       <PageMeta 
-        title="Library" 
-        description="Notes, insights, and updates from Verified Systems. We publish when we have something useful to share." 
+        title="Thesis" 
+        description="The foundational thinking behind Verified Systems. Our manifesto on building verifiable, high-integrity systems." 
       />
       <section className="py-20 lg:py-28 relative" data-testid="section-hero">
         <div className="absolute inset-0 dot-grid opacity-40" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight tracking-tight mb-6">
-              Library
+              Thesis
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Notes, insights, and updates from the studio. We publish when we have something useful to share — not on a schedule.
+              The foundational thinking behind our work. We publish when we have something substantive to share — not on a schedule.
             </p>
           </div>
         </div>
@@ -8321,7 +8356,7 @@ export default function Library() {
               {filteredItems.map((item) => (
                 <Card
                   key={item.slug}
-                  className="bg-card border-card-border hover:border-primary/40 transition-colors duration-150"
+                  className="bg-card border-card-border hover:border-primary/50 hover:bg-card/80 transition-colors duration-150"
                 >
                   <CardContent className="p-6">
                     <div className="flex items-center gap-2 mb-3">
@@ -8347,7 +8382,7 @@ export default function Library() {
                       ))}
                     </div>
                     <Link
-                      href={`/library/${item.slug}`}
+                      href={`/thesis/${item.slug}`}
                       className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
                     >
                       Read more
@@ -8702,7 +8737,15 @@ import { StageChip } from "@/components/StageChip";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft } from "lucide-react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Home } from "lucide-react";
 
 type StageVariant = "research" | "requirements" | "architecture" | "development" | "prototype" | "testing";
 
@@ -8840,10 +8883,28 @@ export default function PipelineDetail() {
     <Layout>
       <section className="py-20 lg:py-28" data-testid="section-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/pipeline" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-8">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Pipeline
-          </Link>
+          <Breadcrumb className="mb-8">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="flex items-center gap-1">
+                    <Home className="w-3.5 h-3.5" />
+                    <span className="sr-only">Home</span>
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/pipeline">Pipeline</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{project.name}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
           <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
             <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground">
               {project.name}
@@ -8929,11 +8990,24 @@ export default function PipelineDetail() {
 
 
 ==================== client/src/pages/Pipeline.tsx ====================
+import { useState } from "react";
+import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { ProjectTile } from "@/components/ProjectTile";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { StageChip } from "@/components/StageChip";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { LayoutGrid, List, ArrowRight } from "lucide-react";
 
 const stages = [
   { 
@@ -9015,6 +9089,19 @@ const projects = [
 ];
 
 export default function Pipeline() {
+  const [viewMode, setViewMode] = useState<"cards" | "table">(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("pipeline-view-mode");
+      if (saved === "cards" || saved === "table") return saved;
+    }
+    return "cards";
+  });
+
+  const handleViewChange = (mode: "cards" | "table") => {
+    setViewMode(mode);
+    localStorage.setItem("pipeline-view-mode", mode);
+  };
+
   return (
     <Layout>
       <PageMeta 
@@ -9077,14 +9164,75 @@ export default function Pipeline() {
 
       <section className="py-20" data-testid="section-projects">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-bold text-3xl text-foreground mb-8">
-            Current Pipeline projects
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects.map((project) => (
-              <ProjectTile key={project.name} {...project} />
-            ))}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+            <h2 className="font-heading font-bold text-3xl text-foreground">
+              Current Pipeline projects
+            </h2>
+            <div className="flex items-center gap-1 p-1 bg-secondary rounded-lg">
+              <Button
+                variant={viewMode === "cards" ? "default" : "ghost"}
+                size="sm"
+                onClick={() => handleViewChange("cards")}
+                data-testid="button-view-cards"
+                aria-label="Card view"
+              >
+                <LayoutGrid className="w-4 h-4" />
+              </Button>
+              <Button
+                variant={viewMode === "table" ? "default" : "ghost"}
+                size="sm"
+                onClick={() => handleViewChange("table")}
+                data-testid="button-view-table"
+                aria-label="Table view"
+              >
+                <List className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
+
+          {viewMode === "cards" ? (
+            <div className="grid md:grid-cols-2 gap-6">
+              {projects.map((project) => (
+                <ProjectTile key={project.name} {...project} />
+              ))}
+            </div>
+          ) : (
+            <div className="border border-card-border rounded-lg overflow-hidden">
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-card hover:bg-card">
+                    <TableHead className="font-mono text-xs uppercase tracking-wider">Project</TableHead>
+                    <TableHead className="font-mono text-xs uppercase tracking-wider">Status</TableHead>
+                    <TableHead className="font-mono text-xs uppercase tracking-wider hidden md:table-cell">Description</TableHead>
+                    <TableHead className="font-mono text-xs uppercase tracking-wider text-right">Action</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {projects.map((project) => (
+                    <TableRow key={project.name} className="hover:bg-card/50">
+                      <TableCell className="font-heading font-semibold">
+                        {project.name}
+                      </TableCell>
+                      <TableCell>
+                        <StageChip stage={project.stage} variant={project.stageVariant} />
+                      </TableCell>
+                      <TableCell className="text-sm text-muted-foreground hidden md:table-cell max-w-md">
+                        {project.description}
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <Link href={project.href}>
+                          <Button variant="ghost" size="sm" className="gap-1">
+                            View
+                            <ArrowRight className="w-3 h-3" />
+                          </Button>
+                        </Link>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          )}
         </div>
       </section>
 
@@ -9660,8 +9808,55 @@ export async function serveStatic(app: Express, _server: Server) {
 ==================== server/routes.ts ====================
 import type { Express } from "express";
 import { createServer, type Server } from "http";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  organization: z.string().optional(),
+  role: z.string().optional(),
+  subject: z.string().min(1, "Subject is required"),
+  message: z.string().min(20, "Message must be at least 20 characters"),
+  consent: z.boolean().optional(),
+});
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  app.post("/api/contact", async (req, res) => {
+    try {
+      const validated = contactSchema.parse(req.body);
+      
+      console.log("[Contact Form Submission]", {
+        timestamp: new Date().toISOString(),
+        name: validated.name,
+        email: validated.email,
+        organization: validated.organization || "N/A",
+        role: validated.role || "N/A",
+        subject: validated.subject,
+        message: validated.message.substring(0, 100) + "...",
+        consent: validated.consent || false,
+      });
+
+      res.json({ 
+        success: true, 
+        message: "Message received successfully" 
+      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ 
+          success: false, 
+          message: "Validation failed", 
+          errors: error.errors 
+        });
+      } else {
+        console.error("[Contact Form Error]", error);
+        res.status(500).json({ 
+          success: false, 
+          message: "An error occurred processing your request" 
+        });
+      }
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
@@ -9678,8 +9873,5 @@ export class MemStorage implements IStorage {
 
 export const storage = new MemStorage();
 
-
-==================== PUBLIC ASSETS ====================
-No public directory
 
 ==================== END OF BUNDLE ====================

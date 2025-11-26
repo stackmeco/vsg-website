@@ -4,7 +4,15 @@ import { StageChip } from "@/components/StageChip";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft } from "lucide-react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Home } from "lucide-react";
 
 type StageVariant = "research" | "requirements" | "architecture" | "development" | "prototype" | "testing";
 
@@ -142,10 +150,28 @@ export default function PipelineDetail() {
     <Layout>
       <section className="py-20 lg:py-28" data-testid="section-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/pipeline" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-8">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Pipeline
-          </Link>
+          <Breadcrumb className="mb-8">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="flex items-center gap-1">
+                    <Home className="w-3.5 h-3.5" />
+                    <span className="sr-only">Home</span>
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/pipeline">Pipeline</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{project.name}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
           <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
             <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground">
               {project.name}

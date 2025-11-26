@@ -29,7 +29,7 @@ const pages = [
   { name: "System", href: "/system", icon: Settings, description: "How we work" },
   { name: "Pipeline", href: "/pipeline", icon: Layers, description: "R&D projects" },
   { name: "Governance", href: "/governance", icon: Shield, description: "Risk & compliance" },
-  { name: "Library", href: "/library", icon: BookOpen, description: "Notes & insights" },
+  { name: "Thesis", href: "/thesis", icon: BookOpen, description: "Our manifesto" },
   { name: "Contact", href: "/contact", icon: Mail, description: "Get in touch" },
 ];
 

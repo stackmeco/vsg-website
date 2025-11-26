@@ -21,7 +21,7 @@ export function StageChip({ stage, variant = "requirements", className }: StageC
   return (
     <span
       className={cn(
-        "inline-flex items-center px-3 py-1.5 rounded-md text-xs font-mono uppercase tracking-wider border",
+        "inline-flex items-center px-3 py-1.5 rounded-md text-xs font-mono font-medium uppercase tracking-wider border",
         variantStyles[variant],
         variant === "research" && "border-[hsl(var(--accent-warm))]/30",
         variant === "requirements" && "border-border",

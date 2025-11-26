@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { CheckCircle, AlertCircle } from "lucide-react";
+import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { apiRequest } from "@/lib/queryClient";
 
 interface ContactFormProps {
   className?: string;
@@ -20,6 +21,8 @@ interface FormErrors {
 
 export function ContactForm({ className }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
   const [formData, setFormData] = useState({
     name: "",
@@ -59,7 +62,7 @@ export function ContactForm({ className }: ContactFormProps) {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (formData.honeypot) {
@@ -68,8 +71,26 @@ export function ContactForm({ className }: ContactFormProps) {
     }
 
     if (validateForm()) {
-      console.log("Form submitted:", formData);
-      setSubmitted(true);
+      setIsSubmitting(true);
+      setSubmitError(null);
+      
+      try {
+        await apiRequest("POST", "/api/contact", {
+          name: formData.name,
+          email: formData.email,
+          organization: formData.organization || undefined,
+          role: formData.role || undefined,
+          subject: formData.subject,
+          message: formData.message,
+          consent: formData.consent,
+        });
+        setSubmitted(true);
+      } catch (error) {
+        setSubmitError("Failed to send message. Please try again.");
+        console.error("Contact form error:", error);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -266,9 +287,23 @@ export function ContactForm({ className }: ContactFormProps) {
           </Label>
         </div>
 
+        {submitError && (
+          <div className="p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-sm text-destructive flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 flex-shrink-0" />
+            {submitError}
+          </div>
+        )}
+
         <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-          <Button type="submit" data-testid="button-submit">
-            Send Message
+          <Button type="submit" disabled={isSubmitting} data-testid="button-submit">
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                Sending...
+              </>
+            ) : (
+              "Send Message"
+            )}
           </Button>
           <p className="text-xs text-muted-foreground">
             We never share your information with third parties.

@@ -23,8 +23,8 @@ function Router() {
       <Route path="/pipeline" component={Pipeline} />
       <Route path="/pipeline/:slug" component={PipelineDetail} />
       <Route path="/governance" component={Governance} />
-      <Route path="/library" component={Library} />
-      <Route path="/library/verification-standard" component={LibraryArticle} />
+      <Route path="/thesis" component={Library} />
+      <Route path="/thesis/verification-standard" component={LibraryArticle} />
       <Route path="/contact" component={Contact} />
       <Route path="/legal/privacy" component={Privacy} />
       <Route path="/legal/terms" component={Terms} />

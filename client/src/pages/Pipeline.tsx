@@ -1,8 +1,21 @@
+import { useState } from "react";
+import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { ProjectTile } from "@/components/ProjectTile";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { StageChip } from "@/components/StageChip";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { LayoutGrid, List, ArrowRight } from "lucide-react";
 
 const stages = [
   { 
@@ -84,6 +97,19 @@ const projects = [
 ];
 
 export default function Pipeline() {
+  const [viewMode, setViewMode] = useState<"cards" | "table">(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("pipeline-view-mode");
+      if (saved === "cards" || saved === "table") return saved;
+    }
+    return "cards";
+  });
+
+  const handleViewChange = (mode: "cards" | "table") => {
+    setViewMode(mode);
+    localStorage.setItem("pipeline-view-mode", mode);
+  };
+
   return (
     <Layout>
       <PageMeta 
@@ -146,14 +172,75 @@ export default function Pipeline() {
 
       <section className="py-20" data-testid="section-projects">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-bold text-3xl text-foreground mb-8">
-            Current Pipeline projects
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects.map((project) => (
-              <ProjectTile key={project.name} {...project} />
-            ))}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+            <h2 className="font-heading font-bold text-3xl text-foreground">
+              Current Pipeline projects
+            </h2>
+            <div className="flex items-center gap-1 p-1 bg-secondary rounded-lg">
+              <Button
+                variant={viewMode === "cards" ? "default" : "ghost"}
+                size="sm"
+                onClick={() => handleViewChange("cards")}
+                data-testid="button-view-cards"
+                aria-label="Card view"
+              >
+                <LayoutGrid className="w-4 h-4" />
+              </Button>
+              <Button
+                variant={viewMode === "table" ? "default" : "ghost"}
+                size="sm"
+                onClick={() => handleViewChange("table")}
+                data-testid="button-view-table"
+                aria-label="Table view"
+              >
+                <List className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
+
+          {viewMode === "cards" ? (
+            <div className="grid md:grid-cols-2 gap-6">
+              {projects.map((project) => (
+                <ProjectTile key={project.name} {...project} />
+              ))}
+            </div>
+          ) : (
+            <div className="border border-card-border rounded-lg overflow-hidden">
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-card hover:bg-card">
+                    <TableHead className="font-mono text-xs uppercase tracking-wider">Project</TableHead>
+                    <TableHead className="font-mono text-xs uppercase tracking-wider">Status</TableHead>
+                    <TableHead className="font-mono text-xs uppercase tracking-wider hidden md:table-cell">Description</TableHead>
+                    <TableHead className="font-mono text-xs uppercase tracking-wider text-right">Action</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {projects.map((project) => (
+                    <TableRow key={project.name} className="hover:bg-card/50">
+                      <TableCell className="font-heading font-semibold">
+                        {project.name}
+                      </TableCell>
+                      <TableCell>
+                        <StageChip stage={project.stage} variant={project.stageVariant} />
+                      </TableCell>
+                      <TableCell className="text-sm text-muted-foreground hidden md:table-cell max-w-md">
+                        {project.description}
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <Link href={project.href}>
+                          <Button variant="ghost" size="sm" className="gap-1">
+                            View
+                            <ArrowRight className="w-3 h-3" />
+                          </Button>
+                        </Link>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          )}
         </div>
       </section>
 
