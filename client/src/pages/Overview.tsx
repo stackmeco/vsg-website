@@ -161,36 +161,36 @@ export default function Overview() {
           <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-8">
             The VSG Directive
           </p>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             <Card className="bg-background border-border">
               <CardContent className="p-6">
-                <h3 className="text-sm font-mono uppercase tracking-wider text-primary mb-1">
+                <p className="text-xs font-mono uppercase tracking-wider text-primary mb-1">
                   Purpose
-                </h3>
-                <p className="text-xs text-muted-foreground mb-3">Engineering Verifiable Systems</p>
-                <p className="text-foreground leading-relaxed">
+                </p>
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Engineering Verifiable Systems</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   To engineer verifiable systems at the frontier of AI, digital assets, and digital scarcity. We enable the use of new forms of value without compromising ownership or control — reclaiming human attention for higher-value work.
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-background border-border">
               <CardContent className="p-6">
-                <h3 className="text-sm font-mono uppercase tracking-wider text-primary mb-1">
+                <p className="text-xs font-mono uppercase tracking-wider text-primary mb-1">
                   Vision
-                </h3>
-                <p className="text-xs text-muted-foreground mb-3">Compounding Productivity</p>
-                <p className="text-foreground leading-relaxed">
+                </p>
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Compounding Productivity</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   A future where digital assets possess the clarity and durability of physical currency. We build for a reality where ownership is absolute, risks are visible, and systems compound human productivity rather than extract from it.
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-background border-border">
               <CardContent className="p-6">
-                <h3 className="text-sm font-mono uppercase tracking-wider text-primary mb-1">
+                <p className="text-xs font-mono uppercase tracking-wider text-primary mb-1">
                   Mission
-                </h3>
-                <p className="text-xs text-muted-foreground mb-3">Verification via Capital</p>
-                <p className="text-foreground leading-relaxed">
+                </p>
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Verification via Capital</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   To navigate the edge of AI and digital assets with our own capital at risk. We learn in the open and graduate only the systems we have verified with our own balance sheet.
                 </p>
               </CardContent>
