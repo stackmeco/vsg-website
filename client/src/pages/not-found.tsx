@@ -1,21 +1,37 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle } from "lucide-react";
+import { Link } from "wouter";
+import { Layout } from "@/components/Layout";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gray-50">
-      <Card className="w-full max-w-md mx-4">
-        <CardContent className="pt-6">
-          <div className="flex mb-4 gap-2">
-            <AlertCircle className="h-8 w-8 text-red-500" />
-            <h1 className="text-2xl font-bold text-gray-900">404 Page Not Found</h1>
+    <Layout>
+      <section className="py-32 text-center" data-testid="section-404">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-xl mx-auto">
+            <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground mb-6">
+              This page didn't pass review.
+            </h1>
+            <p className="text-lg text-muted-foreground mb-8">
+              The resource you're looking for doesn't exist, has moved, or never
+              made it past our governance checks.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/">
+                <Button size="lg" data-testid="button-back-home">
+                  Back to home
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </Link>
+              <Link href="/ventures">
+                <Button variant="outline" size="lg" data-testid="button-see-ventures">
+                  See all ventures
+                </Button>
+              </Link>
+            </div>
           </div>
-
-          <p className="mt-4 text-sm text-gray-600">
-            Did you forget to add the page to the router?
-          </p>
-        </CardContent>
-      </Card>
-    </div>
+        </div>
+      </section>
+    </Layout>
   );
 }
