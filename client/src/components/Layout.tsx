@@ -1,5 +1,6 @@
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { CommandPalette } from "./CommandPalette";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -15,6 +16,7 @@ export function Layout({ children }: LayoutProps) {
         Skip to content
       </a>
       <Header />
+      <CommandPalette />
       <main id="main-content" className="flex-1 pt-16" tabIndex={-1}>{children}</main>
       <Footer />
     </div>

@@ -5,6 +5,7 @@ import { PageMeta } from "@/components/PageMeta";
 import { ProjectTile } from "@/components/ProjectTile";
 import { ValueCard } from "@/components/ValueCard";
 import { NextStepBlock } from "@/components/NextStepBlock";
+import { StatBlock } from "@/components/StatBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Eye, Coins, Layers, BookOpen, Compass } from "lucide-react";
@@ -103,52 +104,87 @@ export default function Overview() {
           aria-label="Abstract data flow visualization"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-background from-40% via-background/90 via-60% to-background/50" />
+          <div className="absolute inset-0 dot-grid opacity-60" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="max-w-2xl">
-            <p className="text-sm font-mono uppercase tracking-wider text-primary mb-6">
-              Two-founder studio
-            </p>
-            <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-[3.5rem] text-foreground leading-[1.1] tracking-tight mb-6">
-              Honest systems for an AI-powered economy.
-            </h1>
-            <p className="text-lg text-foreground/80 leading-relaxed mb-8">
-              We explore AI, Bitcoin, and digital scarcity — with our own capital on the line. Our Bitcoin (BTC) treasury funds the work. Nothing launches until we'd trust it with our own balance sheet.
-            </p>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+          <div className="grid lg:grid-cols-[1fr,320px] gap-12 items-center">
+            <div className="max-w-2xl">
+              <p className="text-sm font-mono uppercase tracking-wider text-primary mb-6">
+                Two-founder studio
+              </p>
+              <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-[3.5rem] text-foreground leading-[1.1] tracking-tight mb-6">
+                Honest systems for an AI-powered economy.
+              </h1>
+              <p className="text-lg text-foreground/80 leading-relaxed mb-8">
+                We explore AI, Bitcoin, and digital scarcity — with our own capital on the line. Our Bitcoin (BTC) treasury funds the work. Nothing launches until we'd trust it with our own balance sheet.
+              </p>
 
-            <div className="flex flex-wrap gap-3 mb-10">
-              <Link href="/pipeline">
-                <Button 
-                  size="lg" 
-                  data-testid="button-see-pipeline"
-                >
-                  See the Pipeline
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
-              <Link href="/system">
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="backdrop-blur-md bg-background/40"
-                  data-testid="button-how-we-work"
-                >
-                  How we work
-                </Button>
-              </Link>
+              <div className="flex flex-wrap gap-3 mb-10">
+                <Link href="/pipeline">
+                  <Button 
+                    size="lg" 
+                    data-testid="button-see-pipeline"
+                  >
+                    See the Pipeline
+                    <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </Link>
+                <Link href="/system">
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="backdrop-blur-md bg-background/40"
+                    data-testid="button-how-we-work"
+                  >
+                    How we work
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2 text-sm">
+                <span className="text-foreground/60 font-mono">4 projects in flight:</span>
+                <div className="flex flex-wrap gap-2">
+                  {["Helios", "stackme", "Lumina", "Uniqueness Engine"].map((name) => (
+                    <Link key={name} href={`/pipeline/${name.toLowerCase().replace(" ", "-")}`}>
+                      <span className="px-2.5 py-1 rounded-md bg-secondary/80 text-foreground/90 text-xs font-mono hover:bg-secondary transition-colors cursor-pointer">
+                        {name}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 text-sm">
-              <span className="text-foreground/60 font-mono">4 projects in flight:</span>
-              <div className="flex flex-wrap gap-2">
-                {["Helios", "stackme", "Lumina", "Uniqueness Engine"].map((name) => (
-                  <Link key={name} href={`/pipeline/${name.toLowerCase().replace(" ", "-")}`}>
-                    <span className="px-2.5 py-1 rounded-md bg-secondary/80 text-foreground/90 text-xs font-mono hover:bg-secondary transition-colors cursor-pointer">
-                      {name}
-                    </span>
-                  </Link>
-                ))}
+            <div className="hidden lg:block">
+              <div className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 space-y-6">
+                <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                  Studio metrics
+                </p>
+                <div className="space-y-6">
+                  <div data-testid="stat-projects">
+                    <StatBlock
+                      value="4"
+                      label="Active projects"
+                      subtext="In R&D pipeline"
+                      variant="primary"
+                    />
+                  </div>
+                  <div data-testid="stat-founders">
+                    <StatBlock
+                      value="2"
+                      label="Founders"
+                      subtext="Full ownership"
+                    />
+                  </div>
+                  <div data-testid="stat-selffunded">
+                    <StatBlock
+                      value="100%"
+                      label="Self-funded"
+                      subtext="BTC treasury backed"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

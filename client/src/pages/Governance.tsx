@@ -77,8 +77,9 @@ export default function Governance() {
         description="How Verified Systems is governed: decision rights, BTC treasury policy, risk controls, and our regulatory stance. Transparency over theater." 
       />
       
-      <section className="py-20 lg:py-28" data-testid="section-hero">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 relative" data-testid="section-hero">
+        <div className="absolute inset-0 dot-grid opacity-40" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight tracking-tight mb-6">
               Governance, risk & compliance

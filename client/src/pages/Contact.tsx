@@ -9,8 +9,9 @@ export default function Contact() {
         title="Contact" 
         description="Get in touch with Verified Systems. We're a two-founder studio and we read every message." 
       />
-      <section className="py-20 lg:py-28" data-testid="section-hero">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 relative" data-testid="section-hero">
+        <div className="absolute inset-0 dot-grid opacity-40" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight tracking-tight mb-6">
               Get in touch

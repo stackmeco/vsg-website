@@ -156,6 +156,21 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .dot-grid {
+    background-image: radial-gradient(circle, hsl(var(--foreground) / 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .line-grid {
+    background-image: 
+      linear-gradient(to right, hsl(var(--foreground) / 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--foreground) / 0.02) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 }
 
