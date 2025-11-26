@@ -91,7 +91,7 @@ export default function Overview() {
     <Layout>
       <PageMeta 
         title="Overview" 
-        description="Engineering verifiable systems at the frontier of AI, digital assets, and digital scarcity. We enable new forms of value without compromising ownership or control." 
+        description="Engineering verifiable systems at the frontier of AI and Digital Assets. We enable new forms of value without compromising ownership or control." 
       />
       <section
         className="relative min-h-[90vh] flex items-center"
@@ -204,7 +204,7 @@ export default function Overview() {
                 </p>
                 <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Engineering Verifiable Systems</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  To engineer verifiable systems at the frontier of AI, digital assets, and digital scarcity. We enable the use of new forms of value without compromising ownership or control — reclaiming human attention for higher-value work.
+                  To engineer verifiable systems at the frontier of AI and Digital Assets. We enable the use of new forms of value without compromising ownership or control—reclaiming human attention for higher-value work.
                 </p>
               </CardContent>
             </Card>
