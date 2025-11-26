@@ -1,0 +1,2750 @@
+```markdown
+<!-- 01-brand-foundations-and-messaging.md -->
+
+# Verified Systems Group · Brand Foundations & Messaging
+
+> **Purpose of this doc**  
+> Single source of truth for who VSG is, what we stand for, how we talk about ourselves, and how our ventures fit together. This governs the marketing site, decks, sales collateral, and external comms.
+
+---
+
+## 1. Who We Are
+
+**Name**
+
+- Legal: **Verified Systems Group, LLC**  
+- Short: **Verified Systems Group** or **VSG**  
+- Abbreviation: **VSG** (never “V.S.G.”)
+
+**What VSG is**
+
+VSG is an **AI-native finance R&D studio**.  
+We design, test, and operate **governed rails** for:
+
+- **Identity & Sybil resistance** (Uniqueness Engine)  
+- **Treasury & reserves** (Helios)  
+- **Liquidity for long-term holders** (VSG Liquidity Engine)
+
+VSG builds **primitives and ventures**, not a single monolith. Each venture runs on a shared backbone of policy, governance, and infrastructure.
+
+**What VSG is not**
+
+- Not an influencer or “education brand”
+- Not an exchange, broker, custodian, or asset manager
+- Not a “black box” AI company
+- Not a manual operations shop that sits in your approval queue
+
+We provide **the rails and the gavel**, not the judges or the traders.
+
+---
+
+## 2. Core Idea & Tagline
+
+**Primary tagline (global H1):**
+
+> **Implement the future—without losing control.**
+
+**Supporting idea (2nd-line message):**
+
+> **Human-defined, system-enforced.**
+
+Meaning:
+
+- Your teams set **policies, thresholds, and exception rules**.
+- Our systems **enforce those rules in code**, at machine speed.
+- Humans step in only for **exceptions and edge cases**, under your control.
+
+Avoid implying that VSG staff are doing live transaction review or discretionary approvals.
+
+---
+
+## 3. Primary Audiences
+
+Write to specific buyers and stakeholders. Default ordering:
+
+1. **Regulated institutions**
+2. **Protocols & networks**
+3. **Builders & product teams**
+4. **Regulators & auditors**
+5. **Strategic partners & integrators**
+
+### 3.1 Regulated Institutions
+
+**Who**
+
+- CRO / CISO / Head of Risk
+- CFO / Treasurer
+- Head of Product / Head of Digital
+
+**Their pain**
+
+- Want AI-driven efficiency but must stay inside strict risk/compliance bounds.
+- Struggle with third-party AI systems that are opaque and unaudited.
+- Treasury, identity, and agent projects stall at **TPRM** and governance reviews.
+
+**What we say**
+
+- “We turn your risk policy into **code-enforced rails**.”
+- “Every agent action and treasury move is **traceable, reversible where it must be**, and tied to your policies.”
+- “We help you pass reviews faster, with fewer surprises.”
+
+### 3.2 Protocols & Networks
+
+**Who**
+
+- Core protocol teams
+- Treasury stewards / councils
+- DAO delegates and foundations
+
+**Their pain**
+
+- Need **Sybil-resistant participation** without invasive KYC.
+- Treasury and incentives must protect **protocol health**, not just yield.
+- On-chain markets are brittle; cascades and liquidity shocks are common.
+
+**What we say**
+
+- “Fair access and one-entity-one-voice, without identity mining.”
+- “Helios keeps protocol and market health in view—under clear limits.”
+- “Liquidity and incentives are governed by code, not vibes.”
+
+### 3.3 Builders & Product Teams
+
+**Who**
+
+- Product / Growth leads
+- PMs and founders for AI-native apps
+- Technical leads and solution architects
+
+**Their pain**
+
+- Need reliable rails for risk, treasury, and identity so they can ship products.
+- Don’t want to become experts in policy, regulators, or treasury mechanics.
+- Concerned that governance will slow down launch velocity.
+
+**What we say**
+
+- “We ship **ready-to-plug primitives** so you don’t have to reinvent risk and governance.”
+- “Consumer-grade experiences on top of institution-grade rails.”
+- “You focus on users; we provide the guardrails.”
+
+### 3.4 Regulators & Auditors
+
+**Who**
+
+- Supervisors, examiners, and policy staff
+- Third-party risk and audit teams
+- Legal & compliance advisors
+
+**Their pain**
+
+- Need to ensure AI-native systems can be **explained, inspected, and rolled back**.
+- Worry about correlated failures from agents acting on shared models and data.
+- Need **clear documentation and change history**.
+
+**What we say**
+
+- “We treat governance as **first-class code**, not as a checklist.”
+- “Policies are explicit, versioned, and tied to system behavior.”
+- “We maintain a **public-facing change log** for governance, backed by internal audit logs.”
+
+### 3.5 Strategic Partners & Integrators
+
+**Who**
+
+- Consulting firms and system integrators
+- Infrastructure providers, cloud, and security vendors
+- Data and oracle providers
+
+**Their pain**
+
+- Need trustworthy rails to bring AI-native finance to enterprise clients.
+- Want reference implementations to shorten time-to-value.
+
+**What we say**
+
+- “VSG provides the **governed primitives** you can build on.”
+- “We play well with other infra—bring your stack, we’ll bring the rails.”
+
+---
+
+## 4. Purpose · Vision · Mission
+
+### 4.1 Purpose
+
+> **Help people, institutions, and networks thrive in an AI-native economy in ways that are simple to adopt, safe to operate, and fair to everyone involved.**
+
+Key ideas:
+
+- “Thrive” = sustainable, long-term benefit, not quick extraction.
+- “Everyone involved” = users, institutions, protocols, agents, and counterparties.
+
+### 4.2 Vision
+
+> **Money, identity, and AI agents interoperate safely across networks; markets run on clear rules, strong safeguards, and human choice, so growth never trades off privacy or control.**
+
+Avoid: vague “future of money” language.  
+Hold onto: “rules, safeguards, human choice.”
+
+### 4.3 Mission
+
+> **Design, prove, and scale AI- and agent-ready finance primitives—first inside VSG, then as independent ventures and partner deployments—under the discipline of a large institution.**
+
+- **Design**: architect rails and policy.
+- **Prove**: test in live settings with real constraints and telemetry.
+- **Scale**: graduate to ventures, partners, and integrations.
+
+---
+
+## 5. Positioning & Differentiation
+
+**Short positioning line**
+
+> **The AI-native finance R&D studio with institutional-grade governance.**
+
+Use near logo, in meta descriptions, and in investor/partner decks.
+
+**How we’re different**
+
+- **Governance-first AI**  
+  We start from risk, policy, and market health; then we design experiences and agents.
+
+- **Primitives, not one-offs**  
+  We build **reusable rails** for identity, treasury, and liquidity that can be embedded into many products.
+
+- **Rails, not opinions**  
+  We encode policies that our partners define. We don’t substitute our judgment for theirs.
+
+- **Evidence over claims**  
+  We measure abuse, exceptions, cascades, and protocol health. Claims on the site must be backed by actual data.
+
+---
+
+## 6. Core Values (How We Behave)
+
+### 6.1 Trust Foundations: Security · Privacy · Fairness
+
+“Trust foundations” is our umbrella for:
+
+1. **Security is non-negotiable**
+   - We’d rather walk away from revenue than lower our bar.
+   - No shortcuts on custody, key management, or access control.
+
+2. **Privacy by design**
+   - Minimize data; avoid collecting what we don’t need.
+   - Design for **verifiable behavior** without invasive identity mining.
+
+3. **Fair systems**
+   - One-entity-one-voice where it matters.
+   - Incentives that favor **protocol and market health**, not pure extraction.
+
+### 6.2 Radical Simplicity
+
+- Make complex systems feel obvious to operate.
+- Fewer knobs and modes; clearer defaults.
+- If we can remove a configuration option safely, we should.
+
+### 6.3 Evidence Over Claims
+
+- Metrics before marketing.
+- We can talk about outcomes only when we can show where the numbers came from.
+- When in doubt, say “in pilots…” or “designed to…” instead of pretending we have universal results.
+
+### 6.4 Velocity with Guardrails
+
+- Ship in small slices, with policy toggles and rollbacks built-in.
+- Run canaries and dry-runs for high-risk paths.
+- Speed is fine; recoverability is non-negotiable.
+
+### 6.5 Agents, Governed
+
+- AI agents are **first-class actors**, but they move inside human-defined bounds.
+- We build veto paths and exception flows into the rails.
+- We enable partners’ authorized signers to make final calls; we don’t replace them.
+
+### 6.6 Quiet Education
+
+- We’re not in the education business, but we **reduce friction for serious teams**:
+  - Clear documentation and examples
+  - Reference implementations and “gavel patterns”
+  - Unbranded materials that help partners explain governance to their own stakeholders
+
+No branded academies, no thought-leader influencer stance.
+
+---
+
+## 7. Ventures & Naming
+
+Current ventures:
+
+1. **Uniqueness Engine**  
+   - **What it is**: A Sybil-resistance and fair-access primitive for AI-native finance.  
+   - **One-liner**:  
+     > “Fair access and Sybil resistance, without identity mining.”  
+   - Use for: identity, eligibility, and one-entity-one-vote scenarios.
+
+2. **Helios**  
+   - **What it is**: A governed on-chain treasury and liquidity rail.  
+   - **One-liner**:  
+     > “Treasury that earns within defined limits, with protocol and market health in view.”  
+   - Use for: protocol treasuries, corporate treasuries, conservative yield strategies.
+
+3. **VSG Liquidity Engine**  
+   - **What it is**: Infrastructure that lets long-term holders access liquidity **without forced selling**, under clear risk limits.  
+   - **One-liner**:  
+     > “Liquidity without forced selling, under limits you can explain.”  
+   - **Reference implementation**:  
+     - **Stackme** is the name of our **live reference app**, not the product itself.
+     - On the site, always lead with **VSG Liquidity Engine**.
+     - “Stackme” appears only in contexts like:  
+       > “See the Liquidity Engine in action via Stackme, our reference implementation.”
+
+**Naming conventions going forward**
+
+- Externally: short, memorable names (e.g., “Helios”).
+- Internally: descriptive scaffolding (“Uniqueness Engine”, “Liquidity Engine”).
+- Keep names:
+  - Distinct from common finance generic terms.
+  - Easy to pronounce and spell.
+  - Free of obvious trademark conflicts.
+
+---
+
+## 8. Voice & Tone
+
+**Voice traits**
+
+- **Calm** – We sound like we’ve seen crises before and designed for them.
+- **Precise** – We name things clearly and avoid fuzzy jargon.
+- **Human** – We acknowledge that real people hold risk and carry responsibility.
+- **Defiant, but not flippant** – We push back on hype and shortcuts, without sneering.
+
+**Do**
+
+- “We encode your risk policy into rails your teams can audit.”
+- “Human-defined, system-enforced.”
+- “Nothing executes until your authorized signers are satisfied.”
+
+**Don’t**
+
+- “AI will replace your risk team.”
+- “Set it and forget it.”
+- “Trust the magic.”
+
+**Microcopy examples**
+
+- 404 page: “This page didn’t pass review.”  
+- Status OK: “All systems operational.”  
+- Status degraded: “Rails are up, one subsystem is under scrutiny.”
+
+---
+
+## 9. Brand Guardrails
+
+- Do not alter the primary tagline without an explicit brand review.
+- Do not introduce **new venture names** on the site without:
+  - Legal checks
+  - A clear one-liner and audience
+  - Alignment with this doc
+- Do not suggest that:
+  - VSG employees are making discretionary trading or liquidation decisions.
+  - VSG provides investment advice or promises returns.
+  - VSG guarantees outcomes beyond what the rails can enforce.
+
+This doc is the reference point. If any copy or visual choice conflicts with it, this doc wins until updated through a deliberate review.
+```
+
+```markdown
+<!-- 02-ux-ia-and-site-structure.md -->
+
+# VSG Marketing Site · UX, IA & Structure
+
+> **Purpose of this doc**  
+> Define the information architecture, key routes, page structures, and UX patterns for the VSG marketing site. This is the blueprint for design and implementation.
+
+---
+
+## 1. High-Level Goals
+
+- Convey **trust, control, and operational maturity** at a glance.
+- Explain **what VSG is**, who it’s for, and what the ventures do.
+- Make it easy to:
+  - Discover the studio and ventures.
+  - Understand governance and status.
+  - Get in touch for pilots, partnerships, or roles.
+- Keep the site **fast, resilient, and low-maintenance**.
+
+---
+
+## 2. Navigation & Routes
+
+### 2.1 Top-Level Navigation
+
+**Desktop header (left to right)**
+
+- **Logo** → `/`
+- **Studio** → `/studio`
+- **Ventures** → `/ventures` (dropdown)
+  - Uniqueness Engine → `/ventures/uniqueness-engine`
+  - Helios → `/ventures/helios`
+  - Liquidity Engine → `/ventures/liquidity-engine`
+- **Governance** → `/governance`
+- **Insights** → `/insights`
+- **Careers** → `/careers`
+- **Contact** → `/contact`
+
+**Secondary items**
+
+- **Status** → `https://status.vsg.[tld]` (external status page; open in new tab)
+- **Docs** (future) → `/docs` or external docs host; in header or footer, but present as a signal.
+
+### 2.2 Footer
+
+- Company
+  - About → `/studio`
+  - Governance → `/governance`
+  - Ventures → `/ventures`
+- Ventures
+  - Uniqueness Engine → `/ventures/uniqueness-engine`
+  - Helios → `/ventures/helios`
+  - Liquidity Engine → `/ventures/liquidity-engine`
+- Resources
+  - Insights → `/insights`
+  - Docs (stub) → `/docs`
+  - Status → `https://status.vsg.[tld]`
+- Legal
+  - Terms → `/legal/terms`
+  - Privacy → `/legal/privacy`
+  - Governance & Change Log → `/governance`
+- Contact
+  - Contact → `/contact`
+  - Careers → `/careers`
+
+---
+
+## 3. Route Inventory
+
+| Route                                | Type         | Source   | Notes                                                 |
+|--------------------------------------|--------------|----------|------------------------------------------------------|
+| `/`                                  | Landing      | Static   | Hero + chips + ventures overview                     |
+| `/studio`                            | Explainer    | Static   | P/V/M + how we work + values                         |
+| `/ventures`                          | Index        | Static   | All ventures, shared backbone                        |
+| `/ventures/uniqueness-engine`       | Detail       | Static   | Identity / Sybil venture                             |
+| `/ventures/helios`                  | Detail       | Static   | Treasury / market health venture                     |
+| `/ventures/liquidity-engine`        | Detail       | Static   | Liquidity venture + Stackme reference                |
+| `/governance`                        | Explainer    | Static   | Principles + simulator + change log                  |
+| `/insights`                          | Listing      | CMS/MDX  | Posts, filters                                       |
+| `/insights/[slug]`                  | Detail       | CMS/MDX  | Article detail                                       |
+| `/careers`                           | Listing      | CMS/MDX  | Roles and application form or external link          |
+| `/partners`                          | Explainer    | Static   | Partner process & CTA                                |
+| `/contact`                           | Form         | Static   | Contact form → API route                             |
+| `/docs` (stub)                       | Explainer    | Static   | High-level integrator info and link to full docs     |
+| `/status`                            | Status view  | Dynamic  | Reads JSON from external status source               |
+| `/404`                               | Error        | Static   | Custom 404                                            |
+| `/500`                               | Error        | Static   | Custom 500                                            |
+| `/legal/*`                           | Legal        | Static   | Terms, Privacy, etc.                                 |
+
+---
+
+## 4. Page Structures
+
+### 4.1 Home (`/`)
+
+**Sections (top to bottom)**
+
+1. **Hero**
+   - Left:
+     - Eyebrow: “AI-native finance R&D studio”
+     - H1: “Implement the future—without losing control.”
+     - Body: 2–3 lines explaining human-defined, system-enforced rails.
+     - Primary CTA: “Explore the studio”
+     - Secondary CTA: “See the ventures”
+   - Right:
+     - **ConsolePanel**:
+       - 3–4 **PolicyChips** (e.g., LTV limit, exception path, PII: 0).
+       - 1–2 small metrics (e.g., “System latency: 14 ms”).
+
+2. **Who we’re for**
+   - 3 cards:
+     - Regulated institutions
+     - Protocols & networks
+     - Builders & teams
+   - Each card: icon, 1-line pain, 1-line outcome, “Start here” link.
+
+3. **Ventures spotlight**
+   - 3 **VentureCards** in a row:
+     - Uniqueness Engine
+     - Helios
+     - Liquidity Engine
+   - Each: short one-liner + “View venture” CTA.
+
+4. **Why VSG**
+   - 3–4 bullets or cards summarizing:
+     - Governance-first.
+     - Agent-ready primitives.
+     - Shared backbone & faster review.
+
+5. **Governance preview**
+   - Short intro to `/governance`.
+   - 2–3 principles.
+   - Link: “See governance & change log.”
+
+6. **Insights preview**
+   - 3 recent posts (title + category + date).
+   - Link: “View insights.”
+
+7. **Footer**
+   - Links as per footer nav.
+   - Small line: “Governance last updated: [date from change log].”
+
+### 4.2 Studio (`/studio`)
+
+Sections:
+
+1. Hero: What VSG is.
+2. Purpose · Vision · Mission (two-column layout).
+3. How we work (3-step timeline: Discover, Prove, Scale).
+4. Core values (grid with icon + label + short explanation).
+5. Shared backbone (diagram or bullets describing security, policy engine, observability).
+6. Quiet education (short description with link to resources / docs).
+
+### 4.3 Ventures Index (`/ventures`)
+
+Sections:
+
+1. Hero: “Ventures built on shared, governed rails.”
+2. Shared backbone explanation.
+3. Ventures grid:
+   - Uniqueness Engine
+   - Helios
+   - VSG Liquidity Engine
+4. “What’s next” / future ventures placeholder (optional).
+
+### 4.4 Venture Detail Pages
+
+All three venture pages share a common structure:
+
+1. Hero: Name, short descriptor, H1, subhead, primary “Talk with us” CTA.
+2. Problem → Solution → Outcomes section.
+3. “How it works” steps (3–4 steps).
+4. Governance & controls (one or two **RiskPanels** with PolicyChips).
+5. Example flows:
+   - Uniqueness: eligibility checks, Sybil resistance story.
+   - Helios: treasury ladder, market health management.
+   - Liquidity: collateral, health checks, warnings.
+6. Reference implementation / integrations:
+   - For Liquidity: call out Stackme as ref implementation, clearly as example.
+7. FAQ block.
+
+### 4.5 Governance (`/governance`)
+
+Sections:
+
+1. Hero: “Governance as code, not a checkbox.”
+2. Why governance matters (short).
+3. Principles (3–6 bullets).
+4. Governance simulator (simple slider(s) + copy).
+5. Change log (summary of last 3–5 material changes, link to full archive).
+6. Disclaimers / safe harbor (e.g., summary vs exhaustive log).
+
+### 4.6 Insights (`/insights` & `/insights/[slug]`)
+
+- `/insights`:
+  - Hero with brief explanation.
+  - Filter bar (by category/tag).
+  - Article cards (title, short description, date, tags).
+- `/insights/[slug]`:
+  - Title, date, author.
+  - Body content.
+  - Inline call-out: “Nothing here is investment advice.”
+
+### 4.7 Careers (`/careers`)
+
+Sections:
+
+1. Hero: “Help design rails for AI-native finance.”
+2. Why work at VSG (3 bullets).
+3. Open roles list:
+   - Title, location/remote, short summary.
+   - Link to full description or simple application form.
+4. “Don’t see your role?” general application CTA.
+
+### 4.8 Partners (`/partners`)
+
+Sections:
+
+1. Hero: “Partner with VSG.”
+2. Types of partners (institutions, protocols, integrators).
+3. Engagement pattern (3-step timeline).
+4. CTA to contact form.
+
+### 4.9 Contact (`/contact`)
+
+Sections:
+
+1. Hero: “Talk to the studio.”
+2. Short paragraph clarifying who should use this form.
+3. Contact form:
+   - Name, email, organization, role, topic (select), message.
+   - Consent checkbox (optional) for updates.
+4. Confirmation screen text.
+
+### 4.10 Docs Stub (`/docs`)
+
+- Hero: “Technical documentation.”
+- Short explanation for integrators and builders.
+- Placeholder: sign-up or “Contact us for access.”
+- Links to any public spec or GitHub repos if available.
+
+### 4.11 Status (`/status`)
+
+- Reads from external JSON at runtime.
+- Layout:
+  - Hero: “System status.”
+  - One overall badge: All systems operational / Degraded / Partial outage.
+  - Sections for:
+    - VSG platform
+    - Uniqueness Engine
+    - Helios
+    - Liquidity Engine
+  - Timestamp: “Last updated: [time].”
+- Explicit note: “For live incident details, see the full status page at status.vsg.[tld].”
+
+### 4.12 Errors (`/404`, `/500`)
+
+- `/404`:
+  - H1: “This page didn’t pass review.”
+  - Body: Short explanation and links home + to key pages.
+- `/500`:
+  - H1: “Something broke on our side.”
+  - Body: Apology, generic reassurance, link home.
+
+---
+
+## 5. Global UX Patterns
+
+### 5.1 Header
+
+- Sticky on desktop (top).
+- Shrinks slightly on scroll (height reduction) but stays readable.
+- In mobile:
+  - Logo + hamburger menu.
+  - Full-screen overlay menu with key nav items, dimmed background.
+
+### 5.2 Policy Chips (Summary)
+
+- Used in:
+  - Home hero console
+  - Venture governance sections
+  - Governance simulator/context
+- Behaviors:
+  - Desktop: hover shows tooltip near chip.
+  - Mobile: tap triggers a small toast at the bottom with chip details (no floating tooltip over content).
+- Semantics:
+  - Green/blue = “system-enforced normal limits”
+  - Amber = “exception path / human-defined policy / manual intervention required”
+  - Red = “breach or disabled state” (rare on marketing site; mostly used in simulator)
+
+### 5.3 ChipsRow (Horizontal Row on Mobile)
+
+- No auto-scrolling “marquee.”
+- Behavior:
+  - Desktop: chips in console vertical or small grid.
+  - Mobile: horizontally scrollable row with **scroll-snap**.
+  - Show partial next chip to encourage swipe.
+- Indicators:
+  - Optional small dot indicator below row (e.g., “• ○ ○”).
+
+### 5.4 Console Panel
+
+- Reusable layout block with:
+  - Title (optional).
+  - 3–5 PolicyChips.
+  - 1–2 small text metrics.
+- Used in:
+  - Home hero
+  - Venture pages (sidebar)
+  - Governance page
+
+### 5.5 Forms
+
+- Simple, single-column layouts.
+- Clear labels, no placeholder-only forms.
+- Inline validation with friendly, specific error text.
+
+---
+
+## 6. Mobile UX Notes
+
+- **Navigation**: Single-level menu; nested ventures as simple indented items.
+- **Hero**: ChipsRow should sit just below primary copy and CTA; do not bury it.
+- **Animations**:
+  - Respect `prefers-reduced-motion`.
+  - On reduced motion: disable pulses and any auto animations.
+- **Touch targets**:
+  - Minimum 44px height for tappable controls.
+  - Minimum 12px spacing between taps.
+
+---
+
+## 7. Accessibility & Content Guidelines (UX Level)
+
+- All important content must be accessible via keyboard navigation.
+- Never rely on color alone to convey status; pair color with an icon or label.
+- Provide descriptive alt text for all non-decorative images (especially diagrams).
+- Provide captions or transcripts if we embed any videos in the future.
+- Avoid walls of text; use headings, bullets, and whitespace.
+
+This doc should be used together with the Design System (03) and Copy Spec (04) when designing and implementing the site.
+```
+
+````markdown
+<!-- 03-design-system-and-components.md -->
+
+# VSG Marketing Site · Design System & Components
+
+> **Purpose of this doc**  
+> Define design tokens, components, motion, and accessibility rules so the site looks and feels consistent, trustworthy, and “VSG” across all pages.
+
+---
+
+## 1. Design Principles
+
+- **Human control room, not cyber-casino**  
+  Dark, focused, with warm highlights—like a staffed control room, not a neon trading floor.
+- **Human-defined, system-enforced**  
+  Visual language distinguishes normal system behavior from **exception paths** requiring human attention.
+- **Calm precision**  
+  Subtle motion, crisp typography, and clear affordances. Nothing frantic or flashy.
+
+---
+
+## 2. Design Tokens
+
+Put these in a central `tokens.css` or equivalent theme file.
+
+### 2.1 Colors
+
+```css
+:root {
+  /* Backgrounds */
+  --color-bg: #020617;          /* Page background (slate 950) */
+  --color-surface-1: #0B1120;   /* Primary card surface */
+  --color-surface-2: #0F172A;   /* Elevated/active surfaces */
+  --color-surface-risk: #000000;/* Risk panels inner surface */
+
+  /* Text */
+  --color-text: #F5F5F4;        /* Main text (warm white) */
+  --color-text-muted: #9CA3AF;  /* Secondary text */
+  --color-text-soft: #D4D4D4;   /* Less prominent labels */
+
+  /* Borders & outlines */
+  --color-border-subtle: #1F2937;
+  --color-border-strong: #374151;
+
+  /* Core accents (system) */
+  --color-accent: #22D3EE;      /* Primary accent (links, key CTAs) */
+  --color-accent-soft: #0EA5E9; /* Hover/pressed */
+
+  /* Status colors */
+  --color-success: #22C55E;
+  --color-warning: #F97316;
+  --color-error:   #EF4444;
+
+  /* Human / exception accent (Amber LED) */
+  --color-accent-human: #D97706;    /* Amber 600 */
+  --color-accent-human-highlight: #F59E0B; /* Amber 500 */
+
+  /* Data / agentic accent (optional) */
+  --color-data: #14B8A6;        /* Teal - for charts/agentic hints */
+
+  /* Overlays */
+  --color-overlay: rgba(15, 23, 42, 0.85);
+
+  /* Focus */
+  --color-focus-ring: rgba(56, 189, 248, 0.7); /* Light blue */
+}
+````
+
+**Notes**
+
+* Ensure contrast between `--color-text` and surfaces meets WCAG AA/AAA.
+* For light-mode possibility later, keep tokens abstracted; we can map to different hexes.
+
+### 2.2 Typography
+
+```css
+:root {
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  --font-heading: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+}
+```
+
+**Usage**
+
+* **Body text**: `font-family: var(--font-sans); line-height: var(--line-height-normal);`
+* **Headings (h1–h3)**: `font-family: var(--font-heading); line-height: var(--line-height-tight);`
+* **Data & metrics**: `font-family: var(--font-mono); font-variant-numeric: tabular-nums;`
+
+Example for risk metrics:
+
+```css
+.Metric--risk {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+```
+
+### 2.3 Spacing & Radii
+
+```css
+:root {
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-pill: 999px;
+}
+```
+
+### 2.4 Shadows & Noise
+
+```css
+:root {
+  --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.5);
+  --shadow-subtle: 0 8px 18px rgba(15, 23, 42, 0.4);
+}
+
+/* Noise overlay: apply a subtle noise texture PNG/SVG at low opacity */
+.bg-with-noise {
+  position: relative;
+}
+
+.bg-with-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("/images/noise.svg");
+  opacity: 0.04;
+  mix-blend-mode: soft-light;
+}
+```
+
+---
+
+## 3. Core Components
+
+### 3.1 Layout Components
+
+**Page**
+
+* Background: `--color-bg` with `bg-with-noise`.
+* Max width: 72rem–80rem content column.
+* Padding: `--space-6` desktop, `--space-4` mobile.
+
+**Section**
+
+* Vertical spacing: `--space-12` between sections on desktop, `--space-8` mobile.
+* Optional `Section-eyebrow` for short label.
+
+**Grid**
+
+* 12-column grid on desktop.
+* Collapse to single column on mobile.
+
+### 3.2 Panel
+
+Generic content card.
+
+```css
+.Panel {
+  background-color: var(--color-surface-1);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-subtle);
+}
+```
+
+**Variants**
+
+* `Panel--highlight`
+  Slightly brighter border or accent line on top.
+
+* `Panel--risk`
+  Use for risk/limits content.
+
+  ```css
+  .Panel--risk {
+    background-color: var(--color-surface-risk);
+    border: 1px solid rgba(249, 115, 22, 0.3); /* subtle orange border */
+  }
+
+  .Panel--risk h3,
+  .Panel--risk .Metric {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  ```
+
+* `Panel--console`
+  Used for console blocks in hero and ventures.
+
+### 3.3 PolicyChip
+
+Compact status unit showing a key policy or guardrail.
+
+**Structure**
+
+* Root: `div.PolicyChip`
+* Children:
+
+  * Status dot: `span.PolicyChip-statusDot`
+  * Label: `span.PolicyChip-label`
+  * Value: `span.PolicyChip-value`
+  * Optional meta: `span.PolicyChip-meta`
+
+**Base styles**
+
+```css
+.PolicyChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background-color: rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-soft);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.02em;
+}
+
+.PolicyChip-statusDot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+```
+
+**Status variants**
+
+* System-enforced limit (green):
+
+  ```css
+  .PolicyChip--limit .PolicyChip-statusDot {
+    background-color: var(--color-success);
+    box-shadow: 0 0 4px rgba(34, 197, 94, 0.5);
+  }
+  ```
+
+* Normal telemetry (blue/teal):
+
+  ```css
+  .PolicyChip--info .PolicyChip-statusDot {
+    background-color: var(--color-data);
+    box-shadow: 0 0 4px rgba(20, 184, 166, 0.5);
+  }
+  ```
+
+* Exception path / human-defined intervention (amber “LED”):
+
+  ```css
+  .PolicyChip--exception .PolicyChip-statusDot {
+    background-color: var(--color-accent-human); /* #D97706 */
+    box-shadow:
+      inset 1px 1px 2px rgba(255, 255, 255, 0.4),   /* metallic shine */
+      inset -1px -1px 2px rgba(0, 0, 0, 0.2),       /* depth */
+      0 0 0 1px rgba(0, 0, 0, 0.5),                 /* dark ring */
+      0 0 4px rgba(245, 158, 11, 0.5);             /* soft glow */
+  }
+  ```
+
+* Breach / disabled (red):
+
+  ```css
+  .PolicyChip--breach .PolicyChip-statusDot {
+    background-color: var(--color-error);
+    box-shadow: 0 0 4px rgba(239, 68, 68, 0.7);
+  }
+  ```
+
+**Motion**
+
+Apply subtle “breathing” to exception chips only:
+
+```css
+@keyframes chipPulse {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.03); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .PolicyChip--exception .PolicyChip-statusDot {
+    animation: chipPulse 4s ease-in-out infinite;
+  }
+}
+```
+
+Semantics:
+
+* Use **amber** not for “all human stuff”, but specifically for **exception handling or escalation paths**—places where your policy explicitly requires a human decision.
+
+### 3.4 ChipsRow (Horizontal Row)
+
+Used for mobile display of chips, and where horizontal layout makes sense.
+
+```css
+.ChipsRow {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ChipsRow > .PolicyChip {
+  scroll-snap-align: start;
+}
+```
+
+* No auto-scroll loop on mobile.
+* On desktop, we can optionally use a static layout or a gentle horizontal scroll (no autoplay).
+
+### 3.5 ConsolePanel
+
+A compact dashboard cluster.
+
+```css
+.ConsolePanel {
+  background-color: var(--color-surface-1);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.ConsolePanel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ConsolePanel-metrics {
+  display: flex;
+  gap: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+```
+
+Usage: hero, ventures, governance.
+
+### 3.6 Buttons
+
+```css
+.Button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, transform 80ms ease;
+}
+
+.Button--primary {
+  background: var(--color-accent);
+  color: #0f172a;
+}
+
+.Button--primary:hover {
+  background: var(--color-accent-soft);
+}
+
+.Button--secondary {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border-subtle);
+}
+
+.Button--ghost {
+  background: transparent;
+  color: var(--color-text-muted);
+  border-color: transparent;
+}
+```
+
+All buttons must include focus styles:
+
+```css
+.Button:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+```
+
+### 3.7 Forms
+
+* Use simple, full-width inputs with clear labels.
+* Inputs:
+
+```css
+.Input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-subtle);
+  background-color: var(--color-surface-1);
+  color: var(--color-text);
+}
+
+.Input:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+```
+
+---
+
+## 4. Motion Guidelines
+
+* Default animation duration: 150–250ms.
+* Use **ease-out** for most button/hover transitions.
+* Use **longer (4s) pulses** for telemetry/LED effects.
+* Respect `prefers-reduced-motion`:
+
+  * Turn off animations (pulses, transitions) except essential focus/fade.
+
+Avoid:
+
+* Large parallax
+* Constant bouncing or sliding
+* Flashing elements
+
+---
+
+## 5. Illustrations & Imagery
+
+* **Style**: Abstract, structural, and grounded in **flows and hardware-like shapes**.
+
+  * Think: simplified racks, nodes, cables, ladders, rails—not brains or glowing silhouettes.
+* Avoid:
+
+  * Stock “AI brain” visuals.
+  * People shaking hands over holograms.
+* Provide:
+
+  * Clear alt text (e.g., “Diagram of treasury flows through governed rails.”).
+
+---
+
+## 6. Accessibility
+
+* Color contrast:
+
+  * Validate all text & UI against background colors.
+  * Don’t rely solely on color for chip states; pair with icons or labels (“Limit”, “Exception”).
+* Keyboard:
+
+  * Ensure header nav, chips, buttons, and sliders are all keyboard reachable.
+* Tooltips:
+
+  * Implement tooltips with ARIA attributes (`aria-describedby`, `role="tooltip"`) and trap focus appropriately.
+* Mobile chip explanations:
+
+  * Use a non-blocking toast pattern for chip details instead of tiny overlays near the thumb.
+
+---
+
+## 7. Implementation Notes for Designers & Developers
+
+* Use the tokens as the single source of truth. Do not hard-code hex values in components.
+* Keep radius and shape consistent between pages; use borders and type to signal “risk mode,” not different roundedness.
+* Maintain **depth**:
+
+  * `--color-bg` for the canvas.
+  * `--color-surface-1` for most panels.
+  * `--color-surface-2` and stronger shadows for emphasis.
+* Test on low-end displays:
+
+  * Ensure amber accents and subtle borders are still visible.
+* Always test:
+
+  * Dark mode contrast.
+  * Reduced motion behavior.
+  * Focus order and outlines.
+
+This doc defines the visual language; pair it with IA (02) and Copy Spec (04) when designing or reviewing UI work.
+
+````
+
+```markdown
+<!-- 04-copy-spec-and-page-content.md -->
+
+# VSG Marketing Site · Copy Spec & Page Content
+
+> **Purpose of this doc**  
+> Provide concrete, ready-to-use copy for all major pages. Product and brand can tweak details, but this is the base version to build from.
+
+Tone: calm, precise, human. No hype, no guarantees, no investment advice.
+
+---
+
+## 1. Home (`/`)
+
+### 1.1 Hero
+
+**Eyebrow**
+
+> AI-native finance R&D studio
+
+**H1**
+
+> Implement the future—without losing control.
+
+**Subhead**
+
+> Verified Systems Group (VSG) designs and runs governed rails for identity, treasury, and liquidity. AI agents and institutions can move value at machine speed—inside human-defined limits.
+
+**Primary CTA**
+
+> Explore the studio
+
+**Secondary CTA**
+
+> See the ventures
+
+**Console (right-side block)**
+
+Example PolicyChips (text only; visuals defined in design doc):
+
+- Label: `LTV ceiling`  
+  Value: `50%`  
+  Meta: `System-enforced limit`
+
+- Label: `Exception path`  
+  Value: `Manual sign-off`  
+  Meta: `Your authorized keyholders`
+
+- Label: `PII stored`  
+  Value: `0`  
+  Meta: `Privacy by design`
+
+- Metric text below chips:
+
+  > System latency: 14 ms  
+  > Exceptions last 24h: 0
+
+(Values are illustrative; can be static or drawn from a simple heartbeat API.)
+
+---
+
+### 1.2 Who We’re For
+
+**Section title**
+
+> Who we’re for
+
+**Intro sentence**
+
+> We work with teams who need AI-native finance to be explainable, governable, and ready for scrutiny.
+
+3 cards:
+
+**Card 1 — Regulated institutions**
+
+- Title: Regulated institutions
+- Body:  
+  > Banks, fintechs, and corporates that want AI-driven products and treasury flows—with governance built in from day one.
+- Link: “See how we work” → `/studio`
+
+**Card 2 — Protocols & networks**
+
+- Title: Protocols & networks
+- Body:  
+  > Core teams and foundations that want Sybil-resistant participation, governed treasuries, and healthier on-chain markets.
+- Link: “Explore Helios & Uniqueness Engine” → `/ventures`
+
+**Card 3 — Builders & teams**
+
+- Title: Builders & teams
+- Body:  
+  > Product and engineering teams that want ready-to-plug rails for identity, risk, and liquidity—so they can focus on users.
+- Link: “See the ventures” → `/ventures`
+
+---
+
+### 1.3 Ventures Spotlight
+
+**Section title**
+
+> Ventures on governed rails
+
+**Intro**
+
+> We incubate and operate ventures on a shared governance backbone.
+
+**Card content**
+
+**Uniqueness Engine**
+
+- Tag: Identity & Sybil resistance
+- One-liner:  
+  > Fair access and Sybil resistance, without identity mining.
+- CTA: “View Uniqueness Engine” → `/ventures/uniqueness-engine`
+
+**Helios**
+
+- Tag: Treasury & market health
+- One-liner:  
+  > Treasury that earns within defined limits, with protocol and market health in view.
+- CTA: “View Helios” → `/ventures/helios`
+
+**VSG Liquidity Engine**
+
+- Tag: Liquidity for long-term holders
+- One-liner:  
+  > Liquidity without forced selling, under limits you can explain.
+- CTA: “View Liquidity Engine” → `/ventures/liquidity-engine`
+
+---
+
+### 1.4 Why VSG
+
+**Section title**
+
+> Why VSG
+
+3 bullets (or cards):
+
+1. **Governance as code**  
+   > We start with your policies and risk limits, then encode them as rails. Every decision path is explicit and auditable.
+
+2. **Agent-ready primitives**  
+   > Our ventures are built for AI agents from day one—so automated flows stay inside human-defined bounds.
+
+3. **Shared backbone, faster reviews**  
+   > Security, GRC, and observability are shared across ventures, helping you pass reviews faster with less duplication.
+
+---
+
+### 1.5 Governance Preview
+
+**Section title**
+
+> Governance, in the open
+
+**Body**
+
+> We treat governance as a first-class product. The /governance page explains how our rails enforce policy, how we handle exceptions, and how we change the rules over time.
+
+**CTA**
+
+> See governance & change log → `/governance`
+
+---
+
+### 1.6 Insights Preview
+
+**Section title**
+
+> Insights
+
+**Body**
+
+> Occasionally, we publish short, practical notes on AI-native finance, governance, and market health.
+
+Example article titles (placeholders; can be replaced with real posts):
+
+- “Sybil resistance without identity mining”
+- “Designing LTV ladders that won’t cascade your market”
+- “What ‘human-defined, system-enforced’ actually looks like”
+
+**CTA**
+
+> View all insights → `/insights`
+
+---
+
+### 1.7 Footer
+
+Add standard nav as per IA.  
+Add small line:
+
+> Governance page last updated: [date]
+
+---
+
+## 2. Studio (`/studio`)
+
+### 2.1 Hero
+
+**Eyebrow**
+
+> How VSG works
+
+**H1**
+
+> A studio for AI-native finance, built on governed rails.
+
+**Body**
+
+> We design, prove, and scale finance primitives for an economy where AI agents and institutions transact together. Governance isn’t an afterthought—it’s the backbone.
+
+---
+
+### 2.2 Purpose · Vision · Mission
+
+Format as three short blocks.
+
+**Purpose**
+
+> Help people, institutions, and networks thrive in an AI-native economy in ways that are simple to adopt, safe to operate, and fair to everyone involved.
+
+**Vision**
+
+> Money, identity, and AI agents interoperate safely across networks; markets run on clear rules, strong safeguards, and human choice, so growth never trades off privacy or control.
+
+**Mission**
+
+> Design, prove, and scale AI- and agent-ready finance primitives—first inside VSG, then as independent ventures and partner deployments—under the discipline of a large institution.
+
+---
+
+### 2.3 How We Work
+
+**Section title**
+
+> How we work
+
+3 steps:
+
+1. **Discover & define**  
+   > We map real constraints: regulation, protocol rules, risk appetite, and user goals. Then we define the policies and limits the rails must enforce.
+
+2. **Prove with real stakes**  
+   > We test primitives in live or live-like environments, with real money, real agents, and real guardrails. We measure abuse, exceptions, and market health.
+
+3. **Scale through ventures & partners**  
+   > When the rails are proven, we scale them through VSG ventures and partner deployments—keeping governance consistent as we grow.
+
+---
+
+### 2.4 Values in Practice
+
+**Section title**
+
+> What we optimize for
+
+Show 4–6 values with “in practice” snippets, pulled from Brand Foundations.
+
+Example:
+
+**Trust foundations**
+
+> Security, privacy, and fairness are designed in from day one—not bolted on after launch.
+
+**Evidence over claims**
+
+> We’d rather show you exception and abuse numbers than hype. If we can’t measure it, we don’t market it.
+
+**Velocity with guardrails**
+
+> We ship in slices, with canaries and rollbacks. Speed is fine; uncontrolled risk is not.
+
+**Agents, governed**
+
+> AI agents can move at millisecond speed inside human-defined bounds. Exceptions route to your keyholders, not to a black box.
+
+---
+
+### 2.5 Quiet Education
+
+**Section title**
+
+> Quiet education
+
+**Body**
+
+> We’re not an education company. But we know governance is hard to explain.  
+>  
+> Instead of courses and keynotes, we provide:
+> 
+> - Clear documentation and examples
+> - Reference implementations like Stackme
+> - Patterns you can adapt to your own surfaces and risk models
+
+CTA:
+
+> Ask us about reference patterns → `/contact`
+
+---
+
+## 3. Ventures Index (`/ventures`)
+
+### 3.1 Hero
+
+**Eyebrow**
+
+> Ventures
+
+**H1**
+
+> Ventures on shared, governed rails.
+
+**Body**
+
+> VSG incubates and operates ventures that share a common governance backbone. Each solves a different problem—identity, treasury, liquidity—but they all run on the same principles.
+
+---
+
+### 3.2 Shared Backbone
+
+Short list:
+
+- Security & key management
+- Policy engine and limit ladders
+- Observability and exception routing
+- Governance documentation and change logs
+
+---
+
+### 3.3 Venture Cards
+
+Repeat the card content from Home, with a bit more copy per venture:
+
+**Uniqueness Engine**
+
+> A Sybil-resistance and fair-access primitive for AI-native finance.  
+>  
+> Use it to stop duplicate signups and scripted abuse without harvesting identity data.
+
+**Helios**
+
+> A governed on-chain treasury for protocols and institutions.  
+>  
+> Use it to keep capital productive—with policy-defined ladders, not “all-in” bets.
+
+**VSG Liquidity Engine**
+
+> Liquidity rails for long-term holders, under clear risk limits.  
+>  
+> Use it to give users access to liquidity without forcing sales at the worst possible time.
+
+Each with “View [venture]” CTAs.
+
+---
+
+## 4. Venture Detail Pages
+
+### 4.1 Uniqueness Engine (`/ventures/uniqueness-engine`)
+
+**Eyebrow**
+
+> Identity & Sybil resistance
+
+**H1**
+
+> Uniqueness Engine
+
+**Subhead**
+
+> Fair access and Sybil resistance, without identity mining.
+
+**Intro paragraph**
+
+> Uniqueness Engine gives you a way to say “one entity, one slot” in AI-native finance—without turning every interaction into a data grab. It helps keep bots, farms, and duplicate entities from dominating your systems.
+
+**Problem → Solution**
+
+- Problem:
+  > Traditional KYC and device fingerprinting are invasive, brittle, and easy to route around. Without a better primitive, incentives are either wide-open or suffocating.
+
+- Solution:
+  > Uniqueness Engine gives you a reusable “one-entity” signal and policy interface you can apply across products and agents, without needing to mine identity or store more PII.
+
+**Example PolicyChips**
+
+- `Sybil limit · 1 entity / person · System-enforced`
+- `PII retained · 0 identifiers · Privacy by design`
+- `Exception path · Manual review allowed · Your policy`
+
+**Outcomes (bullets)**
+
+- Cleaner participation in trials, rewards, and airdrops.
+- Less bot-driven abuse and farmed rewards.
+- Fairer systems for real users and real agents.
+
+**FAQ sample**
+
+- *Does this replace our existing KYC?*  
+  > No. Uniqueness Engine is a primitive you can combine with your existing KYC and risk stack. It helps you reason about “one entity” without dictating how you verify identity.
+
+- *Do you store personal data?*  
+  > The design assumes minimal PII. Where data is required, we strive to avoid storing more than is strictly necessary and keep sensitive identity data within your own stack.
+
+---
+
+### 4.2 Helios (`/ventures/helios`)
+
+**Eyebrow**
+
+> Treasury & market health
+
+**H1**
+
+> Helios
+
+**Subhead**
+
+> Treasury that earns within defined limits, with protocol and market health in view.
+
+**Intro**
+
+> Helios is a governed on-chain treasury and liquidity rail. It helps protocols and institutions deploy capital with clear policy ladders, controlled leverage, and a constant eye on market health.
+
+**Problem → Solution**
+
+- Problem:
+  > Treasuries either sit idle or get over-exposed. Under stress, cascades and forced liquidations can damage both your organization and your market.
+
+- Solution:
+  > Helios encodes policy ladders, LTV ceilings, and exception paths into the rail itself. You get productive capital that respects your risk appetite and supports protocol and market health.
+
+**Example PolicyChips**
+
+- `LTV ceiling · 50% · System-enforced limit`
+- `Market health guardrail · Active · Monitors drawdowns`
+- `Exception ladder · Board / council sign-off · Your process`
+
+**Outcomes**
+
+- Defined, explainable risk parameters instead of ad-hoc decisions.
+- Fewer surprises for treasurers, councils, and communities.
+- Treasury strategies that aim to protect both your balance sheet and your markets.
+
+**FAQ sample**
+
+- *Who sets the limits?*  
+  > You do. We help design the rails and encode the logic, but your governance sets the policies, thresholds, and exception flows.
+
+- *Do you take custody of funds?*  
+  > No. Helios is built to work with non-custodial, multi-signer setups. You keep control of your keys and signers.
+
+---
+
+### 4.3 VSG Liquidity Engine (`/ventures/liquidity-engine`)
+
+**Eyebrow**
+
+> Liquidity for long-term holders
+
+**H1**
+
+> VSG Liquidity Engine
+
+**Subhead**
+
+> Liquidity without forced selling, under limits you can explain.
+
+**Intro**
+
+> VSG Liquidity Engine lets long-term holders access liquidity while they keep their positions. It encodes conservative limits and exception paths into the rail, so you can explain exactly how risk is controlled.
+
+**Problem → Solution**
+
+- Problem:
+  > When users need cash, they often sell at the worst possible moment—hurting both themselves and the market. Unbounded leverage can be even worse.
+
+- Solution:
+  > Liquidity Engine enforces conservative loan-to-value limits, liquidation paths, and exception rules in code. It provides liquidity with guardrails, not guesswork.
+
+**Example PolicyChips**
+
+- `Max LTV · 50% · System-enforced`
+- `Liquidation ladder · 3 steps · Pre-defined in policy`
+- `Exception path · Human sign-off · Your keyholders`
+
+**Reference implementation**
+
+> **See it in action**  
+> Stackme is our live reference implementation of the Liquidity Engine. It shows how eligibility checks, limit ladders, and warnings can surface in a consumer-grade experience.  
+>  
+> In production, the Liquidity Engine can be surfaced under your own brand and UX. Stackme is an example, not the only pattern.
+
+**Outcomes**
+
+- Users can access liquidity without forced selling.
+- Your risk team can see, explain, and adjust limits.
+- Markets see less forced unwind at the worst possible times.
+
+**FAQ sample**
+
+- *Is Stackme the product we have to use?*  
+  > No. Stackme is a reference implementation. The underlying Liquidity Engine can power your own surfaces and products.
+
+- *Who approves exceptions?*  
+  > Your policy determines who approves exceptions. VSG provides the gavel and the path; your authorized decision-makers use it.
+
+---
+
+## 5. Governance (`/governance`)
+
+### 5.1 Hero
+
+**Eyebrow**
+
+> Governance
+
+**H1**
+
+> Governance as code, not a checkbox.
+
+**Subhead**
+
+> We encode policies, limits, and exception paths into the rails themselves—or we don’t ship. This page explains how that works and how we change it.
+
+---
+
+### 5.2 Why Governance
+
+Short paragraph:
+
+> AI-native finance raises the stakes. Agents can move value at millisecond speed. Without clear limits and veto paths, mistakes scale faster than humans can react. VSG exists to make those limits explicit, enforceable, and inspectable.
+
+---
+
+### 5.3 Principles
+
+List 4–6 principles. Example:
+
+1. **Explicit policies**  
+   > Every rail we ship ties back to explicit policies—who can do what, under which limits, and what counts as an exception.
+
+2. **Human-defined, system-enforced**  
+   > Your risk, treasury, and governance teams define the rules. Our rails enforce them in code and route exceptions down your chosen paths.
+
+3. **Traceable and reversible where it matters**  
+   > We design so that critical actions can be traced back and, where appropriate, reversed or unwound through defined procedures.
+
+4. **Least necessary data**  
+   > We minimize the data we collect and store. Where possible, we use non-identifying signals instead of full identity.
+
+5. **Transparent change**  
+   > Material changes to how rails enforce policy are documented and time-stamped. There are no silent rule changes.
+
+---
+
+### 5.4 Governance Simulator (copy skeleton)
+
+**Section title**
+
+> See how limits change the risk profile
+
+**Body**
+
+> This simple simulator helps illustrate how policy choices—like LTV ceilings—affect exception volume and liquidation risk. It’s not a predictor; it’s a way to reason about trade-offs.
+
+**Example slider labels and copy**
+
+- Label: `LTV ceiling`  
+- Values: e.g., 30% / 50% / 70%  
+- Copy under slider (dynamic text):
+
+  - At 30%: “Conservative. Fewer exceptions, low liquidation risk, lower available liquidity.”
+  - At 50%: “Balanced. Some exceptions in stress, controlled liquidation risk.”
+  - At 70%: “Aggressive. Higher exception volume and increased chance of forced liquidations in stress.”
+
+---
+
+### 5.5 Governance Change Log (public)
+
+**Section title**
+
+> Governance change log
+
+**Intro copy**
+
+> We maintain a public summary of material updates to the policies and mechanisms that govern our rails. This is a human-readable record of changes that matter to partners and stakeholders.
+
+**Safe harbor note**
+
+> *Note: This public change log summarizes material updates for awareness. It is not an exhaustive legal record of every operational commit or minor policy tweak. Formal audit logs are maintained internally.*
+
+**Example entries**
+
+Use reverse chronological order. Example:
+
+- `2025-11-01 · v1.0`  
+  > Initial publication of governance principles, simulator, and change log.
+
+Future entries can be added with similar format.
+
+---
+
+### 5.6 Legal / Disclaimers
+
+Short bullets:
+
+- VSG does not provide investment, legal, or tax advice.
+- VSG does not take discretionary control of client funds.
+- VSG provides rails and governance mechanisms; partners provide policies and human decision-makers.
+
+---
+
+## 6. Insights (`/insights` & `/insights/[slug]`)
+
+### 6.1 Listing (`/insights`)
+
+**Eyebrow**
+
+> Insights
+
+**H1**
+
+> Practical notes on AI-native finance and governance.
+
+**Body**
+
+> We publish occasionally, when we have something useful to add. No hot takes, just patterns and lessons from building governed rails.
+
+**Empty state text (if no posts yet)**
+
+> We’re currently focused on building. Insights will appear here once we’re ready to share patterns that hold up in the real world.
+
+---
+
+### 6.2 Article detail (`/insights/[slug]`)
+
+Template:
+
+- Title
+- Dateline: “Published [Month DD, YYYY]”
+- Optional subtitle
+- Body
+- Disclaimer at bottom:
+
+  > Nothing in this article is investment, legal, or tax advice. It describes how we think about designing governed rails, not what you should do with your capital.
+
+---
+
+## 7. Careers (`/careers`)
+
+### 7.1 Hero
+
+**Eyebrow**
+
+> Careers
+
+**H1**
+
+> Help design rails for AI-native finance.
+
+**Body**
+
+> We’re a small studio building primitives for a new era of finance. If you care about systems, governance, and real-world impact more than hype, you’ll probably fit in here.
+
+---
+
+### 7.2 Why work at VSG
+
+3 bullets:
+
+- **Real stakes**  
+  > We work with live systems, not toy demos. The rails we build touch real capital and real risk.
+
+- **Governance-first culture**  
+  > We debate trade-offs in the open and document our decisions. “Because we said so” is not an argument.
+
+- **Calm, focused environment**  
+  > We prefer depth over noise. No social-media heroics, just hard problems and thoughtful execution.
+
+---
+
+### 7.3 Open Roles
+
+For each role:
+
+- Title
+- Location / Remote
+- Short description
+- CTA: “View role” or “Apply”
+
+General application block:
+
+> Don’t see your role?  
+> If you think you can meaningfully improve how we design, build, or prove governed rails, we still want to hear from you.
+
+CTA: “Send a general application” → anchor to form or mailto.
+
+---
+
+## 8. Partners (`/partners`)
+
+### 8.1 Hero
+
+**Eyebrow**
+
+> Partners
+
+**H1**
+
+> Bring governed rails into your stack.
+
+**Body**
+
+> We partner with institutions, protocols, and integrators who want to bring AI-native finance to production, not just to slides. We provide the rails; you bring the policies, users, and surfaces.
+
+---
+
+### 8.2 How partnerships work
+
+3 steps:
+
+1. **Map constraints**  
+   > We work with your risk, legal, and product teams to understand your policies, obligations, and goals.
+
+2. **Design and prove rails**  
+   > We co-design the rails, run them in defined environments, and measure outcomes against your risk appetite.
+
+3. **Scale and support**  
+   > We help you roll out governed rails to production and adapt them as your requirements evolve.
+
+CTA:
+
+> Talk to us about a partnership → `/contact` (with topic preselected).
+
+---
+
+## 9. Contact (`/contact`)
+
+### 9.1 Hero
+
+**Eyebrow**
+
+> Contact
+
+**H1**
+
+> Talk to the studio.
+
+**Body**
+
+> Use this form to start a conversation about pilots, partnerships, or questions that aren’t answered elsewhere on the site.
+
+---
+
+### 9.2 Form Labels
+
+- Name
+- Email
+- Organization
+- Role
+- Topic (select: “Pilot / POC”, “Partnership”, “Media / Speaking”, “Other”)
+- Message
+- Consent checkbox (optional): “You may contact me with occasional updates about VSG’s work.”
+
+**Success message**
+
+> Thank you.  
+> We’ve received your message and will respond if it’s a clear fit for the studio.
+
+---
+
+## 10. Status (`/status`)
+
+### 10.1 Hero
+
+**Eyebrow**
+
+> System status
+
+**H1**
+
+> Current status of VSG rails.
+
+**Body**
+
+> This page reflects the current status of our core platform and ventures. It’s updated from an external status source so it can be changed quickly during an incident.
+
+---
+
+### 10.2 Section copy (example)
+
+Overall banner:
+
+- If all green:  
+  > All systems operational.
+
+- If partial:  
+  > Some systems are experiencing issues. See details below.
+
+For each component:
+
+- VSG platform: “Operational / Degraded / Partial outage”
+- Uniqueness Engine: “Operational / Under maintenance”
+- Helios: “Operational / Limited functionality”
+- Liquidity Engine: “Operational / Pilot only / Under maintenance”
+
+Note at bottom:
+
+> For full incident history and more detailed updates, visit our dedicated status page at status.vsg.[tld].
+
+---
+
+## 11. 404 and 500
+
+### 11.1 404
+
+**H1**
+
+> This page didn’t pass review.
+
+**Body**
+
+> The resource you’re looking for doesn’t exist, has moved, or never made it past our governance checks.
+
+Buttons:
+
+- “Back to home” → `/`
+- “See all ventures” → `/ventures`
+
+### 11.2 500
+
+**H1**
+
+> Something broke on our side.
+
+**Body**
+
+> We’ve logged the issue and will investigate. If you were in the middle of discussing a pilot or partnership, you can reach us directly at [contact email].
+
+Button: “Back to home” → `/`
+
+---
+
+This spec should be kept in sync with the Brand Foundations (01) and the Design System (03). Any new page or major copy change should be checked against those first.
+````
+
+````markdown
+<!-- 05-dev-build-and-ops-brief.md -->
+
+# VSG Marketing Site · Dev Build & Ops Brief
+
+> **Purpose of this doc**  
+> Give engineering a clear, unambiguous specification for how to build, deploy, and operate the VSG marketing site so it stays fast, reliable, and easy to maintain.
+
+---
+
+## 1. Goals
+
+- Fast, resilient marketing site that reflects VSG’s governance ethos.
+- Minimal operational burden; small team can maintain it.
+- No hidden dynamic behavior that could break under load.
+- Clear integration points for status, forms, analytics, and future docs.
+
+---
+
+## 2. Tech Stack
+
+- **Framework**: Next.js 14+ (App Router)
+- **Language**: TypeScript (strict mode)
+- **Runtime**: Node.js LTS, with support for edge runtimes where appropriate
+- **Styling**:
+  - Tailwind **or** CSS Modules — must use central design tokens from `tokens.css`
+- **State management**: React hooks and context only (no heavy state libraries)
+- **Testing**:
+  - Unit: Vitest or Jest
+  - E2E: Playwright
+- **Package manager**: pnpm (preferred) or yarn
+
+---
+
+## 3. Repo Structure & Monorepo
+
+Use a monorepo layout (e.g., Turborepo):
+
+```txt
+apps/
+  web-vsg/          # This site
+  web-[future]/     # Placeholder for future venture sites (e.g., Mono, etc.)
+
+packages/
+  ui/               # Shared components (Panel, PolicyChip, ConsolePanel, etc.)
+  design-tokens/    # The CSS token definitions from 03-design-system
+  config/           # Shared config & types (routes, status endpoints)
+````
+
+* **apps/web-vsg** should import components and tokens from `packages/ui` and `packages/design-tokens`.
+* This makes it easy to spin out dedicated venture sites later with a consistent look.
+
+---
+
+## 4. Content Management Strategy
+
+We want a **hybrid static + light CMS** approach:
+
+### 4.1 Static / Hard-coded Routes
+
+* `/`
+* `/studio`
+* `/ventures`
+* `/ventures/uniqueness-engine`
+* `/ventures/helios`
+* `/ventures/liquidity-engine`
+* `/governance`
+* `/partners`
+* `/contact`
+* `/status` (layout is static; data is dynamic)
+* `/404`, `/500`
+* `/legal/*`
+
+Implementation: React JSX + MDX where convenient. Content can live in `content/` and be imported as MDX to keep copy editable without CMS.
+
+### 4.2 Dynamic via CMS or MDX
+
+* `/insights` and `/insights/[slug]`
+* `/careers` (optional; can also be static with manual edits)
+
+Preferred approach:
+
+* Use **MDX files** in `content/insights/` and `content/careers/` for v1.
+* If/when content volume increases, we can introduce a headless CMS (Sanity, etc.) and map the same structures via API.
+
+---
+
+## 5. Routing Details
+
+Use App Router with file-based structure in `app/`:
+
+```txt
+app/
+  page.tsx                    # /
+  studio/page.tsx             # /studio
+  ventures/page.tsx           # /ventures
+  ventures/uniqueness-engine/page.tsx
+  ventures/helios/page.tsx
+  ventures/liquidity-engine/page.tsx
+  governance/page.tsx
+  insights/page.tsx
+  insights/[slug]/page.tsx
+  careers/page.tsx
+  partners/page.tsx
+  contact/page.tsx
+  status/page.tsx
+  docs/page.tsx
+  not-found.tsx               # /404
+  error.tsx                   # /500
+  legal/terms/page.tsx
+  legal/privacy/page.tsx
+```
+
+---
+
+## 6. Forms & API Routes
+
+### 6.1 Contact Form
+
+* Frontend: `/contact` page with form.
+* Backend: API route `app/api/contact/route.ts`.
+
+Behavior:
+
+1. Validate inputs server-side (name, email, org, role, topic, message).
+2. Rate-limit by IP (e.g., via middleware).
+3. Send email via provider (SendGrid, Postmark, SES).
+4. Log to analytics as `lead_submit` with `topic` property.
+
+Security:
+
+* No file uploads in v1.
+* Use a hidden honeypot field to catch bots.
+* Optionally integrate a lightweight captcha (Cloudflare Turnstile / reCAPTCHA v3).
+
+### 6.2 Careers Form
+
+Options:
+
+* For early stage, roles can link to mailto: addresses or external ATS.
+* If form is handled locally, mirror the contact form pattern with a separate API route `app/api/careers/route.ts`.
+
+---
+
+## 7. Analytics & Event Taxonomy
+
+Use a **privacy-respecting** analytics tool (e.g., Plausible or Fathom). Google Analytics can be used if required but should stay minimal and with IP anonymization.
+
+Track these custom events:
+
+| Event name             | Trigger                            | Properties                                   |
+| ---------------------- | ---------------------------------- | -------------------------------------------- |
+| `venture_view`         | User views a venture detail page   | `slug` (`uniqueness`, `helios`, `liquidity`) |
+| `lead_submit`          | Successful contact form submission | `topic`, `role`                              |
+| `policy_chip_interact` | User hovers/taps a PolicyChip      | `policy_id`, `status_type`                   |
+| `ticker_swipe`         | User horizontally swipes ChipsRow  | `direction`, `chip_count`                    |
+| `outbound_click`       | User clicks external link          | `url`, `label`                               |
+| `status_view`          | User views /status                 | `overall_state` (OK/DEGRADED/etc.)           |
+
+Implementation:
+
+* Wrap main app with an Analytics provider.
+* Use a small event helper to standardize event names and properties.
+
+---
+
+## 8. SEO & Meta
+
+### 8.1 Global
+
+* Title template: `{pageTitle} | Verified Systems Group`
+
+* Default description:
+
+  > Verified Systems Group (VSG) is an AI-native finance R&D studio. We design and operate governed rails for identity, treasury, and liquidity—so AI agents and institutions can move value at machine speed, inside human-defined limits.
+
+* OG image: `/public/images/og-default.png`
+
+  * Abstract control room / rails artwork.
+
+### 8.2 Sitemaps & Robots
+
+* Generate `sitemap.xml` automatically from routes.
+* `robots.txt`:
+
+  ```txt
+  User-agent: *
+  Allow: /
+
+  # Disallow future admin tools if any:
+  Disallow: /admin
+  ```
+
+---
+
+## 9. Status Page Implementation (`/status`)
+
+**Key requirement:** Updating status must **not** require a full site redeploy.
+
+### 9.1 Data Source
+
+* Use an external JSON source (e.g., S3, Vercel Edge Config, or similar).
+* Environment variable: `NEXT_PUBLIC_STATUS_URL` (e.g., `https://status-data.vsg.[tld]/status.json`).
+
+`status.json` shape example:
+
+```json
+{
+  "overall": "operational",
+  "lastUpdated": "2025-11-25T12:34:56Z",
+  "components": [
+    { "id": "platform", "name": "VSG platform", "status": "operational" },
+    { "id": "uniqueness", "name": "Uniqueness Engine", "status": "operational" },
+    { "id": "helios", "name": "Helios", "status": "degraded" },
+    { "id": "liquidity", "name": "VSG Liquidity Engine", "status": "pilot" }
+  ]
+}
+```
+
+### 9.2 Rendering
+
+* `/status/page.tsx` fetches `status.json` at **runtime** on the server or via edge function.
+
+* If fetch fails, show a neutral state:
+
+  > Status information is temporarily unavailable. Please check again shortly or visit status.vsg.[tld].
+
+* Map statuses to labels and colors:
+
+  * `operational` → green
+  * `degraded` → amber
+  * `partial_outage`, `outage` → red
+  * `pilot` → neutral/blue
+
+### 9.3 Status Subdomain
+
+* In addition to `/status`, set up `status.vsg.[tld]` pointing to a dedicated status provider or a minimal static site that can be updated by Ops without touching the marketing build.
+
+---
+
+## 10. Heartbeat API
+
+To support the “System latency” metric in the console:
+
+* Create `app/api/heartbeat/route.ts`.
+* Return an object like:
+
+```json
+{
+  "latencyMs": 14,
+  "timestamp": "2025-11-25T12:34:56Z"
+}
+```
+
+* Implementation: For v1, we can generate a random but bounded latency (e.g., between 10–25ms).
+* Frontend: Fetch on component mount and display; fallback to a static value if unavailable.
+
+---
+
+## 11. Security Practices
+
+* **HTTPS only** (enforced via hosting).
+
+* **Headers**:
+
+  * Strict-Transport-Security
+  * Content-Security-Policy (lock down script origins; allow analytics & fonts)
+  * X-Content-Type-Options: nosniff
+  * Referrer-Policy: strict-origin-when-cross-origin
+
+* **WAF & rate limiting**:
+
+  * Use platform WAF (e.g., Cloudflare / Vercel’s edge security) for `/api/*` and status endpoints.
+  * Basic rate-limits on form submissions and heartbeat.
+
+* **No secrets in frontend**:
+
+  * Use server-side environment variables for API keys.
+
+* **No file uploads** in v1:
+
+  * Avoid CVE surface for arbitrary data.
+
+---
+
+## 12. Performance Targets
+
+* Lighthouse:
+
+  * Performance ≥ 90
+  * Accessibility ≥ 90
+  * Best Practices ≥ 90
+  * SEO ≥ 90
+* Core Web Vitals:
+
+  * LCP < 2.5s
+  * CLS < 0.1
+  * FID / INP within “good” thresholds.
+
+Implementation hints:
+
+* Use `next/image` for images with appropriate `sizes`.
+* Use `next/script` for analytics with `strategy="afterInteractive"`.
+* Minimize bundle size:
+
+  * Tree-shake unused components.
+  * Avoid large client libraries.
+
+---
+
+## 13. CI/CD
+
+Use GitHub Actions or similar CI with these steps:
+
+1. Install deps (pnpm).
+2. Lint (`eslint .`).
+3. Type-check (`tsc --noEmit`).
+4. Unit tests (Vitest / Jest).
+5. E2E smoke tests on preview (Playwright).
+6. Build (`next build`).
+7. Deploy to hosting (Vercel, Netlify, etc.).
+
+CI should **fail** on:
+
+* Lint errors
+* Type errors
+* Failing tests
+
+---
+
+## 14. QA Checklist
+
+Before merging to main / deploying:
+
+* [ ] Navigation works on desktop & mobile.
+* [ ] Hero console renders correctly at common resolutions.
+* [ ] PolicyChips are readable and tappable on mobile.
+* [ ] Tooltips (desktop) and toasts (mobile) for chips function and are dismissible.
+* [ ] Contact form validates and submits correctly; invalid data shows helpful errors.
+* [ ] `/status` loads and handles missing/invalid data gracefully.
+* [ ] 404 and 500 pages render and include correct links.
+* [ ] Forms are protected against trivial spam (honeypot, etc.).
+* [ ] Accessibility check (screen reader, tab order, focus outlines).
+* [ ] Performance checked with Lighthouse in production build.
+
+---
+
+## 15. Environment Variables
+
+Document required env vars:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://vsg.[tld]
+NEXT_PUBLIC_ANALYTICS_ID=...
+NEXT_PUBLIC_STATUS_URL=https://status-data.vsg.[tld]/status.json
+
+EMAIL_API_KEY=...
+EMAIL_FROM=noreply@vsg.[tld]
+EMAIL_TO=partners@vsg.[tld]
+```
+
+No secrets should be hard-coded. Provide `.env.example` in repo.
+
+---
+
+This brief should be used alongside:
+
+* `01-brand-foundations-and-messaging.md`
+* `02-ux-ia-and-site-structure.md`
+* `03-design-system-and-components.md`
+* `04-copy-spec-and-page-content.md`
+* `06-governance-and-change-management.md`
+
+for any engineering planning, implementation, and review work.
+
+````
+
+```markdown
+<!-- 06-governance-and-change-management.md -->
+
+# VSG Marketing Site · Governance & Change Management
+
+> **Purpose of this doc**  
+> Define how we govern what the site claims, how we change it, and how we align it with our real-world rails and obligations.
+
+---
+
+## 1. Why This Matters
+
+The VSG site isn’t just a brochure—it’s part of our governance posture.  
+It must:
+
+- Accurately reflect how our rails work.
+- Avoid over-promising or implying obligations we don’t intend to assume.
+- Make it easy for regulators, auditors, and partners to see what changed and when.
+
+This doc ensures we stay aligned.
+
+---
+
+## 2. Scope & Boundaries
+
+### 2.1 What the Site Represents
+
+The site:
+
+- Describes **rails and governance mechanisms** we design and operate.
+- Explains our **principles**, not every implementation detail.
+- Communicates **current ventures** and their intended use cases.
+- Presents high-level **system status** and a summary governance **change log**.
+
+The site does **not**:
+
+- Provide investment, legal, or tax advice.
+- Promise specific yields, returns, or performance levels.
+- Represent a complete, real-time view of internal operations or telemetry.
+- Create a fiduciary duty for VSG to intervene in specific transactions or markets.
+
+### 2.2 VSG’s Role vs. Partner’s Role
+
+- **VSG provides**:
+  - Rails (code and infrastructure).
+  - Governance mechanisms (limits, exception paths, logs).
+  - Interfaces to express and enforce policies.
+
+- **Partners provide**:
+  - Policies (risk appetite, thresholds, who approves what).
+  - Authorized signers and decision-makers.
+  - Legal and regulatory responsibilities for their flows and products.
+
+Copy and visuals must reflect this split. Avoid language like “we approve your transactions”; prefer “the system enforces your review thresholds.”
+
+---
+
+## 3. Governance Principles for the Site
+
+Apply these principles to all site content:
+
+1. **Accuracy over aesthetics**  
+   - We’d rather say less than say something that’s not true across all deployments.
+
+2. **Human-defined, system-enforced**  
+   - Emphasize that humans define policies and exception paths; systems enforce them.
+   - Make clear that **partners’ humans**, not VSG staff, hold decision authority.
+
+3. **Material vs. minor changes**  
+   - Material changes to how rails behave or are governed should be captured in the public change log.
+   - Minor operational tweaks or implementation details can remain in internal logs.
+
+4. **No silent expansions of scope**  
+   - The site must not quietly expand what we appear to be responsible for (e.g., becoming the de facto reviewer or underwriter).
+
+5. **Open about limits**  
+   - Where something is in pilot, limited, or not yet generally available, say so.
+
+---
+
+## 4. Change Classification
+
+Every change to the site should be classified:
+
+### 4.1 Material Changes (Public Log + Internal Detail)
+
+Examples:
+
+- New venture launched or retired.
+- New categories of policies/limits enforced by a rail.
+- Changes to exception/veto paths.
+- Significant changes in how data is handled (e.g., new data types collected, changes to retention).
+
+Actions:
+
+- Update relevant pages (e.g., ventures, governance).
+- Add entry to public change log on `/governance`.
+- Add detailed internal change record (with links to code, tickets, approvals).
+
+### 4.2 Minor Changes (Internal Log Only)
+
+Examples:
+
+- Copy editing for clarity or tone.
+- Layout tweaks that don’t change meaning.
+- Additional examples that don’t imply new behavior.
+- Non-semantic code refactors.
+
+Actions:
+
+- No update to public change log required.
+- Internal logging recommended if change touches sensitive content, but not mandatory.
+
+---
+
+## 5. Public Governance Change Log
+
+Located on `/governance`.
+
+**Format**
+
+- Date (YYYY-MM-DD)
+- Version label (e.g., v1.0, v1.1)
+- Short description
+
+Example:
+
+- `2025-11-01 · v1.0`  
+  > Initial publication of governance principles, simulator, and change log.
+
+**Safe Harbor Note** *(must appear on the page)*
+
+> *This public change log summarizes material updates for stakeholder awareness. It is not an exhaustive legal record of every operational commit or minor policy tweak. Formal audit logs are maintained internally.*
+
+---
+
+## 6. Internal Logging & Audit Trail
+
+Internal logs (not public) should include:
+
+- Detailed description of what changed.
+- Which rails or ventures are affected.
+- Links to code commits, tickets, diagrams, or docs.
+- Approvals (who signed off).
+- Any risk or legal review notes.
+
+Minimum internal log for **material changes**:
+
+- Date & time
+- Author
+- Reviewer(s)
+- Summary of change
+- Impact assessment (e.g., “LTV ceiling lowered; risk reduced.”)
+
+These logs should live in a system agreed with Security/Engineering (e.g., a private repo, a governance tool, or an internal knowledge base).
+
+---
+
+## 7. Status Communications
+
+### 7.1 `/status` Page on Marketing Site
+
+Responsibilities:
+
+- Display the current status of:
+  - VSG platform
+  - Uniqueness Engine
+  - Helios
+  - VSG Liquidity Engine
+- Reflect the latest state from external `status.json`.
+- Make clear that `/status` is informational and not a real-time operational console.
+
+Copy must:
+
+- Avoid precise incident root-cause claims.
+- Defer to `status.vsg.[tld]` and incident channels for detailed context.
+
+Example note:
+
+> For full incident history and more detailed updates, visit our dedicated status page at status.vsg.[tld].
+
+### 7.2 External Status Page
+
+- `status.vsg.[tld]` can be powered by a dedicated status provider or a separate minimal app.
+- Must remain available even if the marketing site is degraded or undergoing a build.
+
+Governance:
+
+- Ops/Engineering owns updates to `status.json` and the external status page.
+- Marketing does not edit status during incidents.
+
+---
+
+## 8. Metrics & Claims Governance
+
+We must not publish metrics we cannot defend.
+
+**Allowed metrics**
+
+- Actual measured outcomes from pilots or production, where:
+  - Data collection method is documented.
+  - Sample size is sufficient.
+  - Time window is specified.
+  - Any caveats are clearly stated.
+
+Example (allowed):
+
+> In a recent pilot, abuse rates on a specific flow dropped by approximately 40%, compared to a prior baseline.
+
+**Disallowed metrics**
+
+- Vague global claims without scope (e.g., “We reduce fraud by 90%”).
+- Implied guarantees (e.g., “No more liquidations”).
+
+When in doubt:
+
+- Use qualitative language (“designed to reduce”, “aims to improve”) instead of numerical claims.
+- Or remove the claim until we have adequate data.
+
+Any metric added to the site should be recorded in an internal note referencing the underlying data.
+
+---
+
+## 9. Legal Disclaimers & Sensitive Areas
+
+Ensure the following messages are present where applicable:
+
+- On insights/posts and any educational content:
+  > Nothing on this site is investment, legal, or tax advice.
+
+- On ventures and rails:
+  > VSG provides rails and governance mechanisms. Partners define policies and make their own decisions about capital, risk, and compliance.
+
+- On treasury and liquidity ventures:
+  > All examples are illustrative. Actual outcomes depend on your policies, market conditions, and implementation.
+
+- On data/privacy:
+  > We minimize data collection and avoid storing sensitive identity information where possible. Specific deployments may involve additional data, governed by their own policies and agreements.
+
+---
+
+## 10. Legacy Domains & Redirects
+
+We have legacy naming (e.g., Stackme as a prior company/product name).
+
+Governance rules:
+
+- Any old domains that we control (e.g., stackme.[tld]) must:
+  - Redirect (301) to the appropriate VSG route, such as:
+    - `/ventures/liquidity-engine`
+    - or a dedicated Stackme reference page, if one exists.
+- We should not leave legacy marketing sites live without clear context—they may misrepresent our current positioning.
+
+Implementation:
+
+- Use Next.js `redirects()` or hosting-level rules (e.g., Cloudflare, Vercel) to map old URLs to new ones.
+- Document redirects in an internal list so we know what legacy names are still in play.
+
+---
+
+## 11. Review Cadence & Ownership
+
+### 11.1 Ownership
+
+- **Brand/Marketing**: Owns copy and visuals.
+- **Product**: Owns correctness of how ventures and rails are described.
+- **Legal/Risk**: Owns disclaimers, risky claims, and alignment with obligations.
+- **Engineering**: Owns `/status` integration and technical feasibility of communications.
+
+### 11.2 Cadence
+
+- **Quarterly review**:
+  - Check that:
+    - Ventures and features described match reality.
+    - Governance principles are up to date.
+    - Status integrations still work.
+    - No outdated references to deprecated names or products.
+
+- **Event-driven review**:
+  - After major incidents, governance changes, or new venture launches:
+    - Review relevant sections for needed updates.
+    - Decide whether a public change log entry is warranted.
+
+---
+
+## 12. Change Management Process (Checklist)
+
+Before merging any change that affects site meaning:
+
+1. **Identify change type** (material vs minor).
+2. **Confirm accuracy** with Product/Engineering.
+3. **Check for legal implications** (if:
+   - New claims about risk, compliance, or returns.
+   - New data handling explanations.
+   )
+4. **Update copy & visuals**.
+5. **Update `/governance` change log** if material.
+6. **Update internal logs** with details and approvals.
+7. **Deploy** through normal CI/CD.
+8. **Monitor** for misunderstandings (e.g., questions from partners, visitors).
+
+---
+
+This doc should be stored alongside the other five core docs and treated as part of the “governance layer” for VSG’s external presence. If there is ever a disagreement between marketing desires and governance principles, this doc wins until updated deliberately.
+::contentReference[oaicite:0]{index=0}
+````
