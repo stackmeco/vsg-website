@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { PageMeta } from "@/components/PageMeta";
 import { ProjectTile } from "@/components/ProjectTile";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
@@ -66,6 +67,10 @@ const projects = [
 export default function Pipeline() {
   return (
     <Layout>
+      <PageMeta 
+        title="Pipeline" 
+        description="Our R&D projects: Helios, stackme, Lumina, and Uniqueness Engine. All self-funded, none public yet." 
+      />
       <section className="py-20 lg:py-28" data-testid="section-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">

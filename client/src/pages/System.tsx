@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { PageMeta } from "@/components/PageMeta";
 import { ValueCard } from "@/components/ValueCard";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
@@ -44,6 +45,10 @@ const stages = [
 export default function System() {
   return (
     <Layout>
+      <PageMeta 
+        title="System" 
+        description="How Verified Systems works: Bitcoin treasury, governance, risk management, and our path from idea to Venture." 
+      />
       <section className="py-20 lg:py-28" data-testid="section-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">

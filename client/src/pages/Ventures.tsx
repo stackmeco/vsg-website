@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
+import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -16,6 +17,10 @@ const criteria = [
 export default function Ventures() {
   return (
     <Layout>
+      <PageMeta 
+        title="Ventures" 
+        description="Graduated projects from the Pipeline. None yet — we only ship what we'd trust with our own balance sheet." 
+      />
       <section className="py-20 lg:py-28" data-testid="section-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">

@@ -1,9 +1,14 @@
 import { Layout } from "@/components/Layout";
+import { PageMeta } from "@/components/PageMeta";
 import { ContactForm } from "@/components/ContactForm";
 
 export default function Contact() {
   return (
     <Layout>
+      <PageMeta 
+        title="Contact" 
+        description="Get in touch with Verified Systems. We're a two-founder studio and we read every message." 
+      />
       <section className="py-20 lg:py-28" data-testid="section-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">

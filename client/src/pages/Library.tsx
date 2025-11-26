@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
+import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -85,6 +86,10 @@ export default function Library() {
 
   return (
     <Layout>
+      <PageMeta 
+        title="Library" 
+        description="Notes, insights, and updates from Verified Systems. We publish when we have something useful to share." 
+      />
       <section className="py-20 lg:py-28" data-testid="section-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">

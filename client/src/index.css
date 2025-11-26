@@ -38,6 +38,8 @@
   --destructive-foreground: 0 0% 98%;
   --input: 217 33% 18%;
   --ring: 187 85% 53%;
+  --accent-warm: 38 92% 50%;
+  --accent-warm-foreground: 222 47% 11%;
   --chart-1: 187 85% 53%;
   --chart-2: 168 85% 40%;
   --chart-3: 142 69% 48%;
@@ -112,6 +114,8 @@
   --destructive-foreground: 0 0% 98%;
   --input: 217 33% 18%;
   --ring: 187 85% 53%;
+  --accent-warm: 38 92% 50%;
+  --accent-warm-foreground: 222 47% 11%;
   --chart-1: 187 85% 53%;
   --chart-2: 168 85% 40%;
   --chart-3: 142 69% 48%;
