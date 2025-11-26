@@ -121,7 +121,6 @@ export default function Overview() {
               <Link href="/pipeline">
                 <Button 
                   size="lg" 
-                  className="backdrop-blur-sm bg-primary/90 border border-primary/50 shadow-lg"
                   data-testid="button-see-pipeline"
                 >
                   See the Pipeline
@@ -132,7 +131,7 @@ export default function Overview() {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="backdrop-blur-md bg-background/30 border-foreground/20"
+                  className="backdrop-blur-md bg-background/40"
                   data-testid="button-how-we-work"
                 >
                   How we work

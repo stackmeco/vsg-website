@@ -23,7 +23,7 @@ const stages = [
   { 
     name: "Controlled Deployment", 
     focus: "Reliability",
-    description: "Zero-downtime delivery. We don't rely on a 'big bang' release. We utilize controlled rollout strategies, deploying features incrementally to ensure seamless performance under real-world loads." 
+    description: "We aim for zero-downtime with staged rollouts. No 'big bang' releases. Features deploy incrementally, validated under real-world loads before full release." 
   },
   { 
     name: "Data-Driven Evolution", 
@@ -103,13 +103,13 @@ export default function Pipeline() {
         </div>
       </section>
 
-      <section className="py-16 bg-card" data-testid="section-stages">
+      <section className="py-20 bg-card" data-testid="section-stages">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
               Precision Engineering. Proven Results.
             </p>
-            <h2 className="font-heading font-bold text-2xl text-foreground mb-4">
+            <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
               How we verify value at every step
             </h2>
             <p className="text-muted-foreground leading-relaxed">
@@ -121,7 +121,7 @@ export default function Pipeline() {
               <Card key={stage.name} className="bg-background border-border">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-3 mb-3">
-                    <span className="text-2xl font-mono text-primary font-bold">
+                    <span className="text-xl sm:text-2xl font-mono text-primary font-bold leading-none">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <div>
@@ -145,7 +145,7 @@ export default function Pipeline() {
 
       <section className="py-20" data-testid="section-projects">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-bold text-2xl text-foreground mb-8">
+          <h2 className="font-heading font-bold text-3xl text-foreground mb-8">
             Current Pipeline projects
           </h2>
           <div className="grid md:grid-cols-2 gap-6">

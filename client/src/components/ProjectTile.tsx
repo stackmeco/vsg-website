@@ -42,7 +42,11 @@ export function ProjectTile({ name, stage, stageVariant, description, exploring,
             </ul>
           </div>
         )}
-        <Link href={href} className="inline-flex items-center gap-1 text-sm text-primary hover:underline">
+        <Link 
+          href={href} 
+          className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+          data-testid={`link-project-${name.toLowerCase().replace(/\s+/g, "-")}`}
+        >
           Read more
           <ArrowRight className="w-3 h-3" />
         </Link>

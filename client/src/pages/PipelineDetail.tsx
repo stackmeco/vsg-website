@@ -159,9 +159,9 @@ export default function PipelineDetail() {
         </div>
       </section>
 
-      <section className="py-16 bg-card" data-testid="section-current-state">
+      <section className="py-20 bg-card" data-testid="section-current-state">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-bold text-2xl text-foreground mb-6">
+          <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
             Where it is now
           </h2>
           <ul className="space-y-3 max-w-2xl">
@@ -179,7 +179,7 @@ export default function PipelineDetail() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h2 className="font-heading font-bold text-2xl text-foreground mb-6">
+              <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
                 What we're exploring
               </h2>
               <ul className="space-y-3">
@@ -192,7 +192,7 @@ export default function PipelineDetail() {
               </ul>
             </div>
             <div>
-              <h2 className="font-heading font-bold text-2xl text-foreground mb-6">
+              <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
                 What's not happening yet
               </h2>
               <Card className="bg-card border-card-border">

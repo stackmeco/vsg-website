@@ -69,13 +69,13 @@ export default function System() {
         </div>
       </section>
 
-      <section className="py-16 bg-card" data-testid="section-definitions">
+      <section className="py-20 bg-card" data-testid="section-definitions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8">
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
               What we mean
             </p>
-            <h2 className="font-heading font-bold text-2xl text-foreground mb-4">
+            <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
               Terms we use, defined plainly
             </h2>
           </div>

@@ -23,7 +23,7 @@ const capitalControls = [
 ];
 
 const thingsWeWontDo = [
-  "No tokens sold to the public as investments",
+  "We do not offer or sell tokens as investments",
   "No opaque yield products where you can't inspect the mechanics",
   "No hidden rehypothecation of user assets",
   "No routing around sanctions, KYC/AML, or geofencing obligations",
@@ -428,10 +428,10 @@ export default function Governance() {
         </div>
       </section>
 
-      <section className="py-16 bg-card" data-testid="section-contact">
+      <section className="py-20 bg-card" data-testid="section-contact">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
-            <h2 className="font-heading font-bold text-2xl text-foreground mb-6">
+            <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
               Want to discuss governance?
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
