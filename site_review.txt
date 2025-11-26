@@ -25,265 +25,459 @@ STUDIO METRICS:
 THREE PILLARS: AI, Digital Assets, and Verifiable Systems
 
 ================================================================================
-SECTION 2: THE VSG DIRECTIVE
+SECTION 2: OVERVIEW PAGE - COMPLETE COPY
 ================================================================================
 
-PURPOSE: "Engineering Verifiable Systems"
-To engineer verifiable systems at the frontier of AI and Digital Assets. We enable the use of new forms of value without compromising ownership or control—reclaiming human attention for higher-value work.
+[HERO SECTION]
+Label: "Two-founder studio"
+Headline: "Engineering verifiable systems for intelligence and value."
+Body: "We engineer deterministic systems for Value and Intelligence — with our own capital on the line. Bitcoin verifies value; our AI verifies truth. Nothing launches until we'd trust it with our own balance sheet."
 
-VISION: "Compounding Productivity"
-A future where digital assets possess the clarity and durability of hard currency. We build for a reality where ownership is absolute, risks are visible, and systems compound human productivity rather than extract from it.
+Buttons: "See the Pipeline" | "How we work"
 
-MISSION: "Verification via Capital"
-To navigate the frontier of AI and digital assets with our own capital as the first customer. We learn in the open and graduate only the systems we have verified with our own balance sheet.
+Projects Label: "5 projects in flight:"
+Project Chips: Axiom, Helios, stackme, Lumina, Uniqueness Engine
+
+[STUDIO METRICS SIDEBAR]
+Label: "Studio metrics"
+- 5 Active projects (In R&D pipeline)
+- 2 Founders (Full ownership)
+- 100% Self-funded (BTC treasury backed)
+
+--------------------------------------------------------------------------------
+[THE VSG DIRECTIVE SECTION]
+Label: "The VSG Directive"
+
+Card 1 - PURPOSE:
+Title: "Engineering Verifiable Systems"
+Body: "To engineer verifiable systems at the frontier of AI and Digital Assets. We enable the use of new forms of value without compromising ownership or control—reclaiming human attention for higher-value work."
+
+Card 2 - VISION:
+Title: "Compounding Productivity"
+Body: "A future where digital assets possess the clarity and durability of hard currency. We build for a reality where ownership is absolute, risks are visible, and systems compound human productivity rather than extract from it."
+
+Card 3 - MISSION:
+Title: "Verification via Capital"
+Body: "To navigate the frontier of AI and digital assets with our own capital as the first customer. We learn in the open and graduate only the systems we have verified with our own balance sheet."
+
+--------------------------------------------------------------------------------
+[WHAT'S ON THE WORKBENCH SECTION]
+Label: "Current work"
+Headline: "What's on the workbench"
+Body: "Five projects in our Pipeline. Axiom is in prototype; Helios and stackme have technical architecture. None are live products yet."
+
+[Projects grid displays all 5 projects - see Section 4 for full details]
+
+--------------------------------------------------------------------------------
+[BITCOIN SECTION]
+Headline: "Bitcoin is our fuel, not our marketing"
+Body Paragraph 1: "We hold Bitcoin as our primary long-term asset. When it makes sense, we borrow stablecoins against it and use those funds for two things: building our Pipeline and sometimes accumulating more BTC."
+Body Paragraph 2: "We don't run a public yield product; this is how we fund our own work."
+
+--------------------------------------------------------------------------------
+[HOW WE OPERATE SECTION]
+Headline: "How we operate"
+
+Value 1 - TRANSPARENCY OVER THEATER:
+"Messy truths over polished stories. We label things clearly: idea, prototype, internal only, or ready."
+
+Value 2 - CAPITAL FIRST, NARRATIVE SECOND:
+"Our balance sheet is the first test. If we wouldn't run our own money through it, it doesn't graduate."
+
+Value 3 - SMALL, SHARP SYSTEMS:
+"One small, understandable tool beats a sprawling, half-finished platform."
+
+Value 4 - EDUCATION AS SELF-DEFENSE:
+"We publish what we learn so others can see through hype and understand real trade-offs."
+
+Value 5 - NEXT-FRONTIER MINDSET:
+"We care about what's coming — AI agents, new asset forms, digital scarcity — described in today's terms."
+
+--------------------------------------------------------------------------------
+[NEXT STEP BLOCK]
+"Next: System"
+"See how Verified Systems operates day to day."
 
 ================================================================================
-SECTION 3: CORE DEFINITIONS
+SECTION 3: SYSTEM PAGE - COMPLETE COPY
 ================================================================================
 
-VERIFIABLE SYSTEMS:
+[HERO SECTION]
+Headline: "How Verified Systems actually works"
+Body: "Two founders, one balance sheet, a Bitcoin treasury, and a small set of functions that keep us honest: governance, risk, compliance, finance, treasury, operations, and communications."
+
+--------------------------------------------------------------------------------
+[DEFINITIONS SECTION]
+Label: "What we mean"
+Headline: "Terms we use, defined plainly"
+
+Term 1 - VERIFIABLE SYSTEMS:
 "Systems where the rules are visible, ownership is real, and risks don't hide behind complexity. A system is verifiable when you can inspect how it works, understand what you're exposed to, and verify that it does what it claims."
 
-AI (DETERMINISTIC INTELLIGENCE):
+Term 2 - AI:
 "Deterministic Intelligence. Systems designed to constrain stochastic models (LLMs) with rigid verification layers, ensuring outputs are auditable, cited, and hallucination-resistant. We build infrastructure that treats AI as a reasoning engine, not a knowledge base."
 
-DIGITAL ASSETS:
+Term 3 - DIGITAL ASSETS:
 "The ability to make digital things genuinely limited and ownable — not just copyable files with licenses, but assets with provable uniqueness and transferable ownership. Bitcoin is the clearest example; we're exploring what else can work this way."
 
+--------------------------------------------------------------------------------
+[BITCOIN TREASURY PROGRAM SECTION]
+Headline: "Bitcoin Treasury Program"
+Body: "We hold BTC on our own balance sheet. When the risk/reward looks reasonable, we borrow stablecoins against a portion of that BTC, using reputable on-chain venues. Those borrowed funds either:"
+
+Bullet 1: "fund development time and infrastructure for our projects, or"
+Bullet 2: "let us accumulate more BTC when we believe it's underpriced."
+
+Disclaimer: "This is an internal program. We don't manage anyone else's assets, and we don't offer treasury products."
+
+--------------------------------------------------------------------------------
+[FUNCTIONS SECTION]
+Headline: "Functions behind the studio"
+Body: "Verified Systems is still just two people, but we think in terms of functions so decisions and responsibilities are clear."
+
+Function 1 - GOVERNANCE & RISK:
+"How we set thresholds, limits, and 'no's — especially around leverage and new experiments."
+
+Function 2 - COMPLIANCE:
+"How we stay aligned with legal and regulatory constraints in the places we operate."
+
+Function 3 - FINANCE & TREASURY:
+"How we track every satoshi, loan, and spend, and keep our own books honest."
+
+Function 4 - OPERATIONS:
+"How work moves from idea to requirements to architecture to implementation and review."
+
+Function 5 - COMMUNICATIONS & BRAND:
+"How we keep our story in sync with what's actually true — site updates, Library posts, and corrections when we get something wrong."
+
+--------------------------------------------------------------------------------
+[NEXT STEP BLOCK]
+"Next: Pipeline"
+"See our R&D projects and their current status."
+
 ================================================================================
-SECTION 4: THE PIPELINE - ALL 5 PROJECTS
+SECTION 4: PIPELINE PAGE - COMPLETE COPY
+================================================================================
+
+[HERO SECTION]
+Headline: "The Pipeline"
+Body: "Our R&D projects, tied to our BTC treasury, moving through defined stages. All self-funded. None public yet."
+
+--------------------------------------------------------------------------------
+[OUR R&D PROCESS SECTION]
+Label: "Our R&D process"
+Headline: "How we verify value at every step"
+Body: "We treat software development as a rigorous discipline. Our process is designed to surface risk early and build systems designed for stability and security."
+
+Stage 01 - STRATEGIC DEFINITION (Focus: Alignment & ROI):
+"We start with the problem, not the code. Before development begins, we verify the 'Why.' We define clear, measurable objectives for every project, ensuring every hour of engineering time translates directly to business value."
+
+Stage 02 - RAPID VALIDATION (Focus: Risk Mitigation):
+"We prove the concept early. Risk is best managed before the build. We utilize rapid prototyping and user modeling to validate assumptions immediately — saving time and resources for the features that truly matter."
+
+Stage 03 - THE VERIFIED BUILD (Focus: Security & Stability):
+"Engineering with automated safeguards. We build in iterative cycles with continuous verification. Automated testing suites check system integrity throughout development, so stability and security are foundational."
+
+Stage 04 - CONTROLLED DEPLOYMENT (Focus: Reliability):
+"We aim for zero-downtime with staged rollouts. No 'big bang' releases. Features deploy incrementally, validated under real-world loads before full release."
+
+Stage 05 - DATA-DRIVEN EVOLUTION (Focus: Continuous Improvement):
+"Launch is the starting point. Once live, we monitor performance and user interactions, continuously refining based on real data."
+
+--------------------------------------------------------------------------------
+[CURRENT PIPELINE PROJECTS SECTION]
+Headline: "Current Pipeline projects"
+[Toggle: Card View | Table View]
+
+PROJECT 1: AXIOM
+Stage: Prototype
+Description: "A deterministic inference layer designed to eliminate hallucination. It forces LLMs to cite verified internal data structures before generating output."
+Exploring:
+- Retrieval-Augmented Generation (RAG) with strict citation enforcement
+- Adversarial testing against known logic traps
+- Mechanistic interpretability (tracing 'why' the model said X)
+
+PROJECT 2: HELIOS
+Stage: Early Development
+Description: "Internal BTC-backed strategy engine. Requirements and architecture defined; implementation and early testing in progress."
+Exploring:
+- Automated yield strategies with strict risk bounds
+- Multi-venue position management
+- Real-time health monitoring
+
+PROJECT 3: STACKME
+Stage: Early Development
+Description: "A borrower-first BTC credit app. Requirements and technical architecture defined; prototypes and flows in development."
+Exploring:
+- Plain-language risk explanation
+- Conservative leverage limits
+- Gentle liquidation ladders
+
+PROJECT 4: LUMINA
+Stage: Requirements
+Description: "Trading cards encoding real-world qualities and scarcity on-chain. Requirements complete; system design and data pipelines in progress."
+Exploring:
+- Asset grading and verification
+- On-chain provenance tracking
+- Scarcity and edition mechanics
+
+PROJECT 5: UNIQUENESS ENGINE
+Stage: Research
+Description: "Research into signals that help systems enforce 'one per person' rules without centralizing identity data."
+Exploring:
+- Privacy-preserving uniqueness proofs
+- Sybil resistance without surveillance
+- Minimal identity footprint patterns
+
+--------------------------------------------------------------------------------
+[NEXT STEP BLOCK]
+"Next: Governance"
+"See how we manage risk, treasury, and compliance."
+
+================================================================================
+SECTION 5: PIPELINE DETAIL PAGES - COMPLETE COPY
 ================================================================================
 
 --------------------------------------------------------------------------------
-PROJECT 1: AXIOM (Prototype Stage)
+AXIOM DETAIL PAGE (/pipeline/axiom)
 --------------------------------------------------------------------------------
-TAGLINE: "High-integrity LLM reasoning with enforced citation."
+Stage: Prototype
+Tagline: "High-integrity LLM reasoning with enforced citation."
+Description: "Standard LLMs are probabilistic engines—they guess the next word. Axiom is a constraint layer that forces the model to anchor every claim to a cryptographically verified record. It turns 'creative writing' into 'auditable reporting'."
 
-DESCRIPTION:
-"Standard LLMs are probabilistic engines—they guess the next word. Axiom is a constraint layer that forces the model to anchor every claim to a cryptographically verified record. It turns 'creative writing' into 'auditable reporting'."
-
-CURRENT STATE:
+[WHERE IT IS NOW]
 - Core RAG architecture functional
 - Citation enforcement layer active (refuses to answer without source)
 - Internal dogfooding for VSG research summaries
 
-EXPLORING:
+[WHAT WE'RE EXPLORING]
 - Automated fact-checking loops
 - Connecting the 'Truth' layer (Axiom) to the 'Value' layer (Helios)
 - Latency optimization for real-time verification
 
-NOT YET:
+[WHAT'S NOT HAPPENING YET]
 - No public API
 - Not a general-purpose chatbot
 - Restricted domain knowledge only
 
---------------------------------------------------------------------------------
-PROJECT 2: HELIOS (Early Development Stage)
---------------------------------------------------------------------------------
-TAGLINE: "Internal BTC-backed strategy engine."
+Next: Helios
 
-DESCRIPTION:
-"Helios automates a portion of our borrowing into bounded, rule-driven DeFi positions. It deploys capital with explicit limits and real-time monitoring — internal only."
+--------------------------------------------------------------------------------
+HELIOS DETAIL PAGE (/pipeline/helios)
+--------------------------------------------------------------------------------
+Stage: Early Development
+Tagline: "Internal BTC-backed strategy engine."
+Description: "Helios automates a portion of our borrowing into bounded, rule-driven DeFi positions. It deploys capital with explicit limits and real-time monitoring — internal only."
 
-CURRENT STATE:
+[WHERE IT IS NOW]
 - Requirements and architecture defined
 - Core implementation in progress
 - Internal testing environment being set up
 
-EXPLORING:
+[WHAT WE'RE EXPLORING]
 - Automated yield strategies with strict risk bounds
 - Multi-venue position management
 - Real-time health monitoring and alerts
 - Policy ladders for different risk profiles
 
-NOT YET:
+[WHAT'S NOT HAPPENING YET]
 - No external users
 - No public API
 - Not a product or service
 
-GOVERNANCE RULES:
-- Internal only — no external deposits; touches only Verified Systems funds
-- Small slice — capped percentage of borrowed stablecoins at any time
-- Drawdown limits — pre-defined loss thresholds trigger capital reduction
-- Human in the loop — automated execution paired with alerts and manual oversight
+Next: stackme
 
 --------------------------------------------------------------------------------
-PROJECT 3: STACKME (Early Development Stage)
+STACKME DETAIL PAGE (/pipeline/stackme)
 --------------------------------------------------------------------------------
-TAGLINE: "A borrower-first BTC credit app."
+Stage: Early Development
+Tagline: "A borrower-first BTC credit app."
+Description: "stackme is a BTC-backed lending experience designed around clarity, conservative leverage, and plain-language risk disclosure. Architecture and flows in development."
 
-DESCRIPTION:
-"stackme is a BTC-backed lending experience designed around clarity, conservative leverage, and plain-language risk disclosure. Architecture and flows in development."
-
-CURRENT STATE:
+[WHERE IT IS NOW]
 - Requirements defined
 - Technical architecture designed
 - User flows and prototypes in development
 
-EXPLORING:
+[WHAT WE'RE EXPLORING]
 - Plain-language risk explanation
 - Conservative LTV limits (no extreme leverage)
 - Gentle liquidation ladders
 - Clear health indicators
 
-NOT YET:
+[WHAT'S NOT HAPPENING YET]
 - No live users
 - No public access
 - Not accepting deposits or loans
 
-GOVERNANCE RULES:
-- Non-custodial by design — user keeps keys; app is a guided interface
-- Safety controls are real, not marketing — Safety Slider reduces liquidation risk
-- Full regulatory review required before any launch
+Next: Lumina
 
 --------------------------------------------------------------------------------
-PROJECT 4: LUMINA (Requirements Stage)
+LUMINA DETAIL PAGE (/pipeline/lumina)
 --------------------------------------------------------------------------------
-TAGLINE: "Trading cards for real-world assets, with quality and scarcity encoded on-chain."
+Stage: Requirements
+Tagline: "Trading cards for real-world assets, with quality and scarcity encoded on-chain."
+Description: "Lumina encodes quality and scarcity of real-world assets (art, collectibles) on-chain as trading cards. Requirements defined; system design in progress."
 
-DESCRIPTION:
-"Lumina encodes quality and scarcity of real-world assets (art, collectibles) on-chain as trading cards. Requirements defined; system design in progress."
-
-CURRENT STATE:
+[WHERE IT IS NOW]
 - Requirements complete
 - System design in progress
 - Grading and data pipelines being built
 
-EXPLORING:
+[WHAT WE'RE EXPLORING]
 - Asset grading and verification systems
 - On-chain provenance tracking
 - Scarcity and edition mechanics
 - Quality attestation patterns
 
-NOT YET:
+[WHAT'S NOT HAPPENING YET]
 - No prototype yet
 - No cards issued
 - Not accepting submissions
 
-GOVERNANCE RULES:
-- Verifiable metadata, provenance, and grading
-- No promises about returns
-- Transparent fees and explicit rights disclosure
+Next: Uniqueness Engine
 
 --------------------------------------------------------------------------------
-PROJECT 5: UNIQUENESS ENGINE (Research Stage)
+UNIQUENESS ENGINE DETAIL PAGE (/pipeline/uniqueness-engine)
 --------------------------------------------------------------------------------
-TAGLINE: "Research into 'one-per-person' signals without surveillance."
+Stage: Research
+Tagline: "Research into 'one-per-person' signals without surveillance."
+Description: "Uniqueness Engine is research into signals that help systems enforce 'one per person' rules without centralizing identity data or enabling surveillance."
 
-DESCRIPTION:
-"Uniqueness Engine is research into signals that help systems enforce 'one per person' rules without centralizing identity data or enabling surveillance."
-
-CURRENT STATE:
+[WHERE IT IS NOW]
 - Research and requirements phase
 - Surveying existing approaches
 - Defining success criteria
 
-EXPLORING:
+[WHAT WE'RE EXPLORING]
 - Privacy-preserving uniqueness proofs
 - Sybil resistance patterns
 - Minimal identity footprint approaches
 - Decentralized attestation models
 
-NOT YET:
+[WHAT'S NOT HAPPENING YET]
 - No prototype
 - No defined architecture
 - Not integrated with other projects
 
-GOVERNANCE RULES:
-- No deployment without clear privacy model
-- Explicit consent mechanics required
-- Regulatory review for KYC/AML implications before any implementation
+Next: Governance
 
 ================================================================================
-SECTION 5: BITCOIN TREASURY PROGRAM
+SECTION 6: GOVERNANCE PAGE - COMPLETE COPY
 ================================================================================
 
-OVERVIEW:
-"We hold BTC on our own balance sheet. When the risk/reward looks reasonable, we borrow stablecoins against a portion of that BTC, using reputable on-chain venues."
+[HERO SECTION]
+Headline: "Governance, risk & compliance"
+Body Paragraph 1: "We work at the edge of AI, Digital Assets, and Verifiable Systems. That edge only matters if people can understand the risks and the rules."
+Body Paragraph 2: "This page explains how Verified Systems (Verified Systems Group LLC, "VSG") is governed today: who decides what, how we treat our Bitcoin treasury, and how we approach regulation and compliance as we move projects from R&D to reality."
 
-COLLATERAL LOOP PROCESS:
+[TABLE OF CONTENTS]
+- Legal structure
+- BTC treasury policy
+- Risk governance
+- Regulatory stance
+
+--------------------------------------------------------------------------------
+[LEGAL STRUCTURE SECTION]
+Label: "Legal structure"
+Headline: "How the company is governed"
+Body: "Verified Systems Group LLC is a manager-managed Wyoming LLC, foreign-qualified in Massachusetts."
+
+MANAGER CARD:
+Title: "Manager" (Final authority)
+Body: "Sole Manager with final authority over business affairs. Also acts as CEO and Controller. Has 100% voting power on operational matters."
+
+COO CARD:
+Title: "COO" (Day-to-day operations)
+Body: "Responsible for day-to-day operations as delegated. Cannot sign contracts, approve major expenditures, or authorize on-chain treasury moves without explicit written approval."
+
+FUNDAMENTAL DECISIONS:
+"Fundamental decisions (selling substantially all assets, admitting new members) require unanimous written consent of all members."
+
+[PLACEHOLDER]
+"[Governance structure diagram — coming soon]"
+
+--------------------------------------------------------------------------------
+[BTC TREASURY SECTION]
+Label: "Capital governance"
+Headline: "BTC treasury: what it is (and isn't)"
+Body: "Our treasury is Bitcoin-first and policy-driven. It is not a DeFi "product" — it's our own balance sheet."
+
+[HOW THE COLLATERAL LOOP WORKS]
 1. Post a risk-managed portion of company BTC as collateral in approved, non-custodial lending protocols.
 2. Borrow stablecoins at conservative loan-to-value ratio (LTV) (target ~35%, hard cap 50%).
 3. Use borrowed funds for operating runway, internal R&D, or selectively accumulating more BTC.
 
-WHAT THIS IS NOT:
+[WHAT WE ARE NOT DOING]
 - Offering yield products to the public
 - Running a pooled investment vehicle
 - Promising returns or fixed income
 
-NOTE: "This mirrors how some public companies use Bitcoin as a treasury reserve, but at far smaller scale and with more conservative leverage."
+Note: "This mirrors how some public companies use Bitcoin as a treasury reserve, but at far smaller scale and with more conservative leverage."
 
-CAPITAL CONTROLS:
-1. Member loans, not mystery money — funds from members are documented loans, not hidden equity
-2. Distribution waterfall — creditors first, then loan repayment, then (if any) equity distributions
-3. No unsupervised on-chain moves — every treasury transaction requires a signed Transaction Authorization Record (TAR)
+[CAPITAL CONTROLS]
+Control 1: "Member loans, not mystery money — funds from members are documented loans, not hidden equity"
+Control 2: "Distribution waterfall — creditors first, then loan repayment, then (if any) equity distributions"
+Control 3: "No unsupervised on-chain moves — every treasury transaction requires a signed Transaction Authorization Record (TAR)"
 
 "No TAR, no transaction."
 
-================================================================================
-SECTION 6: GOVERNANCE & LEADERSHIP
-================================================================================
+--------------------------------------------------------------------------------
+[RISK GOVERNANCE SECTION]
+Label: "Risk governance"
+Headline: "How we cap risk before anything touches capital or users"
+Body: "We're pre-launch on every project. Governance here is about capping risk during development, not describing a fantasy future state."
 
-LEGAL STRUCTURE:
-Verified Systems Group LLC is a manager-managed Wyoming LLC, foreign-qualified in Massachusetts.
+[STAGE-GATES CARD]
+"Every project moves through defined stages: Idea → Prototype → Internal → Venture. Moving stages requires joint decision from both founders."
 
-MANAGER (Final Authority):
-- Sole Manager with final authority over business affairs
-- Also acts as CEO and Controller
-- Has 100% voting power on operational matters
-
-COO (Day-to-day Operations):
-- Responsible for day-to-day operations as delegated
-- Cannot sign contracts, approve major expenditures, or authorize on-chain treasury moves without explicit written approval
-
-FUNDAMENTAL DECISIONS:
-Selling substantially all assets, admitting new members requires unanimous written consent of all members.
-
-================================================================================
-SECTION 7: RISK GOVERNANCE
-================================================================================
-
-STAGE-GATES:
-Every project moves through defined stages: Idea → Prototype → Internal → Venture. Moving stages requires joint decision from both founders.
-
-RISK MEMO FOR EACH STAGE:
+[RISK MEMO CARD]
+"Risk memo for each stage:"
 - What can go wrong?
 - Max loss we're willing to tolerate.
 - How we would shut it down safely.
 
-R&D PROCESS (5 STAGES):
+[PROJECT-SPECIFIC GOVERNANCE]
 
-1. STRATEGIC DEFINITION (Focus: Alignment & ROI)
-"We start with the problem, not the code. Before development begins, we verify the 'Why.' We define clear, measurable objectives for every project, ensuring every hour of engineering time translates directly to business value."
+HELIOS (Internal, early development):
+- Internal only — no external deposits; touches only Verified Systems funds
+- Small slice — capped percentage of borrowed stablecoins at any time
+- Drawdown limits — pre-defined loss thresholds trigger capital reduction
+- Human in the loop — automated execution paired with alerts and manual oversight
 
-2. RAPID VALIDATION (Focus: Risk Mitigation)
-"We prove the concept early. Risk is best managed before the build. We utilize rapid prototyping and user modeling to validate assumptions immediately — saving time and resources for the features that truly matter."
+STACKME (Requirements & architecture defined):
+- Non-custodial by design — user keeps keys; app is a guided interface
+- Safety controls are real, not marketing — Safety Slider reduces liquidation risk
+- Full regulatory review required before any launch
 
-3. THE VERIFIED BUILD (Focus: Security & Stability)
-"Engineering with automated safeguards. We build in iterative cycles with continuous verification. Automated testing suites check system integrity throughout development, so stability and security are foundational."
+LUMINA (Requirements defined):
+- Verifiable metadata, provenance, and grading
+- No promises about returns
+- Transparent fees and explicit rights disclosure
 
-4. CONTROLLED DEPLOYMENT (Focus: Reliability)
-"We aim for zero-downtime with staged rollouts. No 'big bang' releases. Features deploy incrementally, validated under real-world loads before full release."
+UNIQUENESS ENGINE (Research phase):
+- No deployment without clear privacy model
+- Explicit consent mechanics required
+- Regulatory review for KYC/AML implications before any implementation
 
-5. DATA-DRIVEN EVOLUTION (Focus: Continuous Improvement)
-"Launch is the starting point. Once live, we monitor performance and user interactions, continuously refining based on real data."
+--------------------------------------------------------------------------------
+[REGULATORY STANCE SECTION]
+Label: "Regulatory stance"
+Headline: "We're not pretending to be "already regulated""
+Body: "This section explains how we think about regulation before products go live — not compliance theater."
 
-================================================================================
-SECTION 8: REGULATORY STANCE
-================================================================================
-
-CURRENT STATUS:
+[WHERE WE ARE TODAY]
 - US-based LLC with crypto-first accounting (books in Xero, digital asset sub-ledgers via Cryptoworth, specific-identification cost basis for tax reporting)
 - Website and Library are informational only — no offers to invest, no live financial products
 - Any BTC borrowing is on the company's own behalf, via non-custodial protocols, under internal risk limits
 
-APPROACH TO PRODUCT REGULATION:
+[HOW WE APPROACH PRODUCT REGULATION]
 - Jurisdiction-by-jurisdiction analysis — US (FinCEN, SEC/CFTC, state rules), EU/UK (MiCA and related frameworks)
 - Non-custodial does not mean regulation-free — reduces some obligations but doesn't eliminate consumer-protection or financial-crime requirements
 - AI = high-risk by default — anywhere AI touches lending, identity, or risk classification, we treat it as high-risk (EU AI Act spirit)
 - Licensing when required — get licenses, partner with regulated entities, or change the design
 
-THINGS WE COMMIT TO NEVER DOING:
+[THINGS WE COMMIT TO NEVER DOING]
 - We do not offer or sell tokens as investments
 - No opaque yield products where you can't inspect the mechanics
 - No hidden rehypothecation of user assets
@@ -291,135 +485,164 @@ THINGS WE COMMIT TO NEVER DOING:
 
 "These are plain commitments you can hold us to."
 
-================================================================================
-SECTION 9: OPERATING VALUES
-================================================================================
+--------------------------------------------------------------------------------
+[GOVERNANCE CONTACT SECTION]
+Headline: "Want to discuss governance?"
+Body: "For regulators and compliance teams, we share deeper materials (business plans, architecture diagrams, draft policies) under NDA. For partners working in AI, digital assets, or risk/compliance who see alignment, reach out."
+Button: "Talk to us about governance"
 
-1. TRANSPARENCY OVER THEATER
-"Messy truths over polished stories. We label things clearly: idea, prototype, internal only, or ready."
-
-2. CAPITAL FIRST, NARRATIVE SECOND
-"Our balance sheet is the first test. If we wouldn't run our own money through it, it doesn't graduate."
-
-3. SMALL, SHARP SYSTEMS
-"One small, understandable tool beats a sprawling, half-finished platform."
-
-4. EDUCATION AS SELF-DEFENSE
-"We publish what we learn so others can see through hype and understand real trade-offs."
-
-5. NEXT-FRONTIER MINDSET
-"We care about what's coming — AI agents, new asset forms, digital scarcity — described in today's terms."
+--------------------------------------------------------------------------------
+[NEXT STEP BLOCK]
+"Next: Library"
+"Read our notes, insights, and updates."
 
 ================================================================================
-SECTION 10: THESIS / LIBRARY
+SECTION 7: THESIS (LIBRARY) PAGE - COMPLETE COPY
+================================================================================
+
+[HERO SECTION]
+Headline: "Thesis"
+Body: "The foundational thinking behind our work. We publish when we have something substantive to share — not on a schedule."
+
+[FILTER TABS]
+All | Insight | Note | Update
+
+--------------------------------------------------------------------------------
+[ARTICLE CARDS]
+
+ARTICLE 1:
+Type: Insight
+Date: Dec 15, 2025
+Title: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate"
+Excerpt: "In creative writing, hallucination is a feature. In automated treasury management, it is a felony. Why we are building our own inference layer before letting agents touch the balance sheet."
+Tags: AI Safety, Determinism, Infrastructure
+Link: /thesis/insolvency-of-fiction
+
+ARTICLE 2:
+Type: Insight
+Date: Nov 26, 2025
+Title: "The Verification Standard: Charting the Great Reallocation"
+Excerpt: "Our thesis on fiscal dominance, Bitcoin as verified scarcity, and the multi-decade capital migration from depreciating fiat to appreciating hard assets."
+Tags: Bitcoin, Macro, Thesis
+Link: /thesis/verification-standard
+
+--------------------------------------------------------------------------------
+[CHANGELOG SECTION]
+Headline: "Changelog"
+
+Nov 2025: Initial site launch with Overview, System, Pipeline, Governance, Library, and Contact pages.
+Oct 2025: Brand and messaging finalized. Pipeline projects documented.
+
+--------------------------------------------------------------------------------
+[NEXT STEP BLOCK]
+"Next: Contact"
+"Reach out if you'd like to connect."
+
+================================================================================
+SECTION 8: THESIS ARTICLE PAGES - FULL CONTENT
 ================================================================================
 
 --------------------------------------------------------------------------------
-ARTICLE 1: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate"
+ARTICLE: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate"
+URL: /thesis/insolvency-of-fiction
 --------------------------------------------------------------------------------
 Type: Insight
 Date: December 15, 2025
 Tags: AI Safety, Determinism, Infrastructure
 
-EXCERPT:
-"In creative writing, hallucination is a feature. In automated treasury management, it is a felony. Why we are building our own inference layer before letting agents touch the balance sheet."
-
-FULL CONTENT:
-
-I. THE PROBABILISTIC TRAP
+[SECTION I: THE PROBABILISTIC TRAP]
 "Current Large Language Models (LLMs) are stochastic parrots. They do not know truth; they know probability. For a poem, an 80% probability of coherence is acceptable. For a clearing engine settling $10M in Bitcoin, a 0.01% error rate is catastrophic."
 
 "We realized that we could not build 'Helios' (our treasury engine) on top of standard APIs like OpenAI's GPT-4 without a 'governor'—a mechanical layer that constrains the model's creativity."
 
-II. ENGINEERING CONSTRAINTS
+[SECTION II: ENGINEERING CONSTRAINTS]
 "We are building 'Axiom' not to compete with ChatGPT, but to restrain it. Axiom treats the LLM as a reasoning engine, not a knowledge base."
 
 "It forces the model to query a verified database (our internal ledger or legal docs), retrieve the specific hash of the data, and construct an answer only using those blocks. If the data isn't there, the system is engineered to fail silently rather than invent a plausible lie."
 
-III. TRUTH AS AN ASSET CLASS
+[SECTION III: TRUTH AS AN ASSET CLASS]
 "In a world flooded with synthetic media, verifiable truth becomes the scarcest asset class. By linking our financial verification (Bitcoin) with our semantic verification (Axiom), we are building a closed loop: systems that can verify what they own, and verify what they know."
 
 --------------------------------------------------------------------------------
-ARTICLE 2: "The Verification Standard: Charting the Great Reallocation"
+ARTICLE: "The Verification Standard: Charting the Great Reallocation"
+URL: /thesis/verification-standard
 --------------------------------------------------------------------------------
 Type: Insight
 Date: November 26, 2025
 Tags: Bitcoin, Macro, Thesis
 
-EXCERPT:
-"Our thesis on fiscal dominance, Bitcoin as verified scarcity, and the multi-decade capital migration from depreciating fiat to appreciating hard assets."
-
-FULL CONTENT:
-
-I. THE MACRO REGIME SHIFT: ENTERING FISCAL DOMINANCE
+[SECTION I: THE MACRO REGIME SHIFT: ENTERING FISCAL DOMINANCE]
 "For decades, global portfolios anchored on three enduring assumptions: subdued inflation, sovereign debt as the ultimate safe asset, and government bonds as the unassailable foundation of diversification. Yet mounting evidence suggests this framework has reached its limits—not through sudden catastrophe, but through inexorable arithmetic."
 
 "We are currently witnessing a structural Monetary Divergence: the widening chasm between fiscal imperatives and monetary discipline. The post-1971 fiat era, defined by elastic currencies, has entered a mature phase of strain. The data is now unequivocal: in Fiscal Year 2024, net interest payments on the US national debt reached $882 billion, officially eclipsing national defense outlays of $874 billion for the first time in history."
 
-"This trajectory signals a tipping point into Fiscal Dominance—a state where debt dynamics force monetary expansion regardless of inflation targets."
+"This trajectory signals a tipping point into Fiscal Dominance—a state where debt dynamics force monetary expansion regardless of inflation targets. With interest costs now acting as the second-largest line item in the federal budget—exceeding Medicare and rivaling Social Security—the sovereign balance sheet is mathematically constrained. In this environment, the "risk-free" rate has morphed into "return-free risk": a 4% Treasury yield offers little safety when real purchasing power erodes faster than nominal returns accumulate."
 
-II. THE ANTIDOTE: EMBRACING VERIFIED SCARCITY
-"As systemic distortions mount, capital intuitively seeks resilience. In the digital age, this 'flight to quality' manifests on-chain. At Verified System Group, we regard Bitcoin not merely as a speculative hedge, but as the structural inverse to fiat's vulnerabilities: where legacy money is infinite and opaque, Bitcoin is finite and transparent."
+[SECTION II: THE ANTIDOTE: EMBRACING VERIFIED SCARCITY]
+"As systemic distortions mount, capital intuitively seeks resilience. In the digital age, this "flight to quality" manifests on-chain. At Verified System Group, we regard Bitcoin not merely as a speculative hedge, but as the structural inverse to fiat's vulnerabilities: where legacy money is infinite and opaque, Bitcoin is finite and transparent."
 
-"Bitcoin's hallmark is Absolute Scarcity. Its supply is capped at 21 million coins via an immutable protocol, enforced not by human discretion but by auditable open-source code."
+"Bitcoin's hallmark is Absolute Scarcity. Its supply is capped at 21 million coins via an immutable protocol, enforced not by human discretion but by auditable open-source code. While historical assets like gold offered relative scarcity, none matched this verifiable precision. This neutrality sidesteps the counterparty risks plaguing traditional treasuries, echoing gold's historic role during periods of debasement—yet amplified by the velocity of the internet."
 
-III. THE HORIZON: A PHASE TRANSITION IN CAPITAL FLOWS
-"Our thesis is that we stand at the cusp of 'The Great Reallocation'—a multi-decade pivot of trillions from depreciating fiat instruments to appreciating hard assets. Like a phase transition in physics (e.g., water turning to steam), this shift will appear gradual until it becomes sudden."
+[SECTION III: THE HORIZON: A PHASE TRANSITION IN CAPITAL FLOWS]
+"Our thesis is that we stand at the cusp of "The Great Reallocation"—a multi-decade pivot of trillions from depreciating fiat instruments to appreciating hard assets. Like a phase transition in physics (e.g., water turning to steam), this shift will appear gradual until it becomes sudden."
 
-"The market is already voting. Institutional adoption has accelerated, with cumulative spot Bitcoin ETF inflows exceeding $57 billion year-to-date in 2025."
+"The market is already voting. Institutional adoption has accelerated, with cumulative spot Bitcoin ETF inflows exceeding $57 billion year-to-date in 2025, signaling a decisive shift in how professional allocators view the asset. Corporate treasuries and sovereign nations are beginning to utilize "speculative attacks" on fiat currency—issuing debt in depreciating dollars to acquire appreciating bitcoin reserves—effectively turning the weight of the fiat system against itself."
 
-IV. THE INFRASTRUCTURE: STABLECOINS AS ESCAPE VELOCITY
+[SECTION IV: THE INFRASTRUCTURE: STABLECOINS AS ESCAPE VELOCITY]
 "Catalyzing this shift are stablecoins, which serve as the seamless bridge between legacy banking and the on-chain economy. The scale of this adoption is often underestimated: in 2024, total stablecoin transfer value reached $27.6 trillion, officially surpassing the combined settlement volume of Visa and Mastercard."
 
-V. CONCLUSION: PIONEERING THE NEW MONETARY FRONTIER
+"These "digital dollars" provide a frictionless escape hatch from weak local currencies and lay the groundwork for the next evolution of finance: sovereign bonds denominated in stablecoins and backed by Bitcoin. This infrastructure will allow nations to bypass legacy bottlenecks (such as SWIFT) and tap into trillions in on-chain liquidity to recapitalize their balance sheets."
+
+[SECTION V: CONCLUSION: PIONEERING THE NEW MONETARY FRONTIER]
 "The Great Reallocation heralds not collapse, but adaptation. It is the migration of capital from a system of repression to one of resilience; from the entropy of fiat to the order of code."
 
-"Verified System Group stands at this inflection point. We deploy digital assets to seed ventures that capture this flux, transforming systemic friction into asymmetric upside."
+"Verified System Group stands at this inflection point. We deploy digital assets to seed ventures that capture this flux, transforming systemic friction into asymmetric upside. The challenge of re-architecting money via verification is one of the most significant opportunities of our time. We invite our partners to navigate it with us."
 
 ================================================================================
-SECTION 11: CHANGELOG
+SECTION 9: CONTACT PAGE - COMPLETE COPY
 ================================================================================
 
-Nov 2025: Initial site launch with Overview, System, Pipeline, Governance, Library, and Contact pages.
-Oct 2025: Brand and messaging finalized. Pipeline projects documented.
+[HERO SECTION]
+Headline: "Get in touch"
+Body: "We're a two-founder studio. We read every message and respond to inquiries that align with our work."
+
+--------------------------------------------------------------------------------
+[SIDE PANEL - WHO SHOULD REACH OUT]
+Headline: "Who should reach out"
+
+Bullet 1: "Builders & founders working on AI, Digital Assets, or Verifiable Systems who want to compare notes."
+
+Bullet 2: "Investors or partners who care about how things actually work, not just pitch decks."
+
+Bullet 3: "Media or researchers looking for honest perspectives on AI and Digital Assets."
+
+[WHAT TO EXPECT]
+Headline: "What to expect"
+Body: "We typically respond within a few business days. We don't do cold outreach, and we don't share your information."
+
+--------------------------------------------------------------------------------
+[CONTACT FORM]
+Fields: Name, Email, Subject, Category (dropdown), Message
+Button: "Send message"
 
 ================================================================================
-SECTION 12: SITE NAVIGATION
+SECTION 10: HEADER & FOOTER - COMPLETE COPY
 ================================================================================
 
-HEADER NAVIGATION:
-01 - Overview (/)
-02 - System (/system)
-03 - Pipeline (/pipeline)
-04 - Governance (/governance)
-05 - Thesis (/thesis)
-06 - Contact (/contact)
+[HEADER]
+Brand: "Verified Systems Group"
+Navigation: Overview (01), System (02), Pipeline (03), Governance (04), Thesis (05), Contact (06)
+Command Palette: ⌘K
 
-FOOTER:
-- Company: Verified Systems Group LLC
-- Tagline: "Engineering deterministic systems at the intersection of AI and Economic Assurance."
-- Links: Thesis, Privacy, Terms
-- Disclaimer: "Nothing on this site is financial advice or an offer of services."
-
-COMMAND PALETTE: Available via Cmd+K for quick navigation
+--------------------------------------------------------------------------------
+[FOOTER]
+Company Name: "Verified Systems Group LLC"
+Tagline: "Engineering deterministic systems at the intersection of AI and Economic Assurance."
+Links: Thesis, Privacy, Terms
+Disclaimer: "Nothing on this site is financial advice or an offer of services."
 
 ================================================================================
-SECTION 13: CONTACT INFORMATION
-================================================================================
-
-WHO SHOULD REACH OUT:
-- Builders & founders working on AI, Digital Assets, or Verifiable Systems who want to compare notes.
-- Investors or partners who care about how things actually work, not just pitch decks.
-- Media or researchers looking for honest perspectives on AI and Digital Assets.
-
-WHAT TO EXPECT:
-"We typically respond within a few business days. We don't do cold outreach, and we don't share your information."
-
-GOVERNANCE INQUIRIES:
-"For regulators and compliance teams, we share deeper materials (business plans, architecture diagrams, draft policies) under NDA. For partners working in AI, digital assets, or risk/compliance who see alignment, reach out."
-
-================================================================================
-SECTION 14: SEO / META DESCRIPTIONS
+SECTION 11: SEO / META DESCRIPTIONS
 ================================================================================
 
 OVERVIEW PAGE:
@@ -441,7 +664,7 @@ CONTACT PAGE:
 "Get in touch with Verified Systems. We're a two-founder studio and we read every message."
 
 ================================================================================
-SECTION 15: DESIGN SYSTEM NOTES
+SECTION 12: DESIGN SYSTEM NOTES
 ================================================================================
 
 AESTHETIC: "Institutional Control Room"
@@ -461,13 +684,11 @@ TYPOGRAPHY STANDARDS:
 - tabular-nums site-wide for numeric display
 
 STAGE CHIPS (Pipeline):
-- prototype: Most advanced
-- development: Active build
-- requirements: Defined specs
-- architecture: System design
-- research: Early exploration
-- testing: QA phase
+- prototype: Most advanced (Axiom)
+- development: Active build (Helios, stackme)
+- requirements: Defined specs (Lumina)
+- research: Early exploration (Uniqueness Engine)
 
 ================================================================================
-END OF SITE REVIEW
+END OF COMPLETE SITE REVIEW
 ================================================================================
