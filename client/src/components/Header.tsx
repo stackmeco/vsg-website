@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X, Search } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 
 const navItems = [
   { name: "Overview", href: "/", number: "01" },
@@ -89,17 +89,8 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-full sm:w-80 p-0">
               <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between p-4 border-b border-border">
+                <div className="p-4 pt-6 border-b border-border">
                   <span className="font-heading font-bold text-lg">Verified Systems Group</span>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="min-w-[44px] min-h-[44px]"
-                    onClick={() => setMobileOpen(false)}
-                    aria-label="Close navigation menu"
-                  >
-                    <X className="w-5 h-5" />
-                  </Button>
                 </div>
                 <nav className="flex flex-col p-6 gap-2" aria-label="Mobile navigation">
                   {navItems.map((item) => (
