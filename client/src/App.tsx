@@ -7,7 +7,7 @@ import Overview from "@/pages/Overview";
 import System from "@/pages/System";
 import Pipeline from "@/pages/Pipeline";
 import PipelineDetail from "@/pages/PipelineDetail";
-import Ventures from "@/pages/Ventures";
+import Governance from "@/pages/Governance";
 import Library from "@/pages/Library";
 import Contact from "@/pages/Contact";
 import Status from "@/pages/Status";
@@ -20,7 +20,7 @@ function Router() {
       <Route path="/system" component={System} />
       <Route path="/pipeline" component={Pipeline} />
       <Route path="/pipeline/:slug" component={PipelineDetail} />
-      <Route path="/ventures" component={Ventures} />
+      <Route path="/governance" component={Governance} />
       <Route path="/library" component={Library} />
       <Route path="/contact" component={Contact} />
       <Route path="/status" component={Status} />

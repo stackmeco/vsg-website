@@ -1,0 +1,229 @@
+---
+id: vsg-web-governance
+name: Governance, risk & compliance
+route: /governance
+version: 1.0.0
+owner: Founders + Counsel
+---
+
+# Governance, risk & compliance
+
+## 1. Why this page exists
+
+We work at the edge of AI, Bitcoin and digital scarcity. That edge only matters if people can understand the risks and the rules.
+
+This page explains **how Verified Systems is actually governed today**:  
+who decides what, how we treat our Bitcoin treasury, and how we’re thinking about regulation and compliance as we move projects from R&D to reality.
+
+> **Brand usage on page:**  
+> First mention: “Verified Systems (Verified Systems Group LLC, ‘VSG’)”  
+> Then: “Verified Systems” or “VSG”.
+
+---
+
+## 2. How the company is governed
+
+### 2.1 Legal structure & authority
+
+Verified Systems Group LLC (formerly Stackme Holdings LLC) is a **manager-managed** Wyoming LLC, foreign-qualified in Massachusetts. :contentReference[oaicite:0]{index=0}  
+
+- **Manager:**  
+  - **Andrew Warlow** – sole Manager with final authority over business affairs. He also acts as CEO and Controller. :contentReference[oaicite:1]{index=1}  
+- **COO / Non-managing member:**  
+  - **Benjamin Morton** – COO responsible for day-to-day operations as delegated by the Manager. :contentReference[oaicite:2]{index=2}  
+
+**Decision rights (plain language):**
+
+- Andrew has **100% voting power** on operational matters. :contentReference[oaicite:3]{index=3}  
+- Ben can run operations but **cannot**:
+  - sign contracts,  
+  - approve major expenditures, or  
+  - authorize on-chain treasury moves  
+  without explicit written approval from Andrew (via a Transaction Authorization Record). :contentReference[oaicite:4]{index=4}  
+- Certain “fundamental decisions” (e.g., selling substantially all assets or admitting a new member) require **unanimous written consent** of all members. :contentReference[oaicite:5]{index=5}  
+
+> **Design note:** Show this as a simple diagram:  
+> “Verified Systems Group LLC → Manager (Andrew) → COO (Ben) → Shared Services (GRC, Finance, Ops, etc.)”.
+
+---
+
+## 3. Treasury & capital governance
+
+### 3.1 BTC treasury: what it is (and isn’t)
+
+Our treasury is **Bitcoin-first** and policy-driven. It is not a DeFi “product”; it’s our own balance sheet.
+
+We use a **collateral-and-borrowing loop**:
+
+1. Post a **risk-managed portion** of company BTC as collateral in approved, non-custodial lending protocols.  
+2. Borrow stablecoins against it at a **conservative LTV** (e.g., target ~35%, hard cap 50%). :contentReference[oaicite:6]{index=6}  
+3. Use those borrows for:
+   - operating runway,
+   - internal R&D (Helios, stackme, Lumina, Uniqueness Engine),
+   - selectively accumulating more BTC when conditions make sense. :contentReference[oaicite:7]{index=7}  
+
+We are **not**:
+- offering yield products to the public,
+- running a pooled investment vehicle,
+- promising returns or fixed income.
+
+This mirrors how some public companies have used Bitcoin as a treasury reserve (e.g., MicroStrategy’s BTC strategy), but at a far smaller scale and with more conservative leverage.   
+
+### 3.2 Capital controls
+
+To keep this honest and auditable:
+
+- **Member loans, not mystery money.**  
+  Any funds advanced by members are treated as **Member Loans** by default, not equity, unless explicitly documented otherwise. :contentReference[oaicite:9]{index=9}  
+
+- **Distribution waterfall.**  
+  Cash flows go in strict order:  
+  1. Third-party creditors  
+  2. Interest + principal on Member Loans  
+  3. Only then, if any, equity distributions. :contentReference[oaicite:10]{index=10}  
+
+- **No unsupervised on-chain moves.**  
+  No automated or on-chain treasury activity can occur without a **Transaction Authorization Record (TAR)** signed by the Manager. :contentReference[oaicite:11]{index=11}  
+
+> **UI idea:** a small “How we move money” callout card with a 3-step flow and a line:  
+> “No TAR, no transaction.”
+
+---
+
+## 4. Risk governance (today, not fantasy)
+
+We’re still pre-launch on every project. Governance here is about **how we cap risk before anything touches material capital or users.**
+
+### 4.1 Studio & pipeline controls
+
+For every project in the Pipeline (Helios, stackme, Lumina, Uniqueness Engine):
+
+- **Stage-gates:**  
+  - Idea → Prototype → Internal → (maybe) Venture  
+  - Moving stages requires a joint decision: Andrew (risk/treasury) + Ben (ops/product).  
+
+- **Risk memo for each stage:**  
+  - What can go wrong?  
+  - Max loss we’re willing to tolerate.  
+  - How we would shut it down safely.
+
+- **Balance-sheet test:**  
+  Nothing graduates to “Venture” until we’d trust it with **our own capital for the long haul**, which directly reflects your mission.  
+
+### 4.2 Helios (internal, early-development)
+
+Helios exists—on paper and in architecture—as an **internal DeFi strategy**, not a public product. :contentReference[oaicite:12]{index=12}  
+
+Governance rules (intended, and **must** be implemented before real size is deployed):
+
+- **Internal only.** No external deposits; it can only touch funds owned by Verified Systems. :contentReference[oaicite:13]{index=13}  
+- **Small slice.** Only a capped percentage of borrowed stablecoins may be allocated to Helios at any time. (E.g., single-digit % slices while in early runs; exact numbers live in an internal risk policy.) :contentReference[oaicite:14]{index=14}  
+- **Drawdown limits.** If performance or system issues trigger pre-defined loss thresholds, capital must be reduced or pulled. :contentReference[oaicite:15]{index=15}  
+- **Monitoring, not blind automation.**  
+  Automated execution is paired with alerts; a human remains in the loop for significant changes or shutdowns. :contentReference[oaicite:16]{index=16}  
+
+Copy note for users:
+
+> “Helios is in early-stage development and is used, if at all, only with our own capital and tight limits. It is not available to customers or outside investors.”
+
+### 4.3 stackme, Lumina, Uniqueness Engine
+
+These projects have **clear requirements and architecture defined**, but no public launch.
+
+We anchor them on principles already written into the stackme plan: non-custodial design, safety-forward UX, and education > hype.   
+
+- **stackme (BTC credit app concept)**  
+  - Non-custodial by design; user keeps keys; app sits as a guided interface to underlying protocols. :contentReference[oaicite:18]{index=18}  
+  - Safety Slider / Safety Rails concepts are **controls**, not marketing tricks. They must be implemented to reduce liquidation risk, not to push users into risky leverage.   
+  - Any launch requires a full regulatory review and clear disclosures about risk.
+
+- **Lumina (RWA trading cards)**  
+  - Governance focus: verifiable metadata, provenance and grading; no promises about returns.  
+  - Any marketplace functionality must be transparent about fees, rights, and lack of guarantees.
+
+- **Uniqueness Engine (identity research)**  
+  - Early research only. No identity system gets deployed without a clear privacy model, explicit consent mechanics, and a regulatory review for KYC/AML implications.
+
+---
+
+## 5. Regulatory & compliance stance
+
+We’re not pretending to be “already regulated.”  
+This section spells out how we think about regulation **before** products go live.
+
+### 5.1 Where we are today
+
+- Verified Systems runs as a **US-based LLC** with a crypto-first accounting posture: books in Xero, digital asset sub-ledgers via Cryptoworth, and specific-ID cost basis for tax reporting. :contentReference[oaicite:20]{index=20}  
+- The website and Library are **informational only**:  
+  - No offers to the public to invest.  
+  - No live financial products open to consumers yet.  
+- Any BTC borrowing is done **on the company’s own behalf**, via non-custodial protocols, under our internal risk limits. :contentReference[oaicite:21]{index=21}  
+
+### 5.2 How we’ll approach product regulation
+
+For any future launch (stackme, Lumina, Helios-derived tools):
+
+- **Jurisdiction-by-jurisdiction analysis.**  
+  - US: FinCEN, SEC/CFTC, state lending/consumer rules depend on final design.  
+  - EU and UK: MiCA and related crypto frameworks, especially if we ever serve EU residents. MiCA, for example, creates a harmonized regime for crypto-asset issuers and service providers (e.g., custodians, exchanges, stablecoin issuers), with additional clarity still emerging for truly decentralized protocols.   
+
+- **Non-custodial, but not “regulation-free.”**  
+  The stackme plan already bakes in a non-custodial architecture: user-owned wallets, DeFi under the hood, and Stripe handling fiat KYC/AML. That reduces some obligations but does **not** eliminate consumer-protection or financial-crime requirements.   
+
+- **AI = high-risk by default.**  
+  Anywhere AI touches lending, identity, fraud detection or risk classification, we treat it as “high-risk” in the spirit of the EU AI Act: subject to documented risk management, data governance, transparency and human oversight.   
+
+- **Licensing when required.**  
+  If a product clearly lands in a regulated bucket (e.g., money transmission, lending, investment advisory), we will either:
+  - get the appropriate licenses,  
+  - partner with a regulated entity, or  
+  - change the design until it’s appropriate for our scale.
+
+We use the stackme plan’s own tone as a guide: *compliance-conscious, no buzzwords, no hype*. :contentReference[oaicite:25]{index=25}  
+
+### 5.3 Things we won’t do
+
+Plain commitments you can hold us to:
+
+- No tokens sold to the public as “investments.”  
+- No opaque “yield” products where you can’t inspect the mechanics.  
+- No hidden rehypothecation of user assets (if we ever custody any).  
+- No routing around sanctions, KYC/AML, or geofencing obligations.
+
+---
+
+## 6. Communications, education & change-log
+
+### 6.1 Education as self-defense
+
+Your original stackme plan already encoded this: *“Education over hype: an informed user is an empowered user.”* :contentReference[oaicite:26]{index=26}  
+
+On the governance page, we make that explicit:
+
+> We publish what we’re learning in the **Library** — from macro frameworks like the Monetary Divergence Thesis to post-mortems on pipeline experiments — so people can see how our views and systems evolve.
+
+### 6.2 Public change-log
+
+Link to a simple table in **/library** that tracks:
+
+- Treasury policy changes (e.g., LTV caps, protocol allowlists)  
+- Major governance updates (e.g., adding a director, new risk limits)  
+- Status of key projects (e.g., “Helios stress-testing started”, “stackme closed beta paused/revised”).
+
+This is your **“we don’t move the goalposts quietly”** section.
+
+---
+
+## 7. Who this page is for & how to contact us
+
+Short closing block:
+
+- **For regulators & compliance teams:**  
+  We’re happy to share deeper materials (business plans, architecture diagrams, draft policies) under NDA.
+
+- **For partners:**  
+  If you operate in AI, digital assets, or risk/compliance and see alignment, reach out via **/contact**.
+
+CTA button: **Talk to us about governance → /contact**
+
+---

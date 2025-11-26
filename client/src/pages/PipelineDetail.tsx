@@ -26,10 +26,10 @@ const projectData: Record<string, ProjectData> = {
     stage: "Early Development",
     stageVariant: "development",
     tagline: "Internal BTC-backed strategy engine.",
-    description: "Helios is being designed to automate a small portion of our borrowing into clearly bounded, rule-driven DeFi positions. It's our internal tool for deploying capital with explicit limits and real-time monitoring.",
+    description: "Helios automates a portion of our borrowing into bounded, rule-driven DeFi positions. It deploys capital with explicit limits and real-time monitoring — internal only.",
     currentState: [
-      "Requirements and architecture are defined",
-      "Core implementation is in progress",
+      "Requirements and architecture defined",
+      "Core implementation in progress",
       "Internal testing environment being set up",
     ],
     exploring: [
@@ -49,12 +49,12 @@ const projectData: Record<string, ProjectData> = {
     name: "stackme",
     stage: "Early Development",
     stageVariant: "development",
-    tagline: "A borrower-first concept for BTC-backed credit.",
-    description: "stackme explores what a BTC-backed lending experience could look like if designed around clarity, conservative leverage, and plain-language risk. Architecture and flows are being designed.",
+    tagline: "A borrower-first BTC credit app.",
+    description: "stackme is a BTC-backed lending experience designed around clarity, conservative leverage, and plain-language risk disclosure. Architecture and flows in development.",
     currentState: [
       "Requirements defined",
       "Technical architecture designed",
-      "User flows and prototypes in exploration",
+      "User flows and prototypes in development",
     ],
     exploring: [
       "Plain-language risk explanation",
@@ -74,11 +74,11 @@ const projectData: Record<string, ProjectData> = {
     stage: "Requirements",
     stageVariant: "requirements",
     tagline: "Trading cards for real-world assets, with quality and scarcity encoded on-chain.",
-    description: "Lumina explores how trading cards for real-world assets (art, collectibles, etc.) could encode quality and scarcity on-chain. Requirements are defined; system design is in early stages.",
+    description: "Lumina encodes quality and scarcity of real-world assets (art, collectibles) on-chain as trading cards. Requirements defined; system design in progress.",
     currentState: [
-      "Requirements are in place",
-      "System design being shaped",
-      "Grading and data pipelines being explored",
+      "Requirements complete",
+      "System design in progress",
+      "Grading and data pipelines being built",
     ],
     exploring: [
       "Asset grading and verification systems",
@@ -97,12 +97,12 @@ const projectData: Record<string, ProjectData> = {
     name: "Uniqueness Engine",
     stage: "Research",
     stageVariant: "research",
-    tagline: "Early research on 'one-per-person' signals without surveillance.",
-    description: "Uniqueness Engine is early-stage research into signals that could help systems enforce 'one per person' type rules without centralizing identity data or sliding into surveillance.",
+    tagline: "Research into 'one-per-person' signals without surveillance.",
+    description: "Uniqueness Engine is research into signals that help systems enforce 'one per person' rules without centralizing identity data or enabling surveillance.",
     currentState: [
       "Research and requirements phase",
-      "Exploring existing approaches",
-      "Defining what 'good' looks like",
+      "Surveying existing approaches",
+      "Defining success criteria",
     ],
     exploring: [
       "Privacy-preserving uniqueness proofs",
@@ -220,9 +220,9 @@ export default function PipelineDetail() {
         />
       ) : (
         <NextStepBlock
-          nextPage="Ventures"
-          description="See what a graduated project looks like."
-          href="/ventures"
+          nextPage="Governance"
+          description="See how we govern risk, treasury, and compliance."
+          href="/governance"
         />
       )}
     </Layout>

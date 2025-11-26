@@ -15,7 +15,7 @@ const projects = [
     name: "Helios",
     stage: "Early Development",
     stageVariant: "development" as const,
-    description: "Internal BTC-backed strategy engine. We're designing Helios to automate a small portion of our borrowing into clearly bounded, rule-driven DeFi positions.",
+    description: "Internal BTC-backed strategy engine. Helios automates a portion of our borrowing into bounded, rule-driven DeFi positions with real-time monitoring.",
     exploring: ["Yield strategies with strict limits", "Multi-venue execution", "Risk monitoring"],
     href: "/pipeline/helios",
   },
@@ -23,7 +23,7 @@ const projects = [
     name: "stackme",
     stage: "Early Development",
     stageVariant: "development" as const,
-    description: "A borrower-first concept for BTC-backed credit. Architecture and flows are being designed around clarity, conservative leverage, and plain-language risk.",
+    description: "A borrower-first BTC credit app. Architecture and flows center on clarity, conservative leverage, and plain-language risk disclosure.",
     exploring: ["User-friendly risk display", "Conservative LTV ladders", "Clear liquidation paths"],
     href: "/pipeline/stackme",
   },
@@ -31,7 +31,7 @@ const projects = [
     name: "Lumina",
     stage: "Requirements",
     stageVariant: "requirements" as const,
-    description: "Trading cards for real-world assets, with quality and scarcity encoded on-chain. Requirements are defined; we're exploring system design and grading pipelines.",
+    description: "Trading cards for real-world assets, with quality and scarcity encoded on-chain. Requirements defined; system design and grading pipelines in progress.",
     exploring: ["Asset grading systems", "On-chain provenance", "Scarcity mechanics"],
     href: "/pipeline/lumina",
   },
@@ -39,7 +39,7 @@ const projects = [
     name: "Uniqueness Engine",
     stage: "Research",
     stageVariant: "research" as const,
-    description: "Early work on 'one-per-person' style signals that could help systems stay fair without sliding into surveillance.",
+    description: "Research into 'one-per-person' signals that help systems stay fair without sliding into surveillance.",
     exploring: ["Privacy-preserving signals", "Sybil resistance patterns", "Identity minimization"],
     href: "/pipeline/uniqueness-engine",
   },
@@ -48,27 +48,27 @@ const projects = [
 const values = [
   {
     title: "Transparency over theater",
-    description: "Messy truths over polished stories. We label things clearly: idea, exploration, prototype, internal only, or ready.",
+    description: "Messy truths over polished stories. We label things clearly: idea, prototype, internal only, or ready.",
     icon: <Eye className="w-5 h-5" />,
   },
   {
     title: "Capital first, narrative second",
-    description: "Our own balance sheet is the first test. If we wouldn't run our own money through it, it doesn't graduate.",
+    description: "Our balance sheet is the first test. If we wouldn't run our own money through it, it doesn't graduate.",
     icon: <Coins className="w-5 h-5" />,
   },
   {
     title: "Small, sharp systems",
-    description: "One small, understandable tool is better than a sprawling, half-finished platform.",
+    description: "One small, understandable tool beats a sprawling, half-finished platform.",
     icon: <Layers className="w-5 h-5" />,
   },
   {
     title: "Education as self-defense",
-    description: "We publish what we learn so others can see through hype and understand the real trade-offs.",
+    description: "We publish what we learn so others can see through hype and understand real trade-offs.",
     icon: <BookOpen className="w-5 h-5" />,
   },
   {
     title: "Next-frontier mindset",
-    description: "We care about what's coming next — AI agents, new asset forms, digital scarcity — but we describe them in today's terms.",
+    description: "We care about what's coming — AI agents, new asset forms, digital scarcity — described in today's terms.",
     icon: <Compass className="w-5 h-5" />,
   },
 ];
@@ -186,7 +186,7 @@ export default function Overview() {
                   Mission
                 </h3>
                 <p className="text-foreground leading-relaxed">
-                  To explore the edge of AI and digital assets with our own capital on the line, learn out loud, and graduate only the systems we'd trust with our own balance sheet into Ventures.
+                  To explore the edge of AI and digital assets with our own capital on the line, learn out loud, and ship only the systems we'd trust with our own balance sheet.
                 </p>
               </CardContent>
             </Card>
@@ -198,13 +198,13 @@ export default function Overview() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
-              What we're working on right now
+              Current work
             </p>
             <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
               What's on the workbench
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              We're a lean studio with four projects in our Pipeline. All have requirements; Helios and stackme also have technical architecture. None are live products yet.
+              Four projects in our Pipeline. All have requirements; Helios and stackme have technical architecture. None are live products yet.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -235,7 +235,7 @@ export default function Overview() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
-              How we try to behave
+              How we operate
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

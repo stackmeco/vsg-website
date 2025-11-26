@@ -3,7 +3,22 @@ import { PageMeta } from "@/components/PageMeta";
 import { ValueCard } from "@/components/ValueCard";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
-import { Shield, Scale, Wallet, Cog, MessageSquare, ArrowRight } from "lucide-react";
+import { Shield, Scale, Wallet, Cog, MessageSquare, HelpCircle } from "lucide-react";
+
+const definitions = [
+  {
+    term: "Honest systems",
+    definition: "Systems where the rules are visible, ownership is real, and risks don't hide behind complexity. A system is honest when you can inspect how it works, understand what you're exposed to, and verify that it does what it claims.",
+  },
+  {
+    term: "AI-native finance",
+    definition: "Financial infrastructure built assuming AI agents will be participants — not just tools. This means explicit governance rails, machine-readable policies, and controls designed for millisecond-speed decisions that humans can still audit and override.",
+  },
+  {
+    term: "Digital scarcity",
+    definition: "The ability to make digital things genuinely limited and ownable — not just copyable files with licenses, but assets with provable uniqueness and transferable ownership. Bitcoin is the clearest example; we're exploring what else can work this way.",
+  },
+];
 
 const functions = [
   {
@@ -33,14 +48,6 @@ const functions = [
   },
 ];
 
-const stages = [
-  { name: "Idea", description: "A question we think is worth asking" },
-  { name: "Requirements", description: "Define what a good answer looks like" },
-  { name: "Architecture", description: "Design how it could work" },
-  { name: "Prototype", description: "Build a minimal version" },
-  { name: "Internal tests", description: "Run it with our own capital" },
-  { name: "Venture or Archive", description: "Graduate or document learnings" },
-];
 
 export default function System() {
   return (
@@ -62,7 +69,33 @@ export default function System() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-treasury">
+      <section className="py-16 bg-card" data-testid="section-definitions">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-8">
+            <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
+              What we mean
+            </p>
+            <h2 className="font-heading font-bold text-2xl text-foreground mb-4">
+              Terms we use, defined plainly
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {definitions.map((def) => (
+              <Card key={def.term} className="bg-background border-border">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <HelpCircle className="w-4 h-4 text-primary" />
+                    <h3 className="font-heading font-semibold text-foreground">{def.term}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{def.definition}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20" data-testid="section-treasury">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
@@ -101,34 +134,6 @@ export default function System() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {functions.map((func) => (
               <ValueCard key={func.title} {...func} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-card" data-testid="section-idea-to-venture">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
-              From curiosity to Venture
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Every project starts as a question. If it survives requirements, architecture, and internal tests — and we'd trust it with our own money long-term — it may graduate into a Venture.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {stages.map((stage, index) => (
-              <div key={stage.name} className="flex items-center gap-2">
-                <Card className="bg-background border-border">
-                  <CardContent className="p-4">
-                    <p className="font-mono text-sm text-primary mb-1">{stage.name}</p>
-                    <p className="text-xs text-muted-foreground">{stage.description}</p>
-                  </CardContent>
-                </Card>
-                {index < stages.length - 1 && (
-                  <ArrowRight className="w-4 h-4 text-muted-foreground hidden sm:block" />
-                )}
-              </div>
             ))}
           </div>
         </div>

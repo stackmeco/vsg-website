@@ -72,7 +72,7 @@ const items: LibraryItem[] = [
 ];
 
 const changelog = [
-  { date: "Nov 2025", entry: "Initial site launch with Overview, System, Pipeline, Ventures, Library, and Contact pages." },
+  { date: "Nov 2025", entry: "Initial site launch with Overview, System, Pipeline, Governance, Library, and Contact pages." },
   { date: "Oct 2025", entry: "Brand and messaging finalized. Pipeline projects documented." },
 ];
 

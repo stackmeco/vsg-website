@@ -5,12 +5,12 @@ import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 
 const stages = [
-  { name: "Idea", description: "A question we think is worth asking." },
-  { name: "Requirements", description: "We define what a good answer would look like and what must be true." },
-  { name: "Architecture", description: "We design how it could work technically and operationally." },
-  { name: "Prototype", description: "We build a minimal version to see where it breaks." },
-  { name: "Internal tests", description: "We run it with our own capital under tight limits." },
-  { name: "Venture or archive", description: "If it earns long-term trust, it may become a Venture. If not, we write up what we learned." },
+  { name: "Idea", description: "A question worth asking." },
+  { name: "Requirements", description: "Define what a good answer looks like." },
+  { name: "Architecture", description: "Design how it works technically and operationally." },
+  { name: "Prototype", description: "Build a minimal version to find where it breaks." },
+  { name: "Internal tests", description: "Run it with our own capital under tight limits." },
+  { name: "Ship or archive", description: "If it earns long-term trust, it ships. If not, we document what we learned." },
 ];
 
 const projects = [
@@ -18,7 +18,7 @@ const projects = [
     name: "Helios",
     stage: "Early Development",
     stageVariant: "development" as const,
-    description: "Internal BTC-backed strategy engine. Requirements and architecture defined; implementation and early testing are in progress.",
+    description: "Internal BTC-backed strategy engine. Requirements and architecture defined; implementation and early testing in progress.",
     exploring: [
       "Automated yield strategies with strict risk bounds",
       "Multi-venue position management",
@@ -30,7 +30,7 @@ const projects = [
     name: "stackme",
     stage: "Early Development",
     stageVariant: "development" as const,
-    description: "A concept for a borrower-first BTC credit app. Requirements and technical architecture are defined; prototypes and flows are being explored.",
+    description: "A borrower-first BTC credit app. Requirements and technical architecture defined; prototypes and flows in development.",
     exploring: [
       "Plain-language risk explanation",
       "Conservative leverage limits",
@@ -42,7 +42,7 @@ const projects = [
     name: "Lumina",
     stage: "Requirements",
     stageVariant: "requirements" as const,
-    description: "Trading cards that encode real-world qualities and scarcity on-chain. Requirements are in place; system design and data pipelines are being shaped.",
+    description: "Trading cards encoding real-world qualities and scarcity on-chain. Requirements complete; system design and data pipelines in progress.",
     exploring: [
       "Asset grading and verification",
       "On-chain provenance tracking",
@@ -54,7 +54,7 @@ const projects = [
     name: "Uniqueness Engine",
     stage: "Research",
     stageVariant: "research" as const,
-    description: "Early research on signals that could help systems enforce 'one per person' type rules without centralizing identity data.",
+    description: "Research into signals that help systems enforce 'one per person' rules without centralizing identity data.",
     exploring: [
       "Privacy-preserving uniqueness proofs",
       "Sybil resistance without surveillance",
@@ -78,7 +78,7 @@ export default function Pipeline() {
               The Pipeline.
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Our R&D studio: projects tied to our BTC treasury, moving through defined stages. All self-funded. None public yet.
+              Our R&D projects, tied to our BTC treasury, moving through defined stages. All self-funded. None public yet.
             </p>
           </div>
         </div>
@@ -125,9 +125,9 @@ export default function Pipeline() {
       </section>
 
       <NextStepBlock
-        nextPage="Ventures"
-        description="See what a graduated project looks like — and why we haven't shipped one yet."
-        href="/ventures"
+        nextPage="Governance"
+        description="See how we govern risk, treasury, and compliance."
+        href="/governance"
       />
     </Layout>
   );
