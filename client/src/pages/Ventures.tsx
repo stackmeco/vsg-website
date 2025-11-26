@@ -1,121 +1,69 @@
 import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
-import { VentureCard } from "@/components/VentureCard";
+import { NextStepBlock } from "@/components/NextStepBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  ArrowRight,
-  Fingerprint,
-  Landmark,
-  Droplets,
-  Shield,
-  Eye,
-  FileText,
-  Activity,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-const ventures = [
-  {
-    name: "Uniqueness Engine",
-    tagline: "Fair access and Sybil resistance",
-    description:
-      "A Sybil-resistance and fair-access primitive for AI-native finance. Use it to stop duplicate signups and scripted abuse without harvesting identity data.",
-    href: "/ventures/uniqueness-engine",
-    icon: <Fingerprint className="w-5 h-5" />,
-  },
-  {
-    name: "Helios",
-    tagline: "Treasury that earns within limits",
-    description:
-      "A governed on-chain treasury for protocols and institutions. Use it to keep capital productive—with policy-defined ladders, not 'all-in' bets.",
-    href: "/ventures/helios",
-    icon: <Landmark className="w-5 h-5" />,
-  },
-  {
-    name: "VSG Liquidity Engine",
-    tagline: "Liquidity without forced selling",
-    description:
-      "Liquidity rails for long-term holders, under clear risk limits. Use it to give users access to liquidity without forcing sales at the worst possible time.",
-    href: "/ventures/liquidity-engine",
-    icon: <Droplets className="w-5 h-5" />,
-  },
-];
-
-const backbone = [
-  {
-    title: "Security & key management",
-    description: "Enterprise-grade security across all ventures",
-    icon: <Shield className="w-5 h-5" />,
-  },
-  {
-    title: "Policy engine and limit ladders",
-    description: "Consistent enforcement of risk policies",
-    icon: <Activity className="w-5 h-5" />,
-  },
-  {
-    title: "Observability and exception routing",
-    description: "Clear visibility into system behavior",
-    icon: <Eye className="w-5 h-5" />,
-  },
-  {
-    title: "Governance documentation",
-    description: "Transparent change logs and audit trails",
-    icon: <FileText className="w-5 h-5" />,
-  },
+const criteria = [
+  "Requirements, architecture, and implementation are complete",
+  "Internal testing with our own capital has passed",
+  "We'd trust it with our own balance sheet for the long haul",
+  "The system is stable, documented, and maintainable",
+  "We can explain exactly how it works and what the risks are",
 ];
 
 export default function Ventures() {
   return (
     <Layout>
-      <section className="py-20" data-testid="section-hero">
+      <section className="py-20 lg:py-28" data-testid="section-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-medium text-primary mb-4 tracking-wide">
-              Ventures
-            </p>
+          <div className="max-w-3xl mx-auto text-center">
             <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight tracking-tight mb-6">
-              Ventures on shared, governed rails.
+              Ventures.
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              VSG incubates and operates ventures that share a common governance
-              backbone. Each solves a different problem—identity, treasury,
-              liquidity—but they all run on the same principles.
+              Projects that have graduated from the Pipeline and become standalone, long-term systems we operate.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-card" data-testid="section-backbone">
+      <section className="py-20 bg-card" data-testid="section-none-yet">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-semibold text-xl text-foreground mb-8">
-            Shared backbone
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {backbone.map((item) => (
-              <div key={item.title} className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-primary flex-shrink-0">
-                  {item.icon}
-                </div>
-                <div>
-                  <h3 className="font-medium text-foreground text-sm">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
+              None yet, on purpose.
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              We haven't graduated any Pipeline projects to Ventures yet. That's intentional. A project only becomes a Venture when it has survived requirements, architecture, internal testing — and when we'd trust it with our own money for the long haul.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              We'd rather ship nothing than ship something we wouldn't use ourselves.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-ventures">
+      <section className="py-20" data-testid="section-criteria">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-6">
-            {ventures.map((venture) => (
-              <VentureCard key={venture.name} {...venture} />
-            ))}
+          <div className="max-w-3xl">
+            <h2 className="font-heading font-bold text-2xl text-foreground mb-6">
+              What it takes to graduate
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              A Pipeline project becomes a Venture when:
+            </p>
+            <ul className="space-y-4">
+              {criteria.map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-foreground">
+                  <span className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 text-sm font-mono">
+                    {index + 1}
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -123,25 +71,38 @@ export default function Ventures() {
       <section className="py-20 bg-card" data-testid="section-future">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="bg-background border-border">
-            <CardContent className="p-8 sm:p-12 text-center">
-              <h2 className="font-heading font-bold text-2xl text-foreground mb-4">
-                What's next
-              </h2>
-              <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-                We're always researching new primitives that could benefit from
-                governed rails. If you have ideas or want to collaborate, we'd
-                love to hear from you.
-              </p>
-              <Link href="/contact">
-                <Button>
-                  Start a conversation
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
+            <CardContent className="p-8 sm:p-12">
+              <div className="max-w-2xl">
+                <h3 className="font-heading font-bold text-xl text-foreground mb-4">
+                  When we launch something, you'll know
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  We'll update this page when a project graduates. In the meantime, you can follow our progress in the Library or explore what's currently in the Pipeline.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Link href="/pipeline">
+                    <Button variant="outline">
+                      See the Pipeline
+                      <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  </Link>
+                  <Link href="/library">
+                    <Button variant="ghost">
+                      Read the Library
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
       </section>
+
+      <NextStepBlock
+        nextPage="Library"
+        description="Read our notes, updates, and learnings."
+        href="/library"
+      />
     </Layout>
   );
 }

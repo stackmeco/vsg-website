@@ -4,18 +4,14 @@ import { ContactForm } from "@/components/ContactForm";
 export default function Contact() {
   return (
     <Layout>
-      <section className="py-20" data-testid="section-hero">
+      <section className="py-20 lg:py-28" data-testid="section-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-medium text-primary mb-4 tracking-wide">
-              Contact
-            </p>
             <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight tracking-tight mb-6">
-              Talk to the studio.
+              Get in touch.
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Use this form to start a conversation about pilots, partnerships,
-              or questions that aren't answered elsewhere on the site.
+              We're a two-founder studio. We read every message and respond to things that seem like a good fit.
             </p>
           </div>
         </div>
@@ -24,48 +20,44 @@ export default function Contact() {
       <section className="py-12 pb-20" data-testid="section-form">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-12">
-            <div className="lg:col-span-3">
-              <ContactForm />
-            </div>
             <div className="lg:col-span-2">
               <div className="bg-card border border-card-border rounded-xl p-6 sm:p-8 sticky top-24">
                 <h3 className="font-heading font-semibold text-lg text-foreground mb-4">
-                  What to expect
+                  Who should reach out
                 </h3>
                 <ul className="space-y-4 text-sm text-muted-foreground">
                   <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     <span>
-                      We read every message and respond to clear fits for the
-                      studio's work.
+                      <strong className="text-foreground">Builders & founders</strong> working on AI, Bitcoin, or digital scarcity who want to compare notes.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     <span>
-                      For pilots and partnerships, expect an initial response
-                      within 3-5 business days.
+                      <strong className="text-foreground">Investors or partners</strong> who care about how things actually work, not just pitch decks.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     <span>
-                      We don't do cold outreach or share your information with
-                      third parties.
+                      <strong className="text-foreground">Media or researchers</strong> looking for honest perspectives on AI-native finance.
                     </span>
                   </li>
                 </ul>
 
                 <div className="mt-8 pt-6 border-t border-border">
                   <h4 className="text-sm font-medium text-foreground mb-2">
-                    For media inquiries
+                    What to expect
                   </h4>
                   <p className="text-sm text-muted-foreground">
-                    Select "Media / Speaking" as your topic and we'll route your
-                    message to the right team.
+                    We respond to messages that fit within a few business days. We don't do cold outreach, and we don't share your information.
                   </p>
                 </div>
               </div>
+            </div>
+            <div className="lg:col-span-3">
+              <ContactForm />
             </div>
           </div>
         </div>
