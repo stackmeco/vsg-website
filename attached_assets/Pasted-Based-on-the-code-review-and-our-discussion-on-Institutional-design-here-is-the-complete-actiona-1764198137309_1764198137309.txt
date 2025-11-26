@@ -1,0 +1,41 @@
+Based on the code review and our discussion on "Institutional" design, here is the complete, actionable checklist for improving the Verified Systems Group website.
+
+### 1. Design & "Vibe" (The Institutional Look)
+*To achieve the "Control Room" feel and remove the "cheap/gamified" feel.*
+
+* **Tighten Animation Timing:** Perform a global find/replace. Change `duration-300` and `duration-500` to **`duration-150`**.
+    * *Why:* Institutional tools snap; they don't drift.
+* **Kill the "Hover Lift":** In `ValueCard.tsx`, `ProjectTile.tsx`, and `InsightCard.tsx`, remove classes like `hover:-translate-y-1` or `scale`.
+    * *Replacement:* Use **Border Highlighting**. On hover, change the border color (e.g., `border-slate-800` $\to$ `border-primary/50`) or slightly brighten the background (`bg-card` $\to$ `bg-accent/10`).
+* **Fix Entrance Animations:** In `Sheet.tsx` and `Dialog.tsx` , replace `slide-in-from-bottom` with a simple **`fade-in`** or a tight zoom (`zoom-in-95`).
+    * *Why:* Things shouldn't slide around like a mobile app; they should appear like a monitor turning on.
+* **Remove "Sci-Fi" Tropes:** Ensure there are no scanlines, CRT flickers, or "typing" text effects. Stick to high-contrast data, 1px borders, and monospace fonts (`IBM Plex Mono`).
+
+### 2. Content Alignment (The VSG Directive)
+*To ensure the code matches the polished brand voice we developed.*
+
+* **Update `Overview.tsx`:** The "Directive" cards are outdated.
+    * **Vision:** Change "...durability of physical currency" to **"...durability of hard currency."**
+    * **Mission:** Change "...capital at risk" to **"...capital as the first customer."** (This reinforces the "dogfooding" narrative).
+* **Standardize the Pillars:** In `Overview.tsx` and `System.tsx` , inconsistencies exist. Change all references to: **"AI, Digital Assets, and Verifiable Systems."**
+* **Update Footer:** Ensure the footer description matches the new "Verifiable Systems" tagline, removing references to "Bitcoin" if you want to keep the "Digital Assets" abstraction layer consistent (though keeping Bitcoin is fine if that is the specific treasury focus).
+
+### 3. Architecture & Cleanup
+*To make the codebase professional and maintainable.*
+
+* **Centralize Data:** Move hardcoded data out of components. Create a `client/src/data/` folder:
+    * Move `projects` array from `Overview.tsx` .
+    * Move `projectData` from `PipelineDetail.tsx` .
+    * Move `items` (articles) from `Library.tsx` .
+* **Activate the Contact Form:** `ContactForm.tsx` currently only logs to the console . Connect this to a service like **Formspree**, **EmailJS**, or your own backend route so you actually receive messages.
+* **Delete Dead Code:**
+    * Remove `AudienceCard.tsx` (unused).
+    * Remove `server/storage.ts` (unused user storage logic).
+
+### 4. User Experience (UX)
+*To improve discoverability and usability.*
+
+* **Expose Search:** You built a great Command Palette (`Cmd+K`), but it is invisible. Add a small **Search icon button** in `Header.tsx` (right side) that triggers the palette.
+* **Mobile Targets:** Check the "X" close button in the mobile menu . Ensure it has enough padding (min 44x44px) for easy tapping.
+* **SEO Images:** Replace the placeholder `/og-image.png` in `PageMeta.tsx` with a real, high-quality "Control Room" style image. This is critical for link previews on Twitter/LinkedIn.
+* **Contrast Check:** In `LibraryArticle.tsx` , ensure the `text-foreground/90` on the dark background meets readability standards. You might need to bump the font weight slightly if using a thin font.

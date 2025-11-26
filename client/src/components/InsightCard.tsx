@@ -24,7 +24,7 @@ export function InsightCard({
   return (
     <Card
       className={cn(
-        "group bg-card border-card-border hover-elevate transition-all duration-200",
+        "group bg-card border-card-border hover:border-primary/40 transition-colors duration-150",
         className
       )}
       data-testid={`insight-card-${slug}`}

@@ -80,6 +80,7 @@ export function Header() {
               <Button 
                 variant="ghost" 
                 size="icon" 
+                className="min-w-[44px] min-h-[44px]"
                 aria-label="Open navigation menu"
                 data-testid="button-mobile-menu"
               >
@@ -93,6 +94,7 @@ export function Header() {
                   <Button
                     variant="ghost"
                     size="icon"
+                    className="min-w-[44px] min-h-[44px]"
                     onClick={() => setMobileOpen(false)}
                     aria-label="Close navigation menu"
                   >

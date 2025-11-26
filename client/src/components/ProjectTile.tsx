@@ -16,7 +16,7 @@ interface ProjectTileProps {
 
 export function ProjectTile({ name, stage, stageVariant, description, exploring, href }: ProjectTileProps) {
   return (
-    <Card className="bg-card border-card-border hover-elevate transition-all duration-200">
+    <Card className="bg-card border-card-border hover:border-primary/40 transition-colors duration-150">
       <CardContent className="p-6">
         <div className="flex items-start justify-between gap-4 mb-4">
           <h3 className="font-heading font-semibold text-lg text-foreground">

@@ -65,7 +65,7 @@ export default function Library() {
               {filteredItems.map((item) => (
                 <Card
                   key={item.slug}
-                  className="bg-card border-card-border hover-elevate transition-all duration-200"
+                  className="bg-card border-card-border hover:border-primary/40 transition-colors duration-150"
                 >
                   <CardContent className="p-6">
                     <div className="flex items-center gap-2 mb-3">
