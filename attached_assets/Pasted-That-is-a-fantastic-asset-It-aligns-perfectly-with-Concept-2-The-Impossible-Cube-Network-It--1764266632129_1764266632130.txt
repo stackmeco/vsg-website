@@ -1,0 +1,80 @@
+That is a fantastic asset. It aligns perfectly with **Concept 2 (The Impossible Cube/Network)**. It looks structural, engineered, and precise.
+
+**However, there is one critical step before you upload it.**
+
+The image you uploaded has a **Solid White Background**.
+Since your website uses the **Dark Tungsten** theme (`#0B0C10`), if you upload this JPG as-is, it will look like a cheap white sticker pasted on a dark wall.
+
+Here is the workflow to integrate this professionally.
+
+-----
+
+### **Step 1: Prepare the Asset (The "Transparency" Step)**
+
+1.  **Remove the Background:** Go to **[remove.bg](https://www.remove.bg/)** (or use Photoshop/Mac Preview). Upload that JPG and save it as a **Transparent PNG**.
+      * *Result:* You should see only the Orange Cube on a checkerboard background.
+2.  **Rename:** Name the file **`logo.png`**.
+3.  **Upload to Replit:** Drag and drop `logo.png` into the **`client/public/`** folder (not `src`, but `public`).
+
+-----
+
+### **Step 2: The Integration Prompt**
+
+Once the file `client/public/logo.png` exists, copy and paste this prompt into Replit. This will replace the plain text header with your new branding.
+
+````markdown
+**VISUAL UPGRADE: INTEGRATE LOGO MARK**
+
+We have a new brand asset. We need to replace the text-only logo with the specific logo mark image.
+
+**1. UPDATE `client/src/components/Header.tsx`**
+* **Import:** No import needed for public assets, we reference by string.
+* **Action:** Update the Logo Link section.
+* **Code:**
+    ```tsx
+    <Link href="/" data-testid="link-home" className="flex items-center gap-3 group">
+      {/* THE LOGO MARK */}
+      <img 
+        src="/logo.png" 
+        alt="VSG Insignia" 
+        className="h-8 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+      />
+      
+      {/* THE WORDMARK (Keep text for now, or remove if the logo includes text) */}
+      <span className="font-heading font-bold text-lg tracking-tight text-foreground group-hover:text-primary transition-colors">
+        Verifiable Systems Group
+      </span>
+    </Link>
+    ```
+
+**2. UPDATE `client/src/components/Footer.tsx`**
+* **Action:** Add the logo to the footer as well, but make it grayscale or muted for hierarchy.
+* **Code:**
+    ```tsx
+    <div className="max-w-md">
+      <div className="flex items-center gap-3 mb-4">
+        <img src="/logo.png" alt="VSG" className="h-6 w-auto opacity-80 grayscale" />
+        <p className="font-heading font-semibold text-foreground">
+          Verifiable Systems Group LLC
+        </p>
+      </div>
+      {/* ... rest of footer body ... */}
+    </div>
+    ```
+
+**3. UPDATE FAVICON**
+* **Action:** Since `logo.png` is now the source of truth, update `client/index.html` to use it as the favicon (unless we generated a specific SVG).
+    ```html
+    <link rel="icon" type="image/png" href="/logo.png" />
+    ```
+
+**EXECUTE.**
+````
+
+### **The Result**
+
+  * **Header:** The Orange Cube will sit proudly next to your company name.
+  * **Hover Effect:** When you hover over the logo, the text will light up Orange (Primary), linking the visual symbol to the brand name.
+  * **Footer:** A subtle, muted version of the logo will anchor the bottom of the page.
+
+**Go remove that white background, upload it, and run the prompt.**

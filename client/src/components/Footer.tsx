@@ -14,9 +14,12 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="max-w-md">
-            <p className="font-heading font-semibold text-foreground mb-1">
-              Verifiable Systems Group LLC
-            </p>
+            <div className="flex items-center gap-3 mb-2">
+              <img src="/logo.png" alt="VSG" className="h-6 w-auto opacity-70 grayscale" />
+              <p className="font-heading font-semibold text-foreground">
+                Verifiable Systems Group LLC
+              </p>
+            </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Engineering deterministic systems at the intersection of AI and Economic Assurance.
             </p>
