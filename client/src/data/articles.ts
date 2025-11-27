@@ -38,7 +38,7 @@ export const articles: LibraryItem[] = [
 
 export const changelog = [
   { date: "Nov 2025", entry: "Initial site launch with Overview, System, Pipeline, Governance, Library, and Contact pages." },
-  { date: "Oct 2025", entry: "Brand and messaging finalized. Pipeline projects documented." },
+  { date: "Oct 2025", entry: "v1.0 System Architecture released. Pipeline projects documented." },
 ];
 
 export const getAvailableCategories = (items: LibraryItem[]): ContentType[] => {

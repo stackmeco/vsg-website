@@ -200,17 +200,17 @@ export default function Overview() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-workbench">
+      <section className="py-20" data-testid="section-pipeline">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
               Current work
             </p>
             <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
-              What's on the workbench
+              Active Development Cycles
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Five projects in our Pipeline. Axiom is in prototype; Helios and stackme have technical architecture. None are live products yet.
+              Five projects in our Pipeline. Axiom is in prototype; Helios and stackme have technical architecture. None are currently accepting external capital or users.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">

@@ -38,8 +38,8 @@ export const projects: Project[] = [
     name: "Lumina",
     stage: "Requirements",
     stageVariant: "requirements",
-    description: "Trading cards encoding real-world qualities and scarcity on-chain. Requirements complete; system design and data pipelines in progress.",
-    exploring: ["Asset grading and verification", "On-chain provenance tracking", "Scarcity and edition mechanics"],
+    description: "Digital bearer instruments for physical assets. Features a proprietary optical physics engine for anti-spoofing and surface topology verification.",
+    exploring: ["Photometric stereo for anti-spoofing", "Real-time material analysis on edge devices", "On-chain provenance tracking"],
     href: "/pipeline/lumina",
   },
   {

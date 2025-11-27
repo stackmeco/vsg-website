@@ -1,6 +1,8 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { z } from "zod";
+import * as fs from "fs";
+import * as path from "path";
 
 const contactSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -12,20 +14,59 @@ const contactSchema = z.object({
   consent: z.boolean().optional(),
 });
 
+const CONTACTS_FILE = path.join(process.cwd(), "data", "contacts.json");
+
+function ensureDataDir() {
+  const dataDir = path.dirname(CONTACTS_FILE);
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+}
+
+function loadContacts(): Array<Record<string, unknown>> {
+  try {
+    if (fs.existsSync(CONTACTS_FILE)) {
+      const data = fs.readFileSync(CONTACTS_FILE, "utf-8");
+      return JSON.parse(data);
+    }
+  } catch (error) {
+    console.error("[Contacts] Error loading contacts file:", error);
+  }
+  return [];
+}
+
+function saveContact(contact: Record<string, unknown>) {
+  ensureDataDir();
+  const contacts = loadContacts();
+  contacts.push(contact);
+  fs.writeFileSync(CONTACTS_FILE, JSON.stringify(contacts, null, 2));
+}
+
 export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/contact", async (req, res) => {
     try {
       const validated = contactSchema.parse(req.body);
       
-      console.log("[Contact Form Submission]", {
+      const contactEntry = {
+        id: Date.now().toString(36) + Math.random().toString(36).substr(2),
         timestamp: new Date().toISOString(),
         name: validated.name,
         email: validated.email,
-        organization: validated.organization || "N/A",
-        role: validated.role || "N/A",
+        organization: validated.organization || null,
+        role: validated.role || null,
         subject: validated.subject,
-        message: validated.message.substring(0, 100) + "...",
+        message: validated.message,
         consent: validated.consent || false,
+      };
+
+      saveContact(contactEntry);
+
+      console.log("[Contact Form] New submission saved:", {
+        id: contactEntry.id,
+        timestamp: contactEntry.timestamp,
+        name: contactEntry.name,
+        email: contactEntry.email,
+        subject: contactEntry.subject,
       });
 
       res.json({ 
@@ -46,6 +87,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
           message: "An error occurred processing your request" 
         });
       }
+    }
+  });
+
+  app.get("/api/contacts", async (req, res) => {
+    try {
+      const contacts = loadContacts();
+      res.json({ success: true, contacts });
+    } catch (error) {
+      console.error("[Contacts] Error fetching contacts:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Error fetching contacts" 
+      });
     }
   });
 
