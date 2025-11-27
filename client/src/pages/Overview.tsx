@@ -4,6 +4,7 @@ import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { ProjectTile } from "@/components/ProjectTile";
 import { ValueCard } from "@/components/ValueCard";
+import { StageChip } from "@/components/StageChip";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { StatBlock } from "@/components/StatBlock";
 import { Button } from "@/components/ui/button";
@@ -224,35 +225,34 @@ export default function Overview() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
-              Live projects
+              Current work
             </p>
             <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
-              System Status
+              Active Development Cycles
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Real-time development status. Click any project to explore architecture, risks, and roadmap.
+              Five projects in our Pipeline. Axiom is in research; Helios is in internal alpha; Stackme is in architecture. None are currently accepting external capital or users.
             </p>
           </div>
-          <div className="space-y-1 bg-card border border-border rounded-md p-4">
+          <div className="border border-border rounded-[2px] bg-card divide-y divide-border">
             {projects.map((project) => (
-              <Link key={project.name} href={project.href || `/pipeline/${project.name.toLowerCase().replace(/\s+/g, '-')}`} className="block hover-elevate active-elevate-2">
-                <div className="flex items-center justify-between w-full py-3 px-3">
-                  <div className="flex items-center gap-3">
-                    {/* Status Dot */}
-                    <div className={`w-1.5 h-1.5 rounded-[1px] flex-shrink-0 ${
-                      project.stageVariant === 'internal' ? 'bg-yellow-500' : 
-                      project.stageVariant === 'architecture' ? 'bg-orange-500' : 
-                      'bg-blue-500'
-                    }`} />
-                    <span className="font-heading font-medium text-sm text-foreground">{project.name}</span>
-                  </div>
+              <Link 
+                key={project.name} 
+                href={project.href}
+                className="group flex items-center justify-between p-4 hover:bg-primary/5 transition-colors duration-150"
+              >
+                {/* LEFT: Project Name (The Signal) */}
+                <div className="flex items-center gap-3">
+                  <span className="font-heading font-semibold text-sm text-foreground tracking-tight group-hover:text-primary transition-colors">
+                    {project.name}
+                  </span>
+                </div>
+
+                {/* RIGHT: Stage + Indicator (The Context) */}
+                <div className="flex items-center gap-4">
+                  <StageChip stage={project.stage} variant={project.stageVariant} />
                   
-                  <div className="flex items-center gap-4 ml-auto">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground whitespace-nowrap">
-                      {project.stage}
-                    </span>
-                    <ArrowRight className="w-3 h-3 text-muted-foreground flex-shrink-0" />
-                  </div>
+                  <ArrowRight className="w-4 h-4 text-muted-foreground/50 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
                 </div>
               </Link>
             ))}
