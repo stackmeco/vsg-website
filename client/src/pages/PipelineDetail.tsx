@@ -308,19 +308,21 @@ export default function PipelineDetail() {
         </div>
       </section>
 
-      {project.nextProject ? (
-        <NextStepBlock
-          nextPage={project.nextProject.name}
-          description={`Continue exploring the Pipeline.`}
-          href={project.nextProject.href}
-        />
-      ) : (
-        <NextStepBlock
-          nextPage="Governance"
-          description="See how we govern risk, treasury, and compliance."
-          href="/governance"
-        />
-      )}
+      <div className="mt-12">
+        {project.nextProject ? (
+          <NextStepBlock
+            nextPage={project.nextProject.name}
+            description={`Continue exploring the Pipeline.`}
+            href={project.nextProject.href}
+          />
+        ) : (
+          <NextStepBlock
+            nextPage="Governance"
+            description="See how we govern risk, treasury, and compliance."
+            href="/governance"
+          />
+        )}
+      </div>
     </Layout>
   );
 }
