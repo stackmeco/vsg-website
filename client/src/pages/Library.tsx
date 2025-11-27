@@ -24,7 +24,7 @@ export default function Library() {
         <div className="absolute inset-0 dot-grid opacity-40" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight tracking-tight mb-6">
+            <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground leading-tight tracking-tight mb-6">
               Thesis
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">

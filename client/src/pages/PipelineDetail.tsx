@@ -235,7 +235,7 @@ export default function PipelineDetail() {
 
           {/* Title + Status Chip (Inline) */}
           <div className="flex flex-wrap items-center gap-4 mb-4" data-testid="project-header">
-            <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground" data-testid="text-project-name">
+            <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground" data-testid="text-project-name">
               {project.name}
             </h1>
             <StageChip stage={project.stage} variant={project.stageVariant} />

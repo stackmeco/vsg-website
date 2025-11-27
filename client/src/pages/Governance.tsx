@@ -81,7 +81,7 @@ export default function Governance() {
         <div className="absolute inset-0 dot-grid opacity-40" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight tracking-tight mb-6">
+            <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground leading-tight tracking-tight mb-6">
               Governance, risk & compliance
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -128,7 +128,7 @@ export default function Governance() {
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
               Legal structure
             </p>
-            <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
+            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
               How the company is governed
             </h2>
             <p className="text-muted-foreground leading-relaxed">
@@ -188,7 +188,7 @@ export default function Governance() {
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
               Capital governance
             </p>
-            <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
+            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
               BTC treasury: what it is (and isn't)
             </h2>
             <p className="text-muted-foreground leading-relaxed">
@@ -274,7 +274,7 @@ export default function Governance() {
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
               Risk governance
             </p>
-            <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
+            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
               How we cap risk before anything touches capital or users
             </h2>
             <p className="text-muted-foreground leading-relaxed">
@@ -343,7 +343,7 @@ export default function Governance() {
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
               Regulatory stance
             </p>
-            <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
+            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
               Regulatory Posture: Pre-Product
             </h2>
             <p className="text-muted-foreground leading-relaxed">
@@ -422,7 +422,7 @@ export default function Governance() {
       <section className="py-20 bg-card" data-testid="section-contact">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
-            <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
+            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-6">
               Want to discuss governance?
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">

@@ -70,7 +70,7 @@ export default function Pipeline() {
         <div className="absolute inset-0 dot-grid opacity-40" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight tracking-tight mb-6">
+            <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground leading-tight tracking-tight mb-6">
               The Pipeline
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -86,7 +86,7 @@ export default function Pipeline() {
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
               Our R&D process
             </p>
-            <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
+            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
               How we verify value at every step
             </h2>
             <p className="text-muted-foreground leading-relaxed">
@@ -110,7 +110,7 @@ export default function Pipeline() {
         <div className="absolute inset-0 bg-grid-pattern opacity-30" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-            <h2 className="font-heading font-bold text-3xl text-foreground">
+            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground">
               Current Pipeline projects
             </h2>
             <div className="flex items-center gap-1 p-1 bg-secondary rounded-lg">

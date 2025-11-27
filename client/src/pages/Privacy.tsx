@@ -10,7 +10,7 @@ export default function Privacy() {
       />
       <section className="py-20 lg:py-28" data-testid="section-privacy">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="font-heading font-bold text-4xl text-foreground leading-tight tracking-tight mb-8">
+          <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground leading-tight tracking-tight mb-8">
             Privacy Policy
           </h1>
           <p className="text-sm text-muted-foreground mb-12">

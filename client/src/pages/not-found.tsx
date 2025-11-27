@@ -20,7 +20,7 @@ export default function NotFound() {
             <p className="font-mono text-sm text-destructive uppercase tracking-wider mb-4">
               Error 404
             </p>
-            <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground mb-6">
+            <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground mb-6">
               SIGNAL LOST
             </h1>
             <p className="text-lg text-muted-foreground mb-8">

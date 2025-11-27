@@ -221,7 +221,7 @@ export default function Overview() {
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
               Current work
             </p>
-            <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
+            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
               Active Development Cycles
             </h2>
             <p className="text-muted-foreground leading-relaxed">
@@ -239,7 +239,7 @@ export default function Overview() {
       <section className="py-20 bg-card" data-testid="section-bitcoin">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
+            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-6">
               Bitcoin is Reserve, Not Product
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
@@ -256,7 +256,7 @@ export default function Overview() {
         <div className="absolute inset-0 bg-grid-pattern opacity-30" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
+            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
               How we operate
             </h2>
           </div>
