@@ -98,14 +98,31 @@ export default {
         },
         "flash": {
           "0%": { opacity: "0.2", color: "hsl(var(--primary))" },
-          "50%": { opacity: "1", color: "hsl(var(--foreground))" },
+          "50%": { opacity: "1", color: "#ffffff" },
           "100%": { opacity: "0.6", color: "hsl(var(--muted-foreground))" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "1", boxShadow: "0 0 8px hsl(var(--primary) / 0.5)" },
+          "50%": { opacity: "0.7", boxShadow: "0 0 4px hsl(var(--primary) / 0.2)" },
+        },
+        "data-tick": {
+          "0%": { transform: "translateY(0)", opacity: "1" },
+          "10%": { transform: "translateY(-2px)", opacity: "0.8" },
+          "20%": { transform: "translateY(0)", opacity: "1" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "glow-pulse": {
+          "0%, 100%": { boxShadow: "0 0 4px hsl(var(--primary) / 0.4)" },
+          "50%": { boxShadow: "0 0 12px hsl(var(--primary) / 0.7)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "flash": "flash 0.8s ease-out forwards",
+        "pulse-glow": "pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "data-tick": "data-tick 4s ease-out infinite",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
       },
       transitionTimingFunction: {
         'mechanical': 'cubic-bezier(0.2, 0, 0, 1)',
