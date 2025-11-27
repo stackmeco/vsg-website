@@ -179,9 +179,9 @@ export default function Overview() {
 
       <section className="py-20 bg-card" data-testid="section-directive">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground mb-8">
+          <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-8">
             The VSG Directive
-          </p>
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="bg-background border-border">
               <CardContent className="p-6">
