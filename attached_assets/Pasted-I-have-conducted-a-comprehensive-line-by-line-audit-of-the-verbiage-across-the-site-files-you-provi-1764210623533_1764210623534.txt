@@ -1,0 +1,147 @@
+I have conducted a comprehensive, line-by-line audit of the verbiage across the site files you provided.
+
+You are correct to feel it isn't "ideal" yet. While the **structure** is now institutional, some of the **phrasing** still feels a bit too "marketing-speak" or passive.
+
+To achieve the "Control Room" aesthetic, the language must be **active, absolute, and devoid of emotion.**
+
+Here are the specific issues and the recommended fixes for each section.
+
+-----
+
+### **I. Global Verbiage Issues (The "Soft" Leaks)**
+
+| Issue | Example Found | The Institutional Fix | Why? |
+| :--- | :--- | :--- | :--- |
+| **Passive Voice** | "We help systems enforce..." | **"Enforces strict..."** | Passive voice sounds like a service provider. Active voice sounds like a machine. |
+| **"Story" Metaphors** | "How we keep our story in sync..." | **"Signal Integrity"** | "Story" implies fiction. "Signal" implies data. |
+| **Hedge Words** | "We believe..." / "Ideally..." | **"Our thesis..." / "System constraint..."** | Don't believe. Assert. |
+| **Consumer Terms** | "App," "Chatbot," "Cards" | **"Interface," "Inference Engine," "Instruments"** | You are building infrastructure, not apps. |
+
+-----
+
+### **II. Page-by-Page Corrections**
+
+#### **1. `Overview.tsx` (The First Impression)**
+
+  * **Hero Body:**
+
+      * *Current:* "We engineer deterministic systems for Value, Intelligence, and Physical Reality... Nothing launches until we'd trust it with our own balance sheet."
+      * *Critique:* "Nothing launches until..." is a bit wordy and conversational.
+      * *Fix:* **"We engineer deterministic systems for Value, Intelligence, and Physical Reality. Bitcoin verifies value; Axiom verifies truth. Deployment is gated by internal capital verification."**
+
+  * **Bitcoin Section:**
+
+      * *Current:* "Bitcoin is our fuel, not our marketing"
+      * *Critique:* "Fuel" is okay, but "Marketing" is too meta. It breaks the fourth wall.
+      * *Fix:* **"Bitcoin is Reserve, Not Product."**
+      * *Body:* Change "When it makes sense..." to **"We utilize conservative, over-collateralized borrowing to fund R\&D, treating liquidity as an operational tool rather than a yield product."**
+
+#### **2. `PipelineDetail.tsx` (The Technicals)**
+
+  * **Stackme:**
+
+      * *Current:* "A borrower-first BTC credit app."
+      * *Critique:* "App" sounds small. "Borrower-first" sounds like marketing.
+      * *Fix:* **"A protocol-native lending interface."**
+      * *Current:* "Gentle liquidation ladders"
+      * *Critique:* "Gentle" is an emotion.
+      * *Fix:* **"Graduated liquidation tranches."** (Same meaning, but sounds mathematical).
+
+  * **Uniqueness Engine:**
+
+      * *Current:* "Research into signals that help systems enforce..."
+      * *Critique:* "Help systems" is weak.
+      * *Fix:* **"Sybil-resistance signals that enforce 'one-per-person' constraints without biometric surveillance."**
+
+  * **Axiom:**
+
+      * *Current:* "It turns 'creative writing' into 'auditable reporting'."
+      * *Critique:* Good, but "creative writing" is a bit cheeky.
+      * *Fix:* **"Transforms probabilistic generation into deterministic, cited reporting."**
+
+#### **3. `System.tsx` (The Operations)**
+
+  * **Communications & Brand:**
+
+      * *Current:* "How we keep our story in sync with what's actually true..."
+      * *Critique:* This implies you might lie otherwise.
+      * *Fix:* **"Signal Integrity: Ensuring external outputs strictly match internal telemetry and system state."**
+
+  * **Governance:**
+
+      * *Current:* "How we set thresholds, limits, and 'no's..."
+      * *Critique:* "No's" is unprofessional.
+      * *Fix:* **"Governance & Risk: The definition of solvency thresholds, leverage caps, and negative constraints."**
+
+#### **4. `Contact.tsx` (The Gatekeeper)**
+
+  * *Current:* "Investors or partners who care about how things actually work, not just pitch decks."
+
+  * *Critique:* This sounds defensive/bitter.
+
+  * *Fix:* **"Capital partners focused on technical architecture and first-principles engineering."**
+
+  * *Current:* "We don't do cold outreach."
+
+  * *Fix:* **"VSG does not initiate unsolicited outbound communication."** (Sounds like a policy, not a preference).
+
+-----
+
+### **III. The "Golden Master" Data Block**
+
+To fix 80% of this immediately, update your `projects.ts` file with this sharpened copy. It removes "App," "Cards," and "Help."
+
+```typescript
+export const projects: Project[] = [
+  {
+    name: "Axiom",
+    stage: "Prototype",
+    stageVariant: "prototype",
+    description: "A deterministic inference layer designed to eliminate hallucination. Forces LLMs to anchor outputs to verified internal data structures.",
+    exploring: ["RAG with strict citation enforcement", "Adversarial logic traps", "Mechanistic interpretability"],
+    href: "/pipeline/axiom",
+  },
+  {
+    name: "Helios",
+    stage: "Internal Alpha",
+    stageVariant: "internal",
+    description: "Internal BTC-backed strategy engine. Automates treasury operations within bounded risk parameters.",
+    exploring: ["Automated yield strategies", "Multi-venue position management", "Real-time solvency monitoring"],
+    href: "/pipeline/helios",
+  },
+  {
+    name: "Stackme",
+    stage: "Architecture",
+    stageVariant: "architecture",
+    description: "Protocol-native BTC lending interface. Designed for clarity, conservative leverage, and graduated liquidation mechanics.",
+    exploring: ["Risk visualization", "Conservative LTV limits", "Graduated liquidation tranches"],
+    href: "/pipeline/stackme",
+  },
+  {
+    name: "Lumina",
+    stage: "Specification",
+    stageVariant: "specification",
+    description: "Digital bearer instruments for physical assets. Features a proprietary optical physics engine for anti-spoofing and topology verification.",
+    exploring: ["Photometric stereo scanning", "Edge-compute material analysis", "On-chain provenance"],
+    href: "/pipeline/lumina",
+  },
+  {
+    name: "Uniqueness Engine",
+    stage: "Research",
+    stageVariant: "research",
+    description: "Sybil-resistance signals that enforce uniqueness constraints without biometric surveillance or centralized identity data.",
+    exploring: ["Zero-Knowledge uniqueness proofs", "Cost-of-forgery signals", "Minimal footprint identity"],
+    href: "/pipeline/uniqueness-engine",
+  },
+];
+```
+
+### **IV. Final Recommendation**
+
+You are very close. The "Vibe" is right, but the "Vocabulary" needs to tighten up.
+
+**Rule of thumb for your final edits:**
+If a sentence sounds like something a human would say at a coffee shop (e.g., "We help," "It's gentle," "Messy truths"), **delete it.**
+Replace it with what a system log would output (e.g., "Enables," "Graduated," "Raw Data").
+
+**Do you want me to rewrite the `Overview.tsx` Hero Section one last time to be perfectly "Cold/Institutional"?**
