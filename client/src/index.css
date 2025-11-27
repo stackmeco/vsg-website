@@ -297,3 +297,15 @@
   background-color: hsl(25 95% 53% / 0.2); /* Signal Orange at 20% opacity */
   color: #ffffff;
 }
+
+/* HUD Texture Overlay - For background images */
+/* Applied via inline styles in hero sections for precise control */
+/* Standard treatment: opacity 0.08-0.15, grayscale(100%) contrast(120%) */
+.bg-texture-overlay {
+  filter: grayscale(100%) contrast(120%);
+  opacity: 0.12;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}

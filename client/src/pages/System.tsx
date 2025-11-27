@@ -2,6 +2,8 @@ import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { ValueCard } from "@/components/ValueCard";
 import { NextStepBlock } from "@/components/NextStepBlock";
+import { ChangeLogEntry } from "@/components/ChangeLogEntry";
+import { ConsolePanel } from "@/components/ConsolePanel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Scale, Wallet, Cog, MessageSquare, HelpCircle } from "lucide-react";
 import { changelog } from "@/data/articles";
@@ -113,26 +115,45 @@ export default function System() {
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/90 to-background/70" />
         
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
-              Bitcoin Treasury Program
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              We hold BTC on our own balance sheet. When the risk/reward looks reasonable, we borrow stablecoins against a portion of that BTC, using reputable on-chain venues. Those borrowed funds either:
-            </p>
-            <ul className="space-y-3 mb-6">
-              <li className="flex items-start gap-3 text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                fund development time and infrastructure for our projects, or
-              </li>
-              <li className="flex items-start gap-3 text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                let us accumulate more BTC when we believe it's underpriced.
-              </li>
-            </ul>
-            <p className="text-sm text-muted-foreground italic">
-              This is an internal program. We don't manage anyone else's assets, and we don't offer treasury products.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="max-w-xl">
+              <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
+                Bitcoin Treasury Program
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                We hold BTC on our own balance sheet. When the risk/reward looks reasonable, we borrow stablecoins against a portion of that BTC, using reputable on-chain venues. Those borrowed funds either:
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-3 text-foreground">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                  fund development time and infrastructure for our projects, or
+                </li>
+                <li className="flex items-start gap-3 text-foreground">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                  let us accumulate more BTC when we believe it's underpriced.
+                </li>
+              </ul>
+              <p className="text-sm text-muted-foreground italic">
+                This is an internal program. We don't manage anyone else's assets, and we don't offer treasury products.
+              </p>
+            </div>
+            
+            {/* Console Panel - Live Treasury Monitor */}
+            <div className="lg:pt-8">
+              <ConsolePanel
+                title="TREASURY_MONITOR"
+                chips={[
+                  { label: "STATUS", value: "NOMINAL", variant: "limit" },
+                  { label: "ASSET", value: "BTC", variant: "info" },
+                  { label: "CUSTODY", value: "SELF", variant: "limit" },
+                ]}
+                metrics={[
+                  { label: "Strategy", value: "Self-Custody" },
+                  { label: "Leverage", value: "0.0x" },
+                  { label: "External AUM", value: "$0" },
+                ]}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -155,20 +176,22 @@ export default function System() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-changelog">
+      <section className="py-20" data-testid="section-changelog">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
+            <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
+              System Record
+            </p>
             <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
               Changelog
             </h2>
-            <div className="space-y-4">
+            <div className="bg-card border border-border rounded-md p-6">
               {changelog.map((entry, index) => (
-                <div key={index} className="flex gap-4">
-                  <span className="text-sm font-mono text-muted-foreground w-20 flex-shrink-0">
-                    {entry.date}
-                  </span>
-                  <p className="text-sm text-foreground">{entry.entry}</p>
-                </div>
+                <ChangeLogEntry
+                  key={index}
+                  date={entry.date}
+                  description={entry.entry}
+                />
               ))}
             </div>
           </div>
@@ -177,7 +200,7 @@ export default function System() {
 
       <NextStepBlock
         nextPage="Pipeline"
-        description="See our R&D projects and their current status."
+        description="Review active R&D projects and their operational status."
         href="/pipeline"
       />
     </Layout>

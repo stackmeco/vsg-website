@@ -1,0 +1,113 @@
+This is the **Final Visual System Specification**. It defines every pixel, timing, and texture to ensure the site feels like a cohesive operating system, not a collection of web pages.
+
+**Instructions:**
+
+1.  **Copy this entire block.**
+2.  **Paste it into Replit AI.** This provides the "Definition of Done" for the visual layer.
+
+-----
+
+````markdown
+**VISUAL SYSTEM SPECIFICATION: "THE CONTROL ROOM"**
+
+We are enforcing a strict "Industrial/High-Frequency Trading" aesthetic.
+**Philosophy:** Data over Decoration. Physics over Magic. Latency is Zero.
+
+Execute these specific definitions across the codebase.
+
+### 1. THE PHYSICS ENGINE (TAILWIND CONFIGURATION)
+**File:** `tailwind.config.ts`
+
+* **Timing (Speed of Light):**
+    * `transitionDuration: { DEFAULT: '150ms' }` // Global speed limit.
+    * `transitionTimingFunction: { 'mechanical': 'cubic-bezier(0.2, 0, 0, 1)' }` // Snap-to-grid feel.
+
+* **Geometry (Machined Edges):**
+    * `borderRadius: { lg: '4px', md: '2px', sm: '1px' }` // Almost square. No bubbles.
+
+* **Animation Primitives:**
+    * **"Flash" (Data Arrival):**
+        ```typescript
+        keyframes: {
+          "flash": {
+            "0%": { opacity: "0.2", color: "hsl(var(--primary))" }, // Orange ignite
+            "50%": { opacity: "1", color: "#ffffff" }, // White hot
+            "100%": { opacity: "0.6", color: "hsl(var(--muted-foreground))" } // Cool to gray
+          }
+        },
+        animation: {
+          "flash": "flash 0.8s ease-out forwards",
+        }
+        ```
+    * **"Pulse" (System Processing):** Standard Tailwind `animate-pulse` is acceptable for loading states, but ensure it is applied to *opacity only*, not scale.
+
+### 2. THE COLOR PALETTE (TUNGSTEN & SIGNAL)
+**File:** `client/src/index.css`
+
+* **Backgrounds (The Void):**
+    * `--background: 222 15% 5%;` (Deep Graphite).
+    * `--card: 222 15% 7%;` (Panel surface).
+    * `--popover: 222 15% 6%;` (Menu surface).
+
+* **Signals (The Indicators):**
+    * `--primary: 25 95% 53%;` (International Safety Orange - #F26D21).
+    * `--destructive: 0 70% 50%;` (Critical Alert Red).
+    * `--border: 222 15% 12%;` (Structural Steel Gray).
+
+* **Micro-Interactions (CSS Rules):**
+    ```css
+    /* 1. Terminal Selection */
+    ::selection {
+      background-color: hsl(25 95% 53% / 0.2);
+      color: #ffffff;
+    }
+
+    /* 2. Engineered Scrollbars */
+    ::-webkit-scrollbar { width: 8px; background: hsl(222 15% 5%); }
+    ::-webkit-scrollbar-thumb { background: hsl(222 15% 15%); border: 1px solid hsl(222 15% 5%); border-radius: 0px; }
+    ::-webkit-scrollbar-thumb:hover { background: hsl(25 95% 53% / 0.5); }
+
+    /* 3. HUD Texture Overlay */
+    .bg-texture-overlay {
+      filter: grayscale(100%) contrast(120%);
+      opacity: 0.2;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+    ```
+
+### 3. COMPONENT BEHAVIORS (THE LOGIC)
+
+**A. Cards & Tiles (ProjectTile, ValueCard, InsightCard)**
+* **State:** Static.
+* **Hover:** `border-primary/50`, `bg-card/80`. **NO LIFT (TranslateY). NO SHADOW.**
+* **Feel:** A panel lighting up, not a card floating.
+
+**B. Dates & Timestamps (Thesis Library)**
+* **Component:** `InsightCard.tsx`
+* **Animation:** Apply `animate-flash` to the Date string.
+* **Effect:** When the page loads, dates "blink" into existence like a terminal log.
+
+**C. Numeric Data (StatBlock, ConsolePanel)**
+* **Typography:** Always `font-mono` and `tabular-nums`.
+* **Logic:** Numbers must align vertically. No jitter.
+
+**D. System Messages (Toasts)**
+* **Entrance:** `fade-in-0` + `zoom-in-95`.
+* **Exit:** `fade-out-0` + `zoom-out-95`.
+* **Speed:** 150ms.
+* **Forbidden:** `slide-in-from-bottom`. Windows do not slide; they materialize.
+
+**E. Buttons**
+* **Active:** `active:scale-[0.98]`. Tiny mechanical depression on click.
+* **Outline:** `border-primary/20` -> `hover:border-primary`.
+
+### 4. ASSET MAPPING (TEXTURES)
+Ensure these specific images are applied with `.bg-texture-overlay`:
+* **Global Hero:** `grid_texture.jpg`
+* **Treasury Section:** `gears_texture.jpg`
+* **Lumina Detail:** `lumina_lens.jpg`
+* **Axiom Detail:** `axiom_cube.jpg`
+
+**EXECUTE VISUAL SYSTEM.**
+````

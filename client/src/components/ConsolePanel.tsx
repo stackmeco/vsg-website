@@ -29,18 +29,18 @@ export function ConsolePanel({
   return (
     <div
       className={cn(
-        "bg-slate-900/80 backdrop-blur-sm rounded-xl border border-slate-700/50",
-        "p-4 flex flex-col gap-3 shadow-lg",
+        "bg-card/90 backdrop-blur-sm rounded-md border border-border",
+        "p-4 flex flex-col gap-3",
         className
       )}
       data-testid="console-panel"
     >
       {title && (
         <div className="flex items-center justify-between">
-          <span className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+          <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
             {title}
           </span>
-          <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]" />
+          <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary)/0.5)]" />
         </div>
       )}
       <div className="flex flex-wrap gap-2">
@@ -49,10 +49,10 @@ export function ConsolePanel({
         ))}
       </div>
       {metrics && metrics.length > 0 && (
-        <div className="flex gap-6 pt-2 border-t border-slate-700/50">
+        <div className="flex flex-wrap gap-6 pt-2 border-t border-border">
           {metrics.map((metric, index) => (
             <div key={index} className="font-mono text-xs">
-              <span className="text-slate-500">{metric.label}: </span>
+              <span className="text-muted-foreground">{metric.label}: </span>
               <span className="text-primary tabular-nums tracking-tight">{metric.value}</span>
             </div>
           ))}

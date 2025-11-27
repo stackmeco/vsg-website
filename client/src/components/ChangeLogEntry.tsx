@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 
 interface ChangeLogEntryProps {
   date: string;
-  version: string;
+  version?: string;
   description: string;
   className?: string;
 }
@@ -20,15 +20,17 @@ export function ChangeLogEntry({
         "flex flex-col sm:flex-row sm:items-start gap-3 py-4 border-b border-border last:border-0",
         className
       )}
-      data-testid={`changelog-${version}`}
+      data-testid={`changelog-${date}`}
     >
       <div className="flex items-center gap-3 flex-shrink-0">
-        <span className="text-sm font-mono text-muted-foreground w-24">
+        <span className="text-sm font-mono text-muted-foreground animate-flash w-24">
           {date}
         </span>
-        <Badge variant="outline" className="font-mono text-xs">
-          {version}
-        </Badge>
+        {version && (
+          <Badge variant="outline" className="font-mono text-xs">
+            {version}
+          </Badge>
+        )}
       </div>
       <p className="text-sm text-foreground">{description}</p>
     </div>

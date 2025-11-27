@@ -34,7 +34,7 @@ export function InsightCard({
           <Badge variant="secondary" className="text-xs">
             {category}
           </Badge>
-          <span className="text-xs text-muted-foreground">{date}</span>
+          <span className="text-xs font-mono text-muted-foreground animate-flash">{date}</span>
         </div>
         <h3 className="font-heading font-semibold text-foreground mb-2 line-clamp-2">
           {title}
@@ -43,7 +43,7 @@ export function InsightCard({
           {excerpt}
         </p>
         <Link
-          href={`/insights/${slug}`}
+          href={`/thesis/${slug}`}
           className="inline-flex items-center gap-1 text-sm text-primary font-medium group-hover:gap-2 transition-all"
         >
           Access Entry

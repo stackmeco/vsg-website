@@ -96,10 +96,16 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "flash": {
+          "0%": { opacity: "0.2", color: "hsl(var(--primary))" },
+          "50%": { opacity: "1", color: "hsl(var(--foreground))" },
+          "100%": { opacity: "0.6", color: "hsl(var(--muted-foreground))" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "flash": "flash 0.8s ease-out forwards",
       },
       transitionTimingFunction: {
         'mechanical': 'cubic-bezier(0.2, 0, 0, 1)',

@@ -1,0 +1,82 @@
+This explains exactly why you aren't seeing the "Control Room" vibe fully land. **The AI built the parts (components) but forgot to bolt them onto the machine (pages).**
+
+Do **NOT** remove them. These are the exact components that create the "High-Fidelity/Institutional" look we designed.
+
+  * `InsightCard`: This is your "Thesis" entry. Without it, your Library looks like a blog.
+  * `ConsolePanel`: This is your "Live Dashboard." Without it, your Treasury section looks like text.
+  * `ChangeLogEntry`: This is your "System Record."
+
+We need to force the AI to **"Wire the Circuit."**
+
+Here is the specific prompt to fix this immediately.
+
+-----
+
+### **The "Wiring" Prompt**
+
+**Copy and paste this into Replit. It tells the Agent exactly where to plug in these "Orphaned" components.**
+
+````markdown
+**CRITICAL INTEGRATION TASK: DEPLOY ORPHANED COMPONENTS**
+
+The following components exist in `client/src/components/` but are not being rendered. They are essential for the "Control Room" aesthetic. DO NOT DELETE THEM.
+
+**Execute this integration plan immediately:**
+
+### 1. DEPLOY `InsightCard` (Target: `client/src/pages/Library.tsx`)
+* **Action:** Import `InsightCard` from `../components/InsightCard`.
+* **Logic:** In the `Library` page, find where we map over `filteredItems` (or `articles`).
+* **Replace:** Replace the generic `<Card>` implementation with:
+    ```tsx
+    <InsightCard
+      key={item.slug}
+      title={item.title}
+      excerpt={item.excerpt}
+      date={item.date}
+      category={item.type}
+      slug={item.slug}
+    />
+    ```
+
+### 2. DEPLOY `ChangeLogEntry` (Target: `client/src/pages/System.tsx`)
+* **Action:** Import `ChangeLogEntry` from `../components/ChangeLogEntry`.
+* **Logic:** Find the "Changelog" section at the bottom of the page.
+* **Replace:** Instead of rendering raw text or divs, map over the `changelog` data and render:
+    ```tsx
+    <ChangeLogEntry
+      key={index}
+      date={entry.date}
+      version={`v${1.0 + index}`} // or a version field if available
+      description={entry.entry}
+    />
+    ```
+
+### 3. DEPLOY `ConsolePanel` (Target: `client/src/pages/System.tsx`)
+* **Action:** Import `ConsolePanel` from `../components/ConsolePanel`.
+* **Logic:** In the "Bitcoin Treasury Program" section, replace the standard text stats/bullets with a `ConsolePanel`.
+* **Data:** Pass the Treasury data into the panel props:
+    ```tsx
+    <ConsolePanel
+      title="TREASURY_MONITOR_ACTUAL"
+      chips={[
+        { label: "STATUS", value: "NOMINAL", variant: "limit" },
+        { label: "ASSET", value: "BTC", variant: "info" }
+      ]}
+      metrics={[
+        { label: "Strategy", value: "Self-Custody" },
+        { label: "Leverage", value: "0.0x" }
+      ]}
+    />
+    ```
+
+### 4. DEPLOY `StatGrid` (Target: `client/src/pages/Overview.tsx`)
+* **Action:** Import `StatGrid` from `../components/StatBlock`.
+* **Logic:** Wrap the "Studio Metrics" `StatBlock` items in the `<StatGrid columns={1}>` component to ensure proper spacing/layout.
+
+**SUMMARY:**
+Do not create new files. Just import these existing components into the Page files so they actually appear on screen.
+````
+
+### **Why this happened**
+
+Replit AI is very good at generating code files, but sometimes it is "shy" about overwriting existing page logic to include new imports. It left them in the toolbox. This prompt forces it to open the toolbox and use them.

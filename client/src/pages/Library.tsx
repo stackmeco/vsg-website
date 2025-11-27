@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
-import { Card, CardContent } from "@/components/ui/card";
+import { InsightCard } from "@/components/InsightCard";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight } from "lucide-react";
 import { articles, getAvailableCategories, type ContentType } from "@/data/articles";
 
 export default function Library() {
@@ -63,42 +61,14 @@ export default function Library() {
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredItems.map((item) => (
-                <Card
+                <InsightCard
                   key={item.slug}
-                  className="bg-card border-card-border hover:border-primary/50 hover:bg-card/80 transition-colors duration-150"
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Badge variant="secondary" className="text-xs">
-                        {item.type}
-                      </Badge>
-                      <span className="text-xs text-muted-foreground">{item.date}</span>
-                    </div>
-                    <h3 className="font-heading font-semibold text-lg text-foreground mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      {item.excerpt}
-                    </p>
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {item.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs font-mono text-muted-foreground bg-secondary px-2 py-0.5 rounded"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <Link
-                      href={`/thesis/${item.slug}`}
-                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
-                    >
-                      Read more
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
-                  </CardContent>
-                </Card>
+                  title={item.title}
+                  excerpt={item.excerpt}
+                  date={item.date}
+                  category={item.type}
+                  slug={item.slug}
+                />
               ))}
             </div>
           )}
@@ -107,7 +77,7 @@ export default function Library() {
 
       <NextStepBlock
         nextPage="Contact"
-        description="Reach out if you'd like to connect."
+        description="Open communication channel."
         href="/contact"
       />
     </Layout>

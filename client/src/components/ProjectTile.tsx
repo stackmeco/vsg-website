@@ -43,7 +43,7 @@ export function ProjectTile({ name, stage, stageVariant, description, exploring,
         )}
         <Link 
           href={href} 
-          className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+          className="inline-flex items-center gap-1 text-sm text-primary font-medium transition-colors"
           data-testid={`link-project-${name.toLowerCase().replace(/\s+/g, "-")}`}
         >
           View Specification
