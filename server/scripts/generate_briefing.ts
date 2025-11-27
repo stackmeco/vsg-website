@@ -38,7 +38,23 @@ async function generateAudio() {
     process.exit(1);
   }
 
-  const credentials = JSON.parse(credentialsJson);
+  let credentials;
+  try {
+    credentials = JSON.parse(credentialsJson);
+  } catch {
+    console.error('Error: The provided credentials are not valid JSON.');
+    console.error('Google Cloud Text-to-Speech requires a full service account JSON file, not just an API key.');
+    console.error('');
+    console.error('To get the correct credentials:');
+    console.error('1. Go to Google Cloud Console > IAM & Admin > Service Accounts');
+    console.error('2. Create a new service account or select an existing one');
+    console.error('3. Click "Keys" tab > "Add Key" > "Create new key" > JSON');
+    console.error('4. Copy the ENTIRE contents of the downloaded JSON file');
+    console.error('5. Paste it as the value for GOOGLE_APPLICATION_CREDENTIALS_JSON secret');
+    process.exit(1);
+  }
+
+  console.log("Using service account credentials.");
   const client = new textToSpeech.TextToSpeechClient({ credentials });
 
   const request = {
