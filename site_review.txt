@@ -2,7 +2,7 @@
 VERIFIED SYSTEMS GROUP - COMPREHENSIVE SITE REVIEW
 ================================================================================
 Generated: November 27, 2025
-Revision: Institutional Language Update
+Revision: Global Contrast Calibration & Operating Principles Update
 Site: Verified Systems Group (VSG) Marketing Website
 Purpose: Production-ready marketing website for a two-founder Truth Engineering Lab
 
@@ -15,6 +15,13 @@ AESTHETIC: Industrial Control Room with Tungsten & Signal palette
 LANGUAGE: Institutional/Technical (active voice, no emotional terms)
 FOUNDER ANONYMITY: Maintained throughout
 LEGAL ENTITY: Verified Systems Group LLC - Manager-managed Wyoming LLC
+
+DESIGN SYSTEM CALIBRATION:
+- Base Font: 14px (text-sm)
+- Typography: Manrope (body), Space Grotesk (headings), IBM Plex Mono (code)
+- Contrast: --muted-foreground boosted to 75% for legibility
+- Geometry: 2px machined edges (--radius: 2px)
+- Motion: 150ms mechanical timing, glow-only patterns
 
 ================================================================================
 PAGE INVENTORY (11 Total)
@@ -37,7 +44,6 @@ SECTION 1: OVERVIEW PAGE (/)
 ================================================================================
 
 [HERO SECTION]
-Label: "System Status: Nominal"
 Headline: "Engineering verifiable systems for intelligence and value."
 Body: "We engineer deterministic systems for Value, Intelligence, and Physical Reality. Bitcoin verifies value; Axiom verifies truth. Deployment is gated by internal capital verification."
 
@@ -51,6 +57,7 @@ Active Cycles Chips: Axiom, Helios, Stackme, Lumina
 
 --------------------------------------------------------------------------------
 [THE VSG DIRECTIVE SECTION]
+Label: "The VSG Directive" (text-sm, mono, uppercase)
 
 Card 1 - PURPOSE:
 Title: "Engineering Verifiable Systems"
@@ -69,6 +76,13 @@ Body: "To navigate the frontier of AI and digital assets with our own capital as
 Headline: "Active Development Cycles"
 Body: "Five projects in our Pipeline. Axiom is in research; Helios is in internal alpha; Stackme is in architecture. None are currently accepting external capital or users."
 
+Project List (Compact Ticker Layout):
+1. Helios - Internal Alpha
+2. Stackme - Architecture
+3. Lumina - Specification
+4. Uniqueness Engine - Research
+5. Axiom - Research
+
 --------------------------------------------------------------------------------
 [BITCOIN SECTION]
 Headline: "Bitcoin is Reserve, Not Product"
@@ -76,23 +90,26 @@ Body: "We hold Bitcoin as our primary long-term reserve asset. We utilize conser
 Body 2: "This is internal treasury management. We do not offer external yield products or manage third-party capital."
 
 --------------------------------------------------------------------------------
-[OPERATIONAL PRINCIPLES SECTION]
-Headline: "How we operate"
+[OPERATING PRINCIPLES SECTION]
+Headline: "Operating Principles"
 
-1. RAW DATA OVER NARRATIVE
-"State is labeled precisely: research, specification, architecture, internal, production. No ambiguity."
+1. EMPIRICAL VERIFICATION (Eye icon)
+"We prioritize raw system telemetry over narrative. Experiments are labeled as experiments; assumptions are labeled as assumptions."
 
-2. CAPITAL VERIFICATION
-"Internal balance sheet is the first test. Nothing graduates without capital at risk."
+2. PROOF OF CAPITAL (Coins icon)
+"Development is gated by internal solvency. We do not deploy code we are not willing to capitalize with our own balance sheet."
 
-3. MINIMAL ATTACK SURFACE
-"One well-defined system with clear boundaries. No sprawling, half-verified platforms."
+3. BOUNDED EXECUTION (Shield icon)
+"Innovation requires explicit guardrails. Every system has defined failure states, liquidity caps, and safe shutdown sequences."
 
-4. OPEN DOCUMENTATION
-"Published research enables external verification. Trade-offs are explicit, not hidden."
+4. OPEN SOURCE INTELLIGENCE (Search icon)
+"Information asymmetry is a market inefficiency. We publish risk memos and post-mortems to reduce noise and signal-boost truth."
 
-5. FRONTIER SYSTEMS
-"AI agents, bearer assets, digital scarcity — building infrastructure for next-generation primitives."
+5. HORIZON SCANNING (Compass icon)
+"Architecting for the autonomous economy. We build for a future where AI agents require deterministic settlement, not human interfaces."
+
+6. COGNITIVE SECURITY (ShieldCheck icon)
+"Education is a defense layer. We arm our partners with first-principles technical analysis to neutralize hype cycles and predatory narratives."
 
 ================================================================================
 SECTION 2: SYSTEM PAGE (/system)
@@ -151,15 +168,7 @@ Body: "Our R&D projects, tied to our BTC treasury, moving through defined stages
 --------------------------------------------------------------------------------
 [CURRENT PIPELINE PROJECTS]
 
-PROJECT 1: AXIOM
-Stage: Research (Blue)
-Description: "A deterministic inference layer designed to eliminate hallucination. Forces LLMs to anchor outputs to verified internal data structures."
-Exploring:
-- RAG with strict citation enforcement
-- Adversarial logic traps
-- Mechanistic interpretability
-
-PROJECT 2: HELIOS
+PROJECT 1: HELIOS
 Stage: Internal Alpha (Yellow)
 Description: "Internal BTC-backed strategy engine. Automates treasury operations within bounded risk parameters."
 Exploring:
@@ -167,7 +176,7 @@ Exploring:
 - Multi-venue position management
 - Real-time solvency monitoring
 
-PROJECT 3: STACKME
+PROJECT 2: STACKME
 Stage: Architecture (Orange)
 Description: "Protocol-native BTC lending interface. Designed for clarity, conservative leverage, and graduated liquidation mechanics."
 Exploring:
@@ -175,7 +184,7 @@ Exploring:
 - Conservative LTV limits
 - Graduated liquidation tranches
 
-PROJECT 4: LUMINA
+PROJECT 3: LUMINA
 Stage: Specification (Purple)
 Description: "Digital bearer instruments for physical assets. Features a proprietary optical physics engine for anti-spoofing and topology verification."
 Exploring:
@@ -183,13 +192,21 @@ Exploring:
 - Edge-compute material analysis
 - On-chain provenance
 
-PROJECT 5: UNIQUENESS ENGINE
+PROJECT 4: UNIQUENESS ENGINE
 Stage: Research (Blue)
 Description: "Sybil-resistance signals that enforce uniqueness constraints without biometric surveillance or centralized identity data."
 Exploring:
 - Zero-Knowledge uniqueness proofs
 - Cost-of-forgery signals
 - Minimal footprint identity
+
+PROJECT 5: AXIOM
+Stage: Research (Blue)
+Description: "A deterministic inference layer designed to eliminate hallucination. Forces LLMs to anchor outputs to verified internal data structures."
+Exploring:
+- RAG with strict citation enforcement
+- Adversarial logic traps
+- Mechanistic interpretability
 
 ================================================================================
 SECTION 4: PIPELINE DETAIL PAGES (/pipeline/:slug)
@@ -447,12 +464,12 @@ SECTION 8: NAVIGATION STRUCTURE
 SECTION 9: STAGE VOCABULARY
 ================================================================================
 
-- research: Blue (hsl 210 70% 50%)
-- specification: Purple (hsl 270 60% 50%)
-- architecture: Orange/Primary
-- prototype: Amber (hsl 35 90% 50%)
-- internal: Yellow (hsl 45 90% 50%)
-- production: Green (hsl 142 69% 48%)
+- research: Blue (default variant)
+- specification: Purple
+- architecture: Orange/Primary (warning variant)
+- prototype: Amber
+- internal: Yellow (info variant)
+- production: Green (success variant)
 
 ================================================================================
 SECTION 10: VISUAL ASSETS
@@ -470,21 +487,38 @@ SECTION 11: DESIGN SYSTEM
 COLOR PALETTE (Tungsten & Signal):
 - Background: Deep charcoal (222 15% 5%)
 - Foreground: Off-white/Silver (30 5% 90%)
-- Primary: Signal Orange (#F26D21)
-- Destructive: Critical Failure Red
+- Primary: Signal Orange (25 95% 53% / #F26D21)
+- Muted Foreground: 220 5% 75% (CALIBRATED from 55%)
+- Destructive: Critical Failure Red (0 70% 50%)
 
 TYPOGRAPHY:
 - Headings: Space Grotesk
-- Body: Inter
+- Body: Manrope (-0.015em letter-spacing)
 - Mono: IBM Plex Mono
+
+FONT SCALE:
+- text-2xs: 10px (micro-labels)
+- text-xs: 12px (labels, chips)
+- text-sm: 14px (BASE BODY)
+- text-base: 16px
+- text-lg: 18px (H3)
+- text-xl: 20px
+- text-2xl: 24px (H2)
+- text-3xl: 30px (Page H1)
+- text-5xl: 3.5rem/56px (Hero H1)
 
 GEOMETRY:
 - Border radius: 2px (machined edges)
 
 MOTION:
 - Transitions: 150ms mechanical timing
-- Data disclosure: 200ms
-- No slide animations, no spinners
+- Pattern: Glow-only (opacity/brightness), no translateY
+- Rule: Only LIVE data animates; historical data is static
+
+INTERACTION SYSTEM:
+- hover-elevate: Subtle background elevation on hover
+- active-elevate-2: Dramatic elevation on press
+- No custom hover states on Buttons/Badges
 
 ================================================================================
 END OF SITE REVIEW

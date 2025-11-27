@@ -2,7 +2,7 @@
 VERIFIED SYSTEMS GROUP - COMPREHENSIVE CODE REVIEW
 ================================================================================
 Generated: November 27, 2025
-Revision: Institutional Language Update
+Revision: Global Contrast Calibration & Operating Principles Update
 Stack: React + Vite + Express + TypeScript + Tailwind CSS + Shadcn UI
 
 ================================================================================
@@ -40,13 +40,17 @@ FILE STRUCTURE
 │   │   ├── NextStepBlock.tsx
 │   │   ├── PageMeta.tsx
 │   │   ├── ProjectTile.tsx
+│   │   ├── ScrollManager.tsx
 │   │   ├── StageChip.tsx
 │   │   ├── StatBlock.tsx
 │   │   └── ValueCard.tsx
 │   ├── data/
 │   │   ├── articleContent.ts
 │   │   ├── articles.ts
-│   │   └── projects.ts
+│   │   ├── projects.ts
+│   │   └── searchIndex.ts
+│   ├── hooks/
+│   │   └── useGeminiTTS.ts
 │   ├── pages/
 │   │   ├── Contact.tsx
 │   │   ├── Governance.tsx
@@ -72,55 +76,173 @@ FILE STRUCTURE
 │   ├── gears_texture.png
 │   ├── axiom_cube.png
 │   └── lumina_lens.png
-└── data/
-    └── contacts.json
+├── data/
+│   └── contacts.json
+├── design_guidelines.md
+├── site_review.txt
+└── site_code_review.txt
 
 ================================================================================
-DATA LAYER - PROJECTS
+CSS DESIGN TOKENS (index.css)
 ================================================================================
 
-File: client/src/data/projects.ts
+:root {
+  /* GEOMETRY */
+  --radius: 2px;  /* Machined edges, no organic curves */
 
-PROJECT 1 - AXIOM:
-- name: "Axiom"
-- stage: "Research"
-- stageVariant: "research"
-- description: "A deterministic inference layer designed to eliminate hallucination. Forces LLMs to anchor outputs to verified internal data structures."
-- exploring: ["RAG with strict citation enforcement", "Adversarial logic traps", "Mechanistic interpretability"]
+  /* ELEVATION SYSTEM */
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
 
-PROJECT 2 - HELIOS:
+  /* THE VOID (Backgrounds) */
+  --background: 222 15% 5%;      /* Deep charcoal, NOT blue */
+  --foreground: 30 5% 90%;       /* Off-white/Silver */
+
+  /* SURFACE LAYERS */
+  --card: 222 15% 7%;
+  --card-border: 222 15% 12%;
+
+  /* THE SIGNAL (Primary) */
+  --primary: 25 95% 53%;         /* #F26D21 International Orange */
+  --primary-foreground: 222 47% 11%;
+
+  /* METADATA (CALIBRATED) */
+  --muted: 222 15% 10%;
+  --muted-foreground: 220 5% 75%;  /* BOOSTED from 55% for legibility */
+
+  /* TYPOGRAPHY */
+  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+================================================================================
+TYPOGRAPHY UTILITIES (index.css)
+================================================================================
+
+/* Industrial Font Scale */
+.text-2xs { font-size: 0.625rem; }  /* 10px */
+.text-xs  { font-size: 0.75rem; }   /* 12px */
+.text-sm  { font-size: 0.875rem; }  /* 14px - BASE */
+.text-base { font-size: 1rem; }     /* 16px */
+
+/* Semantic Text Classes */
+.text-body {
+  @apply text-sm leading-normal text-muted-foreground/90;
+}
+
+.label-text {
+  @apply text-2xs uppercase tracking-widest text-muted-foreground/70 font-mono;
+}
+
+/* Global Letter Spacing */
+body {
+  letter-spacing: -0.015em;  /* Machined precision */
+}
+
+================================================================================
+INTERACTION UTILITIES (index.css)
+================================================================================
+
+/* Elevation on Hover */
+.hover-elevate {
+  position: relative;
+  isolation: isolate;
+}
+.hover-elevate::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--elevate-1);
+  opacity: 0;
+  transition: opacity 150ms;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.hover-elevate:hover::after {
+  opacity: 1;
+}
+
+/* Elevation on Active/Press */
+.active-elevate-2:active::after {
+  background: var(--elevate-2);
+  opacity: 1;
+}
+
+/* Toggle State */
+.toggle-elevate.toggle-elevated::after {
+  background: var(--elevate-2);
+  opacity: 1;
+}
+
+================================================================================
+DATA LAYER - PROJECTS (projects.ts)
+================================================================================
+
+PROJECT 1 - HELIOS:
 - name: "Helios"
 - stage: "Internal Alpha"
 - stageVariant: "internal"
 - description: "Internal BTC-backed strategy engine. Automates treasury operations within bounded risk parameters."
 - exploring: ["Automated yield strategies", "Multi-venue position management", "Real-time solvency monitoring"]
 
-PROJECT 3 - STACKME:
+PROJECT 2 - STACKME:
 - name: "Stackme"
 - stage: "Architecture"
 - stageVariant: "architecture"
 - description: "Protocol-native BTC lending interface. Designed for clarity, conservative leverage, and graduated liquidation mechanics."
 - exploring: ["Risk visualization", "Conservative LTV limits", "Graduated liquidation tranches"]
 
-PROJECT 4 - LUMINA:
+PROJECT 3 - LUMINA:
 - name: "Lumina"
 - stage: "Specification"
 - stageVariant: "specification"
 - description: "Digital bearer instruments for physical assets. Features a proprietary optical physics engine for anti-spoofing and topology verification."
 - exploring: ["Photometric stereo scanning", "Edge-compute material analysis", "On-chain provenance"]
 
-PROJECT 5 - UNIQUENESS ENGINE:
+PROJECT 4 - UNIQUENESS ENGINE:
 - name: "Uniqueness Engine"
 - stage: "Research"
 - stageVariant: "research"
 - description: "Sybil-resistance signals that enforce uniqueness constraints without biometric surveillance or centralized identity data."
 - exploring: ["Zero-Knowledge uniqueness proofs", "Cost-of-forgery signals", "Minimal footprint identity"]
 
+PROJECT 5 - AXIOM:
+- name: "Axiom"
+- stage: "Research"
+- stageVariant: "research"
+- description: "A deterministic inference layer designed to eliminate hallucination. Forces LLMs to anchor outputs to verified internal data structures."
+- exploring: ["RAG with strict citation enforcement", "Adversarial logic traps", "Mechanistic interpretability"]
+
 ================================================================================
-DATA LAYER - ARTICLES
+OPERATING PRINCIPLES (Overview.tsx)
 ================================================================================
 
-File: client/src/data/articles.ts
+6 PRINCIPLES WITH ICON SYSTEM:
+
+1. EMPIRICAL VERIFICATION (Eye)
+"We prioritize raw system telemetry over narrative. Experiments are labeled as experiments; assumptions are labeled as assumptions."
+
+2. PROOF OF CAPITAL (Coins)
+"Development is gated by internal solvency. We do not deploy code we are not willing to capitalize with our own balance sheet."
+
+3. BOUNDED EXECUTION (Shield)
+"Innovation requires explicit guardrails. Every system has defined failure states, liquidity caps, and safe shutdown sequences."
+
+4. OPEN SOURCE INTELLIGENCE (Search)
+"Information asymmetry is a market inefficiency. We publish risk memos and post-mortems to reduce noise and signal-boost truth."
+
+5. HORIZON SCANNING (Compass)
+"Architecting for the autonomous economy. We build for a future where AI agents require deterministic settlement, not human interfaces."
+
+6. COGNITIVE SECURITY (ShieldCheck)
+"Education is a defense layer. We arm our partners with first-principles technical analysis to neutralize hype cycles and predatory narratives."
+
+================================================================================
+DATA LAYER - ARTICLES (articles.ts)
+================================================================================
 
 ARTICLE 1:
 - title: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate"
@@ -163,113 +285,57 @@ SYSTEM FUNCTIONS (System.tsx)
 "Ensuring external outputs strictly match internal telemetry and system state. No divergence between stated and actual conditions."
 
 ================================================================================
-OPERATIONAL PRINCIPLES (Overview.tsx)
-================================================================================
-
-1. RAW DATA OVER NARRATIVE
-"State is labeled precisely: research, specification, architecture, internal, production. No ambiguity."
-
-2. CAPITAL VERIFICATION
-"Internal balance sheet is the first test. Nothing graduates without capital at risk."
-
-3. MINIMAL ATTACK SURFACE
-"One well-defined system with clear boundaries. No sprawling, half-verified platforms."
-
-4. OPEN DOCUMENTATION
-"Published research enables external verification. Trade-offs are explicit, not hidden."
-
-5. FRONTIER SYSTEMS
-"AI agents, bearer assets, digital scarcity — building infrastructure for next-generation primitives."
-
-================================================================================
-PIPELINE DETAIL DATA (PipelineDetail.tsx)
-================================================================================
-
-AXIOM:
-- tagline: "Deterministic inference with enforced citation."
-- description: "Standard LLMs are probabilistic engines—predicting the next token. Axiom is a constraint layer that forces the model to anchor every claim to a cryptographically verified record. Transforms probabilistic generation into deterministic, cited reporting."
-- currentState: ["Core RAG architecture functional", "Citation enforcement layer active", "Internal deployment for VSG research summaries"]
-- exploring: ["Automated fact-verification loops", "Truth layer (Axiom) to Value layer (Helios) integration", "Latency optimization for real-time verification"]
-- notYet: ["No public API", "Not a general-purpose inference engine", "Restricted domain knowledge only"]
-
-HELIOS:
-- tagline: "Internal BTC-backed strategy engine."
-- description: "Helios automates treasury operations into bounded, rule-driven positions. Deploys capital with explicit limits and real-time solvency monitoring. Internal use only."
-- currentState: ["Architecture and specification complete", "Core implementation in progress", "Internal deployment underway"]
-- exploring: ["Automated yield strategies within risk bounds", "Multi-venue position management", "Real-time solvency monitoring and alerts", "Policy ladders for risk profiles"]
-- notYet: ["No external users", "No public API", "Not a product or service"]
-
-STACKME:
-- tagline: "Protocol-native BTC lending interface."
-- description: "Stackme is a protocol-native lending interface designed for clarity, conservative leverage, and graduated liquidation mechanics. Technical architecture defined; verified build phase in progress."
-- currentState: ["Requirements complete", "Technical architecture defined", "Verified build phase in progress"]
-- exploring: ["Risk visualization", "Conservative LTV limits", "Graduated liquidation tranches", "Solvency indicators"]
-- notYet: ["No live users", "No public access", "Not accepting deposits or loans"]
-
-LUMINA:
-- tagline: "Digital bearer instruments for physical assets."
-- description: "Lumina links high-value physical inventory to on-chain rails via a proprietary optical physics engine. Verifies surface topology and material response, anchoring digital instruments to proven physical reality."
-- currentState: ["Specification complete", "System design in progress", "Optical verification pipeline in development"]
-- exploring: ["Photometric stereo scanning", "Edge-compute material analysis", "On-chain provenance", "Surface topology verification"]
-- notYet: ["No prototype yet", "No instruments issued", "Not accepting submissions"]
-
-UNIQUENESS ENGINE:
-- tagline: "Sybil-resistance without biometric surveillance."
-- description: "Sybil-resistance signals that enforce uniqueness constraints without biometric surveillance or centralized identity data. Enables 'one-per-person' verification while preserving privacy."
-- currentState: ["Research and requirements phase", "Surveying existing approaches", "Defining success criteria"]
-- exploring: ["Zero-Knowledge uniqueness proofs", "Cost-of-forgery signals", "Minimal footprint identity", "Decentralized attestation models"]
-- notYet: ["No prototype", "No defined architecture", "Not integrated with other projects"]
-
-================================================================================
-PROJECT GOVERNANCE RULES (Governance.tsx)
-================================================================================
-
-HELIOS (Internal Alpha):
-- Internal capital only — no external deposits; operates on VSG treasury exclusively
-- Position limits — capped percentage of borrowed stablecoins at any time
-- Drawdown triggers — pre-defined loss thresholds activate capital reduction
-- Manual oversight — automated execution paired with alerts and human verification
-
-STACKME (Architecture):
-- Non-custodial architecture — user retains key control; interface is guidance layer
-- Solvency controls — graduated liquidation tranches reduce forced-sale risk
-- Regulatory gate — full compliance review required before deployment
-
-LUMINA (Specification):
-- Verifiable provenance — metadata, grading, and chain-of-custody attestation
-- No return guarantees — explicit disclosure of speculative nature
-- Fee transparency — all costs and rights disclosed before instrument issuance
-
-UNIQUENESS ENGINE (Research):
-- Privacy-first — no deployment without explicit privacy model
-- Consent architecture — explicit opt-in mechanics required
-- Regulatory clearance — KYC/AML impact assessment before any implementation
-
-================================================================================
-CONTACT PAGE COPY (Contact.tsx)
-================================================================================
-
-[WHO SHOULD REACH OUT]
-- Technical founders building in AI, Digital Assets, or Verifiable Systems.
-- Capital partners focused on technical architecture and first-principles engineering.
-- Researchers & analysts seeking primary-source perspectives on AI and Digital Assets.
-
-[WHAT TO EXPECT]
-"Response within 3-5 business days for aligned inquiries. VSG does not initiate unsolicited outbound communication."
-
-================================================================================
 STAGE VARIANTS (StageChip.tsx)
 ================================================================================
 
 Type: StageVariant = "research" | "specification" | "architecture" | "prototype" | "internal" | "production"
 
-Colors:
-- research: Blue (hsl 210 70% 50%)
-- specification: Purple (hsl 270 60% 50%)
-- architecture: Primary (orange)
-- prototype: Amber (hsl 35 90% 50%)
-- internal: Yellow (hsl 45 90% 50%)
-- production: Green (hsl 142 69% 48%)
+Variant Mapping:
+- research: "default" (muted)
+- specification: "default" (muted)
+- architecture: "warning" (orange/primary)
+- prototype: "warning" (amber)
+- internal: "info" (yellow/amber)
+- production: "success" (green)
+
+================================================================================
+COMPONENT INVENTORY
+================================================================================
+
+LAYOUT COMPONENTS:
+- Layout.tsx - Main page wrapper with Header/Footer
+- Header.tsx - Navigation with numbered items (01-06)
+- Footer.tsx - Company info and legal links
+- ScrollManager.tsx - Hash-preserving navigation guard
+
+UI COMPONENTS:
+- StageChip.tsx - Project stage badges with color variants
+- ValueCard.tsx - Operating principle cards with icons
+- ProjectTile.tsx - Pipeline project cards (card view)
+- StatBlock.tsx - Metric display blocks
+- NextStepBlock.tsx - Page-to-page navigation CTA
+- InsightCard.tsx - Article cards for Thesis page
+- CommandPalette.tsx - Cmd+K search interface
+- ContactForm.tsx - Contact page form with validation
+
+UTILITIES:
+- PageMeta.tsx - SEO metadata component
+- ErrorBoundary.tsx - React error boundary
+
+================================================================================
+HOVER PATTERN AUDIT (Passed)
+================================================================================
+
+ACCEPTABLE PATTERNS FOUND:
+- Overview.tsx:239 - hover:bg-primary/5 (list item hover)
+- Pipeline.tsx:148 - hover:bg-card (table header, prevents hover)
+- Pipeline.tsx:157 - hover:bg-card/50 (table row hover)
+- Governance.tsx:100-115 - hover:text-primary (anchor links)
+
+NO VIOLATIONS:
+- No custom hover:bg-* on Buttons
+- No custom hover:border-* on Buttons/Badges
+- All Button/Badge interactions use built-in elevation system
 
 ================================================================================
 SECURITY MEASURES
@@ -301,33 +367,12 @@ ACCESSIBILITY
 
 - Skip to content link
 - ARIA labels on interactive elements
-- Proper heading hierarchy
+- Proper heading hierarchy (H1 > H2 > H3)
 - Form error linking via aria-describedby
-- Keyboard navigation (Cmd+K)
-- Focus indicators
+- Keyboard navigation (Cmd+K command palette)
+- Focus indicators (orange ring)
 - Touch targets minimum 44px
-
-================================================================================
-STYLING SYSTEM
-================================================================================
-
-COLOR PALETTE (Tungsten & Signal):
---background: 222 15% 5%
---foreground: 30 5% 90%
---primary: 25 95% 53% (Signal Orange)
---destructive: 0 70% 50%
-
-TYPOGRAPHY:
-- Headings: Space Grotesk
-- Body: Inter
-- Mono: IBM Plex Mono
-
-GEOMETRY:
-- Border radius: 2px
-
-MOTION:
-- Default: 150ms
-- Data disclosure: 200ms
+- data-testid attributes on all interactive elements
 
 ================================================================================
 LANGUAGE STANDARDS (Institutional Voice)
@@ -344,6 +389,37 @@ USE:
 - Technical terms ("graduated", "protocol-native")
 - Infrastructure language ("interface", "engine")
 - System terminology ("inference engine", "instruments")
+
+================================================================================
+GEMINI TTS INTEGRATION (useGeminiTTS.ts)
+================================================================================
+
+- API Key: GEMINI_API_KEY (server-side)
+- Format: Structured role/parts JSON
+- Audio: Base64 PCM at 24kHz
+- Endpoint: /api/tts
+
+================================================================================
+RECENT CALIBRATIONS
+================================================================================
+
+1. GLOBAL CONTRAST (index.css)
+   --muted-foreground: 220 5% 55% → 220 5% 75%
+   Reason: Improved legibility at 14px base font
+
+2. TYPOGRAPHY SYSTEM
+   - Primary font: Inter → Manrope
+   - Letter-spacing: -0.015em globally
+   - Base size: 14px (text-sm)
+
+3. OPERATING PRINCIPLES
+   - Headline: "How we operate" → "Operating Principles"
+   - Count: 5 → 6 (added "Cognitive Security")
+   - Icons: Eye, Coins, Shield, Search, Compass, ShieldCheck
+
+4. INTERACTION CLEANUP
+   - Removed: hover:border-primary/50 from outline Button
+   - Added: hover-elevate to project chips
 
 ================================================================================
 END OF CODE REVIEW
