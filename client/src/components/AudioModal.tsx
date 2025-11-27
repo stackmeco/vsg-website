@@ -115,14 +115,14 @@ export function AudioModal() {
             {isPlaying ? (
               <span className="inline-flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                Transmitting
+                Playing
               </span>
             ) : (
-              "System Briefing"
+              "Executive Briefing"
             )}
           </span>
           <span className="font-mono text-[10px] text-muted-foreground">
-            {currentTime} / {duration}
+            {currentTime} <span className="text-muted-foreground/50">of</span> {duration}
           </span>
         </div>
 
@@ -171,16 +171,16 @@ export function AudioModal() {
         <div className="p-5 space-y-4">
           <h3 className="font-heading text-base text-foreground">Operational Briefing</h3>
           <p className="text-xs text-muted-foreground font-mono leading-relaxed border-l-2 border-primary/30 pl-3">
-            "We are entering the era of the autonomous economy. As software begins to transact and reason without human intervention, it faces a structural crisis..."
+            "We are an engineering lab focused on a single structural problem: The incompatibility between autonomous software and legacy infrastructure..."
           </p>
           <Button 
             variant="ghost" 
             size="sm" 
             onClick={() => setIsOpen(false)} 
             className="w-full text-xs font-mono text-muted-foreground hover:text-foreground uppercase tracking-wider"
-            data-testid="button-close-transmission"
+            data-testid="button-close-briefing"
           >
-            Close Transmission
+            Close Briefing
           </Button>
         </div>
       </DialogContent>

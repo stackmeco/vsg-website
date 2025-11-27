@@ -1,7 +1,26 @@
-import textToSpeech from '@google-cloud/text-to-speech';
-import fs from 'fs';
-import util from 'util';
+Here is the **Master Implementation Prompt** to fix the UI verbiage and install the professional 2-minute script.
 
+**Copy and paste this entire block into your Replit Agent.**
+
+-----
+
+````markdown
+**FINAL CONTENT & AUDIO UPGRADE**
+
+We need to professionalize the Audio Player and update the audio generation script with the final approved copy.
+
+### 1. UPDATE UI VERBIAGE (`client/src/components/AudioModal.tsx`)
+**Objective:** Remove sci-fi terms ("Transmission") and replace with business terms ("Briefing").
+
+**Action:** Update the text labels inside the component:
+* Change "Incoming Transmission" to **"EXECUTIVE BRIEFING"**.
+* Change "CLOSE TRANSMISSION" to **"CLOSE BRIEFING"**.
+* If there is a timestamp label (e.g., "02:04"), change the label next to it to **"DURATION"**.
+
+### 2. UPDATE GENERATION SCRIPT (`server/scripts/generate_briefing.ts`)
+**Objective:** We have the final 2-minute script. Overwrite the `SCRIPT` constant in the generator file with this exact SSML block:
+
+```typescript
 const SCRIPT = `
 <speak>
   <prosody rate="90%" pitch="-1st">
@@ -36,54 +55,19 @@ const SCRIPT = `
   </prosody>
 </speak>
 `;
+````
 
-async function generateAudio() {
-  const credentialsJson = process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON;
-  if (!credentialsJson) {
-    console.error('Error: GOOGLE_APPLICATION_CREDENTIALS_JSON environment variable is not set.');
-    console.log('Please add your Google Cloud service account JSON to Replit Secrets.');
-    process.exit(1);
-  }
+**EXECUTE.**
 
-  let credentials;
-  try {
-    credentials = JSON.parse(credentialsJson);
-  } catch {
-    console.error('Error: The provided credentials are not valid JSON.');
-    console.error('Google Cloud Text-to-Speech requires a full service account JSON file, not just an API key.');
-    console.error('');
-    console.error('To get the correct credentials:');
-    console.error('1. Go to Google Cloud Console > IAM & Admin > Service Accounts');
-    console.error('2. Create a new service account or select an existing one');
-    console.error('3. Click "Keys" tab > "Add Key" > "Create new key" > JSON');
-    console.error('4. Copy the ENTIRE contents of the downloaded JSON file');
-    console.error('5. Paste it as the value for GOOGLE_APPLICATION_CREDENTIALS_JSON secret');
-    process.exit(1);
-  }
+````
 
-  console.log("Using service account credentials.");
-  const client = new textToSpeech.TextToSpeechClient({ credentials });
+***
 
-  const request = {
-    input: { ssml: SCRIPT },
-    voice: { languageCode: 'en-US', name: 'en-US-Studio-M' },
-    audioConfig: { audioEncoding: 'MP3' as const, speakingRate: 0.9 },
-  };
+### **Step 2: Generate the MP3 (Manual Step)**
+After Replit applies the code above, you must run this command in the **Shell/Terminal** to actually create the new audio file:
 
-  console.log("Generating Audio Stream with Google Cloud Text-to-Speech...");
-  console.log("Using voice: en-US-Studio-M (authoritative news anchor)");
-  
-  try {
-    const [response] = await client.synthesizeSpeech(request);
-    const writeFile = util.promisify(fs.writeFile);
-    
-    await writeFile('client/public/system_briefing.mp3', response.audioContent as string | Uint8Array, 'binary');
-    console.log('Audio content written to: client/public/system_briefing.mp3');
-    console.log('Generation complete.');
-  } catch (error) {
-    console.error('Error generating audio:', error);
-    process.exit(1);
-  }
-}
+```bash
+npx tsx server/scripts/generate_briefing.ts
+````
 
-generateAudio();
+*(Note: This requires your Google Cloud credentials to be set in Replit Secrets. If you haven't set that up, the script will fail, and you'll need to upload the MP3 manually to `client/public/system_briefing.mp3`.)*
