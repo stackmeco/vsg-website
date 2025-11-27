@@ -8,34 +8,34 @@ import { NextStepBlock } from "@/components/NextStepBlock";
 import { StatBlock } from "@/components/StatBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Eye, Coins, Layers, BookOpen, Compass } from "lucide-react";
+import { ArrowRight, Eye, Coins, Shield, BookOpen, Compass } from "lucide-react";
 import gridTexture from "@assets/grid_texture.png";
 import { projects } from "@/data/projects";
 
 const values = [
   {
-    title: "Empirical Data Over Narrative",
-    description: "Raw system telemetry and verified outcomes. Stage labels are precise: research, specification, architecture, internal, production.",
+    title: "Empirical Verification",
+    description: "We prioritize raw system telemetry over narrative. Experiments are labeled as experiments; assumptions are labeled as assumptions.",
     icon: <Eye className="w-5 h-5" />,
   },
   {
-    title: "Capital Verification",
-    description: "Internal balance sheet is the first test. Nothing graduates without capital at risk.",
+    title: "Proof of Capital",
+    description: "Development is gated by internal solvency. We do not deploy code we are not willing to capitalize with our own balance sheet.",
     icon: <Coins className="w-5 h-5" />,
   },
   {
-    title: "Minimal Attack Surface",
-    description: "One well-defined system with clear boundaries. No sprawling, half-verified platforms.",
-    icon: <Layers className="w-5 h-5" />,
+    title: "Bounded Execution",
+    description: "Innovation requires explicit guardrails. Every system has defined failure states, liquidity caps, and safe shutdown sequences.",
+    icon: <Shield className="w-5 h-5" />,
   },
   {
     title: "Open Source Intelligence",
-    description: "Published research enables external verification. Trade-offs are explicit, not hidden.",
+    description: "Information asymmetry is a market inefficiency. We publish risk memos and post-mortems to reduce noise and signal-boost truth.",
     icon: <BookOpen className="w-5 h-5" />,
   },
   {
     title: "Horizon Scanning",
-    description: "Architecting systems for the emerging reality of autonomous agents and digital scarcity.",
+    description: "Architecting for the autonomous economy. We build for a future where AI agents require deterministic settlement, not human interfaces.",
     icon: <Compass className="w-5 h-5" />,
   },
 ];
