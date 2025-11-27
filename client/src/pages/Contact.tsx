@@ -23,11 +23,11 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-12 pb-20" data-testid="section-form">
+      <section className="py-12 pb-20 bg-card" data-testid="section-form">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-12">
             <div className="lg:col-span-2">
-              <div className="bg-card border border-card-border rounded-[2px] p-6 sm:p-8 sticky top-24 z-30">
+              <div className="bg-background border border-border rounded-[2px] p-6 sm:p-8 sticky top-24 z-30">
                 <h3 className="font-heading font-semibold text-lg text-foreground mb-4">
                   Who should reach out
                 </h3>
