@@ -4,7 +4,7 @@ import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { ProjectTile } from "@/components/ProjectTile";
 import { NextStepBlock } from "@/components/NextStepBlock";
-import { Card, CardContent } from "@/components/ui/card";
+import { StepCard } from "@/components/StepCard";
 import { Button } from "@/components/ui/button";
 import { StageChip } from "@/components/StageChip";
 import {
@@ -95,26 +95,12 @@ export default function Pipeline() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {stages.map((stage, index) => (
-              <Card key={stage.name} className="bg-background border-border">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-3 mb-3">
-                    <span className="text-xl sm:text-2xl font-mono text-primary font-bold leading-none">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <div>
-                      <h3 className="font-heading font-semibold text-foreground">
-                        {stage.name}
-                      </h3>
-                      <p className="text-xs font-mono uppercase tracking-wider text-primary">
-                        {stage.focus}
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {stage.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <StepCard
+                key={stage.name}
+                number={index + 1}
+                title={stage.name}
+                description={stage.description}
+              />
             ))}
           </div>
         </div>
