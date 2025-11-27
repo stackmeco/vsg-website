@@ -9,7 +9,7 @@ import { StatBlock } from "@/components/StatBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Eye, Coins, Layers, BookOpen, Compass } from "lucide-react";
-import heroImage from "@assets/generated_images/abstract_data_flow_hero.png";
+import gridTexture from "@assets/grid_texture.png";
 import { projects } from "@/data/projects";
 
 const values = [
@@ -45,7 +45,7 @@ export default function Overview() {
     const link = document.createElement("link");
     link.rel = "preload";
     link.as = "image";
-    link.href = heroImage;
+    link.href = gridTexture;
     link.setAttribute("fetchpriority", "high");
     document.head.appendChild(link);
     return () => {
@@ -59,61 +59,79 @@ export default function Overview() {
         title="Overview" 
         description="Engineering verifiable infrastructure for intelligence and value. Bitcoin verifies value; our AI verifies truth. A two-founder studio building deterministic systems." 
       />
-      <section
-        className="relative min-h-[90vh] flex items-center"
+      
+      <section 
+        className="relative min-h-[85vh] flex items-center overflow-hidden border-b border-border" 
         data-testid="section-hero"
       >
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-          role="img"
-          aria-label="Abstract data flow visualization"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-background from-40% via-background/90 via-60% to-background/50" />
-          <div className="absolute inset-0 dot-grid opacity-60" />
-        </div>
+        {/* LAYER 1: The Tungsten Base (Fallback) */}
+        <div className="absolute inset-0 bg-background" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+        {/* LAYER 2: The "Structure" (Infrastructure Grid) */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url(${gridTexture})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.15,
+            filter: "grayscale(100%) contrast(120%)",
+          }}
+          role="img"
+          aria-label="Infrastructure grid visualization"
+        />
+
+        {/* LAYER 3: The "Void" Gradients (Vignette) */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/80 to-transparent" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/40" />
+
+        {/* LAYER 4: The Content */}
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
           <div className="grid lg:grid-cols-[1fr,320px] gap-12 items-center">
             <div className="max-w-2xl">
-              <p className="text-sm font-mono uppercase tracking-wider text-primary mb-6">
-                Two-founder studio
+              <p className="text-xs font-mono font-medium uppercase tracking-widest text-primary mb-6 flex items-center gap-2">
+                <span className="w-2 h-2 bg-primary rounded-[1px]"></span>
+                System Status: Nominal
               </p>
+              
               <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-[3.5rem] text-foreground leading-[1.1] tracking-tight mb-6">
                 Engineering verifiable systems for intelligence and value.
               </h1>
-              <p className="text-lg text-foreground/80 leading-relaxed mb-8">
-                We engineer deterministic systems for Value and Intelligence — with our own capital on the line. Bitcoin verifies value; our AI verifies truth. Nothing launches until we'd trust it with our own balance sheet.
+              
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl">
+                We engineer deterministic systems for <span className="text-foreground font-medium">Value, Intelligence, and Physical Reality</span>. Bitcoin verifies value; our AI verifies truth. Nothing launches until we verify it with our own balance sheet.
               </p>
 
-              <div className="flex flex-wrap gap-3 mb-10">
+              <div className="flex flex-wrap gap-4 mb-10">
                 <Link href="/pipeline">
                   <Button 
                     size="lg" 
+                    className="font-mono text-xs uppercase tracking-wider"
                     data-testid="button-see-pipeline"
                   >
-                    See the Pipeline
-                    <ArrowRight className="w-4 h-4" />
+                    View Pipeline
+                    <ArrowRight className="w-3.5 h-3.5 ml-2" />
                   </Button>
                 </Link>
                 <Link href="/system">
                   <Button 
                     variant="outline" 
                     size="lg" 
-                    className="backdrop-blur-md bg-background/40"
+                    className="font-mono text-xs uppercase tracking-wider bg-background/50 backdrop-blur-md border-primary/20 hover:border-primary/50"
                     data-testid="button-how-we-work"
                   >
-                    How we work
+                    Operational Specs
                   </Button>
                 </Link>
               </div>
 
-              <div className="flex flex-wrap items-center gap-2 text-sm">
-                <span className="text-foreground/60 font-mono">5 projects in flight:</span>
+              {/* Project Chips - "Active Cycles" */}
+              <div className="flex flex-wrap items-center gap-3 text-sm border-t border-border pt-6">
+                <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Active Cycles:</span>
                 <div className="flex flex-wrap gap-2">
-                  {["Axiom", "Helios", "Stackme", "Lumina", "Uniqueness Engine"].map((name) => (
-                    <Link key={name} href={`/pipeline/${name.toLowerCase().replace(" ", "-")}`}>
-                      <span className="px-2.5 py-1 rounded-md bg-secondary/80 text-foreground/90 text-xs font-mono hover:bg-secondary transition-colors cursor-pointer">
+                  {["Axiom", "Helios", "Stackme", "Lumina"].map((name) => (
+                    <Link key={name} href={`/pipeline/${name.toLowerCase()}`}>
+                      <span className="px-2 py-1 rounded-[2px] border border-border bg-card/50 hover:border-primary/50 text-muted-foreground hover:text-primary text-[10px] font-mono uppercase tracking-wide transition-colors cursor-pointer">
                         {name}
                       </span>
                     </Link>
@@ -122,8 +140,9 @@ export default function Overview() {
               </div>
             </div>
 
-            <div className="hidden lg:block">
-              <div className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 space-y-6">
+            {/* Right Side: Studio Metrics */}
+            <div className="hidden lg:block relative z-20">
+              <div className="bg-card/80 backdrop-blur-sm border border-border rounded-md p-6 space-y-6">
                 <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
                   Studio metrics
                 </p>
