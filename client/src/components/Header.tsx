@@ -72,7 +72,7 @@ export function Header() {
                 key={item.name} 
                 href={item.href}
                 className={cn(
-                  "px-3 py-2 text-xs font-mono uppercase tracking-wider transition-all duration-150 rounded-md border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                  "px-3 py-2 text-xs font-mono uppercase tracking-wider transition-all duration-150 rounded-sm border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                   isActive(item.href)
                     ? "text-primary bg-primary/10 border-primary/20"
                     : "text-muted-foreground hover:text-foreground hover:bg-card/80 hover:border-primary/30"
@@ -161,7 +161,7 @@ export function Header() {
                       href={item.href}
                       onClick={handleMobileNavClick}
                       className={cn(
-                        "flex items-center gap-4 p-4 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                        "flex items-center gap-4 p-4 rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                         isActive(item.href)
                           ? "bg-primary/10"
                           : "hover:bg-secondary"

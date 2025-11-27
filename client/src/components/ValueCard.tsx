@@ -20,7 +20,7 @@ export function ValueCard({
       data-testid={`value-card-${title.toLowerCase().replace(/\s+/g, "-")}`}
     >
       <CardContent className="p-6">
-        <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-primary mb-4">
+        <div className="w-10 h-10 rounded-sm bg-secondary flex items-center justify-center text-primary mb-4">
           {icon}
         </div>
         <h3 className="font-heading font-semibold text-foreground mb-2">

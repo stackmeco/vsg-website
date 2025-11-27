@@ -300,7 +300,7 @@ export function ContactForm({ className }: ContactFormProps) {
         </div>
 
         {submitError && (
-          <div className="p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-sm text-destructive flex items-center gap-2">
+          <div className="p-3 rounded-sm bg-destructive/10 border border-destructive/20 text-sm text-destructive flex items-center gap-2">
             <AlertCircle className="w-4 h-4 flex-shrink-0" />
             {submitError}
           </div>
