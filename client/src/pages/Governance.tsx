@@ -110,28 +110,28 @@ export default function Governance() {
                 <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-4">
                   On this page
                 </p>
-                <ul className="space-y-3">
-                  <li>
-                    <a href="#structure" className="text-sm text-foreground hover:text-primary transition-colors flex items-center gap-2" data-testid="link-toc-structure">
-                      <span className="w-1 h-1 rounded-full bg-primary" />
+                <ul className="space-y-3 list-none">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <a href="#structure" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-structure">
                       Legal structure
                     </a>
                   </li>
-                  <li>
-                    <a href="#treasury" className="text-sm text-foreground hover:text-primary transition-colors flex items-center gap-2" data-testid="link-toc-treasury">
-                      <span className="w-1 h-1 rounded-full bg-primary" />
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <a href="#treasury" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-treasury">
                       BTC treasury policy
                     </a>
                   </li>
-                  <li>
-                    <a href="#risk" className="text-sm text-foreground hover:text-primary transition-colors flex items-center gap-2" data-testid="link-toc-risk">
-                      <span className="w-1 h-1 rounded-full bg-primary" />
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <a href="#risk" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-risk">
                       Risk governance
                     </a>
                   </li>
-                  <li>
-                    <a href="#regulatory" className="text-sm text-foreground hover:text-primary transition-colors flex items-center gap-2" data-testid="link-toc-regulatory">
-                      <span className="w-1 h-1 rounded-full bg-primary" />
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <a href="#regulatory" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-regulatory">
                       Regulatory stance
                     </a>
                   </li>
