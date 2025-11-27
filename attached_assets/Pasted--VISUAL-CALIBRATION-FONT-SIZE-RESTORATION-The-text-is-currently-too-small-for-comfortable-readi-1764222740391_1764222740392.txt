@@ -1,0 +1,78 @@
+**VISUAL CALIBRATION: FONT SIZE RESTORATION**
+
+The text is currently too small for comfortable reading. We need to bump the "Body" scale while keeping the "Headings" tight.
+
+**Action:** Update `client/src/index.css` inside the `@layer base` block.
+
+**1. Reset the Paragraphs:**
+* **Old:** `p { @apply text-sm ... }` (Too small).
+* **New:** `p { @apply text-base leading-relaxed opacity-90; }` (Readable, standard size).
+* *Note:* `text-base` in our 14px-root system equals 14px. Previously it was rendering at 12px.
+
+**2. Reset the Descriptions (Muted Text):**
+* **Old:** `.text-muted-foreground { @apply text-xs; }` (Tiny).
+* **New:** `.text-muted-foreground { @apply text-sm; }` (Standard small).
+
+**3. Reset Lists:**
+* **Old:** `ul, li { @apply text-sm ... }`
+* **New:** `ul, li { @apply text-base leading-normal; }`
+
+**4. Keep the Constraints:**
+* Keep `body { leading-normal tracking-tight }`.
+* Keep `h1, h2... { tracking-tight }`.
+
+**FULL REPLACEMENT BLOCK for `@layer base`:**
+
+```css
+@layer base {
+  /* 1. GLOBAL PHYSICS */
+  html {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px; /* Keeps the UI tight */
+    letter-spacing: -0.015em; 
+    color: hsl(var(--foreground));
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* 2. READABLE BODY TEXT (Calibrated) */
+  /* We bump this to 'text-base' (14px visual) so it is legible. */
+  p {
+    @apply text-base leading-normal text-muted-foreground/90; 
+    margin-bottom: 0.75rem;
+  }
+
+  /* 3. HEADINGS (Signal) */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+    @apply tracking-tight;
+  }
+  
+  h1 { @apply text-4xl md:text-5xl mb-6; }
+  h2 { @apply text-2xl md:text-3xl mb-4; }
+  h3 { @apply text-xl mb-3; } /* Bumped up slightly */
+
+  /* 4. METADATA (Context) */
+  /* Restored to text-sm (12-13px visual) so it isn't microscopic */
+  .text-muted-foreground {
+    @apply text-sm; 
+  }
+
+  /* 5. DATA LISTS */
+  ul, ol {
+    @apply my-4 ml-4 list-disc text-base text-muted-foreground;
+  }
+  li {
+    @apply mb-1.5; /* Slightly more breathing room */
+  }
+
+  /* 6. UTILITIES */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+}
