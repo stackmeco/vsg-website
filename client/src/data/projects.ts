@@ -12,14 +12,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: "Axiom",
-    stage: "Research",
-    stageVariant: "research",
-    description: "A deterministic inference layer designed to eliminate hallucination. Forces LLMs to anchor outputs to verified internal data structures.",
-    exploring: ["RAG with strict citation enforcement", "Adversarial logic traps", "Mechanistic interpretability"],
-    href: "/pipeline/axiom",
-  },
-  {
     name: "Helios",
     stage: "Internal Alpha",
     stageVariant: "internal",
@@ -50,5 +42,13 @@ export const projects: Project[] = [
     description: "Sybil-resistance signals that enforce uniqueness constraints without biometric surveillance or centralized identity data.",
     exploring: ["Zero-Knowledge uniqueness proofs", "Cost-of-forgery signals", "Minimal footprint identity"],
     href: "/pipeline/uniqueness-engine",
+  },
+  {
+    name: "Axiom",
+    stage: "Research",
+    stageVariant: "research",
+    description: "A deterministic inference layer designed to eliminate hallucination. Forces LLMs to anchor outputs to verified internal data structures.",
+    exploring: ["RAG with strict citation enforcement", "Adversarial logic traps", "Mechanistic interpretability"],
+    href: "/pipeline/axiom",
   },
 ];
