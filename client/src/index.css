@@ -42,7 +42,7 @@
   --secondary-foreground: 30 5% 80%;
 
   --muted: 222 15% 10%;
-  --muted-foreground: 220 5% 55%; /* Darker gray for meta-data */
+  --muted-foreground: 220 5% 75%; /* Boosted from 55% to 75% for legibility at small sizes */
 
   /* --- ALERTS & STATES --- */
   --accent: 25 95% 53%; /* Same as primary for hover states */
