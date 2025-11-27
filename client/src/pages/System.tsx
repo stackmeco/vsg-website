@@ -103,14 +103,15 @@ export default function System() {
       <section className="py-20 relative overflow-hidden" data-testid="section-treasury">
         {/* Gears Texture Background */}
         <div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 pointer-events-none"
           style={{
             backgroundImage: `url(${gearsTexture})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.08,
+            opacity: 0.15,
             filter: "grayscale(100%) contrast(120%)",
           }}
+          aria-hidden="true"
         />
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/90 to-background/70" />
         

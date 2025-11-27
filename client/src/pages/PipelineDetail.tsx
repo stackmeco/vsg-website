@@ -68,7 +68,7 @@ export default function PipelineDetail() {
             backgroundImage: `url(${heroTexture})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.12,
+            opacity: 0.18,
             filter: "grayscale(100%) contrast(120%)",
           }}
         />
