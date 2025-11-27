@@ -220,7 +220,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const response = await ai.models.generateContent({
         model: "gemini-2.5-flash-preview-tts",
-        contents: text,
+        contents: [
+          {
+            role: "user",
+            parts: [{ text: `Read the following text in a calm, professional tone:\n\n${text}` }],
+          },
+        ],
         config: {
           responseModalities: ["AUDIO"],
           speechConfig: {
@@ -235,12 +240,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const candidates = response.candidates;
       if (!candidates || candidates.length === 0) {
+        console.error("[TTS] No candidates in response");
         res.status(500).json({ error: "No audio generated" });
         return;
       }
 
       const content = candidates[0].content;
       if (!content || !content.parts) {
+        console.error("[TTS] No content parts in response:", JSON.stringify(candidates[0]));
         res.status(500).json({ error: "Invalid response format" });
         return;
       }
@@ -248,6 +255,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       for (const part of content.parts) {
         if (part.inlineData && part.inlineData.data) {
           const audioData = Buffer.from(part.inlineData.data, "base64");
+          console.log("[TTS] Audio generated, size:", audioData.length);
           res.set({
             "Content-Type": "audio/L16;rate=24000",
             "Content-Length": audioData.length.toString(),
@@ -257,10 +265,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }
       }
 
+      console.error("[TTS] No inline data in parts:", JSON.stringify(content.parts));
       res.status(500).json({ error: "No audio data in response" });
-    } catch (error) {
-      console.error("[TTS Error]", error);
-      res.status(500).json({ error: "Failed to generate audio" });
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "Unknown error";
+      console.error("[TTS Error]", errorMessage, error);
+      res.status(500).json({ error: `Failed to generate audio: ${errorMessage}` });
     }
   });
 

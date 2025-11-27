@@ -4,18 +4,16 @@ import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Calendar, Clock, Volume2, Pause, Square, Play } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Volume2, Square, Loader2 } from "lucide-react";
 import { articleContent } from "@/data/articleContent";
-import { useSpeechSynthesis } from "@/hooks/useSpeechSynthesis";
+import { useGeminiTTS } from "@/hooks/useGeminiTTS";
 
 export default function LibraryArticle() {
   const [, params] = useRoute("/thesis/:slug");
   const slug = params?.slug || "";
   const article = articleContent[slug];
   
-  const { speak, pause, resume, stop, isPlaying, isPaused, isSupported, progress } = useSpeechSynthesis({
-    rate: 0.95,
-  });
+  const { speak, stop, isLoading, isPlaying, error } = useGeminiTTS();
 
   const fullText = useMemo(() => {
     if (!article) return "";
@@ -25,11 +23,9 @@ export default function LibraryArticle() {
     return `${article.title}. ${sections.join(" ")}`;
   }, [article]);
 
-  const handlePlayPause = () => {
-    if (isPlaying && !isPaused) {
-      pause();
-    } else if (isPaused) {
-      resume();
+  const handlePlay = () => {
+    if (isPlaying) {
+      stop();
     } else {
       speak(fullText);
     }
@@ -89,43 +85,32 @@ export default function LibraryArticle() {
                   {readingTime} min read
                 </span>
               </div>
-              {isSupported && (
-                <div className="flex items-center gap-1 ml-auto">
-                  <Button
-                    size="icon"
-                    variant="ghost"
-                    onClick={handlePlayPause}
-                    data-testid="button-audio-play"
-                    title={isPlaying && !isPaused ? "Pause" : "Listen"}
-                  >
-                    {isPlaying && !isPaused ? (
-                      <Pause className="w-4 h-4" />
-                    ) : isPaused ? (
-                      <Play className="w-4 h-4" />
-                    ) : (
-                      <Volume2 className="w-4 h-4" />
-                    )}
-                  </Button>
-                  {isPlaying && (
-                    <Button
-                      size="icon"
-                      variant="ghost"
-                      onClick={stop}
-                      data-testid="button-audio-stop"
-                      title="Stop"
-                    >
-                      <Square className="w-3.5 h-3.5" />
-                    </Button>
+              <div className="flex items-center gap-1 ml-auto">
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  onClick={handlePlay}
+                  disabled={isLoading}
+                  data-testid="button-audio-play"
+                  title={isLoading ? "Loading..." : isPlaying ? "Stop" : "Listen with AI voice"}
+                >
+                  {isLoading ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : isPlaying ? (
+                    <Square className="w-3.5 h-3.5" />
+                  ) : (
+                    <Volume2 className="w-4 h-4" />
                   )}
-                </div>
-              )}
+                </Button>
+              </div>
             </div>
+            {error && (
+              <p className="text-xs text-destructive mb-4">{error}</p>
+            )}
             {isPlaying && (
-              <div className="h-0.5 bg-secondary rounded-full mb-4 overflow-hidden">
-                <div 
-                  className="h-full bg-primary transition-all duration-300 ease-out"
-                  style={{ width: `${progress}%` }}
-                />
+              <div className="flex items-center gap-2 mb-4">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary animate-glow-pulse" />
+                <span className="text-xs text-muted-foreground font-mono">AUDIO STREAM ACTIVE</span>
               </div>
             )}
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[2.75rem] text-foreground leading-[1.15] tracking-tight mb-8">
