@@ -179,7 +179,7 @@ export default function Overview() {
 
       <section className="py-20 bg-card" data-testid="section-directive">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-8">
+          <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground mb-8">
             The VSG Directive
           </p>
           <div className="grid md:grid-cols-3 gap-6">
