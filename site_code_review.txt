@@ -123,10 +123,8 @@ Providers:
 - Toaster (toast notifications)
 
 ================================================================================
-STYLING SYSTEM
+STYLING SYSTEM (index.css)
 ================================================================================
-
-File: client/src/index.css
 
 COLOR PALETTE (Tungsten & Signal):
 --background: 222 15% 5%       (Deep charcoal - Tungsten)
@@ -165,6 +163,78 @@ SCROLLBARS:
 - Orange on hover
 
 ================================================================================
+DATA LAYER
+================================================================================
+
+PROJECTS (client/src/data/projects.ts):
+
+Project 1 - AXIOM:
+- name: "Axiom"
+- stage: "Research"
+- stageVariant: "research"
+- description: "A deterministic inference layer designed to eliminate hallucination. It forces LLMs to cite verified internal data structures before generating output."
+- exploring: RAG with citation enforcement, Adversarial testing, Mechanistic interpretability
+
+Project 2 - HELIOS:
+- name: "Helios"
+- stage: "Internal Alpha"
+- stageVariant: "internal"
+- description: "Internal BTC-backed strategy engine. Architecture defined; implementation and dogfooding in progress."
+- exploring: Automated yield strategies, Multi-venue position management, Real-time health monitoring
+
+Project 3 - STACKME:
+- name: "Stackme"
+- stage: "Architecture"
+- stageVariant: "architecture"
+- description: "A borrower-first BTC credit app. Technical architecture defined; verified build phase in progress."
+- exploring: Plain-language risk explanation, Conservative leverage limits, Gentle liquidation ladders
+
+Project 4 - LUMINA:
+- name: "Lumina"
+- stage: "Specification"
+- stageVariant: "specification"
+- description: "Digital bearer instruments for physical assets. Features a proprietary optical physics engine for anti-spoofing and surface topology verification."
+- exploring: Photometric stereo, Real-time material analysis, On-chain provenance tracking
+
+Project 5 - UNIQUENESS ENGINE:
+- name: "Uniqueness Engine"
+- stage: "Research"
+- stageVariant: "research"
+- description: "Research into signals that help systems enforce 'one per person' rules without centralizing identity data."
+- exploring: Privacy-preserving uniqueness proofs, Sybil resistance, Minimal identity footprint
+
+--------------------------------------------------------------------------------
+
+ARTICLES (client/src/data/articles.ts):
+
+Article 1:
+- title: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate"
+- date: "Dec 15, 2025"
+- type: "Insight"
+- tags: ["AI Safety", "Determinism", "Infrastructure"]
+- slug: "insolvency-of-fiction"
+
+Article 2:
+- title: "The Verification Standard: Charting the Great Reallocation"
+- date: "Nov 26, 2025"
+- type: "Insight"
+- tags: ["Bitcoin", "Macro", "Thesis"]
+- slug: "verification-standard"
+
+Article 3:
+- title: "Machine-Native Settlement: Why AI Agents Need Bearer Assets"
+- date: "Oct 18, 2025"
+- type: "Insight"
+- tags: ["AI Agents", "Bitcoin", "Infrastructure"]
+- slug: "machine-native-settlement"
+
+--------------------------------------------------------------------------------
+
+CHANGELOG:
+- Nov 2025: Initial site launch
+- Oct 2025: v1.0 System Architecture released
+
+================================================================================
 COMPONENT ARCHITECTURE
 ================================================================================
 
@@ -180,19 +250,22 @@ LAYOUT COMPONENTS:
 2. Header.tsx
    - Fixed position, blur background
    - Logo with home link
-   - Desktop nav (lg:flex)
+   - Desktop nav (lg:flex) with numbered items
    - Command palette trigger (Cmd+K)
    - Mobile sheet menu
 
 3. Footer.tsx
-   - Company name and tagline
-   - Footer links (Privacy, Terms)
+   - Company name: "Verified Systems Group LLC"
+   - Tagline: "Engineering deterministic systems..."
+   - Links: Privacy, Terms
    - Disclaimer text
 
 4. CommandPalette.tsx
    - Keyboard shortcut: Cmd+K / Ctrl+K
    - Quick navigation to all pages
    - Uses Shadcn Command component
+
+--------------------------------------------------------------------------------
 
 CONTENT COMPONENTS:
 
@@ -202,14 +275,18 @@ CONTENT COMPONENTS:
    - Exploring items list
    - Hover state with link
 
-6. StageChip.tsx
-   - Color-coded stage indicators
-   - 6 variants: research, specification, architecture, prototype, internal, production
-   - Canonical source for StageVariant type
+6. StageChip.tsx (CANONICAL SOURCE FOR VARIANTS)
+   - Type: StageVariant = "research" | "specification" | "architecture" | "prototype" | "internal" | "production"
+   - Colors:
+     * research: Blue (hsl 210 70% 50%)
+     * specification: Purple (hsl 270 60% 50%)
+     * architecture: Primary (orange)
+     * prototype: Amber (hsl 35 90% 50%)
+     * internal: Yellow (hsl 45 90% 50%)
+     * production: Green (hsl 142 69% 48%)
 
 7. ValueCard.tsx
    - Icon + title + description
-   - Used for values and functions
    - Card with hover state
 
 8. StatBlock.tsx
@@ -233,47 +310,16 @@ CONTENT COMPONENTS:
     - Loading and success states
     - Error display with icons
 
+--------------------------------------------------------------------------------
+
 UTILITY COMPONENTS:
 
-12. PageMeta.tsx
-    - SEO meta tags
-    - Title and description
-
-13. ErrorBoundary.tsx
-    - React error boundary
-    - Fallback UI for errors
-    - Error logging
-
-14. PolicyChip.tsx
-    - Policy indicator badges
-
-15. StepCard.tsx
-    - Step-by-step cards
-
-16. ChangeLogEntry.tsx
-    - Changelog items display
-
-17. ConsolePanel.tsx
-    - Terminal-style output
-
-================================================================================
-DATA LAYER
-================================================================================
-
-PROJECTS (client/src/data/projects.ts):
-- Type: Project[]
-- Fields: name, stage, stageVariant, description, exploring[], href
-
-ARTICLES (client/src/data/articles.ts):
-- Type: LibraryItem[]
-- Fields: title, excerpt, date, type, tags[], slug
-
-ARTICLE CONTENT (client/src/data/articleContent.ts):
-- Type: Record<string, ArticleContent>
-- Full article content by slug
-
-CHANGELOG:
-- Array of { date, entry }
+12. PageMeta.tsx - SEO meta tags
+13. ErrorBoundary.tsx - React error boundary
+14. PolicyChip.tsx - Policy indicators
+15. StepCard.tsx - Step-by-step cards
+16. ChangeLogEntry.tsx - Changelog items
+17. ConsolePanel.tsx - Terminal-style output
 
 ================================================================================
 API ENDPOINTS
@@ -282,10 +328,10 @@ API ENDPOINTS
 POST /api/contact
 - Purpose: Submit contact form
 - Security:
-  * Origin header validation
+  * Origin header validation (localhost:5000, verifiedsystems.io)
   * Rate limiting (5 req/min per IP)
   * Zod validation
-  * Input sanitization
+  * Input sanitization (XSS prevention)
 - Request body:
   * name (required, 1-100 chars)
   * email (required, valid format)
@@ -340,11 +386,7 @@ ACCESSIBILITY IMPLEMENTATION
    - Links to #main-content
 
 2. LANDMARKS
-   - <header> for navigation
-   - <main> for content
-   - <footer> for footer
-   - <nav> for navigation
-   - <section> for content sections
+   - <header>, <main>, <footer>, <nav>, <section>
 
 3. ARIA ATTRIBUTES
    - aria-label on buttons
@@ -357,7 +399,6 @@ ACCESSIBILITY IMPLEMENTATION
    - h1 for page titles
    - h2 for sections
    - h3 for subsections
-   - Proper nesting maintained
 
 5. FORM ACCESSIBILITY
    - Labels for all inputs
@@ -375,14 +416,6 @@ ACCESSIBILITY IMPLEMENTATION
    - Focus indicators (ring-primary)
    - Command palette: Cmd+K
 
-8. SCREEN READER TEXT
-   - sr-only class for icon labels
-   - Descriptive link text
-
-9. TOUCH TARGETS
-   - Minimum 44px for mobile
-   - Adequate spacing
-
 ================================================================================
 MOTION PROTOCOL
 ================================================================================
@@ -398,28 +431,29 @@ PATTERNS:
 - No spinners (use pulse states)
 - Mechanical snap physics
 
-IMPLEMENTATION:
-- transition-colors for hover
-- Tailwind duration classes
-- CSS transitions (not JS animations)
-
 ================================================================================
-TAILWIND CONFIGURATION
+PIPELINE DETAIL PAGE ARCHITECTURE
 ================================================================================
 
-File: tailwind.config.ts
+Layout: "Bento Grid Schematic Layout"
+- Grid: 2/3 width (left) + 1/3 width (right)
+- Left column: System Status + Active R&D Modules (stacked)
+- Right column: Negative Constraints (destructive tint)
 
-darkMode: ["class"]
-content: ["./client/index.html", "./client/src/**/*.{js,ts,jsx,tsx}"]
+Header Features:
+- Project texture overlay (Axiom, Lumina)
+- Grid pattern fallback
+- Gradient overlays for readability
+- Project name, stage chip, tagline
 
-Theme Extensions:
-- colors: All CSS variables mapped
-- fontFamily: sans, heading, mono
-- borderRadius: lg, md, sm from --radius
+Card Types:
+1. System Status (current state items)
+2. Active R&D Modules (exploring items)
+3. Negative Constraints (not yet items - destructive border)
 
-Plugins:
-- tailwindcss-animate
-- @tailwindcss/typography
+Navigation:
+- Back to Pipeline button
+- Next project block at bottom
 
 ================================================================================
 TYPE DEFINITIONS
@@ -444,52 +478,45 @@ LibraryItem (articles.ts):
 - tags: string[]
 - slug: string
 
-ContactFormData (schema.ts):
-- name: string
-- email: string
-- company?: string
-- message: string
+ContentType:
+"All" | "Insight" | "Note" | "Update"
 
 ================================================================================
 DATA-TESTID COVERAGE
 ================================================================================
 
 PAGES:
-- section-hero (all pages)
-- section-directive, section-pipeline, etc.
+- section-hero, section-directive, section-pipeline
+- section-bitcoin, section-values, section-definitions
+- section-treasury, section-functions, section-changelog
+- section-structure, section-risk, section-regulatory
+- section-form, section-contact
 
 NAVIGATION:
-- header
-- nav-desktop
-- nav-[page-name]
-- link-home
-- button-mobile-menu
-- button-command-palette
+- header, nav-desktop, nav-[page-name]
+- link-home, button-mobile-menu, button-command-palette
+- button-sidebar-toggle
+
+PIPELINE DETAIL:
+- project-header, text-project-name
+- chip-stage-[variant]
+- card-system-status, card-active-rd, card-constraints
+- list-current-state, list-exploring, list-not-yet
+- item-current-[index], item-exploring-[index], item-constraint-[index]
+- button-next-[project]
 
 FORMS:
-- contact-form
-- contact-form-success
-- input-name, input-email, etc.
-- button-submit
-- checkbox-consent
+- contact-form, contact-form-success
+- input-name, input-email, input-organization
+- input-role, input-subject, input-message
+- checkbox-consent, button-submit
 
-COMPONENTS:
-- footer
-- footer-link-*
-- card-system-status
-- card-active-rd
-- card-constraints
-- list-current-state
-- list-exploring
-- list-not-yet
-- item-current-*, item-exploring-*, item-constraint-*
-- project-header
-- text-project-name
-- chip-stage-*
+STATS:
 - stat-projects, stat-founders, stat-selffunded
-- button-see-pipeline
-- button-how-we-work
-- button-next-*
+
+ACTIONS:
+- button-see-pipeline, button-how-we-work
+- button-contact-governance
 
 ================================================================================
 DEPENDENCIES (Key Packages)
@@ -510,8 +537,6 @@ FRONTEND:
 UI COMPONENTS (Radix/Shadcn):
 - @radix-ui/react-*: 20+ primitives
 - cmdk: Command palette
-- recharts: Charts
-- embla-carousel-react: Carousel
 
 BACKEND:
 - express: Server
@@ -522,12 +547,29 @@ STYLING:
 - tailwindcss: CSS framework
 - tailwindcss-animate: Animation utilities
 - @tailwindcss/typography: Prose styles
-- autoprefixer: CSS prefixing
 
 BUILD:
 - vite: Bundler
 - typescript: Type checking
 - tsx: TypeScript execution
+
+================================================================================
+TAILWIND CONFIGURATION
+================================================================================
+
+File: tailwind.config.ts
+
+darkMode: ["class"]
+content: ["./client/index.html", "./client/src/**/*.{js,ts,jsx,tsx}"]
+
+Theme Extensions:
+- colors: All CSS variables mapped
+- fontFamily: sans (Inter), heading (Space Grotesk), mono (IBM Plex Mono)
+- borderRadius: lg, md, sm from --radius (2px)
+
+Plugins:
+- tailwindcss-animate
+- @tailwindcss/typography
 
 ================================================================================
 KNOWN PATTERNS & CONVENTIONS
@@ -542,8 +584,8 @@ KNOWN PATTERNS & CONVENTIONS
 2. STYLING CONVENTIONS
    - Tailwind utility classes
    - cn() helper for conditional classes
-   - CSS variables for colors
-   - No inline styles (except texture backgrounds)
+   - CSS variables for colors (HSL format)
+   - Background textures via inline styles
 
 3. DATA FETCHING
    - TanStack Query for all API calls
@@ -558,53 +600,12 @@ KNOWN PATTERNS & CONVENTIONS
 5. NAVIGATION
    - Wouter Link component
    - useLocation for active state
-   - useRoute for params
+   - useRoute for URL params
 
 6. ERROR HANDLING
    - ErrorBoundary at app root
    - Try-catch in async operations
    - Toast notifications for user feedback
-
-7. ACCESSIBILITY
-   - data-testid on all interactive elements
-   - ARIA attributes where needed
-   - Semantic HTML elements
-
-================================================================================
-PERFORMANCE CONSIDERATIONS
-================================================================================
-
-1. IMAGE OPTIMIZATION
-   - Preload hero texture
-   - Grayscale filter for textures
-   - Background-size: cover
-
-2. CODE SPLITTING
-   - Per-route components
-   - Lazy loading potential
-
-3. CACHING
-   - TanStack Query caching
-   - Static asset caching
-
-4. BUNDLE SIZE
-   - Tree-shaking enabled
-   - Minimal dependencies
-
-================================================================================
-POTENTIAL IMPROVEMENTS
-================================================================================
-
-1. Add image lazy loading
-2. Implement service worker
-3. Add more comprehensive error states
-4. Add loading skeletons for all data
-5. Implement proper database for contacts
-6. Add email notifications for contact form
-7. Add sitemap.xml generation
-8. Add robots.txt
-9. Add structured data (JSON-LD)
-10. Add OpenGraph images
 
 ================================================================================
 END OF CODE REVIEW
