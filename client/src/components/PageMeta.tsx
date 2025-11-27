@@ -9,7 +9,7 @@ interface PageMetaProps {
   publishedTime?: string;
 }
 
-const BASE_URL = "https://verifiedsystems.io";
+const BASE_URL = "https://verifiablesystems.com";
 const DEFAULT_IMAGE = "/og-image.png";
 
 export function PageMeta({ 
