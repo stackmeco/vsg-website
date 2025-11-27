@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { ScrollManager } from "@/components/ScrollManager";
 import Overview from "@/pages/Overview";
 import System from "@/pages/System";
 import Pipeline from "@/pages/Pipeline";
@@ -39,6 +40,7 @@ function App() {
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
+          <ScrollManager />
           <Toaster />
           <Router />
         </TooltipProvider>
