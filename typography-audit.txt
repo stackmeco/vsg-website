@@ -1,0 +1,920 @@
+================================================================================
+VSG TYPOGRAPHY SYSTEM AUDIT
+Grouped by Page - Font, Size, Color & Classification Reference
+================================================================================
+
+
+PART 1: GLOBAL FONT CONFIGURATION
+================================================================================
+
+FONT FAMILIES:
+- font-heading: Space Grotesk (geometric, industrial headings)
+- font-sans: Manrope (humanist sans, body text) - DEFAULT
+- font-mono: IBM Plex Mono (technical, data, labels)
+
+FONT SIZE SCALE (from tailwind.config.ts):
+- text-2xs: 0.625rem (10px), line-height 0.75rem, tracking 0.05em
+- text-xs: 0.75rem (12px), line-height 1rem, tracking 0em
+- text-sm: 0.875rem (14px), line-height 1.25rem, tracking -0.01em
+- text-base: 1rem (16px), line-height 1.5rem, tracking -0.01em
+- text-lg: 1.125rem (18px), line-height 1.5rem, tracking -0.02em
+- text-xl: 1.5rem (24px), line-height 1.75rem, tracking -0.02em
+- text-2xl: 2rem (32px), line-height 2.25rem, tracking -0.02em
+- text-3xl: 2.5rem (40px), line-height 2.5rem, tracking -0.03em
+- text-4xl: 3rem (48px), line-height 1, tracking -0.03em
+- text-5xl: 3.5rem (56px), line-height 1, tracking -0.04em
+
+COLOR PALETTE:
+- text-foreground: hsl(30 5% 90%) - Off-white/Silver - PRIMARY TEXT
+- text-muted-foreground: hsl(220 5% 75%) - Muted silver - SECONDARY TEXT
+- text-primary: hsl(25 95% 53%) - Signal Orange #F26D21 - ACCENT TEXT
+- text-primary-foreground: hsl(222 47% 11%) - Dark charcoal - INVERSE TEXT
+- text-destructive: hsl(0 70% 50%) - Critical Red - ERROR TEXT
+- text-card-foreground: hsl(30 5% 90%) - Same as foreground - CARD TEXT
+
+
+================================================================================
+PART 2: PAGES - TYPOGRAPHY BY FILE
+================================================================================
+
+
+--------------------------------------------------------------------------------
+PAGE: Overview.tsx (/)
+--------------------------------------------------------------------------------
+
+HERO TITLE:
+  Font: font-heading
+  Size: text-3xl sm:text-4xl (40px mobile, 48px desktop)
+  Weight: font-bold
+  Color: text-foreground
+  Tracking: tracking-tight
+  Line Height: leading-[1.1]
+  Classification: PAGE-HERO
+  Text: "Engineering verifiable systems for intelligence and value."
+
+HERO DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-muted-foreground
+  Line Height: leading-relaxed
+  Classification: BODY-PARAGRAPH
+  Text: "We engineer deterministic systems for Value, Intelligence..."
+
+HERO DESCRIPTION EMPHASIS:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: font-medium
+  Color: text-foreground
+  Classification: BODY-EMPHASIS
+  Text: "Value, Intelligence, and Physical Reality"
+
+CTA BUTTON:
+  Font: font-mono
+  Size: text-xs (12px)
+  Weight: (button default - medium)
+  Transform: uppercase
+  Tracking: tracking-wider
+  Classification: BUTTON
+  Text: "VIEW PIPELINE"
+
+ACTIVE CYCLES LABEL:
+  Font: font-mono
+  Size: text-[10px] (10px)
+  Weight: normal
+  Color: text-muted-foreground
+  Transform: uppercase
+  Tracking: tracking-widest
+  Classification: MICRO-LABEL
+  Text: "Active Cycles:"
+
+PROJECT CHIPS:
+  Font: font-mono
+  Size: text-[10px] (10px)
+  Weight: normal
+  Color: text-muted-foreground, hover:text-primary
+  Transform: uppercase
+  Tracking: tracking-widest
+  Border: border-border, hover:border-primary/30
+  Classification: CHIP/TAG
+  Text: "AXIOM", "HELIOS", "STACKME", "LUMINA"
+
+TIMESTAMP LABEL:
+  Font: font-mono
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground
+  Transform: uppercase
+  Tracking: tracking-wider
+  Classification: SECTION-LABEL
+  Text: "Latest Signal"
+
+SECTION HEADER:
+  Font: font-heading
+  Size: text-xl sm:text-2xl (24px mobile, 32px desktop)
+  Weight: font-semibold
+  Color: text-foreground
+  Classification: SECTION-HEADER
+  Text: "What we build"
+
+VALUE CARD LABEL:
+  Font: font-mono
+  Size: text-[10px] (10px)
+  Weight: normal
+  Color: text-primary
+  Transform: uppercase
+  Tracking: tracking-widest
+  Classification: MICRO-LABEL
+  Text: "01", "02", "03"
+
+VALUE CARD TITLE:
+  Font: font-heading
+  Size: text-base (16px)
+  Weight: font-semibold
+  Color: text-foreground
+  Classification: CARD-TITLE
+  Text: "Engineering Verifiable Systems"
+
+VALUE CARD DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground
+  Line Height: leading-relaxed
+  Classification: METADATA
+  Text: "Using formal methods to eliminate..."
+
+
+--------------------------------------------------------------------------------
+PAGE: Contact.tsx (/contact)
+--------------------------------------------------------------------------------
+
+HERO TITLE:
+  Font: font-heading
+  Size: text-3xl sm:text-4xl (40px mobile, 48px desktop)
+  Weight: font-bold
+  Color: text-foreground
+  Tracking: tracking-tight
+  Line Height: leading-tight
+  Classification: PAGE-HERO
+  Text: "Inbound Channel"
+
+HERO DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-muted-foreground
+  Line Height: leading-relaxed
+  Classification: BODY-PARAGRAPH
+  Text: "All transmissions reviewed by the partners..."
+
+FORM SECTION HEADER:
+  Font: font-mono
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-primary
+  Transform: uppercase
+  Tracking: tracking-wider
+  Classification: SECTION-LABEL
+  Text: "TRANSMISSION"
+
+FORM HELPER TEXT:
+  Font: font-mono
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground/70
+  Classification: METADATA
+  Text: "Required fields"
+
+FORM LABELS:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: font-medium
+  Color: text-foreground
+  Classification: FORM-LABEL
+  Text: "Full Name", "Email", "Subject", "Message"
+
+FORM ERROR MESSAGES:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-destructive
+  Classification: ERROR
+  Text: "Name is required", "Valid email is required"
+
+CHECKBOX LABEL:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: font-normal
+  Color: text-muted-foreground
+  Classification: FORM-LABEL
+  Text: "I understand this is for professional..."
+
+DISCLAIMER:
+  Font: (default sans - Manrope)
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground
+  Classification: METADATA
+  Text: "By submitting this form..."
+
+
+--------------------------------------------------------------------------------
+PAGE: Pipeline.tsx (/pipeline)
+--------------------------------------------------------------------------------
+
+HERO TITLE:
+  Font: font-heading
+  Size: text-3xl sm:text-4xl (40px mobile, 48px desktop)
+  Weight: font-bold
+  Color: text-foreground
+  Tracking: tracking-tight
+  Classification: PAGE-HERO
+  Text: "Build Pipeline"
+
+HERO DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-muted-foreground
+  Line Height: leading-relaxed
+  Classification: BODY-PARAGRAPH
+  Text: "Our engineering approach..."
+
+SECTION HEADER:
+  Font: font-heading
+  Size: text-xl sm:text-2xl (24px mobile, 32px desktop)
+  Weight: font-semibold
+  Color: text-foreground
+  Classification: SECTION-HEADER
+  Text: "How we verify value at every step"
+
+SECTION DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-muted-foreground
+  Line Height: leading-relaxed
+  Classification: BODY-PARAGRAPH
+  Text: "We treat software development as a rigorous discipline..."
+
+VIEW TOGGLE BUTTONS:
+  Font: font-mono
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground (inactive), text-foreground (active)
+  Transform: uppercase
+  Tracking: tracking-wider
+  Classification: BUTTON
+  Text: "GRID", "TABLE"
+
+TABLE HEADERS:
+  Font: font-mono
+  Size: text-xs (12px)
+  Weight: normal
+  Transform: uppercase
+  Tracking: tracking-wider
+  Classification: TABLE-HEADER
+  Text: "PROJECT", "STATUS", "DESCRIPTION", "ACTION"
+
+TABLE PROJECT NAME:
+  Font: font-mono
+  Size: text-sm (14px)
+  Weight: font-medium
+  Color: text-foreground
+  Classification: TABLE-CELL-EMPHASIS
+  Text: Project names
+
+TABLE DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-muted-foreground
+  Classification: TABLE-CELL
+  Text: Project descriptions
+
+
+--------------------------------------------------------------------------------
+PAGE: Governance.tsx (/governance)
+--------------------------------------------------------------------------------
+
+HERO TITLE:
+  Font: font-heading
+  Size: text-3xl sm:text-4xl (40px mobile, 48px desktop)
+  Weight: font-bold
+  Color: text-foreground
+  Tracking: tracking-tight
+  Line Height: leading-tight
+  Classification: PAGE-HERO
+  Text: "Governance, risk & compliance"
+
+HERO DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-muted-foreground
+  Line Height: leading-relaxed
+  Classification: BODY-PARAGRAPH
+  Text: "We work at the edge of AI, Digital Assets..."
+
+TOC LABEL:
+  Font: font-mono
+  Size: text-[10px] (10px)
+  Weight: normal
+  Color: text-muted-foreground
+  Transform: uppercase
+  Tracking: tracking-widest
+  Classification: MICRO-LABEL
+  Text: "IN THIS DOCUMENT"
+
+TOC LINKS:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-foreground, hover:text-primary
+  Classification: NAVIGATION
+  Text: "Legal structure", "Treasury", "Risk framework"
+
+SECTION LABEL:
+  Font: font-mono
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground
+  Transform: uppercase
+  Tracking: tracking-wider
+  Classification: SECTION-LABEL
+  Text: "STRUCTURE", "TREASURY", "RISK"
+
+SECTION HEADER:
+  Font: font-heading
+  Size: text-2xl sm:text-[2rem] (32px mobile, 32px desktop)
+  Weight: font-semibold
+  Color: text-foreground
+  Classification: SECTION-HEADER
+  Text: "Legal and Operating Structure"
+
+SUBSECTION HEADER:
+  Font: font-heading
+  Size: text-xl (24px)
+  Weight: font-semibold
+  Color: text-foreground
+  Classification: SUBSECTION-HEADER
+  Text: "Capital Allocation Principles"
+
+CARD TITLE:
+  Font: font-heading
+  Size: (default)
+  Weight: font-semibold
+  Color: text-foreground
+  Classification: CARD-TITLE
+  Text: "Manager", "COO"
+
+CARD SUBTITLE:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-muted-foreground
+  Classification: CARD-SUBTITLE
+  Text: "Final authority", "Day-to-day operations"
+
+CARD BODY:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-muted-foreground
+  Line Height: leading-relaxed
+  Classification: BODY-PARAGRAPH
+  Text: Card description content
+
+STEP NUMBERS:
+  Font: font-mono
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-primary
+  Classification: STEP-NUMBER
+  Text: "1", "2", "3"
+
+CONTROL LABELS:
+  Font: font-mono
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground
+  Classification: METADATA
+  Text: "Control 1", "Control 2"
+
+CONTROL TEXT:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-foreground
+  Classification: BODY
+  Text: Control descriptions
+
+FOOTNOTE:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-muted-foreground
+  Font Style: italic
+  Classification: METADATA-ITALIC
+  Text: Disclaimer notes
+
+
+--------------------------------------------------------------------------------
+PAGE: System.tsx (/system)
+--------------------------------------------------------------------------------
+
+HERO TITLE:
+  Font: font-heading
+  Size: text-3xl sm:text-4xl (40px mobile, 48px desktop)
+  Weight: font-bold
+  Color: text-foreground
+  Tracking: tracking-tight
+  Classification: PAGE-HERO
+  Text: "System Architecture"
+
+HERO DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-muted-foreground
+  Line Height: leading-relaxed
+  Classification: BODY-PARAGRAPH
+
+SECTION LABEL:
+  Font: font-mono
+  Size: text-[10px] (10px)
+  Weight: normal
+  Color: text-muted-foreground
+  Transform: uppercase
+  Tracking: tracking-widest
+  Classification: MICRO-LABEL
+  Text: "CORE DEFINITIONS"
+
+SECTION HEADER:
+  Font: font-heading
+  Size: text-xl sm:text-2xl (24px mobile, 32px desktop)
+  Weight: font-semibold
+  Color: text-foreground
+  Classification: SECTION-HEADER
+  Text: "Foundational Concepts"
+
+DEFINITION TERM:
+  Font: font-heading
+  Size: (default)
+  Weight: font-semibold
+  Color: text-foreground
+  Classification: DEFINITION-TERM
+  Text: Term names
+
+DEFINITION DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground
+  Line Height: leading-relaxed
+  Classification: DEFINITION-DESC
+  Text: Term definitions
+
+DISCLAIMER:
+  Font: (default sans - Manrope)
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground
+  Font Style: italic
+  Classification: METADATA-ITALIC
+
+
+--------------------------------------------------------------------------------
+PAGE: Library.tsx (/library)
+--------------------------------------------------------------------------------
+
+HERO TITLE:
+  Font: font-heading
+  Size: text-3xl sm:text-[2.5rem] (40px mobile, 40px desktop)
+  Weight: font-bold
+  Color: text-foreground
+  Tracking: tracking-tight
+  Line Height: leading-tight
+  Classification: PAGE-HERO
+
+HERO DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: text-lg (18px)
+  Weight: normal
+  Color: text-muted-foreground
+  Line Height: leading-relaxed
+  Classification: BODY-LARGE
+
+
+================================================================================
+PART 3: COMPONENTS - TYPOGRAPHY BY FILE
+================================================================================
+
+
+--------------------------------------------------------------------------------
+COMPONENT: Header.tsx
+--------------------------------------------------------------------------------
+
+LOGO TEXT:
+  Font: font-heading
+  Size: text-lg (18px)
+  Weight: font-bold
+  Color: text-foreground, hover:text-primary
+  Tracking: tracking-tight
+  Classification: LOGO
+  Text: "Verifiable Systems Group"
+
+NAVIGATION LINKS (Desktop):
+  Font: font-mono
+  Size: text-[10px] (10px)
+  Weight: normal
+  Color: text-muted-foreground (inactive), text-primary (active)
+  Transform: uppercase
+  Tracking: tracking-widest
+  Classification: NAVIGATION
+  Text: "OVERVIEW", "PIPELINE", "SYSTEM", etc.
+
+SEARCH PLACEHOLDER:
+  Font: font-mono
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground
+  Classification: PLACEHOLDER
+  Text: "Search..."
+
+KEYBOARD SHORTCUT:
+  Font: font-mono
+  Size: text-[10px] (10px)
+  Weight: font-medium
+  Color: text-muted-foreground
+  Background: bg-muted
+  Classification: KEYBOARD-HINT
+  Text: "K"
+
+TIMESTAMP:
+  Font: font-mono
+  Size: text-[10px] (10px)
+  Weight: normal
+  Color: text-muted-foreground
+  Feature: tabular-nums
+  Classification: TIMESTAMP
+  Text: "08:47:23"
+
+MOBILE MENU LINKS:
+  Font: font-heading
+  Size: text-xl (24px)
+  Weight: normal
+  Color: text-muted-foreground
+  Classification: MOBILE-NAV
+  Text: Navigation items
+
+MOBILE MENU TIMESTAMP:
+  Font: font-mono
+  Size: text-2xl (32px)
+  Weight: normal
+  Color: text-muted-foreground
+  Classification: DISPLAY-TIME
+
+
+--------------------------------------------------------------------------------
+COMPONENT: Footer.tsx
+--------------------------------------------------------------------------------
+
+BRAND NAME:
+  Font: font-heading
+  Size: (default)
+  Weight: font-semibold
+  Color: text-foreground
+  Classification: BRAND
+  Text: "Verifiable Systems Group"
+
+TAGLINE:
+  Font: (default sans - Manrope)
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground
+  Line Height: leading-relaxed
+  Classification: METADATA
+  Text: "Engineering verifiable systems..."
+
+FOOTER LINKS:
+  Font: (default sans - Manrope)
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground, hover:text-foreground
+  Classification: FOOTER-LINK
+  Text: "Privacy", "Terms"
+
+COPYRIGHT:
+  Font: (default sans - Manrope)
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground
+  Classification: COPYRIGHT
+  Text: "2024 Verifiable Systems Group LLC"
+
+
+--------------------------------------------------------------------------------
+COMPONENT: StatBlock.tsx
+--------------------------------------------------------------------------------
+
+STAT VALUE:
+  Font: font-mono
+  Size: text-2xl (32px)
+  Weight: font-bold
+  Color: text-primary (primary), text-foreground (default), text-muted-foreground (muted)
+  Tracking: tracking-tight
+  Feature: tabular-nums
+  Classification: DATA-VALUE
+  Text: "$2.4M", "847.2"
+
+STAT LABEL:
+  Font: (default sans - Manrope)
+  Size: text-xs (12px)
+  Weight: font-medium
+  Color: text-foreground
+  Classification: DATA-LABEL
+  Text: "Assets Under Management"
+
+STAT SUBLABEL:
+  Font: (default sans - Manrope)
+  Size: text-[10px] (10px)
+  Weight: normal
+  Color: text-muted-foreground
+  Classification: DATA-SUBLABEL
+  Text: Additional context
+
+
+--------------------------------------------------------------------------------
+COMPONENT: StepCard.tsx
+--------------------------------------------------------------------------------
+
+STEP NUMBER:
+  Font: font-mono
+  Size: text-2xl (32px)
+  Weight: font-bold
+  Color: text-primary/20
+  Classification: STEP-NUMBER
+  Text: "01", "02", "03"
+
+STEP TITLE:
+  Font: font-heading
+  Size: text-sm (14px)
+  Weight: font-semibold
+  Color: text-foreground
+  Classification: CARD-TITLE
+  Text: Step name
+
+STEP DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: text-[11px] (11px)
+  Weight: normal
+  Color: text-muted-foreground
+  Line Height: leading-relaxed
+  Classification: CARD-DESC
+  Text: Step description
+
+
+--------------------------------------------------------------------------------
+COMPONENT: ValueCard.tsx
+--------------------------------------------------------------------------------
+
+CARD TITLE:
+  Font: font-heading
+  Size: text-base (16px)
+  Weight: font-semibold
+  Color: text-foreground
+  Classification: CARD-TITLE
+  Text: Value proposition title
+
+CARD DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground
+  Line Height: leading-relaxed
+  Classification: CARD-DESC
+  Text: Value proposition description
+
+
+--------------------------------------------------------------------------------
+COMPONENT: ProjectTile.tsx
+--------------------------------------------------------------------------------
+
+PROJECT NAME:
+  Font: font-heading
+  Size: text-base (16px)
+  Weight: font-semibold
+  Color: text-foreground
+  Classification: CARD-TITLE
+  Text: Project name
+
+
+--------------------------------------------------------------------------------
+COMPONENT: InsightCard.tsx
+--------------------------------------------------------------------------------
+
+TIMESTAMP:
+  Font: font-mono
+  Size: text-[10px] (10px)
+  Weight: normal
+  Color: text-muted-foreground
+  Classification: TIMESTAMP
+  Text: Date/time
+
+CARD TITLE:
+  Font: font-heading
+  Size: (default)
+  Weight: font-semibold
+  Color: text-foreground
+  Line Clamp: line-clamp-2
+  Classification: CARD-TITLE
+  Text: Insight title
+
+CARD DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground
+  Line Height: leading-relaxed
+  Line Clamp: line-clamp-2
+  Classification: CARD-DESC
+  Text: Insight description
+
+
+--------------------------------------------------------------------------------
+COMPONENT: ConsolePanel.tsx
+--------------------------------------------------------------------------------
+
+PANEL LABEL:
+  Font: font-mono
+  Size: text-[10px] (10px)
+  Weight: normal
+  Color: text-muted-foreground
+  Transform: uppercase
+  Tracking: tracking-widest
+  Classification: MICRO-LABEL
+  Text: "SYSTEM METRICS"
+
+METRIC LINE:
+  Font: font-mono
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-muted-foreground (label), text-primary (value)
+  Feature: tabular-nums, tracking-tight
+  Classification: CONSOLE-DATA
+  Text: "HASH-RATE: 847.2 EH/s"
+
+
+--------------------------------------------------------------------------------
+COMPONENT: StageChip.tsx
+--------------------------------------------------------------------------------
+
+CHIP TEXT:
+  Font: font-mono
+  Size: text-[10px] (10px)
+  Weight: normal
+  Color: text-muted-foreground (muted), text-primary (primary)
+  Transform: uppercase
+  Tracking: tracking-widest
+  Classification: CHIP
+  Text: "RESEARCH", "PROTOTYPE", "PRODUCTION"
+
+
+--------------------------------------------------------------------------------
+COMPONENT: ChangeLogEntry.tsx
+--------------------------------------------------------------------------------
+
+TIMESTAMP:
+  Font: font-mono
+  Size: text-[11px] (11px)
+  Weight: normal
+  Color: text-muted-foreground
+  Classification: TIMESTAMP
+  Text: Date
+
+BADGE:
+  Font: font-mono
+  Size: text-[10px] (10px)
+  Weight: (badge default - semibold)
+  Classification: BADGE
+  Text: Change type
+
+DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-foreground
+  Classification: BODY
+  Text: Change description
+
+
+--------------------------------------------------------------------------------
+COMPONENT: ErrorBoundary.tsx
+--------------------------------------------------------------------------------
+
+ERROR TITLE:
+  Font: font-heading
+  Size: text-2xl (32px)
+  Weight: font-bold
+  Color: text-foreground
+  Classification: ERROR-TITLE
+  Text: "Something went wrong"
+
+ERROR DESCRIPTION:
+  Font: (default sans - Manrope)
+  Size: (default)
+  Weight: normal
+  Color: text-muted-foreground
+  Classification: ERROR-DESC
+  Text: Error message
+
+DETAILS TOGGLE:
+  Font: (default sans - Manrope)
+  Size: text-sm (14px)
+  Weight: normal
+  Color: text-muted-foreground
+  Classification: LINK
+  Text: "Error details"
+
+ERROR CODE:
+  Font: (default mono)
+  Size: text-xs (12px)
+  Weight: normal
+  Color: text-destructive
+  Classification: CODE
+  Text: Error stack trace
+
+
+================================================================================
+PART 4: UI PRIMITIVES - DEFAULT TYPOGRAPHY
+================================================================================
+
+COMPONENT: Button (button.tsx)
+  Base: text-sm (14px), font-medium
+  Size sm: text-xs (12px)
+
+COMPONENT: Badge (badge.tsx)
+  Base: text-xs (12px), font-semibold
+
+COMPONENT: Card (card.tsx)
+  Title: text-2xl (32px), font-semibold, tracking-tight
+  Description: text-sm (14px), text-muted-foreground
+
+COMPONENT: Input (input.tsx)
+  Base: text-base (16px) mobile, md:text-sm (14px) desktop
+  File: text-sm (14px), font-medium
+  Placeholder: text-muted-foreground
+
+COMPONENT: Label (label.tsx)
+  Base: text-sm (14px), font-medium
+
+COMPONENT: Dialog (dialog.tsx)
+  Title: text-lg (18px), font-semibold
+  Description: text-sm (14px), text-muted-foreground
+
+COMPONENT: Sheet (sheet.tsx)
+  Title: text-lg (18px), font-semibold
+  Description: text-sm (14px), text-muted-foreground
+
+COMPONENT: Alert (alert.tsx)
+  Title: font-medium, tracking-tight
+  Description: text-sm (14px)
+
+COMPONENT: Accordion (accordion.tsx)
+  Trigger: font-medium
+  Content: text-sm (14px)
+
+COMPONENT: DropdownMenu (dropdown-menu.tsx)
+  Items: text-sm (14px)
+  Shortcut: text-xs (12px), tracking-widest
+
+
+================================================================================
+PART 5: CLASSIFICATION LEGEND
+================================================================================
+
+PAGE-HERO: Large page titles (40-48px, Space Grotesk, bold)
+SECTION-HEADER: Major section dividers (24-32px, Space Grotesk, semibold)
+SUBSECTION-HEADER: Minor section dividers (24px, Space Grotesk, semibold)
+CARD-TITLE: Component headers (16-18px, Space Grotesk, semibold)
+BODY-PARAGRAPH: Primary content (14px, Manrope, normal)
+BODY-LARGE: Emphasized body (18px, Manrope, normal)
+METADATA: Secondary info (12px, Manrope, normal, muted)
+MICRO-LABEL: Tiny labels (10px, IBM Plex Mono, uppercase, widest tracking)
+SECTION-LABEL: Section identifiers (12px, IBM Plex Mono, uppercase, wider tracking)
+BUTTON: Action text (12px, IBM Plex Mono, uppercase, wider tracking)
+CHIP: Tag text (10px, IBM Plex Mono, uppercase, widest tracking)
+DATA-VALUE: Numeric display (32px, IBM Plex Mono, bold, tabular-nums)
+DATA-LABEL: Value description (12px, Manrope, medium)
+TIMESTAMP: Time display (10-11px, IBM Plex Mono, tabular-nums)
+NAVIGATION: Nav links (10px, IBM Plex Mono, uppercase, widest tracking)
+FORM-LABEL: Input labels (14px, Manrope, medium)
+ERROR: Error messages (14px, Manrope, destructive color)
+CODE: Technical output (12px, IBM Plex Mono, monospace)
+
+
+================================================================================
+END OF TYPOGRAPHY AUDIT
+================================================================================
