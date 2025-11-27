@@ -80,7 +80,9 @@ Preferred communication style: Simple, everyday language.
 **Contact Form Storage**
 - Contact submissions saved to `data/contacts.json` (file-based persistence)
 - Each entry has: id, timestamp, name, email, organization, role, subject, message, consent
-- Retrieve all contacts via `GET /api/contacts` endpoint
+- POST-only endpoint with rate limiting (10 requests per 15 minutes per IP)
+- Origin header validation for CSRF-like protection
+- No GET endpoint to retrieve contacts (security hardening)
 - Future: Email notifications to andrew@steckme.co via Resend integration (deferred)
 
 ### External Dependencies
@@ -112,3 +114,14 @@ Preferred communication style: Simple, everyday language.
 - No PII retention as core principle
 - Governance and policy enforcement as primary value proposition
 - Exception routing and audit trail design patterns built into UI
+- Rate limiting on contact form endpoint (Map-based IP tracking)
+- Origin header validation for POST requests
+- Safe file write operations with atomic error handling
+- ErrorBoundary at app root for graceful error recovery
+- Accessible dialogs with proper ARIA labels (DialogTitle, aria-describedby)
+
+**Motion Protocol**
+- Mechanical easing curve: cubic-bezier(0.4, 0, 0.2, 1)
+- 150ms transitions for hover states
+- No scroll-triggered animations
+- Pulsing cursor states instead of spinners
