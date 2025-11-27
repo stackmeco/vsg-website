@@ -1,0 +1,84 @@
+You are right to double-check this. While I defined the **"Physics"** (speed and curve), I didn't explicitly list **every component** that needs to be touched to ensure the "Control Room" feel is uniform.
+
+If we don't specify the targets, the AI might apply the speed limit to the whole site but leave the "bouncy" default animations on things like Accordions or Mobile Menus.
+
+Here is the **Specific Hit List** of what needs motion, followed by the **Updated Phase 6** to copy-paste.
+
+### **The Motion "Hit List" (What gets animated)**
+
+1.  **Interactive Surfaces (Cards & Tiles):**
+
+      * **Trigger:** Hover.
+      * **Action:** Border color snaps to Orange (`border-primary/50`). Background tint deepens slightly.
+      * **Forbidden:** No lifting (Y-axis), no shadow expansion.
+
+2.  **Command Inputs (Buttons & Links):**
+
+      * **Trigger:** Hover / Active (Click).
+      * **Action:** Instant color inversion or border light-up.
+      * **Speed:** 100ms-150ms. (Instant feedback).
+
+3.  **System Windows (Modals, Dialogs, Command Palette):**
+
+      * **Trigger:** Open.
+      * **Action:** **Fade In + Scale Up** (95% -\> 100%).
+      * **Forbidden:** Sliding in from the bottom or side (unless it's a side-drawer).
+
+4.  **Data Disclosures (Accordions & Dropdowns):**
+
+      * **Trigger:** Click.
+      * **Action:** Expand height.
+      * **Timing:** `duration-200` (Slightly slower than buttons so the eye can track the content reveal, but still fast).
+
+-----
+
+### **Updated Phase 6 (Copy-Paste this to replace the previous Phase 6)**
+
+This version is much more explicit about **where** to apply the rules.
+
+````markdown
+### PHASE 6: MICRO-PHYSICS & MOTION (THE "SNAP" PROTOCOL)
+**Objective:** Enforce "Mechanical" timing. Remove "Organic" lags. Apply to specific components.
+
+1.  **Define the Physics (Tailwind Config):**
+    In `tailwind.config.ts`, extend `theme`:
+    * **Timing:** `transitionDuration: { DEFAULT: '150ms' }` (Make 150ms the global default).
+    * **Curve:** `transitionTimingFunction: { 'mechanical': 'cubic-bezier(0.2, 0, 0, 1)' }`.
+
+2.  **Hard-Stop Toasts (Notifications):**
+    In `client/src/components/ui/toast.tsx`:
+    * Find `toastVariants`.
+    * **Remove:** `slide-in-from-top-full`, `slide-in-from-bottom-full`, `slide-out-to-right-full`.
+    * **Add:** `data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95`.
+    * **Goal:** Notifications appear instantly (Heads-up Display style).
+
+3.  **Window Entrances (Dialogs & Command Palette):**
+    In `client/src/components/ui/dialog.tsx` and `command.tsx`:
+    * Ensure `DialogContent` uses `duration-150` and `zoom-in-95`.
+    * Remove any large translation values (e.g., `slide-in-from-left-1/2`). Keep it centered and snapping into existence.
+
+4.  **Interactive Elements (Hover States):**
+    * **ProjectTile / ValueCard / InsightCard:** Ensure `className` includes `transition-colors duration-150 ease-mechanical`.
+    * **Buttons:** Ensure `transition-all duration-100`. (Buttons should be faster than cards).
+
+5.  **The "Anti-Spinner" Rule:**
+    * Scan codebase for `Loader2` or `animate-spin`.
+    * If found in a "Loading State" (like form submission), replace with a **Pulsing Opacity** (`animate-pulse`) on the button text or a static "Processing..." label. Rotating UI elements break the "Solid State" vibe.
+
+6.  **Terminal Text Selection:**
+    In `client/src/index.css`, add:
+    ```css
+    ::selection {
+      background-color: hsl(25 95% 53% / 0.2); /* Signal Orange at 20% opacity */
+      color: #ffffff;
+    }
+    ```
+````
+
+### **Why this covers everything:**
+
+  * **Step 1** sets the global speed limit to 150ms, so even if you forget a component, it defaults to "Fast."
+  * **Step 2 & 3** fix the "Drifting" windows (the biggest culprit of cheap vibes).
+  * **Step 6** adds that final "Developer/Hacker" polish that makes the site feel native to the OS.
+
+**Add this to the Master Prompt and you are ready to execute.**
