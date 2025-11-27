@@ -91,8 +91,8 @@ export default function Governance() {
           }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/90 to-background/60 pointer-events-none" aria-hidden="true" />
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-background/40 to-background/50 pointer-events-none" aria-hidden="true" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/70 to-background/40 pointer-events-none" aria-hidden="true" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" aria-hidden="true" />
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground leading-tight tracking-tight mb-6">
