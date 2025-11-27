@@ -90,8 +90,24 @@ export function Header() {
             <SheetContent side="right" className="w-full sm:w-80 p-0" aria-describedby={undefined}>
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <div className="flex flex-col h-full">
-                <div className="p-4 pt-6 border-b border-border">
+                <div className="p-4 pt-6 border-b border-border flex items-center justify-between">
                   <span className="font-heading font-bold text-lg">Verified Systems Group</span>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-muted-foreground hover:text-foreground"
+                    onClick={() => {
+                      setMobileOpen(false);
+                      setTimeout(() => {
+                        const event = new KeyboardEvent("keydown", { key: "k", metaKey: true });
+                        document.dispatchEvent(event);
+                      }, 150);
+                    }}
+                    data-testid="mobile-button-search"
+                    aria-label="Open search"
+                  >
+                    <Search className="w-5 h-5" />
+                  </Button>
                 </div>
                 <nav className="flex flex-col p-6 gap-2" aria-label="Mobile navigation">
                   {navItems.map((item) => (
