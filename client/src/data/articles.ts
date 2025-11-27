@@ -26,6 +26,14 @@ export const articles: LibraryItem[] = [
     tags: ["Bitcoin", "Macro", "Thesis"],
     slug: "verification-standard",
   },
+  {
+    title: "Machine-Native Settlement: Why AI Agents Need Bearer Assets",
+    excerpt: "AI agents cannot open bank accounts. They cannot sign contracts. They cannot wait three days for ACH to clear. The future of autonomous commerce requires bearer instruments that settle in seconds, not signatures.",
+    date: "Oct 18, 2025",
+    type: "Insight",
+    tags: ["AI Agents", "Bitcoin", "Infrastructure"],
+    slug: "machine-native-settlement",
+  },
 ];
 
 export const changelog = [
