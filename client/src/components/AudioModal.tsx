@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Play, Pause, Volume2, AlertCircle } from "lucide-react";
@@ -9,23 +9,14 @@ export function AudioModal() {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState("02:00");
   const [currentTime, setCurrentTime] = useState("00:00");
-  const [bars, setBars] = useState<number[]>(Array(24).fill(10));
   const [hasError, setHasError] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const animationRef = useRef<number | null>(null);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
-
-  const animateBars = useCallback(() => {
-    if (isPlaying) {
-      setBars(prev => prev.map(() => Math.random() * 80 + 20));
-      animationRef.current = requestAnimationFrame(animateBars);
-    }
-  }, [isPlaying]);
 
   useEffect(() => {
     if (!audioRef.current) {
@@ -54,27 +45,9 @@ export function AudioModal() {
         setIsPlaying(false);
         setProgress(0);
         setCurrentTime("00:00");
-        setBars(Array(24).fill(10));
       });
     }
   }, []);
-
-  useEffect(() => {
-    if (isPlaying) {
-      animationRef.current = requestAnimationFrame(animateBars);
-    } else {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-      setBars(Array(24).fill(10));
-    }
-    
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, [isPlaying, animateBars]);
 
   useEffect(() => {
     if (!isOpen && isPlaying) {
@@ -141,57 +114,85 @@ export function AudioModal() {
           </span>
         </div>
 
-        <div className="h-36 bg-background relative flex items-end justify-center gap-[3px] px-6 py-4">
+        <div className="h-40 bg-background relative flex items-center justify-center">
           {hasError ? (
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+            <div className="flex flex-col items-center justify-center gap-3">
               <AlertCircle className="w-8 h-8 text-muted-foreground/50" />
               <p className="text-xs text-muted-foreground font-mono text-center px-4">
                 Audio briefing is being prepared.<br />Check back soon.
               </p>
             </div>
           ) : (
-            <>
-              {bars.map((height, i) => (
-                <div 
-                  key={i}
-                  className="w-2 bg-primary rounded-[1px] transition-all duration-75"
-                  style={{
-                    height: `${height}%`,
-                    opacity: isPlaying ? 0.9 : 0.25,
-                  }}
-                />
-              ))}
+            <button 
+              onClick={togglePlay}
+              className="relative flex items-center justify-center group"
+              data-testid="button-play-pause"
+              aria-label={isPlaying ? "Pause" : "Play"}
+            >
+              {/* Outer pulse ring - only visible when playing */}
+              <div 
+                className={`absolute w-28 h-28 rounded-full border border-primary/20 transition-all duration-700 ${
+                  isPlaying ? 'animate-ping opacity-30' : 'opacity-0'
+                }`}
+                style={{ animationDuration: '2s' }}
+              />
               
-              <button 
-                onClick={togglePlay}
-                className="absolute inset-0 flex items-center justify-center transition-colors"
-                data-testid="button-play-pause"
-                aria-label={isPlaying ? "Pause" : "Play"}
-              >
-                <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center backdrop-blur-sm hover:bg-primary/20 transition-colors">
-                  {isPlaying ? 
-                    <Pause className="w-6 h-6 text-primary" /> : 
-                    <Play className="w-6 h-6 text-primary ml-1" />
-                  }
-                </div>
-              </button>
-            </>
+              {/* Middle ring */}
+              <div 
+                className={`absolute w-24 h-24 rounded-full border border-primary/30 transition-all duration-500 ${
+                  isPlaying ? 'scale-100 opacity-100' : 'scale-90 opacity-50'
+                }`}
+              />
+              
+              {/* Progress ring */}
+              <svg className="absolute w-20 h-20 -rotate-90" viewBox="0 0 80 80">
+                <circle 
+                  cx="40" 
+                  cy="40" 
+                  r="36" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2"
+                  className="text-muted/30"
+                />
+                <circle 
+                  cx="40" 
+                  cy="40" 
+                  r="36" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  className="text-primary transition-all duration-300"
+                  strokeDasharray={`${2 * Math.PI * 36}`}
+                  strokeDashoffset={`${2 * Math.PI * 36 * (1 - progress / 100)}`}
+                />
+              </svg>
+              
+              {/* Center button */}
+              <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/40 flex items-center justify-center backdrop-blur-sm group-hover:bg-primary/20 group-hover:border-primary/60 transition-all duration-200">
+                {isPlaying ? 
+                  <Pause className="w-6 h-6 text-primary" /> : 
+                  <Play className="w-6 h-6 text-primary ml-1" />
+                }
+              </div>
+            </button>
           )}
         </div>
 
         {!hasError && (
           <div 
-            className="h-1 w-full bg-secondary relative cursor-pointer group"
+            className="h-1.5 w-full bg-muted relative cursor-pointer group"
             onClick={handleSeek}
             data-testid="progress-bar"
           >
             <div 
-              className="absolute top-0 left-0 h-full bg-primary transition-all duration-100" 
+              className="absolute top-0 left-0 h-full bg-primary/80 transition-all duration-100" 
               style={{ width: `${progress}%` }} 
             />
             <div 
-              className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"
-              style={{ left: `calc(${progress}% - 5px)` }}
+              className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary shadow-sm opacity-0 group-hover:opacity-100 transition-opacity"
+              style={{ left: `calc(${progress}% - 6px)` }}
             />
           </div>
         )}
