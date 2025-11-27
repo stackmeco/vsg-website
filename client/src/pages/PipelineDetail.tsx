@@ -30,8 +30,8 @@ interface ProjectData {
 const projectData: Record<string, ProjectData> = {
   axiom: {
     name: "Axiom",
-    stage: "Prototype",
-    stageVariant: "prototype",
+    stage: "Research",
+    stageVariant: "research",
     tagline: "High-integrity LLM reasoning with enforced citation.",
     description: "Standard LLMs are probabilistic engines—they guess the next word. Axiom is a constraint layer that forces the model to anchor every claim to a cryptographically verified record. It turns 'creative writing' into 'auditable reporting'.",
     currentState: [

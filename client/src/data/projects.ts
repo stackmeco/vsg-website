@@ -13,8 +13,8 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: "Axiom",
-    stage: "Prototype",
-    stageVariant: "prototype",
+    stage: "Research",
+    stageVariant: "research",
     description: "A deterministic inference layer designed to eliminate hallucination. It forces LLMs to cite verified internal data structures before generating output.",
     exploring: ["Retrieval-Augmented Generation (RAG) with strict citation enforcement", "Adversarial testing against known logic traps", "Mechanistic interpretability (tracing 'why' the model said X)"],
     href: "/pipeline/axiom",

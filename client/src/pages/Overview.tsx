@@ -230,7 +230,7 @@ export default function Overview() {
               Active Development Cycles
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Five projects in our Pipeline. Axiom is in prototype; Helios is in internal alpha; Stackme is in architecture. None are currently accepting external capital or users.
+              Five projects in our Pipeline. Axiom is in research; Helios is in internal alpha; Stackme is in architecture. None are currently accepting external capital or users.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
