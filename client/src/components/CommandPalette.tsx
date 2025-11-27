@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useLocation } from "wouter";
 import {
   CommandDialog,
@@ -10,45 +10,15 @@ import {
   CommandSeparator,
 } from "@/components/ui/command";
 import { 
-  Home, 
-  Layers, 
-  Settings, 
-  Shield, 
-  BookOpen, 
-  Mail,
-  Zap,
-  CreditCard,
-  Sparkles,
-  Fingerprint,
-  FileText,
-  Scale
-} from "lucide-react";
-
-const pages = [
-  { name: "Overview", href: "/", icon: Home, description: "Home page" },
-  { name: "System", href: "/system", icon: Settings, description: "How we work" },
-  { name: "Pipeline", href: "/pipeline", icon: Layers, description: "R&D projects" },
-  { name: "Governance", href: "/governance", icon: Shield, description: "Risk & compliance" },
-  { name: "Thesis", href: "/thesis", icon: BookOpen, description: "Our manifesto" },
-  { name: "Contact", href: "/contact", icon: Mail, description: "Get in touch" },
-];
-
-const projects = [
-  { name: "Helios", href: "/pipeline/helios", icon: Zap, description: "BTC strategy engine" },
-  { name: "Stackme", href: "/pipeline/stackme", icon: CreditCard, description: "BTC credit app" },
-  { name: "Lumina", href: "/pipeline/lumina", icon: Sparkles, description: "Physical asset instruments" },
-  { name: "Uniqueness Engine", href: "/pipeline/uniqueness-engine", icon: Fingerprint, description: "Identity research" },
-];
-
-const governance = [
-  { name: "Legal Structure", href: "/governance#structure", icon: FileText, description: "Company governance" },
-  { name: "BTC Treasury", href: "/governance#treasury", icon: CreditCard, description: "Treasury policy" },
-  { name: "Risk Governance", href: "/governance#risk", icon: Shield, description: "Risk controls" },
-  { name: "Regulatory Stance", href: "/governance#regulatory", icon: Scale, description: "Compliance approach" },
-];
+  buildSearchResults, 
+  searchGroups, 
+  getGroupLabel,
+  type SearchGroup 
+} from "@/data/searchIndex";
 
 export function CommandPalette() {
   const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
   const [, setLocation] = useLocation();
 
   useEffect(() => {
@@ -62,6 +32,25 @@ export function CommandPalette() {
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
   }, []);
+
+  useEffect(() => {
+    if (!open) {
+      setQuery("");
+    }
+  }, [open]);
+
+  const searchResults = useMemo(() => {
+    return buildSearchResults(query);
+  }, [query]);
+
+  const sortedGroups = useMemo(() => {
+    const groups = Array.from(searchResults.keys());
+    return groups.sort((a, b) => {
+      const aPriority = searchGroups.find(g => g.id === a)?.priority ?? 99;
+      const bPriority = searchGroups.find(g => g.id === b)?.priority ?? 99;
+      return aPriority - bPriority;
+    });
+  }, [searchResults]);
 
   const navigate = (href: string) => {
     setOpen(false);
@@ -82,62 +71,52 @@ export function CommandPalette() {
     }
   };
 
+  const hasResults = sortedGroups.length > 0;
+
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
-      <CommandInput placeholder="Search pages, projects, sections..." />
+      <CommandInput 
+        placeholder="Query system index..." 
+        value={query}
+        onValueChange={setQuery}
+        data-testid="input-command-search"
+      />
       <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading="Pages">
-          {pages.map((page) => (
-            <CommandItem
-              key={page.href}
-              value={page.name}
-              onSelect={() => navigate(page.href)}
-              className="cursor-pointer"
-            >
-              <page.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-              <span>{page.name}</span>
-              <span className="ml-auto text-xs text-muted-foreground">{page.description}</span>
-            </CommandItem>
-          ))}
-        </CommandGroup>
-        <CommandSeparator />
-        <CommandGroup heading="Pipeline Projects">
-          {projects.map((project) => (
-            <CommandItem
-              key={project.href}
-              value={project.name}
-              onSelect={() => navigate(project.href)}
-              className="cursor-pointer"
-            >
-              <project.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-              <span>{project.name}</span>
-              <span className="ml-auto text-xs text-muted-foreground">{project.description}</span>
-            </CommandItem>
-          ))}
-        </CommandGroup>
-        <CommandSeparator />
-        <CommandGroup heading="Governance Sections">
-          {governance.map((section) => (
-            <CommandItem
-              key={section.href}
-              value={section.name}
-              onSelect={() => navigate(section.href)}
-              className="cursor-pointer"
-            >
-              <section.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-              <span>{section.name}</span>
-              <span className="ml-auto text-xs text-muted-foreground">{section.description}</span>
-            </CommandItem>
-          ))}
-        </CommandGroup>
+        {!hasResults && <CommandEmpty>No records match query.</CommandEmpty>}
+        {sortedGroups.map((groupId, index) => {
+          const results = searchResults.get(groupId) ?? [];
+          if (results.length === 0) return null;
+          
+          return (
+            <div key={groupId}>
+              {index > 0 && <CommandSeparator />}
+              <CommandGroup heading={getGroupLabel(groupId)}>
+                {results.map(({ entry }) => (
+                  <CommandItem
+                    key={entry.id}
+                    value={`${entry.name} ${entry.keywords.join(" ")}`}
+                    onSelect={() => navigate(entry.href)}
+                    className="cursor-pointer"
+                    data-testid={`command-item-${entry.id}`}
+                  >
+                    <entry.icon className="mr-2 h-4 w-4 text-muted-foreground" />
+                    <span className="truncate">{entry.name}</span>
+                    <span className="ml-auto text-xs text-muted-foreground truncate max-w-[200px]">
+                      {entry.description}
+                    </span>
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            </div>
+          );
+        })}
       </CommandList>
       <div className="border-t border-border px-3 py-2">
-        <p className="text-xs text-muted-foreground text-center">
+        <p className="text-xs text-muted-foreground text-center font-mono">
           <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
             <span className="text-xs">⌘</span>K
           </kbd>
-          {" "}to toggle
+          {" "}toggle | {searchResults.size} groups indexed
         </p>
       </div>
     </CommandDialog>
