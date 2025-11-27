@@ -250,7 +250,7 @@ export default function Governance() {
             </h3>
             <div className="grid md:grid-cols-3 gap-4">
               {capitalControls.map((control, index) => (
-                <Card key={index} className="bg-card border-border">
+                <Card key={index} className="bg-card border-border" data-testid={`card-control-${index + 1}`}>
                   <CardContent className="p-4">
                     <div className="flex items-center gap-2 mb-2">
                       <Lock className="w-4 h-4 text-primary" />
@@ -314,11 +314,11 @@ export default function Governance() {
           </h3>
           <div className="space-y-4">
             {projectGovernance.map((project) => (
-              <Card key={project.name} className="bg-background border-border">
+              <Card key={project.name} className="bg-background border-border" data-testid={`card-governance-${project.name.toLowerCase().replace(/\s+/g, "-")}`}>
                 <CardContent className="p-6">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                     <h4 className="font-heading font-semibold text-lg text-foreground">{project.name}</h4>
-                    <span className="text-xs font-mono text-muted-foreground bg-secondary px-2 py-1 rounded">
+                    <span className="text-xs font-mono text-muted-foreground bg-secondary px-2 py-1 rounded" data-testid={`status-${project.name.toLowerCase().replace(/\s+/g, "-")}`}>
                       {project.status}
                     </span>
                   </div>

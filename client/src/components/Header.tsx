@@ -45,10 +45,10 @@ export function Header() {
               <Link key={item.name} href={item.href}>
                 <span
                   className={cn(
-                    "px-3 py-2 text-xs font-mono uppercase tracking-wider transition-colors rounded-md",
+                    "px-3 py-2 text-xs font-mono uppercase tracking-wider transition-all duration-150 rounded-md border border-transparent",
                     isActive(item.href)
-                      ? "text-primary underline underline-offset-4"
-                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                      ? "text-primary bg-primary/10 border-primary/20"
+                      : "text-muted-foreground hover:text-foreground hover:bg-card/80 hover:border-primary/30"
                   )}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   data-testid={`nav-${item.name.toLowerCase()}`}

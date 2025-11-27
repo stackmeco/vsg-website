@@ -163,12 +163,16 @@ export default function PipelineDetail() {
   if (!project) {
     return (
       <Layout>
+        <PageMeta
+          title="Project Not Found | Pipeline"
+          description="The requested project specification was not found."
+        />
         <div className="py-20 text-center">
           <h1 className="font-heading font-bold text-2xl text-foreground mb-4">
             Project not found
           </h1>
           <Link href="/pipeline">
-            <Button variant="outline">Back to Pipeline</Button>
+            <Button variant="outline" data-testid="button-back-pipeline">Back to Pipeline</Button>
           </Link>
         </div>
       </Layout>
