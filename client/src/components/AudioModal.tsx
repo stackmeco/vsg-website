@@ -7,10 +7,11 @@ export function AudioModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [duration, setDuration] = useState("00:00");
+  const [duration, setDuration] = useState("02:00");
   const [currentTime, setCurrentTime] = useState("00:00");
   const [bars, setBars] = useState<number[]>(Array(24).fill(10));
   const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const animationRef = useRef<number | null>(null);
 
@@ -34,7 +35,14 @@ export function AudioModal() {
       audioRef.current.addEventListener("loadedmetadata", () => {
         if (audioRef.current) {
           setDuration(formatTime(audioRef.current.duration));
+          setIsLoading(false);
+          setHasError(false);
         }
+      });
+      
+      audioRef.current.addEventListener("error", () => {
+        setHasError(true);
+        setIsLoading(false);
       });
       
       audioRef.current.addEventListener("timeupdate", () => {
@@ -79,6 +87,7 @@ export function AudioModal() {
   }, [isOpen, isPlaying]);
 
   const togglePlay = () => {
+    if (hasError) return;
     if (isPlaying) {
       audioRef.current?.pause();
     } else {
@@ -88,6 +97,7 @@ export function AudioModal() {
   };
 
   const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (hasError) return;
     if (audioRef.current) {
       const rect = e.currentTarget.getBoundingClientRect();
       const clickX = e.clientX - rect.left;
@@ -113,7 +123,9 @@ export function AudioModal() {
       <DialogContent className="bg-card border border-border max-w-md p-0 overflow-hidden gap-0">
         <div className="p-4 border-b border-border flex justify-between items-center bg-muted/10">
           <span className="font-mono text-[10px] uppercase tracking-widest text-primary">
-            {isPlaying ? (
+            {hasError ? (
+              "Coming Soon"
+            ) : isPlaying ? (
               <span className="inline-flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 Playing
@@ -123,51 +135,64 @@ export function AudioModal() {
             )}
           </span>
           <span className="font-mono text-[10px] text-muted-foreground">
-            {currentTime} <span className="text-muted-foreground/50">of</span> {duration}
+            {hasError ? "~02:00" : `${currentTime} of ${duration}`}
           </span>
         </div>
 
         <div className="h-36 bg-background relative flex items-end justify-center gap-[3px] px-6 py-4">
-          {bars.map((height, i) => (
-            <div 
-              key={i}
-              className="w-2 bg-primary rounded-[1px] transition-all duration-75"
-              style={{
-                height: `${height}%`,
-                opacity: isPlaying ? 0.9 : 0.25,
-              }}
-            />
-          ))}
-          
-          <button 
-            onClick={togglePlay}
-            className="absolute inset-0 flex items-center justify-center transition-colors"
-            data-testid="button-play-pause"
-            aria-label={isPlaying ? "Pause" : "Play"}
-          >
-            <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center backdrop-blur-sm hover:bg-primary/20 transition-colors">
-              {isPlaying ? 
-                <Pause className="w-6 h-6 text-primary" /> : 
-                <Play className="w-6 h-6 text-primary ml-1" />
-              }
+          {hasError ? (
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+              <AlertCircle className="w-8 h-8 text-muted-foreground/50" />
+              <p className="text-xs text-muted-foreground font-mono text-center px-4">
+                Audio briefing is being prepared.<br />Check back soon.
+              </p>
             </div>
-          </button>
+          ) : (
+            <>
+              {bars.map((height, i) => (
+                <div 
+                  key={i}
+                  className="w-2 bg-primary rounded-[1px] transition-all duration-75"
+                  style={{
+                    height: `${height}%`,
+                    opacity: isPlaying ? 0.9 : 0.25,
+                  }}
+                />
+              ))}
+              
+              <button 
+                onClick={togglePlay}
+                className="absolute inset-0 flex items-center justify-center transition-colors"
+                data-testid="button-play-pause"
+                aria-label={isPlaying ? "Pause" : "Play"}
+              >
+                <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center backdrop-blur-sm hover:bg-primary/20 transition-colors">
+                  {isPlaying ? 
+                    <Pause className="w-6 h-6 text-primary" /> : 
+                    <Play className="w-6 h-6 text-primary ml-1" />
+                  }
+                </div>
+              </button>
+            </>
+          )}
         </div>
 
-        <div 
-          className="h-1 w-full bg-secondary relative cursor-pointer group"
-          onClick={handleSeek}
-          data-testid="progress-bar"
-        >
+        {!hasError && (
           <div 
-            className="absolute top-0 left-0 h-full bg-primary transition-all duration-100" 
-            style={{ width: `${progress}%` }} 
-          />
-          <div 
-            className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"
-            style={{ left: `calc(${progress}% - 5px)` }}
-          />
-        </div>
+            className="h-1 w-full bg-secondary relative cursor-pointer group"
+            onClick={handleSeek}
+            data-testid="progress-bar"
+          >
+            <div 
+              className="absolute top-0 left-0 h-full bg-primary transition-all duration-100" 
+              style={{ width: `${progress}%` }} 
+            />
+            <div 
+              className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"
+              style={{ left: `calc(${progress}% - 5px)` }}
+            />
+          </div>
+        )}
 
         <div className="p-5 space-y-4">
           <h3 className="font-heading text-base text-foreground">Operational Briefing</h3>
