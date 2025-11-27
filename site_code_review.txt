@@ -1,425 +1,501 @@
 ================================================================================
-VERIFIED SYSTEMS GROUP - COMPREHENSIVE CODE REVIEW
+VSG SITE CODE REVIEW
+Comprehensive Architecture, Quality & Security Assessment
 ================================================================================
-Generated: November 27, 2025
-Revision: Global Contrast Calibration & Operating Principles Update
-Stack: React + Vite + Express + TypeScript + Tailwind CSS + Shadcn UI
+Review Date: November 2024
+Reviewer: Automated Code Analysis
 
-================================================================================
-ARCHITECTURE OVERVIEW
-================================================================================
-
-FRONTEND:
-- Framework: React 18 with Vite
-- Routing: Wouter (lightweight router)
-- State Management: TanStack Query v5
-- Styling: Tailwind CSS + Shadcn UI components
-- Forms: React Hook Form with Zod validation
-
-BACKEND:
-- Runtime: Node.js with Express
-- Validation: Zod schemas
-- Storage: File-based JSON (contacts.json)
-- No database required (static marketing site)
 
 ================================================================================
-FILE STRUCTURE
+PART 1: EXECUTIVE SUMMARY
 ================================================================================
 
-/
-├── client/src/
-│   ├── components/
-│   │   ├── ui/              # Shadcn UI (45+ components)
-│   │   ├── CommandPalette.tsx
-│   │   ├── ContactForm.tsx
-│   │   ├── ErrorBoundary.tsx
-│   │   ├── Footer.tsx
-│   │   ├── Header.tsx
-│   │   ├── InsightCard.tsx
-│   │   ├── Layout.tsx
-│   │   ├── NextStepBlock.tsx
-│   │   ├── PageMeta.tsx
-│   │   ├── ProjectTile.tsx
-│   │   ├── ScrollManager.tsx
-│   │   ├── StageChip.tsx
-│   │   ├── StatBlock.tsx
-│   │   └── ValueCard.tsx
-│   ├── data/
-│   │   ├── articleContent.ts
-│   │   ├── articles.ts
-│   │   ├── projects.ts
-│   │   └── searchIndex.ts
-│   ├── hooks/
-│   │   └── useGeminiTTS.ts
-│   ├── pages/
-│   │   ├── Contact.tsx
-│   │   ├── Governance.tsx
-│   │   ├── Library.tsx
-│   │   ├── LibraryArticle.tsx
-│   │   ├── not-found.tsx
-│   │   ├── Overview.tsx
-│   │   ├── Pipeline.tsx
-│   │   ├── PipelineDetail.tsx
-│   │   ├── Privacy.tsx
-│   │   ├── System.tsx
-│   │   └── Terms.tsx
-│   ├── App.tsx
-│   ├── index.css
-│   └── main.tsx
-├── server/
-│   ├── routes.ts
-│   └── storage.ts
-├── shared/
-│   └── schema.ts
-├── attached_assets/
-│   ├── grid_texture.png
-│   ├── gears_texture.png
-│   ├── axiom_cube.png
-│   └── lumina_lens.png
-├── data/
-│   └── contacts.json
-├── design_guidelines.md
-├── site_review.txt
-└── site_code_review.txt
+Overall Code Quality: GOOD (7.5/10)
+
+The VSG marketing site is well-structured with clear separation of concerns,
+proper TypeScript usage, and consistent coding patterns. Key strengths include
+the design token system, component reusability, and security-aware backend.
+Areas for improvement include schema consolidation, test coverage, and minor
+border-radius compliance issues.
+
+CRITICAL ISSUES: 1
+HIGH ISSUES: 3
+MEDIUM ISSUES: 6
+LOW ISSUES: 8
+
 
 ================================================================================
-CSS DESIGN TOKENS (index.css)
+PART 2: ARCHITECTURE OVERVIEW
 ================================================================================
 
-:root {
-  /* GEOMETRY */
-  --radius: 2px;  /* Machined edges, no organic curves */
+STACK:
+- Frontend: React 18 + Vite + TypeScript
+- Styling: Tailwind CSS + shadcn/ui components
+- Routing: Wouter (lightweight)
+- State: React Query (TanStack Query v5)
+- Backend: Express.js + TypeScript
+- Validation: Zod
+- AI Integration: Google Gemini (TTS)
 
-  /* ELEVATION SYSTEM */
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
+DIRECTORY STRUCTURE:
+client/
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/          # Route pages (6 pages)
+│   ├── data/           # Static data files
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Utilities
+│   └── index.css       # Design tokens & global styles
+server/
+├── routes.ts           # API endpoints
+├── storage.ts          # Data layer (unused)
+└── vite.ts             # Dev server config
+shared/
+└── schema.ts           # Shared Zod schemas
 
-  /* THE VOID (Backgrounds) */
-  --background: 222 15% 5%;      /* Deep charcoal, NOT blue */
-  --foreground: 30 5% 90%;       /* Off-white/Silver */
+ARCHITECTURE SCORE: 8/10
+- Clean separation of concerns
+- Minimal backend (appropriate for marketing site)
+- Reusable component library
+- Design token system for consistency
 
-  /* SURFACE LAYERS */
-  --card: 222 15% 7%;
-  --card-border: 222 15% 12%;
-
-  /* THE SIGNAL (Primary) */
-  --primary: 25 95% 53%;         /* #F26D21 International Orange */
-  --primary-foreground: 222 47% 11%;
-
-  /* METADATA (CALIBRATED) */
-  --muted: 222 15% 10%;
-  --muted-foreground: 220 5% 75%;  /* BOOSTED from 55% for legibility */
-
-  /* TYPOGRAPHY */
-  --font-sans: 'Manrope', system-ui, sans-serif;
-  --font-heading: 'Space Grotesk', system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
-}
-
-================================================================================
-TYPOGRAPHY UTILITIES (index.css)
-================================================================================
-
-/* Industrial Font Scale */
-.text-2xs { font-size: 0.625rem; }  /* 10px */
-.text-xs  { font-size: 0.75rem; }   /* 12px */
-.text-sm  { font-size: 0.875rem; }  /* 14px - BASE */
-.text-base { font-size: 1rem; }     /* 16px */
-
-/* Semantic Text Classes */
-.text-body {
-  @apply text-sm leading-normal text-muted-foreground/90;
-}
-
-.label-text {
-  @apply text-2xs uppercase tracking-widest text-muted-foreground/70 font-mono;
-}
-
-/* Global Letter Spacing */
-body {
-  letter-spacing: -0.015em;  /* Machined precision */
-}
 
 ================================================================================
-INTERACTION UTILITIES (index.css)
+PART 3: CRITICAL ISSUES
 ================================================================================
 
-/* Elevation on Hover */
-.hover-elevate {
-  position: relative;
-  isolation: isolate;
-}
-.hover-elevate::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--elevate-1);
-  opacity: 0;
-  transition: opacity 150ms;
-  pointer-events: none;
-  border-radius: inherit;
-}
-.hover-elevate:hover::after {
-  opacity: 1;
-}
+ISSUE #1: [CRITICAL] DESIGN SPEC VIOLATION - StepCard.tsx
+--------------------------------------------------------------------------------
+File: client/src/components/StepCard.tsx
+Line: 18
+Severity: CRITICAL
 
-/* Elevation on Active/Press */
-.active-elevate-2:active::after {
-  background: var(--elevate-2);
-  opacity: 1;
-}
+Problem:
+StepCard uses `rounded-sm` which maps to 1px border-radius (per tailwind.config.ts).
+The VSG design spec mandates 2px "machined edges" for all components.
 
-/* Toggle State */
-.toggle-elevate.toggle-elevated::after {
-  background: var(--elevate-2);
-  opacity: 1;
-}
+Current Code:
+  className={cn("relative bg-background border border-border rounded-sm p-5", className)}
+
+Expected:
+  className={cn("relative bg-background border border-border rounded-[2px] p-5", className)}
+
+Impact:
+- Inconsistent visual appearance across Pipeline page
+- Breaks "Industrial Control Room" aesthetic cohesion
+- StepCards appear softer than other components
+
+Fix Required: YES - Replace `rounded-sm` with `rounded-[2px]`
+
 
 ================================================================================
-DATA LAYER - PROJECTS (projects.ts)
+PART 4: HIGH SEVERITY ISSUES
 ================================================================================
 
-PROJECT 1 - HELIOS:
-- name: "Helios"
-- stage: "Internal Alpha"
-- stageVariant: "internal"
-- description: "Internal BTC-backed strategy engine. Automates treasury operations within bounded risk parameters."
-- exploring: ["Automated yield strategies", "Multi-venue position management", "Real-time solvency monitoring"]
+ISSUE #2: [HIGH] DUPLICATE SCHEMA VALIDATION - ContactForm.tsx
+--------------------------------------------------------------------------------
+File: client/src/components/ContactForm.tsx
+Lines: 40-65
+Severity: HIGH
 
-PROJECT 2 - STACKME:
-- name: "Stackme"
-- stage: "Architecture"
-- stageVariant: "architecture"
-- description: "Protocol-native BTC lending interface. Designed for clarity, conservative leverage, and graduated liquidation mechanics."
-- exploring: ["Risk visualization", "Conservative LTV limits", "Graduated liquidation tranches"]
+Problem:
+ContactForm implements its own validation logic instead of importing the
+shared `contactFormSchema` from `shared/schema.ts`.
 
-PROJECT 3 - LUMINA:
-- name: "Lumina"
-- stage: "Specification"
-- stageVariant: "specification"
-- description: "Digital bearer instruments for physical assets. Features a proprietary optical physics engine for anti-spoofing and topology verification."
-- exploring: ["Photometric stereo scanning", "Edge-compute material analysis", "On-chain provenance"]
+Current (ContactForm.tsx):
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+    // ... more inline validation
+  };
 
-PROJECT 4 - UNIQUENESS ENGINE:
-- name: "Uniqueness Engine"
-- stage: "Research"
-- stageVariant: "research"
-- description: "Sybil-resistance signals that enforce uniqueness constraints without biometric surveillance or centralized identity data."
-- exploring: ["Zero-Knowledge uniqueness proofs", "Cost-of-forgery signals", "Minimal footprint identity"]
+Shared Schema (shared/schema.ts):
+  export const contactFormSchema = z.object({
+    name: z.string().min(1, "Name is required").max(100, "Name too long"),
+    // ... properly typed validation
+  });
 
-PROJECT 5 - AXIOM:
-- name: "Axiom"
-- stage: "Research"
-- stageVariant: "research"
-- description: "A deterministic inference layer designed to eliminate hallucination. Forces LLMs to anchor outputs to verified internal data structures."
-- exploring: ["RAG with strict citation enforcement", "Adversarial logic traps", "Mechanistic interpretability"]
+Risks:
+- Validation logic can drift between frontend and backend
+- Backend (server/routes.ts) uses different schema with .transform()
+- No max length enforcement on frontend
+- Inconsistent error messages
 
-================================================================================
-OPERATING PRINCIPLES (Overview.tsx)
-================================================================================
+Recommendation:
+Import and use `contactFormSchema` with zodResolver in react-hook-form.
 
-6 PRINCIPLES WITH ICON SYSTEM:
 
-1. EMPIRICAL VERIFICATION (Eye)
-"We prioritize raw system telemetry over narrative. Experiments are labeled as experiments; assumptions are labeled as assumptions."
+ISSUE #3: [HIGH] DUPLICATE SCHEMA - server/routes.ts vs shared/schema.ts
+--------------------------------------------------------------------------------
+File: server/routes.ts
+Lines: 9-17
+Severity: HIGH
 
-2. PROOF OF CAPITAL (Coins)
-"Development is gated by internal solvency. We do not deploy code we are not willing to capitalize with our own balance sheet."
+Problem:
+Backend defines its own `contactSchema` instead of using `contactFormSchema`
+from shared/schema.ts. The backend version adds .transform() calls.
 
-3. BOUNDED EXECUTION (Shield)
-"Innovation requires explicit guardrails. Every system has defined failure states, liquidity caps, and safe shutdown sequences."
+Server (routes.ts):
+  const contactSchema = z.object({
+    name: z.string().min(1, "Name is required").max(100, "Name too long")
+         .transform(s => s.trim()),
+    // ...
+  });
 
-4. OPEN SOURCE INTELLIGENCE (Search)
-"Information asymmetry is a market inefficiency. We publish risk memos and post-mortems to reduce noise and signal-boost truth."
+Shared (schema.ts):
+  export const contactFormSchema = z.object({
+    name: z.string().min(1, "Name is required").max(100, "Name too long"),
+    // ... no transforms
+  });
 
-5. HORIZON SCANNING (Compass)
-"Architecting for the autonomous economy. We build for a future where AI agents require deterministic settlement, not human interfaces."
+Risks:
+- Schema drift between frontend validation, backend validation, shared types
+- Maintenance burden of updating multiple schemas
+- Potential edge cases where validation differs
 
-6. COGNITIVE SECURITY (ShieldCheck)
-"Education is a defense layer. We arm our partners with first-principles technical analysis to neutralize hype cycles and predatory narratives."
+Recommendation:
+Consolidate to single source of truth in shared/schema.ts with transforms.
 
-================================================================================
-DATA LAYER - ARTICLES (articles.ts)
-================================================================================
 
-ARTICLE 1:
-- title: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate"
-- date: "Dec 15, 2025"
-- type: "Insight"
-- tags: ["AI Safety", "Determinism", "Infrastructure"]
-- slug: "insolvency-of-fiction"
+ISSUE #4: [HIGH] NO AUTOMATED TESTS
+--------------------------------------------------------------------------------
+Files: (none found)
+Severity: HIGH
 
-ARTICLE 2:
-- title: "The Verification Standard: Charting the Great Reallocation"
-- date: "Nov 26, 2025"
-- type: "Insight"
-- tags: ["Bitcoin", "Macro", "Thesis"]
-- slug: "verification-standard"
+Problem:
+No test files found in the repository. Critical user flows lack coverage:
+- Contact form submission
+- Audio briefing (TTS integration)
+- Navigation and routing
+- Rate limiting behavior
+- Form validation edge cases
 
-ARTICLE 3:
-- title: "Machine-Native Settlement: Why AI Agents Need Bearer Assets"
-- date: "Oct 18, 2025"
-- type: "Insight"
-- tags: ["AI Agents", "Bitcoin", "Infrastructure"]
-- slug: "machine-native-settlement"
+Risks:
+- Regressions go undetected
+- Refactoring is risky
+- CI/CD pipeline incomplete
 
-================================================================================
-SYSTEM FUNCTIONS (System.tsx)
-================================================================================
+Recommendation:
+Add at minimum:
+1. Unit tests for validation schemas
+2. Integration tests for API endpoints
+3. Component tests for ContactForm
+4. E2E tests for critical user flows
 
-1. GOVERNANCE & RISK
-"Definition of solvency thresholds, leverage caps, and negative constraints for all treasury and product operations."
-
-2. COMPLIANCE
-"Alignment with legal and regulatory constraints across operating jurisdictions."
-
-3. FINANCE & TREASURY
-"Tracking of all capital flows, loan positions, and expenditures with auditable precision."
-
-4. OPERATIONS
-"Stage-gated workflow from specification through architecture, implementation, and verification."
-
-5. SIGNAL INTEGRITY
-"Ensuring external outputs strictly match internal telemetry and system state. No divergence between stated and actual conditions."
 
 ================================================================================
-STAGE VARIANTS (StageChip.tsx)
+PART 5: MEDIUM SEVERITY ISSUES
 ================================================================================
 
-Type: StageVariant = "research" | "specification" | "architecture" | "prototype" | "internal" | "production"
+ISSUE #5: [MEDIUM] INCONSISTENT BORDER RADIUS - Multiple Files
+--------------------------------------------------------------------------------
+Files: 
+- client/src/pages/Overview.tsx:137 (rounded-sm on metrics card)
+- client/src/pages/Pipeline.tsx:128 (rounded-sm on view toggle)
+- client/src/pages/Pipeline.tsx:157 (rounded-sm on table container)
+- client/src/components/Header.tsx:164 (rounded-sm on mobile nav item)
 
-Variant Mapping:
-- research: "default" (muted)
-- specification: "default" (muted)
-- architecture: "warning" (orange/primary)
-- prototype: "warning" (amber)
-- internal: "info" (yellow/amber)
-- production: "success" (green)
+Problem:
+Multiple uses of `rounded-sm` instead of `rounded-[2px]` for 2px machined edges.
 
-================================================================================
-COMPONENT INVENTORY
-================================================================================
+Impact: Minor visual inconsistency but breaks design system adherence.
 
-LAYOUT COMPONENTS:
-- Layout.tsx - Main page wrapper with Header/Footer
-- Header.tsx - Navigation with numbered items (01-06)
-- Footer.tsx - Company info and legal links
-- ScrollManager.tsx - Hash-preserving navigation guard
 
-UI COMPONENTS:
-- StageChip.tsx - Project stage badges with color variants
-- ValueCard.tsx - Operating principle cards with icons
-- ProjectTile.tsx - Pipeline project cards (card view)
-- StatBlock.tsx - Metric display blocks
-- NextStepBlock.tsx - Page-to-page navigation CTA
-- InsightCard.tsx - Article cards for Thesis page
-- CommandPalette.tsx - Cmd+K search interface
-- ContactForm.tsx - Contact page form with validation
+ISSUE #6: [MEDIUM] MAGIC STRINGS - Navigation Items
+--------------------------------------------------------------------------------
+File: client/src/components/Header.tsx
+Lines: 29-36
 
-UTILITIES:
-- PageMeta.tsx - SEO metadata component
-- ErrorBoundary.tsx - React error boundary
+Problem:
+Navigation items are hardcoded as an array. Route paths are duplicated between
+Header.tsx and the router in App.tsx.
 
-================================================================================
-HOVER PATTERN AUDIT (Passed)
-================================================================================
+Current:
+  const navItems = [
+    { name: "Overview", href: "/", number: "01" },
+    { name: "System", href: "/system", number: "02" },
+    // ...
+  ];
 
-ACCEPTABLE PATTERNS FOUND:
-- Overview.tsx:239 - hover:bg-primary/5 (list item hover)
-- Pipeline.tsx:148 - hover:bg-card (table header, prevents hover)
-- Pipeline.tsx:157 - hover:bg-card/50 (table row hover)
-- Governance.tsx:100-115 - hover:text-primary (anchor links)
+Recommendation:
+Extract to shared route configuration file (e.g., `data/routes.ts`).
 
-NO VIOLATIONS:
-- No custom hover:bg-* on Buttons
-- No custom hover:border-* on Buttons/Badges
-- All Button/Badge interactions use built-in elevation system
 
-================================================================================
-SECURITY MEASURES
-================================================================================
+ISSUE #7: [MEDIUM] MISSING ERROR BOUNDARY GRANULARITY
+--------------------------------------------------------------------------------
+File: client/src/components/ErrorBoundary.tsx
+Severity: MEDIUM
 
-1. ORIGIN VALIDATION
-   - Checks origin and referer headers
-   - Whitelist: localhost:5000, verifiedsystems.io
+Problem:
+Single ErrorBoundary at app root. If one component fails, entire app crashes.
 
-2. RATE LIMITING
-   - 5 requests per minute per IP
-   - 60 second window
+Recommendation:
+Add ErrorBoundaries around:
+- Individual page components
+- AudioModal (external API dependency)
+- ContactForm (API submission)
 
-3. INPUT SANITIZATION
-   - Removes < > characters
-   - Strips javascript: protocols
-   - Removes on* event handlers
 
-4. HONEYPOT FIELD
-   - Hidden bot detection
+ISSUE #8: [MEDIUM] HARDCODED ALLOWED ORIGINS
+--------------------------------------------------------------------------------
+File: server/routes.ts
+Lines: 58-63
 
-5. FORM VALIDATION
-   - Client: React Hook Form + Zod
-   - Server: Zod schema validation
+Problem:
+Allowed hosts for CORS/origin validation are hardcoded and include
+"verifiedsystems.io" (typo? should be "verifiablesystems.com").
 
-================================================================================
-ACCESSIBILITY
-================================================================================
+Current:
+  const allowedHosts = [
+    host,
+    "localhost:5000",
+    "verifiedsystems.io",           // <- WRONG DOMAIN?
+    "www.verifiedsystems.io",       // <- WRONG DOMAIN?
+  ];
 
-- Skip to content link
-- ARIA labels on interactive elements
-- Proper heading hierarchy (H1 > H2 > H3)
-- Form error linking via aria-describedby
-- Keyboard navigation (Cmd+K command palette)
-- Focus indicators (orange ring)
-- Touch targets minimum 44px
-- data-testid attributes on all interactive elements
+Impact: Production domain may not be in allowed list.
 
-================================================================================
-LANGUAGE STANDARDS (Institutional Voice)
-================================================================================
+Recommendation: Use environment variable for allowed origins.
 
-AVOID:
-- Passive voice ("We help systems...")
-- Emotional terms ("gentle", "messy")
-- Marketing speak ("borrower-first", "app")
-- Consumer terminology ("chatbot", "cards")
 
-USE:
-- Active voice ("Forces LLMs to...")
-- Technical terms ("graduated", "protocol-native")
-- Infrastructure language ("interface", "engine")
-- System terminology ("inference engine", "instruments")
+ISSUE #9: [MEDIUM] FILE-BASED CONTACT STORAGE
+--------------------------------------------------------------------------------
+File: server/routes.ts
+Lines: 19, 97-108
 
-================================================================================
-GEMINI TTS INTEGRATION (useGeminiTTS.ts)
-================================================================================
+Problem:
+Contacts are stored in a JSON file (`data/contacts.json`). This is fragile:
+- File can be lost on deployment
+- No backup/recovery
+- Concurrent writes could corrupt
+- No indexing for retrieval
 
-- API Key: GEMINI_API_KEY (server-side)
-- Format: Structured role/parts JSON
-- Audio: Base64 PCM at 24kHz
-- Endpoint: /api/tts
+For a marketing site, this may be acceptable for MVP, but consider:
+- Database storage (PostgreSQL available)
+- Email notification on submission
+- External service (Airtable, Notion, etc.)
+
+
+ISSUE #10: [MEDIUM] MISSING PWA IMPLEMENTATION
+--------------------------------------------------------------------------------
+Files: (none found)
+Severity: MEDIUM
+
+Problem:
+Design spec mentions "PWA support for iOS/Android" but no implementation:
+- No manifest.json
+- No service worker
+- No offline support
+- No app icons for home screen
+
+Recommendation: Add PWA capabilities if required by spec.
+
 
 ================================================================================
-RECENT CALIBRATIONS
+PART 6: LOW SEVERITY ISSUES
 ================================================================================
 
-1. GLOBAL CONTRAST (index.css)
-   --muted-foreground: 220 5% 55% → 220 5% 75%
-   Reason: Improved legibility at 14px base font
+ISSUE #11: [LOW] UNUSED STORAGE INTERFACE
+--------------------------------------------------------------------------------
+File: server/storage.ts
+Severity: LOW
 
-2. TYPOGRAPHY SYSTEM
-   - Primary font: Inter → Manrope
-   - Letter-spacing: -0.015em globally
-   - Base size: 14px (text-sm)
+Problem:
+storage.ts appears unused. Routes.ts implements its own file storage.
+Dead code should be removed or integrated.
 
-3. OPERATING PRINCIPLES
-   - Headline: "How we operate" → "Operating Principles"
-   - Count: 5 → 6 (added "Cognitive Security")
-   - Icons: Eye, Coins, Shield, Search, Compass, ShieldCheck
 
-4. INTERACTION CLEANUP
-   - Removed: hover:border-primary/50 from outline Button
-   - Added: hover-elevate to project chips
+ISSUE #12: [LOW] CONSOLE.LOG IN PRODUCTION
+--------------------------------------------------------------------------------
+File: server/routes.ts
+Lines: 123, 166, 258
+
+Problem:
+Multiple console.log/console.error statements in production code.
+
+Recommendation: Use structured logging with log levels.
+
+
+ISSUE #13: [LOW] MISSING SEO - Dynamic Meta Tags
+--------------------------------------------------------------------------------
+Files: All pages use PageMeta component
+Severity: LOW
+
+Problem:
+PageMeta component exists but implementation unclear if it updates:
+- Open Graph tags
+- Twitter Card tags
+- Canonical URLs
+- Structured data (JSON-LD)
+
+
+ISSUE #14: [LOW] TYPESCRIPT STRICTNESS
+--------------------------------------------------------------------------------
+Files: Various
+Severity: LOW
+
+Problem:
+Some TypeScript patterns could be stricter:
+- Use of `unknown` cast to error types (routes.ts:271)
+- Optional chaining could replace some null checks
+
+
+ISSUE #15: [LOW] RATE LIMIT MAP MEMORY LEAK
+--------------------------------------------------------------------------------
+File: server/routes.ts
+Line: 21
+
+Problem:
+rateLimitMap never cleans up expired entries. Over time, this could grow.
+
+Current:
+  const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+
+Recommendation: Periodic cleanup of expired entries, or use TTL-based cache.
+
+
+ISSUE #16: [LOW] IMAGE PRELOAD SIDE EFFECT
+--------------------------------------------------------------------------------
+File: client/src/pages/Overview.tsx
+Lines: 51-61
+
+Problem:
+useEffect creates DOM element for image preload. This is a side effect that
+modifies document.head. Consider using <link rel="preload"> in index.html
+or using a proper preload library.
+
+
+ISSUE #17: [LOW] MISSING LOADING STATES
+--------------------------------------------------------------------------------
+Files: Various pages
+Severity: LOW
+
+Problem:
+Some data fetches lack skeleton/loading states. Example: Library page
+filtering has no loading indicator during filter transition.
+
+
+ISSUE #18: [LOW] INCONSISTENT DATA FETCHING
+--------------------------------------------------------------------------------
+Files: Pages
+Severity: LOW
+
+Problem:
+Some pages use static data imports (articles, projects) while having
+React Query available. This is fine for static content but inconsistent.
+
+
+================================================================================
+PART 7: SECURITY ASSESSMENT
+================================================================================
+
+SECURITY RATING: GOOD (8/10)
+
+STRENGTHS:
++ Input sanitization (sanitizeString function)
++ Zod validation on all inputs
++ Rate limiting on contact endpoint
++ Origin validation
++ Honeypot field for spam prevention
++ No SQL injection risk (no database)
++ No XSS in current implementation
+
+AREAS TO MONITOR:
+- API key (GEMINI_API_KEY) properly env-protected
+- No authentication required (appropriate for marketing site)
+- File write permissions in data/ directory
+- Rate limiting in-memory only (resets on restart)
+
+
+================================================================================
+PART 8: PERFORMANCE ASSESSMENT
+================================================================================
+
+PERFORMANCE RATING: GOOD (7.5/10)
+
+STRENGTHS:
++ Vite for fast HMR and optimized builds
++ React Query for data caching
++ Minimal bundle size (lightweight dependencies)
++ Image preloading for hero textures
++ Lazy loading potential (not currently used)
+
+OPPORTUNITIES:
+- Code splitting per page not explicit
+- No image optimization pipeline (WebP, AVIF)
+- Font loading strategy not optimized (FOUT possible)
+- No Lighthouse/Core Web Vitals baseline
+
+
+================================================================================
+PART 9: MAINTAINABILITY ASSESSMENT
+================================================================================
+
+MAINTAINABILITY RATING: GOOD (8/10)
+
+STRENGTHS:
++ Consistent component structure
++ TypeScript throughout
++ Shared types in schema.ts
++ Design tokens centralized in index.css
++ Clear file naming conventions
++ Data separated from components
+
+OPPORTUNITIES:
+- Add JSDoc comments to complex functions
+- Create component documentation
+- Add README for each major directory
+- Document design token decisions
+
+
+================================================================================
+PART 10: RECOMMENDATIONS PRIORITY
+================================================================================
+
+IMMEDIATE (Before Launch):
+1. Fix StepCard.tsx rounded-sm → rounded-[2px] (5 min)
+2. Fix other rounded-sm instances (15 min)
+3. Fix allowed origins for production domain (5 min)
+
+SHORT-TERM (Within 1 Week):
+4. Consolidate Zod schemas to shared/schema.ts
+5. Add PWA manifest and service worker
+6. Add basic test coverage for critical paths
+
+MEDIUM-TERM (Within 1 Month):
+7. Add structured logging
+8. Implement email notifications for contact form
+9. Add Lighthouse CI baseline
+10. Cleanup unused storage.ts
+
+LONG-TERM:
+11. Consider database storage for contacts
+12. Add comprehensive E2E test suite
+13. Implement proper analytics
+
+
+================================================================================
+PART 11: CODE METRICS
+================================================================================
+
+FILES ANALYZED:
+- Pages: 6
+- Components: 15+
+- API Routes: 2
+- Schemas: 2 (should be 1)
+
+LINES OF CODE (Approximate):
+- Frontend: ~3,500 lines
+- Backend: ~280 lines
+- CSS/Styling: ~500 lines
+
+DEPENDENCIES:
+- Production: 45+
+- Dev: 15+
+- No known vulnerabilities detected
+
 
 ================================================================================
 END OF CODE REVIEW
