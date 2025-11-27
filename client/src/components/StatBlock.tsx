@@ -31,7 +31,7 @@ export function StatBlock({
         {label}
       </p>
       {subtext && (
-        <p className="text-xs text-muted-foreground animate-flash">
+        <p className="text-xs text-muted-foreground">
           {subtext}
         </p>
       )}

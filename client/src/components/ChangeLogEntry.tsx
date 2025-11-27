@@ -23,7 +23,7 @@ export function ChangeLogEntry({
       data-testid={`changelog-${date}`}
     >
       <div className="flex items-center gap-3 flex-shrink-0">
-        <span className="text-sm font-mono text-muted-foreground animate-flash w-24">
+        <span className="text-sm font-mono text-muted-foreground w-24">
           {date}
         </span>
         {version && (

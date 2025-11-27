@@ -34,7 +34,7 @@ export function InsightCard({
           <Badge variant="secondary" className="text-xs">
             {category}
           </Badge>
-          <span className="text-xs font-mono text-muted-foreground animate-flash">{date}</span>
+          <span className="text-xs font-mono text-muted-foreground">{date}</span>
         </div>
         <h3 className="font-heading font-semibold text-foreground mb-2 line-clamp-2">
           {title}
