@@ -15,7 +15,6 @@ import {
   AlertTriangle,
   Scale
 } from "lucide-react";
-import gridTexture from "@assets/grid_texture.png";
 
 const capitalControls = [
   "Member loans, not mystery money — funds from members are documented loans, not hidden equity",
@@ -83,11 +82,10 @@ export default function Governance() {
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
-            backgroundImage: `url(${gridTexture})`,
+            backgroundImage: `url(/hero-texture.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.22,
-            filter: "grayscale(100%) contrast(120%)",
+            opacity: 0.35,
           }}
           aria-hidden="true"
         />

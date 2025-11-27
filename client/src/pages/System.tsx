@@ -8,7 +8,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Scale, Wallet, Cog, MessageSquare, HelpCircle } from "lucide-react";
 import { changelog } from "@/data/articles";
 import gearsTexture from "@assets/gears_texture.png";
-import gridTexture from "@assets/grid_texture.png";
 
 const definitions = [
   {
@@ -66,11 +65,10 @@ export default function System() {
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
-            backgroundImage: `url(${gridTexture})`,
+            backgroundImage: `url(/hero-texture.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.22,
-            filter: "grayscale(100%) contrast(120%)",
+            opacity: 0.35,
           }}
           aria-hidden="true"
         />

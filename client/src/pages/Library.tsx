@@ -5,7 +5,6 @@ import { NextStepBlock } from "@/components/NextStepBlock";
 import { InsightCard } from "@/components/InsightCard";
 import { Badge } from "@/components/ui/badge";
 import { articles, getAvailableCategories, type ContentType } from "@/data/articles";
-import gridTexture from "@assets/grid_texture.png";
 
 export default function Library() {
   const [activeType, setActiveType] = useState<ContentType>("All");
@@ -26,11 +25,10 @@ export default function Library() {
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
-            backgroundImage: `url(${gridTexture})`,
+            backgroundImage: `url(/hero-texture.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.22,
-            filter: "grayscale(100%) contrast(120%)",
+            opacity: 0.35,
           }}
           aria-hidden="true"
         />
