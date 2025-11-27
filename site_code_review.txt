@@ -2,6 +2,7 @@
 VERIFIED SYSTEMS GROUP - COMPREHENSIVE CODE REVIEW
 ================================================================================
 Generated: November 27, 2025
+Revision: Institutional Language Update
 Stack: React + Vite + Express + TypeScript + Tailwind CSS + Shadcn UI
 
 ================================================================================
@@ -21,591 +22,328 @@ BACKEND:
 - Storage: File-based JSON (contacts.json)
 - No database required (static marketing site)
 
-BUILD:
-- Bundler: Vite
-- TypeScript: Strict mode
-- PostCSS: Autoprefixer
-
 ================================================================================
 FILE STRUCTURE
 ================================================================================
 
 /
-├── client/
-│   └── src/
-│       ├── components/          # Reusable components
-│       │   ├── ui/              # Shadcn UI components (45+)
-│       │   ├── ChangeLogEntry.tsx
-│       │   ├── CommandPalette.tsx
-│       │   ├── ConsolePanel.tsx
-│       │   ├── ContactForm.tsx
-│       │   ├── ErrorBoundary.tsx
-│       │   ├── Footer.tsx
-│       │   ├── Header.tsx
-│       │   ├── InsightCard.tsx
-│       │   ├── Layout.tsx
-│       │   ├── NextStepBlock.tsx
-│       │   ├── PageMeta.tsx
-│       │   ├── PolicyChip.tsx
-│       │   ├── ProjectTile.tsx
-│       │   ├── StageChip.tsx
-│       │   ├── StatBlock.tsx
-│       │   ├── StepCard.tsx
-│       │   └── ValueCard.tsx
-│       ├── data/                # Static data
-│       │   ├── articleContent.ts
-│       │   ├── articles.ts
-│       │   └── projects.ts
-│       ├── hooks/               # Custom hooks
-│       │   ├── use-mobile.tsx
-│       │   └── use-toast.ts
-│       ├── lib/                 # Utilities
-│       │   ├── queryClient.ts
-│       │   └── utils.ts
-│       ├── pages/               # Page components
-│       │   ├── Contact.tsx
-│       │   ├── Governance.tsx
-│       │   ├── Library.tsx
-│       │   ├── LibraryArticle.tsx
-│       │   ├── not-found.tsx
-│       │   ├── Overview.tsx
-│       │   ├── Pipeline.tsx
-│       │   ├── PipelineDetail.tsx
-│       │   ├── Privacy.tsx
-│       │   ├── System.tsx
-│       │   └── Terms.tsx
-│       ├── App.tsx              # Main app with routes
-│       ├── index.css            # Global styles + CSS variables
-│       └── main.tsx             # Entry point
+├── client/src/
+│   ├── components/
+│   │   ├── ui/              # Shadcn UI (45+ components)
+│   │   ├── CommandPalette.tsx
+│   │   ├── ContactForm.tsx
+│   │   ├── ErrorBoundary.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Header.tsx
+│   │   ├── InsightCard.tsx
+│   │   ├── Layout.tsx
+│   │   ├── NextStepBlock.tsx
+│   │   ├── PageMeta.tsx
+│   │   ├── ProjectTile.tsx
+│   │   ├── StageChip.tsx
+│   │   ├── StatBlock.tsx
+│   │   └── ValueCard.tsx
+│   ├── data/
+│   │   ├── articleContent.ts
+│   │   ├── articles.ts
+│   │   └── projects.ts
+│   ├── pages/
+│   │   ├── Contact.tsx
+│   │   ├── Governance.tsx
+│   │   ├── Library.tsx
+│   │   ├── LibraryArticle.tsx
+│   │   ├── not-found.tsx
+│   │   ├── Overview.tsx
+│   │   ├── Pipeline.tsx
+│   │   ├── PipelineDetail.tsx
+│   │   ├── Privacy.tsx
+│   │   ├── System.tsx
+│   │   └── Terms.tsx
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
 ├── server/
-│   ├── app.ts                   # Express app setup
-│   ├── index-dev.ts             # Dev server entry
-│   ├── index-prod.ts            # Prod server entry
-│   ├── routes.ts                # API routes
-│   └── storage.ts               # Storage interface
+│   ├── routes.ts
+│   └── storage.ts
 ├── shared/
-│   └── schema.ts                # Shared Zod schemas
-├── attached_assets/             # Static assets
+│   └── schema.ts
+├── attached_assets/
 │   ├── grid_texture.png
 │   ├── gears_texture.png
 │   ├── axiom_cube.png
 │   └── lumina_lens.png
-├── data/                        # Runtime data
-│   └── contacts.json            # Contact form submissions
-├── design_guidelines.md         # Design system documentation
-├── tailwind.config.ts           # Tailwind configuration
-├── vite.config.ts               # Vite configuration
-└── package.json                 # Dependencies
+└── data/
+    └── contacts.json
 
 ================================================================================
-ROUTING CONFIGURATION
+DATA LAYER - PROJECTS
 ================================================================================
 
-File: client/src/App.tsx
+File: client/src/data/projects.ts
 
-Routes:
-- /                      -> Overview
-- /system                -> System
-- /pipeline              -> Pipeline
-- /pipeline/:slug        -> PipelineDetail
-- /governance            -> Governance
-- /thesis                -> Library
-- /thesis/:slug          -> LibraryArticle
-- /contact               -> Contact
-- /legal/privacy         -> Privacy
-- /legal/terms           -> Terms
-- *                      -> NotFound (404)
-
-Providers:
-- ErrorBoundary (error handling)
-- QueryClientProvider (TanStack Query)
-- TooltipProvider (Radix tooltips)
-- Toaster (toast notifications)
-
-================================================================================
-STYLING SYSTEM (index.css)
-================================================================================
-
-COLOR PALETTE (Tungsten & Signal):
---background: 222 15% 5%       (Deep charcoal - Tungsten)
---foreground: 30 5% 90%        (Off-white/Silver)
---card: 222 15% 7%             (Slightly elevated)
---card-border: 222 15% 12%     (Structural steel gray)
---primary: 25 95% 53%          (Signal Orange - #F26D21)
---destructive: 0 70% 50%       (Critical Failure Red)
---muted-foreground: 220 5% 55% (Darker gray for meta-data)
-
-TYPOGRAPHY:
---font-sans: 'Inter'
---font-heading: 'Space Grotesk'
---font-mono: 'IBM Plex Mono'
-
-GEOMETRY:
---radius: 2px                  (Machined edges, no organic curves)
-
-ELEVATION SYSTEM:
---elevate-1: rgba(255,255,255, .04)
---elevate-2: rgba(255,255,255, .09)
-
-UTILITY CLASSES:
-- .dot-grid                    (Subtle dot pattern)
-- .line-grid                   (Blueprint graph paper)
-- .bg-grid-pattern             (Engineering grid)
-- .hover-elevate               (Hover brightness)
-- .active-elevate-2            (Active brightness)
-- .toggle-elevate              (Toggle state)
-
-TEXT SELECTION:
-- Orange tint (hsl 25 95% 53% / 0.2)
-
-SCROLLBARS:
-- Square design (border-radius: 0)
-- Orange on hover
-
-================================================================================
-DATA LAYER
-================================================================================
-
-PROJECTS (client/src/data/projects.ts):
-
-Project 1 - AXIOM:
+PROJECT 1 - AXIOM:
 - name: "Axiom"
 - stage: "Research"
 - stageVariant: "research"
-- description: "A deterministic inference layer designed to eliminate hallucination. It forces LLMs to cite verified internal data structures before generating output."
-- exploring: RAG with citation enforcement, Adversarial testing, Mechanistic interpretability
+- description: "A deterministic inference layer designed to eliminate hallucination. Forces LLMs to anchor outputs to verified internal data structures."
+- exploring: ["RAG with strict citation enforcement", "Adversarial logic traps", "Mechanistic interpretability"]
 
-Project 2 - HELIOS:
+PROJECT 2 - HELIOS:
 - name: "Helios"
 - stage: "Internal Alpha"
 - stageVariant: "internal"
-- description: "Internal BTC-backed strategy engine. Architecture defined; implementation and dogfooding in progress."
-- exploring: Automated yield strategies, Multi-venue position management, Real-time health monitoring
+- description: "Internal BTC-backed strategy engine. Automates treasury operations within bounded risk parameters."
+- exploring: ["Automated yield strategies", "Multi-venue position management", "Real-time solvency monitoring"]
 
-Project 3 - STACKME:
+PROJECT 3 - STACKME:
 - name: "Stackme"
 - stage: "Architecture"
 - stageVariant: "architecture"
-- description: "A borrower-first BTC credit app. Technical architecture defined; verified build phase in progress."
-- exploring: Plain-language risk explanation, Conservative leverage limits, Gentle liquidation ladders
+- description: "Protocol-native BTC lending interface. Designed for clarity, conservative leverage, and graduated liquidation mechanics."
+- exploring: ["Risk visualization", "Conservative LTV limits", "Graduated liquidation tranches"]
 
-Project 4 - LUMINA:
+PROJECT 4 - LUMINA:
 - name: "Lumina"
 - stage: "Specification"
 - stageVariant: "specification"
-- description: "Digital bearer instruments for physical assets. Features a proprietary optical physics engine for anti-spoofing and surface topology verification."
-- exploring: Photometric stereo, Real-time material analysis, On-chain provenance tracking
+- description: "Digital bearer instruments for physical assets. Features a proprietary optical physics engine for anti-spoofing and topology verification."
+- exploring: ["Photometric stereo scanning", "Edge-compute material analysis", "On-chain provenance"]
 
-Project 5 - UNIQUENESS ENGINE:
+PROJECT 5 - UNIQUENESS ENGINE:
 - name: "Uniqueness Engine"
 - stage: "Research"
 - stageVariant: "research"
-- description: "Research into signals that help systems enforce 'one per person' rules without centralizing identity data."
-- exploring: Privacy-preserving uniqueness proofs, Sybil resistance, Minimal identity footprint
+- description: "Sybil-resistance signals that enforce uniqueness constraints without biometric surveillance or centralized identity data."
+- exploring: ["Zero-Knowledge uniqueness proofs", "Cost-of-forgery signals", "Minimal footprint identity"]
 
---------------------------------------------------------------------------------
+================================================================================
+DATA LAYER - ARTICLES
+================================================================================
 
-ARTICLES (client/src/data/articles.ts):
+File: client/src/data/articles.ts
 
-Article 1:
+ARTICLE 1:
 - title: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate"
 - date: "Dec 15, 2025"
 - type: "Insight"
 - tags: ["AI Safety", "Determinism", "Infrastructure"]
 - slug: "insolvency-of-fiction"
 
-Article 2:
+ARTICLE 2:
 - title: "The Verification Standard: Charting the Great Reallocation"
 - date: "Nov 26, 2025"
 - type: "Insight"
 - tags: ["Bitcoin", "Macro", "Thesis"]
 - slug: "verification-standard"
 
-Article 3:
+ARTICLE 3:
 - title: "Machine-Native Settlement: Why AI Agents Need Bearer Assets"
 - date: "Oct 18, 2025"
 - type: "Insight"
 - tags: ["AI Agents", "Bitcoin", "Infrastructure"]
 - slug: "machine-native-settlement"
 
---------------------------------------------------------------------------------
-
-CHANGELOG:
-- Nov 2025: Initial site launch
-- Oct 2025: v1.0 System Architecture released
-
 ================================================================================
-COMPONENT ARCHITECTURE
+SYSTEM FUNCTIONS (System.tsx)
 ================================================================================
 
-LAYOUT COMPONENTS:
+1. GOVERNANCE & RISK
+"Definition of solvency thresholds, leverage caps, and negative constraints for all treasury and product operations."
 
-1. Layout.tsx
-   - Skip to content link (accessibility)
-   - Header component
-   - CommandPalette component
-   - Main content area (pt-16 for fixed header)
-   - Footer component
+2. COMPLIANCE
+"Alignment with legal and regulatory constraints across operating jurisdictions."
 
-2. Header.tsx
-   - Fixed position, blur background
-   - Logo with home link
-   - Desktop nav (lg:flex) with numbered items
-   - Command palette trigger (Cmd+K)
-   - Mobile sheet menu
+3. FINANCE & TREASURY
+"Tracking of all capital flows, loan positions, and expenditures with auditable precision."
 
-3. Footer.tsx
-   - Company name: "Verified Systems Group LLC"
-   - Tagline: "Engineering deterministic systems..."
-   - Links: Privacy, Terms
-   - Disclaimer text
+4. OPERATIONS
+"Stage-gated workflow from specification through architecture, implementation, and verification."
 
-4. CommandPalette.tsx
-   - Keyboard shortcut: Cmd+K / Ctrl+K
-   - Quick navigation to all pages
-   - Uses Shadcn Command component
-
---------------------------------------------------------------------------------
-
-CONTENT COMPONENTS:
-
-5. ProjectTile.tsx
-   - Project card for Pipeline page
-   - StageChip integration
-   - Exploring items list
-   - Hover state with link
-
-6. StageChip.tsx (CANONICAL SOURCE FOR VARIANTS)
-   - Type: StageVariant = "research" | "specification" | "architecture" | "prototype" | "internal" | "production"
-   - Colors:
-     * research: Blue (hsl 210 70% 50%)
-     * specification: Purple (hsl 270 60% 50%)
-     * architecture: Primary (orange)
-     * prototype: Amber (hsl 35 90% 50%)
-     * internal: Yellow (hsl 45 90% 50%)
-     * production: Green (hsl 142 69% 48%)
-
-7. ValueCard.tsx
-   - Icon + title + description
-   - Card with hover state
-
-8. StatBlock.tsx
-   - Large value display
-   - Label and subtext
-   - Primary/default variants
-
-9. NextStepBlock.tsx
-   - Navigation CTA at page bottom
-   - Next page name and description
-   - Continue button with arrow
-
-10. InsightCard.tsx
-    - Library article preview
-    - Type badge, date, title, excerpt
-    - Tags display
-
-11. ContactForm.tsx
-    - 6 form fields with validation
-    - Honeypot spam protection
-    - Loading and success states
-    - Error display with icons
-
---------------------------------------------------------------------------------
-
-UTILITY COMPONENTS:
-
-12. PageMeta.tsx - SEO meta tags
-13. ErrorBoundary.tsx - React error boundary
-14. PolicyChip.tsx - Policy indicators
-15. StepCard.tsx - Step-by-step cards
-16. ChangeLogEntry.tsx - Changelog items
-17. ConsolePanel.tsx - Terminal-style output
+5. SIGNAL INTEGRITY
+"Ensuring external outputs strictly match internal telemetry and system state. No divergence between stated and actual conditions."
 
 ================================================================================
-API ENDPOINTS
+OPERATIONAL PRINCIPLES (Overview.tsx)
 ================================================================================
 
-POST /api/contact
-- Purpose: Submit contact form
-- Security:
-  * Origin header validation (localhost:5000, verifiedsystems.io)
-  * Rate limiting (5 req/min per IP)
-  * Zod validation
-  * Input sanitization (XSS prevention)
-- Request body:
-  * name (required, 1-100 chars)
-  * email (required, valid format)
-  * organization (optional)
-  * role (optional)
-  * subject (required, 1-200 chars)
-  * message (required, 20-5000 chars)
-  * consent (optional boolean)
-- Response: { success: boolean, message: string }
-- Storage: data/contacts.json
+1. RAW DATA OVER NARRATIVE
+"State is labeled precisely: research, specification, architecture, internal, production. No ambiguity."
+
+2. CAPITAL VERIFICATION
+"Internal balance sheet is the first test. Nothing graduates without capital at risk."
+
+3. MINIMAL ATTACK SURFACE
+"One well-defined system with clear boundaries. No sprawling, half-verified platforms."
+
+4. OPEN DOCUMENTATION
+"Published research enables external verification. Trade-offs are explicit, not hidden."
+
+5. FRONTIER SYSTEMS
+"AI agents, bearer assets, digital scarcity — building infrastructure for next-generation primitives."
+
+================================================================================
+PIPELINE DETAIL DATA (PipelineDetail.tsx)
+================================================================================
+
+AXIOM:
+- tagline: "Deterministic inference with enforced citation."
+- description: "Standard LLMs are probabilistic engines—predicting the next token. Axiom is a constraint layer that forces the model to anchor every claim to a cryptographically verified record. Transforms probabilistic generation into deterministic, cited reporting."
+- currentState: ["Core RAG architecture functional", "Citation enforcement layer active", "Internal deployment for VSG research summaries"]
+- exploring: ["Automated fact-verification loops", "Truth layer (Axiom) to Value layer (Helios) integration", "Latency optimization for real-time verification"]
+- notYet: ["No public API", "Not a general-purpose inference engine", "Restricted domain knowledge only"]
+
+HELIOS:
+- tagline: "Internal BTC-backed strategy engine."
+- description: "Helios automates treasury operations into bounded, rule-driven positions. Deploys capital with explicit limits and real-time solvency monitoring. Internal use only."
+- currentState: ["Architecture and specification complete", "Core implementation in progress", "Internal deployment underway"]
+- exploring: ["Automated yield strategies within risk bounds", "Multi-venue position management", "Real-time solvency monitoring and alerts", "Policy ladders for risk profiles"]
+- notYet: ["No external users", "No public API", "Not a product or service"]
+
+STACKME:
+- tagline: "Protocol-native BTC lending interface."
+- description: "Stackme is a protocol-native lending interface designed for clarity, conservative leverage, and graduated liquidation mechanics. Technical architecture defined; verified build phase in progress."
+- currentState: ["Requirements complete", "Technical architecture defined", "Verified build phase in progress"]
+- exploring: ["Risk visualization", "Conservative LTV limits", "Graduated liquidation tranches", "Solvency indicators"]
+- notYet: ["No live users", "No public access", "Not accepting deposits or loans"]
+
+LUMINA:
+- tagline: "Digital bearer instruments for physical assets."
+- description: "Lumina links high-value physical inventory to on-chain rails via a proprietary optical physics engine. Verifies surface topology and material response, anchoring digital instruments to proven physical reality."
+- currentState: ["Specification complete", "System design in progress", "Optical verification pipeline in development"]
+- exploring: ["Photometric stereo scanning", "Edge-compute material analysis", "On-chain provenance", "Surface topology verification"]
+- notYet: ["No prototype yet", "No instruments issued", "Not accepting submissions"]
+
+UNIQUENESS ENGINE:
+- tagline: "Sybil-resistance without biometric surveillance."
+- description: "Sybil-resistance signals that enforce uniqueness constraints without biometric surveillance or centralized identity data. Enables 'one-per-person' verification while preserving privacy."
+- currentState: ["Research and requirements phase", "Surveying existing approaches", "Defining success criteria"]
+- exploring: ["Zero-Knowledge uniqueness proofs", "Cost-of-forgery signals", "Minimal footprint identity", "Decentralized attestation models"]
+- notYet: ["No prototype", "No defined architecture", "Not integrated with other projects"]
+
+================================================================================
+PROJECT GOVERNANCE RULES (Governance.tsx)
+================================================================================
+
+HELIOS (Internal Alpha):
+- Internal capital only — no external deposits; operates on VSG treasury exclusively
+- Position limits — capped percentage of borrowed stablecoins at any time
+- Drawdown triggers — pre-defined loss thresholds activate capital reduction
+- Manual oversight — automated execution paired with alerts and human verification
+
+STACKME (Architecture):
+- Non-custodial architecture — user retains key control; interface is guidance layer
+- Solvency controls — graduated liquidation tranches reduce forced-sale risk
+- Regulatory gate — full compliance review required before deployment
+
+LUMINA (Specification):
+- Verifiable provenance — metadata, grading, and chain-of-custody attestation
+- No return guarantees — explicit disclosure of speculative nature
+- Fee transparency — all costs and rights disclosed before instrument issuance
+
+UNIQUENESS ENGINE (Research):
+- Privacy-first — no deployment without explicit privacy model
+- Consent architecture — explicit opt-in mechanics required
+- Regulatory clearance — KYC/AML impact assessment before any implementation
+
+================================================================================
+CONTACT PAGE COPY (Contact.tsx)
+================================================================================
+
+[WHO SHOULD REACH OUT]
+- Technical founders building in AI, Digital Assets, or Verifiable Systems.
+- Capital partners focused on technical architecture and first-principles engineering.
+- Researchers & analysts seeking primary-source perspectives on AI and Digital Assets.
+
+[WHAT TO EXPECT]
+"Response within 3-5 business days for aligned inquiries. VSG does not initiate unsolicited outbound communication."
+
+================================================================================
+STAGE VARIANTS (StageChip.tsx)
+================================================================================
+
+Type: StageVariant = "research" | "specification" | "architecture" | "prototype" | "internal" | "production"
+
+Colors:
+- research: Blue (hsl 210 70% 50%)
+- specification: Purple (hsl 270 60% 50%)
+- architecture: Primary (orange)
+- prototype: Amber (hsl 35 90% 50%)
+- internal: Yellow (hsl 45 90% 50%)
+- production: Green (hsl 142 69% 48%)
 
 ================================================================================
 SECURITY MEASURES
 ================================================================================
 
-1. ORIGIN VALIDATION (server/routes.ts)
+1. ORIGIN VALIDATION
    - Checks origin and referer headers
    - Whitelist: localhost:5000, verifiedsystems.io
-   - Rejects requests from unknown origins
 
-2. RATE LIMITING (server/routes.ts)
-   - Map-based IP tracking
+2. RATE LIMITING
    - 5 requests per minute per IP
    - 60 second window
-   - 429 response when exceeded
 
-3. INPUT SANITIZATION (server/routes.ts)
+3. INPUT SANITIZATION
    - Removes < > characters
    - Strips javascript: protocols
    - Removes on* event handlers
 
-4. HONEYPOT FIELD (ContactForm.tsx)
-   - Hidden field for bot detection
-   - Silently succeeds if filled
+4. HONEYPOT FIELD
+   - Hidden bot detection
 
 5. FORM VALIDATION
-   - Client-side: React Hook Form + Zod
-   - Server-side: Zod schema validation
-
-6. ERROR BOUNDARY (ErrorBoundary.tsx)
-   - Catches React errors
-   - Prevents full app crash
-   - User-friendly fallback
+   - Client: React Hook Form + Zod
+   - Server: Zod schema validation
 
 ================================================================================
-ACCESSIBILITY IMPLEMENTATION
+ACCESSIBILITY
 ================================================================================
 
-1. SKIP LINK (Layout.tsx)
-   - "Skip to content" link
-   - Visible on focus
-   - Links to #main-content
-
-2. LANDMARKS
-   - <header>, <main>, <footer>, <nav>, <section>
-
-3. ARIA ATTRIBUTES
-   - aria-label on buttons
-   - aria-current for active nav
-   - aria-describedby for form errors
-   - aria-invalid for invalid inputs
-   - aria-hidden for decorative elements
-
-4. HEADING HIERARCHY
-   - h1 for page titles
-   - h2 for sections
-   - h3 for subsections
-
-5. FORM ACCESSIBILITY
-   - Labels for all inputs
-   - Error messages linked via aria-describedby
-   - Required field indicators
-
-6. DIALOG ACCESSIBILITY
-   - DialogTitle (visible or sr-only)
-   - DialogDescription where needed
-   - Focus trapping
-   - Escape to close
-
-7. KEYBOARD NAVIGATION
-   - Tab order maintained
-   - Focus indicators (ring-primary)
-   - Command palette: Cmd+K
+- Skip to content link
+- ARIA labels on interactive elements
+- Proper heading hierarchy
+- Form error linking via aria-describedby
+- Keyboard navigation (Cmd+K)
+- Focus indicators
+- Touch targets minimum 44px
 
 ================================================================================
-MOTION PROTOCOL
+STYLING SYSTEM
 ================================================================================
 
-TIMING:
+COLOR PALETTE (Tungsten & Signal):
+--background: 222 15% 5%
+--foreground: 30 5% 90%
+--primary: 25 95% 53% (Signal Orange)
+--destructive: 0 70% 50%
+
+TYPOGRAPHY:
+- Headings: Space Grotesk
+- Body: Inter
+- Mono: IBM Plex Mono
+
+GEOMETRY:
+- Border radius: 2px
+
+MOTION:
 - Default: 150ms
-- Data disclosure (accordions): 200ms
-- Easing: cubic-bezier(0.4, 0, 0.2, 1)
-
-PATTERNS:
-- Fade + zoom for windows/modals
-- No slide animations
-- No spinners (use pulse states)
-- Mechanical snap physics
+- Data disclosure: 200ms
 
 ================================================================================
-PIPELINE DETAIL PAGE ARCHITECTURE
+LANGUAGE STANDARDS (Institutional Voice)
 ================================================================================
 
-Layout: "Bento Grid Schematic Layout"
-- Grid: 2/3 width (left) + 1/3 width (right)
-- Left column: System Status + Active R&D Modules (stacked)
-- Right column: Negative Constraints (destructive tint)
+AVOID:
+- Passive voice ("We help systems...")
+- Emotional terms ("gentle", "messy")
+- Marketing speak ("borrower-first", "app")
+- Consumer terminology ("chatbot", "cards")
 
-Header Features:
-- Project texture overlay (Axiom, Lumina)
-- Grid pattern fallback
-- Gradient overlays for readability
-- Project name, stage chip, tagline
-
-Card Types:
-1. System Status (current state items)
-2. Active R&D Modules (exploring items)
-3. Negative Constraints (not yet items - destructive border)
-
-Navigation:
-- Back to Pipeline button
-- Next project block at bottom
-
-================================================================================
-TYPE DEFINITIONS
-================================================================================
-
-StageVariant (StageChip.tsx):
-"research" | "specification" | "architecture" | "prototype" | "internal" | "production"
-
-Project (projects.ts):
-- name: string
-- stage: string
-- stageVariant: StageVariant
-- description: string
-- exploring: string[]
-- href: string
-
-LibraryItem (articles.ts):
-- title: string
-- excerpt: string
-- date: string
-- type: "Insight" | "Note" | "Update"
-- tags: string[]
-- slug: string
-
-ContentType:
-"All" | "Insight" | "Note" | "Update"
-
-================================================================================
-DATA-TESTID COVERAGE
-================================================================================
-
-PAGES:
-- section-hero, section-directive, section-pipeline
-- section-bitcoin, section-values, section-definitions
-- section-treasury, section-functions, section-changelog
-- section-structure, section-risk, section-regulatory
-- section-form, section-contact
-
-NAVIGATION:
-- header, nav-desktop, nav-[page-name]
-- link-home, button-mobile-menu, button-command-palette
-- button-sidebar-toggle
-
-PIPELINE DETAIL:
-- project-header, text-project-name
-- chip-stage-[variant]
-- card-system-status, card-active-rd, card-constraints
-- list-current-state, list-exploring, list-not-yet
-- item-current-[index], item-exploring-[index], item-constraint-[index]
-- button-next-[project]
-
-FORMS:
-- contact-form, contact-form-success
-- input-name, input-email, input-organization
-- input-role, input-subject, input-message
-- checkbox-consent, button-submit
-
-STATS:
-- stat-projects, stat-founders, stat-selffunded
-
-ACTIONS:
-- button-see-pipeline, button-how-we-work
-- button-contact-governance
-
-================================================================================
-DEPENDENCIES (Key Packages)
-================================================================================
-
-FRONTEND:
-- react, react-dom: ^18
-- wouter: Routing
-- @tanstack/react-query: Data fetching
-- react-hook-form: Form handling
-- @hookform/resolvers: Zod integration
-- zod: Schema validation
-- framer-motion: Animations
-- lucide-react: Icons
-- class-variance-authority: Component variants
-- clsx, tailwind-merge: Class utilities
-
-UI COMPONENTS (Radix/Shadcn):
-- @radix-ui/react-*: 20+ primitives
-- cmdk: Command palette
-
-BACKEND:
-- express: Server
-- express-session: Sessions
-- zod: Validation
-
-STYLING:
-- tailwindcss: CSS framework
-- tailwindcss-animate: Animation utilities
-- @tailwindcss/typography: Prose styles
-
-BUILD:
-- vite: Bundler
-- typescript: Type checking
-- tsx: TypeScript execution
-
-================================================================================
-TAILWIND CONFIGURATION
-================================================================================
-
-File: tailwind.config.ts
-
-darkMode: ["class"]
-content: ["./client/index.html", "./client/src/**/*.{js,ts,jsx,tsx}"]
-
-Theme Extensions:
-- colors: All CSS variables mapped
-- fontFamily: sans (Inter), heading (Space Grotesk), mono (IBM Plex Mono)
-- borderRadius: lg, md, sm from --radius (2px)
-
-Plugins:
-- tailwindcss-animate
-- @tailwindcss/typography
-
-================================================================================
-KNOWN PATTERNS & CONVENTIONS
-================================================================================
-
-1. COMPONENT STRUCTURE
-   - Functional components with TypeScript
-   - Props interface defined above component
-   - Default exports for pages
-   - Named exports for components
-
-2. STYLING CONVENTIONS
-   - Tailwind utility classes
-   - cn() helper for conditional classes
-   - CSS variables for colors (HSL format)
-   - Background textures via inline styles
-
-3. DATA FETCHING
-   - TanStack Query for all API calls
-   - apiRequest() for mutations
-   - queryClient for cache invalidation
-
-4. FORM HANDLING
-   - React Hook Form + Zod
-   - zodResolver for validation
-   - Controlled inputs with default values
-
-5. NAVIGATION
-   - Wouter Link component
-   - useLocation for active state
-   - useRoute for URL params
-
-6. ERROR HANDLING
-   - ErrorBoundary at app root
-   - Try-catch in async operations
-   - Toast notifications for user feedback
+USE:
+- Active voice ("Forces LLMs to...")
+- Technical terms ("graduated", "protocol-native")
+- Infrastructure language ("interface", "engine")
+- System terminology ("inference engine", "instruments")
 
 ================================================================================
 END OF CODE REVIEW

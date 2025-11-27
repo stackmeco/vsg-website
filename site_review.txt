@@ -2,6 +2,7 @@
 VERIFIED SYSTEMS GROUP - COMPREHENSIVE SITE REVIEW
 ================================================================================
 Generated: November 27, 2025
+Revision: Institutional Language Update
 Site: Verified Systems Group (VSG) Marketing Website
 Purpose: Production-ready marketing website for a two-founder Truth Engineering Lab
 
@@ -11,7 +12,8 @@ EXECUTIVE SUMMARY
 
 MISSION: "Bitcoin verifies Value, Axiom verifies Truth"
 AESTHETIC: Industrial Control Room with Tungsten & Signal palette
-FOUNDER ANONYMITY: Maintained throughout - no names, photos, or personal details
+LANGUAGE: Institutional/Technical (active voice, no emotional terms)
+FOUNDER ANONYMITY: Maintained throughout
 LEGAL ENTITY: Verified Systems Group LLC - Manager-managed Wyoming LLC
 
 ================================================================================
@@ -37,21 +39,18 @@ SECTION 1: OVERVIEW PAGE (/)
 [HERO SECTION]
 Label: "System Status: Nominal"
 Headline: "Engineering verifiable systems for intelligence and value."
-Body: "We engineer deterministic systems for Value, Intelligence, and Physical Reality. Bitcoin verifies value; our AI verifies truth. Nothing launches until we verify it with our own balance sheet."
+Body: "We engineer deterministic systems for Value, Intelligence, and Physical Reality. Bitcoin verifies value; Axiom verifies truth. Deployment is gated by internal capital verification."
 
 Buttons: "View Pipeline" | "Operational Specs"
-
 Active Cycles Chips: Axiom, Helios, Stackme, Lumina
 
 [STUDIO METRICS SIDEBAR]
-Label: "Studio metrics"
 - 5 Active projects (In R&D pipeline)
 - 2 Founders (Full ownership)
 - 100% Self-funded (BTC treasury backed)
 
 --------------------------------------------------------------------------------
 [THE VSG DIRECTIVE SECTION]
-Label: "The VSG Directive"
 
 Card 1 - PURPOSE:
 Title: "Engineering Verifiable Systems"
@@ -67,41 +66,33 @@ Body: "To navigate the frontier of AI and digital assets with our own capital as
 
 --------------------------------------------------------------------------------
 [ACTIVE DEVELOPMENT CYCLES SECTION]
-Label: "Current work"
 Headline: "Active Development Cycles"
 Body: "Five projects in our Pipeline. Axiom is in research; Helios is in internal alpha; Stackme is in architecture. None are currently accepting external capital or users."
 
-[5 Project Tiles - see Pipeline section for details]
-
 --------------------------------------------------------------------------------
 [BITCOIN SECTION]
-Headline: "Bitcoin is our fuel, not our marketing"
-Body Paragraph 1: "We hold Bitcoin as our primary long-term asset. When it makes sense, we borrow stablecoins against it and use those funds for two things: building our Pipeline and sometimes accumulating more BTC."
-Body Paragraph 2: "We don't run a public yield product; this is how we fund our own work."
+Headline: "Bitcoin is Reserve, Not Product"
+Body: "We hold Bitcoin as our primary long-term reserve asset. We utilize conservative, over-collateralized borrowing to fund R&D, treating liquidity as an operational tool rather than a yield product."
+Body 2: "This is internal treasury management. We do not offer external yield products or manage third-party capital."
 
 --------------------------------------------------------------------------------
-[HOW WE OPERATE SECTION]
+[OPERATIONAL PRINCIPLES SECTION]
 Headline: "How we operate"
 
-Value 1 - TRANSPARENCY OVER THEATER:
-"Messy truths over polished stories. We label things clearly: idea, prototype, internal only, or ready."
+1. RAW DATA OVER NARRATIVE
+"State is labeled precisely: research, specification, architecture, internal, production. No ambiguity."
 
-Value 2 - CAPITAL FIRST, NARRATIVE SECOND:
-"Our balance sheet is the first test. If we wouldn't run our own money through it, it doesn't graduate."
+2. CAPITAL VERIFICATION
+"Internal balance sheet is the first test. Nothing graduates without capital at risk."
 
-Value 3 - SMALL, SHARP SYSTEMS:
-"One small, understandable tool beats a sprawling, half-finished platform."
+3. MINIMAL ATTACK SURFACE
+"One well-defined system with clear boundaries. No sprawling, half-verified platforms."
 
-Value 4 - EDUCATION AS SELF-DEFENSE:
-"We publish what we learn so others can see through hype and understand real trade-offs."
+4. OPEN DOCUMENTATION
+"Published research enables external verification. Trade-offs are explicit, not hidden."
 
-Value 5 - NEXT-FRONTIER MINDSET:
-"We care about what's coming — AI agents, new asset forms, digital scarcity — described in today's terms."
-
---------------------------------------------------------------------------------
-[NEXT STEP BLOCK]
-"Next: System"
-"See how Verified Systems operates day to day."
+5. FRONTIER SYSTEMS
+"AI agents, bearer assets, digital scarcity — building infrastructure for next-generation primitives."
 
 ================================================================================
 SECTION 2: SYSTEM PAGE (/system)
@@ -113,8 +104,6 @@ Body: "Two founders, one balance sheet, a Bitcoin treasury, and a small set of f
 
 --------------------------------------------------------------------------------
 [DEFINITIONS SECTION]
-Label: "What we mean"
-Headline: "Terms we use, defined plainly"
 
 Term 1 - VERIFIABLE SYSTEMS:
 "Systems where the rules are visible, ownership is real, and risks don't hide behind complexity. A system is verifiable when you can inspect how it works, understand what you're exposed to, and verify that it does what it claims."
@@ -128,42 +117,28 @@ Term 3 - DIGITAL ASSETS:
 --------------------------------------------------------------------------------
 [BITCOIN TREASURY PROGRAM SECTION]
 Headline: "Bitcoin Treasury Program"
-Body: "We hold BTC on our own balance sheet. When the risk/reward looks reasonable, we borrow stablecoins against a portion of that BTC, using reputable on-chain venues. Those borrowed funds either:"
-
-Bullet 1: "fund development time and infrastructure for our projects, or"
-Bullet 2: "let us accumulate more BTC when we believe it's underpriced."
+Body: "We hold BTC on our own balance sheet. When the risk/reward looks reasonable, we borrow stablecoins against a portion of that BTC, using reputable on-chain venues."
 
 Disclaimer: "This is an internal program. We don't manage anyone else's assets, and we don't offer treasury products."
 
 --------------------------------------------------------------------------------
 [FUNCTIONS SECTION]
 Headline: "Functions behind the studio"
-Body: "Verified Systems is still just two people, but we think in terms of functions so decisions and responsibilities are clear."
 
-Function 1 - GOVERNANCE & RISK:
-"How we set thresholds, limits, and 'no's — especially around leverage and new experiments."
+1. GOVERNANCE & RISK
+"Definition of solvency thresholds, leverage caps, and negative constraints for all treasury and product operations."
 
-Function 2 - COMPLIANCE:
-"How we stay aligned with legal and regulatory constraints in the places we operate."
+2. COMPLIANCE
+"Alignment with legal and regulatory constraints across operating jurisdictions."
 
-Function 3 - FINANCE & TREASURY:
-"How we track every satoshi, loan, and spend, and keep our own books honest."
+3. FINANCE & TREASURY
+"Tracking of all capital flows, loan positions, and expenditures with auditable precision."
 
-Function 4 - OPERATIONS:
-"How work moves from idea to requirements to architecture to implementation and review."
+4. OPERATIONS
+"Stage-gated workflow from specification through architecture, implementation, and verification."
 
-Function 5 - COMMUNICATIONS & BRAND:
-"How we ensure external signal strictly matches internal system state and telemetry — site updates, Thesis posts, and corrections when we get something wrong."
-
---------------------------------------------------------------------------------
-[CHANGELOG SECTION]
-- Nov 2025: Initial site launch with Overview, System, Pipeline, Governance, Library, and Contact pages.
-- Oct 2025: v1.0 System Architecture released. Pipeline projects documented.
-
---------------------------------------------------------------------------------
-[NEXT STEP BLOCK]
-"Next: Pipeline"
-"See our R&D projects and their current status."
+5. SIGNAL INTEGRITY
+"Ensuring external outputs strictly match internal telemetry and system state. No divergence between stated and actual conditions."
 
 ================================================================================
 SECTION 3: PIPELINE PAGE (/pipeline)
@@ -178,43 +153,43 @@ Body: "Our R&D projects, tied to our BTC treasury, moving through defined stages
 
 PROJECT 1: AXIOM
 Stage: Research (Blue)
-Description: "A deterministic inference layer designed to eliminate hallucination. It forces LLMs to cite verified internal data structures before generating output."
+Description: "A deterministic inference layer designed to eliminate hallucination. Forces LLMs to anchor outputs to verified internal data structures."
 Exploring:
-- Retrieval-Augmented Generation (RAG) with strict citation enforcement
-- Adversarial testing against known logic traps
-- Mechanistic interpretability (tracing 'why' the model said X)
+- RAG with strict citation enforcement
+- Adversarial logic traps
+- Mechanistic interpretability
 
 PROJECT 2: HELIOS
-Stage: Internal Alpha (Yellow/Orange)
-Description: "Internal BTC-backed strategy engine. Architecture defined; implementation and dogfooding in progress."
+Stage: Internal Alpha (Yellow)
+Description: "Internal BTC-backed strategy engine. Automates treasury operations within bounded risk parameters."
 Exploring:
-- Automated yield strategies with strict risk bounds
+- Automated yield strategies
 - Multi-venue position management
-- Real-time health monitoring
+- Real-time solvency monitoring
 
 PROJECT 3: STACKME
 Stage: Architecture (Orange)
-Description: "A borrower-first BTC credit app. Technical architecture defined; verified build phase in progress."
+Description: "Protocol-native BTC lending interface. Designed for clarity, conservative leverage, and graduated liquidation mechanics."
 Exploring:
-- Plain-language risk explanation
-- Conservative leverage limits
-- Gentle liquidation ladders
+- Risk visualization
+- Conservative LTV limits
+- Graduated liquidation tranches
 
 PROJECT 4: LUMINA
 Stage: Specification (Purple)
-Description: "Digital bearer instruments for physical assets. Features a proprietary optical physics engine for anti-spoofing and surface topology verification."
+Description: "Digital bearer instruments for physical assets. Features a proprietary optical physics engine for anti-spoofing and topology verification."
 Exploring:
-- Photometric stereo for anti-spoofing
-- Real-time material analysis on edge devices
-- On-chain provenance tracking
+- Photometric stereo scanning
+- Edge-compute material analysis
+- On-chain provenance
 
 PROJECT 5: UNIQUENESS ENGINE
 Stage: Research (Blue)
-Description: "Research into signals that help systems enforce 'one per person' rules without centralizing identity data."
+Description: "Sybil-resistance signals that enforce uniqueness constraints without biometric surveillance or centralized identity data."
 Exploring:
-- Privacy-preserving uniqueness proofs
-- Sybil resistance without surveillance
-- Minimal identity footprint patterns
+- Zero-Knowledge uniqueness proofs
+- Cost-of-forgery signals
+- Minimal footprint identity
 
 ================================================================================
 SECTION 4: PIPELINE DETAIL PAGES (/pipeline/:slug)
@@ -223,133 +198,120 @@ SECTION 4: PIPELINE DETAIL PAGES (/pipeline/:slug)
 All detail pages use "Bento Grid Schematic Layout":
 - 2/3 width: System Status + Active R&D Modules
 - 1/3 width: Negative Constraints (destructive tint)
-- HUD-style header with project texture (where applicable)
 
 --------------------------------------------------------------------------------
 AXIOM DETAIL PAGE (/pipeline/axiom)
 --------------------------------------------------------------------------------
 Stage: Research (Blue)
-Tagline: "High-integrity LLM reasoning with enforced citation."
-Description: "Standard LLMs are probabilistic engines—they guess the next word. Axiom is a constraint layer that forces the model to anchor every claim to a cryptographically verified record. It turns 'creative writing' into 'auditable reporting'."
-Texture: axiom_cube.png
+Tagline: "Deterministic inference with enforced citation."
+Description: "Standard LLMs are probabilistic engines—predicting the next token. Axiom is a constraint layer that forces the model to anchor every claim to a cryptographically verified record. Transforms probabilistic generation into deterministic, cited reporting."
 
-[SYSTEM STATUS - Current State]
+[SYSTEM STATUS]
 - Core RAG architecture functional
-- Citation enforcement layer active (refuses to answer without source)
-- Internal dogfooding for VSG research summaries
+- Citation enforcement layer active
+- Internal deployment for VSG research summaries
 
-[ACTIVE R&D MODULES - Exploring]
-- Automated fact-checking loops
-- Connecting the 'Truth' layer (Axiom) to the 'Value' layer (Helios)
+[ACTIVE R&D MODULES]
+- Automated fact-verification loops
+- Truth layer (Axiom) to Value layer (Helios) integration
 - Latency optimization for real-time verification
 
-[NEGATIVE CONSTRAINTS - Not Yet]
+[NEGATIVE CONSTRAINTS]
 - No public API
-- Not a general-purpose chatbot
+- Not a general-purpose inference engine
 - Restricted domain knowledge only
-
-Next: Helios
 
 --------------------------------------------------------------------------------
 HELIOS DETAIL PAGE (/pipeline/helios)
 --------------------------------------------------------------------------------
 Stage: Internal Alpha (Yellow)
 Tagline: "Internal BTC-backed strategy engine."
-Description: "Helios automates a portion of our borrowing into bounded, rule-driven DeFi positions. It deploys capital with explicit limits and real-time monitoring — internal only."
+Description: "Helios automates treasury operations into bounded, rule-driven positions. Deploys capital with explicit limits and real-time solvency monitoring. Internal use only."
 
-[SYSTEM STATUS - Current State]
+[SYSTEM STATUS]
 - Architecture and specification complete
 - Core implementation in progress
-- Internal dogfooding underway
+- Internal deployment underway
 
-[ACTIVE R&D MODULES - Exploring]
-- Automated yield strategies with strict risk bounds
+[ACTIVE R&D MODULES]
+- Automated yield strategies within risk bounds
 - Multi-venue position management
-- Real-time health monitoring and alerts
-- Policy ladders for different risk profiles
+- Real-time solvency monitoring and alerts
+- Policy ladders for risk profiles
 
-[NEGATIVE CONSTRAINTS - Not Yet]
+[NEGATIVE CONSTRAINTS]
 - No external users
 - No public API
 - Not a product or service
-
-Next: Stackme
 
 --------------------------------------------------------------------------------
 STACKME DETAIL PAGE (/pipeline/stackme)
 --------------------------------------------------------------------------------
 Stage: Architecture (Orange)
-Tagline: "A borrower-first BTC credit app."
-Description: "Stackme is a BTC-backed lending experience designed around clarity, conservative leverage, and plain-language risk disclosure. Architecture and flows in development."
+Tagline: "Protocol-native BTC lending interface."
+Description: "Stackme is a protocol-native lending interface designed for clarity, conservative leverage, and graduated liquidation mechanics. Technical architecture defined; verified build phase in progress."
 
-[SYSTEM STATUS - Current State]
+[SYSTEM STATUS]
 - Requirements complete
 - Technical architecture defined
 - Verified build phase in progress
 
-[ACTIVE R&D MODULES - Exploring]
-- Plain-language risk explanation
-- Conservative LTV limits (no extreme leverage)
-- Gentle liquidation ladders
-- Clear health indicators
+[ACTIVE R&D MODULES]
+- Risk visualization
+- Conservative LTV limits
+- Graduated liquidation tranches
+- Solvency indicators
 
-[NEGATIVE CONSTRAINTS - Not Yet]
+[NEGATIVE CONSTRAINTS]
 - No live users
 - No public access
 - Not accepting deposits or loans
-
-Next: Lumina
 
 --------------------------------------------------------------------------------
 LUMINA DETAIL PAGE (/pipeline/lumina)
 --------------------------------------------------------------------------------
 Stage: Specification (Purple)
 Tagline: "Digital bearer instruments for physical assets."
-Description: "Lumina links high-value physical inventory (art, collectibles, luxury goods) to on-chain rails. Its core is a proprietary optical physics engine for anti-spoofing and surface topology verification."
-Texture: lumina_lens.png
+Description: "Lumina links high-value physical inventory to on-chain rails via a proprietary optical physics engine. Verifies surface topology and material response, anchoring digital instruments to proven physical reality."
 
-[SYSTEM STATUS - Current State]
+[SYSTEM STATUS]
 - Specification complete
 - System design in progress
-- Optical verification pipeline being built
+- Optical verification pipeline in development
 
-[ACTIVE R&D MODULES - Exploring]
-- Photometric stereo for anti-spoofing
-- Real-time material analysis on edge devices
-- On-chain provenance tracking
+[ACTIVE R&D MODULES]
+- Photometric stereo scanning
+- Edge-compute material analysis
+- On-chain provenance
 - Surface topology verification
 
-[NEGATIVE CONSTRAINTS - Not Yet]
+[NEGATIVE CONSTRAINTS]
 - No prototype yet
 - No instruments issued
 - Not accepting submissions
-
-Next: Uniqueness Engine
 
 --------------------------------------------------------------------------------
 UNIQUENESS ENGINE DETAIL PAGE (/pipeline/uniqueness-engine)
 --------------------------------------------------------------------------------
 Stage: Research (Blue)
-Tagline: "Sybil-resistance signals without biometric surveillance."
-Description: "Uniqueness Engine is research into signals that help systems enforce 'one per person' rules without centralizing identity data or enabling surveillance."
+Tagline: "Sybil-resistance without biometric surveillance."
+Description: "Sybil-resistance signals that enforce uniqueness constraints without biometric surveillance or centralized identity data. Enables 'one-per-person' verification while preserving privacy."
 
-[SYSTEM STATUS - Current State]
+[SYSTEM STATUS]
 - Research and requirements phase
 - Surveying existing approaches
 - Defining success criteria
 
-[ACTIVE R&D MODULES - Exploring]
-- Privacy-preserving uniqueness proofs
-- Sybil resistance patterns
-- Minimal identity footprint approaches
+[ACTIVE R&D MODULES]
+- Zero-Knowledge uniqueness proofs
+- Cost-of-forgery signals
+- Minimal footprint identity
 - Decentralized attestation models
 
-[NEGATIVE CONSTRAINTS - Not Yet]
+[NEGATIVE CONSTRAINTS]
 - No prototype
 - No defined architecture
 - Not integrated with other projects
-
-Next: Governance
 
 ================================================================================
 SECTION 5: GOVERNANCE PAGE (/governance)
@@ -359,124 +321,63 @@ SECTION 5: GOVERNANCE PAGE (/governance)
 Headline: "Governance, risk & compliance"
 Body: "We work at the edge of AI, Digital Assets, and Verifiable Systems. That edge only matters if people can understand the risks and the rules."
 
-[TABLE OF CONTENTS]
-- Legal structure
-- BTC treasury policy
-- Risk governance
-- Regulatory stance
-
 --------------------------------------------------------------------------------
 [LEGAL STRUCTURE SECTION]
-Label: "Legal structure"
-Headline: "How the company is governed"
 Body: "Verified Systems Group LLC is a manager-managed Wyoming LLC, foreign-qualified in Massachusetts."
 
-MANAGER CARD:
-Title: "Manager" (Final authority)
-Body: "Sole Manager with final authority over business affairs. Also acts as CEO and Controller. Has 100% voting power on operational matters."
+MANAGER: "Sole Manager with final authority over business affairs. Also acts as CEO and Controller. Has 100% voting power on operational matters."
 
-COO CARD:
-Title: "COO" (Day-to-day operations)
-Body: "Responsible for day-to-day operations as delegated. Cannot sign contracts, approve major expenditures, or authorize on-chain treasury moves without explicit written approval."
-
-FUNDAMENTAL DECISIONS:
-"Fundamental decisions (selling substantially all assets, admitting new members) require unanimous written consent of all members."
+COO: "Responsible for day-to-day operations as delegated. Cannot sign contracts, approve major expenditures, or authorize on-chain treasury moves without explicit written approval."
 
 --------------------------------------------------------------------------------
 [BTC TREASURY SECTION]
-Label: "Capital governance"
 Headline: "BTC treasury: what it is (and isn't)"
-Body: "Our treasury is Bitcoin-first and policy-driven. It is not a DeFi "product" — it's our own balance sheet."
 
-[HOW THE COLLATERAL LOOP WORKS]
-1. Post a risk-managed portion of company BTC as collateral in approved, non-custodial lending protocols.
-2. Borrow stablecoins at conservative loan-to-value ratio (LTV) (target ~35%, hard cap 50%).
+[COLLATERAL LOOP]
+1. Post risk-managed portion of company BTC as collateral in approved, non-custodial lending protocols.
+2. Borrow stablecoins at conservative LTV (target ~35%, hard cap 50%).
 3. Use borrowed funds for operating runway, internal R&D, or selectively accumulating more BTC.
 
-[WHAT WE ARE NOT DOING]
-- Offering yield products to the public
-- Running a pooled investment vehicle
-- Promising returns or fixed income
-
-Note: "This mirrors how some public companies use Bitcoin as a treasury reserve, but at far smaller scale and with more conservative leverage."
-
 [CAPITAL CONTROLS]
-Control 1: "Member loans, not mystery money — funds from members are documented loans, not hidden equity"
-Control 2: "Distribution waterfall — creditors first, then loan repayment, then (if any) equity distributions"
-Control 3: "No unsupervised on-chain moves — every treasury transaction requires a signed Transaction Authorization Record (TAR)"
+1. "Member loans, not mystery money — funds from members are documented loans, not hidden equity"
+2. "Distribution waterfall — creditors first, then loan repayment, then (if any) equity distributions"
+3. "No unsupervised on-chain moves — every treasury transaction requires a signed Transaction Authorization Record (TAR)"
 
 "No TAR, no transaction."
 
 --------------------------------------------------------------------------------
-[RISK GOVERNANCE SECTION]
-Label: "Risk governance"
-Headline: "How we cap risk before anything touches capital or users"
-Body: "We're pre-launch on every project. Governance here is about capping risk during development, not describing a fantasy future state."
-
-[STAGE-GATES]
-"Every project moves through defined stages: Idea -> Prototype -> Internal -> Venture. Moving stages requires joint decision from both founders."
-
-[RISK MEMO]
-- What can go wrong?
-- Max loss we're willing to tolerate.
-- How we would shut it down safely.
-
 [PROJECT-SPECIFIC GOVERNANCE]
 
 HELIOS (Internal Alpha):
-- Internal only — no external deposits; touches only Verified Systems funds
-- Small slice — capped percentage of borrowed stablecoins at any time
-- Drawdown limits — pre-defined loss thresholds trigger capital reduction
-- Human in the loop — automated execution paired with alerts and manual oversight
+- Internal capital only — no external deposits; operates on VSG treasury exclusively
+- Position limits — capped percentage of borrowed stablecoins at any time
+- Drawdown triggers — pre-defined loss thresholds activate capital reduction
+- Manual oversight — automated execution paired with alerts and human verification
 
 STACKME (Architecture):
-- Non-custodial by design — user keeps keys; app is a guided interface
-- Safety controls are real, not marketing — Safety Slider reduces liquidation risk
-- Full regulatory review required before any launch
+- Non-custodial architecture — user retains key control; interface is guidance layer
+- Solvency controls — graduated liquidation tranches reduce forced-sale risk
+- Regulatory gate — full compliance review required before deployment
 
 LUMINA (Specification):
-- Verifiable metadata, provenance, and grading
-- No promises about returns
-- Transparent fees and explicit rights disclosure
+- Verifiable provenance — metadata, grading, and chain-of-custody attestation
+- No return guarantees — explicit disclosure of speculative nature
+- Fee transparency — all costs and rights disclosed before instrument issuance
 
 UNIQUENESS ENGINE (Research):
-- No deployment without clear privacy model
-- Explicit consent mechanics required
-- Regulatory review for KYC/AML implications before any implementation
+- Privacy-first — no deployment without explicit privacy model
+- Consent architecture — explicit opt-in mechanics required
+- Regulatory clearance — KYC/AML impact assessment before any implementation
 
 --------------------------------------------------------------------------------
-[REGULATORY STANCE SECTION]
-Label: "Regulatory stance"
-Headline: "We're not pretending to be 'already regulated'"
-Body: "This section explains how we think about regulation before products go live — not compliance theater."
-
-[WHERE WE ARE TODAY]
-- US-based LLC with crypto-first accounting (books in Xero, digital asset sub-ledgers via Cryptoworth, specific-identification cost basis for tax reporting)
-- Website and Library are informational only — no offers to invest, no live financial products
-- Any BTC borrowing is on the company's own behalf, via non-custodial protocols, under internal risk limits
-
-[HOW WE APPROACH PRODUCT REGULATION]
-- Jurisdiction-by-jurisdiction analysis — US (FinCEN, SEC/CFTC, state rules), EU/UK (MiCA and related frameworks)
-- Non-custodial does not mean regulation-free — reduces some obligations but doesn't eliminate consumer-protection or financial-crime requirements
-- AI = high-risk by default — anywhere AI touches lending, identity, or risk classification, we treat it as high-risk (EU AI Act spirit)
-- Licensing when required — get licenses, partner with regulated entities, or change the design
-
-[THINGS WE COMMIT TO NEVER DOING]
-- We do not offer or sell tokens as investments
-- No opaque yield products where you can't inspect the mechanics
+[REGULATORY COMMITMENTS]
+- No token sales as investments
+- No opaque yield products
 - No hidden rehypothecation of user assets
-- No routing around sanctions, identity verification (KYC/AML), or geofencing obligations
-
-"These are plain commitments you can hold us to."
-
---------------------------------------------------------------------------------
-[GOVERNANCE CONTACT SECTION]
-Headline: "Want to discuss governance?"
-Body: "For regulators and compliance teams, we share deeper materials (business plans, architecture diagrams, draft policies) under NDA. For partners working in AI, digital assets, or risk/compliance who see alignment, reach out."
-Button: "Talk to us about governance"
+- No routing around sanctions/KYC/AML/geofencing
 
 ================================================================================
-SECTION 6: THESIS PAGE (/thesis) - LIBRARY
+SECTION 6: THESIS PAGE (/thesis)
 ================================================================================
 
 [HERO SECTION]
@@ -487,27 +388,26 @@ Body: "The foundational thinking behind our work. We publish when we have someth
 All | Insight | Note | Update
 
 --------------------------------------------------------------------------------
-[ARTICLE 1]
-Type: Insight
-Date: Dec 15, 2025
+[ARTICLES - 3 Total]
+
+ARTICLE 1:
 Title: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate"
-Excerpt: "In creative writing, hallucination is a feature. In automated treasury management, it is a felony. Why we are building our own inference layer before letting agents touch the balance sheet."
+Date: Dec 15, 2025
+Type: Insight
 Tags: AI Safety, Determinism, Infrastructure
 Slug: insolvency-of-fiction
 
-[ARTICLE 2]
-Type: Insight
-Date: Nov 26, 2025
+ARTICLE 2:
 Title: "The Verification Standard: Charting the Great Reallocation"
-Excerpt: "Our thesis on fiscal dominance, Bitcoin as verified scarcity, and the multi-decade capital migration from depreciating fiat to appreciating hard assets."
+Date: Nov 26, 2025
+Type: Insight
 Tags: Bitcoin, Macro, Thesis
 Slug: verification-standard
 
-[ARTICLE 3]
-Type: Insight
-Date: Oct 18, 2025
+ARTICLE 3:
 Title: "Machine-Native Settlement: Why AI Agents Need Bearer Assets"
-Excerpt: "AI agents cannot open bank accounts. They cannot sign contracts. They cannot wait three days for ACH to clear. The future of autonomous commerce requires bearer instruments that settle in seconds, not signatures."
+Date: Oct 18, 2025
+Type: Insight
 Tags: AI Agents, Bitcoin, Infrastructure
 Slug: machine-native-settlement
 
@@ -515,69 +415,27 @@ Slug: machine-native-settlement
 SECTION 7: CONTACT PAGE (/contact)
 ================================================================================
 
-[HERO SECTION]
-Headline: "Get in touch"
-Body: "We're a two-founder studio. We read every message and respond to inquiries that align with our work."
-
---------------------------------------------------------------------------------
-[WHO SHOULD REACH OUT - SIDEBAR]
-- Builders & founders working on AI, Digital Assets, or Verifiable Systems who want to compare notes.
-- Investors or partners who care about how things actually work, not just pitch decks.
-- Media or researchers looking for honest perspectives on AI and Digital Assets.
+[WHO SHOULD REACH OUT]
+- Technical founders building in AI, Digital Assets, or Verifiable Systems.
+- Capital partners focused on technical architecture and first-principles engineering.
+- Researchers & analysts seeking primary-source perspectives on AI and Digital Assets.
 
 [WHAT TO EXPECT]
-"We typically respond within a few business days. We don't do cold outreach, and we don't share your information."
+"Response within 3-5 business days for aligned inquiries. VSG does not initiate unsolicited outbound communication."
 
---------------------------------------------------------------------------------
-[CONTACT FORM FIELDS]
-Required:
-- Name (min length validation)
-- Email (valid email format)
-- Subject
-- Message (min 20 characters)
-
-Optional:
-- Organization
-- Role
-- Consent checkbox ("You may contact me with occasional updates about VSG's work.")
-
-[FORM SECURITY]
-- Honeypot field (hidden, bot detection)
-- Rate limiting (5 requests/minute per IP)
-- Input sanitization
-- Origin validation
-
-[SUCCESS STATE]
-Green container with checkmark:
-"Message received."
-"We've received your message and will respond if it's a clear fit for the studio. Expect a reply within a few business days."
-"Your information is stored securely and never shared with third parties."
+[FORM FIELDS]
+Required: Name, Email, Subject, Message (min 20 chars)
+Optional: Organization, Role, Consent checkbox
 
 ================================================================================
-SECTION 8: LEGAL PAGES
-================================================================================
-
-PRIVACY (/legal/privacy):
-Standard privacy policy content
-
-TERMS (/legal/terms):
-Standard terms of service content
-
-================================================================================
-SECTION 9: NAVIGATION STRUCTURE
+SECTION 8: NAVIGATION STRUCTURE
 ================================================================================
 
 [HEADER]
 - Logo: "Verified Systems Group" (links to /)
-- Nav items (numbered):
-  01 Overview
-  02 System
-  03 Pipeline
-  04 Governance
-  05 Thesis
-  06 Contact
-- Command Palette trigger (Cmd+K / Ctrl+K)
-- Mobile hamburger menu
+- Nav items: Overview (01), System (02), Pipeline (03), Governance (04), Thesis (05), Contact (06)
+- Command Palette trigger (Cmd+K)
+- Mobile menu
 
 [FOOTER]
 - Company: "Verified Systems Group LLC"
@@ -585,36 +443,28 @@ SECTION 9: NAVIGATION STRUCTURE
 - Links: Privacy, Terms
 - Disclaimer: "Nothing on this site is financial advice or an offer of services."
 
-[COMMAND PALETTE]
-- Keyboard shortcut: Cmd+K (Mac) / Ctrl+K (Windows)
-- Quick navigation to all pages
-- Search interface
-
 ================================================================================
-SECTION 10: STAGE VOCABULARY
+SECTION 9: STAGE VOCABULARY
 ================================================================================
-
-Stage chips are color-coded by variant:
 
 - research: Blue (hsl 210 70% 50%)
 - specification: Purple (hsl 270 60% 50%)
 - architecture: Orange/Primary
 - prototype: Amber (hsl 35 90% 50%)
-- internal: Yellow (hsl 45 90% 50%) - Used for "Internal Alpha"
+- internal: Yellow (hsl 45 90% 50%)
 - production: Green (hsl 142 69% 48%)
 
 ================================================================================
-SECTION 11: VISUAL ASSETS
+SECTION 10: VISUAL ASSETS
 ================================================================================
 
-Textures:
 - grid_texture.png - HUD grid pattern for Overview hero
 - gears_texture.png - Mechanical texture for System Treasury section
 - axiom_cube.png - Abstract cube for Axiom project header
 - lumina_lens.png - Lens/optical texture for Lumina project header
 
 ================================================================================
-SECTION 12: DESIGN SYSTEM
+SECTION 11: DESIGN SYSTEM
 ================================================================================
 
 COLOR PALETTE (Tungsten & Signal):
@@ -622,7 +472,6 @@ COLOR PALETTE (Tungsten & Signal):
 - Foreground: Off-white/Silver (30 5% 90%)
 - Primary: Signal Orange (#F26D21)
 - Destructive: Critical Failure Red
-- Card: Slightly elevated from background
 
 TYPOGRAPHY:
 - Headings: Space Grotesk
@@ -631,11 +480,9 @@ TYPOGRAPHY:
 
 GEOMETRY:
 - Border radius: 2px (machined edges)
-- No organic curves
 
 MOTION:
 - Transitions: 150ms mechanical timing
-- Easing: cubic-bezier(0.4, 0, 0.2, 1)
 - Data disclosure: 200ms
 - No slide animations, no spinners
 

@@ -25,27 +25,27 @@ const definitions = [
 const functions = [
   {
     title: "Governance & Risk",
-    description: "How we set thresholds, limits, and 'no's — especially around leverage and new experiments.",
+    description: "Definition of solvency thresholds, leverage caps, and negative constraints for all treasury and product operations.",
     icon: <Shield className="w-5 h-5" />,
   },
   {
     title: "Compliance",
-    description: "How we stay aligned with legal and regulatory constraints in the places we operate.",
+    description: "Alignment with legal and regulatory constraints across operating jurisdictions.",
     icon: <Scale className="w-5 h-5" />,
   },
   {
     title: "Finance & Treasury",
-    description: "How we track every satoshi, loan, and spend, and keep our own books honest.",
+    description: "Tracking of all capital flows, loan positions, and expenditures with auditable precision.",
     icon: <Wallet className="w-5 h-5" />,
   },
   {
     title: "Operations",
-    description: "How work moves from idea to requirements to architecture to implementation and review.",
+    description: "Stage-gated workflow from specification through architecture, implementation, and verification.",
     icon: <Cog className="w-5 h-5" />,
   },
   {
-    title: "Communications & Brand",
-    description: "How we ensure external signal strictly matches internal system state and telemetry — site updates, Thesis posts, and corrections when we get something wrong.",
+    title: "Signal Integrity",
+    description: "Ensuring external outputs strictly match internal telemetry and system state. No divergence between stated and actual conditions.",
     icon: <MessageSquare className="w-5 h-5" />,
   },
 ];

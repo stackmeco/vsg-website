@@ -14,28 +14,28 @@ import { projects } from "@/data/projects";
 
 const values = [
   {
-    title: "Transparency over theater",
-    description: "Messy truths over polished stories. We label things clearly: idea, prototype, internal only, or ready.",
+    title: "Raw Data Over Narrative",
+    description: "State is labeled precisely: research, specification, architecture, internal, production. No ambiguity.",
     icon: <Eye className="w-5 h-5" />,
   },
   {
-    title: "Capital first, narrative second",
-    description: "Our balance sheet is the first test. If we wouldn't run our own money through it, it doesn't graduate.",
+    title: "Capital Verification",
+    description: "Internal balance sheet is the first test. Nothing graduates without capital at risk.",
     icon: <Coins className="w-5 h-5" />,
   },
   {
-    title: "Small, sharp systems",
-    description: "One small, understandable tool beats a sprawling, half-finished platform.",
+    title: "Minimal Attack Surface",
+    description: "One well-defined system with clear boundaries. No sprawling, half-verified platforms.",
     icon: <Layers className="w-5 h-5" />,
   },
   {
-    title: "Education as self-defense",
-    description: "We publish what we learn so others can see through hype and understand real trade-offs.",
+    title: "Open Documentation",
+    description: "Published research enables external verification. Trade-offs are explicit, not hidden.",
     icon: <BookOpen className="w-5 h-5" />,
   },
   {
-    title: "Next-frontier mindset",
-    description: "We care about what's coming — AI agents, new asset forms, digital scarcity — described in today's terms.",
+    title: "Frontier Systems",
+    description: "AI agents, bearer assets, digital scarcity — building infrastructure for next-generation primitives.",
     icon: <Compass className="w-5 h-5" />,
   },
 ];
@@ -99,7 +99,7 @@ export default function Overview() {
               </h1>
               
               <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl">
-                We engineer deterministic systems for <span className="text-foreground font-medium">Value, Intelligence, and Physical Reality</span>. Bitcoin verifies value; our AI verifies truth. Nothing launches until we verify it with our own balance sheet.
+                We engineer deterministic systems for <span className="text-foreground font-medium">Value, Intelligence, and Physical Reality</span>. Bitcoin verifies value; Axiom verifies truth. Deployment is gated by internal capital verification.
               </p>
 
               <div className="flex flex-wrap gap-4 mb-10">
@@ -245,13 +245,13 @@ export default function Overview() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
-              Bitcoin is our fuel, not our marketing
+              Bitcoin is Reserve, Not Product
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              We hold Bitcoin as our primary long-term asset. When it makes sense, we borrow stablecoins against it and use those funds for two things: building our Pipeline and sometimes accumulating more BTC.
+              We hold Bitcoin as our primary long-term reserve asset. We utilize conservative, over-collateralized borrowing to fund R&D, treating liquidity as an operational tool rather than a yield product.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              We don't run a public yield product; this is how we fund our own work.
+              This is internal treasury management. We do not offer external yield products or manage third-party capital.
             </p>
           </div>
         </div>

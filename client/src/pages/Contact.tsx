@@ -35,19 +35,19 @@ export default function Contact() {
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     <span>
-                      <strong className="text-foreground">Builders & founders</strong> working on AI, Digital Assets, or Verifiable Systems who want to compare notes.
+                      <strong className="text-foreground">Technical founders</strong> building in AI, Digital Assets, or Verifiable Systems.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     <span>
-                      <strong className="text-foreground">Investors or partners</strong> who care about how things actually work, not just pitch decks.
+                      <strong className="text-foreground">Capital partners</strong> focused on technical architecture and first-principles engineering.
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     <span>
-                      <strong className="text-foreground">Media or researchers</strong> looking for honest perspectives on AI and Digital Assets.
+                      <strong className="text-foreground">Researchers & analysts</strong> seeking primary-source perspectives on AI and Digital Assets.
                     </span>
                   </li>
                 </ul>
@@ -57,7 +57,7 @@ export default function Contact() {
                     What to expect
                   </h4>
                   <p className="text-sm text-muted-foreground">
-                    We typically respond within a few business days. We don't do cold outreach, and we don't share your information.
+                    Response within 3-5 business days for aligned inquiries. VSG does not initiate unsolicited outbound communication.
                   </p>
                 </div>
               </div>
