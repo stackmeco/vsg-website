@@ -10,7 +10,7 @@ export default function Contact() {
         description="Inbound channel for Verified Systems Group. All transmissions reviewed by the partners." 
       />
       <section className="py-20 lg:py-28 relative" data-testid="section-hero">
-        <div className="absolute inset-0 dot-grid opacity-40" />
+        <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground leading-tight tracking-tight mb-6">
@@ -27,7 +27,7 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-12">
             <div className="lg:col-span-2">
-              <div className="bg-card border border-card-border rounded-xl p-6 sm:p-8 sticky top-24">
+              <div className="bg-card border border-card-border rounded-[2px] p-6 sm:p-8 sticky top-24 z-30">
                 <h3 className="font-heading font-semibold text-lg text-foreground mb-4">
                   Who should reach out
                 </h3>

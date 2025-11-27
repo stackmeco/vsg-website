@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Eye, Coins, Shield, Search, Compass, ShieldCheck } from "lucide-react";
 import gridTexture from "@assets/grid_texture.png";
-import { projects } from "@/data/projects";
+import { projects, getProjectHref } from "@/data/projects";
 
 const values = [
   {
@@ -75,7 +75,7 @@ export default function Overview() {
 
         {/* LAYER 2: The "Structure" (Infrastructure Grid) */}
         <div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 pointer-events-none"
           style={{
             backgroundImage: `url(${gridTexture})`,
             backgroundSize: "cover",
@@ -83,13 +83,12 @@ export default function Overview() {
             opacity: 0.15,
             filter: "grayscale(100%) contrast(120%)",
           }}
-          role="img"
-          aria-label="Infrastructure grid visualization"
+          aria-hidden="true"
         />
 
         {/* LAYER 3: The "Void" Gradients (Vignette) */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/80 to-transparent" />
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/40" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/80 to-transparent pointer-events-none" aria-hidden="true" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/40 pointer-events-none" aria-hidden="true" />
 
         {/* LAYER 4: The Content */}
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
@@ -221,7 +220,7 @@ export default function Overview() {
       </section>
 
       <section className="py-20 relative" data-testid="section-pipeline">
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
@@ -235,7 +234,7 @@ export default function Overview() {
             {projects.map((project) => (
               <Link 
                 key={project.name} 
-                href={project.href}
+                href={getProjectHref(project)}
                 className="group flex items-center justify-between p-4 hover:bg-primary/5 transition-colors duration-150"
               >
                 {/* LEFT: Project Name (The Signal) */}
@@ -274,7 +273,7 @@ export default function Overview() {
       </section>
 
       <section className="py-20 relative" data-testid="section-values">
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">

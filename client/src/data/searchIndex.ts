@@ -16,7 +16,7 @@ import {
   type LucideIcon
 } from "lucide-react";
 import { articles, changelog } from "./articles";
-import { projects } from "./projects";
+import { projects, getProjectHref } from "./projects";
 
 export interface SearchEntry {
   id: string;
@@ -118,7 +118,7 @@ const projectEntries: SearchEntry[] = projects.map((project) => ({
   id: `project-${project.name.toLowerCase().replace(/\s+/g, "-")}`,
   name: project.name,
   description: project.description,
-  href: project.href,
+  href: getProjectHref(project),
   icon: projectIconMap[project.name] || Layers,
   keywords: [
     project.stage.toLowerCase(),

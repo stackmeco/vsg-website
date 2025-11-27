@@ -16,7 +16,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { LayoutGrid, List, ArrowRight } from "lucide-react";
-import { projects } from "@/data/projects";
+import { projects, getProjectHref } from "@/data/projects";
 
 const stages = [
   { 
@@ -67,7 +67,7 @@ export default function Pipeline() {
         description="Our R&D projects: Axiom, Helios, Stackme, Lumina, and Uniqueness Engine. All self-funded, none public yet." 
       />
       <section className="py-20 lg:py-28 relative" data-testid="section-hero">
-        <div className="absolute inset-0 dot-grid opacity-40" />
+        <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground leading-tight tracking-tight mb-6">
@@ -107,7 +107,7 @@ export default function Pipeline() {
       </section>
 
       <section className="py-20 relative" data-testid="section-projects">
-        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
             <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground">
@@ -165,7 +165,7 @@ export default function Pipeline() {
                         {project.description}
                       </TableCell>
                       <TableCell className="text-right">
-                        <Link href={project.href}>
+                        <Link href={getProjectHref(project)}>
                           <Button variant="ghost" size="sm" className="gap-1">
                             View
                             <ArrowRight className="w-3 h-3" />

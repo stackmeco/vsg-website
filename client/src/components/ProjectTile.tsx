@@ -5,15 +5,16 @@ import { ArrowRight } from "lucide-react";
 import type { StageVariant } from "@/data/projects";
 
 interface ProjectTileProps {
+  slug: string;
   name: string;
   stage: string;
   stageVariant: StageVariant;
   description: string;
   exploring?: string[];
-  href: string;
 }
 
-export function ProjectTile({ name, stage, stageVariant, description, exploring, href }: ProjectTileProps) {
+export function ProjectTile({ slug, name, stage, stageVariant, description, exploring }: ProjectTileProps) {
+  const href = `/pipeline/${slug}`;
   return (
     <Card className="bg-card border-card-border hover:border-primary/50 hover:bg-card/80 transition-colors duration-150 ease-mechanical">
       <CardContent className="p-6">

@@ -19,7 +19,7 @@ function SystemClock() {
     <span 
       className="font-mono text-xs text-muted-foreground tabular-nums"
       data-testid="text-system-clock"
-      aria-label={`Current UTC time: ${utcTime}`}
+      aria-hidden="true"
     >
       {utcTime} <span className="text-primary/60">UTC</span>
     </span>
@@ -63,19 +63,19 @@ export function Header() {
 
           <nav className="hidden lg:flex items-center gap-1" data-testid="nav-desktop" aria-label="Main navigation">
             {navItems.map((item) => (
-              <Link key={item.name} href={item.href}>
-                <span
-                  className={cn(
-                    "px-3 py-2 text-xs font-mono uppercase tracking-wider transition-all duration-150 rounded-md border border-transparent",
-                    isActive(item.href)
-                      ? "text-primary bg-primary/10 border-primary/20"
-                      : "text-muted-foreground hover:text-foreground hover:bg-card/80 hover:border-primary/30"
-                  )}
-                  aria-current={isActive(item.href) ? "page" : undefined}
-                  data-testid={`nav-${item.name.toLowerCase()}`}
-                >
-                  {item.name}
-                </span>
+              <Link 
+                key={item.name} 
+                href={item.href}
+                className={cn(
+                  "px-3 py-2 text-xs font-mono uppercase tracking-wider transition-all duration-150 rounded-md border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                  isActive(item.href)
+                    ? "text-primary bg-primary/10 border-primary/20"
+                    : "text-muted-foreground hover:text-foreground hover:bg-card/80 hover:border-primary/30"
+                )}
+                aria-current={isActive(item.href) ? "page" : undefined}
+                data-testid={`nav-${item.name.toLowerCase()}`}
+              >
+                {item.name}
               </Link>
             ))}
             <div className="flex items-center gap-4 ml-4">
@@ -152,29 +152,26 @@ export function Header() {
                       key={item.name}
                       href={item.href}
                       onClick={handleMobileNavClick}
+                      className={cn(
+                        "flex items-center gap-4 p-4 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                        isActive(item.href)
+                          ? "bg-primary/10"
+                          : "hover:bg-secondary"
+                      )}
+                      aria-current={isActive(item.href) ? "page" : undefined}
                       data-testid={`mobile-nav-${item.name.toLowerCase()}`}
                     >
-                      <div
+                      <span className="text-2xl font-mono text-muted-foreground">
+                        {item.number}
+                      </span>
+                      <span
                         className={cn(
-                          "flex items-center gap-4 p-4 rounded-lg transition-colors",
-                          isActive(item.href)
-                            ? "bg-primary/10"
-                            : "hover:bg-secondary"
+                          "font-heading text-xl",
+                          isActive(item.href) ? "text-primary" : "text-foreground"
                         )}
-                        aria-current={isActive(item.href) ? "page" : undefined}
                       >
-                        <span className="text-2xl font-mono text-muted-foreground">
-                          {item.number}
-                        </span>
-                        <span
-                          className={cn(
-                            "font-heading text-xl",
-                            isActive(item.href) ? "text-primary" : "text-foreground"
-                          )}
-                        >
-                          {item.name}
-                        </span>
-                      </div>
+                        {item.name}
+                      </span>
                     </Link>
                   ))}
                 </nav>

@@ -136,7 +136,7 @@ export function ContactForm({ className }: ContactFormProps) {
     <form
       onSubmit={handleSubmit}
       className={cn(
-        "bg-card border border-card-border rounded-xl p-6 sm:p-8",
+        "bg-card border border-card-border rounded-[2px] p-6 sm:p-8",
         className
       )}
       data-testid="contact-form"

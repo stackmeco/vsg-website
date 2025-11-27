@@ -1,8 +1,8 @@
 import { Link } from "wouter";
 
 const footerLinks = [
-  { name: "Privacy", href: "/legal/privacy" },
-  { name: "Terms", href: "/legal/terms" },
+  { name: "Privacy", href: "/privacy" },
+  { name: "Terms", href: "/terms" },
 ];
 
 export function Footer() {

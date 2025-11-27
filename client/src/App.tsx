@@ -28,8 +28,8 @@ function Router() {
       <Route path="/thesis" component={Library} />
       <Route path="/thesis/:slug" component={LibraryArticle} />
       <Route path="/contact" component={Contact} />
-      <Route path="/legal/privacy" component={Privacy} />
-      <Route path="/legal/terms" component={Terms} />
+      <Route path="/privacy" component={Privacy} />
+      <Route path="/terms" component={Terms} />
       <Route component={NotFound} />
     </Switch>
   );

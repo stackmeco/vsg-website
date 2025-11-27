@@ -17,7 +17,7 @@ export function Layout({ children }: LayoutProps) {
       </a>
       <Header />
       <CommandPalette />
-      <main id="main-content" className="flex-1 pt-16" tabIndex={-1}>{children}</main>
+      <main id="main-content" className="flex-1 pt-16 lg:pt-[72px]" tabIndex={-1}>{children}</main>
       <Footer />
     </div>
   );
