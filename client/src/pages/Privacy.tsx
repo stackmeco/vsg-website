@@ -19,7 +19,7 @@ export default function Privacy() {
 
           <div className="space-y-10">
             <section>
-              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
+              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
                 What we collect
               </h2>
               <p className="text-foreground leading-relaxed mb-4">
@@ -42,7 +42,7 @@ export default function Privacy() {
             </section>
 
             <section>
-              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
+              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
                 How we use it
               </h2>
               <p className="text-foreground leading-relaxed">
@@ -51,7 +51,7 @@ export default function Privacy() {
             </section>
 
             <section>
-              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
+              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
                 What we don't do
               </h2>
               <ul className="space-y-2 text-foreground">
@@ -71,7 +71,7 @@ export default function Privacy() {
             </section>
 
             <section>
-              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
+              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
                 Cookies
               </h2>
               <p className="text-foreground leading-relaxed">
@@ -80,7 +80,7 @@ export default function Privacy() {
             </section>
 
             <section>
-              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
+              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
                 Contact
               </h2>
               <p className="text-foreground leading-relaxed">

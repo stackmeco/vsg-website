@@ -82,7 +82,7 @@ export function CommandPalette() {
         data-testid="input-command-search"
       />
       <CommandList>
-        {!hasResults && <CommandEmpty>No records match query.</CommandEmpty>}
+        {!hasResults && <CommandEmpty className="font-mono text-xs text-muted-foreground py-6 text-center">NO MATCHING RECORDS</CommandEmpty>}
         {sortedGroups.map((groupId, index) => {
           const results = searchResults.get(groupId) ?? [];
           if (results.length === 0) return null;

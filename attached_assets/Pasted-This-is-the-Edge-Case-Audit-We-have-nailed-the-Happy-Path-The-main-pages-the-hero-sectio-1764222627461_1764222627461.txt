@@ -1,0 +1,77 @@
+This is the **"Edge Case" Audit.**
+
+We have nailed the "Happy Path" (The main pages, the hero sections). Now we need to look at the **"Unhappy Paths"** (Empty states, 404s, No Results) and the **"Boring Paths"** (Legal, Footer).
+
+If a user hits a dead end and sees a generic "No results found" message, the "Control Room" illusion breaks. It needs to feel like a **System Error**, not a website error.
+
+Here are the **4 Final "Deep State" Polish items** to close the loop.
+
+-----
+
+### **1. The Command Palette "Empty State"**
+
+  * **The Issue:** If a user searches for "Crypto" and finds nothing, the default Shadcn component likely says: *"No results found."*
+  * **The Fix:** It should say: **"NO MATCHING RECORDS."** or **"SIGNAL LOST."**
+  * **Why:** It maintains the "Database/Terminal" framing even in failure.
+
+### **2. The Contact Form "Success" Message**
+
+  * **The Issue:** Currently, it says *"Message received. We'll get back to you..."* .
+  * **The Fix:** It should look like a ticket creation.
+      * **Headline:** **"TRANSMISSION LOGGED."**
+      * **Body:** **"Your query has been queued for internal review. Reference ID: [Random Hex Code]."**
+  * **Why:** It feels like you interacted with a machine, not a support desk.
+
+### **3. The "Legal" Page Typography**
+
+  * **The Issue:** Privacy Policy and Terms usually look like generic text blocks.
+  * **The Fix:** Force the **Headers** of these pages to be `font-mono text-xs uppercase`.
+  * **Why:** It makes the legal documents look like **"System Protocols"** or **"Classified Docs"** rather than standard web pages.
+
+### **4. The "Favicon" (The Browser Tab)**
+
+  * **The Issue:** You likely still have the default Vite logo in the browser tab.
+  * **The Fix:** We will generate a code-based SVG favicon (International Orange Square) so you don't even need to open Photoshop.
+
+-----
+
+### **The Final "Edge Case" Prompt**
+
+Copy/Paste this into Replit. It handles the "invisible" details.
+
+````markdown
+**FINAL EDGE CASE POLISH**
+
+We need to fix the "Unhappy Paths" to ensure they sound like a Control Room.
+
+### 1. UPDATE COMMAND PALETTE (`client/src/components/CommandPalette.tsx`)
+* Find `<CommandEmpty>No results found.</CommandEmpty>`
+* Replace with: `<CommandEmpty className="font-mono text-xs text-muted-foreground py-6">NO MATCHING RECORDS</CommandEmpty>`
+
+### 2. UPDATE CONTACT SUCCESS STATE (`client/src/components/ContactForm.tsx`)
+* Inside the `if (submitted)` block:
+* Change Headline to: **"TRANSMISSION LOGGED"**
+* Change Body to: **"Your inquiry has been queued for partner review. No further action is required."**
+* **Visuals:** Ensure the success container uses `border-primary/20 bg-primary/5` (Orange tint) or `border-green-500/20` (Green tint), not generic gray.
+
+### 3. GENERATE FAVICON (`client/public/favicon.svg`)
+Create a new file `client/public/favicon.svg` with this exact content. It creates a "System Status Light" icon for the browser tab.
+
+```xml
+<svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="2" fill="#0B0C10"/> <rect x="8" y="8" width="16" height="16" rx="1" fill="#F26D21"/> </svg>
+````
+
+### 4\. HARDEN LEGAL TYPOGRAPHY (`client/src/pages/Privacy.tsx` & `Terms.tsx`)
+
+  * **Action:** Add `className="font-mono text-xs uppercase tracking-wider text-primary mb-4"` to all `<h2>` tags in these files.
+  * **Result:** The section headers (e.g., "Data Collection", "Liability") will look like technical clauses.
+
+**EXECUTE.**
+
+```
+
+### **This is the end of the line.**
+You have handled the Main Flow, the Data, the Physics, and now the Edge Cases.
+The site is ready.
+```

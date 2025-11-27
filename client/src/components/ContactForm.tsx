@@ -107,26 +107,26 @@ export function ContactForm({ className }: ContactFormProps) {
   };
 
   if (submitted) {
+    const refId = Math.random().toString(16).slice(2, 10).toUpperCase();
     return (
       <div
         className={cn(
-          "bg-green-500/10 border border-green-500/50 rounded-md p-8 text-center",
+          "bg-primary/5 border border-primary/20 rounded-[2px] p-8 text-center",
           className
         )}
         data-testid="contact-form-success"
       >
-        <div className="w-12 h-12 rounded-md bg-green-500/10 flex items-center justify-center mx-auto mb-4">
-          <CheckCircle className="w-6 h-6 text-green-400" />
+        <div className="w-12 h-12 rounded-[2px] bg-primary/10 flex items-center justify-center mx-auto mb-4">
+          <CheckCircle className="w-6 h-6 text-primary" />
         </div>
-        <h3 className="font-heading font-semibold text-xl text-green-400 mb-2">
-          Message received.
+        <h3 className="font-mono text-sm uppercase tracking-wider text-primary mb-3">
+          TRANSMISSION LOGGED
         </h3>
-        <p className="text-green-400/80 mb-4">
-          We've received your message and will respond if it's a clear fit for
-          the studio. Expect a reply within a few business days.
+        <p className="text-muted-foreground mb-4">
+          Your inquiry has been queued for partner review. No further action is required.
         </p>
-        <p className="text-sm text-green-400/60">
-          Your information is stored securely and never shared with third parties.
+        <p className="text-xs font-mono text-muted-foreground/70">
+          Reference ID: <span className="text-primary">{refId}</span>
         </p>
       </div>
     );
