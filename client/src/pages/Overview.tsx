@@ -87,8 +87,8 @@ export default function Overview() {
         />
 
         {/* LAYER 3: The "Void" Gradients (Vignette) */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/80 to-transparent pointer-events-none" aria-hidden="true" />
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/40 pointer-events-none" aria-hidden="true" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/90 to-background/60 pointer-events-none" aria-hidden="true" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-background/40 to-background/50 pointer-events-none" aria-hidden="true" />
 
         {/* LAYER 4: The Content */}
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">

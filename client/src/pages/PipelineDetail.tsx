@@ -72,8 +72,8 @@ export default function PipelineDetail() {
             filter: "grayscale(100%) contrast(120%)",
           }}
         />
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background/90 via-background/60 to-background/30 pointer-events-none" aria-hidden="true" />
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/40 pointer-events-none" aria-hidden="true" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/90 to-background/60 pointer-events-none" aria-hidden="true" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-background/40 to-background/50 pointer-events-none" aria-hidden="true" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb className="mb-6">
