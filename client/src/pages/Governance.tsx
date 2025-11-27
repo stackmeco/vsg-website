@@ -106,7 +106,7 @@ export default function Governance() {
             </div>
 
             <div className="hidden lg:block">
-              <nav className="bg-card/80 backdrop-blur-sm border border-border rounded-md p-6" aria-label="Table of contents" data-testid="nav-toc">
+              <nav className="bg-card/80 backdrop-blur-sm border border-border rounded-sm p-6" aria-label="Table of contents" data-testid="nav-toc">
                 <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-4">
                   On this page
                 </p>
@@ -160,7 +160,7 @@ export default function Governance() {
             <Card className="bg-background border-border">
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center">
                     <Shield className="w-5 h-5 text-primary" />
                   </div>
                   <div>
@@ -176,7 +176,7 @@ export default function Governance() {
             <Card className="bg-background border-border">
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-sm bg-secondary flex items-center justify-center">
                     <Users className="w-5 h-5 text-foreground" />
                   </div>
                   <div>

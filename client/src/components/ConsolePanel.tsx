@@ -29,10 +29,11 @@ export function ConsolePanel({
   return (
     <div
       className={cn(
-        "bg-card/90 backdrop-blur-sm rounded-md border border-border",
+        "bg-card/90 backdrop-blur-sm rounded-sm border border-border",
         "p-4 flex flex-col gap-3",
         className
       )}
+      style={{ boxShadow: "0 0 30px -10px rgba(242, 109, 33, 0.15)" }}
       data-testid="console-panel"
     >
       {title && (

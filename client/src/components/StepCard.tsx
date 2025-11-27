@@ -15,22 +15,18 @@ export function StepCard({
 }: StepCardProps) {
   return (
     <div
-      className={cn("relative", className)}
+      className={cn("relative bg-background border border-border rounded-sm p-5", className)}
       data-testid={`step-card-${number}`}
     >
-      <div className="flex items-start gap-4">
-        <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-mono text-sm font-bold flex-shrink-0">
-          {number}
-        </div>
-        <div className="flex-1">
-          <h3 className="font-heading font-semibold text-foreground mb-2">
-            {title}
-          </h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            {description}
-          </p>
-        </div>
+      <div className="text-3xl font-mono font-bold text-primary/30 select-none mb-3">
+        {String(number).padStart(2, "0")}
       </div>
+      <h3 className="font-heading font-semibold text-base text-foreground mb-2">
+        {title}
+      </h3>
+      <p className="text-xs text-muted-foreground leading-relaxed">
+        {description}
+      </p>
     </div>
   );
 }

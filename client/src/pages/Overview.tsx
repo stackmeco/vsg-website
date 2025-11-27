@@ -134,7 +134,7 @@ export default function Overview() {
 
             {/* Right Side: Studio Metrics */}
             <div className="hidden lg:block relative z-20">
-              <div className="bg-card/80 backdrop-blur-sm border border-border rounded-md p-6 space-y-6">
+              <div className="bg-card/80 backdrop-blur-sm border border-border rounded-sm p-6 space-y-6">
                 <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
                   Studio metrics
                 </p>

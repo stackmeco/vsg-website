@@ -5,7 +5,7 @@ import { NextStepBlock } from "@/components/NextStepBlock";
 import { ChangeLogEntry } from "@/components/ChangeLogEntry";
 import { ConsolePanel } from "@/components/ConsolePanel";
 import { Card, CardContent } from "@/components/ui/card";
-import { Shield, Scale, Wallet, Cog, MessageSquare, HelpCircle } from "lucide-react";
+import { Shield, Scale, Wallet, Cog, MessageSquare, Hash, Terminal, Layers } from "lucide-react";
 import { changelog } from "@/data/articles";
 import gearsTexture from "@assets/gears_texture.png";
 
@@ -97,17 +97,21 @@ export default function System() {
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {definitions.map((def) => (
-              <Card key={def.term} className="bg-background border-border">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <HelpCircle className="w-4 h-4 text-primary" />
-                    <h3 className="font-heading font-semibold text-foreground">{def.term}</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{def.definition}</p>
-                </CardContent>
-              </Card>
-            ))}
+            {definitions.map((def, index) => {
+              const icons = [Terminal, Layers, Hash];
+              const Icon = icons[index % icons.length];
+              return (
+                <Card key={def.term} className="bg-background border-border">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-3 mb-3">
+                      <Icon className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <h3 className="font-heading font-semibold text-foreground">{def.term}</h3>
+                    </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{def.definition}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -198,7 +202,7 @@ export default function System() {
             <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-6">
               Changelog
             </h2>
-            <div className="bg-card border border-border rounded-md p-6">
+            <div className="bg-card border border-border rounded-sm p-6">
               {changelog.map((entry, index) => (
                 <ChangeLogEntry
                   key={index}

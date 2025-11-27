@@ -1,0 +1,91 @@
+You are absolutely right to push back. I was grading on a "It looks good" curve, not the **"Institutional Control Room"** curve we established.
+
+Looking at these screenshots with a forensic eye, there are **4 Glaring Failures** that make this look like a "SaaS Template" instead of a proprietary system.
+
+Here is the brutal audit of why it fails the "Vibe Check" and the exact code to fix it.
+
+-----
+
+### **1. The "SaaS Bubble" Failure (Image 1 - Pipeline Steps)**
+
+  * **The Issue:** The numbers (01, 02, 03) are inside **Orange Circles**.
+  * **Why it fails:** Circles are friendly. They are "Consumer." They look like a "How it Works" section on a pricing page. Industrial interfaces do not put numbers in bubbles; they stencil them on the hull.
+  * **The Fix:** Remove the background circle. Make the number **Huge, Monospace, and Raw**.
+
+**Update `client/src/components/StepCard.tsx`:**
+
+  * **Find:** The `div` wrapping the number (likely `bg-primary rounded-full`).
+  * **Replace with:**
+    ```tsx
+    {/* Replaces the "Bubble" with "Stenciled Data" */}
+    <div className="text-4xl font-mono font-bold text-primary/20 select-none">
+      {String(number).padStart(2, "0")}
+    </div>
+    ```
+    *(This puts a large, subtle industrial number in the background or side, rather than a cute bubble).*
+
+-----
+
+### **2. The "Help Desk" Failure (Image 2 - Definitions)**
+
+  * **The Issue:** The icons next to "Verifiable Systems" are **Question Marks inside Circles (`?`)**.
+  * **Why it fails:** A question mark means "I don't know" or "Help." It signals confusion. A Control Room is about **Certainty**. You define terms; you don't ask about them.
+  * **The Fix:** Swap the icon for something assertive.
+      * **Icon:** `Hash` (Data), `Scale` (Balance), or `Terminal` (Code).
+      * **Style:** Remove the circle container here too. Raw Icon + Text.
+
+**Update `client/src/pages/System.tsx` (Definitions Array):**
+
+  * Change `<HelpCircle />` to `<Hash className="w-5 h-5 text-primary" />` (or `Terminal`).
+
+-----
+
+### **3. The "Marketing" Alignment Failure (Image 1 & 2)**
+
+  * **The Issue:** The Section Headers ("How we verify value...", "Terms we use...") appear to be **Centered** (or floating without anchors) in some views, or simply too "Airy."
+  * **Why it fails:** Centered text is for storytelling. Left-aligned text is for documentation.
+  * **The Fix:** **Hard Left Alignment.**
+      * In `Overview.tsx`, `System.tsx`, and `Pipeline.tsx`: Ensure the parent container of the headers has `text-left` and `items-start`. **Never `text-center`.**
+
+-----
+
+### **4. The "Wall of Text" Failure (Image 1 - Cards)**
+
+  * **The Issue:** Look at Card 02 ("Rapid Validation"). The text block is dense and lacks hierarchy. It is just a grey blob.
+  * **The Fix:** **Highlight Keywords.**
+      * We need to bold the "Signal" words inside that text block.
+      * *Since we can't manually bold dynamic text easily:* **Increase line-height slightly** (`leading-relaxed`) **BUT reduce font size** (`text-xs`).
+      * *Crucial:* The "subtitle" (e.g., "RISK MITIGATION") needs to be **Orange**, not Gray, to link it to the number.
+
+-----
+
+### **The "Deep Fix" Prompt**
+
+Copy this into Replit. It surgically removes the "Consumer" elements (Bubbles, Question Marks) and enforces the "Industrial" elements (Raw Numbers, Left Align).
+
+```markdown
+**VISUAL CORRECTION: REMOVE CONSUMER PATTERNS**
+
+The UI looks too "friendly." We need to make it "industrial."
+
+### 1. REFACTOR `StepCard.tsx` (KILL THE BUBBLE)
+* **Objective:** Remove the circular background behind the number.
+* **Design:** The number should be `text-4xl font-mono font-bold text-primary` (Raw Orange) or `text-primary/40` (Subtle Stencil).
+* **Layout:** Place the number immediately above the Title, left-aligned. No flex-row gap.
+
+### 2. REFACTOR `System.tsx` (KILL THE QUESTION MARK)
+* **Objective:** Remove the `HelpCircle` icon from the Definitions section.
+* **Action:** Replace it with `Terminal` or `Hash` from `lucide-react`.
+* **Visual:** Ensure the icon is `text-primary` and left-aligned with the header.
+
+### 3. ENFORCE ALIGNMENT (KILL CENTER TEXT)
+* **Global Rule:** Go through `Pipeline.tsx` and `System.tsx`. Ensure ALL section headers ("How we verify...", "Terms we use...") are explicitly `text-left` and `items-start`.
+
+### 4. REFACTOR `Pipeline.tsx` (CARD DENSITY)
+* **Sub-labels:** Change the orange sub-labels (e.g., "RISK MITIGATION") to be `text-[10px] font-mono uppercase tracking-[0.2em] text-primary`.
+* **Body Text:** Ensure it is `text-xs leading-relaxed opacity-80`.
+
+**EXECUTE.**
+```
+
+**Run this.** It removes the "Cute" factor and leaves only the "System" factor.
