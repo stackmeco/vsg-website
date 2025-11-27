@@ -4,6 +4,7 @@ import { z } from "zod";
 import * as fs from "fs";
 import * as path from "path";
 import crypto from "crypto";
+import { GoogleGenAI } from "@google/genai";
 
 const contactSchema = z.object({
   name: z.string().min(1, "Name is required").max(100, "Name too long").transform(s => s.trim()),
@@ -191,6 +192,75 @@ export async function registerRoutes(app: Express): Promise<Server> {
           message: "An error occurred processing your request",
         });
       }
+    }
+  });
+
+  app.post("/api/tts", async (req: Request, res: Response) => {
+    try {
+      const { text } = req.body;
+      
+      if (!text || typeof text !== "string") {
+        res.status(400).json({ error: "Text is required" });
+        return;
+      }
+
+      if (text.length > 8000) {
+        res.status(400).json({ error: "Text too long (max 8000 characters)" });
+        return;
+      }
+
+      const apiKey = process.env.GEMINI_API_KEY;
+      if (!apiKey) {
+        console.error("[TTS] Missing GEMINI_API_KEY");
+        res.status(500).json({ error: "TTS service not configured" });
+        return;
+      }
+
+      const ai = new GoogleGenAI({ apiKey });
+
+      const response = await ai.models.generateContent({
+        model: "gemini-2.5-flash-preview-tts",
+        contents: text,
+        config: {
+          responseModalities: ["AUDIO"],
+          speechConfig: {
+            voiceConfig: {
+              prebuiltVoiceConfig: {
+                voiceName: "Kore",
+              },
+            },
+          },
+        },
+      });
+
+      const candidates = response.candidates;
+      if (!candidates || candidates.length === 0) {
+        res.status(500).json({ error: "No audio generated" });
+        return;
+      }
+
+      const content = candidates[0].content;
+      if (!content || !content.parts) {
+        res.status(500).json({ error: "Invalid response format" });
+        return;
+      }
+
+      for (const part of content.parts) {
+        if (part.inlineData && part.inlineData.data) {
+          const audioData = Buffer.from(part.inlineData.data, "base64");
+          res.set({
+            "Content-Type": "audio/L16;rate=24000",
+            "Content-Length": audioData.length.toString(),
+          });
+          res.send(audioData);
+          return;
+        }
+      }
+
+      res.status(500).json({ error: "No audio data in response" });
+    } catch (error) {
+      console.error("[TTS Error]", error);
+      res.status(500).json({ error: "Failed to generate audio" });
     }
   });
 
