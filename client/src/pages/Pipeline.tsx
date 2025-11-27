@@ -80,7 +80,7 @@ export default function Pipeline() {
           }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/70 to-background/40 pointer-events-none" aria-hidden="true" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background from-20% via-background/50 to-background/30 pointer-events-none" aria-hidden="true" />
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" aria-hidden="true" />
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
