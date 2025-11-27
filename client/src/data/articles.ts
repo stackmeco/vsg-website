@@ -12,7 +12,7 @@ export interface LibraryItem {
 export const articles: LibraryItem[] = [
   {
     title: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate",
-    excerpt: "In creative writing, hallucination is a feature. In automated treasury management, it is a felony. Why we are building our own inference layer before letting agents touch the balance sheet.",
+    excerpt: "In creative writing, variance is a feature. In automated treasury management, it is a felony. We analyze the friction between probabilistic models and deterministic settlement.",
     date: "Dec 15, 2025",
     type: "Insight",
     tags: ["AI Safety", "Determinism", "Infrastructure"],
@@ -27,8 +27,8 @@ export const articles: LibraryItem[] = [
     slug: "verification-standard",
   },
   {
-    title: "Machine-Native Settlement: Why AI Agents Need Bearer Assets",
-    excerpt: "AI agents cannot open bank accounts. They cannot sign contracts. They cannot wait three days for ACH to clear. The future of autonomous commerce requires bearer instruments that settle in seconds, not signatures.",
+    title: "Machine-Native Settlement: Why AI Agents Will Reject Legacy Banking",
+    excerpt: "Autonomous software requires financial rails that operate with the same deterministic logic as the code itself. We analyze the friction between legacy banking and the emerging machine economy.",
     date: "Oct 18, 2025",
     type: "Insight",
     tags: ["AI Agents", "Bitcoin", "Infrastructure"],
