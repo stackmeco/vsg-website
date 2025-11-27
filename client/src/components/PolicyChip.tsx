@@ -12,8 +12,8 @@ interface PolicyChipProps {
 
 const variantStyles: Record<ChipVariant, { dot: string; glow: string }> = {
   limit: {
-    dot: "bg-primary",
-    glow: "shadow-[0_0_8px_hsl(var(--primary)/0.5)]",
+    dot: "bg-primary animate-glow-pulse",
+    glow: "",
   },
   info: {
     dot: "bg-muted-foreground",
@@ -24,7 +24,7 @@ const variantStyles: Record<ChipVariant, { dot: string; glow: string }> = {
     glow: "shadow-[0_0_8px_hsl(var(--chart-4)/0.5)]",
   },
   breach: {
-    dot: "bg-destructive",
+    dot: "bg-destructive animate-pulse",
     glow: "shadow-[0_0_8px_hsl(var(--destructive)/0.7)]",
   },
 };

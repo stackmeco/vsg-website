@@ -19,7 +19,7 @@ export function StatBlock({
     <div className={cn("space-y-1", className)}>
       <p 
         className={cn(
-          "text-4xl sm:text-5xl font-mono font-bold tracking-tight tabular-nums",
+          "text-4xl sm:text-5xl font-mono font-bold tracking-tight tabular-nums animate-data-tick",
           variant === "primary" && "text-primary",
           variant === "muted" && "text-muted-foreground",
           variant === "default" && "text-foreground"
@@ -31,7 +31,7 @@ export function StatBlock({
         {label}
       </p>
       {subtext && (
-        <p className="text-xs text-muted-foreground">
+        <p className="text-xs text-muted-foreground animate-flash">
           {subtext}
         </p>
       )}

@@ -40,7 +40,7 @@ export function ConsolePanel({
           <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
             {title}
           </span>
-          <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary)/0.5)]" />
+          <span className="w-2 h-2 rounded-full bg-primary animate-glow-pulse" />
         </div>
       )}
       <div className="flex flex-wrap gap-2">
