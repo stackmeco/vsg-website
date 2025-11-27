@@ -16,7 +16,7 @@ export function ValueCard({
 }: ValueCardProps) {
   return (
     <Card
-      className={cn("bg-card border-card-border hover:border-primary/50 hover:bg-card/80 transition-colors duration-150", className)}
+      className={cn("bg-card border-card-border hover:border-primary/50 hover:bg-card/80 transition-colors duration-150 ease-mechanical", className)}
       data-testid={`value-card-${title.toLowerCase().replace(/\s+/g, "-")}`}
     >
       <CardContent className="p-6">

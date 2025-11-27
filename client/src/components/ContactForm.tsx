@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { CheckCircle, AlertCircle } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 
 interface ContactFormProps {
@@ -297,10 +297,10 @@ export function ContactForm({ className }: ContactFormProps) {
         <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
           <Button type="submit" disabled={isSubmitting} data-testid="button-submit">
             {isSubmitting ? (
-              <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                Sending...
-              </>
+              <span className="flex items-center gap-2">
+                <span className="w-4 h-1 bg-current animate-pulse" />
+                Sending<span className="animate-pulse">_</span>
+              </span>
             ) : (
               "Send Message"
             )}
