@@ -4,6 +4,7 @@ import { ValueCard } from "@/components/ValueCard";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Scale, Wallet, Cog, MessageSquare, HelpCircle } from "lucide-react";
+import { changelog } from "@/data/articles";
 
 const definitions = [
   {
@@ -43,7 +44,7 @@ const functions = [
   },
   {
     title: "Communications & Brand",
-    description: "How we keep our story in sync with what's actually true — site updates, Library posts, and corrections when we get something wrong.",
+    description: "How we ensure external signal strictly matches internal system state and telemetry — site updates, Thesis posts, and corrections when we get something wrong.",
     icon: <MessageSquare className="w-5 h-5" />,
   },
 ];
@@ -136,6 +137,26 @@ export default function System() {
             {functions.map((func) => (
               <ValueCard key={func.title} {...func} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-card" data-testid="section-changelog">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
+              Changelog
+            </h2>
+            <div className="space-y-4">
+              {changelog.map((entry, index) => (
+                <div key={index} className="flex gap-4">
+                  <span className="text-sm font-mono text-muted-foreground w-20 flex-shrink-0">
+                    {entry.date}
+                  </span>
+                  <p className="text-sm text-foreground">{entry.entry}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

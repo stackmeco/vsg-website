@@ -13,8 +13,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Home } from "lucide-react";
-
-type StageVariant = "research" | "requirements" | "architecture" | "development" | "prototype" | "testing";
+import type { StageVariant } from "@/data/projects";
 
 interface ProjectData {
   name: string;
@@ -54,14 +53,14 @@ const projectData: Record<string, ProjectData> = {
   },
   helios: {
     name: "Helios",
-    stage: "Early Development",
-    stageVariant: "development",
+    stage: "Internal Alpha",
+    stageVariant: "internal",
     tagline: "Internal BTC-backed strategy engine.",
     description: "Helios automates a portion of our borrowing into bounded, rule-driven DeFi positions. It deploys capital with explicit limits and real-time monitoring — internal only.",
     currentState: [
-      "Requirements and architecture defined",
+      "Architecture and specification complete",
       "Core implementation in progress",
-      "Internal testing environment being set up",
+      "Internal dogfooding underway",
     ],
     exploring: [
       "Automated yield strategies with strict risk bounds",
@@ -74,18 +73,18 @@ const projectData: Record<string, ProjectData> = {
       "No public API",
       "Not a product or service",
     ],
-    nextProject: { name: "stackme", href: "/pipeline/stackme" },
+    nextProject: { name: "Stackme", href: "/pipeline/stackme" },
   },
   stackme: {
-    name: "stackme",
-    stage: "Early Development",
-    stageVariant: "development",
+    name: "Stackme",
+    stage: "Architecture",
+    stageVariant: "architecture",
     tagline: "A borrower-first BTC credit app.",
-    description: "stackme is a BTC-backed lending experience designed around clarity, conservative leverage, and plain-language risk disclosure. Architecture and flows in development.",
+    description: "Stackme is a BTC-backed lending experience designed around clarity, conservative leverage, and plain-language risk disclosure. Technical architecture defined; verified build phase in progress.",
     currentState: [
-      "Requirements defined",
-      "Technical architecture designed",
-      "User flows and prototypes in development",
+      "Requirements complete",
+      "Technical architecture defined",
+      "Verified build phase in progress",
     ],
     exploring: [
       "Plain-language risk explanation",
@@ -102,12 +101,12 @@ const projectData: Record<string, ProjectData> = {
   },
   lumina: {
     name: "Lumina",
-    stage: "Requirements",
-    stageVariant: "requirements",
+    stage: "Specification",
+    stageVariant: "specification",
     tagline: "Digital bearer instruments for physical assets.",
     description: "Lumina links high-value physical inventory to on-chain rails. We are architecting a proprietary optical physics engine that utilizes smartphone cameras to verify surface topology and material response, ensuring the digital asset is anchored to a proven physical reality.",
     currentState: [
-      "Requirements complete",
+      "Specification complete",
       "System design in progress",
       "Optical verification pipeline being built",
     ],

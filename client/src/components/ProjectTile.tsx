@@ -2,8 +2,7 @@ import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { StageChip } from "@/components/StageChip";
 import { ArrowRight } from "lucide-react";
-
-type StageVariant = "research" | "requirements" | "architecture" | "development" | "prototype" | "testing";
+import type { StageVariant } from "@/data/projects";
 
 interface ProjectTileProps {
   name: string;

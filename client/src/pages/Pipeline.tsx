@@ -64,7 +64,7 @@ export default function Pipeline() {
     <Layout>
       <PageMeta 
         title="Pipeline" 
-        description="Our R&D projects: Axiom, Helios, stackme, Lumina, and Uniqueness Engine. All self-funded, none public yet." 
+        description="Our R&D projects: Axiom, Helios, Stackme, Lumina, and Uniqueness Engine. All self-funded, none public yet." 
       />
       <section className="py-20 lg:py-28 relative" data-testid="section-hero">
         <div className="absolute inset-0 dot-grid opacity-40" />

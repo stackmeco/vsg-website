@@ -6,7 +6,7 @@ import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
-import { articles, changelog, getAvailableCategories, type ContentType } from "@/data/articles";
+import { articles, getAvailableCategories, type ContentType } from "@/data/articles";
 
 export default function Library() {
   const [activeType, setActiveType] = useState<ContentType>("All");
@@ -102,26 +102,6 @@ export default function Library() {
               ))}
             </div>
           )}
-        </div>
-      </section>
-
-      <section className="py-20 bg-card" data-testid="section-changelog">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
-              Changelog
-            </h2>
-            <div className="space-y-4">
-              {changelog.map((entry, index) => (
-                <div key={index} className="flex gap-4">
-                  <span className="text-sm font-mono text-muted-foreground w-20 flex-shrink-0">
-                    {entry.date}
-                  </span>
-                  <p className="text-sm text-foreground">{entry.entry}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 

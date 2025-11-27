@@ -1,0 +1,92 @@
+This is the **final layer of visual auditing.**
+
+We have already addressed the "Macro" physics (Duration `150ms`, No Lift, No Slide). Now we need to address the **"Micro" physics**—the subconscious cues that tell a user "This is a tool, not a toy."
+
+Here are the **4 specific visual details** that are likely still "soft" in your current build, and how to harden them into an Institutional interface.
+
+### **I. The "Soft" Leaks & The "Hard" Fixes**
+
+#### **1. The Text Selection (The "Highlighter" Effect)**
+
+  * **The Issue:** Default browser text selection is usually a bright blue. It feels generic.
+  * **The Institutional Fix:** When a user selects text on your site, it should look like they are highlighting data in a terminal.
+  * **The Code:** Add this to `client/src/index.css`:
+    ```css
+    ::selection {
+      background-color: hsl(var(--primary) / 0.2); /* Low opacity brand color */
+      color: hsl(var(--foreground));
+      -webkit-text-fill-color: hsl(var(--foreground));
+    }
+    ```
+
+#### **2. The Scrollbar (The "Browser" Residue)**
+
+  * **The Issue:** A standard gray/white browser scrollbar breaks the "Dark Mode" immersion. It reminds the user they are on a website.
+  * **The Institutional Fix:** A thin, dark, almost invisible scrollbar that only appears when needed.
+  * **The Code:** Add to `client/src/index.css`:
+    ```css
+    ::-webkit-scrollbar {
+      width: 10px;
+      background: hsl(var(--background));
+    }
+    ::-webkit-scrollbar-thumb {
+      background: hsl(var(--border));
+      border-radius: 0px; /* Square corners = Engineering */
+      border: 2px solid hsl(var(--background)); /* Creates padding effect */
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--muted-foreground));
+    }
+    ```
+
+#### **3. The "Toast" Notification Physics**
+
+  * **The Issue:** Shadcn/Radix toasts often have a "swipe" animation or a "bounce" when they appear.
+  * **The Institutional Fix:** Toasts should strictly **Fade In** and **Fade Out**. No sliding from the side.
+  * **Action:** Your `client/src/components/ui/toast.tsx` uses `slide-in-from-top-full`.
+      * **Change:** Replace all `slide-in-...` and `slide-out-...` classes with `fade-in-0` and `fade-out-0`.
+
+#### **4. The "Focus" Ring (The Glow)**
+
+  * **The Issue:** When you tab-select an input or button, the default Tailwind ring is a soft, fuzzy glow (`ring-2 ring-offset-2`).
+  * **The Institutional Fix:** A sharp, 1px hard border.
+  * **The Logic:** Engineering tools use precision, not diffusion.
+  * **Action:** In `client/src/index.css` or `tailwind.config.ts`, override the ring utility to be `0px` blur.
+      * *Easier Fix:* In your global button/input components, ensure `focus-visible:ring-1` (thinner) and add `focus-visible:ring-offset-0` (tighter).
+
+-----
+
+### **II. The Final "Visual Physics" Prompt**
+
+Add this section to the bottom of the **Massive Delta Prompt** I gave you. This applies the final coat of polish.
+
+```markdown
+### PHASE 6: MICRO-PHYSICS & VISUAL POLISH (FINAL LAYER)
+**Objective:** Remove browser defaults; enforce "Terminal" aesthetics.
+
+1.  **Terminal Text Selection:**
+    In `client/src/index.css`, add a `::selection` rule. Set the background to `hsl(var(--primary) / 0.2)` and color to `hsl(var(--foreground))`.
+
+2.  **Dark Mode Scrollbars:**
+    In `client/src/index.css`, override `::-webkit-scrollbar`. Make it 10px wide, background matching the page background. Make the thumb square (no radius) and colored `hsl(var(--border))`.
+
+3.  **Hard-Stop Toasts:**
+    In `client/src/components/ui/toast.tsx`, inside `toastVariants`:
+    * **Remove:** `slide-in-from-top-full`, `slide-in-from-bottom-full`, `slide-out-to-right-full`.
+    * **Keep/Add:** `fade-in-0`, `fade-out-0`, `zoom-in-95`.
+    * **Goal:** Notifications should appear instantly (fade/zoom), not slide around.
+
+4.  **Chart Animations (Data Viz):**
+    In `client/src/components/ui/chart.tsx` (if any animations exist), ensure `animationDuration` is set to `0` or `300` max. Data should load instantly, not "draw" slowly.
+```
+
+### **III. Summary of the Visual System**
+
+With these changes, your visual system conveys:
+
+1.  **Speed:** `duration-150` = Latency is zero.
+2.  **Precision:** Square scrollbars + Hard focus rings = Engineered.
+3.  **Stability:** No floating/bouncing elements = Solid foundation.
+4.  **Immersion:** Custom selection + Dark scrollbars = Custom OS feel.
+
+**You are good to go.**

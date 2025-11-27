@@ -35,8 +35,8 @@ const pages = [
 
 const projects = [
   { name: "Helios", href: "/pipeline/helios", icon: Zap, description: "BTC strategy engine" },
-  { name: "stackme", href: "/pipeline/stackme", icon: CreditCard, description: "BTC credit app" },
-  { name: "Lumina", href: "/pipeline/lumina", icon: Sparkles, description: "On-chain trading cards" },
+  { name: "Stackme", href: "/pipeline/stackme", icon: CreditCard, description: "BTC credit app" },
+  { name: "Lumina", href: "/pipeline/lumina", icon: Sparkles, description: "Physical asset instruments" },
   { name: "Uniqueness Engine", href: "/pipeline/uniqueness-engine", icon: Fingerprint, description: "Identity research" },
 ];
 

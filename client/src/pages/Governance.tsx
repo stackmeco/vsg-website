@@ -32,7 +32,7 @@ const thingsWeWontDo = [
 const projectGovernance = [
   {
     name: "Helios",
-    status: "Internal, early development",
+    status: "Internal Alpha",
     rules: [
       "Internal only — no external deposits; touches only Verified Systems funds",
       "Small slice — capped percentage of borrowed stablecoins at any time",
@@ -41,8 +41,8 @@ const projectGovernance = [
     ],
   },
   {
-    name: "stackme",
-    status: "Requirements & architecture defined",
+    name: "Stackme",
+    status: "Architecture",
     rules: [
       "Non-custodial by design — user keeps keys; app is a guided interface",
       "Safety controls are real, not marketing — Safety Slider reduces liquidation risk",
@@ -51,7 +51,7 @@ const projectGovernance = [
   },
   {
     name: "Lumina",
-    status: "Requirements defined",
+    status: "Specification",
     rules: [
       "Verifiable metadata, provenance, and grading",
       "No promises about returns",
@@ -60,7 +60,7 @@ const projectGovernance = [
   },
   {
     name: "Uniqueness Engine",
-    status: "Research phase",
+    status: "Research",
     rules: [
       "No deployment without clear privacy model",
       "Explicit consent mechanics required",
@@ -179,16 +179,6 @@ export default function Governance() {
             </CardContent>
           </Card>
 
-          {/* TODO: Add governance structure diagram showing: VSG LLC → Manager → COO → Shared Services */}
-          <div 
-            className="mt-8 p-8 border-2 border-dashed border-border rounded-lg text-center"
-            data-testid="placeholder-governance-diagram"
-            aria-label="Governance structure diagram placeholder"
-          >
-            <p className="text-sm text-muted-foreground font-mono">
-              [Governance structure diagram — coming soon]
-            </p>
-          </div>
         </div>
       </section>
 

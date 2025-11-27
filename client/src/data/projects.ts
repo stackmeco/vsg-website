@@ -1,4 +1,4 @@
-export type StageVariant = "research" | "requirements" | "architecture" | "development" | "prototype" | "testing";
+export type StageVariant = "research" | "specification" | "architecture" | "prototype" | "internal" | "production";
 
 export interface Project {
   name: string;
@@ -20,24 +20,24 @@ export const projects: Project[] = [
   },
   {
     name: "Helios",
-    stage: "Early Development",
-    stageVariant: "development",
-    description: "Internal BTC-backed strategy engine. Requirements and architecture defined; implementation and early testing in progress.",
+    stage: "Internal Alpha",
+    stageVariant: "internal",
+    description: "Internal BTC-backed strategy engine. Architecture defined; implementation and dogfooding in progress.",
     exploring: ["Automated yield strategies with strict risk bounds", "Multi-venue position management", "Real-time health monitoring"],
     href: "/pipeline/helios",
   },
   {
-    name: "stackme",
-    stage: "Early Development",
-    stageVariant: "development",
-    description: "A borrower-first BTC credit app. Requirements and technical architecture defined; prototypes and flows in development.",
+    name: "Stackme",
+    stage: "Architecture",
+    stageVariant: "architecture",
+    description: "A borrower-first BTC credit app. Technical architecture defined; verified build phase in progress.",
     exploring: ["Plain-language risk explanation", "Conservative leverage limits", "Gentle liquidation ladders"],
     href: "/pipeline/stackme",
   },
   {
     name: "Lumina",
-    stage: "Requirements",
-    stageVariant: "requirements",
+    stage: "Specification",
+    stageVariant: "specification",
     description: "Digital bearer instruments for physical assets. Features a proprietary optical physics engine for anti-spoofing and surface topology verification.",
     exploring: ["Photometric stereo for anti-spoofing", "Real-time material analysis on edge devices", "On-chain provenance tracking"],
     href: "/pipeline/lumina",

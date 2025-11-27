@@ -111,7 +111,7 @@ export default function Overview() {
               <div className="flex flex-wrap items-center gap-2 text-sm">
                 <span className="text-foreground/60 font-mono">5 projects in flight:</span>
                 <div className="flex flex-wrap gap-2">
-                  {["Axiom", "Helios", "stackme", "Lumina", "Uniqueness Engine"].map((name) => (
+                  {["Axiom", "Helios", "Stackme", "Lumina", "Uniqueness Engine"].map((name) => (
                     <Link key={name} href={`/pipeline/${name.toLowerCase().replace(" ", "-")}`}>
                       <span className="px-2.5 py-1 rounded-md bg-secondary/80 text-foreground/90 text-xs font-mono hover:bg-secondary transition-colors cursor-pointer">
                         {name}
@@ -210,7 +210,7 @@ export default function Overview() {
               Active Development Cycles
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Five projects in our Pipeline. Axiom is in prototype; Helios and stackme have technical architecture. None are currently accepting external capital or users.
+              Five projects in our Pipeline. Axiom is in prototype; Helios is in internal alpha; Stackme is in architecture. None are currently accepting external capital or users.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
