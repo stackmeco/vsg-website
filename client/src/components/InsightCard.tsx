@@ -44,10 +44,10 @@ export function InsightCard({
         </p>
         <Link
           href={`/thesis/${slug}`}
-          className="inline-flex items-center gap-1 text-sm text-primary font-medium group-hover:gap-2 transition-all"
+          className="inline-flex items-center gap-1 text-xs font-mono uppercase tracking-wide text-primary group-hover:gap-2 transition-all"
         >
-          Access Entry
-          <ArrowRight className="w-4 h-4" />
+          Read Analysis
+          <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </CardContent>
     </Card>
