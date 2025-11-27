@@ -1,4 +1,5 @@
-export type StageVariant = "research" | "specification" | "architecture" | "prototype" | "internal" | "production";
+import type { StageVariant } from "@/components/StageChip";
+export type { StageVariant };
 
 export interface Project {
   name: string;

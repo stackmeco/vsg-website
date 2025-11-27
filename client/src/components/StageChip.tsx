@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-type StageVariant = "research" | "specification" | "architecture" | "prototype" | "internal" | "production";
+export type StageVariant = "research" | "specification" | "architecture" | "prototype" | "internal" | "production";
 
 interface StageChipProps {
   stage: string;
@@ -9,26 +9,20 @@ interface StageChipProps {
 }
 
 const variantStyles: Record<StageVariant, string> = {
-  research: "bg-[hsl(var(--accent-warm))]/15 text-[hsl(var(--accent-warm))]",
-  specification: "bg-secondary text-foreground/80",
-  architecture: "bg-primary/15 text-primary",
-  prototype: "bg-[hsl(var(--accent-warm))]/20 text-[hsl(var(--accent-warm))]",
-  internal: "bg-[hsl(var(--color-warning))]/20 text-[hsl(var(--color-warning))]",
-  production: "bg-[hsl(var(--color-success))]/20 text-[hsl(var(--color-success))]",
+  research: "bg-[hsl(210_70%_50%/0.1)] text-[hsl(210_70%_60%)] border-[hsl(210_70%_50%/0.2)]",
+  specification: "bg-[hsl(270_60%_50%/0.1)] text-[hsl(270_60%_60%)] border-[hsl(270_60%_50%/0.2)]",
+  architecture: "bg-primary/10 text-primary border-primary/20",
+  prototype: "bg-[hsl(35_90%_50%/0.1)] text-[hsl(35_90%_55%)] border-[hsl(35_90%_50%/0.2)]",
+  internal: "bg-[hsl(45_90%_50%/0.1)] text-[hsl(45_90%_55%)] border-[hsl(45_90%_50%/0.2)]",
+  production: "bg-[hsl(142_69%_48%/0.1)] text-[hsl(142_69%_55%)] border-[hsl(142_69%_48%/0.2)]",
 };
 
 export function StageChip({ stage, variant = "specification", className }: StageChipProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center px-3 py-1.5 rounded-md text-xs font-mono font-medium uppercase tracking-wider border",
+        "inline-flex items-center px-3 py-1.5 rounded-sm text-xs font-mono font-semibold uppercase tracking-wider border",
         variantStyles[variant],
-        variant === "research" && "border-[hsl(var(--accent-warm))]/30",
-        variant === "specification" && "border-border",
-        variant === "architecture" && "border-primary/30",
-        variant === "prototype" && "border-[hsl(var(--accent-warm))]/30",
-        variant === "internal" && "border-[hsl(var(--color-warning))]/30",
-        variant === "production" && "border-[hsl(var(--color-success))]/30",
         className
       )}
       data-testid={`chip-stage-${stage.toLowerCase().replace(/\s+/g, "-")}`}

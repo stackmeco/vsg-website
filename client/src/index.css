@@ -2,67 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
-/* VSG Dark Theme - Control Room Aesthetic */
+/* VSG Industrial Control Room - Tungsten & Signal Palette */
 :root {
+  /* --- GEOMETRY & PHYSICS --- */
+  --radius: 2px; /* MACHINED EDGES. No organic curves. */
+  
+  /* --- ELEVATION SYSTEM --- */
   --button-outline: rgba(255,255,255, .10);
   --badge-outline: rgba(255,255,255, .05);
   --opaque-button-border-intensity: 9;
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
-  --background: 222 47% 3%;
-  --foreground: 30 6% 96%;
-  --border: 217 33% 12%;
-  --card: 222 35% 5%;
-  --card-foreground: 30 6% 96%;
-  --card-border: 217 33% 10%;
-  --sidebar: 222 35% 7%;
-  --sidebar-foreground: 30 6% 96%;
-  --sidebar-border: 217 33% 12%;
-  --sidebar-primary: 187 85% 53%;
-  --sidebar-primary-foreground: 222 47% 11%;
-  --sidebar-accent: 217 33% 12%;
-  --sidebar-accent-foreground: 30 6% 92%;
-  --sidebar-ring: 187 85% 53%;
-  --popover: 222 35% 8%;
-  --popover-foreground: 30 6% 96%;
-  --popover-border: 217 33% 14%;
-  --primary: 187 85% 53%;
-  --primary-foreground: 222 47% 11%;
-  --secondary: 217 33% 14%;
-  --secondary-foreground: 30 6% 92%;
-  --muted: 217 33% 12%;
-  --muted-foreground: 215 14% 65%;
-  --accent: 187 85% 53%;
+
+  /* --- THE VOID (Backgrounds) --- */
+  /* Deep, warm charcoal (Tungsten). NOT blue. NOT pure black. */
+  /* Represents: Matte metal casing. */
+  --background: 222 15% 5%;
+  --foreground: 30 5% 90%; /* Off-white/Silver for legibility */
+
+  /* --- SURFACE LAYERS (Panels) --- */
+  /* Distinct from background via Lightness, not Hue. */
+  --card: 222 15% 7%;
+  --card-foreground: 30 5% 90%;
+  --card-border: 222 15% 12%; /* Structural steel gray */
+  
+  --popover: 222 15% 6%;
+  --popover-foreground: 30 5% 96%;
+  --popover-border: 222 15% 15%;
+
+  /* --- THE SIGNAL (Primary Action) --- */
+  /* International Orange / Safety Amber. */
+  /* Represents: "System Active", "Caution", "High Voltage". */
+  --primary: 25 95% 53%;      /* #F26D21 */
+  --primary-foreground: 222 47% 11%; /* Dark contrast text on orange */
+
+  /* --- THE STRUCTURE (Secondary) --- */
+  /* Functional mechanics. Visible but ignored. */
+  --secondary: 222 15% 10%;
+  --secondary-foreground: 30 5% 80%;
+
+  --muted: 222 15% 10%;
+  --muted-foreground: 220 5% 55%; /* Darker gray for meta-data */
+
+  /* --- ALERTS & STATES --- */
+  --accent: 25 95% 53%; /* Same as primary for hover states */
   --accent-foreground: 222 47% 11%;
-  --destructive: 0 62% 54%;
+  
+  --destructive: 0 70% 50%; /* Critical Failure Red */
   --destructive-foreground: 0 0% 98%;
-  --input: 217 33% 18%;
-  --ring: 187 85% 53%;
-  --accent-warm: 38 92% 50%;
+  
+  --border: 222 15% 12%; /* Hairline dividers */
+  --input: 222 15% 10%;  /* Input fields darker than cards */
+  --ring: 25 95% 53%;    /* Hard orange focus ring */
+
+  /* --- DATA VISUALIZATION PALETTE --- */
+  /* High contrast, discernible on dark backgrounds */
+  --chart-1: 25 95% 53%;  /* Orange (Primary Data) */
+  --chart-2: 220 10% 70%; /* Silver (Secondary Data) */
+  --chart-3: 220 10% 35%; /* Steel (Baseline Data) */
+  --chart-4: 45 90% 50%;  /* Warning Yellow */
+  --chart-5: 0 70% 50%;   /* Alert Red */
+
+  /* --- SIDEBAR SYSTEM --- */
+  --sidebar: 222 15% 4%;
+  --sidebar-foreground: 30 5% 90%;
+  --sidebar-primary: 25 95% 53%;
+  --sidebar-primary-foreground: 222 47% 11%;
+  --sidebar-accent: 222 15% 10%;
+  --sidebar-accent-foreground: 25 95% 53%;
+  --sidebar-border: 222 15% 12%;
+  --sidebar-ring: 25 95% 53%;
+
+  /* --- UTILITY VARIABLES --- */
+  --accent-warm: 25 95% 53%;
   --accent-warm-foreground: 222 47% 11%;
-  --chart-1: 187 85% 53%;
-  --chart-2: 168 85% 40%;
-  --chart-3: 142 69% 48%;
-  --chart-4: 38 92% 50%;
-  --chart-5: 0 62% 54%;
+  --color-success: 142 69% 48%;
+  --color-warning: 45 90% 50%;
+  --color-data: 220 10% 70%;
+
+  /* --- TYPOGRAPHY --- */
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-heading: 'Space Grotesk', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
-  --radius: .5rem;
-  --shadow-2xs: 0px 2px 0px 0px hsl(222 47% 3% / 0.3);
-  --shadow-xs: 0px 2px 0px 0px hsl(222 47% 3% / 0.4);
-  --shadow-sm: 0px 2px 0px 0px hsl(222 47% 3% / 0.5), 0px 1px 2px -1px hsl(222 47% 3% / 0.4);
-  --shadow: 0px 2px 0px 0px hsl(222 47% 3% / 0.6), 0px 1px 2px -1px hsl(222 47% 3% / 0.5);
-  --shadow-md: 0px 2px 0px 0px hsl(222 47% 3% / 0.7), 0px 2px 4px -1px hsl(222 47% 3% / 0.5);
+
+  /* --- SHADOWS --- */
+  --shadow-2xs: 0px 2px 0px 0px hsl(222 15% 5% / 0.3);
+  --shadow-xs: 0px 2px 0px 0px hsl(222 15% 5% / 0.4);
+  --shadow-sm: 0px 2px 0px 0px hsl(222 15% 5% / 0.5), 0px 1px 2px -1px hsl(222 15% 5% / 0.4);
+  --shadow: 0px 2px 0px 0px hsl(222 15% 5% / 0.6), 0px 1px 2px -1px hsl(222 15% 5% / 0.5);
+  --shadow-md: 0px 2px 0px 0px hsl(222 15% 5% / 0.7), 0px 2px 4px -1px hsl(222 15% 5% / 0.5);
   --shadow-lg: 0 18px 40px rgba(15, 23, 42, 0.5);
-  --shadow-xl: 0px 2px 0px 0px hsl(222 47% 3% / 0.9), 0px 8px 10px -1px hsl(222 47% 3% / 0.7);
-  --shadow-2xl: 0px 2px 0px 0px hsl(222 47% 3% / 1);
+  --shadow-xl: 0px 2px 0px 0px hsl(222 15% 5% / 0.9), 0px 8px 10px -1px hsl(222 15% 5% / 0.7);
+  --shadow-2xl: 0px 2px 0px 0px hsl(222 15% 5% / 1);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
-  --color-success: 142 69% 48%;
-  --color-warning: 38 92% 50%;
-  --color-data: 168 85% 40%;
 
+  /* --- COMPUTED BORDERS --- */
   --sidebar-primary-border: hsl(var(--sidebar-primary));
   --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
   --sidebar-accent-border: hsl(var(--sidebar-accent));
@@ -79,97 +114,36 @@
   --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 }
 
+/* FORCE DARK MODE CONSISTENCY */
 .dark {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
-  --opaque-button-border-intensity: 9;
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
-  --background: 222 47% 3%;
-  --foreground: 30 6% 96%;
-  --border: 217 33% 12%;
-  --card: 222 35% 5%;
-  --card-foreground: 30 6% 96%;
-  --card-border: 217 33% 10%;
-  --sidebar: 222 35% 7%;
-  --sidebar-foreground: 30 6% 96%;
-  --sidebar-border: 217 33% 12%;
-  --sidebar-primary: 187 85% 53%;
-  --sidebar-primary-foreground: 222 47% 11%;
-  --sidebar-accent: 217 33% 12%;
-  --sidebar-accent-foreground: 30 6% 92%;
-  --sidebar-ring: 187 85% 53%;
-  --popover: 222 35% 8%;
-  --popover-foreground: 30 6% 96%;
-  --popover-border: 217 33% 14%;
-  --primary: 187 85% 53%;
-  --primary-foreground: 222 47% 11%;
-  --secondary: 217 33% 14%;
-  --secondary-foreground: 30 6% 92%;
-  --muted: 217 33% 12%;
-  --muted-foreground: 215 14% 65%;
-  --accent: 187 85% 53%;
-  --accent-foreground: 222 47% 11%;
-  --destructive: 0 62% 54%;
-  --destructive-foreground: 0 0% 98%;
-  --input: 217 33% 18%;
-  --ring: 187 85% 53%;
-  --accent-warm: 38 92% 50%;
-  --accent-warm-foreground: 222 47% 11%;
-  --chart-1: 187 85% 53%;
-  --chart-2: 168 85% 40%;
-  --chart-3: 142 69% 48%;
-  --chart-4: 38 92% 50%;
-  --chart-5: 0 62% 54%;
-  --shadow-2xs: 0px 2px 0px 0px hsl(222 47% 3% / 0.3);
-  --shadow-xs: 0px 2px 0px 0px hsl(222 47% 3% / 0.4);
-  --shadow-sm: 0px 2px 0px 0px hsl(222 47% 3% / 0.5), 0px 1px 2px -1px hsl(222 47% 3% / 0.4);
-  --shadow: 0px 2px 0px 0px hsl(222 47% 3% / 0.6), 0px 1px 2px -1px hsl(222 47% 3% / 0.5);
-  --shadow-md: 0px 2px 0px 0px hsl(222 47% 3% / 0.7), 0px 2px 4px -1px hsl(222 47% 3% / 0.5);
-  --shadow-lg: 0 18px 40px rgba(15, 23, 42, 0.5);
-  --shadow-xl: 0px 2px 0px 0px hsl(222 47% 3% / 0.9), 0px 8px 10px -1px hsl(222 47% 3% / 0.7);
-  --shadow-2xl: 0px 2px 0px 0px hsl(222 47% 3% / 1);
-  --color-success: 142 69% 48%;
-  --color-warning: 38 92% 50%;
-  --color-data: 168 85% 40%;
-
-  --sidebar-primary-border: hsl(var(--sidebar-primary));
-  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --sidebar-accent-border: hsl(var(--sidebar-accent));
-  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --primary-border: hsl(var(--primary));
-  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --secondary-border: hsl(var(--secondary));
-  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --muted-border: hsl(var(--muted));
-  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --accent-border: hsl(var(--accent));
-  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --destructive-border: hsl(var(--destructive));
-  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --background: 222 15% 5%;
+  --foreground: 30 5% 90%;
+  /* Inherits rest from root */
 }
 
-/* Terminal text selection */
+/* --- GLOBAL MICRO-INTERACTIONS --- */
+
+/* 1. Terminal Text Selection - Orange Signal */
 ::selection {
-  background-color: hsl(var(--primary) / 0.2);
-  color: hsl(var(--foreground));
-  -webkit-text-fill-color: hsl(var(--foreground));
+  background-color: hsl(25 95% 53% / 0.2);
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
 }
 
-/* Dark mode scrollbars */
+/* 2. Engineered Scrollbars - Square, Industrial */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
   background: hsl(var(--background));
 }
 
 ::-webkit-scrollbar-thumb {
   background: hsl(var(--border));
-  border-radius: 0px;
-  border: 2px solid hsl(var(--background));
+  border: 1px solid hsl(var(--background));
+  border-radius: 0px; /* Square - no organic curves */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground));
+  background: hsl(var(--primary) / 0.5); /* Orange signal on hover */
 }
 
 @layer base {
@@ -184,16 +158,25 @@
 }
 
 @layer components {
+  /* Subtle dot grid for engineering workspace feel */
   .dot-grid {
     background-image: radial-gradient(circle, hsl(var(--foreground) / 0.03) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
+  /* Blueprint/engineering graph paper grid */
   .line-grid {
     background-image: 
       linear-gradient(to right, hsl(var(--foreground) / 0.02) 1px, transparent 1px),
       linear-gradient(to bottom, hsl(var(--foreground) / 0.02) 1px, transparent 1px);
     background-size: 48px 48px;
+  }
+
+  /* 3. Background Grid Texture - Engineering Blueprint */
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, hsl(222 15% 12% / 0.3) 1px, transparent 1px),
+                      linear-gradient(to bottom, hsl(222 15% 12% / 0.3) 1px, transparent 1px);
   }
 }
 

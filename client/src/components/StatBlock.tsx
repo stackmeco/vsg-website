@@ -19,7 +19,7 @@ export function StatBlock({
     <div className={cn("space-y-1", className)}>
       <p 
         className={cn(
-          "text-4xl sm:text-5xl font-heading font-bold tracking-tight tabular-nums",
+          "text-4xl sm:text-5xl font-mono font-bold tracking-tight tabular-nums",
           variant === "primary" && "text-primary",
           variant === "muted" && "text-muted-foreground",
           variant === "default" && "text-foreground"

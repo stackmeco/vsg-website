@@ -120,8 +120,9 @@ export default function Pipeline() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-projects">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 relative" data-testid="section-projects">
+        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
             <h2 className="font-heading font-bold text-3xl text-foreground">
               Current Pipeline projects

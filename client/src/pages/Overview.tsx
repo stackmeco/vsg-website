@@ -200,8 +200,9 @@ export default function Overview() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-pipeline">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 relative" data-testid="section-pipeline">
+        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
               Current work
@@ -237,8 +238,9 @@ export default function Overview() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-values">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 relative" data-testid="section-values">
+        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
               How we operate
