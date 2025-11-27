@@ -114,16 +114,6 @@ export default function Overview() {
                     <ArrowRight className="w-3.5 h-3.5 ml-2" />
                   </Button>
                 </Link>
-                <Link href="/system">
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
-                    className="font-mono text-xs uppercase tracking-wider bg-background/50 backdrop-blur-md border-primary/20"
-                    data-testid="button-how-we-work"
-                  >
-                    Operational Specs
-                  </Button>
-                </Link>
                 <AudioModal />
               </div>
 
