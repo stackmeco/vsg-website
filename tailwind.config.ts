@@ -83,9 +83,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)"],
-        heading: ["var(--font-heading)"],
-        mono: ["var(--font-mono)"],
+        sans: ['Manrope', 'sans-serif'],
+        heading: ['Space Grotesk', 'sans-serif'],
+        mono: ['IBM Plex Mono', 'monospace'],
       },
       keyframes: {
         "accordion-down": {
