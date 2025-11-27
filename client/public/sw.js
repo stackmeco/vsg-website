@@ -6,7 +6,8 @@ const STATIC_ASSETS = [
   '/icon-192.png',
   '/icon-512.png',
   '/apple-touch-icon.png',
-  '/hero-texture.png'
+  '/hero-texture.png',
+  '/system_briefing.mp3'
 ];
 
 self.addEventListener('install', (event) => {

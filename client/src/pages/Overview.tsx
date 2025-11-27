@@ -10,6 +10,7 @@ import { StatBlock } from "@/components/StatBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Eye, Coins, Shield, Search, Compass, ShieldCheck } from "lucide-react";
+import { AudioModal } from "@/components/AudioModal";
 import gridTexture from "@assets/grid_texture.png";
 import { projects, getProjectHref } from "@/data/projects";
 
@@ -123,6 +124,7 @@ export default function Overview() {
                     Operational Specs
                   </Button>
                 </Link>
+                <AudioModal />
               </div>
 
               {/* Project Chips - "Active Cycles" */}
