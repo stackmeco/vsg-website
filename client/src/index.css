@@ -216,28 +216,56 @@
   .card-content, [class*="CardContent"] {
     @apply p-4;
   }
+
+  /* 10. INPUT PHYSICS - Terminal caret */
+  input, textarea {
+    caret-color: hsl(var(--primary));
+  }
 }
 
 @layer components {
   /* Subtle dot grid for engineering workspace feel */
+  /* Mobile: Reduced opacity for text legibility */
   .dot-grid {
-    background-image: radial-gradient(circle, hsl(var(--foreground) / 0.03) 1px, transparent 1px);
+    background-image: radial-gradient(circle, hsl(var(--foreground) / 0.02) 1px, transparent 1px);
     background-size: 24px 24px;
+  }
+
+  /* Desktop: Slightly stronger grid presence */
+  @media (min-width: 768px) {
+    .dot-grid {
+      background-image: radial-gradient(circle, hsl(var(--foreground) / 0.035) 1px, transparent 1px);
+    }
   }
 
   /* Blueprint/engineering graph paper grid */
   .line-grid {
     background-image: 
-      linear-gradient(to right, hsl(var(--foreground) / 0.02) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--foreground) / 0.02) 1px, transparent 1px);
+      linear-gradient(to right, hsl(var(--foreground) / 0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--foreground) / 0.015) 1px, transparent 1px);
     background-size: 48px 48px;
+  }
+
+  @media (min-width: 768px) {
+    .line-grid {
+      background-image: 
+        linear-gradient(to right, hsl(var(--foreground) / 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, hsl(var(--foreground) / 0.025) 1px, transparent 1px);
+    }
   }
 
   /* 3. Background Grid Texture - Engineering Blueprint */
   .bg-grid-pattern {
     background-size: 40px 40px;
-    background-image: linear-gradient(to right, hsl(222 15% 12% / 0.3) 1px, transparent 1px),
-                      linear-gradient(to bottom, hsl(222 15% 12% / 0.3) 1px, transparent 1px);
+    background-image: linear-gradient(to right, hsl(222 15% 12% / 0.2) 1px, transparent 1px),
+                      linear-gradient(to bottom, hsl(222 15% 12% / 0.2) 1px, transparent 1px);
+  }
+
+  @media (min-width: 768px) {
+    .bg-grid-pattern {
+      background-image: linear-gradient(to right, hsl(222 15% 12% / 0.3) 1px, transparent 1px),
+                        linear-gradient(to bottom, hsl(222 15% 12% / 0.3) 1px, transparent 1px);
+    }
   }
 }
 

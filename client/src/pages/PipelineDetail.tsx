@@ -13,7 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Home } from "lucide-react";
+import { Home, FileText } from "lucide-react";
 import type { StageVariant } from "@/data/projects";
 import gridTexture from "@assets/grid_texture.png";
 import axiomTexture from "@assets/axiom_cube.png";
@@ -30,6 +30,7 @@ interface ProjectData {
   notYet: string[];
   nextProject?: { name: string; href: string };
   texture?: string;
+  relatedArticle?: string;
 }
 
 const projectData: Record<string, ProjectData> = {
@@ -56,6 +57,7 @@ const projectData: Record<string, ProjectData> = {
       "Restricted domain knowledge only",
     ],
     nextProject: { name: "Helios", href: "/pipeline/helios" },
+    relatedArticle: "/thesis/insolvency-of-fiction",
   },
   helios: {
     name: "Helios",
@@ -80,6 +82,7 @@ const projectData: Record<string, ProjectData> = {
       "Not a product or service",
     ],
     nextProject: { name: "Stackme", href: "/pipeline/stackme" },
+    relatedArticle: "/thesis/verification-standard",
   },
   stackme: {
     name: "Stackme",
@@ -273,6 +276,21 @@ export default function PipelineDetail() {
                       </li>
                     ))}
                   </ul>
+                  {project.relatedArticle && (
+                    <div className="mt-6 pt-4 border-t border-border">
+                      <Link href={project.relatedArticle}>
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="text-xs font-mono uppercase tracking-wider text-primary gap-2 px-0 hover:bg-transparent hover:text-primary/80"
+                          data-testid="link-related-thesis"
+                        >
+                          <FileText className="w-3.5 h-3.5" />
+                          Read Thesis
+                        </Button>
+                      </Link>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
 

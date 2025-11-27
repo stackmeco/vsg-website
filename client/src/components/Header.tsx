@@ -1,9 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription, SheetClose } from "@/components/ui/sheet";
 import { Menu, Search, X } from "lucide-react";
+
+function SystemClock() {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const utcTime = time.toISOString().split("T")[1].split(".")[0];
+
+  return (
+    <span 
+      className="font-mono text-xs text-muted-foreground tabular-nums"
+      data-testid="text-system-clock"
+      aria-label={`Current UTC time: ${utcTime}`}
+    >
+      {utcTime} <span className="text-primary/60">UTC</span>
+    </span>
+  );
+}
 
 const navItems = [
   { name: "Overview", href: "/", number: "01" },
@@ -57,22 +78,25 @@ export function Header() {
                 </span>
               </Link>
             ))}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="ml-2 text-xs font-mono text-muted-foreground hover:text-foreground gap-1.5"
-              onClick={() => {
-                const event = new KeyboardEvent("keydown", { key: "k", metaKey: true });
-                document.dispatchEvent(event);
-              }}
-              data-testid="button-command-palette"
-              aria-label="Open command palette"
-            >
-              <Search className="w-3.5 h-3.5" />
-              <kbd className="pointer-events-none hidden sm:inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
-                <span className="text-xs">⌘</span>K
-              </kbd>
-            </Button>
+            <div className="flex items-center gap-4 ml-4">
+              <SystemClock />
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-xs font-mono text-muted-foreground hover:text-foreground gap-1.5"
+                onClick={() => {
+                  const event = new KeyboardEvent("keydown", { key: "k", metaKey: true });
+                  document.dispatchEvent(event);
+                }}
+                data-testid="button-command-palette"
+                aria-label="Open command palette"
+              >
+                <Search className="w-3.5 h-3.5" />
+                <kbd className="pointer-events-none hidden sm:inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
+                  <span className="text-xs">⌘</span>K
+                </kbd>
+              </Button>
+            </div>
           </nav>
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>

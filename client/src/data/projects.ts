@@ -8,6 +8,7 @@ export interface Project {
   description: string;
   exploring: string[];
   href: string;
+  relatedArticle?: string;
 }
 
 export const projects: Project[] = [
@@ -18,6 +19,7 @@ export const projects: Project[] = [
     description: "Internal BTC-backed strategy engine. Automates treasury operations within bounded risk parameters.",
     exploring: ["Automated yield strategies", "Multi-venue position management", "Real-time solvency monitoring"],
     href: "/pipeline/helios",
+    relatedArticle: "/thesis/verification-standard",
   },
   {
     name: "Stackme",
@@ -50,5 +52,6 @@ export const projects: Project[] = [
     description: "A deterministic inference layer designed to eliminate hallucination. Forces LLMs to anchor outputs to verified internal data structures.",
     exploring: ["RAG with strict citation enforcement", "Adversarial logic traps", "Mechanistic interpretability"],
     href: "/pipeline/axiom",
+    relatedArticle: "/thesis/insolvency-of-fiction",
   },
 ];
