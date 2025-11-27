@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { CheckCircle, AlertCircle } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 
 interface ContactFormProps {
   className?: string;
@@ -20,6 +21,7 @@ interface FormErrors {
 }
 
 export function ContactForm({ className }: ContactFormProps) {
+  const { toast } = useToast();
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -85,8 +87,18 @@ export function ContactForm({ className }: ContactFormProps) {
           consent: formData.consent,
         });
         setSubmitted(true);
+        toast({
+          title: "Message received",
+          description: "We'll respond if it's a clear fit for the studio.",
+        });
       } catch (error) {
-        setSubmitError("Failed to send message. Please try again.");
+        const errorMessage = "Failed to send message. Please try again.";
+        setSubmitError(errorMessage);
+        toast({
+          variant: "destructive",
+          title: "Submission failed",
+          description: errorMessage,
+        });
         console.error("Contact form error:", error);
       } finally {
         setIsSubmitting(false);

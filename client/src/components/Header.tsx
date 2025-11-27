@@ -99,6 +99,7 @@ export function Header() {
                       key={item.name}
                       href={item.href}
                       onClick={handleMobileNavClick}
+                      data-testid={`mobile-nav-${item.name.toLowerCase()}`}
                     >
                       <div
                         className={cn(

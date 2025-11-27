@@ -114,6 +114,8 @@ function sanitizeString(str: string): string {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  ensureDataDir();
+
   app.post("/api/contact", async (req: Request, res: Response) => {
     try {
       if (!validateOrigin(req)) {

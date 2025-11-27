@@ -105,7 +105,8 @@ export default function LibraryArticle() {
             </p>
             <Link 
               href="/thesis"
-              className="inline-flex items-center gap-2 text-sm text-primary hover:underline mt-4"
+              className="inline-flex items-center gap-2 text-sm text-primary mt-4 transition-colors"
+              data-testid="link-back-thesis-footer"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               Back to Thesis

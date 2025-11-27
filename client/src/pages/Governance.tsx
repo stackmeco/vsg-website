@@ -91,28 +91,28 @@ export default function Governance() {
               This page explains how Verified Systems (Verified Systems Group LLC, "VSG") is governed today: who decides what, how we treat our Bitcoin treasury, and how we approach regulation and compliance as we move projects from R&D to reality.
             </p>
 
-            <nav className="bg-card border border-border rounded-lg p-5" aria-label="Table of contents">
+            <nav className="bg-card border border-border rounded-lg p-5" aria-label="Table of contents" data-testid="nav-toc">
               <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-3">
                 On this page
               </p>
               <ul className="space-y-2">
                 <li>
-                  <a href="#structure" className="text-sm text-foreground hover:text-primary transition-colors">
+                  <a href="#structure" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-structure">
                     Legal structure
                   </a>
                 </li>
                 <li>
-                  <a href="#treasury" className="text-sm text-foreground hover:text-primary transition-colors">
+                  <a href="#treasury" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-treasury">
                     BTC treasury policy
                   </a>
                 </li>
                 <li>
-                  <a href="#risk" className="text-sm text-foreground hover:text-primary transition-colors">
+                  <a href="#risk" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-risk">
                     Risk governance
                   </a>
                 </li>
                 <li>
-                  <a href="#regulatory" className="text-sm text-foreground hover:text-primary transition-colors">
+                  <a href="#regulatory" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-regulatory">
                     Regulatory stance
                   </a>
                 </li>

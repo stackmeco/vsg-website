@@ -1,5 +1,6 @@
 import { Link, useRoute } from "wouter";
 import { Layout } from "@/components/Layout";
+import { PageMeta } from "@/components/PageMeta";
 import { StageChip } from "@/components/StageChip";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Button } from "@/components/ui/button";
@@ -178,6 +179,10 @@ export default function PipelineDetail() {
 
   return (
     <Layout>
+      <PageMeta
+        title={`${project.name} | Pipeline`}
+        description={project.description}
+      />
       {/* THE HUD - Header Section */}
       <section className="py-16 lg:py-20 relative overflow-hidden border-b border-border" data-testid="section-hero">
         {/* LAYER 1: Base Background */}
@@ -205,7 +210,7 @@ export default function PipelineDetail() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/" className="flex items-center gap-1">
+                  <Link href="/" className="flex items-center gap-1" data-testid="breadcrumb-home">
                     <Home className="w-3.5 h-3.5" />
                     <span className="sr-only">Home</span>
                   </Link>
@@ -214,7 +219,7 @@ export default function PipelineDetail() {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/pipeline">Pipeline</Link>
+                  <Link href="/pipeline" data-testid="breadcrumb-pipeline">Pipeline</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
