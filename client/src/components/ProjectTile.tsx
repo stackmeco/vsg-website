@@ -46,7 +46,7 @@ export function ProjectTile({ name, stage, stageVariant, description, exploring,
           className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
           data-testid={`link-project-${name.toLowerCase().replace(/\s+/g, "-")}`}
         >
-          Read more
+          View Specification
           <ArrowRight className="w-3 h-3" />
         </Link>
       </CardContent>

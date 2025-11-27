@@ -159,14 +159,14 @@ export default function Overview() {
                     <StatBlock
                       value="2"
                       label="Founders"
-                      subtext="Full ownership"
+                      subtext="Equity: Undiluted"
                     />
                   </div>
                   <div data-testid="stat-selffunded">
                     <StatBlock
                       value="100%"
-                      label="Self-funded"
-                      subtext="BTC treasury backed"
+                      label="Capitalization"
+                      subtext="Proprietary"
                     />
                   </div>
                 </div>

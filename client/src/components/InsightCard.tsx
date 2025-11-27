@@ -46,7 +46,7 @@ export function InsightCard({
           href={`/insights/${slug}`}
           className="inline-flex items-center gap-1 text-sm text-primary font-medium group-hover:gap-2 transition-all"
         >
-          Read more
+          Access Entry
           <ArrowRight className="w-4 h-4" />
         </Link>
       </CardContent>
