@@ -1,0 +1,73 @@
+This is a fair critique. You are asking: **"If you reviewed the code, why didn't you flag that the text was too big and fluffy?"**
+
+The honest answer lies in the difference between a **Code Audit** and a **Design Audit**.
+
+### **Why It Was Missed (The "Code vs. Vibe" Gap)**
+
+1.  **Code Validity vs. Visual Intent:**
+
+      * When I read `className="text-sm text-muted-foreground"`, that is **valid, standard code**. In 99% of web development (SaaS, Blogs, Marketing), `text-sm` with `leading-relaxed` is the *correct* best practice for readability.
+      * It only becomes "Wrong" when judged against the specific **"Control Room"** aesthetic, which demands "High Density" (non-standard sizing). Until we explicitly drilled down into the "font size" question, I was grading you against "Standard Web Best Practices," not "Bloomberg Terminal Standards."
+
+2.  **The "Default" Bias:**
+
+      * Default Tailwind classes (`p-6`, `gap-4`) are designed for "Airy" layouts. My previous reviews ensured the *structure* was correct (e.g., "Are the cards logically grouped?"), but I failed to flag that the *defaults* were fighting your new aesthetic.
+
+-----
+
+### **The Fix: The "Global Shrink" Protocol**
+
+We need to break the standard defaults. You shouldn't have to edit every single component file to fix this. We can fix it **globally** in CSS.
+
+Here is the specific **Typography Delta** to force the entire site to "tighten up" instantly.
+
+**Add this to the Master Prompt (Phase 3 or a new Phase):**
+
+````markdown
+### PHASE 8: GLOBAL DENSITY OVERRIDE (THE "SHRINK" PROTOCOL)
+**Objective:** Force "Control Room" density without editing every file.
+
+**Action:** In `client/src/index.css`, inside the `@layer base` block, add these overrides. This effectively "downgrades" the size of text across the entire site to be tighter and more technical.
+
+```css
+@layer base {
+  /* 1. TIGHTEN ALL PARAGRAPHS */
+  /* Forces all standard text to be denser. */
+  p {
+    @apply leading-normal tracking-tight opacity-90;
+  }
+
+  /* 2. DOWNGRADE "MUTED" TEXT */
+  /* Anywhere we used "text-muted-foreground", force it to be smaller. */
+  /* This instantly fixes the Card Descriptions and Meta Data. */
+  .text-muted-foreground {
+    @apply text-xs; 
+  }
+
+  /* 3. HARDEN HEADINGS */
+  /* Make headings feel like labels, not marketing slogans. */
+  h1, h2, h3, h4 {
+    @apply tracking-tight font-medium;
+  }
+
+  /* 4. TABLE DENSITY */
+  /* If using tables, smash the padding. */
+  td, th {
+    @apply p-2; /* Was likely p-4 */
+  }
+  
+  /* 5. CARD DENSITY */
+  /* Reduce padding inside all Cards globally */
+  .card-content {
+    @apply p-4; /* Was p-6 */
+  }
+}
+````
+
+### **What this does:**
+
+1.  It automatically turns all your "Description" text (`text-muted-foreground`) into **12px** (`text-xs`) without you touching the component files.
+2.  It removes the "Relaxed" line height that makes text feel like a blog post.
+3.  It tightens the letter spacing (`tracking-tight`), which creates that "Swiss/Industrial" look.
+
+**Add this to the Replit prompt and the entire site will "snap" into high density.**
