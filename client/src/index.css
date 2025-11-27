@@ -7,6 +7,34 @@
   /* --- GEOMETRY & PHYSICS --- */
   --radius: 2px; /* MACHINED EDGES. No organic curves. */
   
+  /* === DESIGN TOKEN SYSTEM === */
+  /* Typography Scale (Industrial) */
+  --text-hero: 2.5rem;        /* 40px - Page hero titles only */
+  --text-section: 1.75rem;    /* 28px - Section headings */
+  --text-card-title: 1rem;    /* 16px - Card/component titles */
+  --text-body: 0.875rem;      /* 14px - Body text */
+  --text-small: 0.75rem;      /* 12px - Descriptions, metadata */
+  --text-label: 0.625rem;     /* 10px - Labels, chips, tags */
+  
+  /* Spacing Scale (Mechanical) */
+  --space-section: 5rem;      /* 80px - Between major sections */
+  --space-block: 2.5rem;      /* 40px - Between content blocks */
+  --space-card: 1.5rem;       /* 24px - Card internal padding */
+  --space-element: 1rem;      /* 16px - Between elements */
+  --space-tight: 0.5rem;      /* 8px - Tight spacing */
+  
+  /* Icon Sizes (Standardized) */
+  --icon-lg: 1.25rem;         /* 20px - Primary icons */
+  --icon-md: 1rem;            /* 16px - Secondary icons */
+  --icon-sm: 0.75rem;         /* 12px - Inline icons */
+  
+  /* Status Colors (Industrial Palette Only) */
+  --status-active: 25 95% 53%;      /* Orange - Active/Primary */
+  --status-nominal: 220 10% 60%;    /* Silver - Normal/Info */
+  --status-warning: 45 90% 50%;     /* Amber - Warning */
+  --status-critical: 0 70% 50%;     /* Red - Critical */
+  --status-success: 142 50% 45%;    /* Muted Green - Success */
+  
   /* --- ELEVATION SYSTEM --- */
   --button-outline: rgba(255,255,255, .10);
   --badge-outline: rgba(255,255,255, .05);

@@ -95,11 +95,11 @@ export default function Overview() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
           <div className="grid lg:grid-cols-[1fr,320px] gap-12 items-center">
             <div className="max-w-2xl">
-              <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-[3.5rem] text-foreground leading-[1.1] tracking-tight mb-6">
+              <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-[1.1] tracking-tight mb-6">
                 Engineering verifiable systems for intelligence and value.
               </h1>
               
-              <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl">
+              <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-xl">
                 We engineer deterministic systems for <span className="text-foreground font-medium">Value, Intelligence, and Physical Reality</span>. Bitcoin verifies value; Axiom verifies truth. Deployment is gated by internal capital verification.
               </p>
 
@@ -118,12 +118,12 @@ export default function Overview() {
               </div>
 
               {/* Project Chips - "Active Cycles" */}
-              <div className="flex flex-wrap items-center gap-3 text-sm border-t border-border pt-6">
-                <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Active Cycles:</span>
+              <div className="flex flex-wrap items-center gap-3 border-t border-border pt-6">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Active Cycles:</span>
                 <div className="flex flex-wrap gap-2">
                   {["Axiom", "Helios", "Stackme", "Lumina"].map((name) => (
                     <Link key={name} href={`/pipeline/${name.toLowerCase()}`} data-testid={`chip-project-${name.toLowerCase()}`}>
-                      <span className="px-2 py-1 rounded-[2px] border border-border bg-card/50 text-muted-foreground hover:text-primary text-[10px] font-mono uppercase tracking-wide transition-colors cursor-pointer hover-elevate">
+                      <span className="px-2.5 py-1 rounded-[2px] border border-border bg-secondary text-muted-foreground hover:text-primary hover:border-primary/30 text-[10px] font-mono uppercase tracking-widest transition-colors cursor-pointer">
                         {name}
                       </span>
                     </Link>
@@ -170,39 +170,39 @@ export default function Overview() {
 
       <section className="py-20 bg-card" data-testid="section-directive">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-8">
+          <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-8">
             The VSG Directive
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="bg-background border-border">
               <CardContent className="p-6">
-                <p className="text-xs font-mono uppercase tracking-wider text-primary mb-1">
+                <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
                   Purpose
                 </p>
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Engineering Verifiable Systems</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Engineering Verifiable Systems</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
                   To engineer verifiable systems at the frontier of AI and Digital Assets. We enable the use of new forms of value without compromising ownership or control—reclaiming human attention for higher-value work.
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-background border-border">
               <CardContent className="p-6">
-                <p className="text-xs font-mono uppercase tracking-wider text-primary mb-1">
+                <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
                   Vision
                 </p>
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Compounding Productivity</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Compounding Productivity</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
                   A future where digital assets possess the clarity and durability of hard currency. We build for a reality where ownership is absolute, risks are visible, and systems compound human productivity rather than extract from it.
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-background border-border">
               <CardContent className="p-6">
-                <p className="text-xs font-mono uppercase tracking-wider text-primary mb-1">
+                <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
                   Mission
                 </p>
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Verification via Capital</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Verification via Capital</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
                   To navigate the frontier of AI and digital assets with our own capital as the first customer. We learn in the open and graduate only the systems we have verified with our own balance sheet.
                 </p>
               </CardContent>
@@ -214,11 +214,11 @@ export default function Overview() {
       <section className="py-20 relative" data-testid="section-pipeline">
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
               Active Development Cycles
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               Five projects in our Pipeline. Axiom is in research; Helios is in internal alpha; Stackme is in architecture. None are currently accepting external capital or users.
             </p>
           </div>
@@ -251,13 +251,13 @@ export default function Overview() {
       <section className="py-20 bg-card" data-testid="section-bitcoin">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-6">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
               Bitcoin is Reserve, Not Product
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
               We hold Bitcoin as our primary long-term reserve asset. We utilize conservative, over-collateralized borrowing to fund R&D, treating liquidity as an operational tool rather than a yield product.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               This is internal treasury management. We do not offer external yield products or manage third-party capital.
             </p>
           </div>
@@ -267,8 +267,8 @@ export default function Overview() {
       <section className="py-20 relative" data-testid="section-values">
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
               Operating Principles
             </h2>
           </div>

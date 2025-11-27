@@ -11,16 +11,16 @@ interface NextStepBlockProps {
 
 export function NextStepBlock({ label = "Next", nextPage, description, href }: NextStepBlockProps) {
   return (
-    <section className="py-16 bg-card" data-testid="section-next-step">
+    <section className="py-20 border-t border-border" data-testid="section-next-step">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
+          <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
             {label}
           </p>
-          <h3 className="font-heading font-semibold text-xl text-foreground mb-2">
+          <h3 className="font-heading font-semibold text-lg text-foreground mb-2">
             {nextPage}
           </h3>
-          <p className="text-muted-foreground mb-6">{description}</p>
+          <p className="text-sm text-muted-foreground mb-6">{description}</p>
           <Link href={href}>
             <Button data-testid={`button-next-${href.replace(/\//g, "")}`}>
               Proceed

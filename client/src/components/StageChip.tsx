@@ -8,20 +8,22 @@ interface StageChipProps {
   className?: string;
 }
 
+// INDUSTRIAL PALETTE ONLY: Tungsten grays + Signal orange
+// All stages use only Tungsten gray or Signal orange - no external colors
 const variantStyles: Record<StageVariant, string> = {
-  research: "bg-[hsl(210_70%_50%/0.1)] text-[hsl(210_70%_60%)] border-[hsl(210_70%_50%/0.2)]",
-  specification: "bg-[hsl(270_60%_50%/0.1)] text-[hsl(270_60%_60%)] border-[hsl(270_60%_50%/0.2)]",
+  research: "bg-secondary text-muted-foreground border-border",
+  specification: "bg-secondary text-muted-foreground border-border",
   architecture: "bg-primary/10 text-primary border-primary/20",
-  prototype: "bg-[hsl(35_90%_50%/0.1)] text-[hsl(35_90%_55%)] border-[hsl(35_90%_50%/0.2)]",
-  internal: "bg-[hsl(45_90%_50%/0.1)] text-[hsl(45_90%_55%)] border-[hsl(45_90%_50%/0.2)]",
-  production: "bg-[hsl(142_69%_48%/0.1)] text-[hsl(142_69%_55%)] border-[hsl(142_69%_48%/0.2)]",
+  prototype: "bg-primary/10 text-primary border-primary/20",
+  internal: "bg-primary/15 text-primary border-primary/25",
+  production: "bg-primary/20 text-primary border-primary/30",
 };
 
 export function StageChip({ stage, variant = "specification", className }: StageChipProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center px-3 py-1.5 rounded-sm text-xs font-mono font-semibold uppercase tracking-wider border",
+        "inline-flex items-center px-2.5 py-1 rounded-[2px] text-[10px] font-mono font-medium uppercase tracking-widest border",
         variantStyles[variant],
         className
       )}

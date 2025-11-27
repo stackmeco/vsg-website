@@ -17,7 +17,7 @@ export function Footer() {
             <p className="font-heading font-semibold text-foreground mb-1">
               Verifiable Systems Group LLC
             </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-xs text-muted-foreground leading-relaxed">
               Engineering deterministic systems at the intersection of AI and Economic Assurance.
             </p>
           </div>
@@ -26,7 +26,7 @@ export function Footer() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
                 data-testid={`footer-link-${link.name.toLowerCase()}`}
               >
                 {link.name}

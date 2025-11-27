@@ -76,10 +76,10 @@ export default function System() {
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" aria-hidden="true" />
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground leading-tight tracking-tight mb-6">
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
               System Architecture
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               A unified R&D unit backed by a proprietary Bitcoin treasury. System integrity is maintained through strict functional separation: Governance caps risk, Treasury manages capital, Engineering validates truth.
             </p>
           </div>
@@ -89,10 +89,10 @@ export default function System() {
       <section className="py-20 bg-card" data-testid="section-definitions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8">
-            <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
               What we mean
             </p>
-            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
               Terms we use, defined plainly
             </h2>
           </div>
@@ -134,10 +134,10 @@ export default function System() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="max-w-xl">
-              <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-6">
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
                 Bitcoin Treasury Program
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                 We hold BTC on our own balance sheet. When the risk/reward looks reasonable, we borrow stablecoins against a portion of that BTC, using reputable on-chain venues. Those borrowed funds either:
               </p>
               <ul className="space-y-3 mb-6">
@@ -150,7 +150,7 @@ export default function System() {
                   let us accumulate more BTC when we believe it's underpriced.
                 </li>
               </ul>
-              <p className="text-sm text-muted-foreground italic">
+              <p className="text-xs text-muted-foreground italic">
                 This is an internal program. We don't manage anyone else's assets, and we don't offer treasury products.
               </p>
             </div>
@@ -177,11 +177,11 @@ export default function System() {
 
       <section className="py-20 bg-card" data-testid="section-functions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
               Functions behind the studio
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               Verifiable Systems is still just two people, but we think in terms of functions so decisions and responsibilities are clear.
             </p>
           </div>
@@ -196,10 +196,10 @@ export default function System() {
       <section className="py-20" data-testid="section-changelog">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
-            <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
               System Record
             </p>
-            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-6">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
               Changelog
             </h2>
             <div className="bg-card border border-border rounded-sm p-6">
