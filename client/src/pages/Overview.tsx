@@ -8,7 +8,7 @@ import { NextStepBlock } from "@/components/NextStepBlock";
 import { StatBlock } from "@/components/StatBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Eye, Coins, Shield, BookOpen, Compass } from "lucide-react";
+import { ArrowRight, Eye, Coins, Shield, Search, Compass, ShieldCheck } from "lucide-react";
 import gridTexture from "@assets/grid_texture.png";
 import { projects } from "@/data/projects";
 
@@ -31,12 +31,17 @@ const values = [
   {
     title: "Open Source Intelligence",
     description: "Information asymmetry is a market inefficiency. We publish risk memos and post-mortems to reduce noise and signal-boost truth.",
-    icon: <BookOpen className="w-5 h-5" />,
+    icon: <Search className="w-5 h-5" />,
   },
   {
     title: "Horizon Scanning",
     description: "Architecting for the autonomous economy. We build for a future where AI agents require deterministic settlement, not human interfaces.",
     icon: <Compass className="w-5 h-5" />,
+  },
+  {
+    title: "Cognitive Security",
+    description: "Education is a defense layer. We arm our partners with first-principles technical analysis to neutralize hype cycles and predatory narratives.",
+    icon: <ShieldCheck className="w-5 h-5" />,
   },
 ];
 
