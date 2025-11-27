@@ -1,6 +1,6 @@
 import { Link, useRoute } from "wouter";
 import { Layout } from "@/components/Layout";
-import { PageMeta } from "@/components/PageMeta";
+import { SeoHead } from "@/components/SeoHead";
 import { StageChip } from "@/components/StageChip";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Button } from "@/components/ui/button";
@@ -33,9 +33,10 @@ export default function PipelineDetail() {
   if (!project) {
     return (
       <Layout>
-        <PageMeta
+        <SeoHead
           title="Project Not Found | Pipeline"
           description="The requested project specification was not found."
+          path={`/pipeline/${slug}`}
         />
         <div className="py-20 text-center">
           <h1 className="font-heading font-bold text-2xl text-foreground mb-4">
@@ -53,11 +54,19 @@ export default function PipelineDetail() {
     : project.texture === "lumina" ? luminaTexture 
     : gridTexture;
 
+  const breadcrumbs = [
+    { name: "Home", path: "/" },
+    { name: "Pipeline", path: "/pipeline" },
+    { name: project.name, path: `/pipeline/${slug}` }
+  ];
+
   return (
     <Layout>
-      <PageMeta
+      <SeoHead
         title={`${project.name} | Pipeline`}
         description={project.description}
+        path={`/pipeline/${slug}`}
+        breadcrumbs={breadcrumbs}
       />
       <section className="py-16 lg:py-20 relative overflow-hidden border-b border-border" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />

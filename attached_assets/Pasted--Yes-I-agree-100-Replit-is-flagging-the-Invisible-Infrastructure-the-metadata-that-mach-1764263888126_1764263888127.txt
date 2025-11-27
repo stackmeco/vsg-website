@@ -1,0 +1,50 @@
+**Yes, I agree 100%.**
+
+Replit is flagging the **"Invisible Infrastructure"**—the metadata that machines (Google, Twitter, LinkedIn) read to verify your site's identity.
+
+If you skip these, you have a beautiful "Control Room" that looks like a "Broken Link" when shared on Slack or iMessage.
+
+Here is the breakdown of **Why** and **How** (using the code I just gave you).
+
+### **1. The Verdict on Replit's List**
+
+| Suggestion | Verdict | The "Institutional" Reason |
+| :--- | :--- | :--- |
+| **Article Schema** | **CRITICAL** | It tells Google your Thesis is **"Technical Documentation,"** not a blog post. This triggers "Rich Results" (like code snippets or author bylines) in search. |
+| **Breadcrumb Schema** | **CRITICAL** | It forces Google to display `verifiablesystems.com > Pipeline > Helios` instead of a messy URL. It looks architectural. |
+| **OG Image** | **MANDATORY** | Without this, sharing your link on Twitter/LinkedIn shows a gray box. That signals "Vaporware." You need a branded visual. |
+| **Favicon** | **MANDATORY** | The default Vite logo says "I forgot to finish the site." A solid Orange Square says "System Active." |
+
+-----
+
+### **2. The Solution is Already in the "Master SEO Prompt"**
+
+The prompt I provided in the previous turn **solves the Schema and Breadcrumb issues automatically.**
+
+  * **For Schema:** The `SeoHead.tsx` component I wrote includes the `application/ld+json` script block. That *is* the Schema.
+  * **For Breadcrumbs:** We can add a specific `BreadcrumbList` schema to the `SeoHead` if you want to be extra rigorous (I can provide that snippet below).
+
+**However, the Code cannot create the Images.** You/Replit must generate the actual `.png` and `.svg` files.
+
+### **3. The "Missing Asset" Action Plan**
+
+You need to physically create two files and drop them into the `client/public/` folder.
+
+**Task A: The Favicon (`favicon.svg`)**
+
+  * **Instruction:** Create a file named `client/public/favicon.svg` with this content (Solid Orange Square):
+
+<!-- end list -->
+
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="2" fill="#F26D21"/>
+</svg>
+```
+
+**Task B: The Social Card (`og-image.png`)**
+
+  * **Instruction:** You need a 1200x630px image.
+  * **Fast Fix:** Ask Replit to "Generate a 1200x630 png image with a dark tungsten background and the text 'Verifiable Systems Group' in white sans-serif font centered." Save it as `client/public/og-image.png`.
+
+**Once those two files exist, and you run the SEO Code Prompt, you are done.**

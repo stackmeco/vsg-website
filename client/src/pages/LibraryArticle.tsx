@@ -1,7 +1,7 @@
 import { Link, useRoute } from "wouter";
 import { useMemo } from "react";
 import { Layout } from "@/components/Layout";
-import { PageMeta } from "@/components/PageMeta";
+import { SeoHead } from "@/components/SeoHead";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, Clock, Volume2, Square, Loader2 } from "lucide-react";
@@ -52,13 +52,21 @@ export default function LibraryArticle() {
     ) / 200
   );
 
+  const breadcrumbs = [
+    { name: "Home", path: "/" },
+    { name: "Thesis", path: "/thesis" },
+    { name: article.title, path: `/thesis/${slug}` }
+  ];
+
   return (
     <Layout>
-      <PageMeta
+      <SeoHead
         title={article.title}
         description={article.description}
         type="article"
+        path={`/thesis/${slug}`}
         publishedTime={article.publishedTime}
+        breadcrumbs={breadcrumbs}
       />
 
       <article className="py-20 lg:py-28" data-testid={`article-${slug}`}>
