@@ -19,7 +19,7 @@ export default function Library() {
     <Layout>
       <PageMeta 
         title="Thesis" 
-        description="The foundational thinking behind Verified Systems. Our manifesto on building verifiable, high-integrity systems." 
+        description="The foundational thinking behind Verifiable Systems. Our manifesto on building verifiable, high-integrity systems." 
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />

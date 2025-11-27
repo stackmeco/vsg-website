@@ -6,7 +6,7 @@ export default function Terms() {
     <Layout>
       <PageMeta 
         title="Terms of Use" 
-        description="Terms governing your use of the Verified Systems website. This is an informational site, not a financial service." 
+        description="Terms governing your use of the Verifiable Systems website. This is an informational site, not a financial service." 
       />
       <section className="py-20 lg:py-28" data-testid="section-terms">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,7 +23,7 @@ export default function Terms() {
                 About this site
               </h2>
               <p className="text-foreground leading-relaxed">
-                This website is operated by Verified Systems Group LLC ("VSG," "we," "us"). It provides general information about our company, our research, and our pipeline projects. Nothing on this site constitutes financial advice, an offer to invest, or a solicitation of any kind.
+                This website is operated by Verifiable Systems Group LLC ("VSG," "we," "us"). It provides general information about our company, our research, and our pipeline projects. Nothing on this site constitutes financial advice, an offer to invest, or a solicitation of any kind.
               </p>
             </section>
 
@@ -64,7 +64,7 @@ export default function Terms() {
                 Intellectual property
               </h2>
               <p className="text-foreground leading-relaxed">
-                All content on this site, including text, graphics, and code, is the property of Verified Systems Group LLC unless otherwise noted. You may not reproduce, distribute, or create derivative works without our written permission.
+                All content on this site, including text, graphics, and code, is the property of Verifiable Systems Group LLC unless otherwise noted. You may not reproduce, distribute, or create derivative works without our written permission.
               </p>
             </section>
 

@@ -148,7 +148,7 @@ export default function LibraryArticle() {
 
           <footer className="mt-20 pt-8 border-t border-border">
             <p className="text-sm text-muted-foreground">
-              Published by Verified Systems Group
+              Published by Verifiable Systems Group
             </p>
             <Link 
               href="/thesis"

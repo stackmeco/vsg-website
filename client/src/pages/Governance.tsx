@@ -75,7 +75,7 @@ export default function Governance() {
     <Layout>
       <PageMeta 
         title="Governance" 
-        description="How Verified Systems is governed: decision rights, BTC treasury policy, risk controls, and our regulatory stance. Transparency over theater." 
+        description="How Verifiable Systems is governed: decision rights, BTC treasury policy, risk controls, and our regulatory stance. Transparency over theater." 
       />
       
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
@@ -102,7 +102,7 @@ export default function Governance() {
               We work at the edge of AI, Digital Assets, and Verifiable Systems. That edge only matters if people can understand the risks and the rules.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              This page explains how Verified Systems (Verified Systems Group LLC, "VSG") is governed today: who decides what, how we treat our Bitcoin treasury, and how we approach regulation and compliance as we move projects from R&D to reality.
+              This page explains how Verifiable Systems (Verifiable Systems Group LLC, "VSG") is governed today: who decides what, how we treat our Bitcoin treasury, and how we approach regulation and compliance as we move projects from R&D to reality.
             </p>
 
             <nav className="bg-card border border-border rounded-lg p-5" aria-label="Table of contents" data-testid="nav-toc">
@@ -146,7 +146,7 @@ export default function Governance() {
               How the company is governed
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Verified Systems Group LLC is a manager-managed Wyoming LLC, foreign-qualified in Massachusetts.
+              Verifiable Systems Group LLC is a manager-managed Wyoming LLC, foreign-qualified in Massachusetts.
             </p>
           </div>
 

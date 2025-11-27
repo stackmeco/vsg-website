@@ -57,7 +57,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 lg:h-[72px]">
           <Link href="/" data-testid="link-home">
             <span className="font-heading font-bold text-lg tracking-tight text-foreground">
-              Verified Systems Group
+              Verifiable Systems Group
             </span>
           </Link>
 
@@ -115,7 +115,7 @@ export function Header() {
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <div className="flex flex-col h-full">
                 <div className="p-4 border-b border-border flex items-center justify-between">
-                  <span className="font-heading font-bold text-lg">Verified Systems Group</span>
+                  <span className="font-heading font-bold text-lg">Verifiable Systems Group</span>
                   <div className="flex items-center gap-1">
                     <Button
                       variant="ghost"

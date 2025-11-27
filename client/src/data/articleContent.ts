@@ -135,7 +135,7 @@ export const articleContent: Record<string, ArticleContent> = {
         paragraphs: [
           "The next decade will see the emergence of autonomous economic agents—AI systems that earn, spend, and invest without human intervention. These agents will need money that matches their nature: digital, permissionless, instant, and bearer-form.",
           "Bitcoin, and specifically Lightning, is the only serious candidate for this role. It is the only money native to the internet, the only money that does not require identity, the only money that settles at machine speed. Every other form of digital value ultimately depends on a bank, a government, or a trusted third party that AI agents cannot interface with.",
-          "At Verified Systems Group, we are building the infrastructure for this machine economy. Axiom verifies what agents know. Helios manages what they own. Together, they form the foundation for autonomous systems that can operate with the same integrity we demand from human institutions—but at machine speed and machine scale.",
+          "At Verifiable Systems Group, we are building the infrastructure for this machine economy. Axiom verifies what agents know. Helios manages what they own. Together, they form the foundation for autonomous systems that can operate with the same integrity we demand from human institutions—but at machine speed and machine scale.",
         ],
       },
     ],

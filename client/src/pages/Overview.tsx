@@ -290,7 +290,7 @@ export default function Overview() {
 
       <NextStepBlock
         nextPage="System"
-        description="See how Verified Systems operates day to day."
+        description="See how Verifiable Systems operates day to day."
         href="/system"
       />
     </Layout>

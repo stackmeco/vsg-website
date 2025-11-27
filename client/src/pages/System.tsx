@@ -59,7 +59,7 @@ export default function System() {
     <Layout>
       <PageMeta 
         title="System" 
-        description="How Verified Systems works: deterministic infrastructure, Bitcoin treasury, governance, and building verifiable systems for intelligence and value." 
+        description="How Verifiable Systems works: deterministic infrastructure, Bitcoin treasury, governance, and building verifiable systems for intelligence and value." 
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />
@@ -180,7 +180,7 @@ export default function System() {
               Functions behind the studio
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Verified Systems is still just two people, but we think in terms of functions so decisions and responsibilities are clear.
+              Verifiable Systems is still just two people, but we think in terms of functions so decisions and responsibilities are clear.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

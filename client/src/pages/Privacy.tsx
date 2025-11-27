@@ -6,7 +6,7 @@ export default function Privacy() {
     <Layout>
       <PageMeta 
         title="Privacy Policy" 
-        description="How Verified Systems handles your data. We collect minimal information and never sell it." 
+        description="How Verifiable Systems handles your data. We collect minimal information and never sell it." 
       />
       <section className="py-20 lg:py-28" data-testid="section-privacy">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">

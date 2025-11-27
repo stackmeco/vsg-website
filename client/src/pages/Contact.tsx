@@ -8,7 +8,7 @@ export default function Contact() {
     <Layout>
       <PageMeta 
         title="Contact" 
-        description="Inbound channel for Verified Systems Group. All transmissions reviewed by the partners." 
+        description="Inbound channel for Verifiable Systems Group. All inquiries reviewed by the partners." 
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />

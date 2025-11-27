@@ -20,7 +20,7 @@ export function PageMeta({
   publishedTime
 }: PageMetaProps) {
   const [location] = useLocation();
-  const fullTitle = `${title} | Verified Systems`;
+  const fullTitle = `${title} | Verifiable Systems`;
   const canonicalUrl = `${BASE_URL}${location}`;
   const imageUrl = image.startsWith("http") ? image : `${BASE_URL}${image}`;
 
@@ -56,7 +56,7 @@ export function PageMeta({
     setMeta('meta[property="og:type"]', "content", type);
     setMeta('meta[property="og:url"]', "content", canonicalUrl);
     setMeta('meta[property="og:image"]', "content", imageUrl);
-    setMeta('meta[property="og:site_name"]', "content", "Verified Systems");
+    setMeta('meta[property="og:site_name"]', "content", "Verifiable Systems");
     
     setMeta('meta[name="twitter:card"]', "content", "summary_large_image");
     setMeta('meta[name="twitter:title"]', "content", fullTitle);

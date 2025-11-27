@@ -15,7 +15,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="max-w-md">
             <p className="font-heading font-semibold text-foreground mb-1">
-              Verified Systems Group LLC
+              Verifiable Systems Group LLC
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Engineering deterministic systems at the intersection of AI and Economic Assurance.
