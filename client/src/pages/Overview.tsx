@@ -81,7 +81,7 @@ export default function Overview() {
             backgroundImage: `url(${gridTexture})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.22,
+            opacity: 0.12,
             filter: "grayscale(100%) contrast(120%)",
           }}
           aria-hidden="true"
