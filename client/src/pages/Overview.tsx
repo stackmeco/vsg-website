@@ -224,9 +224,6 @@ export default function Overview() {
         <div className="absolute inset-0 bg-grid-pattern opacity-30" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
-              Current work
-            </p>
             <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
               Active Development Cycles
             </h2>
