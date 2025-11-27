@@ -77,6 +77,12 @@ Preferred communication style: Simple, everyday language.
 - Drizzle chosen for type-safe SQL queries and automatic migration generation
 - Neon selected for serverless PostgreSQL with edge compatibility
 
+**Contact Form Storage**
+- Contact submissions saved to `data/contacts.json` (file-based persistence)
+- Each entry has: id, timestamp, name, email, organization, role, subject, message, consent
+- Retrieve all contacts via `GET /api/contacts` endpoint
+- Future: Email notifications to andrew@steckme.co via Resend integration (deferred)
+
 ### External Dependencies
 
 **Core Infrastructure**
