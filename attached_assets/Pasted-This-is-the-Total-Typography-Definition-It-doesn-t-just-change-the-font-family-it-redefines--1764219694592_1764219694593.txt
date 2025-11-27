@@ -1,0 +1,127 @@
+This is the **Total Typography Definition.**
+
+It doesn't just change the font family; it redefines **how big "Big" is** and **how small "Small" is** across the entire application.
+
+We are shifting the "Base Unit" of the site from **16px (Consumer Standard)** to **14px (Industrial Standard)**.
+
+**Copy and paste this entire block into Replit.**
+
+-----
+
+````markdown
+**MASTER TYPOGRAPHY & SIZING PROTOCOL**
+
+We are enforcing a "High Density" text system.
+**The Goal:** The interface must feel like a precision instrument, not a marketing brochure.
+**The Method:** We are overriding the default Tailwind font sizes to shift the entire site's scale down by one step.
+
+Execute these 2 steps to lock in the sizing physics.
+
+### STEP 1: REDEFINE THE SCALE (`tailwind.config.ts`)
+**Action:** Update the `theme.extend` block. We are overriding the default `fontSize` object to enforce tighter vertical rhythm and smaller baselines.
+
+```typescript
+// In tailwind.config.ts inside theme.extend:
+
+fontFamily: {
+  sans: ['Manrope', 'sans-serif'],
+  heading: ['Space Grotesk', 'sans-serif'],
+  mono: ['IBM Plex Mono', 'monospace'],
+},
+
+// THE INDUSTRIAL SCALE (High Density)
+fontSize: {
+  // Labels / Micro-copy (10px)
+  '2xs': ['0.625rem', { lineHeight: '0.75rem', letterSpacing: '0.05em' }],
+  
+  // Metadata / Footnotes (12px)
+  xs: ['0.75rem', { lineHeight: '1rem', letterSpacing: '0em' }],
+  
+  // BODY BASE (14px) - This is the new "Normal"
+  sm: ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '-0.01em' }],
+  
+  // Section Headers (16px)
+  base: ['1rem', { lineHeight: '1.5rem', letterSpacing: '-0.01em' }],
+  
+  // Card Titles (18px)
+  lg: ['1.125rem', { lineHeight: '1.5rem', letterSpacing: '-0.02em' }],
+  
+  // Page Sub-headers (24px)
+  xl: ['1.5rem', { lineHeight: '1.75rem', letterSpacing: '-0.02em' }],
+  
+  // Major Heroes (32px+)
+  '2xl': ['2rem', { lineHeight: '2.25rem', letterSpacing: '-0.02em' }],
+  '3xl': ['2.5rem', { lineHeight: '2.5rem', letterSpacing: '-0.03em' }],
+  '4xl': ['3rem', { lineHeight: '1', letterSpacing: '-0.03em' }],
+  '5xl': ['3.5rem', { lineHeight: '1', letterSpacing: '-0.04em' }],
+},
+````
+
+### STEP 2: ENFORCE THE RULES GLOBALLY (`client/src/index.css`)
+
+**Action:** Update `@layer base` to force these sizes onto HTML elements. This prevents "Marketing Bloat" from sneaking back in.
+
+```css
+@layer base {
+  /* 1. THE BASELINE RESET */
+  html {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px; /* Sets 1rem = 14px globally */
+    letter-spacing: -0.015em; /* Tighten Manrope slightly */
+    color: hsl(var(--foreground));
+  }
+
+  /* 2. HEADINGS (Signal) */
+  /* Always Space Grotesk. Always tight. */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600; /* SemiBold */
+    color: #ffffff; /* Pure white for signal */
+  }
+
+  h1 { @apply text-4xl md:text-5xl mb-6; }
+  h2 { @apply text-2xl md:text-3xl mb-4; }
+  h3 { @apply text-lg mb-2; }
+  h4 { @apply text-base mb-2; }
+
+  /* 3. BODY COPY (Context) */
+  /* Always Inter/Manrope. Always muted slightly to reduce noise. */
+  p {
+    @apply text-sm leading-normal text-muted-foreground/90;
+    margin-bottom: 0.75rem;
+  }
+
+  /* 4. LABELS & METADATA */
+  /* The "Eyebrow" text above headers */
+  .label-text {
+    @apply text-2xs uppercase tracking-widest text-muted-foreground/70 font-mono;
+  }
+
+  /* 5. DATA & NUMBERS */
+  /* Always Monospace. Always tabular. */
+  .data-text {
+    @apply font-mono tabular-nums tracking-tight;
+  }
+  
+  /* 6. LISTS */
+  ul, ol {
+    @apply my-4 ml-4 list-disc text-sm text-muted-foreground;
+  }
+  li {
+    @apply mb-1;
+  }
+}
+```
+
+**EXECUTE.**
+
+```
+
+***
+
+### **What this achieves:**
+
+1.  **The 14px Standard:** By setting `html { font-size: 14px }`, we shrink the *entire* site logic. 1rem is now 14px, not 16px. This instantly makes everything feel tighter and more professional.
+2.  **The "Label" Tier:** We introduced `text-2xs` (10px). This allows you to add those tiny, architectural labels ("SYSTEM STATUS", "VERSION 1.0") that make the UI feel like a schematic.
+3.  **The Header Contrast:** By forcing headers to `white` and body text to `muted-foreground/90`, we create a strict visual hierarchy. You read the Signal (Header), you scan the Context (Body).
+```
