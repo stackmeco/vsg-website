@@ -53,7 +53,7 @@ export function ConsolePanel({
           {metrics.map((metric, index) => (
             <div key={index} className="font-mono text-xs">
               <span className="text-slate-500">{metric.label}: </span>
-              <span className="text-slate-300">{metric.value}</span>
+              <span className="text-primary tabular-nums tracking-tight">{metric.value}</span>
             </div>
           ))}
         </div>

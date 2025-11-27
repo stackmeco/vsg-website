@@ -1,0 +1,60 @@
+To maintain the "Institutional Control Room" aesthetic, you must rigorously distinguish between **Data** (which changes/loads) and **Labels** (which are painted on the chassis).
+
+**Rule of Thumb:**
+
+  * **Is it a measurement?** (e.g., $ Value, %, Count) $\rightarrow$ **Yes**, animate (Scramble/Decode).
+  * **Is it an index?** (e.g., Step 01, Section 02) $\rightarrow$ **No**, keep static.
+
+Based on your codebase, here are the specific locations to apply (or avoid) this logic.
+
+### **1. The "ConsolePanel" (YES - Animate)**
+
+  * **Location:** `client/src/components/ConsolePanel.tsx`
+  * **Why:** This component represents a "live feed" or status readout. If you use this to show "LTV: 35%" or "Uptime: 99.9%", those numbers should feel like they are being calculated live.
+  * **The Fix:** Apply the `tabular-nums` class (monospaced numbers) to the values. If you want the "Scramble" effect, apply it here.
+
+**Update `ConsolePanel.tsx`:**
+
+```tsx
+{metrics && metrics.length > 0 && (
+  <div className="flex gap-6 pt-2 border-t border-slate-700/50">
+    {metrics.map((metric, index) => (
+      <div key={index} className="font-mono text-xs">
+        <span className="text-slate-500">{metric.label}: </span>
+        {/* Add tabular-nums and text-primary for the 'Live Data' look */}
+        <span className="text-primary tabular-nums tracking-tight">
+          {metric.value}
+        </span>
+      </div>
+    ))}
+  </div>
+)}
+```
+
+### **2. The Pipeline Stages (NO - Static)**
+
+  * **Location:** `client/src/pages/Pipeline.tsx` (The "01", "02", "03" cards).
+  * **Why:** These are not *measurements*; they are *architectural steps*. In a control room, the label "Zone 01" is painted on the wall; it doesn't digital-scramble every time you look at it.
+  * **Recommendation:** Keep them strictly static. Ensure they use `font-mono` but do not animate them.
+
+### **3. The Navigation Numbers (NO - Static)**
+
+  * **Location:** `client/src/components/Header.tsx` (Mobile Menu "01 Overview").
+  * **Why:** Same logic. These are navigational coordinates. They should feel permanent and etched.
+
+### **4. "Thesis" Dates (MAYBE - Subtle)**
+
+  * **Location:** `client/src/components/InsightCard.tsx` (e.g., "Nov 26, 2025").
+  * **Why:** Dates are data. However, making them scramble might be distracting for a list of articles.
+  * **Recommendation:** Do not scramble. Instead, give them a **"Blink"** on load.
+      * *Effect:* The date appears instantly but flashes brighter (opacity 0.5 $\to$ 1.0) once, like a timestamp being logged in a terminal.
+
+### **Summary Directive**
+
+You only need to touch **Data Displays.**
+
+1.  **`StatBlock.tsx`:** Use `tabular-nums` + Scramble (optional).
+2.  **`ConsolePanel.tsx`:** Use `tabular-nums` + Scramble (optional).
+3.  **Everything else (Lists, Nav, Steps):** Static.
+
+**Do not over-animate.** A control room where everything is moving is a control room where the operator makes mistakes. Motion should be reserved for **changing variables.**
