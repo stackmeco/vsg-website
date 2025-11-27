@@ -1,0 +1,611 @@
+================================================================================
+VERIFIED SYSTEMS GROUP - COMPREHENSIVE CODE REVIEW
+================================================================================
+Generated: November 27, 2025
+Stack: React + Vite + Express + TypeScript + Tailwind CSS + Shadcn UI
+
+================================================================================
+ARCHITECTURE OVERVIEW
+================================================================================
+
+FRONTEND:
+- Framework: React 18 with Vite
+- Routing: Wouter (lightweight router)
+- State Management: TanStack Query v5
+- Styling: Tailwind CSS + Shadcn UI components
+- Forms: React Hook Form with Zod validation
+
+BACKEND:
+- Runtime: Node.js with Express
+- Validation: Zod schemas
+- Storage: File-based JSON (contacts.json)
+- No database required (static marketing site)
+
+BUILD:
+- Bundler: Vite
+- TypeScript: Strict mode
+- PostCSS: Autoprefixer
+
+================================================================================
+FILE STRUCTURE
+================================================================================
+
+/
+├── client/
+│   └── src/
+│       ├── components/          # Reusable components
+│       │   ├── ui/              # Shadcn UI components (45+)
+│       │   ├── ChangeLogEntry.tsx
+│       │   ├── CommandPalette.tsx
+│       │   ├── ConsolePanel.tsx
+│       │   ├── ContactForm.tsx
+│       │   ├── ErrorBoundary.tsx
+│       │   ├── Footer.tsx
+│       │   ├── Header.tsx
+│       │   ├── InsightCard.tsx
+│       │   ├── Layout.tsx
+│       │   ├── NextStepBlock.tsx
+│       │   ├── PageMeta.tsx
+│       │   ├── PolicyChip.tsx
+│       │   ├── ProjectTile.tsx
+│       │   ├── StageChip.tsx
+│       │   ├── StatBlock.tsx
+│       │   ├── StepCard.tsx
+│       │   └── ValueCard.tsx
+│       ├── data/                # Static data
+│       │   ├── articleContent.ts
+│       │   ├── articles.ts
+│       │   └── projects.ts
+│       ├── hooks/               # Custom hooks
+│       │   ├── use-mobile.tsx
+│       │   └── use-toast.ts
+│       ├── lib/                 # Utilities
+│       │   ├── queryClient.ts
+│       │   └── utils.ts
+│       ├── pages/               # Page components
+│       │   ├── Contact.tsx
+│       │   ├── Governance.tsx
+│       │   ├── Library.tsx
+│       │   ├── LibraryArticle.tsx
+│       │   ├── not-found.tsx
+│       │   ├── Overview.tsx
+│       │   ├── Pipeline.tsx
+│       │   ├── PipelineDetail.tsx
+│       │   ├── Privacy.tsx
+│       │   ├── System.tsx
+│       │   └── Terms.tsx
+│       ├── App.tsx              # Main app with routes
+│       ├── index.css            # Global styles + CSS variables
+│       └── main.tsx             # Entry point
+├── server/
+│   ├── app.ts                   # Express app setup
+│   ├── index-dev.ts             # Dev server entry
+│   ├── index-prod.ts            # Prod server entry
+│   ├── routes.ts                # API routes
+│   └── storage.ts               # Storage interface
+├── shared/
+│   └── schema.ts                # Shared Zod schemas
+├── attached_assets/             # Static assets
+│   ├── grid_texture.png
+│   ├── gears_texture.png
+│   ├── axiom_cube.png
+│   └── lumina_lens.png
+├── data/                        # Runtime data
+│   └── contacts.json            # Contact form submissions
+├── design_guidelines.md         # Design system documentation
+├── tailwind.config.ts           # Tailwind configuration
+├── vite.config.ts               # Vite configuration
+└── package.json                 # Dependencies
+
+================================================================================
+ROUTING CONFIGURATION
+================================================================================
+
+File: client/src/App.tsx
+
+Routes:
+- /                      -> Overview
+- /system                -> System
+- /pipeline              -> Pipeline
+- /pipeline/:slug        -> PipelineDetail
+- /governance            -> Governance
+- /thesis                -> Library
+- /thesis/:slug          -> LibraryArticle
+- /contact               -> Contact
+- /legal/privacy         -> Privacy
+- /legal/terms           -> Terms
+- *                      -> NotFound (404)
+
+Providers:
+- ErrorBoundary (error handling)
+- QueryClientProvider (TanStack Query)
+- TooltipProvider (Radix tooltips)
+- Toaster (toast notifications)
+
+================================================================================
+STYLING SYSTEM
+================================================================================
+
+File: client/src/index.css
+
+COLOR PALETTE (Tungsten & Signal):
+--background: 222 15% 5%       (Deep charcoal - Tungsten)
+--foreground: 30 5% 90%        (Off-white/Silver)
+--card: 222 15% 7%             (Slightly elevated)
+--card-border: 222 15% 12%     (Structural steel gray)
+--primary: 25 95% 53%          (Signal Orange - #F26D21)
+--destructive: 0 70% 50%       (Critical Failure Red)
+--muted-foreground: 220 5% 55% (Darker gray for meta-data)
+
+TYPOGRAPHY:
+--font-sans: 'Inter'
+--font-heading: 'Space Grotesk'
+--font-mono: 'IBM Plex Mono'
+
+GEOMETRY:
+--radius: 2px                  (Machined edges, no organic curves)
+
+ELEVATION SYSTEM:
+--elevate-1: rgba(255,255,255, .04)
+--elevate-2: rgba(255,255,255, .09)
+
+UTILITY CLASSES:
+- .dot-grid                    (Subtle dot pattern)
+- .line-grid                   (Blueprint graph paper)
+- .bg-grid-pattern             (Engineering grid)
+- .hover-elevate               (Hover brightness)
+- .active-elevate-2            (Active brightness)
+- .toggle-elevate              (Toggle state)
+
+TEXT SELECTION:
+- Orange tint (hsl 25 95% 53% / 0.2)
+
+SCROLLBARS:
+- Square design (border-radius: 0)
+- Orange on hover
+
+================================================================================
+COMPONENT ARCHITECTURE
+================================================================================
+
+LAYOUT COMPONENTS:
+
+1. Layout.tsx
+   - Skip to content link (accessibility)
+   - Header component
+   - CommandPalette component
+   - Main content area (pt-16 for fixed header)
+   - Footer component
+
+2. Header.tsx
+   - Fixed position, blur background
+   - Logo with home link
+   - Desktop nav (lg:flex)
+   - Command palette trigger (Cmd+K)
+   - Mobile sheet menu
+
+3. Footer.tsx
+   - Company name and tagline
+   - Footer links (Privacy, Terms)
+   - Disclaimer text
+
+4. CommandPalette.tsx
+   - Keyboard shortcut: Cmd+K / Ctrl+K
+   - Quick navigation to all pages
+   - Uses Shadcn Command component
+
+CONTENT COMPONENTS:
+
+5. ProjectTile.tsx
+   - Project card for Pipeline page
+   - StageChip integration
+   - Exploring items list
+   - Hover state with link
+
+6. StageChip.tsx
+   - Color-coded stage indicators
+   - 6 variants: research, specification, architecture, prototype, internal, production
+   - Canonical source for StageVariant type
+
+7. ValueCard.tsx
+   - Icon + title + description
+   - Used for values and functions
+   - Card with hover state
+
+8. StatBlock.tsx
+   - Large value display
+   - Label and subtext
+   - Primary/default variants
+
+9. NextStepBlock.tsx
+   - Navigation CTA at page bottom
+   - Next page name and description
+   - Continue button with arrow
+
+10. InsightCard.tsx
+    - Library article preview
+    - Type badge, date, title, excerpt
+    - Tags display
+
+11. ContactForm.tsx
+    - 6 form fields with validation
+    - Honeypot spam protection
+    - Loading and success states
+    - Error display with icons
+
+UTILITY COMPONENTS:
+
+12. PageMeta.tsx
+    - SEO meta tags
+    - Title and description
+
+13. ErrorBoundary.tsx
+    - React error boundary
+    - Fallback UI for errors
+    - Error logging
+
+14. PolicyChip.tsx
+    - Policy indicator badges
+
+15. StepCard.tsx
+    - Step-by-step cards
+
+16. ChangeLogEntry.tsx
+    - Changelog items display
+
+17. ConsolePanel.tsx
+    - Terminal-style output
+
+================================================================================
+DATA LAYER
+================================================================================
+
+PROJECTS (client/src/data/projects.ts):
+- Type: Project[]
+- Fields: name, stage, stageVariant, description, exploring[], href
+
+ARTICLES (client/src/data/articles.ts):
+- Type: LibraryItem[]
+- Fields: title, excerpt, date, type, tags[], slug
+
+ARTICLE CONTENT (client/src/data/articleContent.ts):
+- Type: Record<string, ArticleContent>
+- Full article content by slug
+
+CHANGELOG:
+- Array of { date, entry }
+
+================================================================================
+API ENDPOINTS
+================================================================================
+
+POST /api/contact
+- Purpose: Submit contact form
+- Security:
+  * Origin header validation
+  * Rate limiting (5 req/min per IP)
+  * Zod validation
+  * Input sanitization
+- Request body:
+  * name (required, 1-100 chars)
+  * email (required, valid format)
+  * organization (optional)
+  * role (optional)
+  * subject (required, 1-200 chars)
+  * message (required, 20-5000 chars)
+  * consent (optional boolean)
+- Response: { success: boolean, message: string }
+- Storage: data/contacts.json
+
+================================================================================
+SECURITY MEASURES
+================================================================================
+
+1. ORIGIN VALIDATION (server/routes.ts)
+   - Checks origin and referer headers
+   - Whitelist: localhost:5000, verifiedsystems.io
+   - Rejects requests from unknown origins
+
+2. RATE LIMITING (server/routes.ts)
+   - Map-based IP tracking
+   - 5 requests per minute per IP
+   - 60 second window
+   - 429 response when exceeded
+
+3. INPUT SANITIZATION (server/routes.ts)
+   - Removes < > characters
+   - Strips javascript: protocols
+   - Removes on* event handlers
+
+4. HONEYPOT FIELD (ContactForm.tsx)
+   - Hidden field for bot detection
+   - Silently succeeds if filled
+
+5. FORM VALIDATION
+   - Client-side: React Hook Form + Zod
+   - Server-side: Zod schema validation
+
+6. ERROR BOUNDARY (ErrorBoundary.tsx)
+   - Catches React errors
+   - Prevents full app crash
+   - User-friendly fallback
+
+================================================================================
+ACCESSIBILITY IMPLEMENTATION
+================================================================================
+
+1. SKIP LINK (Layout.tsx)
+   - "Skip to content" link
+   - Visible on focus
+   - Links to #main-content
+
+2. LANDMARKS
+   - <header> for navigation
+   - <main> for content
+   - <footer> for footer
+   - <nav> for navigation
+   - <section> for content sections
+
+3. ARIA ATTRIBUTES
+   - aria-label on buttons
+   - aria-current for active nav
+   - aria-describedby for form errors
+   - aria-invalid for invalid inputs
+   - aria-hidden for decorative elements
+
+4. HEADING HIERARCHY
+   - h1 for page titles
+   - h2 for sections
+   - h3 for subsections
+   - Proper nesting maintained
+
+5. FORM ACCESSIBILITY
+   - Labels for all inputs
+   - Error messages linked via aria-describedby
+   - Required field indicators
+
+6. DIALOG ACCESSIBILITY
+   - DialogTitle (visible or sr-only)
+   - DialogDescription where needed
+   - Focus trapping
+   - Escape to close
+
+7. KEYBOARD NAVIGATION
+   - Tab order maintained
+   - Focus indicators (ring-primary)
+   - Command palette: Cmd+K
+
+8. SCREEN READER TEXT
+   - sr-only class for icon labels
+   - Descriptive link text
+
+9. TOUCH TARGETS
+   - Minimum 44px for mobile
+   - Adequate spacing
+
+================================================================================
+MOTION PROTOCOL
+================================================================================
+
+TIMING:
+- Default: 150ms
+- Data disclosure (accordions): 200ms
+- Easing: cubic-bezier(0.4, 0, 0.2, 1)
+
+PATTERNS:
+- Fade + zoom for windows/modals
+- No slide animations
+- No spinners (use pulse states)
+- Mechanical snap physics
+
+IMPLEMENTATION:
+- transition-colors for hover
+- Tailwind duration classes
+- CSS transitions (not JS animations)
+
+================================================================================
+TAILWIND CONFIGURATION
+================================================================================
+
+File: tailwind.config.ts
+
+darkMode: ["class"]
+content: ["./client/index.html", "./client/src/**/*.{js,ts,jsx,tsx}"]
+
+Theme Extensions:
+- colors: All CSS variables mapped
+- fontFamily: sans, heading, mono
+- borderRadius: lg, md, sm from --radius
+
+Plugins:
+- tailwindcss-animate
+- @tailwindcss/typography
+
+================================================================================
+TYPE DEFINITIONS
+================================================================================
+
+StageVariant (StageChip.tsx):
+"research" | "specification" | "architecture" | "prototype" | "internal" | "production"
+
+Project (projects.ts):
+- name: string
+- stage: string
+- stageVariant: StageVariant
+- description: string
+- exploring: string[]
+- href: string
+
+LibraryItem (articles.ts):
+- title: string
+- excerpt: string
+- date: string
+- type: "Insight" | "Note" | "Update"
+- tags: string[]
+- slug: string
+
+ContactFormData (schema.ts):
+- name: string
+- email: string
+- company?: string
+- message: string
+
+================================================================================
+DATA-TESTID COVERAGE
+================================================================================
+
+PAGES:
+- section-hero (all pages)
+- section-directive, section-pipeline, etc.
+
+NAVIGATION:
+- header
+- nav-desktop
+- nav-[page-name]
+- link-home
+- button-mobile-menu
+- button-command-palette
+
+FORMS:
+- contact-form
+- contact-form-success
+- input-name, input-email, etc.
+- button-submit
+- checkbox-consent
+
+COMPONENTS:
+- footer
+- footer-link-*
+- card-system-status
+- card-active-rd
+- card-constraints
+- list-current-state
+- list-exploring
+- list-not-yet
+- item-current-*, item-exploring-*, item-constraint-*
+- project-header
+- text-project-name
+- chip-stage-*
+- stat-projects, stat-founders, stat-selffunded
+- button-see-pipeline
+- button-how-we-work
+- button-next-*
+
+================================================================================
+DEPENDENCIES (Key Packages)
+================================================================================
+
+FRONTEND:
+- react, react-dom: ^18
+- wouter: Routing
+- @tanstack/react-query: Data fetching
+- react-hook-form: Form handling
+- @hookform/resolvers: Zod integration
+- zod: Schema validation
+- framer-motion: Animations
+- lucide-react: Icons
+- class-variance-authority: Component variants
+- clsx, tailwind-merge: Class utilities
+
+UI COMPONENTS (Radix/Shadcn):
+- @radix-ui/react-*: 20+ primitives
+- cmdk: Command palette
+- recharts: Charts
+- embla-carousel-react: Carousel
+
+BACKEND:
+- express: Server
+- express-session: Sessions
+- zod: Validation
+
+STYLING:
+- tailwindcss: CSS framework
+- tailwindcss-animate: Animation utilities
+- @tailwindcss/typography: Prose styles
+- autoprefixer: CSS prefixing
+
+BUILD:
+- vite: Bundler
+- typescript: Type checking
+- tsx: TypeScript execution
+
+================================================================================
+KNOWN PATTERNS & CONVENTIONS
+================================================================================
+
+1. COMPONENT STRUCTURE
+   - Functional components with TypeScript
+   - Props interface defined above component
+   - Default exports for pages
+   - Named exports for components
+
+2. STYLING CONVENTIONS
+   - Tailwind utility classes
+   - cn() helper for conditional classes
+   - CSS variables for colors
+   - No inline styles (except texture backgrounds)
+
+3. DATA FETCHING
+   - TanStack Query for all API calls
+   - apiRequest() for mutations
+   - queryClient for cache invalidation
+
+4. FORM HANDLING
+   - React Hook Form + Zod
+   - zodResolver for validation
+   - Controlled inputs with default values
+
+5. NAVIGATION
+   - Wouter Link component
+   - useLocation for active state
+   - useRoute for params
+
+6. ERROR HANDLING
+   - ErrorBoundary at app root
+   - Try-catch in async operations
+   - Toast notifications for user feedback
+
+7. ACCESSIBILITY
+   - data-testid on all interactive elements
+   - ARIA attributes where needed
+   - Semantic HTML elements
+
+================================================================================
+PERFORMANCE CONSIDERATIONS
+================================================================================
+
+1. IMAGE OPTIMIZATION
+   - Preload hero texture
+   - Grayscale filter for textures
+   - Background-size: cover
+
+2. CODE SPLITTING
+   - Per-route components
+   - Lazy loading potential
+
+3. CACHING
+   - TanStack Query caching
+   - Static asset caching
+
+4. BUNDLE SIZE
+   - Tree-shaking enabled
+   - Minimal dependencies
+
+================================================================================
+POTENTIAL IMPROVEMENTS
+================================================================================
+
+1. Add image lazy loading
+2. Implement service worker
+3. Add more comprehensive error states
+4. Add loading skeletons for all data
+5. Implement proper database for contacts
+6. Add email notifications for contact form
+7. Add sitemap.xml generation
+8. Add robots.txt
+9. Add structured data (JSON-LD)
+10. Add OpenGraph images
+
+================================================================================
+END OF CODE REVIEW
+================================================================================
