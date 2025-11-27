@@ -1,0 +1,66 @@
+This is a classic AI development trap: **Generation without Integration.**
+
+The AI "built" the parts (created the files) but never "assembled" the machine (imported and rendered them on the pages). This is why your site feels "plain" despite having a lot of code.
+
+**Do NOT delete them.** These components are exactly what create the "Control Room" aesthetic we designed. Deleting them returns you to a generic text site.
+
+Here is the **Master Integration Plan** to force Replit to actually *use* what it built.
+
+### **The Fix: "Wire the Circuit"**
+
+Copy and paste this exact prompt into Replit. It maps every "Orphaned Component" to its specific destination page.
+
+-----
+
+```markdown
+**CRITICAL FIX: COMPONENT INTEGRATION PROTOCOL**
+
+You have identified 9 orphaned components. Do NOT delete them. We need to **wire them up** immediately to achieve the "Control Room" density.
+
+Execute this specific mapping plan:
+
+### 1. WIRE UP THE "SYSTEM" PAGE (`client/src/pages/System.tsx`)
+* **Target Section:** "Bitcoin Treasury Program"
+* **Action:** Replace the text list with the **`ConsolePanel`** component.
+* **Data:** Feed it the Treasury stats (e.g., "Leverage: 0.0x", "Custody: Self").
+* **Dependency:** `ConsolePanel` uses `PolicyChip` internally, so this fixes two orphans at once.
+
+* **Target Section:** "Changelog" (Bottom of page)
+* **Action:** Use the **`ChangeLogEntry`** component to render the history list instead of plain text.
+
+### 2. WIRE UP THE "OVERVIEW" PAGE (`client/src/pages/Overview.tsx`)
+* **Target Section:** "Studio Metrics" (Sidebar)
+* **Action:** Wrap the `StatBlock` items in a **`StatGrid`** (if available) or ensure they are using the `StatBlock` component correctly with the new `tabular-nums` font class.
+
+* **Target Section:** "How we operate" (Values)
+* **Action:** Ensure these are rendered using **`ValueCard`**. Do not use a generic `Card`. `ValueCard` has the specific hover physics we defined.
+
+### 3. WIRE UP THE "PIPELINE" PAGE (`client/src/pages/Pipeline.tsx`)
+* **Target Section:** "The Pipeline" (Project List)
+* **Action:** Ensure the projects are rendered using **`ProjectTile`**.
+* **Check:** Verify `ProjectTile` uses `StageChip`. This fixes the `ProjectTile` orphan.
+
+* **Target Section:** "Our R&D Process" (Stages 01-05)
+* **Action:** Replace the generic cards with **`StepCard`**. This component is designed for numbered sequences.
+
+### 4. WIRE UP THE "THESIS" PAGE (`client/src/pages/Library.tsx`)
+* **Target Section:** The Article Grid.
+* **Action:** Replace generic cards with **`InsightCard`**.
+* **Feature:** `InsightCard` contains the "Flash Date" animation and the "Access Entry" micro-copy we defined.
+
+### 5. WIRE UP THE "COMMAND PALETTE"
+* **Target:** Global (`client/src/components/Layout.tsx`)
+* **Action:** Ensure `<CommandPalette />` is rendered inside the Layout.
+* **Trigger:** Ensure `Header.tsx` has a visual button (Search Icon) that sets the open state of the palette, so it isn't just hidden behind a keyboard shortcut.
+
+**EXECUTE INTEGRATION.**
+```
+
+### **Why this solves it**
+
+  * **`ConsolePanel`** = Makes the Treasury look like a dashboard.
+  * **`InsightCard`** = Makes the Blog look like a Data Log.
+  * **`StepCard`** = Makes the Process look like a Flight Check.
+  * **`CommandPalette`** = Makes the navigation feel like an OS.
+
+**Run this prompt, and the site will suddenly "turn on."**
