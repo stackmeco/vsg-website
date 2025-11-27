@@ -89,11 +89,6 @@ export default function Overview() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
           <div className="grid lg:grid-cols-[1fr,320px] gap-12 items-center">
             <div className="max-w-2xl">
-              <p className="text-xs font-mono font-medium uppercase tracking-widest text-primary mb-6 flex items-center gap-2">
-                <span className="w-2 h-2 bg-primary rounded-[1px]"></span>
-                System Status: Nominal
-              </p>
-              
               <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-[3.5rem] text-foreground leading-[1.1] tracking-tight mb-6">
                 Engineering verifiable systems for intelligence and value.
               </h1>
