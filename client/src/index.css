@@ -291,3 +291,9 @@
     inset: -1px;
   }
 }
+
+/* Terminal Text Selection - Developer/Hacker Polish */
+::selection {
+  background-color: hsl(25 95% 53% / 0.2); /* Signal Orange at 20% opacity */
+  color: #ffffff;
+}

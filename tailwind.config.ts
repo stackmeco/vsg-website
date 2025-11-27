@@ -103,9 +103,13 @@ export default {
       },
       transitionTimingFunction: {
         'mechanical': 'cubic-bezier(0.2, 0, 0, 1)',
+        DEFAULT: 'cubic-bezier(0.2, 0, 0, 1)',
       },
       transitionDuration: {
+        DEFAULT: '150ms',
+        '100': '100ms',
         '150': '150ms',
+        '200': '200ms',
       },
     },
   },
