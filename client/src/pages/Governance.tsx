@@ -344,10 +344,10 @@ export default function Governance() {
               Regulatory stance
             </p>
             <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
-              We're not pretending to be "already regulated"
+              Regulatory Posture: Pre-Product
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              This section explains how we think about regulation before products go live — not compliance theater.
+              Compliance architecture defined before deployment. No products are live; this documents the framework for when they are.
             </p>
           </div>
 
@@ -401,7 +401,7 @@ export default function Governance() {
             <CardContent className="p-6">
               <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
                 <XCircle className="w-5 h-5 text-destructive" />
-                Things we commit to never doing
+                Operational Prohibitions
               </h3>
               <div className="grid sm:grid-cols-2 gap-3">
                 {thingsWeWontDo.map((item, index) => (
@@ -412,7 +412,7 @@ export default function Governance() {
                 ))}
               </div>
               <p className="text-sm text-muted-foreground mt-4 italic">
-                These are plain commitments you can hold us to.
+                These constraints are binding. Violations trigger immediate remediation.
               </p>
             </CardContent>
           </Card>

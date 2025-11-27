@@ -10,15 +10,15 @@ import gearsTexture from "@assets/gears_texture.png";
 const definitions = [
   {
     term: "Verifiable Systems",
-    definition: "Systems where the rules are visible, ownership is real, and risks don't hide behind complexity. A system is verifiable when you can inspect how it works, understand what you're exposed to, and verify that it does what it claims.",
+    definition: "Infrastructure where state, logic, and risk are mathematically provable. Auditability is an architectural constraint, not a feature.",
   },
   {
-    term: "AI",
-    definition: "Deterministic Intelligence. Systems designed to constrain stochastic models (LLMs) with rigid verification layers, ensuring outputs are auditable, cited, and hallucination-resistant. We build infrastructure that treats AI as a reasoning engine, not a knowledge base.",
+    term: "Deterministic Intelligence",
+    definition: "Systems that constrain stochastic models with rigid verification layers. Outputs are auditable, cited, and hallucination-resistant. AI as reasoning engine, not knowledge base.",
   },
   {
     term: "Digital Assets",
-    definition: "The ability to make digital things genuinely limited and ownable — not just copyable files with licenses, but assets with provable uniqueness and transferable ownership. Bitcoin is the clearest example; we're exploring what else can work this way.",
+    definition: "Assets with provable uniqueness and transferable ownership. Not copyable files with licenses — instruments with cryptographic guarantees. Bitcoin is the clearest example.",
   },
 ];
 
@@ -63,10 +63,10 @@ export default function System() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight tracking-tight mb-6">
-              How Verified Systems actually works
+              System Architecture
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Two founders, one balance sheet, a Bitcoin treasury, and a small set of functions that keep us honest: governance, risk, compliance, finance, treasury, operations, and communications.
+              A unified R&D unit backed by a proprietary Bitcoin treasury. System integrity is maintained through strict functional separation: Governance caps risk, Treasury manages capital, Engineering validates truth.
             </p>
           </div>
         </div>

@@ -14,8 +14,8 @@ import { projects } from "@/data/projects";
 
 const values = [
   {
-    title: "Raw Data Over Narrative",
-    description: "State is labeled precisely: research, specification, architecture, internal, production. No ambiguity.",
+    title: "Empirical Data Over Narrative",
+    description: "Raw system telemetry and verified outcomes. Stage labels are precise: research, specification, architecture, internal, production.",
     icon: <Eye className="w-5 h-5" />,
   },
   {
@@ -29,13 +29,13 @@ const values = [
     icon: <Layers className="w-5 h-5" />,
   },
   {
-    title: "Open Documentation",
+    title: "Open Source Intelligence",
     description: "Published research enables external verification. Trade-offs are explicit, not hidden.",
     icon: <BookOpen className="w-5 h-5" />,
   },
   {
-    title: "Frontier Systems",
-    description: "AI agents, bearer assets, digital scarcity — building infrastructure for next-generation primitives.",
+    title: "Horizon Scanning",
+    description: "Architecting systems for the emerging reality of autonomous agents and digital scarcity.",
     icon: <Compass className="w-5 h-5" />,
   },
 ];
