@@ -118,7 +118,7 @@ export default function Overview() {
                   <Button 
                     variant="outline" 
                     size="lg" 
-                    className="font-mono text-xs uppercase tracking-wider bg-background/50 backdrop-blur-md border-primary/20 hover:border-primary/50"
+                    className="font-mono text-xs uppercase tracking-wider bg-background/50 backdrop-blur-md border-primary/20"
                     data-testid="button-how-we-work"
                   >
                     Operational Specs
@@ -132,7 +132,7 @@ export default function Overview() {
                 <div className="flex flex-wrap gap-2">
                   {["Axiom", "Helios", "Stackme", "Lumina"].map((name) => (
                     <Link key={name} href={`/pipeline/${name.toLowerCase()}`} data-testid={`chip-project-${name.toLowerCase()}`}>
-                      <span className="px-2 py-1 rounded-[2px] border border-border bg-card/50 hover:border-primary/50 text-muted-foreground hover:text-primary text-[10px] font-mono uppercase tracking-wide transition-colors cursor-pointer">
+                      <span className="px-2 py-1 rounded-[2px] border border-border bg-card/50 text-muted-foreground hover:text-primary text-[10px] font-mono uppercase tracking-wide transition-colors cursor-pointer hover-elevate">
                         {name}
                       </span>
                     </Link>
