@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Play, Pause, Volume2, AlertCircle } from "lucide-react";
 
@@ -11,7 +11,6 @@ export function AudioModal() {
   const [currentTime, setCurrentTime] = useState("00:00");
   const [bars, setBars] = useState<number[]>(Array(24).fill(10));
   const [hasError, setHasError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const animationRef = useRef<number | null>(null);
 
@@ -35,14 +34,12 @@ export function AudioModal() {
       audioRef.current.addEventListener("loadedmetadata", () => {
         if (audioRef.current) {
           setDuration(formatTime(audioRef.current.duration));
-          setIsLoading(false);
           setHasError(false);
         }
       });
       
       audioRef.current.addEventListener("error", () => {
         setHasError(true);
-        setIsLoading(false);
       });
       
       audioRef.current.addEventListener("timeupdate", () => {
@@ -121,7 +118,12 @@ export function AudioModal() {
       </DialogTrigger>
 
       <DialogContent className="bg-card border border-border max-w-md p-0 overflow-hidden gap-0">
-        <div className="p-4 border-b border-border flex justify-between items-center bg-muted/10">
+        <DialogTitle className="sr-only">Executive Briefing Audio Player</DialogTitle>
+        <DialogDescription className="sr-only">
+          Listen to the VSG operational briefing audio. Use the play button to start playback.
+        </DialogDescription>
+        
+        <div className="p-4 pr-12 border-b border-border flex justify-between items-center bg-muted/10">
           <span className="font-mono text-[10px] uppercase tracking-widest text-primary">
             {hasError ? (
               "Coming Soon"
@@ -135,7 +137,7 @@ export function AudioModal() {
             )}
           </span>
           <span className="font-mono text-[10px] text-muted-foreground">
-            {hasError ? "~02:00" : `${currentTime} of ${duration}`}
+            {hasError ? "~02:00" : `${currentTime} / ${duration}`}
           </span>
         </div>
 
