@@ -248,10 +248,10 @@ export default function PipelineDetail() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
             {/* LEFT COLUMN: Active System State (Span 2) */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 flex flex-col gap-6">
 
               {/* Panel 1: Current State */}
-              <Card className="h-full bg-card border-card-border" data-testid="card-system-status">
+              <Card className="bg-card border-card-border" data-testid="card-system-status">
                 <CardContent className="p-6">
                   <h3 className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">
                     System Status
@@ -268,7 +268,7 @@ export default function PipelineDetail() {
               </Card>
 
               {/* Panel 2: Active R&D */}
-              <Card className="h-full bg-card border-card-border" data-testid="card-active-rd">
+              <Card className="bg-card border-card-border" data-testid="card-active-rd">
                 <CardContent className="p-6">
                   <h3 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
                     Active R&D Modules
