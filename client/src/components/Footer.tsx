@@ -1,7 +1,6 @@
 import { Link } from "wouter";
 
 const footerLinks = [
-  { name: "Thesis", href: "/thesis" },
   { name: "Privacy", href: "/legal/privacy" },
   { name: "Terms", href: "/legal/terms" },
 ];
