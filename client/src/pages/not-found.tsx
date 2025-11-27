@@ -8,8 +8,8 @@ export default function NotFound() {
   return (
     <Layout>
       <PageMeta
-        title="Signal Lost | 404"
-        description="The requested trajectory is invalid. Return to operational parameters."
+        title="404: Resource Unavailable"
+        description="The requested path does not exist within the current architecture."
       />
       <section className="py-32 text-center" data-testid="section-404">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,15 +21,15 @@ export default function NotFound() {
               Error 404
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground mb-6">
-              SIGNAL LOST
+              404: RESOURCE UNAVAILABLE
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              The requested trajectory is invalid. Return to operational parameters.
+              The requested path does not exist within the current architecture.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/">
                 <Button size="lg" data-testid="button-back-home">
-                  Return to Console
+                  Return to Overview
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>

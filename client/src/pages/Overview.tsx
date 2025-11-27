@@ -40,8 +40,8 @@ const values = [
     icon: <Compass className="w-5 h-5" />,
   },
   {
-    title: "Cognitive Security",
-    description: "Education is a defense layer. We arm our partners with first-principles technical analysis to neutralize hype cycles and predatory narratives.",
+    title: "Information Integrity",
+    description: "We arm our partners with technical analysis to neutralize hype cycles and preserve decision quality.",
     icon: <ShieldCheck className="w-5 h-5" />,
   },
 ];

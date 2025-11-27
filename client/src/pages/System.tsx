@@ -46,8 +46,8 @@ const functions = [
     icon: <Cog className="w-5 h-5" />,
   },
   {
-    title: "Signal Integrity",
-    description: "Ensuring external outputs strictly match internal telemetry and system state. No divergence between stated and actual conditions.",
+    title: "External Consistency",
+    description: "Ensuring public documentation strictly matches internal system state.",
     icon: <MessageSquare className="w-5 h-5" />,
   },
 ];
