@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
-import { Menu, Search } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription, SheetClose } from "@/components/ui/sheet";
+import { Menu, Search, X } from "lucide-react";
 
 const navItems = [
   { name: "Overview", href: "/", number: "01" },
@@ -87,27 +87,40 @@ export function Header() {
                 <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full sm:w-80 p-0" aria-describedby={undefined}>
+            <SheetContent side="right" className="w-full sm:w-80 p-0" aria-describedby={undefined} hideCloseButton>
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <div className="flex flex-col h-full">
-                <div className="p-4 pt-6 border-b border-border flex items-center justify-between">
+                <div className="p-4 border-b border-border flex items-center justify-between">
                   <span className="font-heading font-bold text-lg">Verified Systems Group</span>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="text-muted-foreground hover:text-foreground"
-                    onClick={() => {
-                      setMobileOpen(false);
-                      setTimeout(() => {
-                        const event = new KeyboardEvent("keydown", { key: "k", metaKey: true });
-                        document.dispatchEvent(event);
-                      }, 150);
-                    }}
-                    data-testid="mobile-button-search"
-                    aria-label="Open search"
-                  >
-                    <Search className="w-5 h-5" />
-                  </Button>
+                  <div className="flex items-center gap-1">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="text-muted-foreground hover:text-foreground"
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setTimeout(() => {
+                          const event = new KeyboardEvent("keydown", { key: "k", metaKey: true });
+                          document.dispatchEvent(event);
+                        }, 150);
+                      }}
+                      data-testid="mobile-button-search"
+                      aria-label="Open search"
+                    >
+                      <Search className="w-4 h-4" />
+                    </Button>
+                    <SheetClose asChild>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="text-muted-foreground hover:text-foreground"
+                        data-testid="mobile-button-close"
+                        aria-label="Close menu"
+                      >
+                        <X className="w-4 h-4" />
+                      </Button>
+                    </SheetClose>
+                  </div>
                 </div>
                 <nav className="flex flex-col p-6 gap-2" aria-label="Mobile navigation">
                   {navItems.map((item) => (
