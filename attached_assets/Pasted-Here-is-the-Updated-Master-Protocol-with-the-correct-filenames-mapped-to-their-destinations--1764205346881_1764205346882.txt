@@ -1,0 +1,179 @@
+Here is the **Updated Master Protocol** with the correct filenames mapped to their destinations.
+
+**Instructions:**
+
+1.  **Upload** the 5 specific JPG files you just shared into your Replit project's main directory.
+2.  **Copy and Paste** this entire block below into the Replit AI chat.
+
+-----
+
+````markdown
+You are a Senior Systems Architect executing a "Total Conversion" of the Verified Systems Group (VSG) codebase. We are moving from a "SaaS Startup" aesthetic to an **"Industrial Control Room"** aesthetic.
+
+**The Mandate:** "Data over Decoration. Physics over Magic. Verification over Marketing."
+
+Execute the following 7-Phase Plan strictly.
+
+### PHASE 1: ASSET DEPLOYMENT (FILE SYSTEM)
+**Objective:** Organize the raw assets into the build using the EXACT filenames provided.
+
+1.  **Rename and Move Uploaded Images:**
+    * `Gemini_Generated_Image_uecbksuecbksuecb.jpg` -> `client/src/attached_assets/grid_texture.jpg` (Global Background)
+    * `Gemini_Generated_Image_jq46bgjq46bgjq46.jpg` -> `client/src/attached_assets/gears_texture.jpg` (Treasury/System Background)
+    * `Gemini_Generated_Image_e40hqle40hqle40h.jpg` -> `client/src/attached_assets/axiom_cube.jpg` (Axiom Detail)
+    * `Gemini_Generated_Image_3t57f03t57f03t57.jpg` -> `client/src/attached_assets/lumina_lens.jpg` (Lumina Detail)
+    * `Gemini_Generated_Image_jpps06jpps06jpps.jpg` -> `client/public/og_background.jpg` (For Social Card)
+
+### PHASE 2: THE "CONTROL ROOM" PHYSICS (CSS)
+**Objective:** Replace "Neon Blue/Soft" with "Tungsten/Orange/Hard".
+
+1.  **Update `client/src/index.css`:**
+    Replace the entire file content with this "Industrial" configuration:
+    ```css
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    :root {
+      --radius: 2px; /* Machined edges */
+      
+      /* TUNGSTEN VOID BACKGROUND */
+      --background: 222 15% 5%; 
+      --foreground: 30 5% 90%;
+
+      /* SURFACE LAYERS */
+      --card: 222 15% 7%;
+      --card-foreground: 30 5% 90%;
+      --card-border: 222 15% 12%;
+      
+      --popover: 222 15% 6%;
+      --popover-foreground: 30 5% 96%;
+      --popover-border: 222 15% 15%;
+
+      /* SIGNAL ORANGE (INTERNATIONAL SAFETY ORANGE) */
+      --primary: 25 95% 53%;      
+      --primary-foreground: 222 47% 11%;
+      --primary-border: 25 95% 40%; 
+
+      /* STRUCTURE */
+      --secondary: 222 15% 10%;
+      --secondary-foreground: 30 5% 80%;
+      --secondary-border: 222 15% 15%;
+
+      --muted: 222 15% 10%;
+      --muted-foreground: 220 5% 55%;
+      --muted-border: 222 15% 15%;
+
+      --accent: 25 95% 53%;
+      --accent-foreground: 222 47% 11%;
+      
+      --destructive: 0 70% 50%;
+      --destructive-foreground: 0 0% 98%;
+      
+      --border: 222 15% 12%;
+      --input: 222 15% 10%;
+      --ring: 25 95% 53%;
+
+      /* VISUAL PHYSICS */
+      --elevate-1: rgba(255, 255, 255, 0.03);
+      --elevate-2: rgba(255, 255, 255, 0.06);
+    }
+
+    .dark {
+      --background: 222 15% 5%;
+      --foreground: 30 5% 90%;
+    }
+
+    /* MICRO-PHYSICS */
+    ::selection {
+      background-color: hsl(25 95% 53% / 0.2);
+      color: #ffffff;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      background: hsl(222 15% 5%);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: hsl(222 15% 15%);
+      border: 1px solid hsl(222 15% 5%);
+      border-radius: 0px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: hsl(25 95% 53% / 0.5);
+    }
+    
+    /* Utility for textured backgrounds */
+    .bg-texture-overlay {
+        filter: grayscale(100%) contrast(120%);
+        opacity: 0.2;
+        mix-blend-mode: overlay;
+    }
+    ```
+
+2.  **Update `tailwind.config.ts`:**
+    * Override `borderRadius` to: `lg: "4px"`, `md: "2px"`, `sm: "1px"`.
+    * Ensure `colors` use the CSS variables defined above.
+
+### PHASE 3: COMPONENT HARDENING
+**Objective:** Remove floating elements; enforce "Bolted Down" mechanics.
+
+1.  **Global Find/Replace:** Change all `duration-300` and `duration-500` to `duration-150`. (Snap, don't drift).
+2.  **Update `ValueCard.tsx` & `ProjectTile.tsx`:**
+    * Remove `hover-elevate` and `hover:-translate-y-1`.
+    * Add `border border-card-border hover:border-primary/50 hover:bg-card/80 transition-colors`. (Glow, don't lift).
+3.  **Update `StageChip.tsx`:**
+    * Use "LED" logic for variants. Ensure text is `font-medium` or `bold`.
+    * `internal`: `bg-primary/10 text-primary border-primary/20` (Orange).
+    * `specification`: `bg-blue-500/10 text-blue-400 border-blue-500/20`.
+    * `prototype`: `bg-purple-500/10 text-purple-400 border-purple-500/20`.
+4.  **Update `components/ui/toast.tsx`:**
+    * Remove `slide-in` classes. Use `fade-in-0` and `zoom-in-95`.
+
+### PHASE 4: DATA STRUCTURE & STANDARDIZATION
+**Objective:** Enforce the "Truth Engineering" narrative.
+
+1.  **Update `client/src/data/projects.ts`:**
+    * **Axiom:** Add this project. Stage: "Prototype". Description: "A deterministic inference layer designed to eliminate hallucination. Forces LLMs to cite verified internal data."
+    * **Lumina:** Update Description: "Digital bearer instruments for physical assets. Features a proprietary optical physics engine for anti-spoofing and surface topology verification." Stage: "Specification".
+    * **Helios:** Change Stage to **"Internal Alpha"**.
+    * **Stackme:** Capitalize name to **"Stackme"**. Change Stage to **"Architecture"**.
+    * **Uniqueness Engine:** Change Tagline to: "Sybil-resistance signals without biometric surveillance."
+
+2.  **Update `client/src/data/articles.ts`:**
+    * Ensure **3 Articles** exist (Balance the grid):
+        1.  "The Insolvency of Fiction" (AI/Hallucination).
+        2.  "The Verification Standard" (Macro/Bitcoin).
+        3.  "Machine-Native Settlement" (AI Agents/Banking).
+    * Move the `changelog` array OUT of this file (it goes to System page).
+
+### PHASE 5: PAGE LAYOUT & IMAGERY (THE HUD)
+**Objective:** Apply the "Texture" images strategically.
+
+1.  **`client/src/pages/Overview.tsx`:**
+    * **Hero:** Implement the `grid_texture.jpg` as a background with `opacity-20` and `grayscale`.
+    * **Text:** Update Headline: "**Engineering verifiable systems for intelligence and value.**"
+    * **Header:** Rename "What's on the workbench" to **"Active Development Cycles"**.
+    * **Body:** Change "None are live products" to "**None are currently accepting external capital.**"
+
+2.  **`client/src/pages/System.tsx`:**
+    * **Treasury Section:** Use `gears_texture.jpg` as a subtle background for the "Bitcoin Treasury Program" card/section.
+    * **Changelog:** Add the Changelog list to the bottom of this page.
+    * **Copy:** Change "Communications: How we keep our story in sync" to "**Communications: How we ensure external signal matches internal state.**"
+
+3.  **`client/src/pages/PipelineDetail.tsx`:**
+    * **Lumina Page:** Use `lumina_lens.jpg` as the header texture.
+    * **Axiom Page:** Use `axiom_cube.jpg` as the header texture.
+
+### PHASE 6: TECHNICAL WIRING
+**Objective:** Functional integrity.
+
+1.  **Server:** In `server/routes.ts`, ensure `/api/contact` logs the full request body to the console with a timestamp.
+2.  **Client:** In `ContactForm.tsx`, ensure it `await`s the API request and shows a success message upon 200 OK. Success message style: `border-green-500/50 bg-green-500/10 text-green-400`.
+
+### PHASE 7: FINAL CLEANUP
+1.  Remove any file named `AudienceCard.tsx`.
+2.  Create a basic `client/public/og-image.png` (using `og_background.jpg` with an overlay text of the company name) to ensure social sharing isn't broken.
+
+**EXECUTE ALL PHASES.**
+````

@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Home } from "lucide-react";
 import type { StageVariant } from "@/data/projects";
+import axiomTexture from "@assets/axiom_cube.png";
+import luminaTexture from "@assets/lumina_lens.png";
 
 interface ProjectData {
   name: string;
@@ -25,6 +27,7 @@ interface ProjectData {
   exploring: string[];
   notYet: string[];
   nextProject?: { name: string; href: string };
+  texture?: string;
 }
 
 const projectData: Record<string, ProjectData> = {
@@ -34,6 +37,7 @@ const projectData: Record<string, ProjectData> = {
     stageVariant: "research",
     tagline: "High-integrity LLM reasoning with enforced citation.",
     description: "Standard LLMs are probabilistic engines—they guess the next word. Axiom is a constraint layer that forces the model to anchor every claim to a cryptographically verified record. It turns 'creative writing' into 'auditable reporting'.",
+    texture: axiomTexture,
     currentState: [
       "Core RAG architecture functional",
       "Citation enforcement layer active (refuses to answer without source)",
@@ -105,6 +109,7 @@ const projectData: Record<string, ProjectData> = {
     stageVariant: "specification",
     tagline: "Digital bearer instruments for physical assets.",
     description: "Lumina links high-value physical inventory to on-chain rails. We are architecting a proprietary optical physics engine that utilizes smartphone cameras to verify surface topology and material response, ensuring the digital asset is anchored to a proven physical reality.",
+    texture: luminaTexture,
     currentState: [
       "Specification complete",
       "System design in progress",
@@ -170,8 +175,25 @@ export default function PipelineDetail() {
 
   return (
     <Layout>
-      <section className="py-20 lg:py-28" data-testid="section-hero">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
+        {/* Project-specific texture background */}
+        {project.texture && (
+          <>
+            <div
+              className="absolute inset-0 z-0"
+              style={{
+                backgroundImage: `url(${project.texture})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                opacity: 0.1,
+                filter: "grayscale(100%) contrast(120%)",
+              }}
+            />
+            <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/90 to-background/70" />
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/50" />
+          </>
+        )}
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb className="mb-8">
             <BreadcrumbList>
               <BreadcrumbItem>

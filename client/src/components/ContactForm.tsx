@@ -98,22 +98,22 @@ export function ContactForm({ className }: ContactFormProps) {
     return (
       <div
         className={cn(
-          "bg-card border border-card-border rounded-xl p-8 text-center",
+          "bg-green-500/10 border border-green-500/50 rounded-md p-8 text-center",
           className
         )}
         data-testid="contact-form-success"
       >
-        <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto mb-4">
-          <CheckCircle className="w-6 h-6 text-emerald-500" />
+        <div className="w-12 h-12 rounded-md bg-green-500/10 flex items-center justify-center mx-auto mb-4">
+          <CheckCircle className="w-6 h-6 text-green-400" />
         </div>
-        <h3 className="font-heading font-semibold text-xl text-foreground mb-2">
+        <h3 className="font-heading font-semibold text-xl text-green-400 mb-2">
           Message received.
         </h3>
-        <p className="text-muted-foreground mb-4">
+        <p className="text-green-400/80 mb-4">
           We've received your message and will respond if it's a clear fit for
           the studio. Expect a reply within a few business days.
         </p>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-green-400/60">
           Your information is stored securely and never shared with third parties.
         </p>
       </div>

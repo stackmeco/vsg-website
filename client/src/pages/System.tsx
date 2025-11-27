@@ -5,6 +5,7 @@ import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Scale, Wallet, Cog, MessageSquare, HelpCircle } from "lucide-react";
 import { changelog } from "@/data/articles";
+import gearsTexture from "@assets/gears_texture.png";
 
 const definitions = [
   {
@@ -97,8 +98,21 @@ export default function System() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-treasury">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 relative overflow-hidden" data-testid="section-treasury">
+        {/* Gears Texture Background */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url(${gearsTexture})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.08,
+            filter: "grayscale(100%) contrast(120%)",
+          }}
+        />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/90 to-background/70" />
+        
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="font-heading font-bold text-3xl text-foreground mb-6">
               Bitcoin Treasury Program
@@ -123,7 +137,7 @@ export default function System() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-functions">
+      <section className="py-20 bg-card" data-testid="section-functions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
