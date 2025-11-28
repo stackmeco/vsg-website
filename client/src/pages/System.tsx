@@ -79,7 +79,7 @@ export default function System() {
             <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
               System Architecture
             </h1>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               A unified R&D unit backed by a proprietary Bitcoin treasury. System integrity is maintained through strict functional separation: Governance caps risk, Treasury manages capital, Engineering validates truth.
             </p>
           </div>
@@ -107,7 +107,7 @@ export default function System() {
                       <Icon className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                       <h3 className="font-heading font-semibold text-foreground">{def.term}</h3>
                     </div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{def.definition}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{def.definition}</p>
                   </CardContent>
                 </Card>
               );
@@ -137,7 +137,7 @@ export default function System() {
               <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
                 Bitcoin Treasury Program
               </h2>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+              <p className="text-base text-muted-foreground leading-relaxed mb-6">
                 We hold BTC on our own balance sheet. When the risk/reward looks reasonable, we borrow stablecoins against a portion of that BTC, using reputable on-chain venues. Those borrowed funds either:
               </p>
               <ul className="space-y-3 mb-6">
@@ -181,7 +181,7 @@ export default function System() {
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
               Functions behind the studio
             </h2>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               Verifiable Systems is still just two people, but we think in terms of functions so decisions and responsibilities are clear.
             </p>
           </div>

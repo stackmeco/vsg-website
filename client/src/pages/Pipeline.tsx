@@ -85,7 +85,7 @@ export default function Pipeline() {
             <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
               The Pipeline
             </h1>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               Our R&D projects, tied to our BTC treasury, moving through defined stages. All self-funded. None public yet.
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function Pipeline() {
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
               How we verify value at every step
             </h2>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               We treat software development as a rigorous discipline. Our process is designed to surface risk early and build systems designed for stability and security.
             </p>
           </div>

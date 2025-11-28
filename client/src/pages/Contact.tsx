@@ -28,7 +28,7 @@ export default function Contact() {
             <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
               Inbound Channel
             </h1>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               All transmissions reviewed by the partners. Response priority given to inquiries aligned on technical architecture.
             </p>
           </div>

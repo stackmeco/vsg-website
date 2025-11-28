@@ -39,7 +39,7 @@ export function InsightCard({
         <h3 className="font-heading font-semibold text-foreground mb-2 line-clamp-2">
           {title}
         </h3>
-        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+        <p className="text-base text-muted-foreground mb-4 line-clamp-2">
           {excerpt}
         </p>
         <Link

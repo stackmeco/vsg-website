@@ -99,7 +99,7 @@ export default function Overview() {
                 Engineering verifiable systems for intelligence and value.
               </h1>
               
-              <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-xl">
+              <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-xl">
                 We engineer deterministic systems for <span className="text-foreground font-medium">Value, Intelligence, and Physical Reality</span>. Bitcoin verifies value; Axiom verifies truth. Deployment is gated by internal capital verification.
               </p>
 
@@ -180,7 +180,7 @@ export default function Overview() {
                   Purpose
                 </p>
                 <h3 className="font-heading font-semibold text-base text-foreground mb-3">Engineering Verifiable Systems</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   To engineer verifiable systems at the frontier of AI and Digital Assets. We enable the use of new forms of value without compromising ownership or control—reclaiming human attention for higher-value work.
                 </p>
               </CardContent>
@@ -191,7 +191,7 @@ export default function Overview() {
                   Vision
                 </p>
                 <h3 className="font-heading font-semibold text-base text-foreground mb-3">Compounding Productivity</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   A future where digital assets possess the clarity and durability of hard currency. We build for a reality where ownership is absolute, risks are visible, and systems compound human productivity rather than extract from it.
                 </p>
               </CardContent>
@@ -202,7 +202,7 @@ export default function Overview() {
                   Mission
                 </p>
                 <h3 className="font-heading font-semibold text-base text-foreground mb-3">Verification via Capital</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   To navigate the frontier of AI and digital assets with our own capital as the first customer. We learn in the open and graduate only the systems we have verified with our own balance sheet.
                 </p>
               </CardContent>
@@ -218,7 +218,7 @@ export default function Overview() {
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
               Active Development Cycles
             </h2>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               Five projects in our Pipeline. Axiom is in research; Helios is in internal alpha; Stackme is in architecture. None are currently accepting external capital or users.
             </p>
           </div>
@@ -254,10 +254,10 @@ export default function Overview() {
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
               Bitcoin is Reserve, Not Product
             </h2>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+            <p className="text-base text-muted-foreground leading-relaxed mb-6">
               We hold Bitcoin as our primary long-term reserve asset. We utilize conservative, over-collateralized borrowing to fund R&D, treating liquidity as an operational tool rather than a yield product.
             </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               This is internal treasury management. We do not offer external yield products or manage third-party capital.
             </p>
           </div>

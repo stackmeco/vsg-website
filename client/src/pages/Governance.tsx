@@ -97,16 +97,16 @@ export default function Governance() {
               <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
                 Governance, risk & compliance
               </h1>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+              <p className="text-base text-muted-foreground leading-relaxed mb-6">
                 We work at the edge of AI, Digital Assets, and Verifiable Systems. That edge only matters if people can understand the risks and the rules.
               </p>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-base text-muted-foreground leading-relaxed">
                 This page explains how Verifiable Systems (Verifiable Systems Group LLC, "VSG") is governed today: who decides what, how we treat our Bitcoin treasury, and how we approach regulation and compliance as we move projects from R&D to reality.
               </p>
             </div>
 
             <div className="hidden lg:block">
-              <nav className="bg-card/80 backdrop-blur-sm border border-border rounded-sm p-6" aria-label="Table of contents" data-testid="nav-toc">
+              <nav className="bg-card/80 backdrop-blur-sm border border-border rounded-[2px] p-6" aria-label="Table of contents" data-testid="nav-toc">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4">
                   On this page
                 </p>

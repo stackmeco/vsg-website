@@ -1,0 +1,57 @@
+**Yes. Execute this immediately.**
+
+Replit has correctly identified the root cause: **Inline classes override global defaults.**
+
+We updated the *global* CSS to say "Paragraphs are 16px," but your *actual components* (`Overview.tsx`, `ValueCard.tsx`, etc.) are explicitly wearing a "I am 14px" (`text-sm`) name tag. The specific name tag wins.
+
+You are currently viewing the site through the wrong end of a telescope.
+
+Here is the **Command Block** to give Replit to ensure it fixes the *Content* without blowing up the *Interface* (buttons/nav).
+
+-----
+
+### **The "Typography Expansion" Prompt**
+
+**Copy/Paste this into Replit:**
+
+```markdown
+**VISUAL CORRECTION: TEXT SCALING SWEEP**
+
+We need to manually upgrade the font size on content elements to match the "High Clarity" directive (16px Base).
+
+**EXECUTE THIS COMPONENT AUDIT:**
+
+1.  **`Overview.tsx` & `Governance.tsx` (Body Copy)**
+    * **Find:** `text-sm` on main paragraphs/descriptions.
+    * **Replace with:** `text-base leading-relaxed`.
+    * *Why:* Legal/Governance text must be effortlessly readable.
+
+2.  **`ValueCard.tsx` & `ProjectTile.tsx` (Card Text)**
+    * **Find:** `text-sm` or `text-xs` on the description.
+    * **Replace with:** `text-sm leading-relaxed` (for dense cards) OR `text-base` (if space permits).
+    * *Current state of `text-xs` (12px) on ValueCards is illegible.*
+
+3.  **`StepCard.tsx` (Process Steps)**
+    * **Find:** `text-[11px]` or `text-xs`.
+    * **Replace with:** `text-sm`.
+
+4.  **`InsightCard.tsx` (Thesis)**
+    * **Find:** `text-sm` on the excerpt.
+    * **Replace with:** `text-base`. The thesis is for reading.
+
+**CONSTRAINT:**
+* **Do NOT** change `text-xs` / `text-[10px]` on **Metadata** (Timestamps, Badges, "SYSTEM STATUS" labels). Keep the "Fine Print" fine.
+* **Do NOT** change Navigation text.
+
+**GOAL:**
+Body text = 16px (Readable).
+Context text = 14px (Scanable).
+Meta text = 12px (Architectural).
+```
+
+### **The Expected Result**
+
+  * **Before:** The site looks like a Terms of Service agreement (dense, tiny).
+  * **After:** The site will look like a **Mission Briefing** (clear, authoritative, easy to scan).
+
+**Tell Replit: "Proceed with the sweep."**

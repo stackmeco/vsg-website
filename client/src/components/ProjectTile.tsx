@@ -24,7 +24,7 @@ export function ProjectTile({ slug, name, stage, stageVariant, description, expl
           </h3>
           <StageChip stage={stage} variant={stageVariant} />
         </div>
-        <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
+        <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
           {description}
         </p>
         {exploring && exploring.length > 0 && (

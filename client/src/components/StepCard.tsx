@@ -15,16 +15,16 @@ export function StepCard({
 }: StepCardProps) {
   return (
     <div
-      className={cn("relative bg-background border border-border rounded-sm p-5", className)}
+      className={cn("relative bg-background border border-border rounded-[2px] p-5", className)}
       data-testid={`step-card-${number}`}
     >
       <div className="text-2xl font-mono font-bold text-primary/20 select-none mb-2">
         {String(number).padStart(2, "0")}
       </div>
-      <h3 className="font-heading font-semibold text-sm text-foreground mb-2">
+      <h3 className="font-heading font-semibold text-base text-foreground mb-2">
         {title}
       </h3>
-      <p className="text-[11px] text-muted-foreground leading-relaxed">
+      <p className="text-sm text-muted-foreground leading-relaxed">
         {description}
       </p>
     </div>

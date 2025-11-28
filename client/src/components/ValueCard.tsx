@@ -26,7 +26,7 @@ export function ValueCard({
         <h3 className="font-heading font-semibold text-base text-foreground mb-2">
           {title}
         </h3>
-        <p className="text-xs text-muted-foreground leading-relaxed">
+        <p className="text-sm text-muted-foreground leading-relaxed">
           {description}
         </p>
       </CardContent>
