@@ -1,0 +1,41 @@
+To answer your question: **No, this is not ideal.**
+
+In a **"Control Room" / "System Interface"** aesthetic, consistency is not just a design rule; it is a functional requirement. A system interface does not leave some panels unlabeled.
+
+* **If you use them:** They act as "indices" or "metadata tags" that help the user scan the page before reading the headline.
+* **If you skip them:** The page feels less like a "Schematic" and more like a standard marketing scroll.
+
+**The Verdict:**
+**You want them.** You should enforce them globally. Every major section should have a "Micro-Label" (`text-[10px] mono uppercase`) to maintain the "Architectural" structure.
+
+Here is the **Remediation Plan** to fill the gaps and lock in the "Schematic" feel:
+
+### **1. System Page Fixes**
+* **Header:** "Bitcoin Treasury Program"
+    * **Add Label:** `CAPITAL ALLOCATION` or `RESERVE MECHANICS`
+* **Header:** "Functions behind the studio"
+    * **Add Label:** `OPERATIONAL STACK` or `FUNCTIONAL DOMAINS`
+
+### **2. Pipeline Page Fixes**
+* **Header:** "Current Pipeline projects" (or "Current Status")
+    * **Add Label:** `ACTIVE MANIFEST` or `R&D INVENTORY`
+
+### **3. Governance Page Fixes**
+* **Header:** "Want to discuss governance?"
+    * **Add Label:** `DIRECT CHANNEL` or `COMPLIANCE CONTACT`
+
+### **4. Overview Page Fixes (The Big Gaps)**
+* **Header:** "The VSG Directive" (or the section containing Purpose/Vision)
+    * **Add Label:** `CORE MANDATE` or `MISSION PARAMETERS`
+* **Header:** "Active Development Cycles"
+    * **Add Label:** `SYSTEM STATUS` or `LIVE OPERATIONS`
+* **Header:** "Bitcoin verifies Value..."
+    * **Add Label:** `TREASURY THESIS` or `ASSET STRATEGY`
+* **Header:** "Operating Principles"
+    * **Add Label:** `SYSTEM AXIOMS` or `EXECUTION PROTOCOLS`
+
+### **Implementation Note**
+Ensure these labels all use the exact same CSS class to match the "01", "02" style you already have:
+`text-[10px] font-mono uppercase tracking-widest text-muted-foreground`
+
+Adding these will make the entire site feel like a single, cohesive **specification document** rather than a collection of loose sections.
