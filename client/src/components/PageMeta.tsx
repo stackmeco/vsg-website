@@ -50,13 +50,14 @@ export function PageMeta({
     };
 
     setMeta('meta[name="description"]', "content", description);
+    setMeta('meta[name="keywords"]', "content", "Verifiable Systems Group LLC, Verifiable Systems Group, Verifiable Systems, VSG, Truth Engineering, AI, Digital Assets, Bitcoin");
     
     setMeta('meta[property="og:title"]', "content", fullTitle);
     setMeta('meta[property="og:description"]', "content", description);
     setMeta('meta[property="og:type"]', "content", type);
     setMeta('meta[property="og:url"]', "content", canonicalUrl);
     setMeta('meta[property="og:image"]', "content", imageUrl);
-    setMeta('meta[property="og:site_name"]', "content", "Verifiable Systems");
+    setMeta('meta[property="og:site_name"]', "content", "Verifiable Systems Group");
     
     setMeta('meta[name="twitter:card"]', "content", "summary_large_image");
     setMeta('meta[name="twitter:title"]', "content", fullTitle);

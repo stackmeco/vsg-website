@@ -34,8 +34,8 @@ export function SeoHead({
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "ResearchOrganization",
-    "name": "Verifiable Systems Group",
-    "alternateName": "VSG",
+    "name": "Verifiable Systems Group LLC",
+    "alternateName": ["Verifiable Systems Group", "Verifiable Systems", "VSG"],
     "url": DOMAIN,
     "logo": `${DOMAIN}/favicon.svg`,
     "description": "Engineering verifiable systems for intelligence and value.",
@@ -81,7 +81,8 @@ export function SeoHead({
 
   return (
     <Helmet>
-      <title>{`${title} | VSG`}</title>
+      <title>{`${title} | Verifiable Systems`}</title>
+      <meta name="keywords" content="Verifiable Systems Group LLC, Verifiable Systems Group, Verifiable Systems, VSG, Truth Engineering, AI, Digital Assets, Bitcoin" />
       <meta name="description" content={description} />
       <link rel="canonical" href={fullUrl} />
 
