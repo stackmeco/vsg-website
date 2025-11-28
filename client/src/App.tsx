@@ -54,11 +54,14 @@ function PageLoader() {
       aria-busy="true"
     >
       <div className="flex flex-col items-center gap-4">
-        <div 
-          className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"
-          aria-hidden="true"
-        />
-        <span className="text-sm font-mono text-muted-foreground">Loading...</span>
+        <div className="flex items-center gap-1" aria-hidden="true">
+          <div className="w-1 h-6 bg-primary/40 animate-[heartbeat_1.2s_ease-in-out_infinite]" />
+          <div className="w-1 h-6 bg-primary/60 animate-[heartbeat_1.2s_ease-in-out_0.15s_infinite]" />
+          <div className="w-1 h-6 bg-primary animate-[heartbeat_1.2s_ease-in-out_0.3s_infinite]" />
+          <div className="w-1 h-6 bg-primary/60 animate-[heartbeat_1.2s_ease-in-out_0.45s_infinite]" />
+          <div className="w-1 h-6 bg-primary/40 animate-[heartbeat_1.2s_ease-in-out_0.6s_infinite]" />
+        </div>
+        <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Processing</span>
         <span className="sr-only">Loading page content, please wait</span>
       </div>
     </div>

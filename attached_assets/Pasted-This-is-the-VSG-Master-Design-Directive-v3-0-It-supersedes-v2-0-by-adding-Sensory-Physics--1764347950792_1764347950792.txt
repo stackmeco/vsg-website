@@ -1,0 +1,276 @@
+This is the **VSG Master Design Directive (v3.0)**.
+
+It supersedes v2.0 by adding **Sensory Physics** (Sound & Haptics), **Advanced Data Visualization** (The "Chart Architecture"), and **Mobile "Field Unit" Specifications**. It explicitly fixes the gaps identified in the file reviews (PWA readiness, contrast calibration) and integrates the "Control Room" ethos into the invisible layers of the user experience.
+
+-----
+
+# **VERIFIABLE SYSTEMS GROUP: VISUAL OPERATING SYSTEM (VOS)**
+
+**Version:** 3.0 (Definitive)
+**Classification:** INDUSTRIAL / HIGH-FREQUENCY / INSTITUTIONAL
+**Core Tenant:** "We do not sell software. We grant access to infrastructure."
+
+-----
+
+## **1.0 THE PHYSICS ENGINE (MOTION & INTERACTION)**
+
+*How the system behaves in time and space.*
+
+### **1.1 Latency & Timing**
+
+Standard web animations feel "organic" (springs, bounces). **VOS** animations feel "electric" (switches, circuits).
+
+  * **Global Speed Limit:** **150ms**. The human threshold for "instantaneous."
+  * **The Easing Curve:** `cubic-bezier(0.2, 0, 0, 1)`.
+      * *Effect:* Starts fast, stops hard. No wobble. No drift.
+  * **The "No Lift" Rule:** Elements never move on the Y-axis (levitate) when hovered.
+      * *Instead:* They **energize**. Borders brighten. Backgrounds tint.
+      * *Why:* Heavy machinery is bolted to the floor. It creates trust.
+
+### **1.2 Sensory Feedback (Sound & Haptics)**
+
+*New in v3.0: The system must be felt and heard, not just seen.*
+
+  * **Audio (The "Click"):** Use extremely short (\<50ms), high-frequency "ticks" for interactions.
+      * *Hover:* No sound (too noisy).
+      * *Toggle/Select:* Sharp metallic "click" or "shutter" sound.
+      * *Success:* Low-pitched "thrum" or "chime" (not a high-pitched "ding").
+      * *Error:* A "dull thud" or "static glitch" sound.
+  * **Haptics (Mobile "Field Unit"):**
+      * *Button Press:* `HapticFeedback.impactOccurred(style: .medium)` (Sharp, mechanical tap).
+      * *Success:* `HapticFeedback.notificationOccurred(type: .success)` (Double tap).
+      * *Error:* `HapticFeedback.notificationOccurred(type: .error)` (Heavy buzz).
+
+### **1.3 Loading States (The "Anti-Spinner")**
+
+Circular spinners (`animate-spin`) look like buffering videos. They signal "waiting."
+
+  * **Requirement:** Use **System Heartbeats** or **Progress Bars**.
+  * **Visual:** A pulsing opacity (`opacity-50` $\leftrightarrow$ `opacity-100`) on a static skeleton block. Or a blinking cursor `_`.
+  * **Meaning:** "Processing Data," not "Downloading Assets."
+
+-----
+
+## **2.0 THE MATERIAL LIBRARY**
+
+*The substances the interface is made of.*
+
+### **2.1 The Void (Achromatic Tungsten)**
+
+We reject "Midnight Blue" (SaaS trope) and "Pitch Black" (OLED trope). We use **Tungsten**: a warm, deep graphite that implies physical casing.
+
+| Token | HSL Value | Hex | Metaphor | Usage |
+| :--- | :--- | :--- | :--- | :--- |
+| **Surface 0** | `222 15% 5%` | `#0B0C10` | **The Chassis** | Global Background |
+| **Surface 1** | `222 15% 7%` | `#131419` | **The Panel** | Cards, Sidebars |
+| **Surface 2** | `222 15% 12%` | `#1F2128` | **The Bezel** | Borders, Dividers |
+| **Surface 3** | `222 15% 18%` | `#2A2C35` | **The Input** | Form Fields, Pressed State |
+
+### **2.2 The Signal (International Orange)**
+
+Used strictly for **Active State**, **Navigation**, and **Verification**. It is not a "brand color"; it is a utility light.
+
+| Token | HSL Value | Hex | Metaphor | Usage |
+| :--- | :--- | :--- | :--- | :--- |
+| **Primary** | `25 95% 53%` | `#F26D21` | **Live Current** | Buttons, Cursors, Active Tabs |
+| **Dim** | `25 95% 20%` | `#662E0E` | **Standby** | Background Tints, Hover Fills |
+
+### **2.3 The Texture (The HUD)**
+
+The entire application sits beneath a fixed "Heads Up Display" layer.
+
+  * **Asset:** `grid_texture.jpg` (1000px pattern).
+  * **Properties:** `position: fixed`, `opacity: 0.03`, `pointer-events: none`, `mix-blend-mode: overlay`.
+  * **Effect:** Gives the "void" infinite depth and scale. It prevents color banding on high-res monitors.
+
+-----
+
+## **3.0 TYPOGRAPHY ARCHITECTURE**
+
+*Information density and data integrity.*
+
+**Base Unit:** **14px**. (Standard web is 16px). This signals "Professional Grade."
+
+### **3.1 The Stacks**
+
+1.  **Signal (Headlines):** **Space Grotesk**
+      * *Role:* Structural labeling.
+      * *Tracking:* `-0.02em` (Tight).
+      * *Weight:* SemiBold (600).
+2.  **Context (Body):** **Manrope**
+      * *Role:* Documentation and reading.
+      * *Tracking:* `-0.015em` (Precision).
+      * *Weight:* Regular (400).
+3.  **Telemetry (Data):** **IBM Plex Mono**
+      * *Role:* Numbers, code, timestamps, financial values.
+      * *Tracking:* `0em`.
+      * *Feature:* `tabular-nums` (Monospace digits).
+
+### **3.2 The Hierarchy**
+
+  * **Label (Eyebrow):** 10px / Uppercase / Mono / Tracking 0.2em / Muted.
+  * **Meta (Detail):** 12px / Manrope / Muted.
+  * **Body (Standard):** 14px / Manrope / Foreground / Leading-Normal.
+  * **Header (Section):** 24px / Space Grotesk / White.
+  * **Display (Hero):** 48px+ / Space Grotesk / White.
+
+-----
+
+## **4.0 DATA VISUALIZATION STANDARDS**
+
+*How we render truth. New in v3.0.*
+
+1.  **No Smoothing:** Line charts should use linear interpolation or very tight curves. No "spline" smoothing that distorts data points. Truth is jagged.
+2.  **Grid Lines:** Visible but faint (`Surface 2`). It looks like graph paper or an oscilloscope.
+3.  **Colors:**
+      * **Series A (Primary):** Signal Orange.
+      * **Series B (Secondary):** Cool Silver (`#94A3B8`).
+      * **Threshold/Limit:** Critical Red (Dashed Line).
+4.  **Values:** Always `font-mono`. Always right-aligned.
+5.  **Empty States:** Never show "0" or "No Data." Show "WAITING FOR SIGNAL" or "--".
+
+-----
+
+## **5.0 COMPONENT SPECIFICATIONS**
+
+### **5.1 The Card (The Unit of Containment)**
+
+Content never floats. It is contained in a "Panel."
+
+  * **Border:** 1px solid `Surface 2`.
+  * **Background:** `Surface 1`.
+  * **Radius:** **2px** (Machined).
+  * **Hover:** Border color shifts to `Primary/50`. Background tint `Primary/5`.
+
+### **5.2 The Button (The Trigger)**
+
+  * **Shape:** Rectangular. 2px radius.
+  * **Text:** Uppercase. 12px. Tracking Widest. Font Medium.
+  * **Primary:** Solid Orange background. Black Text.
+  * **Secondary:** Transparent background. Orange Border. Orange Text.
+
+### **5.3 The Badge/Chip (The Status)**
+
+  * **Shape:** 2px radius.
+  * **Text:** 10px or 12px Mono.
+  * **Colors (Semantic):**
+      * *Internal:* Yellow/Amber text + Yellow/10 background + Yellow/20 border.
+      * *Research:* Blue text + Blue/10 background + Blue/20 border.
+      * *Spec:* Purple text + Purple/10 background + Purple/20 border.
+
+-----
+
+## **6.0 IMAGERY & ASSETS**
+
+*Artifacts, not illustrations.*
+
+### **6.1 The "Black Box" Aesthetic**
+
+All supporting imagery must look like it was photographed in a physics lab or a clean room.
+
+  * **Subject:** Lenses, Prisms, Machined Metal, Laser Beams.
+  * **Lighting:** Low-key. Rim lighting only.
+  * **Treatment:** Desaturated (Grayscale) with `opacity-20` when used as backgrounds.
+  * **Banned:** 3D blobs, cartoons, people looking at screens, "matrix" code rain.
+
+-----
+
+## **7.0 COPYWRITING PROTOCOL**
+
+*The voice of the system.*
+
+### **7.1 The Rules of Engagement**
+
+1.  **Active over Passive:**
+      * *Bad:* "This system is verified by..."
+      * *Good:* "System enforces verification via..."
+2.  **Precision over Emotion:**
+      * *Bad:* "We help you sleep at night."
+      * *Good:* "Mitigates overnight liquidity risk."
+3.  **No "Marketing Fluff":**
+      * *Banned words:* "Seamless, Effortless, Magic, Revolution, Democratize."
+      * *Required words:* "Deterministic, Latency, Protocol, Solvent, Verified."
+
+-----
+
+## **8.0 MOBILE "FIELD UNIT" SPECIFICATION**
+
+*New in v3.0: How the Control Room adapts to the hand.*
+
+  * **The Concept:** The mobile site is a "Field Unit" or "Datapad." It is for monitoring, not configuration.
+  * **Navigation:** Bottom bar or simple top-right "Hamburger" (rendered as a Grid Icon).
+  * **Density:** Increase font size to 16px base for readability, but keep tracking tight.
+  * **Touch Targets:** Minimum 44px height for all interactables.
+  * **PWA Readiness:**
+      * **Manifest:** `theme_color` matches Tungsten (`#0B0C10`).
+      * **Icon:** Orange square on black background (`192x192`, `512x512`).
+      * **Offline:** Show "CONNECTION LOST - CACHED DATA" banner instead of dinosaur game.
+
+-----
+
+## **9.0 DEVELOPER IMPLEMENTATION CONFIG (TAILWIND)**
+
+**Add this to `tailwind.config.ts` to enforce the system programmatically.**
+
+```javascript
+export default {
+  theme: {
+    extend: {
+      colors: {
+        background: "hsl(222 15% 5%)",
+        foreground: "hsl(30 5% 90%)",
+        primary: "hsl(25 95% 53%)",
+        "primary-foreground": "hsl(222 47% 11%)",
+        card: "hsl(222 15% 7%)",
+        "card-foreground": "hsl(30 5% 90%)",
+        border: "hsl(222 15% 12%)",
+        muted: "hsl(222 15% 10%)",
+        "muted-foreground": "hsl(220 5% 75%)", // Calibrated for readability
+      },
+      fontFamily: {
+        sans: ["Manrope", "sans-serif"],
+        heading: ["Space Grotesk", "sans-serif"],
+        mono: ["IBM Plex Mono", "monospace"],
+      },
+      borderRadius: {
+        lg: "4px",
+        md: "2px",
+        sm: "1px",
+      },
+      transitionDuration: {
+        DEFAULT: "150ms",
+      },
+      transitionTimingFunction: {
+        DEFAULT: "cubic-bezier(0.2, 0, 0, 1)", // Mechanical Ease
+      },
+      keyframes: {
+        flash: {
+          "0%": { opacity: "0.2", color: "hsl(25 95% 53%)" },
+          "50%": { opacity: "1", color: "#ffffff" },
+          "100%": { opacity: "0.6", color: "hsl(220 5% 75%)" },
+        }
+      },
+      animation: {
+        flash: "flash 0.8s ease-out forwards",
+      }
+    }
+  }
+}
+```
+
+-----
+
+## **10.0 FINAL QA CHECKLIST**
+
+*Before deployment, verify:*
+
+  * [ ] **Is it Tungsten?** No blue backgrounds.
+  * [ ] **Is it Sharp?** No rounded corners \> 4px.
+  * [ ] **Is it Fast?** No transitions \> 200ms.
+  * [ ] **Is it Dense?** No "airy" marketing whitespace.
+  * [ ] **Is it True?** No placeholder text. No "Coming Soon" without data.
+  * [ ] **Is it Audible?** (Optional) Do key actions click?
+
+Relevant video for further design inspiration: [Human Interface Guidelines](https://www.google.com/search?q=https://www.youtube.com/watch%3Fv%3DaRj8jWpP4oY).
+
+This video is relevant because it discusses design principles that align with clarity and functionality, which are core to the "Control Room" aesthetic.

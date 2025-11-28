@@ -183,43 +183,37 @@ export function ArticleAudioPlayer({ audioSrc, articleTitle }: ArticleAudioPlaye
               aria-label={isPlaying ? "Pause" : "Play"}
             >
               <div 
-                className={`absolute w-28 h-28 rounded-full border border-primary/20 transition-all duration-700 ${
-                  isPlaying ? 'animate-ping opacity-30' : 'opacity-0'
+                className={`absolute w-28 h-28 rounded-sm border border-primary/20 transition-opacity duration-150 ${
+                  isPlaying ? 'opacity-60 animate-[heartbeat_2s_ease-in-out_infinite]' : 'opacity-0'
                 }`}
-                style={{ animationDuration: '2s' }}
               />
               
               <div 
-                className={`absolute w-24 h-24 rounded-full border border-primary/30 transition-all duration-500 ${
-                  isPlaying ? 'scale-100 opacity-100' : 'scale-90 opacity-50'
+                className={`absolute w-24 h-24 rounded-sm border border-primary/30 transition-opacity duration-150 ${
+                  isPlaying ? 'opacity-100' : 'opacity-50'
                 }`}
               />
               
               <svg className="absolute w-20 h-20 -rotate-90" viewBox="0 0 80 80">
-                <circle 
-                  cx="40" 
-                  cy="40" 
-                  r="36" 
+                <rect 
+                  x="4" y="4" width="72" height="72" rx="2"
                   fill="none" 
                   stroke="currentColor" 
                   strokeWidth="2"
                   className="text-muted/30"
                 />
-                <circle 
-                  cx="40" 
-                  cy="40" 
-                  r="36" 
+                <rect 
+                  x="4" y="4" width="72" height="72" rx="2"
                   fill="none" 
                   stroke="currentColor" 
                   strokeWidth="2"
-                  strokeLinecap="round"
-                  className="text-primary transition-all duration-300"
-                  strokeDasharray={`${2 * Math.PI * 36}`}
-                  strokeDashoffset={`${2 * Math.PI * 36 * (1 - progress / 100)}`}
+                  className="text-primary transition-all duration-150"
+                  strokeDasharray={`${72 * 4}`}
+                  strokeDashoffset={`${72 * 4 * (1 - progress / 100)}`}
                 />
               </svg>
               
-              <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/40 flex items-center justify-center backdrop-blur-sm group-hover:bg-primary/20 group-hover:border-primary/60 transition-all duration-200">
+              <div className="w-16 h-16 rounded-sm bg-primary/10 border border-primary/40 flex items-center justify-center backdrop-blur-sm group-hover:bg-primary/20 group-hover:border-primary/60 transition-all duration-150">
                 {isPlaying ? 
                   <Pause className="w-6 h-6 text-primary" /> : 
                   <Play className="w-6 h-6 text-primary ml-1" />
@@ -241,11 +235,11 @@ export function ArticleAudioPlayer({ audioSrc, articleTitle }: ArticleAudioPlaye
             aria-valuenow={Math.round(progress)}
           >
             <div 
-              className="absolute top-0 left-0 h-full bg-primary/80 transition-all duration-100" 
+              className="absolute top-0 left-0 h-full bg-primary/80 transition-all duration-150" 
               style={{ width: `${progress}%` }} 
             />
             <div 
-              className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary shadow-sm opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-sm bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-150"
               style={{ left: `calc(${progress}% - 6px)` }}
             />
           </div>

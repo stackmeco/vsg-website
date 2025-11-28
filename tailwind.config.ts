@@ -106,10 +106,13 @@ export default {
           "50%": { opacity: "0.7", boxShadow: "0 0 4px hsl(var(--primary) / 0.2)" },
         },
         "data-tick": {
-          "0%": { transform: "translateY(0)", opacity: "1" },
-          "10%": { transform: "translateY(-2px)", opacity: "0.8" },
-          "20%": { transform: "translateY(0)", opacity: "1" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
+          "0%, 100%": { opacity: "1", filter: "brightness(1)" },
+          "10%": { opacity: "0.7", filter: "brightness(1.2)" },
+          "20%": { opacity: "1", filter: "brightness(1)" },
+        },
+        "heartbeat": {
+          "0%, 100%": { opacity: "0.3" },
+          "50%": { opacity: "1" },
         },
         "glow-pulse": {
           "0%, 100%": { boxShadow: "0 0 4px hsl(var(--primary) / 0.4)" },
@@ -123,6 +126,7 @@ export default {
         "pulse-glow": "pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "data-tick": "data-tick 4s ease-out infinite",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        "heartbeat": "heartbeat 1.2s ease-in-out infinite",
       },
       transitionTimingFunction: {
         'mechanical': 'cubic-bezier(0.2, 0, 0, 1)',

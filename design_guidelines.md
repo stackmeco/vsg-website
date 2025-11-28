@@ -1,184 +1,168 @@
-# VSG Marketing Site - Design Guidelines
+# VSG Visual Operating System (VOS) v3.0 - Design Guidelines
 
-## Design Philosophy
-
-**Industrial Control Room Aesthetic**: Tier-1 institutional design inspired by Bloomberg Terminal precision, industrial control panels, and scientific instrument interfaces. This reflects VSG's positioning as a Truth Engineering Lab requiring absolute clarity, operational maturity, and zero ambiguity.
-
-**Core Design Tenets**:
-- "Bitcoin verifies Value, Axiom verifies Truth"
-- Data changes value, never position (use `tabular-nums` for numbers)
-- Only LIVE data animates; historical data must be static
-- Active voice, technical terminology, zero marketing-speak
-- Glow-only motion: 150ms mechanical timing, no translateY or shadows
+**Classification:** INDUSTRIAL / HIGH-FREQUENCY / INSTITUTIONAL
+**Core Tenant:** "We do not sell software. We grant access to infrastructure."
 
 ---
 
-## Color System: Tungsten & Signal Palette
+## 1.0 Physics Engine (Motion & Interaction)
 
-### Primary Colors (index.css :root)
-```css
-/* THE VOID (Backgrounds) - Deep warm charcoal, NOT blue, NOT pure black */
---background: 222 15% 5%;
---foreground: 30 5% 90%;           /* Off-white/Silver */
+### 1.1 Latency & Timing
+- **Global Speed Limit:** 150ms (human threshold for "instantaneous")
+- **Easing Curve:** `cubic-bezier(0.2, 0, 0, 1)` - Starts fast, stops hard. No wobble.
+- **"No Lift" Rule:** Elements never move on Y-axis when hovered. They ENERGIZE (borders brighten, backgrounds tint).
 
-/* SURFACE LAYERS (Panels) - Distinct via Lightness, not Hue */
---card: 222 15% 7%;
---card-border: 222 15% 12%;        /* Structural steel gray */
+### 1.2 Loading States (Anti-Spinner)
+Circular spinners signal "waiting." VOS uses **System Heartbeats**:
+- Pulsing opacity bars (`opacity-30` ↔ `opacity-100`)
+- Blinking cursor `_`
+- Meaning: "Processing Data," not "Downloading Assets"
 
-/* THE SIGNAL (Primary Action) - International Orange / Safety Amber */
---primary: 25 95% 53%;             /* #F26D21 - "High Voltage" indicator */
---primary-foreground: 222 47% 11%;
-
-/* THE STRUCTURE (Secondary) - Functional mechanics */
---secondary: 222 15% 10%;
---secondary-foreground: 30 5% 80%;
-
-/* METADATA & LABELS */
---muted: 222 15% 10%;
---muted-foreground: 220 5% 75%;    /* CALIBRATED: Boosted from 55% for legibility */
-```
-
-### Contrast Calibration (Critical)
-**`--muted-foreground: 220 5% 75%`** — This value was calibrated from 55% to 75% to ensure readable metadata at the 14px base font size. This affects all descriptions, labels, timestamps, and secondary text site-wide.
+### 1.3 Animation Classes
+| Class | Effect | Usage |
+|-------|--------|-------|
+| `animate-heartbeat` | Opacity pulse 0.3→1→0.3 | Loading indicators |
+| `animate-glow-pulse` | Box-shadow pulse | Status indicators |
+| `animate-data-tick` | Brightness flash | Value updates |
+| `animate-flash` | Text flash | Timestamps |
 
 ---
 
-## Typography System
+## 2.0 Material Library (Tungsten Palette)
 
-### Font Stack
-| Role | Font | Letter-Spacing |
-|------|------|----------------|
-| **Body** | Manrope | -0.015em (machined precision) |
-| **Headings** | Space Grotesk | tracking-tight |
-| **Code/Data** | IBM Plex Mono | default |
+### 2.1 The Void (Backgrounds)
+Deep, warm charcoal. NOT blue. NOT pure black.
 
-### Size Scale (14px Base)
-| Token | Size | Usage |
-|-------|------|-------|
-| `text-2xs` | 10px | Micro-labels, ticker data |
-| `text-xs` | 12px | Labels, metadata, chips |
-| `text-sm` | 14px | **Base body text** |
-| `text-base` | 16px | Emphasized body |
-| `text-lg` | 18px | H3 headings |
-| `text-xl` | 20px | Subheadings |
-| `text-2xl` | 24px | H2 headings |
-| `text-3xl` | 30px | Page H1 |
-| `text-4xl` | 36px | Large display |
-| `text-5xl` | 56px (3.5rem) | Hero H1 |
+| Token | HSL | Hex | Usage |
+|-------|-----|-----|-------|
+| `--background` | 222 15% 5% | #0B0C10 | Global background (The Chassis) |
+| `--card` | 222 15% 7% | #131419 | Cards, Sidebars (The Panel) |
+| `--border` | 222 15% 12% | #1F2128 | Borders, Dividers (The Bezel) |
+| `--input` | 222 15% 10% | - | Form fields (The Input) |
 
-### Heading Hierarchy
-| Level | Size | Font | Class |
-|-------|------|------|-------|
-| Hero H1 | 3.5rem (56px) | Space Grotesk | `font-heading font-bold text-5xl` |
-| Page H1 | 2.5rem (40px) | Space Grotesk | `font-heading font-bold text-3xl sm:text-4xl` |
-| H2 | 2rem (32px) | Space Grotesk | `font-heading font-semibold text-2xl sm:text-[2rem]` |
-| H3 | 1.5rem (24px) | Space Grotesk | `font-heading font-semibold text-lg` |
+### 2.2 The Signal (International Orange)
+Used strictly for Active State, Navigation, Verification.
+
+| Token | HSL | Hex | Usage |
+|-------|-----|-----|-------|
+| `--primary` | 25 95% 53% | #F26D21 | Buttons, Active tabs (Live Current) |
+| Primary/10 | - | - | Background tints, Hover fills (Standby) |
+
+### 2.3 Text Colors
+| Token | HSL | Usage |
+|-------|-----|-------|
+| `--foreground` | 30 5% 90% | Primary text (off-white/silver) |
+| `--muted-foreground` | 220 5% 75% | Metadata, labels (calibrated for 14px legibility) |
 
 ---
 
-## Interaction System
+## 3.0 Typography Architecture
 
-### Elevation Utilities (index.css)
-**Never implement custom hover/active states on Buttons or Badges.** Use the built-in elevation system:
+**Base Unit:** 14px (Professional Grade - signals density)
+
+### 3.1 Font Stacks
+| Role | Font | Tracking | Weight |
+|------|------|----------|--------|
+| Body (Context) | Manrope | -0.015em | 400 |
+| Headlines (Signal) | Space Grotesk | -0.02em | 600 |
+| Data (Telemetry) | IBM Plex Mono | 0em | tabular-nums |
+
+### 3.2 Hierarchy
+| Element | Size | Font | Class |
+|---------|------|------|-------|
+| Label (Eyebrow) | 10px | Mono | `text-[10px] uppercase tracking-[0.2em] font-mono` |
+| Meta (Detail) | 12px | Manrope | `text-xs` |
+| Body (Standard) | 14px | Manrope | `text-sm` |
+| Header (Section) | 24px | Space Grotesk | `text-2xl font-heading` |
+| Display (Hero) | 48px+ | Space Grotesk | `text-5xl font-heading` |
+
+---
+
+## 4.0 Data Visualization Standards
+
+1. **No Smoothing:** Linear interpolation only. Truth is jagged.
+2. **Grid Lines:** Visible but faint (`--border` color). Oscilloscope aesthetic.
+3. **Colors:**
+   - Series A (Primary): Signal Orange
+   - Series B (Secondary): Cool Silver (#94A3B8)
+   - Threshold/Limit: Critical Red (Dashed)
+4. **Values:** Always `font-mono tabular-nums`, right-aligned.
+5. **Empty States:** Never "0" or "No Data." Show "WAITING FOR SIGNAL" or "--".
+
+---
+
+## 5.0 Component Specifications
+
+### 5.1 The Button (The Trigger)
+- **Shape:** Rectangular. 2px radius (`rounded-sm`)
+- **Text:** Uppercase. 12px. Tracking 0.2em. Font Mono. Medium weight.
+- **Primary:** Solid orange background. Dark text.
+- **Secondary:** Transparent background. Orange border. Orange text.
+
+### 5.2 The Badge/Chip (The Status)
+- **Shape:** 2px radius
+- **Text:** 10px Mono
+- **Variants:** default, secondary, destructive, outline
+
+### 5.3 The Card (The Unit of Containment)
+- **Border:** 1px solid `--border`
+- **Background:** `--card`
+- **Radius:** 2px (Machined)
+- **Hover:** Border color shifts to `primary/50`. Background tint `primary/5`.
+
+---
+
+## 6.0 Interaction System
+
+### Elevation Utilities
+**Never implement custom hover/active states on Buttons or Badges.** Use built-in:
 
 | Utility | Purpose |
 |---------|---------|
 | `hover-elevate` | Subtle background elevation on hover |
-| `active-elevate-2` | Dramatic elevation on press/active |
+| `active-elevate-2` | Dramatic elevation on press |
 | `toggle-elevate` + `toggle-elevated` | Toggle state styling |
 
-### Acceptable Hover Patterns
-These patterns are allowed on non-Button/Badge elements:
-- `hover:bg-primary/5` — List item hover (e.g., project ticker)
+### Acceptable Hover Patterns (non-Button/Badge elements)
+- `hover:bg-primary/5` — List item hover
 - `hover:bg-card/50` — Table row hover
 - `hover:text-primary` — Link text color change
 
 ### Forbidden Patterns
-Never use these on Buttons or Badges:
-- `hover:bg-*` (use `hover-elevate` instead)
-- `hover:border-*` (let shadcn handle it)
-- Custom active states
+- `animate-spin` (use `animate-heartbeat` instead)
+- `translateY` on hover (use opacity/brightness)
+- `rounded-full` on control elements (use `rounded-sm`)
+- Transitions > 200ms
 
 ---
 
-## Component Patterns
+## 7.0 Mobile "Field Unit" Specification
 
-### StageChip Variants
-| Variant | Color | Usage |
-|---------|-------|-------|
-| `default` | Muted | Research, early stages |
-| `warning` | Warning yellow | Architecture, building |
-| `info` | Blue tint | Internal Alpha |
-| `success` | Green | Public Beta, Stable |
-| `destructive` | Red | Deprecated |
-
-### ValueCard (Operating Principles)
-6 principles with icon system:
-1. Eye — Radical Transparency
-2. Coins — Aligned Incentives
-3. Shield — Resilience Engineering
-4. Search — First-Principles Thinking
-5. Compass — Verification, Not Trust
-6. ShieldCheck — Cognitive Security
-
-### NextStepBlock
-Uniform page-to-page navigation component. Always placed at section end.
+- **Concept:** Mobile is a "Datapad" for monitoring, not configuration.
+- **Base font:** 16px for readability (exception to 14px rule)
+- **Touch Targets:** Minimum 44px height
+- **PWA Ready:**
+  - `theme_color`: #0B0C10 (Tungsten)
+  - Icons: Orange square on black (192x192, 512x512)
 
 ---
 
-## Layout System
+## 8.0 Copywriting Protocol
 
-### Spacing Primitives
-- Component padding: `p-4`, `p-6`, `p-8`
-- Section spacing: `py-16`, `py-20`, `py-24`
-- Element gaps: `gap-4`, `gap-6`, `gap-8`
-
-### Grid Structure
-- Max container: `max-w-7xl` (1280px)
-- Content width: `max-w-5xl` for text-heavy areas
-- Prose width: `max-w-3xl` for long-form content
-
-### Border Radius
-**Machined edges only**: `--radius: 2px` or `rounded-[2px]`
-No organic curves. Everything should feel precision-cut.
+### Voice Rules
+1. **Active over Passive:** "System enforces..." not "This is verified by..."
+2. **Precision over Emotion:** "Mitigates overnight liquidity risk" not "Helps you sleep at night"
+3. **Banned words:** Seamless, Effortless, Magic, Revolution, Democratize
+4. **Required words:** Deterministic, Latency, Protocol, Solvent, Verified
 
 ---
 
-## Animation Rules
+## 9.0 QA Checklist
 
-### Motion Philosophy
-- Only LIVE data animates (real-time feeds, active states)
-- Historical data must be STATIC
-- Glow-only motion pattern: brightness/opacity changes, no translateY
-
-### Timing
-- Mechanical transitions: `150ms` or `duration-150`
-- No easing curves that feel "bouncy" or organic
-
----
-
-## Accessibility Compliance
-
-### Contrast Ratios
-- Body text (`--foreground`): Passes WCAG AA on `--background`
-- Muted text (`--muted-foreground` at 75%): Passes WCAG AA at 14px+
-- Primary orange on dark: High contrast, always legible
-
-### Interactive Elements
-- Minimum touch target: 44x44px (handled by Button sizing)
-- Focus states: Orange ring (`--ring: 25 95% 53%`)
-- Keyboard navigation: Supported via Link/Button components
-
----
-
-## Content Guidelines
-
-### Voice & Tone
-- **Active voice only**: "We build" not "Systems are built"
-- **Technical precision**: Use correct terminology
-- **Zero marketing-speak**: No "revolutionary", "game-changing", "best-in-class"
-- **Institutional restraint**: Facts over hype
-
-### Section Headers
-- Use imperative or declarative statements
-- Examples: "Operating Principles", "Active Development Cycles", "Bitcoin is Reserve, Not Product"
+Before deployment, verify:
+- [ ] **Is it Tungsten?** No blue backgrounds.
+- [ ] **Is it Sharp?** No rounded corners > 4px.
+- [ ] **Is it Fast?** No transitions > 200ms.
+- [ ] **Is it Dense?** No "airy" marketing whitespace.
+- [ ] **Is it True?** No placeholder text. No "Coming Soon" without data.
+- [ ] **Is it Static?** Only LIVE data animates; historical data is static.
