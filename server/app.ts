@@ -15,18 +15,25 @@ function securityHeaders(req: Request, res: Response, next: NextFunction) {
   res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
   res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
   
-  if (process.env.NODE_ENV === "production") {
-    res.setHeader("Content-Security-Policy", [
-      "default-src 'self'",
-      "script-src 'self' 'unsafe-inline'",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      "font-src 'self' https://fonts.gstatic.com",
-      "img-src 'self' data: https:",
-      "connect-src 'self'",
-      "frame-ancestors 'self' https://verifiablesystems.com",
-      "base-uri 'self'",
-      "form-action 'self'"
-    ].join("; "));
+  const isProduction = process.env.NODE_ENV === "production";
+  
+  const frameAncestors = isProduction
+    ? "frame-ancestors 'self' https://verifiablesystems.com"
+    : "frame-ancestors 'self' https://*.replit.dev https://*.replit.com https://*.repl.co";
+  
+  res.setHeader("Content-Security-Policy", [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline'",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "font-src 'self' https://fonts.gstatic.com",
+    "img-src 'self' data: https:",
+    "connect-src 'self'",
+    frameAncestors,
+    "base-uri 'self'",
+    "form-action 'self'"
+  ].join("; "));
+  
+  if (isProduction) {
     res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
   }
   next();
