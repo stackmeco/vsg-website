@@ -174,7 +174,7 @@ export default function Overview() {
             The VSG Directive
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-background border-border">
+            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
                   Purpose
@@ -185,7 +185,7 @@ export default function Overview() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-background border-border">
+            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
                   Vision
@@ -196,7 +196,7 @@ export default function Overview() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-background border-border">
+            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
                   Mission
