@@ -97,7 +97,7 @@ function checkTtsRateLimit(req: Request): boolean {
   return true;
 }
 
-const ALLOWED_ORIGINS = [
+const ALLOWED_HOSTS = [
   "localhost:5000",
   "localhost:3000",
   "verifiablesystems.com",
@@ -113,18 +113,24 @@ function validateOrigin(req: Request): boolean {
   }
   
   try {
-    const requestOrigin = origin || (referer ? new URL(referer).host : null);
+    let requestHost: string | null = null;
     
-    if (!requestOrigin) {
+    if (origin) {
+      requestHost = new URL(origin).host;
+    } else if (referer) {
+      requestHost = new URL(referer).host;
+    }
+    
+    if (!requestHost) {
       return false;
     }
     
-    return ALLOWED_ORIGINS.some(allowed => 
-      requestOrigin === allowed || 
-      requestOrigin === `www.${allowed}` ||
-      requestOrigin.endsWith(`.replit.dev`) ||
-      requestOrigin.endsWith(`.replit.app`)
-    );
+    return ALLOWED_HOSTS.some(allowed => 
+      requestHost === allowed || 
+      requestHost === `www.${allowed}`
+    ) ||
+    requestHost.endsWith(`.replit.dev`) ||
+    requestHost.endsWith(`.replit.app`);
   } catch {
     return false;
   }
