@@ -14,18 +14,19 @@ function securityHeaders(req: Request, res: Response, next: NextFunction) {
   res.setHeader("X-XSS-Protection", "1; mode=block");
   res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
   res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
-  res.setHeader("Content-Security-Policy", [
-    "default-src 'self'",
-    "script-src 'self' 'unsafe-inline'",
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-    "font-src 'self' https://fonts.gstatic.com",
-    "img-src 'self' data: https:",
-    "connect-src 'self'",
-    "frame-ancestors 'self' https://*.replit.dev https://*.replit.com",
-    "base-uri 'self'",
-    "form-action 'self'"
-  ].join("; "));
+  
   if (process.env.NODE_ENV === "production") {
+    res.setHeader("Content-Security-Policy", [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline'",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "font-src 'self' https://fonts.gstatic.com",
+      "img-src 'self' data: https:",
+      "connect-src 'self'",
+      "frame-ancestors 'self' https://verifiablesystems.com",
+      "base-uri 'self'",
+      "form-action 'self'"
+    ].join("; "));
     res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
   }
   next();
