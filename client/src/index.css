@@ -7,15 +7,6 @@
   /* --- GEOMETRY & PHYSICS --- */
   --radius: 2px; /* MACHINED EDGES. No organic curves. */
   
-  /* === DESIGN TOKEN SYSTEM === */
-  /* Typography Scale (Industrial) */
-  --text-hero: 2.5rem;        /* 40px - Page hero titles only */
-  --text-section: 1.75rem;    /* 28px - Section headings */
-  --text-card-title: 1rem;    /* 16px - Card/component titles */
-  --text-body: 0.875rem;      /* 14px - Body text */
-  --text-small: 0.75rem;      /* 12px - Descriptions, metadata */
-  --text-label: 0.625rem;     /* 10px - Labels, chips, tags */
-  
   /* Spacing Scale (Mechanical) */
   --space-section: 5rem;      /* 80px - Between major sections */
   --space-block: 2.5rem;      /* 40px - Between content blocks */
@@ -153,9 +144,9 @@
 
 /* 1. Terminal Text Selection - Orange Signal */
 ::selection {
-  background-color: hsl(25 95% 53% / 0.2);
-  color: #ffffff;
-  -webkit-text-fill-color: #ffffff;
+  background-color: hsl(var(--primary) / 0.2);
+  color: hsl(var(--foreground));
+  -webkit-text-fill-color: hsl(var(--foreground));
 }
 
 /* 2. Engineered Scrollbars - Square, Industrial */
@@ -499,8 +490,8 @@
 
 /* Terminal Text Selection - Developer/Hacker Polish */
 ::selection {
-  background-color: hsl(25 95% 53% / 0.2); /* Signal Orange at 20% opacity */
-  color: #ffffff;
+  background-color: hsl(var(--primary) / 0.2);
+  color: hsl(var(--foreground));
 }
 
 /* HUD Texture Overlay - For background images */
