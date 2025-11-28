@@ -1,5 +1,5 @@
 import { Switch, Route } from "wouter";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -8,16 +8,69 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { ScrollManager } from "@/components/ScrollManager";
 import Overview from "@/pages/Overview";
 
-const System = lazy(() => import("@/pages/System"));
-const Pipeline = lazy(() => import("@/pages/Pipeline"));
-const PipelineDetail = lazy(() => import("@/pages/PipelineDetail"));
-const Governance = lazy(() => import("@/pages/Governance"));
-const Library = lazy(() => import("@/pages/Library"));
-const LibraryArticle = lazy(() => import("@/pages/LibraryArticle"));
-const Contact = lazy(() => import("@/pages/Contact"));
-const Privacy = lazy(() => import("@/pages/Privacy"));
-const Terms = lazy(() => import("@/pages/Terms"));
-const NotFound = lazy(() => import("@/pages/not-found"));
+const pageImports = {
+  System: () => import("@/pages/System"),
+  Pipeline: () => import("@/pages/Pipeline"),
+  PipelineDetail: () => import("@/pages/PipelineDetail"),
+  Governance: () => import("@/pages/Governance"),
+  Library: () => import("@/pages/Library"),
+  LibraryArticle: () => import("@/pages/LibraryArticle"),
+  Contact: () => import("@/pages/Contact"),
+  Privacy: () => import("@/pages/Privacy"),
+  Terms: () => import("@/pages/Terms"),
+  NotFound: () => import("@/pages/not-found"),
+};
+
+const System = lazy(pageImports.System);
+const Pipeline = lazy(pageImports.Pipeline);
+const PipelineDetail = lazy(pageImports.PipelineDetail);
+const Governance = lazy(pageImports.Governance);
+const Library = lazy(pageImports.Library);
+const LibraryArticle = lazy(pageImports.LibraryArticle);
+const Contact = lazy(pageImports.Contact);
+const Privacy = lazy(pageImports.Privacy);
+const Terms = lazy(pageImports.Terms);
+const NotFound = lazy(pageImports.NotFound);
+
+function usePreloadPages() {
+  useEffect(() => {
+    const preloadPages = async () => {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      const priorityPages = [
+        pageImports.System,
+        pageImports.Pipeline,
+        pageImports.Governance,
+        pageImports.Library,
+      ];
+      
+      for (const importFn of priorityPages) {
+        await importFn();
+        await new Promise(resolve => setTimeout(resolve, 100));
+      }
+      
+      const secondaryPages = [
+        pageImports.PipelineDetail,
+        pageImports.LibraryArticle,
+        pageImports.Contact,
+        pageImports.Privacy,
+        pageImports.Terms,
+        pageImports.NotFound,
+      ];
+      
+      for (const importFn of secondaryPages) {
+        await importFn();
+        await new Promise(resolve => setTimeout(resolve, 100));
+      }
+    };
+
+    if ('requestIdleCallback' in window) {
+      (window as Window & { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(preloadPages);
+    } else {
+      setTimeout(preloadPages, 2000);
+    }
+  }, []);
+}
 
 function PageLoader() {
   return (
@@ -51,6 +104,8 @@ function Router() {
 }
 
 function App() {
+  usePreloadPages();
+  
   return (
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
