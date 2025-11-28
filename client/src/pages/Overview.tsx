@@ -293,7 +293,7 @@ export default function Overview() {
       </section>
 
       <NextStepBlock
-        nextPage="System"
+        nextPage="Process"
         description="See how Verifiable Systems operates day to day."
         href="/system"
       />
