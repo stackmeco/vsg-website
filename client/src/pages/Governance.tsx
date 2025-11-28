@@ -157,7 +157,7 @@ export default function Governance() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <Card className="bg-background border-border">
+            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center">
@@ -173,7 +173,7 @@ export default function Governance() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-background border-border">
+            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-sm bg-secondary flex items-center justify-center">
@@ -191,7 +191,7 @@ export default function Governance() {
             </Card>
           </div>
 
-          <Card className="bg-background border-border">
+          <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
             <CardContent className="p-6">
               <p className="text-sm text-muted-foreground">
                 <strong className="text-foreground">Fundamental decisions</strong> (selling substantially all assets, admitting new members) require unanimous written consent of all members.
@@ -237,7 +237,7 @@ export default function Governance() {
               </ol>
             </div>
 
-            <Card className="bg-card border-border">
+            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
                   <XCircle className="w-5 h-5 text-destructive" />
@@ -270,7 +270,7 @@ export default function Governance() {
             </h3>
             <div className="grid md:grid-cols-3 gap-4">
               {capitalControls.map((control, index) => (
-                <Card key={index} className="bg-card border-border" data-testid={`card-control-${index + 1}`}>
+                <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-control-${index + 1}`}>
                   <CardContent className="p-4">
                     <div className="flex items-center gap-2 mb-2">
                       <Lock className="w-4 h-4 text-primary" />
@@ -303,7 +303,7 @@ export default function Governance() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-10">
-            <Card className="bg-background border-border">
+            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <div className="flex items-center gap-2 mb-4">
                   <AlertTriangle className="w-5 h-5 text-accent-warm" />
@@ -314,7 +314,7 @@ export default function Governance() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-background border-border">
+            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <div className="flex items-center gap-2 mb-4">
                   <FileText className="w-5 h-5 text-primary" />
@@ -334,7 +334,7 @@ export default function Governance() {
           </h3>
           <div className="space-y-4">
             {projectGovernance.map((project) => (
-              <Card key={project.name} className="bg-background border-border" data-testid={`card-governance-${project.name.toLowerCase().replace(/\s+/g, "-")}`}>
+              <Card key={project.name} className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-governance-${project.name.toLowerCase().replace(/\s+/g, "-")}`}>
                 <CardContent className="p-6">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                     <h4 className="font-heading font-semibold text-lg text-foreground">{project.name}</h4>
@@ -417,7 +417,7 @@ export default function Governance() {
             </div>
           </div>
 
-          <Card className="bg-card border-border">
+          <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
             <CardContent className="p-6">
               <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
                 <XCircle className="w-5 h-5 text-destructive" />
