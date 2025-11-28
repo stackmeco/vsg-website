@@ -87,26 +87,6 @@ export default {
         heading: ['Space Grotesk', 'sans-serif'],
         mono: ['IBM Plex Mono', 'monospace'],
       },
-      // THE INDUSTRIAL SCALE (High Density)
-      fontSize: {
-        // Labels / Micro-copy (10px)
-        '2xs': ['0.625rem', { lineHeight: '0.75rem', letterSpacing: '0.05em' }],
-        // Metadata / Footnotes (12px)
-        xs: ['0.75rem', { lineHeight: '1rem', letterSpacing: '0em' }],
-        // BODY BASE (14px) - This is the new "Normal"
-        sm: ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '-0.01em' }],
-        // Section Headers (16px)
-        base: ['1rem', { lineHeight: '1.5rem', letterSpacing: '-0.01em' }],
-        // Card Titles (18px)
-        lg: ['1.125rem', { lineHeight: '1.5rem', letterSpacing: '-0.02em' }],
-        // Page Sub-headers (24px)
-        xl: ['1.5rem', { lineHeight: '1.75rem', letterSpacing: '-0.02em' }],
-        // Major Heroes (32px+)
-        '2xl': ['2rem', { lineHeight: '2.25rem', letterSpacing: '-0.02em' }],
-        '3xl': ['2.5rem', { lineHeight: '2.5rem', letterSpacing: '-0.03em' }],
-        '4xl': ['3rem', { lineHeight: '1', letterSpacing: '-0.03em' }],
-        '5xl': ['3.5rem', { lineHeight: '1', letterSpacing: '-0.04em' }],
-      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

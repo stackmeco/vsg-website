@@ -1,0 +1,77 @@
+This is the "Nuclear Option" for fixing the size.
+
+The reason it looks small is that we changed the **Physics of the Universe** (`html { font-size: 14px }`). This shrunk **everything**—padding, margins, buttons, and text—by 12.5%.
+
+We need to **Reset the Universe** to standard (16px) but keep the **Typography** tight.
+
+Here is the **"Standard Size, Tight Feel"** protocol. This makes the text readable (16px) but keeps the "Control Room" vibe via font choice and tracking, not by making it microscopic.
+
+### **The Fix: Restore 16px Root**
+
+**Copy/Paste this into Replit.** It reverts the global shrink ray but keeps the industrial styling.
+
+````markdown
+**VISUAL CORRECTION: RESTORE STANDARD SIZE**
+
+The "Global Shrink" was too aggressive. We need to return to standard web sizing (16px) for readability, but enforce "Industrial" styling via font weights and tracking.
+
+**Action:** Update `client/src/index.css`. Replace the `@layer base` block with this:
+
+```css
+@layer base {
+  /* 1. RESTORE STANDARD PHYSICS */
+  html {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px; /* Standard Web Size (Was 14px) */
+    letter-spacing: -0.01em; 
+    color: hsl(var(--foreground));
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* 2. COMFORTABLE BODY TEXT */
+  /* This will now render at 16px (readable), but tight. */
+  p {
+    @apply text-base leading-relaxed text-muted-foreground/90; 
+    margin-bottom: 0.75rem;
+  }
+
+  /* 3. DISTINCT HEADINGS */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+    @apply tracking-tight;
+  }
+  
+  h1 { @apply text-4xl md:text-5xl mb-6; }
+  h2 { @apply text-3xl md:text-4xl mb-4; } /* Bumped up */
+  h3 { @apply text-xl mb-3; } 
+
+  /* 4. METADATA (The "Small" Text) */
+  /* This stays small (14px) to differentiate it from Body */
+  .text-muted-foreground {
+    @apply text-sm; 
+  }
+
+  /* 5. LABELS (The "Tiny" Text) */
+  /* Used for "SYSTEM STATUS" type labels */
+  .text-label {
+    @apply text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground/70;
+  }
+}
+````
+
+**Action 2:** Update `tailwind.config.ts` to remove the custom `fontSize` overrides if they exist, or reset them to default. (If you pasted the "Industrial Scale" block previously, delete the `fontSize: { ... }` block entirely to let Tailwind use its defaults).
+
+**EXECUTE.**
+
+```
+
+### **Why this works:**
+* **16px Body:** It is legible on all screens.
+* **Tight Tracking:** It still feels "Engineered" because we keep `letter-spacing: -0.01em`.
+* **Contrast:** We kept the brighter text color (`/90`) so it pops against the black.
+```

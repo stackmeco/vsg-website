@@ -179,11 +179,11 @@
     @apply border-border;
   }
 
-  /* 1. GLOBAL PHYSICS */
+  /* 1. RESTORE STANDARD PHYSICS */
   html {
     font-family: 'Manrope', sans-serif;
-    font-size: 14px; /* Keeps the UI tight */
-    letter-spacing: -0.015em; 
+    font-size: 16px; /* Standard Web Size (Was 14px) */
+    letter-spacing: -0.01em; 
     color: hsl(var(--foreground));
   }
 
@@ -191,14 +191,14 @@
     @apply bg-background text-foreground antialiased;
   }
 
-  /* 2. READABLE BODY TEXT (Calibrated) */
-  /* We bump this to 'text-base' (14px visual) so it is legible. */
+  /* 2. COMFORTABLE BODY TEXT */
+  /* This will now render at 16px (readable), but tight. */
   p {
-    @apply text-base leading-normal text-muted-foreground/90; 
+    @apply text-base leading-relaxed text-muted-foreground/90; 
     margin-bottom: 0.75rem;
   }
 
-  /* 3. HEADINGS (Signal) */
+  /* 3. DISTINCT HEADINGS */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 600;
@@ -207,45 +207,52 @@
   }
   
   h1 { @apply text-4xl md:text-5xl mb-6; }
-  h2 { @apply text-2xl md:text-3xl mb-4; }
-  h3 { @apply text-xl mb-3; } /* Bumped up slightly */
+  h2 { @apply text-3xl md:text-4xl mb-4; } /* Bumped up */
+  h3 { @apply text-xl mb-3; }
   h4 { @apply text-base mb-2; }
 
-  /* 4. LABELS & METADATA */
-  .label-text {
-    @apply text-2xs uppercase tracking-widest text-muted-foreground/70 font-mono;
+  /* 4. METADATA (The "Small" Text) */
+  /* This stays small (14px) to differentiate it from Body */
+  .text-muted-foreground {
+    @apply text-sm; 
   }
 
-  /* 5. DATA & NUMBERS */
+  /* 5. LABELS (The "Tiny" Text) */
+  /* Used for "SYSTEM STATUS" type labels */
+  .text-label {
+    @apply text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground/70;
+  }
+
+  /* 6. DATA & NUMBERS */
   .data-text {
     @apply font-mono tabular-nums tracking-tight;
   }
 
-  /* 6. UTILITIES */
+  /* 7. UTILITIES */
   .tabular-nums {
     font-variant-numeric: tabular-nums;
     letter-spacing: -0.02em;
   }
 
-  /* 7. DATA LISTS */
+  /* 8. DATA LISTS */
   ul, ol {
     @apply my-4 ml-4 list-disc text-base text-muted-foreground;
   }
   li {
-    @apply mb-1.5; /* Slightly more breathing room */
+    @apply mb-1.5;
   }
 
-  /* 8. TABLE DENSITY */
+  /* 9. TABLE DENSITY */
   td, th {
     @apply p-2;
   }
 
-  /* 9. CARD DENSITY */
+  /* 10. CARD DENSITY */
   .card-content, [class*="CardContent"] {
     @apply p-4;
   }
 
-  /* 10. INPUT PHYSICS - Terminal caret */
+  /* 11. INPUT PHYSICS - Terminal caret */
   input, textarea {
     caret-color: hsl(var(--primary));
   }
