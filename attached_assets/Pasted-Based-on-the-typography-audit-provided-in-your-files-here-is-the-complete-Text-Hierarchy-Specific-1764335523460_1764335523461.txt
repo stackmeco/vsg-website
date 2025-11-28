@@ -1,0 +1,91 @@
+Based on the typography audit provided in your files, here is the complete **Text Hierarchy Specification** for the Verifiable Systems Group (VSG) design system.
+
+This hierarchy follows the **"Industrial Control Room"** aesthetic, prioritizing data density (14px base) and mechanical precision (monospaced labels).
+
+### **1. Global Font Families**
+* **Signal (Headings):** `Space Grotesk`
+    * *Usage:* Page titles, section headers, major announcements.
+    * *Vibe:* Geometric, technical, authoritative.
+* **Context (Body):** `Manrope`
+    * *Usage:* Paragraphs, descriptions, UI elements.
+    * *Vibe:* Humanist, highly legible, neutral.
+* **Data (Technical):** `IBM Plex Mono`
+    * *Usage:* Timestamps, financial data, tags, micro-labels, code.
+    * *Vibe:* Engineered, precise, machine-readable.
+
+---
+
+### **2. The Hierarchy Scale**
+
+#### **Level 1: Display (Hero)**
+Used for page titles and primary mission statements.
+* **Class:** `PAGE-HERO`
+* **Font:** Space Grotesk
+* **Size:** `text-3xl` to `text-5xl` (40px – 56px)
+* **Weight:** Bold (700)
+* **Tracking:** Tight (`-0.03em`)
+* **Line Height:** 1.0 - 1.1
+* [cite_start]*Example:* "Engineering verifiable systems..." [cite: 2989]
+
+#### **Level 2: Structural Headers**
+Used to divide major sections of a page.
+* **Class:** `SECTION-HEADER`
+* **Font:** Space Grotesk
+* **Size:** `text-xl` to `text-2xl` (24px – 32px)
+* **Weight:** SemiBold (600)
+* **Tracking:** Tight (`-0.02em`)
+* [cite_start]*Example:* "How we verify value", "Legal and Operating Structure" [cite: 2991, 2998]
+
+#### **Level 3: Component Headers**
+Used for card titles, feature names, and sub-sections.
+* **Class:** `CARD-TITLE` / `SUBSECTION-HEADER`
+* **Font:** Space Grotesk
+* **Size:** `text-base` to `text-lg` (16px – 18px)
+* **Weight:** SemiBold (600)
+* [cite_start]*Example:* "Manager", "Strategic Definition", "Axiom" [cite: 2992, 3007]
+
+#### **Level 4: Body Text**
+The core reading experience. Note the **14px base size** (smaller than the standard 16px) to create density.
+* **Class:** `BODY-PARAGRAPH`
+* **Font:** Manrope
+* **Size:** `text-sm` (14px)
+* **Weight:** Normal (400)
+* **Line Height:** Relaxed or Normal
+* **Color:** Muted Foreground (Silver/Gray)
+* [cite_start]*Example:* Project descriptions, manifesto text. [cite: 2990]
+
+#### **Level 5: Data & Telemetry**
+Used for numbers, statistics, and financial metrics.
+* **Class:** `DATA-VALUE`
+* **Font:** IBM Plex Mono
+* **Size:** `text-2xl` (32px) or `text-sm` (14px) depending on context
+* **Weight:** Bold (700)
+* **Feature:** `tabular-nums` (Ensures numbers align vertically)
+* [cite_start]*Example:* "$2.4M", "847.2", System Clock [cite: 3006]
+
+#### **Level 6: Micro-Labels (The "Architectural" Layer)**
+Used for tags, section identifiers, and status indicators. This is crucial for the "Control Room" look.
+* **Class:** `MICRO-LABEL` / `SECTION-LABEL`
+* **Font:** IBM Plex Mono
+* **Size:** `text-[10px]` (10px) or `text-xs` (12px)
+* **Transform:** Uppercase
+* **Tracking:** Widest (`0.2em`)
+* [cite_start]*Example:* "SYSTEM STATUS", "IN THIS DOCUMENT", "01", "02" [cite: 2991, 2998]
+
+---
+
+### **3. UI Elements**
+
+* **Navigation Links:**
+    * `text-[10px]` | Mono | Uppercase | [cite_start]Tracking-Widest [cite: 3003]
+* **Buttons:**
+    * `text-xs` (12px) | Mono | Uppercase | [cite_start]Tracking-Wider [cite: 2990]
+* **Chips / Tags:**
+    * `text-[10px]` | Mono | Uppercase | [cite_start]Tracking-Widest [cite: 2991]
+* **Input Labels:**
+    * `text-sm` (14px) | Manrope | [cite_start]Medium [cite: 2994]
+
+### **4. Color & Contrast Strategy**
+* **Primary Text:** `text-foreground` (Off-white)
+* **Secondary Text:** `text-muted-foreground` (Muted Silver - 75% opacity)
+* [cite_start]**Accent Text:** `text-primary` (Signal Orange) - Used for active states, cursors, and critical data points. [cite: 2988]
