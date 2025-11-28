@@ -134,7 +134,7 @@ export default function PipelineDetail() {
                   <h3 className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">
                     System Status
                   </h3>
-                  <ul className="space-y-3" data-testid="list-current-state">
+                  <ul className="space-y-3 text-sm" data-testid="list-current-state">
                     {project.currentState.map((item, index) => (
                       <li key={index} className="flex items-start gap-3 text-foreground" data-testid={`item-current-${index}`}>
                         <span className="w-1.5 h-1.5 rounded-[2px] bg-primary mt-2 flex-shrink-0" />
@@ -165,7 +165,7 @@ export default function PipelineDetail() {
                   <h3 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
                     Active R&D Modules
                   </h3>
-                  <ul className="space-y-3" data-testid="list-exploring">
+                  <ul className="space-y-3 text-sm" data-testid="list-exploring">
                     {project.exploring.map((item, index) => (
                       <li key={index} className="flex items-start gap-3 text-foreground" data-testid={`item-exploring-${index}`}>
                         <span className="w-1.5 h-1.5 rounded-[2px] bg-primary mt-2 flex-shrink-0" />
@@ -183,7 +183,7 @@ export default function PipelineDetail() {
                   <h3 className="font-mono text-xs uppercase tracking-wider text-destructive/80 mb-4">
                     Negative Constraints
                   </h3>
-                  <ul className="space-y-3" data-testid="list-not-yet">
+                  <ul className="space-y-3 text-sm" data-testid="list-not-yet">
                     {project.notYet.map((item, index) => (
                       <li key={index} className="flex items-start gap-3 text-muted-foreground" data-testid={`item-constraint-${index}`}>
                         <span className="w-1.5 h-1.5 rounded-[2px] bg-destructive/50 mt-2 flex-shrink-0" />
