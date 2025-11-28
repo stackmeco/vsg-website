@@ -8,17 +8,14 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { CheckCircle, AlertCircle } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { contactFormSchema, type ContactFormData } from "@shared/schema";
+import { z } from "zod";
 
 interface ContactFormProps {
   className?: string;
 }
 
-interface FormErrors {
-  name?: string;
-  email?: string;
-  subject?: string;
-  message?: string;
-}
+type FormErrors = Partial<Record<keyof ContactFormData, string>>;
 
 export function ContactForm({ className }: ContactFormProps) {
   const { toast } = useToast();
@@ -38,30 +35,31 @@ export function ContactForm({ className }: ContactFormProps) {
   });
 
   const validateForm = (): boolean => {
-    const newErrors: FormErrors = {};
-    
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-    }
-    
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
-    }
-    
-    if (!formData.subject.trim()) {
-      newErrors.subject = "Subject is required";
-    }
-    
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
-    } else if (formData.message.trim().length < 20) {
-      newErrors.message = "Please provide a bit more detail (at least 20 characters)";
+    const result = contactFormSchema.safeParse({
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      organization: formData.organization?.trim() || undefined,
+      role: formData.role?.trim() || undefined,
+      subject: formData.subject.trim(),
+      message: formData.message.trim(),
+      consent: formData.consent,
+    });
+
+    if (result.success) {
+      setErrors({});
+      return true;
     }
 
+    const newErrors: FormErrors = {};
+    result.error.issues.forEach((issue: z.ZodIssue) => {
+      const path = issue.path[0] as keyof ContactFormData;
+      if (!newErrors[path]) {
+        newErrors[path] = issue.message;
+      }
+    });
+
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return false;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

@@ -21,29 +21,23 @@ const NotFound = lazy(() => import("@/pages/not-found"));
 
 function usePreloadPages() {
   useEffect(() => {
-    const preloadViaLink = (href: string) => {
-      const link = document.createElement('link');
-      link.rel = 'modulepreload';
-      link.href = href;
-      document.head.appendChild(link);
-    };
-
-    const preloadPages = () => {
-      const routes = [
-        '/src/pages/System.tsx',
-        '/src/pages/Pipeline.tsx',
-        '/src/pages/Governance.tsx',
-        '/src/pages/Library.tsx',
-        '/src/pages/PipelineDetail.tsx',
-        '/src/pages/LibraryArticle.tsx',
-        '/src/pages/Contact.tsx',
-        '/src/pages/Privacy.tsx',
-        '/src/pages/Terms.tsx',
+    const preloadPages = async () => {
+      const imports = [
+        () => import("@/pages/System"),
+        () => import("@/pages/Pipeline"),
+        () => import("@/pages/Governance"),
+        () => import("@/pages/Library"),
+        () => import("@/pages/PipelineDetail"),
+        () => import("@/pages/LibraryArticle"),
+        () => import("@/pages/Contact"),
+        () => import("@/pages/Privacy"),
+        () => import("@/pages/Terms"),
       ];
 
-      routes.forEach((route, index) => {
-        setTimeout(() => preloadViaLink(route), index * 150);
-      });
+      for (let i = 0; i < imports.length; i++) {
+        await new Promise(resolve => setTimeout(resolve, 150));
+        imports[i]().catch(() => {});
+      }
     };
 
     const timer = setTimeout(preloadPages, 1500);
@@ -53,10 +47,19 @@ function usePreloadPages() {
 
 function PageLoader() {
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center">
+    <div 
+      className="min-h-screen bg-background flex items-center justify-center"
+      role="status"
+      aria-live="polite"
+      aria-busy="true"
+    >
       <div className="flex flex-col items-center gap-4">
-        <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+        <div 
+          className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"
+          aria-hidden="true"
+        />
         <span className="text-sm font-mono text-muted-foreground">Loading...</span>
+        <span className="sr-only">Loading page content, please wait</span>
       </div>
     </div>
   );

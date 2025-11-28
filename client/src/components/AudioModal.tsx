@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Play, Pause, Volume2, AlertCircle } from "lucide-react";
@@ -11,6 +11,8 @@ export function AudioModal() {
   const [currentTime, setCurrentTime] = useState("00:00");
   const [hasError, setHasError] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dialogContentRef = useRef<HTMLDivElement>(null);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -56,6 +58,40 @@ export function AudioModal() {
     }
   }, [isOpen, isPlaying]);
 
+  const handleOpenChange = useCallback((open: boolean) => {
+    setIsOpen(open);
+    if (!open) {
+      setTimeout(() => {
+        triggerRef.current?.focus();
+      }, 0);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Tab" && dialogContentRef.current) {
+        const focusableElements = dialogContentRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement?.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement?.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
   const togglePlay = () => {
     if (hasError) return;
     if (isPlaying) {
@@ -77,9 +113,10 @@ export function AudioModal() {
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
         <Button 
+          ref={triggerRef}
           variant="outline" 
           size="lg" 
           className="font-mono text-xs uppercase tracking-wider bg-background/50 backdrop-blur-md border-primary/20 group"
@@ -90,7 +127,11 @@ export function AudioModal() {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="bg-card border border-border max-w-md p-0 overflow-hidden gap-0">
+      <DialogContent 
+        ref={dialogContentRef}
+        className="bg-card border border-border max-w-md p-0 overflow-hidden gap-0"
+        aria-modal="true"
+      >
         <DialogTitle className="sr-only">Executive Briefing Audio Player</DialogTitle>
         <DialogDescription className="sr-only">
           Listen to the VSG operational briefing audio. Use the play button to start playback.
