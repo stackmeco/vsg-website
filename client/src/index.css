@@ -170,6 +170,30 @@
     @apply border-border;
   }
 
+  /* ACCESSIBILITY: Focus-visible styles for keyboard navigation (WCAG 2.1 AA) */
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+
+  /* Remove default focus for mouse users, keep for keyboard */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Ensure buttons and interactive elements have visible focus */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [role="button"]:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.15);
+  }
+
   /* 1. RESTORE STANDARD PHYSICS */
   html {
     font-family: 'Manrope', sans-serif;

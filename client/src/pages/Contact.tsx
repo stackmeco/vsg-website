@@ -39,7 +39,7 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-12">
             <div className="lg:col-span-2">
-              <div className="bg-background border border-border rounded-[2px] p-6 sm:p-8 sticky top-24 z-30">
+              <div className="bg-background border border-border rounded-[2px] p-6 sm:p-8 sticky top-24 z-30 hover:border-primary/30 transition-colors duration-150 ease-mechanical">
                 <h3 className="font-heading font-semibold text-base text-foreground mb-4">
                   Who should reach out
                 </h3>

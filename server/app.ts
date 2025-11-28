@@ -9,6 +9,18 @@ import express, {
 
 import { registerRoutes } from "./routes";
 
+function securityHeaders(req: Request, res: Response, next: NextFunction) {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-Frame-Options", "DENY");
+  res.setHeader("X-XSS-Protection", "1; mode=block");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  if (process.env.NODE_ENV === "production") {
+    res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  }
+  next();
+}
+
 export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
     hour: "numeric",
@@ -27,6 +39,7 @@ declare module 'http' {
     rawBody: unknown
   }
 }
+app.use(securityHeaders);
 app.use(express.json({
   verify: (req, _res, buf) => {
     req.rawBody = buf;
