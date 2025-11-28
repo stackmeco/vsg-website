@@ -1,35 +1,23 @@
 import { Link, useRoute } from "wouter";
-import { useMemo } from "react";
 import { Layout } from "@/components/Layout";
 import { SeoHead } from "@/components/SeoHead";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Calendar, Clock, Volume2, Square, Loader2 } from "lucide-react";
+import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { articleContent } from "@/data/articleContent";
-import { useGeminiTTS } from "@/hooks/useGeminiTTS";
+import { ArticleAudioPlayer } from "@/components/ArticleAudioPlayer";
+
+const audioFiles: Record<string, string> = {
+  "insolvency-of-fiction": "/audio/insolvency-of-fiction.wav",
+  "verification-standard": "/audio/verification-standard.wav",
+  "machine-native-settlement": "/audio/machine-native-settlement.wav",
+};
 
 export default function LibraryArticle() {
   const [, params] = useRoute("/thesis/:slug");
   const slug = params?.slug || "";
   const article = articleContent[slug];
-  
-  const { speak, stop, isLoading, isPlaying, error } = useGeminiTTS();
-
-  const fullText = useMemo(() => {
-    if (!article) return "";
-    const sections = article.content.map(
-      (section) => `${section.heading}. ${section.paragraphs.join(" ")}`
-    );
-    return `${article.title}. ${sections.join(" ")}`;
-  }, [article]);
-
-  const handlePlay = () => {
-    if (isPlaying) {
-      stop();
-    } else {
-      speak(fullText);
-    }
-  };
+  const audioSrc = audioFiles[slug];
 
   if (!article) {
     return (
@@ -93,34 +81,12 @@ export default function LibraryArticle() {
                   {readingTime} min read
                 </span>
               </div>
-              <div className="flex items-center gap-1 ml-auto">
-                <Button
-                  size="icon"
-                  variant="ghost"
-                  onClick={handlePlay}
-                  disabled={isLoading}
-                  data-testid="button-audio-play"
-                  title={isLoading ? "Loading..." : isPlaying ? "Stop" : "Listen with AI voice"}
-                >
-                  {isLoading ? (
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                  ) : isPlaying ? (
-                    <Square className="w-3.5 h-3.5" />
-                  ) : (
-                    <Volume2 className="w-4 h-4" />
-                  )}
-                </Button>
-              </div>
+              {audioSrc && (
+                <div className="ml-auto">
+                  <ArticleAudioPlayer audioSrc={audioSrc} articleTitle={article.title} />
+                </div>
+              )}
             </div>
-            {error && (
-              <p className="text-xs text-destructive mb-4">{error}</p>
-            )}
-            {isPlaying && (
-              <div className="flex items-center gap-2 mb-4">
-                <div className="h-1.5 w-1.5 rounded-full bg-primary animate-glow-pulse" />
-                <span className="text-xs text-muted-foreground font-mono">AUDIO STREAM ACTIVE</span>
-              </div>
-            )}
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[2.75rem] text-foreground leading-[1.15] tracking-tight mb-8">
               {article.title}
             </h1>
