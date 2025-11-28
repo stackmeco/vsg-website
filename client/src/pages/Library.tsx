@@ -64,7 +64,7 @@ export default function Library() {
         </div>
       </section>
 
-      <section className="py-16" data-testid="section-items">
+      <section className="py-16 bg-card" data-testid="section-items">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filteredItems.length === 0 ? (
             <div className="text-center py-12">
