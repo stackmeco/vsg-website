@@ -2,10 +2,8 @@ import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { ValueCard } from "@/components/ValueCard";
 import { NextStepBlock } from "@/components/NextStepBlock";
-import { ChangeLogEntry } from "@/components/ChangeLogEntry";
 import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Scale, Wallet, Cog, MessageSquare, Hash, Terminal, Layers } from "lucide-react";
-import { changelog } from "@/data/articles";
 import gearsTexture from "@assets/gears_texture.png";
 
 const definitions = [
@@ -169,28 +167,6 @@ export default function System() {
             {functions.map((func) => (
               <ValueCard key={func.title} {...func} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20" data-testid="section-changelog">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              System Record
-            </p>
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
-              Changelog
-            </h2>
-            <div className="bg-card border border-border rounded-[2px] p-6">
-              {changelog.map((entry, index) => (
-                <ChangeLogEntry
-                  key={index}
-                  date={entry.date}
-                  description={entry.entry}
-                />
-              ))}
-            </div>
           </div>
         </div>
       </section>
