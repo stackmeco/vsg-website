@@ -137,7 +137,7 @@ export default function PipelineDetail() {
                   <ul className="space-y-3" data-testid="list-current-state">
                     {project.currentState.map((item, index) => (
                       <li key={index} className="flex items-start gap-3 text-foreground" data-testid={`item-current-${index}`}>
-                        <span className="w-1.5 h-1.5 rounded-[1px] bg-primary mt-2 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-[2px] bg-primary mt-2 flex-shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -168,7 +168,7 @@ export default function PipelineDetail() {
                   <ul className="space-y-3" data-testid="list-exploring">
                     {project.exploring.map((item, index) => (
                       <li key={index} className="flex items-start gap-3 text-foreground" data-testid={`item-exploring-${index}`}>
-                        <span className="w-1.5 h-1.5 rounded-[1px] bg-primary mt-2 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-[2px] bg-primary mt-2 flex-shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -186,7 +186,7 @@ export default function PipelineDetail() {
                   <ul className="space-y-3" data-testid="list-not-yet">
                     {project.notYet.map((item, index) => (
                       <li key={index} className="flex items-start gap-3 text-muted-foreground" data-testid={`item-constraint-${index}`}>
-                        <span className="w-1.5 h-1.5 rounded-[1px] bg-destructive/50 mt-2 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-[2px] bg-destructive/50 mt-2 flex-shrink-0" />
                         {item}
                       </li>
                     ))}
