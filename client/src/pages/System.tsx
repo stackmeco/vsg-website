@@ -202,7 +202,7 @@ export default function System() {
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
               Changelog
             </h2>
-            <div className="bg-card border border-border rounded-sm p-6">
+            <div className="bg-card border border-border rounded-[2px] p-6">
               {changelog.map((entry, index) => (
                 <ChangeLogEntry
                   key={index}

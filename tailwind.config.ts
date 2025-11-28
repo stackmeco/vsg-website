@@ -6,9 +6,9 @@ export default {
   theme: {
     extend: {
       borderRadius: {
-        lg: "4px", /* Machined edges - tight */
-        md: "2px", /* Almost square */
-        sm: "1px", /* Hairline radius */
+        lg: "4px", /* Machined edges */
+        md: "2px", /* Standard machined edge (spec default) */
+        sm: "2px", /* Machined edge - updated to match spec (was 1px) */
       },
       colors: {
         // Flat / base colors (regular buttons)

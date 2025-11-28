@@ -125,7 +125,7 @@ export default function Pipeline() {
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground">
               Current Pipeline projects
             </h2>
-            <div className="flex items-center gap-1 p-1 bg-secondary rounded-sm">
+            <div className="flex items-center gap-1 p-1 bg-secondary rounded-[2px]">
               <Button
                 variant={viewMode === "cards" ? "default" : "ghost"}
                 size="sm"
@@ -154,7 +154,7 @@ export default function Pipeline() {
               ))}
             </div>
           ) : (
-            <div className="border border-card-border rounded-sm overflow-hidden">
+            <div className="border border-card-border rounded-[2px] overflow-hidden">
               <Table>
                 <TableHeader>
                   <TableRow className="bg-card hover:bg-card">

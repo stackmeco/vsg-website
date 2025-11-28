@@ -201,14 +201,13 @@
   }
 
   /* 3. DISTINCT HEADINGS */
-  /* NOTE: Only set font-family, weight, color, and tracking globally.
-     Font SIZES should be set explicitly per-element to avoid cascade conflicts.
+  /* NOTE: Only set font-family, weight, and tracking globally.
+     Font SIZES and COLORS should be set explicitly per-element to avoid cascade conflicts.
      Components control their own heading sizes via classes like text-3xl, text-xl, etc. */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 600;
-    color: #ffffff;
-    @apply tracking-tight;
+    @apply tracking-tight text-foreground;
   }
 
   /* 4. METADATA (The "Small" Text) */
@@ -249,9 +248,8 @@
   }
 
   /* 10. CARD DENSITY */
-  .card-content, [class*="CardContent"] {
-    @apply p-4;
-  }
+  /* NOTE: Removed [class*="CardContent"] selector as it was overriding explicit padding.
+     Card padding should be controlled by the component itself (p-6, p-4, etc.) */
 
   /* 11. INPUT PHYSICS - Terminal caret */
   input, textarea {
