@@ -1,4 +1,3 @@
-
 ================================================================================
 VSG TYPOGRAPHY SYSTEM AUDIT
 Grouped by Page - Font, Size, Color & Classification Reference
