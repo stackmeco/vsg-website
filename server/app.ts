@@ -25,7 +25,6 @@ function securityHeaders(req: Request, res: Response, next: NextFunction) {
     "base-uri 'self'",
     "form-action 'self'"
   ].join("; "));
-  res.setHeader("X-Frame-Options", "SAMEORIGIN");
   if (process.env.NODE_ENV === "production") {
     res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
   }
