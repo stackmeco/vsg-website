@@ -22,10 +22,10 @@ export default function Privacy() {
               <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
                 What we collect
               </h2>
-              <p className="text-foreground leading-relaxed mb-4">
+              <p className="text-base text-foreground leading-relaxed mb-4">
                 When you contact us through our form, we collect:
               </p>
-              <ul className="space-y-2 text-foreground">
+              <ul className="space-y-2 text-base text-foreground">
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                   Your name and email address
@@ -45,7 +45,7 @@ export default function Privacy() {
               <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
                 How we use it
               </h2>
-              <p className="text-foreground leading-relaxed">
+              <p className="text-base text-foreground leading-relaxed">
                 We use this information solely to respond to your inquiry. If you opt in to updates, we may occasionally send relevant information about our work. That's it.
               </p>
             </section>
@@ -54,7 +54,7 @@ export default function Privacy() {
               <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
                 What we don't do
               </h2>
-              <ul className="space-y-2 text-foreground">
+              <ul className="space-y-2 text-base text-foreground">
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
                   We don't sell your information
@@ -74,7 +74,7 @@ export default function Privacy() {
               <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
                 Cookies
               </h2>
-              <p className="text-foreground leading-relaxed">
+              <p className="text-base text-foreground leading-relaxed">
                 This site uses only essential cookies required for basic functionality. We don't use advertising cookies or third-party trackers.
               </p>
             </section>
@@ -83,7 +83,7 @@ export default function Privacy() {
               <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
                 Contact
               </h2>
-              <p className="text-foreground leading-relaxed">
+              <p className="text-base text-foreground leading-relaxed">
                 Questions about this policy? Reach out via our contact form.
               </p>
             </section>
