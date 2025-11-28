@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { useLocation } from "wouter";
 import {
   CommandDialog,
@@ -20,6 +20,7 @@ export function CommandPalette() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [, setLocation] = useLocation();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -36,6 +37,8 @@ export function CommandPalette() {
   useEffect(() => {
     if (!open) {
       setQuery("");
+    } else {
+      setTimeout(() => inputRef.current?.focus(), 0);
     }
   }, [open]);
 
@@ -76,10 +79,12 @@ export function CommandPalette() {
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
       <CommandInput 
+        ref={inputRef}
         placeholder="Query system index..." 
         value={query}
         onValueChange={setQuery}
         data-testid="input-command-search"
+        autoFocus
       />
       <CommandList>
         {!hasResults && <CommandEmpty className="font-mono text-xs text-muted-foreground py-6 text-center">NO MATCHING RECORDS</CommandEmpty>}

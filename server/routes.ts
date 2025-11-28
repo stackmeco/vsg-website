@@ -71,8 +71,7 @@ function validateOrigin(req: Request): boolean {
   
   return allowedHosts.some(allowed => 
     requestOrigin === allowed || 
-    requestOrigin.endsWith(`.${allowed}`) ||
-    requestOrigin.includes(allowed as string)
+    requestOrigin === `www.${allowed}`
   );
 }
 
