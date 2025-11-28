@@ -81,10 +81,43 @@ export default function Privacy() {
 
             <section>
               <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
-                Contact
+                Your rights
+              </h2>
+              <p className="text-base text-foreground leading-relaxed mb-4">
+                Depending on your location, you may have certain rights regarding your personal information:
+              </p>
+              <ul className="space-y-2 text-base text-foreground mb-4">
+                <li className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                  <strong>California residents (CCPA):</strong> You have the right to know what personal information we collect, request deletion, and opt out of any sale (we don't sell data).
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                  <strong>EU/EEA residents (GDPR):</strong> You have rights to access, rectify, erase, restrict processing, and data portability. Contact us to exercise these rights.
+                </li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
+                Data retention
               </h2>
               <p className="text-base text-foreground leading-relaxed">
-                Questions about this policy? Reach out via our contact form.
+                We retain contact form submissions for as long as necessary to respond to your inquiry and maintain our records. You may request deletion of your data at any time.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
+                Contact
+              </h2>
+              <p className="text-base text-foreground leading-relaxed mb-2">
+                Questions about this policy or to exercise your data rights? Contact us:
+              </p>
+              <p className="text-base text-foreground leading-relaxed">
+                <strong>Verifiable Systems Group LLC</strong><br />
+                Email: privacy@verifiablesystems.com<br />
+                Contact form: verifiablesystems.com/contact
               </p>
             </section>
           </div>

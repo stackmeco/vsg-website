@@ -82,7 +82,28 @@ export default function Terms() {
                 Governing law
               </h2>
               <p className="text-base text-foreground leading-relaxed">
-                These terms are governed by the laws of the State of Wyoming, United States.
+                These terms are governed by the laws of the State of Wyoming, United States. Any disputes shall be resolved in the courts of Wyoming.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
+                Changes to terms
+              </h2>
+              <p className="text-base text-foreground leading-relaxed">
+                We may update these terms from time to time. Continued use of the site after changes constitutes acceptance of the revised terms.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
+                Contact
+              </h2>
+              <p className="text-base text-foreground leading-relaxed">
+                <strong>Verifiable Systems Group LLC</strong><br />
+                State of Incorporation: Wyoming, USA<br />
+                Email: legal@verifiablesystems.com<br />
+                Contact form: verifiablesystems.com/contact
               </p>
             </section>
           </div>
