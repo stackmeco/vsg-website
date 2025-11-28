@@ -192,9 +192,11 @@
   }
 
   /* 2. COMFORTABLE BODY TEXT */
-  /* This will now render at 16px (readable), but tight. */
+  /* NOTE: Removed text-base from global p rule - font sizes should be set explicitly
+     on each element to avoid cascade conflicts with utility classes like text-[10px]. 
+     Each component controls its own typography. */
   p {
-    @apply text-base leading-relaxed text-muted-foreground/90; 
+    @apply leading-relaxed; 
     margin-bottom: 0.75rem;
   }
 
