@@ -201,17 +201,15 @@
   }
 
   /* 3. DISTINCT HEADINGS */
+  /* NOTE: Only set font-family, weight, color, and tracking globally.
+     Font SIZES should be set explicitly per-element to avoid cascade conflicts.
+     Components control their own heading sizes via classes like text-3xl, text-xl, etc. */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 600;
     color: #ffffff;
     @apply tracking-tight;
   }
-  
-  h1 { @apply text-4xl md:text-5xl mb-6; }
-  h2 { @apply text-3xl md:text-4xl mb-4; } /* Bumped up */
-  h3 { @apply text-xl mb-3; }
-  h4 { @apply text-base mb-2; }
 
   /* 4. METADATA (The "Small" Text) */
   /* NOTE: Font sizes should be controlled by explicit size classes (text-sm, text-base, etc.)
@@ -236,8 +234,10 @@
   }
 
   /* 8. DATA LISTS */
+  /* NOTE: Removed text-base and text-muted-foreground - font size and color
+     should be inherited from parent or set explicitly to avoid conflicts. */
   ul, ol {
-    @apply my-4 ml-4 list-disc text-base text-muted-foreground;
+    @apply my-4 ml-4 list-disc;
   }
   li {
     @apply mb-1.5;
