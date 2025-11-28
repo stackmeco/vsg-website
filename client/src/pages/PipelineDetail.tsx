@@ -129,7 +129,7 @@ export default function PipelineDetail() {
 
             <div className="lg:col-span-2 flex flex-col gap-6">
 
-              <Card className="bg-card border-card-border" data-testid="card-system-status">
+              <Card className="bg-card border-card-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-system-status">
                 <CardContent className="p-6">
                   <h3 className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">
                     System Status
@@ -160,7 +160,7 @@ export default function PipelineDetail() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-card border-card-border" data-testid="card-active-rd">
+              <Card className="bg-card border-card-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-active-rd">
                 <CardContent className="p-6">
                   <h3 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
                     Active R&D Modules
@@ -178,7 +178,7 @@ export default function PipelineDetail() {
             </div>
 
             <div className="lg:col-span-1">
-              <Card className="h-full border-destructive/20 bg-destructive/5" data-testid="card-constraints">
+              <Card className="h-full border-destructive/20 bg-destructive/5 hover:border-destructive/40 transition-colors duration-150 ease-mechanical" data-testid="card-constraints">
                 <CardContent className="p-6">
                   <h3 className="font-mono text-xs uppercase tracking-wider text-destructive/80 mb-4">
                     Negative Constraints
