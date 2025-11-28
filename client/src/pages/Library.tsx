@@ -46,9 +46,9 @@ export default function Library() {
         </div>
       </section>
 
-      <section className="py-8 bg-card" data-testid="section-filters">
+      <section className="py-8 pb-16 bg-card" data-testid="section-filters">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 mb-12" data-testid="filter-controls">
             {getAvailableCategories(articles).map((type) => (
               <Badge
                 key={type}
@@ -61,17 +61,13 @@ export default function Library() {
               </Badge>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-card" data-testid="section-items">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
           {filteredItems.length === 0 ? (
-            <div className="text-center py-12">
+            <div className="text-center py-12" data-testid="section-items-empty">
               <p className="text-base text-muted-foreground">No items found for this filter.</p>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-testid="section-items">
               {filteredItems.map((item) => (
                 <InsightCard
                   key={item.slug}
