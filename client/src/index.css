@@ -212,10 +212,9 @@
   h4 { @apply text-base mb-2; }
 
   /* 4. METADATA (The "Small" Text) */
-  /* This stays small (14px) to differentiate it from Body */
-  .text-muted-foreground {
-    @apply text-sm; 
-  }
+  /* NOTE: Font sizes should be controlled by explicit size classes (text-sm, text-base, etc.)
+     NOT by color classes. Removed the forced text-sm on .text-muted-foreground as it was
+     overriding all intentional sizing and breaking the typography hierarchy. */
 
   /* 5. LABELS (The "Tiny" Text) */
   /* Used for "SYSTEM STATUS" type labels */
