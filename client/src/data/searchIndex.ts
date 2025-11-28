@@ -13,6 +13,8 @@ import {
   Scale,
   Clock,
   AlertTriangle,
+  Lock,
+  ScrollText,
   type LucideIcon
 } from "lucide-react";
 import { articles, changelog } from "./articles";
@@ -102,6 +104,24 @@ const pageEntries: SearchEntry[] = [
     href: "/contact", 
     icon: Mail, 
     keywords: ["email", "message", "reach", "talk", "connect"],
+    group: "pages"
+  },
+  { 
+    id: "page-privacy", 
+    name: "Privacy Policy", 
+    description: "Data handling and privacy practices",
+    href: "/privacy", 
+    icon: Lock, 
+    keywords: ["privacy", "data", "gdpr", "ccpa", "cookies", "policy"],
+    group: "pages"
+  },
+  { 
+    id: "page-terms", 
+    name: "Terms of Service", 
+    description: "Legal terms and conditions",
+    href: "/terms", 
+    icon: ScrollText, 
+    keywords: ["terms", "service", "legal", "agreement", "conditions", "tos"],
     group: "pages"
   },
 ];
