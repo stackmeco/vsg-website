@@ -52,14 +52,15 @@ function validateOrigin(req: Request): boolean {
   const host = req.headers.host;
   
   if (!origin && !referer) {
-    return false;
+    return true;
   }
   
   const allowedHosts = [
     host,
     "localhost:5000",
-    "verifiedsystems.io",
-    "www.verifiedsystems.io",
+    "localhost:3000",
+    "verifiablesystems.com",
+    "www.verifiablesystems.com",
   ].filter(Boolean);
   
   const requestOrigin = origin || (referer ? new URL(referer).host : null);
