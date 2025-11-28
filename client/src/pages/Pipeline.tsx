@@ -121,29 +121,34 @@ export default function Pipeline() {
       <section className="py-20 relative" data-testid="section-projects">
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground">
-              Current Pipeline projects
-            </h2>
-            <div className="flex items-center gap-1 p-1 bg-secondary rounded-[2px]">
-              <Button
-                variant={viewMode === "cards" ? "default" : "ghost"}
-                size="sm"
-                onClick={() => handleViewChange("cards")}
-                data-testid="button-view-cards"
-                aria-label="Card view"
-              >
-                <LayoutGrid className="w-4 h-4" />
-              </Button>
-              <Button
-                variant={viewMode === "table" ? "default" : "ghost"}
-                size="sm"
-                onClick={() => handleViewChange("table")}
-                data-testid="button-view-table"
-                aria-label="Table view"
-              >
-                <List className="w-4 h-4" />
-              </Button>
+          <div className="mb-8">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
+              Active manifest
+            </p>
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground">
+                Current Pipeline projects
+              </h2>
+              <div className="flex items-center gap-1 p-1 bg-secondary rounded-[2px]">
+                <Button
+                  variant={viewMode === "cards" ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => handleViewChange("cards")}
+                  data-testid="button-view-cards"
+                  aria-label="Card view"
+                >
+                  <LayoutGrid className="w-4 h-4" />
+                </Button>
+                <Button
+                  variant={viewMode === "table" ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => handleViewChange("table")}
+                  data-testid="button-view-table"
+                  aria-label="Table view"
+                >
+                  <List className="w-4 h-4" />
+                </Button>
+              </div>
             </div>
           </div>
 

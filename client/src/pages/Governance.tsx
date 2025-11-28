@@ -442,6 +442,9 @@ export default function Governance() {
       <section className="py-20 bg-card" data-testid="section-contact">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
+              Direct channel
+            </p>
             <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-6">
               Want to discuss governance?
             </h2>

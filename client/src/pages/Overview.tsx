@@ -170,6 +170,9 @@ export default function Overview() {
 
       <section className="py-20 bg-card" data-testid="section-directive">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
+            Core mandate
+          </p>
           <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-8">
             The VSG Directive
           </h2>
@@ -215,6 +218,9 @@ export default function Overview() {
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
+              System status
+            </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
               Active Development Cycles
             </h2>
@@ -251,6 +257,9 @@ export default function Overview() {
       <section className="py-20 bg-card" data-testid="section-bitcoin">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
+              Treasury thesis
+            </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
               Bitcoin is Reserve, Not Product
             </h2>
@@ -268,6 +277,9 @@ export default function Overview() {
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
+              System axioms
+            </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
               Operating Principles
             </h2>

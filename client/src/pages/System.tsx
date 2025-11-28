@@ -130,6 +130,9 @@ export default function System() {
         
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
+              Capital allocation
+            </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
               Bitcoin Treasury Program
             </h2>
@@ -156,6 +159,9 @@ export default function System() {
       <section className="py-20 bg-card" data-testid="section-functions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
+              Operational stack
+            </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
               Functions behind the studio
             </h2>
