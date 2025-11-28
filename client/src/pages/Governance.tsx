@@ -151,7 +151,7 @@ export default function Governance() {
             <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
               How the company is governed
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               Verifiable Systems Group LLC is a manager-managed Wyoming LLC, foreign-qualified in Massachusetts.
             </p>
           </div>
@@ -211,7 +211,7 @@ export default function Governance() {
             <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
               BTC treasury: what it is (and isn't)
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               Our treasury is Bitcoin-first and policy-driven. It is not a DeFi "product" — it's our own balance sheet.
             </p>
           </div>
@@ -224,15 +224,15 @@ export default function Governance() {
               <ol className="space-y-4">
                 <li className="flex gap-4">
                   <span className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 text-sm font-mono">1</span>
-                  <p className="text-foreground pt-1">Post a risk-managed portion of company BTC as collateral in approved, non-custodial lending protocols.</p>
+                  <p className="text-base text-foreground pt-1">Post a risk-managed portion of company BTC as collateral in approved, non-custodial lending protocols.</p>
                 </li>
                 <li className="flex gap-4">
                   <span className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 text-sm font-mono">2</span>
-                  <p className="text-foreground pt-1">Borrow stablecoins at conservative loan-to-value ratio (LTV) (target ~35%, hard cap 50%).</p>
+                  <p className="text-base text-foreground pt-1">Borrow stablecoins at conservative loan-to-value ratio (LTV) (target ~35%, hard cap 50%).</p>
                 </li>
                 <li className="flex gap-4">
                   <span className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 text-sm font-mono">3</span>
-                  <p className="text-foreground pt-1">Use borrowed funds for operating runway, internal R&D, or selectively accumulating more BTC.</p>
+                  <p className="text-base text-foreground pt-1">Use borrowed funds for operating runway, internal R&D, or selectively accumulating more BTC.</p>
                 </li>
               </ol>
             </div>
@@ -243,7 +243,7 @@ export default function Governance() {
                   <XCircle className="w-5 h-5 text-destructive" />
                   What we are not doing
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-3 text-sm">
                   <li className="flex items-start gap-3 text-muted-foreground">
                     <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground mt-2 flex-shrink-0" />
                     Offering yield products to the public
@@ -297,7 +297,7 @@ export default function Governance() {
             <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
               How we cap risk before anything touches capital or users
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               We're pre-launch on every project. Governance here is about capping risk during development, not describing a fantasy future state.
             </p>
           </div>
@@ -366,7 +366,7 @@ export default function Governance() {
             <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
               Regulatory Posture: Pre-Product
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               Compliance architecture defined before deployment. No products are live; this documents the framework for when they are.
             </p>
           </div>
@@ -376,7 +376,7 @@ export default function Governance() {
               <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
                 Where we are today
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-3 text-base">
                 <li className="flex items-start gap-3 text-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                   US-based LLC with crypto-first accounting (books in Xero, digital asset sub-ledgers via Cryptoworth, specific-identification cost basis for tax reporting)
@@ -396,7 +396,7 @@ export default function Governance() {
               <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
                 How we approach product regulation
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-3 text-base">
                 <li className="flex items-start gap-3 text-foreground">
                   <Scale className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                   <span><strong>Jurisdiction-by-jurisdiction analysis</strong> — US (FinCEN, SEC/CFTC, state rules), EU/UK (MiCA and related frameworks)</span>
@@ -445,7 +445,7 @@ export default function Governance() {
             <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-6">
               Want to discuss governance?
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <p className="text-base text-muted-foreground leading-relaxed mb-6">
               For regulators and compliance teams, we share deeper materials (business plans, architecture diagrams, draft policies) under NDA. For partners working in AI, digital assets, or risk/compliance who see alignment, reach out.
             </p>
             <Link href="/contact">

@@ -68,7 +68,7 @@ export default function Library() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filteredItems.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">No items found for this filter.</p>
+              <p className="text-base text-muted-foreground">No items found for this filter.</p>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

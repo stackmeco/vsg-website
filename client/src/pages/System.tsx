@@ -140,7 +140,7 @@ export default function System() {
               <p className="text-base text-muted-foreground leading-relaxed mb-6">
                 We hold BTC on our own balance sheet. When the risk/reward looks reasonable, we borrow stablecoins against a portion of that BTC, using reputable on-chain venues. Those borrowed funds either:
               </p>
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-3 mb-6 text-base">
                 <li className="flex items-start gap-3 text-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                   fund development time and infrastructure for our projects, or

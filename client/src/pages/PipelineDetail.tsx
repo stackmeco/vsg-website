@@ -117,7 +117,7 @@ export default function PipelineDetail() {
 
           <p className="text-lg text-primary font-medium mb-3">{project.tagline}</p>
 
-          <p className="text-muted-foreground leading-relaxed max-w-3xl">
+          <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
             {project.description}
           </p>
         </div>
