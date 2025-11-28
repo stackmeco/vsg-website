@@ -17,10 +17,43 @@ const contactSchema = z.object({
 });
 
 const CONTACTS_FILE = path.join(process.cwd(), "data", "contacts.json");
+const MAX_CONTACTS_FILE_SIZE = 10 * 1024 * 1024; // 10MB max file size
+const CONTACTS_ROTATION_COUNT = 1000; // Rotate after 1000 entries
 
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT_WINDOW = 60 * 1000;
 const RATE_LIMIT_MAX = 5;
+
+const ttsRateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const TTS_RATE_LIMIT_WINDOW = 60 * 1000;
+const TTS_RATE_LIMIT_MAX = 3;
+const TTS_MAX_TEXT_LENGTH = 2000;
+
+const fileLocks = new Map<string, Promise<void>>();
+
+async function withFileLock<T>(filePath: string, operation: () => Promise<T>): Promise<T> {
+  const existingLock = fileLocks.get(filePath);
+  
+  let releaseLock: () => void;
+  const newLock = new Promise<void>((resolve) => {
+    releaseLock = resolve;
+  });
+  
+  fileLocks.set(filePath, newLock);
+  
+  if (existingLock) {
+    await existingLock;
+  }
+  
+  try {
+    return await operation();
+  } finally {
+    releaseLock!();
+    if (fileLocks.get(filePath) === newLock) {
+      fileLocks.delete(filePath);
+    }
+  }
+}
 
 function getRateLimitKey(req: Request): string {
   const forwarded = req.headers["x-forwarded-for"];
@@ -46,33 +79,55 @@ function checkRateLimit(req: Request): boolean {
   return true;
 }
 
+function checkTtsRateLimit(req: Request): boolean {
+  const key = getRateLimitKey(req);
+  const now = Date.now();
+  const entry = ttsRateLimitMap.get(key);
+
+  if (!entry || now > entry.resetTime) {
+    ttsRateLimitMap.set(key, { count: 1, resetTime: now + TTS_RATE_LIMIT_WINDOW });
+    return true;
+  }
+
+  if (entry.count >= TTS_RATE_LIMIT_MAX) {
+    return false;
+  }
+
+  entry.count++;
+  return true;
+}
+
+const ALLOWED_ORIGINS = [
+  "localhost:5000",
+  "localhost:3000",
+  "verifiablesystems.com",
+  "www.verifiablesystems.com",
+];
+
 function validateOrigin(req: Request): boolean {
   const origin = req.headers.origin;
   const referer = req.headers.referer;
-  const host = req.headers.host;
   
   if (!origin && !referer) {
     return true;
   }
   
-  const allowedHosts = [
-    host,
-    "localhost:5000",
-    "localhost:3000",
-    "verifiablesystems.com",
-    "www.verifiablesystems.com",
-  ].filter(Boolean);
-  
-  const requestOrigin = origin || (referer ? new URL(referer).host : null);
-  
-  if (!requestOrigin) {
+  try {
+    const requestOrigin = origin || (referer ? new URL(referer).host : null);
+    
+    if (!requestOrigin) {
+      return false;
+    }
+    
+    return ALLOWED_ORIGINS.some(allowed => 
+      requestOrigin === allowed || 
+      requestOrigin === `www.${allowed}` ||
+      requestOrigin.endsWith(`.replit.dev`) ||
+      requestOrigin.endsWith(`.replit.app`)
+    );
+  } catch {
     return false;
   }
-  
-  return allowedHosts.some(allowed => 
-    requestOrigin === allowed || 
-    requestOrigin === `www.${allowed}`
-  );
 }
 
 function ensureDataDir() {
@@ -94,17 +149,44 @@ function loadContacts(): Array<Record<string, unknown>> {
   return [];
 }
 
-function saveContact(contact: Record<string, unknown>): boolean {
+function rotateContactsFile(): void {
   try {
-    ensureDataDir();
-    const contacts = loadContacts();
-    contacts.push(contact);
-    fs.writeFileSync(CONTACTS_FILE, JSON.stringify(contacts, null, 2));
-    return true;
+    const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+    const archivePath = CONTACTS_FILE.replace(".json", `-archive-${timestamp}.json`);
+    if (fs.existsSync(CONTACTS_FILE)) {
+      fs.renameSync(CONTACTS_FILE, archivePath);
+      console.log("[Contacts] Rotated contacts file to:", archivePath);
+    }
   } catch (error) {
-    console.error("[Contacts] Error saving contact:", error);
-    return false;
+    console.error("[Contacts] Error rotating contacts file:", error);
   }
+}
+
+async function saveContact(contact: Record<string, unknown>): Promise<boolean> {
+  return withFileLock(CONTACTS_FILE, async () => {
+    try {
+      ensureDataDir();
+      const contacts = loadContacts();
+      
+      if (contacts.length >= CONTACTS_ROTATION_COUNT) {
+        rotateContactsFile();
+        fs.writeFileSync(CONTACTS_FILE, JSON.stringify([contact], null, 2));
+      } else {
+        const stats = fs.existsSync(CONTACTS_FILE) ? fs.statSync(CONTACTS_FILE) : null;
+        if (stats && stats.size >= MAX_CONTACTS_FILE_SIZE) {
+          rotateContactsFile();
+          fs.writeFileSync(CONTACTS_FILE, JSON.stringify([contact], null, 2));
+        } else {
+          contacts.push(contact);
+          fs.writeFileSync(CONTACTS_FILE, JSON.stringify(contacts, null, 2));
+        }
+      }
+      return true;
+    } catch (error) {
+      console.error("[Contacts] Error saving contact:", error);
+      return false;
+    }
+  });
 }
 
 function sanitizeString(str: string): string {
@@ -153,7 +235,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         consent: validated.consent || false,
       };
 
-      const saved = saveContact(contactEntry);
+      const saved = await saveContact(contactEntry);
 
       if (!saved) {
         res.status(500).json({
@@ -197,6 +279,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post("/api/tts", async (req: Request, res: Response) => {
     try {
+      if (!validateOrigin(req)) {
+        console.warn("[TTS] Invalid origin:", req.headers.origin || req.headers.referer);
+        res.status(403).json({ error: "Request not allowed from this origin" });
+        return;
+      }
+
+      if (!checkTtsRateLimit(req)) {
+        console.warn("[TTS] Rate limit exceeded for:", getRateLimitKey(req));
+        res.status(429).json({ error: "Too many requests. Please try again in a minute." });
+        return;
+      }
+
       const { text } = req.body;
       
       if (!text || typeof text !== "string") {
@@ -204,8 +298,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return;
       }
 
-      if (text.length > 8000) {
-        res.status(400).json({ error: "Text too long (max 8000 characters)" });
+      if (text.length > TTS_MAX_TEXT_LENGTH) {
+        res.status(400).json({ error: `Text too long (max ${TTS_MAX_TEXT_LENGTH} characters)` });
         return;
       }
 
