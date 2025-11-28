@@ -54,7 +54,7 @@ export default function System() {
   return (
     <Layout>
       <PageMeta 
-        title="System" 
+        title="Our Process" 
         description="How Verifiable Systems works: deterministic infrastructure, Bitcoin treasury, governance, and building verifiable systems for intelligence and value." 
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
@@ -74,7 +74,7 @@ export default function System() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
-              System Architecture
+              Our Process
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed">
               A unified R&D unit backed by a proprietary Bitcoin treasury. System integrity is maintained through strict functional separation: Governance caps risk, Treasury manages capital, Engineering validates truth.
