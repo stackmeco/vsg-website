@@ -14,7 +14,7 @@ interface ProjectTileProps {
 }
 
 export function ProjectTile({ slug, name, stage, stageVariant, description, exploring }: ProjectTileProps) {
-  const href = `/pipeline/${slug}`;
+  const href = `/ventures/${slug}`;
   return (
     <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
       <CardContent className="p-6">

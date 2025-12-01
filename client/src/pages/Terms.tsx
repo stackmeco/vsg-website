@@ -103,7 +103,7 @@ export default function Terms() {
                 <strong>Verifiable Systems Group LLC</strong><br />
                 State of Incorporation: Wyoming, USA<br />
                 Email: legal@verifiablesystems.com<br />
-                Contact form: verifiablesystems.com/contact
+                Contact form: verifiablesystems.com/connect
               </p>
             </section>
           </div>

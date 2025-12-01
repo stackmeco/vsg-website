@@ -43,7 +43,7 @@ export function InsightCard({
           {excerpt}
         </p>
         <Link
-          href={`/thesis/${slug}`}
+          href={`/insights/${slug}`}
           className="inline-flex items-center gap-1 text-xs font-mono uppercase tracking-wide text-primary group-hover:gap-2 transition-all"
         >
           Read Analysis

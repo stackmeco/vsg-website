@@ -25,7 +25,7 @@ const textureMap: Record<string, string> = {
 };
 
 export default function PipelineDetail() {
-  const [, params] = useRoute("/pipeline/:slug");
+  const [, params] = useRoute("/ventures/:slug");
   const slug = params?.slug || "";
   const project = getProjectBySlug(slug);
   const nextProject = getNextProject(slug);
@@ -34,16 +34,16 @@ export default function PipelineDetail() {
     return (
       <Layout>
         <SeoHead
-          title="Project Not Found | Pipeline"
+          title="Project Not Found | Ventures"
           description="The requested project specification was not found."
-          path={`/pipeline/${slug}`}
+          path={`/ventures/${slug}`}
         />
         <div className="py-20 text-center">
           <h1 className="font-heading font-bold text-2xl text-foreground mb-4">
             Project not found
           </h1>
-          <Link href="/pipeline">
-            <Button variant="outline" data-testid="button-back-pipeline">Back to Pipeline</Button>
+          <Link href="/ventures">
+            <Button variant="outline" data-testid="button-back-ventures">Back to Ventures</Button>
           </Link>
         </div>
       </Layout>
@@ -56,16 +56,16 @@ export default function PipelineDetail() {
 
   const breadcrumbs = [
     { name: "Home", path: "/" },
-    { name: "Pipeline", path: "/pipeline" },
-    { name: project.name, path: `/pipeline/${slug}` }
+    { name: "Ventures", path: "/ventures" },
+    { name: project.name, path: `/ventures/${slug}` }
   ];
 
   return (
     <Layout>
       <SeoHead
-        title={`${project.name} | Pipeline`}
+        title={`${project.name} | Ventures`}
         description={project.description}
-        path={`/pipeline/${slug}`}
+        path={`/ventures/${slug}`}
         breadcrumbs={breadcrumbs}
       />
       <section className="py-16 lg:py-20 relative overflow-hidden border-b border-border" data-testid="section-hero">
@@ -98,7 +98,7 @@ export default function PipelineDetail() {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/pipeline" data-testid="breadcrumb-pipeline">Pipeline</Link>
+                  <Link href="/ventures" data-testid="breadcrumb-ventures">Ventures</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
@@ -203,14 +203,14 @@ export default function PipelineDetail() {
         {nextProject ? (
           <NextStepBlock
             nextPage={nextProject.name}
-            description={`Continue exploring the Pipeline.`}
+            description={`Continue exploring our ventures.`}
             href={nextProject.href}
           />
         ) : (
           <NextStepBlock
-            nextPage="Governance"
-            description="See how we govern risk, treasury, and compliance."
-            href="/governance"
+            nextPage="Standards"
+            description="Learn about our governance and compliance framework."
+            href="/standards"
           />
         )}
       </div>

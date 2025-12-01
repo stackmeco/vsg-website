@@ -14,7 +14,7 @@ const audioFiles: Record<string, string> = {
 };
 
 export default function LibraryArticle() {
-  const [, params] = useRoute("/thesis/:slug");
+  const [, params] = useRoute("/insights/:slug");
   const slug = params?.slug || "";
   const article = articleContent[slug];
   const audioSrc = audioFiles[slug];
@@ -26,8 +26,8 @@ export default function LibraryArticle() {
           <h1 className="font-heading font-bold text-2xl text-foreground mb-4">
             Article not found
           </h1>
-          <Link href="/thesis">
-            <Button variant="outline">Back to Thesis</Button>
+          <Link href="/insights">
+            <Button variant="outline">Back to Insights</Button>
           </Link>
         </div>
       </Layout>
@@ -42,8 +42,8 @@ export default function LibraryArticle() {
 
   const breadcrumbs = [
     { name: "Home", path: "/" },
-    { name: "Thesis", path: "/thesis" },
-    { name: article.title, path: `/thesis/${slug}` }
+    { name: "Insights", path: "/insights" },
+    { name: article.title, path: `/insights/${slug}` }
   ];
 
   return (
@@ -52,7 +52,7 @@ export default function LibraryArticle() {
         title={article.title}
         description={article.description}
         type="article"
-        path={`/thesis/${slug}`}
+        path={`/insights/${slug}`}
         publishedTime={article.publishedTime}
         breadcrumbs={breadcrumbs}
       />
@@ -60,12 +60,12 @@ export default function LibraryArticle() {
       <article className="py-20 lg:py-28" data-testid={`article-${slug}`}>
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
-            href="/thesis"
+            href="/insights"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-10 transition-colors"
-            data-testid="link-back-thesis"
+            data-testid="link-back-insights"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Thesis
+            Back to Insights
           </Link>
 
           <header className="mb-14">
@@ -125,12 +125,12 @@ export default function LibraryArticle() {
               Published by Verifiable Systems Group
             </p>
             <Link 
-              href="/thesis"
+              href="/insights"
               className="inline-flex items-center gap-2 text-sm text-primary mt-4 transition-colors"
-              data-testid="link-back-thesis-footer"
+              data-testid="link-back-insights-footer"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              Back to Thesis
+              Back to Insights
             </Link>
           </footer>
         </div>

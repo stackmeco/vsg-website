@@ -20,29 +20,29 @@ import { projects, getProjectHref } from "@/data/projects";
 
 const stages = [
   { 
-    name: "Strategic Definition", 
-    focus: "Alignment & ROI",
-    description: "We start with the problem, not the code. Before development begins, we verify the 'Why.' We define clear, measurable objectives for every project, ensuring every hour of engineering time translates directly to business value." 
+    name: "Define the Problem", 
+    focus: "Why before How",
+    description: "We start with the problem, not the technology. Before any code is written, we validate the business case and define measurable success criteria." 
   },
   { 
-    name: "Rapid Validation", 
-    focus: "Risk Mitigation",
-    description: "We prove the concept early. Risk is best managed before the build. We utilize rapid prototyping and user modeling to validate assumptions immediately — saving time and resources for the features that truly matter." 
+    name: "Validate the Concept", 
+    focus: "Risk Reduction",
+    description: "Prove viability before building. We use rapid prototyping to test assumptions early—reducing the cost of failure and focusing resources on what works." 
   },
   { 
-    name: "The Verified Build", 
-    focus: "Security & Stability",
-    description: "Engineering with automated safeguards. We build in iterative cycles with continuous verification. Automated testing suites check system integrity throughout development, so stability and security are foundational." 
+    name: "Build with Verification", 
+    focus: "Security First",
+    description: "Engineering with continuous checks. Automated testing verifies system integrity throughout the build, making security and stability foundational, not afterthoughts." 
   },
   { 
-    name: "Controlled Deployment", 
-    focus: "Reliability",
-    description: "We aim for zero-downtime with staged rollouts. No 'big bang' releases. Features deploy incrementally, validated under real-world loads before full release." 
+    name: "Deploy Incrementally", 
+    focus: "Controlled Release",
+    description: "No big-bang releases. Features roll out in stages, validated under real-world conditions before reaching all users." 
   },
   { 
-    name: "Data-Driven Evolution", 
+    name: "Iterate with Data", 
     focus: "Continuous Improvement",
-    description: "Launch is the starting point. Once live, we monitor performance and user interactions, continuously refining based on real data." 
+    description: "Launch is the beginning. We monitor performance and refine continuously based on real usage data." 
   },
 ];
 
@@ -63,8 +63,8 @@ export default function Pipeline() {
   return (
     <Layout>
       <PageMeta 
-        title="Pipeline" 
-        description="Our R&D projects: Axiom, Helios, Stackme, Lumina, and Uniqueness Engine. All self-funded, none public yet." 
+        title="Ventures" 
+        description="Our active ventures: Axiom, Helios, Stackme, Lumina, and Uniqueness Engine. Self-funded projects moving through validated development stages." 
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />
@@ -83,10 +83,10 @@ export default function Pipeline() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
-              The Pipeline
+              Our Ventures
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed">
-              Our R&D projects, tied to our BTC treasury, moving through defined stages. All self-funded. None public yet.
+              Five projects in active development. Each is self-funded and stress-tested with our own capital before external deployment.
             </p>
           </div>
         </div>
@@ -96,13 +96,13 @@ export default function Pipeline() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              Our R&D process
+              Development lifecycle
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
-              How we verify value at every step
+              From Idea to Impact
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed">
-              We treat software development as a rigorous discipline. Our process is designed to surface risk early and build systems designed for stability and security.
+              Every venture moves through a validated development process. This structure surfaces risk early and ensures we build systems designed for long-term stability.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -123,11 +123,11 @@ export default function Pipeline() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              Active manifest
+              Active portfolio
             </p>
             <div className="flex flex-wrap items-center justify-between gap-4">
               <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground">
-                Current Pipeline projects
+                Current Ventures
               </h2>
               <div className="flex items-center gap-1 p-1 bg-secondary rounded-[2px]">
                 <Button
@@ -199,9 +199,9 @@ export default function Pipeline() {
       </section>
 
       <NextStepBlock
-        nextPage="Governance"
-        description="See how we manage risk, treasury, and compliance."
-        href="/governance"
+        nextPage="Standards"
+        description="Learn about our governance, risk management, and compliance framework."
+        href="/standards"
       />
     </Layout>
   );

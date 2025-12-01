@@ -159,5 +159,5 @@ export const getNextProject = (currentSlug: string): { name: string; href: strin
   if (!current?.nextProjectSlug) return undefined;
   const next = getProjectBySlug(current.nextProjectSlug);
   if (!next) return undefined;
-  return { name: next.name, href: `/pipeline/${next.slug}` };
+  return { name: next.name, href: `/ventures/${next.slug}` };
 };

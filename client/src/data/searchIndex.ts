@@ -45,65 +45,65 @@ export interface SearchGroupMeta {
 
 export const searchGroups: SearchGroupMeta[] = [
   { id: "pages", label: "Pages", priority: 1 },
-  { id: "projects", label: "Pipeline Projects", priority: 2 },
-  { id: "articles", label: "Thesis Articles", priority: 3 },
-  { id: "governance", label: "Governance Sections", priority: 4 },
+  { id: "projects", label: "Ventures", priority: 2 },
+  { id: "articles", label: "Insights", priority: 3 },
+  { id: "governance", label: "Standards Sections", priority: 4 },
   { id: "changelog", label: "System Records", priority: 5 },
 ];
 
 const pageEntries: SearchEntry[] = [
   { 
-    id: "page-overview", 
-    name: "Overview", 
-    description: "Home page - system status and studio metrics",
+    id: "page-mission", 
+    name: "Mission", 
+    description: "Home page - who we are and what we build",
     href: "/", 
     icon: Home, 
-    keywords: ["home", "main", "start", "dashboard", "metrics"],
+    keywords: ["home", "main", "start", "dashboard", "metrics", "overview"],
     group: "pages"
   },
   { 
-    id: "page-system", 
-    name: "System", 
-    description: "How we work - architecture and treasury",
-    href: "/system", 
+    id: "page-process", 
+    name: "Process", 
+    description: "How we work - operations and treasury",
+    href: "/process", 
     icon: Settings, 
-    keywords: ["architecture", "treasury", "btc", "bitcoin", "how", "work", "functions"],
+    keywords: ["architecture", "treasury", "btc", "bitcoin", "how", "work", "functions", "system"],
     group: "pages"
   },
   { 
-    id: "page-pipeline", 
-    name: "Pipeline", 
-    description: "R&D projects and development stages",
-    href: "/pipeline", 
+    id: "page-ventures", 
+    name: "Ventures", 
+    description: "Our projects and development stages",
+    href: "/ventures", 
     icon: Layers, 
-    keywords: ["projects", "r&d", "research", "development", "stages"],
+    keywords: ["projects", "r&d", "research", "development", "stages", "pipeline"],
     group: "pages"
   },
   { 
-    id: "page-governance", 
-    name: "Governance", 
+    id: "page-standards", 
+    name: "Standards", 
     description: "Risk controls and compliance",
-    href: "/governance", 
+    href: "/standards", 
     icon: Shield, 
-    keywords: ["risk", "compliance", "legal", "regulatory", "policy", "treasury"],
+    keywords: ["risk", "compliance", "legal", "regulatory", "policy", "treasury", "governance"],
     group: "pages"
   },
   { 
-    id: "page-thesis", 
-    name: "Thesis", 
-    description: "Our manifesto and published insights",
-    href: "/thesis", 
+    id: "page-insights", 
+    name: "Insights", 
+    description: "Our research and analysis",
+    href: "/insights", 
     icon: BookOpen, 
-    keywords: ["library", "articles", "insights", "manifesto", "blog", "notes"],
+    keywords: ["library", "articles", "insights", "manifesto", "blog", "notes", "thesis"],
     group: "pages"
   },
   { 
-    id: "page-contact", 
-    name: "Contact", 
+    id: "page-connect", 
+    name: "Connect", 
     description: "Get in touch",
-    href: "/contact", 
+    href: "/connect", 
     icon: Mail, 
-    keywords: ["email", "message", "reach", "talk", "connect"],
+    keywords: ["email", "message", "reach", "talk", "connect", "contact"],
     group: "pages"
   },
   { 
@@ -151,7 +151,7 @@ const articleEntries: SearchEntry[] = articles.map((article) => ({
   id: `article-${article.slug}`,
   name: article.title,
   description: article.excerpt,
-  href: `/thesis/${article.slug}`,
+  href: `/insights/${article.slug}`,
   icon: BookOpen,
   keywords: [
     article.type.toLowerCase(),
@@ -164,17 +164,17 @@ const governanceEntries: SearchEntry[] = [
   { 
     id: "gov-structure", 
     name: "Legal Structure", 
-    description: "Delaware LLC, two-founder governance",
-    href: "/governance#structure", 
+    description: "Wyoming LLC, two-founder governance",
+    href: "/standards#structure", 
     icon: FileText, 
-    keywords: ["llc", "delaware", "founders", "ownership", "legal"],
+    keywords: ["llc", "wyoming", "founders", "ownership", "legal"],
     group: "governance"
   },
   { 
     id: "gov-treasury", 
     name: "BTC Treasury", 
     description: "Treasury policy and collateral loop",
-    href: "/governance#treasury", 
+    href: "/standards#treasury", 
     icon: CreditCard, 
     keywords: ["bitcoin", "btc", "collateral", "leverage", "ltv", "capital"],
     group: "governance"
@@ -183,7 +183,7 @@ const governanceEntries: SearchEntry[] = [
     id: "gov-risk", 
     name: "Risk Governance", 
     description: "Stage-gates and risk controls",
-    href: "/governance#risk", 
+    href: "/standards#risk", 
     icon: AlertTriangle, 
     keywords: ["risk", "stage", "gate", "controls", "memo"],
     group: "governance"
@@ -192,7 +192,7 @@ const governanceEntries: SearchEntry[] = [
     id: "gov-regulatory", 
     name: "Regulatory Stance", 
     description: "Compliance approach and prohibitions",
-    href: "/governance#regulatory", 
+    href: "/standards#regulatory", 
     icon: Scale, 
     keywords: ["compliance", "regulation", "fincen", "sec", "mica", "legal"],
     group: "governance"
@@ -203,7 +203,7 @@ const changelogEntries: SearchEntry[] = changelog.map((entry, index) => ({
   id: `changelog-${index}`,
   name: entry.date,
   description: entry.entry,
-  href: "/system#changelog",
+  href: "/process#changelog",
   icon: Clock,
   keywords: ["update", "change", "record", "history"],
   group: "changelog" as SearchGroup,

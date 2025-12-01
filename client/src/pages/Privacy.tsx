@@ -117,7 +117,7 @@ export default function Privacy() {
               <p className="text-base text-foreground leading-relaxed">
                 <strong>Verifiable Systems Group LLC</strong><br />
                 Email: privacy@verifiablesystems.com<br />
-                Contact form: verifiablesystems.com/contact
+                Contact form: verifiablesystems.com/connect
               </p>
             </section>
           </div>

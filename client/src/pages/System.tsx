@@ -8,43 +8,43 @@ import gearsTexture from "@assets/gears_texture.png";
 
 const definitions = [
   {
-    term: "Verifiable Systems",
-    definition: "Infrastructure where state, logic, and risk are mathematically provable. Auditability is an architectural constraint, not a feature.",
+    term: "Verified Intelligence",
+    definition: "AI that cites its sources. Unlike standard LLMs that hallucinate, verified intelligence forces every output to be backed by provable data.",
   },
   {
-    term: "Deterministic Intelligence",
-    definition: "Systems that constrain stochastic models with rigid verification layers. Outputs are auditable, cited, and hallucination-resistant. AI as reasoning engine, not knowledge base.",
+    term: "Proof of Solvency",
+    definition: "Systems that prove they are backed by real capital. A public record of assets ensures financial health is not just claimed, but confirmed.",
   },
   {
-    term: "Digital Assets",
-    definition: "Assets with provable uniqueness and transferable ownership. Not copyable files with licenses — instruments with cryptographic guarantees. Bitcoin is the clearest example.",
+    term: "Digital Provenance",
+    definition: "A tamper-proof history for any asset—digital or physical. Blockchain technology provides an unalterable chain of custody record.",
   },
 ];
 
 const functions = [
   {
-    title: "Governance & Risk",
-    description: "Definition of solvency thresholds, leverage caps, and negative constraints for all treasury and product operations.",
+    title: "Risk Management",
+    description: "We set strict limits on leverage and exposure. Defined solvency thresholds protect capital across all market conditions.",
     icon: <Shield className="w-5 h-5" />,
   },
   {
-    title: "Compliance",
-    description: "Alignment with legal and regulatory constraints across operating jurisdictions.",
+    title: "Regulatory Alignment",
+    description: "We operate within the law. All projects are designed for compliance in the jurisdictions where they may deploy.",
     icon: <Scale className="w-5 h-5" />,
   },
   {
-    title: "Finance & Treasury",
-    description: "Tracking of all capital flows, loan positions, and expenditures with auditable precision.",
+    title: "Treasury Operations",
+    description: "We track all capital movement with auditable precision—from loan positions to operational expenditures.",
     icon: <Wallet className="w-5 h-5" />,
   },
   {
-    title: "Operations",
-    description: "Stage-gated workflow from specification through architecture, implementation, and verification.",
+    title: "Development Lifecycle",
+    description: "Every project follows a structured path from specification through build and testing before deployment.",
     icon: <Cog className="w-5 h-5" />,
   },
   {
-    title: "External Consistency",
-    description: "Ensuring public documentation strictly matches internal system state.",
+    title: "Public Accountability",
+    description: "What we say externally matches what we do internally. Public documentation reflects actual system state.",
     icon: <MessageSquare className="w-5 h-5" />,
   },
 ];
@@ -54,8 +54,8 @@ export default function System() {
   return (
     <Layout>
       <PageMeta 
-        title="Our Process" 
-        description="How Verifiable Systems works: deterministic infrastructure, Bitcoin treasury, governance, and building verifiable systems for intelligence and value." 
+        title="Process" 
+        description="How we operate: our Bitcoin treasury strategy, functional responsibilities, and the principles that govern our development lifecycle." 
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />
@@ -74,10 +74,10 @@ export default function System() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
-              Our Process
+              How We Operate
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed">
-              A unified R&D unit backed by a proprietary Bitcoin treasury. System integrity is maintained through strict functional separation: Governance caps risk, Treasury manages capital, Engineering validates truth.
+              A small, focused team backed by a Bitcoin treasury. We separate functions clearly: Risk Management defines limits, Treasury allocates capital, and Engineering verifies every build.
             </p>
           </div>
         </div>
@@ -87,10 +87,10 @@ export default function System() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8">
             <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              What we mean
+              Our vocabulary
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
-              Terms we use, defined plainly
+              Core Concepts
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -131,26 +131,26 @@ export default function System() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl">
             <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              Capital allocation
+              Capital strategy
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
-              Bitcoin Treasury Program
+              Our Bitcoin Treasury
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-6">
-              We hold BTC on our own balance sheet. When the risk/reward looks reasonable, we borrow stablecoins against a portion of that BTC, using reputable on-chain venues. Those borrowed funds either:
+              Our treasury is built on Bitcoin. When conditions are favorable, we borrow against a portion of our holdings using trusted, non-custodial lending venues. The proceeds either:
             </p>
             <ul className="space-y-3 mb-6 text-base">
               <li className="flex items-start gap-3 text-foreground">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                fund development time and infrastructure for our projects, or
+                Fund development and infrastructure for our ventures, or
               </li>
               <li className="flex items-start gap-3 text-foreground">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                let us accumulate more BTC when we believe it's underpriced.
+                Allow strategic Bitcoin accumulation during market downturns.
               </li>
             </ul>
             <p className="text-xs text-muted-foreground italic">
-              This is an internal program. We don't manage anyone else's assets, and we don't offer treasury products.
+              This is an internal program. We do not manage external capital or offer yield products.
             </p>
           </div>
         </div>
@@ -160,13 +160,13 @@ export default function System() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              Operational stack
+              Functional responsibilities
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
-              Functions behind the studio
+              How We're Organized
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed">
-              Verifiable Systems is still just two people, but we think in terms of functions so decisions and responsibilities are clear.
+              We are a small team, but we maintain clear functional separation. This clarity ensures accountability and reduces operational risk.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -178,9 +178,9 @@ export default function System() {
       </section>
 
       <NextStepBlock
-        nextPage="Pipeline"
-        description="Review active R&D projects and their operational status."
-        href="/pipeline"
+        nextPage="Ventures"
+        description="See our active projects and their current development status."
+        href="/ventures"
       />
     </Layout>
   );

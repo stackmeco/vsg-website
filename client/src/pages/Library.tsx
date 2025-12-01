@@ -17,8 +17,8 @@ export default function Library() {
   return (
     <Layout>
       <PageMeta 
-        title="Thesis" 
-        description="The foundational thinking behind Verifiable Systems. Our manifesto on building verifiable, high-integrity systems." 
+        title="Insights" 
+        description="Our research and analysis on AI, digital assets, and the future of verified systems. Published when we have something substantive to share." 
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />
@@ -37,10 +37,10 @@ export default function Library() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground leading-tight tracking-tight mb-6">
-              Thesis
+              Insights
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              The foundational thinking behind our work. We publish when we have something substantive to share — not on a schedule.
+              Our research and analysis on AI, finance, and verification. We publish when we have something meaningful to share—not on a schedule.
             </p>
           </div>
         </div>
@@ -84,9 +84,9 @@ export default function Library() {
       </section>
 
       <NextStepBlock
-        nextPage="Contact"
-        description="Open communication channel."
-        href="/contact"
+        nextPage="Connect"
+        description="Start a conversation with our team."
+        href="/connect"
       />
     </Layout>
   );

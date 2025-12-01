@@ -17,16 +17,16 @@ import {
 } from "lucide-react";
 
 const capitalControls = [
-  "Member loans, not mystery money — funds from members are documented loans, not hidden equity",
-  "Distribution waterfall — creditors first, then loan repayment, then (if any) equity distributions",
-  "No unsupervised on-chain moves — every treasury transaction requires a signed Transaction Authorization Record (TAR)",
+  "Transparent funding — all capital contributions are documented with clear terms",
+  "Priority structure — creditors are paid first, then loans, then any distributions",
+  "Transaction oversight — every treasury move requires a signed authorization record",
 ];
 
 const thingsWeWontDo = [
-  "We do not offer or sell tokens as investments",
-  "No opaque yield products where you can't inspect the mechanics",
-  "No hidden rehypothecation of user assets",
-  "No routing around sanctions, identity verification (KYC/AML), or geofencing obligations",
+  "No token sales or investment offerings",
+  "No opaque yield products—if you can't see how it works, we won't build it",
+  "No hidden reuse of user assets without explicit consent",
+  "No circumventing sanctions, identity verification, or geographic restrictions",
 ];
 
 const projectGovernance = [
@@ -73,8 +73,8 @@ export default function Governance() {
   return (
     <Layout>
       <PageMeta 
-        title="Governance" 
-        description="How Verifiable Systems is governed: decision rights, BTC treasury policy, risk controls, and our regulatory stance. Transparency over theater." 
+        title="Standards" 
+        description="Our governance framework: how decisions are made, how we manage risk, and our approach to compliance. Transparency over theater." 
       />
       
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
@@ -95,13 +95,13 @@ export default function Governance() {
           <div className="grid lg:grid-cols-[1fr,320px] gap-12 items-start">
             <div className="max-w-2xl">
               <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
-                Governance, risk & compliance
+                Our Standards
               </h1>
               <p className="text-base text-muted-foreground leading-relaxed mb-6">
-                We work at the edge of AI, Digital Assets, and Verifiable Systems. That edge only matters if people can understand the risks and the rules.
+                Trust requires transparency. This page explains how we make decisions, manage capital, and ensure our systems meet both our internal standards and external regulatory requirements.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                This page explains how Verifiable Systems (Verifiable Systems Group LLC, "VSG") is governed today: who decides what, how we treat our Bitcoin treasury, and how we approach regulation and compliance as we move projects from R&D to reality.
+                We operate at the frontier of AI and digital assets. Clear governance is essential for both partners and regulators to understand how we work.
               </p>
             </div>
 
@@ -451,7 +451,7 @@ export default function Governance() {
             <p className="text-base text-muted-foreground leading-relaxed mb-6">
               For regulators and compliance teams, we share deeper materials (business plans, architecture diagrams, draft policies) under NDA. For partners working in AI, digital assets, or risk/compliance who see alignment, reach out.
             </p>
-            <Link href="/contact">
+            <Link href="/connect">
               <Button data-testid="button-contact-governance">
                 Talk to us about governance
                 <ArrowRight className="w-4 h-4" />
