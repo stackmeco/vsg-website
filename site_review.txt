@@ -1,572 +1,295 @@
 ================================================================================
-VSG SITE DESIGN & UX REVIEW
-Visual Design, Accessibility & User Experience Assessment
-================================================================================
-Review Date: November 2024
-Design System: Industrial Control Room (Tier-1 Institutional)
-Target Domain: verifiablesystems.com
-
-
-================================================================================
-PART 1: EXECUTIVE SUMMARY
+VSG WEBSITE - CONTENT & MESSAGING REVIEW
+Generated: December 2024
+Status: Fresh analysis - CRITICAL ISSUES IDENTIFIED
 ================================================================================
 
-Overall Design Quality: EXCELLENT (8.5/10)
+CORE PROBLEM
+============
+Users report: "I don't understand what you do."
 
-The VSG marketing site successfully implements the "Industrial Control Room"
-aesthetic with the Tungsten & Signal palette. Typography is consistent,
-spacing is mechanical, and the overall impression conveys technical precision
-and institutional credibility.
-
-DESIGN COMPLIANCE: 92%
-ACCESSIBILITY: 85%
-RESPONSIVE DESIGN: 88%
-USER EXPERIENCE: 87%
-
+This is a MESSAGING FAILURE. The site explains HOW VSG operates internally
+but never tells visitors WHAT VSG offers or WHY they should care.
 
 ================================================================================
-PART 2: BRAND IDENTITY COMPLIANCE
+1. HOMEPAGE (Overview.tsx) - CRITICAL ISSUES
 ================================================================================
 
-CORE PRINCIPLE CHECK:
-"Bitcoin verifies Value, Axiom verifies Truth."
+CURRENT HERO HEADLINE:
+"Engineering verifiable systems for intelligence and value."
 
-[PASS] Hero copy reinforces this principle
-[PASS] Projects positioned as verification systems
-[PASS] Treasury framed as internal capital verification
-[PASS] Active voice throughout ("We engineer", "We build")
+PROBLEM: This is abstract. What does "verifiable systems" mean to a visitor?
+         What is "intelligence and value"? This sounds like internal mission
+         statement language, not customer-facing communication.
 
+CURRENT SUBHEAD:
+"We engineer deterministic systems for Value, Intelligence, and Physical
+Reality. Bitcoin verifies value; Axiom verifies truth. Deployment is gated
+by internal capital verification."
 
-COLOR PALETTE COMPLIANCE:
+PROBLEMS:
+- "Deterministic systems" - technical jargon
+- "Value, Intelligence, Physical Reality" - vague categories
+- "Axiom verifies truth" - who is Axiom? No context given.
+- "internal capital verification" - why would a visitor care about this?
+
+CURRENT CTA:
+"View Pipeline"
+
+PROBLEM: This leads to more internal R&D documentation, not engagement.
+         There's no "Contact Us", "Partner With Us", or "Learn More" path.
+
 --------------------------------------------------------------------------------
 
-PRIMARY COLORS:
-[PASS] Tungsten Charcoal: --background: 222 15% 5% (~#0B0C10)
-[PASS] Signal Orange: --primary: 25 95% 53% (#F26D21)
+SECTION: "The VSG Directive"
 
-SURFACE LAYERS:
-[PASS] Card Background: --card: 222 15% 7% (slightly elevated)
-[PASS] Border Color: --border: 222 15% 12% (structural gray)
+PURPOSE CARD:
+"To engineer verifiable systems at the frontier of AI and Digital Assets.
+We enable the use of new forms of value without compromising ownership or
+control—reclaiming human attention for higher-value work."
 
-TEXT COLORS:
-[PASS] Foreground: --foreground: 30 5% 90% (warm silver)
-[PASS] Muted: --muted-foreground: 220 5% 75% (subdued)
+PROBLEMS:
+- "frontier of AI and Digital Assets" - buzzword territory
+- "new forms of value" - what forms? Be specific.
+- "reclaiming human attention" - suddenly about productivity?
 
-ACCENT COLORS:
-[PASS] Destructive Red: --destructive: 0 70% 50%
-[PASS] Chart palette uses orange/gray tones
+VISION CARD:
+"A future where digital assets possess the clarity and durability of hard
+currency. We build for a reality where ownership is absolute, risks are
+visible, and systems compound human productivity..."
 
-NON-COMPLIANT COLORS FOUND: NONE
-The site correctly uses only Tungsten grays and Signal orange.
+PROBLEM: This is aspirational vision statement, not concrete offering.
 
+MISSION CARD:
+"To navigate the frontier of AI and digital assets with our own capital
+as the first customer."
 
-TYPOGRAPHY COMPLIANCE:
+PROBLEM: "We are our own customer" = you're saying you don't serve others?
+
 --------------------------------------------------------------------------------
 
-FONT FAMILIES:
-[PASS] Headings: Space Grotesk (font-heading)
-[PASS] Body: Manrope (font-sans)
-[PASS] Technical/Data: IBM Plex Mono (font-mono)
+SECTION: "Active Development Cycles"
 
-FONT SIZES (Industrial Scale):
-[PASS] Hero: text-3xl to text-4xl (40-48px)
-[PASS] Section Headers: text-xl to text-2xl (24-32px)
-[PASS] Body: text-sm (14px)
-[PASS] Labels: text-[10px] (10px) with tracking-widest
-[PASS] Minimum readable size enforced
+"Five projects in our Pipeline. Axiom is in research; Helios is in internal
+alpha; Stackme is in architecture. None are currently accepting external
+capital or users."
 
-READABILITY:
-[PASS] Base font size: 14px (readable)
-[PASS] Muted text at 75% lightness (sufficient contrast)
-[PASS] Leading/line-height appropriate
+CRITICAL PROBLEM: You're explicitly telling visitors there's nothing for them.
+                  This is anti-marketing. Why would anyone stay on the site?
 
-
-================================================================================
-PART 3: GEOMETRY & MACHINED EDGES
-================================================================================
-
-BORDER RADIUS AUDIT:
 --------------------------------------------------------------------------------
 
-Design Spec: 2px machined edges (rounded-[2px] or rounded-md equivalent)
+SECTION: "Bitcoin is Reserve, Not Product"
 
-COMPLIANT COMPONENTS:
-[PASS] ContactForm: rounded-[2px] ✓
-[PASS] ErrorBoundary: rounded-[2px] ✓
-[PASS] Dialog: rounded-[2px] ✓
-[PASS] Command Palette: rounded-[2px] ✓
-[PASS] Chart Tooltips: rounded-[2px] ✓
-[PASS] Alert Dialog: rounded-[2px] ✓
-[PASS] Buttons: default shadcn rounded-md (2px per config)
-[PASS] Badges: default shadcn (2px per config)
-[PASS] Cards: default shadcn (controlled)
-[PASS] Header navigation links: rounded-[2px] ✓
-[PASS] Project chips on Overview: rounded-[2px] ✓
-[PASS] Active development cycles list: rounded-[2px] ✓
+"This is internal treasury management. We do not offer external yield
+products or manage third-party capital."
 
-NON-COMPLIANT COMPONENTS:
-[FAIL] StepCard.tsx: uses rounded-sm (1px)
-[WARN] Overview.tsx:137: metrics card uses rounded-sm
-[WARN] Pipeline.tsx:128: view toggle uses rounded-sm
-[WARN] Pipeline.tsx:157: table container uses rounded-sm
-[WARN] Header.tsx:164: mobile nav item uses rounded-sm
+PROBLEM: Another disclaimer saying "we don't offer you anything."
 
-STATUS DOTS (Exception):
-[PASS] rounded-full for circular status indicators is allowed
-
-Compliance Rate: 90% (5 instances need fixing)
-
-
-================================================================================
-PART 4: PAGE-BY-PAGE DESIGN REVIEW
-================================================================================
-
-
-PAGE: Overview (/)
 --------------------------------------------------------------------------------
 
-HERO SECTION:
-[PASS] Grid texture background with proper opacity (0.12)
-[PASS] Gradient overlays for depth
-[PASS] Font sizes: text-3xl sm:text-4xl for headline
-[PASS] Orange project chips with proper hover states
-[PASS] Clear CTA button with arrow icon
+SECTION: "Operating Principles"
 
-STUDIO METRICS PANEL:
-[WARN] Uses rounded-sm instead of rounded-[2px]
-[PASS] StatBlock component properly styled
-[PASS] Orange primary stat variant
+The six principles (Empirical Verification, Proof of Capital, Bounded
+Execution, etc.) are internally-focused. They describe how YOU work,
+not what VALUE you provide to others.
 
-DIRECTIVE CARDS:
-[PASS] Card layout consistent
-[PASS] Labels use text-[10px] font-mono uppercase tracking-widest
-[PASS] Orange accent on "Purpose/Vision/Mission" labels
+================================================================================
+2. PROCESS PAGE (System.tsx) - ISSUES
+================================================================================
 
-PROJECT LIST:
-[PASS] Hover states with bg-primary/5
-[PASS] StageChip variants correctly use muted/primary
-[PASS] Arrow indicator transitions smoothly
+CURRENT HEADLINE:
+"Our Process"
 
-VALUES SECTION:
-[PASS] ValueCard component consistent
-[PASS] Grid layout responsive
+CURRENT SUBHEAD:
+"A unified R&D unit backed by a proprietary Bitcoin treasury. System
+integrity is maintained through strict functional separation: Governance
+caps risk, Treasury manages capital, Engineering validates truth."
 
-OVERALL: 9/10
+PROBLEM: This reads like internal documentation. "Governance caps risk" and
+         "Engineering validates truth" are internal operations, not offerings.
 
-
-PAGE: Contact (/contact)
 --------------------------------------------------------------------------------
 
-HERO SECTION:
-[PASS] Consistent with other pages
-[PASS] "Inbound Channel" headline appropriate
+SECTION: "Terms we use, defined plainly"
 
-FORM DESIGN:
-[PASS] Labels correctly styled
-[PASS] Error states use text-destructive
-[PASS] Success state properly designed
-[PASS] Honeypot field hidden correctly
-[PASS] Loading state with animated cursor
+- "Verifiable Systems" - "Infrastructure where state, logic, and risk are
+  mathematically provable. Auditability is an architectural constraint."
 
-ACCESSIBILITY:
-[PASS] aria-invalid on error fields
-[PASS] aria-describedby linking errors
-[PASS] Labels properly associated
+- "Deterministic Intelligence" - "Systems that constrain stochastic models
+  with rigid verification layers..."
 
-OVERALL: 9.5/10
+PROBLEM: These "plain" definitions are still highly technical. A non-technical
+         visitor would not understand "stochastic models" or "verification
+         layers."
 
-
-PAGE: Pipeline (/pipeline)
 --------------------------------------------------------------------------------
 
-HERO SECTION:
-[PASS] Consistent styling
+SECTION: "Bitcoin Treasury Program"
 
-STAGES SECTION (StepCard):
-[FAIL] StepCard uses rounded-sm (should be rounded-[2px])
-[PASS] Step numbers styled correctly (text-primary/20)
-[PASS] Grid layout responsive
+Again: "This is an internal program. We don't manage anyone else's assets."
 
-VIEW TOGGLE:
-[WARN] Toggle container uses rounded-sm
-[PASS] Icon buttons properly styled
-[PASS] Active state clearly indicated
+PROBLEM: Reinforcing that there's nothing for visitors here.
 
-TABLE VIEW:
-[WARN] Table container uses rounded-sm
-[PASS] Table headers mono/uppercase/tracking-wider
-[PASS] StageChip integration correct
-
-OVERALL: 7.5/10 (border-radius issues)
-
-
-PAGE: Governance (/governance)
 --------------------------------------------------------------------------------
 
-HERO + TOC SIDEBAR:
-[PASS] Table of contents well-designed
-[PASS] Orange bullet points for navigation
-[PASS] Smooth scroll anchors
+SECTION: "Functions behind the studio"
 
-STRUCTURE SECTION:
-[PASS] Role cards properly styled
-[PASS] Icon containers with bg-primary/10
+Lists internal roles: Governance & Risk, Compliance, Finance & Treasury,
+Operations, External Consistency.
 
-TREASURY SECTION:
-[PASS] Numbered steps with orange circles
-[PASS] "What we are not doing" card with XCircle icon
-[PASS] Capital controls grid layout
+PROBLEM: This is org chart content, not customer-facing value.
 
-RISK SECTION:
-[PASS] Project governance cards
-[PASS] Status badges consistent
-[PASS] CheckCircle icons in primary color
+================================================================================
+3. PIPELINE PAGE (Pipeline.tsx) - ISSUES
+================================================================================
 
-REGULATORY SECTION:
-[PASS] Scale icons for regulatory items
-[PASS] Operational prohibitions with destructive bullets
+CURRENT HEADLINE:
+"The Pipeline"
 
-OVERALL: 9/10
+CURRENT SUBHEAD:
+"Our R&D projects, tied to our BTC treasury, moving through defined stages.
+All self-funded. None public yet."
 
+PROBLEM: "None public yet" = nothing for you here. Go away.
 
-PAGE: System (/system)
 --------------------------------------------------------------------------------
 
-DEFINITIONS SECTION:
-[PASS] Card grid with icons
-[PASS] Consistent spacing
+PROJECT DESCRIPTIONS:
 
-TREASURY MONITOR:
-[PASS] ConsolePanel component well-designed
-[PASS] Gears texture background with proper treatment
-[PASS] Gradient overlay for readability
+AXIOM:
+"Standard LLMs are probabilistic engines—predicting the next token. Axiom
+is a constraint layer that forces the model to anchor every claim to a
+cryptographically verified record."
 
-FUNCTIONS SECTION:
-[PASS] ValueCard grid consistent
+PROBLEM: Technical description. Doesn't explain the benefit or use case.
+         Who would use this? For what? Why should I care?
 
-CHANGELOG SECTION:
-[PASS] ChangeLogEntry component styling
-[PASS] Timestamp formatting correct
+HELIOS:
+"Helios automates treasury operations into bounded, rule-driven positions.
+Deploys capital with explicit limits and real-time solvency monitoring.
+Internal use only."
 
-OVERALL: 9/10
+PROBLEM: "Internal use only" - again, nothing for visitors.
 
+STACKME:
+"Stackme is a protocol-native lending interface designed for clarity,
+conservative leverage, and graduated liquidation mechanics."
 
-PAGE: Library/Thesis (/library, /thesis)
---------------------------------------------------------------------------------
+PROBLEM: Technical jargon. What problem does this solve for users?
 
-HERO SECTION:
-[PASS] "Thesis" headline
-[PASS] Larger description text (text-lg)
+LUMINA:
+"Lumina links high-value physical inventory to on-chain rails via a
+proprietary optical physics engine. Verifies surface topology and
+material response..."
 
-FILTER BADGES:
-[PASS] Badge variants working
-[PASS] Cursor pointer for interaction
-
-CONTENT GRID:
-[PASS] InsightCard grid responsive
-[PASS] Category badges on cards
-[PASS] Line clamp for text overflow
-
-OVERALL: 8.5/10
-
+PROBLEM: "Optical physics engine" and "surface topology" - deeply technical.
+         What does this mean for someone who might use it?
 
 ================================================================================
-PART 5: COMPONENT DESIGN REVIEW
+4. GOVERNANCE PAGE (Governance.tsx)
 ================================================================================
 
-Header.tsx:
-[PASS] Logo with hover animation
-[PASS] Navigation links: text-[10px] mono uppercase tracking-widest
-[PASS] Active state: text-primary bg-primary/10 border-primary/20
-[PASS] System clock: tabular-nums for consistent width
-[PASS] Command palette trigger with keyboard hint
-[PASS] Mobile menu with numbered items
+This page is detailed and well-structured, but it's for a very specific
+audience (regulators, compliance teams, potential partners). It's not the
+first thing casual visitors should see.
 
-Footer.tsx:
-[PASS] Minimal design appropriate for B2B
-[PASS] Brand consistency
-[PASS] Copyright formatting
-
-StatBlock.tsx:
-[PASS] Value: text-2xl font-mono font-bold tabular-nums
-[PASS] Label: text-xs font-medium
-[PASS] Variant system (primary/default/muted)
-
-StepCard.tsx:
-[FAIL] rounded-sm instead of rounded-[2px]
-[PASS] Step number styling correct
-[PASS] Title/description hierarchy
-
-ValueCard.tsx:
-[PASS] Icon container styling
-[PASS] Consistent with design system
-
-ProjectTile.tsx:
-[PASS] StageChip integration
-[PASS] Hover states
-
-InsightCard.tsx:
-[PASS] Timestamp formatting
-[PASS] Line clamp implementation
-[PASS] Category badge
-
-ConsolePanel.tsx:
-[PASS] Terminal aesthetic
-[PASS] Orange values, muted labels
-[PASS] Chip variants for status
-
-StageChip.tsx:
-[PASS] Only uses muted and primary variants
-[PASS] No amber/green (spec-compliant)
-[PASS] Correct sizing: text-[10px] tracking-widest
-
+The content here is appropriate for its purpose but reinforces the pattern
+of internal-focused documentation rather than external value proposition.
 
 ================================================================================
-PART 6: RESPONSIVE DESIGN ASSESSMENT
+5. MISSING ELEMENTS
 ================================================================================
 
-BREAKPOINTS USED:
-- sm: 640px
-- md: 768px
-- lg: 1024px
+1. WHO IS THIS FOR?
+   - No clear target audience defined
+   - Investors? Partners? Developers? Enterprises? Retail?
 
-MOBILE (< 640px):
-[PASS] Navigation collapses to hamburger
-[PASS] Hero text scales down
-[PASS] Cards stack vertically
-[PASS] Table view shows description on md+
-[PASS] Touch targets >= 44px
+2. WHAT DO YOU OFFER?
+   - No product or service clearly articulated
+   - No "here's what you can do with us" section
 
-TABLET (768px - 1024px):
-[PASS] 2-column grids activate
-[PASS] Sidebar elements remain hidden until lg
+3. WHY SHOULD I CARE?
+   - No problem statement ("You have X problem...")
+   - No outcome statement ("We help you achieve Y...")
+   - No case studies, testimonials, or proof points
 
-DESKTOP (1024px+):
-[PASS] Full navigation visible
-[PASS] 3-column grids activate
-[PASS] Sidebar metrics/TOC visible
+4. WHAT DO I DO NEXT?
+   - No clear CTA for engagement
+   - "View Pipeline" leads to more closed projects
+   - No "Contact Us" or "Get in Touch" emphasis
 
-ISSUES:
-[WARN] Some text truncation on narrow viewports
-[WARN] ConsolePanel could be better optimized for mobile
-
+5. SOCIAL PROOF / CREDIBILITY
+   - No third-party validation
+   - No press mentions, awards, or endorsements
+   - Founders aren't introduced (who are these 2 people?)
 
 ================================================================================
-PART 7: ACCESSIBILITY ASSESSMENT
+6. RECOMMENDED REWRITES
 ================================================================================
 
-WCAG 2.1 AA COMPLIANCE:
+HERO - OPTION A (If targeting partners/enterprises):
+"We build verification infrastructure for AI and digital assets.
+Our systems prove what's true—so you don't have to trust."
 
-COLOR CONTRAST:
-[PASS] text-foreground on background: 12.5:1 (AAA)
-[PASS] text-muted-foreground on background: 6.8:1 (AA)
-[PASS] text-primary on background: 4.8:1 (AA)
-[WARN] Some text-muted-foreground/70 may be borderline
+HERO - OPTION B (If targeting investors/industry):
+"A research studio engineering the infrastructure layer for autonomous
+finance. Bitcoin-backed. Self-funded. Shipping verified systems."
 
-KEYBOARD NAVIGATION:
-[PASS] Focus rings visible (ring-primary)
-[PASS] Tab order logical
-[PASS] Skip links (not implemented but not critical)
+SUBHEAD REWRITE:
+Replace abstract language with concrete outcomes:
+"We're building tools that make AI auditable, lending safer, and physical
+asset ownership provable. Here's what we're working on."
 
-SCREEN READERS:
-[PASS] aria-labels on icon-only buttons
-[PASS] aria-current on navigation
-[PASS] aria-hidden on decorative elements
-[PASS] SheetTitle with sr-only for mobile nav
-[WARN] Some images lack alt text context
+CTA REWRITE:
+Instead of "View Pipeline" → "See Our Work" or "Explore Projects"
+Add: "Partner With Us" or "Get Updates" for engagement
 
-MOTION:
-[PASS] Animations are subtle
-[PASS] No auto-playing content
-[WARN] prefers-reduced-motion not explicitly handled
+PROJECT DESCRIPTION REWRITES:
 
-FORM ACCESSIBILITY:
-[PASS] Labels associated with inputs
-[PASS] Error messages linked via aria-describedby
-[PASS] Required fields indicated
+AXIOM:
+Current: "Constraint layer that forces the model to anchor every claim..."
+Better: "AI that cites its sources. Every claim verified against real data.
+Built for financial analysis where accuracy isn't optional."
 
+HELIOS:
+Current: "Automates treasury operations into bounded positions..."
+Better: "Automated treasury management with built-in risk limits. We're
+using it internally—future: a tool for Bitcoin-native organizations."
 
-================================================================================
-PART 8: SEO IMPLEMENTATION
-================================================================================
+STACKME:
+Current: "Protocol-native lending interface..."
+Better: "Borrow against Bitcoin with clear risk visibility. Designed to
+prevent over-leverage and surprise liquidations."
 
-TITLE TAGS:
-[PASS] Each page has unique title via PageMeta
-
-META DESCRIPTIONS:
-[PASS] Descriptive meta descriptions present
-
-OPEN GRAPH:
-[WARN] Implementation not verified in PageMeta
-
-STRUCTURED DATA:
-[WARN] No JSON-LD schema detected
-[WARN] Organization schema would benefit SEO
-
-SEMANTIC HTML:
-[PASS] Proper heading hierarchy (h1 → h2 → h3)
-[PASS] nav, header, footer, main elements used
-[PASS] section elements with data-testid
-
-PERFORMANCE SEO:
-[WARN] No explicit lazy loading for images
-[WARN] Font loading strategy could be optimized
-
+LUMINA:
+Current: "Links physical inventory to on-chain rails via optical physics..."
+Better: "Prove you own a physical asset without trusting a third party.
+Uses material science to create verifiable digital certificates."
 
 ================================================================================
-PART 9: MICRO-INTERACTIONS & ANIMATION
+7. FUNDAMENTAL QUESTION TO ANSWER
 ================================================================================
 
-HOVER STATES:
-[PASS] Buttons elevate appropriately
-[PASS] Links transition colors smoothly
-[PASS] Cards have subtle hover feedback
-[PASS] Project list items have bg-primary/5 on hover
+Before any rewrite, VSG needs to decide:
 
-TRANSITIONS:
-[PASS] 150ms default timing
-[PASS] Mechanical easing curve defined
-[PASS] No jarring animations
+"What is our relationship to the outside world?"
 
-ANIMATIONS:
-[PASS] System clock updates smoothly
-[PASS] Form submission loading state
-[PASS] glow-pulse for status indicators
-[PASS] data-tick for numeric displays
+OPTIONS:
+A) We are a closed R&D lab publishing research (like DeepMind)
+   → Then remove all "product" language, emphasize "research publication"
 
-SCROLLING:
-[PASS] Smooth scroll for anchor links
-[PASS] Custom scrollbar styling (industrial)
+B) We are building products that will eventually serve external users
+   → Then frame projects as "coming soon" with waitlist/interest capture
 
+C) We are seeking partners (enterprises, protocols, institutions)
+   → Then speak to their needs, not your internal operations
+
+D) We are seeking investors
+   → Then focus on the opportunity, market size, competitive moat
+
+The current site tries to be all of these and ends up being none of them.
 
 ================================================================================
-PART 10: PWA READINESS
-================================================================================
-
-CURRENT STATUS: NOT IMPLEMENTED
-
-MISSING:
-[ ] manifest.json
-[ ] Service worker
-[ ] Offline page
-[ ] App icons (192x192, 512x512)
-[ ] Theme color meta tag
-[ ] Apple touch icon
-[ ] Splash screens
-
-RECOMMENDATION:
-If PWA is required per design spec, implement basic PWA with:
-1. Web app manifest
-2. Service worker for caching static assets
-3. Offline fallback page
-
-
-================================================================================
-PART 11: DESIGN SYSTEM TOKENS
-================================================================================
-
-DOCUMENTED TOKENS (index.css):
-
-TYPOGRAPHY SCALE:
---text-hero: 2.5rem (40px)
---text-section: 1.75rem (28px)
---text-card-title: 1rem (16px)
---text-body: 0.875rem (14px)
---text-small: 0.75rem (12px)
---text-label: 0.625rem (10px)
-
-SPACING SCALE:
---space-section: 5rem (80px)
---space-block: 2.5rem (40px)
---space-card: 1.5rem (24px)
---space-element: 1rem (16px)
---space-tight: 0.5rem (8px)
-
-ICON SIZES:
---icon-lg: 1.25rem (20px)
---icon-md: 1rem (16px)
---icon-sm: 0.75rem (12px)
-
-STATUS COLORS:
---status-active: 25 95% 53% (Orange)
---status-nominal: 220 10% 60% (Silver)
---status-warning: 45 90% 50% (Amber)
---status-critical: 0 70% 50% (Red)
---status-success: 142 50% 45% (Muted Green)
-
-GEOMETRY:
---radius: 2px (Machined edges)
-
-TOKEN USAGE COMPLIANCE: 85%
-Some pages use inline values instead of tokens.
-
-
-================================================================================
-PART 12: RECOMMENDED IMPROVEMENTS
-================================================================================
-
-IMMEDIATE (Critical):
-1. Fix StepCard.tsx: rounded-sm → rounded-[2px]
-2. Fix Overview.tsx:137 metrics card border radius
-3. Fix Pipeline.tsx view toggle and table border radius
-4. Fix Header.tsx mobile nav item border radius
-
-SHORT-TERM (High Priority):
-5. Add PWA manifest and basic offline support
-6. Add Open Graph meta tags
-7. Add organization JSON-LD schema
-8. Verify color contrast on muted text at 70% opacity
-
-MEDIUM-TERM (Enhancement):
-9. Add prefers-reduced-motion support
-10. Optimize font loading (font-display: swap)
-11. Add image lazy loading
-12. Consider dark/light mode toggle (currently dark only)
-
-POLISH:
-13. Add subtle focus-within states for form groups
-14. Improve ConsolePanel mobile responsiveness
-15. Add loading skeletons for content transitions
-
-
-================================================================================
-PART 13: DESIGN SYSTEM ADHERENCE SCORE
-================================================================================
-
-CATEGORY                        SCORE
---------------------------------|---------
-Color Palette                   | 100%
-Typography                      | 95%
-Spacing                         | 90%
-Border Radius                   | 90%
-Component Consistency           | 92%
-Responsive Design               | 88%
-Accessibility                   | 85%
-Animation/Motion                | 95%
-SEO Implementation              | 75%
-PWA Readiness                   | 0%
---------------------------------|---------
-OVERALL DESIGN SYSTEM SCORE     | 87%
-
-
-================================================================================
-PART 14: SCREENSHOTS COMPARISON CHECKLIST
-================================================================================
-
-For visual QA, verify:
-
-[ ] Hero sections have consistent texture treatment
-[ ] All cards have 2px border radius (machined edges)
-[ ] Orange is the only accent color visible
-[ ] No blue, green, or amber in StageChips
-[ ] Typography scale is consistent across pages
-[ ] Mobile navigation opens/closes smoothly
-[ ] Form error states show destructive red
-[ ] Hover states provide clear feedback
-[ ] System clock displays and updates
-[ ] Command palette opens with ⌘K
-
-
-================================================================================
-END OF SITE DESIGN REVIEW
+END OF CONTENT REVIEW
 ================================================================================
