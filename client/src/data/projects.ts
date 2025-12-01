@@ -22,8 +22,8 @@ export const projects: Project[] = [
     name: "Axiom",
     stage: "Research",
     stageVariant: "research",
-    tagline: "Deterministic inference with enforced citation.",
-    description: "Standard LLMs are probabilistic engines—predicting the next token. Axiom is a constraint layer that forces the model to anchor every claim to a cryptographically verified record. Transforms probabilistic generation into deterministic, cited reporting.",
+    tagline: "The AI Fact-Checker.",
+    description: "Large Language Models (LLMs) are probabilistic; they guess. Axiom forces them to be deterministic by citing verified data sources. It renders AI reliable enough for enterprise use.",
     currentState: [
       "Core RAG architecture functional",
       "Citation enforcement layer active",
@@ -39,7 +39,7 @@ export const projects: Project[] = [
       "Not a general-purpose inference engine",
       "Restricted domain knowledge only",
     ],
-    relatedArticle: "/thesis/insolvency-of-fiction",
+    relatedArticle: "/insights/insolvency-of-fiction",
     nextProjectSlug: "helios",
     texture: "axiom",
   },
@@ -48,8 +48,8 @@ export const projects: Project[] = [
     name: "Helios",
     stage: "Internal Alpha",
     stageVariant: "internal",
-    tagline: "Internal BTC-backed strategy engine.",
-    description: "Helios automates treasury operations into bounded, rule-driven positions. Deploys capital with explicit limits and real-time solvency monitoring. Internal use only.",
+    tagline: "The Autonomous Treasury.",
+    description: "An automated capital engine. It monitors market volatility 24/7 and manages treasury risk with sub-millisecond reaction times, far exceeding human capability.",
     currentState: [
       "Architecture and specification complete",
       "Core implementation in progress",
@@ -66,7 +66,7 @@ export const projects: Project[] = [
       "No public API",
       "Not a product or service",
     ],
-    relatedArticle: "/thesis/verification-standard",
+    relatedArticle: "/insights/verification-standard",
     nextProjectSlug: "stackme",
   },
   {
@@ -74,8 +74,8 @@ export const projects: Project[] = [
     name: "Stackme",
     stage: "Architecture",
     stageVariant: "architecture",
-    tagline: "Protocol-native BTC lending interface.",
-    description: "Stackme is a protocol-native lending interface designed for clarity, conservative leverage, and graduated liquidation mechanics. Technical architecture defined; verified build phase in progress.",
+    tagline: "Bitcoin-Backed Credit.",
+    description: "A transparent lending interface allowing users to borrow against Bitcoin. Engineered to eliminate the hidden risks and predatory terms often found in crypto lending.",
     currentState: [
       "Requirements complete",
       "Technical architecture defined",
@@ -99,8 +99,8 @@ export const projects: Project[] = [
     name: "Lumina",
     stage: "Specification",
     stageVariant: "specification",
-    tagline: "Digital bearer instruments for physical assets.",
-    description: "Lumina links high-value physical inventory to on-chain rails via a proprietary optical physics engine. Verifies surface topology and material response, anchoring digital instruments to proven physical reality.",
+    tagline: "Digital Twins for Physical Assets.",
+    description: "Linking high-value physical items to the blockchain via optical surface scanning. This creates a forgery-proof digital certificate for trading real-world assets.",
     currentState: [
       "Specification complete",
       "System design in progress",
@@ -125,8 +125,8 @@ export const projects: Project[] = [
     name: "Uniqueness Engine",
     stage: "Research",
     stageVariant: "research",
-    tagline: "Sybil-resistance without biometric surveillance.",
-    description: "Sybil-resistance signals that enforce uniqueness constraints without biometric surveillance or centralized identity data. Enables 'one-per-person' verification while preserving privacy.",
+    tagline: "Proof of Human.",
+    description: "Validating human identity online without biometric surveillance. A privacy-first layer to prevent bot spam and ensure fair access.",
     currentState: [
       "Research and requirements phase",
       "Surveying existing approaches",
@@ -151,7 +151,7 @@ export const getProjectBySlug = (slug: string): Project | undefined => {
 };
 
 export const getProjectHref = (project: Project): string => {
-  return `/pipeline/${project.slug}`;
+  return `/ventures/${project.slug}`;
 };
 
 export const getNextProject = (currentSlug: string): { name: string; href: string } | undefined => {

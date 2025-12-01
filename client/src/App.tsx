@@ -73,13 +73,13 @@ function Router() {
     <Suspense fallback={<PageLoader />}>
       <Switch>
         <Route path="/" component={Overview} />
-        <Route path="/system" component={System} />
-        <Route path="/pipeline" component={Pipeline} />
-        <Route path="/pipeline/:slug" component={PipelineDetail} />
-        <Route path="/governance" component={Governance} />
-        <Route path="/thesis" component={Library} />
-        <Route path="/thesis/:slug" component={LibraryArticle} />
-        <Route path="/contact" component={Contact} />
+        <Route path="/process" component={System} />
+        <Route path="/ventures" component={Pipeline} />
+        <Route path="/ventures/:slug" component={PipelineDetail} />
+        <Route path="/standards" component={Governance} />
+        <Route path="/insights" component={Library} />
+        <Route path="/insights/:slug" component={LibraryArticle} />
+        <Route path="/connect" component={Contact} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/terms" component={Terms} />
         <Route component={NotFound} />

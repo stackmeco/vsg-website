@@ -27,12 +27,12 @@ function SystemClock() {
 }
 
 const navItems = [
-  { name: "Overview", href: "/", number: "01" },
-  { name: "Process", href: "/system", number: "02" },
-  { name: "Pipeline", href: "/pipeline", number: "03" },
-  { name: "Governance", href: "/governance", number: "04" },
-  { name: "Thesis", href: "/thesis", number: "05" },
-  { name: "Contact", href: "/contact", number: "06" },
+  { name: "Mission", href: "/", number: "01" },
+  { name: "Process", href: "/process", number: "02" },
+  { name: "Ventures", href: "/ventures", number: "03" },
+  { name: "Standards", href: "/standards", number: "04" },
+  { name: "Insights", href: "/insights", number: "05" },
+  { name: "Connect", href: "/connect", number: "06" },
 ];
 
 export function Header() {

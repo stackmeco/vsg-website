@@ -16,33 +16,33 @@ import { projects, getProjectHref } from "@/data/projects";
 
 const values = [
   {
-    title: "Empirical Verification",
-    description: "We prioritize raw system telemetry over narrative. Experiments are labeled as experiments; assumptions are labeled as assumptions.",
+    title: "Don't Trust, Verify",
+    description: "We validate every assumption against market reality. If a system cannot survive the wild, we do not deploy it.",
     icon: <Eye className="w-5 h-5" />,
   },
   {
-    title: "Proof of Capital",
-    description: "Development is gated by internal solvency. We do not deploy code we are not willing to capitalize with our own balance sheet.",
+    title: "Backed by Value",
+    description: "We reject empty hype. Every project is anchored by real resources and internal funding.",
     icon: <Coins className="w-5 h-5" />,
   },
   {
     title: "Bounded Execution",
-    description: "Innovation requires explicit guardrails. Every system has defined failure states, liquidity caps, and safe shutdown sequences.",
+    description: "Innovation requires constraints. We code strict limits into our software to prevent systemic failures.",
     icon: <Shield className="w-5 h-5" />,
   },
   {
-    title: "Open Source Intelligence",
-    description: "Information asymmetry is a market inefficiency. We publish risk memos and post-mortems to reduce noise and signal-boost truth.",
+    title: "Open Intelligence",
+    description: "A transparent market is a resilient market. We publish our research to help partners navigate the noise.",
     icon: <Search className="w-5 h-5" />,
   },
   {
-    title: "Horizon Scanning",
-    description: "Architecting for the autonomous economy. We build for a future where AI agents require deterministic settlement, not human interfaces.",
+    title: "Future Proof",
+    description: "We architect for the next decade of autonomous agents, not just the manual tools of today.",
     icon: <Compass className="w-5 h-5" />,
   },
   {
-    title: "Information Integrity",
-    description: "We arm our partners with technical analysis to neutralize hype cycles and preserve decision quality.",
+    title: "Signal Integrity",
+    description: "We protect our partners by focusing on technical reality rather than narrative cycles.",
     icon: <ShieldCheck className="w-5 h-5" />,
   },
 ];
@@ -63,8 +63,8 @@ export default function Overview() {
   return (
     <Layout>
       <PageMeta 
-        title="Overview" 
-        description="Engineering verifiable infrastructure for intelligence and value. Bitcoin verifies value; our AI verifies truth. A two-founder studio building deterministic systems." 
+        title="Mission" 
+        description="The Trust Layer for AI and Finance. We engineer infrastructure that ensures Artificial Intelligence is accurate and digital assets are secure." 
       />
       
       <section 
@@ -96,33 +96,33 @@ export default function Overview() {
           <div className="grid lg:grid-cols-[1fr,320px] gap-12 items-center">
             <div className="max-w-2xl">
               <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-[1.1] tracking-tight mb-6">
-                Engineering verifiable systems for intelligence and value.
+                The Trust Layer for AI and Finance.
               </h1>
               
               <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-xl">
-                We engineer deterministic systems for <span className="text-foreground font-medium">Value, Intelligence, and Physical Reality</span>. Bitcoin verifies value; Axiom verifies truth. Deployment is gated by internal capital verification.
+                We engineer infrastructure that ensures <span className="text-foreground font-medium">Artificial Intelligence is accurate</span> and <span className="text-foreground font-medium">digital assets are secure</span>. Every system is backed by our own capital—aligning our risk with yours.
               </p>
 
               <div className="flex flex-wrap gap-4 mb-10">
-                <Link href="/pipeline">
+                <Link href="/ventures">
                   <Button 
                     size="lg" 
                     className="font-mono text-xs uppercase tracking-wider"
-                    data-testid="button-see-pipeline"
+                    data-testid="button-see-ventures"
                   >
-                    View Pipeline
+                    See Our Ventures
                     <ArrowRight className="w-3.5 h-3.5 ml-2" />
                   </Button>
                 </Link>
                 <AudioModal />
               </div>
 
-              {/* Project Chips - "Active Cycles" */}
+              {/* Project Chips - "Active Ventures" */}
               <div className="flex flex-wrap items-center gap-3 border-t border-border pt-6">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Active Cycles:</span>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Active Ventures:</span>
                 <div className="flex flex-wrap gap-2">
                   {["Axiom", "Helios", "Stackme", "Lumina"].map((name) => (
-                    <Link key={name} href={`/pipeline/${name.toLowerCase()}`} data-testid={`chip-project-${name.toLowerCase()}`}>
+                    <Link key={name} href={`/ventures/${name.toLowerCase()}`} data-testid={`chip-project-${name.toLowerCase()}`}>
                       <span className="px-2.5 py-1 rounded-[2px] border border-border bg-secondary text-muted-foreground hover:text-primary hover:border-primary/30 text-[10px] font-mono uppercase tracking-widest transition-colors cursor-pointer">
                         {name}
                       </span>
@@ -171,42 +171,42 @@ export default function Overview() {
       <section className="py-20 bg-card" data-testid="section-directive">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-            Core mandate
+            Core objectives
           </p>
           <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-8">
-            The VSG Directive
+            Why We Exist
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
-                  Purpose
+                  Problem
                 </p>
-                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Engineering Verifiable Systems</h3>
+                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Eroding Trust</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  To engineer verifiable systems at the frontier of AI and Digital Assets. We enable the use of new forms of value without compromising ownership or control—reclaiming human attention for higher-value work.
+                  Digital markets are flooded with hallucinated data and unstable assets. In this environment, verifiable truth is the only scarce resource.
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
-                  Vision
+                  Solution
                 </p>
-                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Compounding Productivity</h3>
+                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Cryptographic Verification</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  A future where digital assets possess the clarity and durability of hard currency. We build for a reality where ownership is absolute, risks are visible, and systems compound human productivity rather than extract from it.
+                  We replace human trust with mathematical proof. Our systems verify their own solvency, data lineage, and asset ownership.
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
-                  Mission
+                  Method
                 </p>
-                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Verification via Capital</h3>
+                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Proof of Capital</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  To navigate the frontier of AI and digital assets with our own capital as the first customer. We learn in the open and graduate only the systems we have verified with our own balance sheet.
+                  We do not rely on theory. We deploy our own Bitcoin treasury to validate our systems before opening them to external partners.
                 </p>
               </CardContent>
             </Card>
@@ -214,18 +214,18 @@ export default function Overview() {
         </div>
       </section>
 
-      <section className="py-20 relative" data-testid="section-pipeline">
+      <section className="py-20 relative" data-testid="section-ventures">
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              System status
+              Venture portfolio
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
-              Active Development Cycles
+              Active Ventures
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed">
-              Five projects in our Pipeline. Axiom is in research; Helios is in internal alpha; Stackme is in architecture. None are currently accepting external capital or users.
+              Five projects moving through our development process. Each venture is self-funded and stress-tested with our own capital before external deployment.
             </p>
           </div>
           <div className="border border-border rounded-[2px] bg-card divide-y divide-border">
@@ -258,16 +258,16 @@ export default function Overview() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              Treasury thesis
+              Capital foundation
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
-              Bitcoin is Reserve, Not Product
+              Powered by Bitcoin
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-6">
-              We hold Bitcoin as our primary long-term reserve asset. We utilize conservative, over-collateralized borrowing to fund R&D, treating liquidity as an operational tool rather than a yield product.
+              Bitcoin serves as our reserve asset. Rather than liquidating capital to fund operations, we utilize responsible, over-collateralized borrowing. This sustains our long-term balance sheet while funding continuous innovation.
             </p>
             <p className="text-base text-muted-foreground leading-relaxed">
-              This is internal treasury management. We do not offer external yield products or manage third-party capital.
+              We deploy our own capital first—aligning our incentives with every system we build.
             </p>
           </div>
         </div>
@@ -281,7 +281,7 @@ export default function Overview() {
               System axioms
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
-              Operating Principles
+              Our Principles
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -294,8 +294,8 @@ export default function Overview() {
 
       <NextStepBlock
         nextPage="Process"
-        description="See how Verifiable Systems operates day to day."
-        href="/system"
+        description="Learn how we operate as a venture studio."
+        href="/process"
       />
     </Layout>
   );
