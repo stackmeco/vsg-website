@@ -6,6 +6,20 @@ VSG is an AI-native finance R&D studio that builds governed rails for identity, 
 
 The site follows a "control room aesthetic" with a dark theme emphasizing institutional trust, technical credibility, and calm confidence. It features three core ventures: Uniqueness Engine (Sybil resistance), Helios (treasury management), and VSG Liquidity Engine (liquidity for long-term holders).
 
+## Recent Changes (December 2025)
+
+### Navigation Rename & Content Rewrite
+- **Navigation renamed**: Overview→Mission, Pipeline→Ventures, Governance→Standards, Thesis→Insights, Contact→Connect (Process retained from System)
+- **Routes updated**: /process, /ventures, /standards, /insights, /connect (all internal references updated across codebase)
+- **Content rewritten** across all pages with human-centric, outcome-focused copy per Gemini copywriting analysis
+- **Font size**: Staying with VOS v3.0 spec of 14px base (not 16px)
+- **Domain**: verifiablesystems.com (not verifiedsystems.io)
+
+### Technical Updates
+- CSP headers updated to allow WebSocket connections for Vite HMR in development
+- 404 page copy improved with user-friendly messaging
+- All searchIndex.ts entries updated with new routes and labels
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
