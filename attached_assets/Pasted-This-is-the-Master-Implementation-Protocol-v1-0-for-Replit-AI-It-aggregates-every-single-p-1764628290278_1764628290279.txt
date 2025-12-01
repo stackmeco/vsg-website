@@ -1,0 +1,130 @@
+This is the **Master Implementation Protocol (v1.0)** for Replit AI.
+
+It aggregates **every single piece of feedback**—Content, Design, and Code—into one atomic instruction set. It leaves no room for interpretation.
+
+**How to use this:**
+
+1.  Open your Replit Agent (or Cursor).
+2.  Copy **everything** below the divider.
+3.  Paste it into the chat.
+4.  Watch it fix the entire site in one pass.
+
+-----
+
+# **MASTER INSTRUCTION SET: HELIOS SITE REMEDIATION**
+
+**ROLE:** Senior Full-Stack Engineer & UX Architect.
+**MISSION:** Execute a total site overhaul to address critical user feedback regarding "messaging clarity," "visual consistency," and "technical debt."
+
+**CONTEXT:**
+The current site is too "robotic" and "internal." We are pivoting to a **"Human-Centric / Institutional"** voice. We are also fixing hardcoded design debts and security flaws.
+
+-----
+
+## **PHASE 1: CONTENT OVERHAUL (The "Plain English" Rewrite)**
+
+*Replace the current "jargon-heavy" copy with this "Executive Briefing" copy.*
+
+### **1. UPDATE NAVIGATION (`client/src/components/Header.tsx`)**
+
+  * **Action:** Rename the `navItems` array labels and links.
+      * "Overview" $\rightarrow$ **"Mission"** (`/`)
+      * "System" $\rightarrow$ **"Process"** (`/process` - *Note: Update `App.tsx` route too\!*)
+      * "Pipeline" $\rightarrow$ **"Ventures"** (`/ventures` - *Update `App.tsx`\!*)
+      * "Governance" $\rightarrow$ **"Standards"** (`/standards`)
+      * "Thesis" $\rightarrow$ **"Insights"** (`/insights`)
+      * "Contact" $\rightarrow$ **"Connect"** (`/connect`)
+
+### **2. REWRITE HOMEPAGE (`client/src/pages/Overview.tsx`)**
+
+  * **Hero Headline:** "The Trust Layer for AI and Finance."
+  * **Hero Subhead:** "We engineer infrastructure that ensures Artificial Intelligence is accurate and digital assets are secure. Every system is backed by our own capital—aligning our risk with yours."
+  * **Buttons:** [Primary: "See Our Ventures"] [Secondary (Icon: Waveform): "Audio Overview"]
+  * **Mission Cards (Replace "Directive"):**
+      * *Problem:* "**Eroding Trust.** Digital markets are flooded with hallucinated data and unstable assets. Truth is the only scarce resource."
+      * *Solution:* "**Cryptographic Verification.** We replace human trust with mathematical proof. Our systems verify their own solvency and data lineage."
+      * *Method:* "**Proof of Capital.** We do not rely on theory. We deploy our own Bitcoin treasury to validate our systems before opening them to partners."
+
+### **3. REWRITE PROCESS PAGE (`client/src/pages/System.tsx`)**
+
+  * **Headline:** "Our Process"
+  * **Definitions (The Lexicon):**
+      * *Verifiable Systems:* "Infrastructure that is fully auditable. No black boxes; the logic is visible and the outcome is provable."
+      * *Cited AI:* "Artificial Intelligence that anchors its outputs to verified documents, eliminating hallucination."
+      * *Bearer Assets:* "Digital assets with absolute ownership rights, capable of moving freely without intermediary permission."
+
+### **4. REWRITE VENTURES PAGE (`client/src/pages/Pipeline.tsx`)**
+
+  * **Headline:** "The Venture Portfolio"
+  * **Project Card Updates (Data in `client/src/data/projects.ts`):**
+      * **Axiom:** "The AI Fact-Checker. Forces LLMs to be deterministic by citing verified data sources."
+      * **Helios:** "The Autonomous Treasury. Monitors market volatility 24/7 and manages risk with sub-millisecond reaction times."
+      * **Stackme:** "Bitcoin-Backed Credit. A transparent lending interface designed to eliminate hidden risks and predatory terms."
+      * **Lumina:** "Digital Twins. Linking high-value physical items to the blockchain via optical surface scanning."
+      * **Uniqueness:** "Proof of Human. Validating identity without biometric surveillance."
+
+-----
+
+## **PHASE 2: VISUAL & GEOMETRY FIXES (The "Machined" Look)**
+
+### **1. FIX BORDER RADIUS INCONSISTENCY**
+
+  * **Problem:** `StepCard` and other components use `rounded-sm` which renders as 3px or 4px, breaking the "2px Machined Edge" spec.
+  * **Action:** Update `tailwind.config.ts` to **FORCE** the radius globally.
+    ```typescript
+    borderRadius: {
+      lg: "4px",
+      md: "2px",
+      sm: "2px", // OVERRIDE DEFAULT
+      DEFAULT: "2px",
+    },
+    ```
+
+### **2. FIX MOBILE LAYOUT (`client/src/components/ConsolePanel.tsx`)**
+
+  * **Problem:** The "System Metrics" panel cuts off text on mobile screens.
+  * **Action:** Change the grid layout from `flex` to `grid`.
+      * *Old:* `flex flex-row gap-6`
+      * *New:* `grid grid-cols-1 md:grid-cols-2 gap-6`
+
+### **3. TYPOGRAPHY CALIBRATION**
+
+  * **Action:** In `client/src/index.css`, ensure the base font size is **16px** for readability, not 14px.
+    ```css
+    @layer base {
+      html { font-size: 16px; }
+      p { @apply leading-relaxed; } /* Add breathing room */
+    }
+    ```
+
+-----
+
+## **PHASE 3: TECHNICAL DEBT & SECURITY (The "Hardening")**
+
+### **1. CONSOLIDATE VALIDATION LOGIC**
+
+  * **Problem:** `ContactForm.tsx` and `routes.ts` have duplicate Zod schemas.
+  * **Action:**
+    1.  Create `shared/schema.ts` with `contactFormSchema`.
+    2.  Update `client/src/components/ContactForm.tsx` to import this schema and use `zodResolver`.
+    3.  Update `server/routes.ts` to import and use the same schema for backend validation.
+
+### **2. FIX HARDCODED CORS ORIGINS**
+
+  * **Problem:** `server/routes.ts` has `verifiedsystems.io` hardcoded.
+  * **Action:** Replace with `process.env.ALLOWED_ORIGINS?.split(',') || []`.
+
+### **3. ADD PWA BASICS**
+
+  * **Action:** Add a simple `manifest.json` to `client/public/` with the "Tungsten" theme color (`#0B0C10`) so the site looks native on mobile.
+
+-----
+
+**EXECUTION ORDER:**
+
+1.  Apply **Tailwind Config** fixes first (Visual foundation).
+2.  Apply **Shared Schema** fixes (Code integrity).
+3.  Apply **Content Rewrites** page by page (Messaging).
+4.  Update **Router/Nav** to match new page names.
+
+**GO.**

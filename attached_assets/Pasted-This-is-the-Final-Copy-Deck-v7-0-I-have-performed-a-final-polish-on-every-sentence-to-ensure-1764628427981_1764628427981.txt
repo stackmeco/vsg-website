@@ -1,0 +1,157 @@
+This is the **Final Copy Deck (v7.0)**.
+
+I have performed a final polish on every sentence to ensure maximum impact and clarity. This document allows you to copy and paste the exact text directly into your Replit code (e.g., into your `Overview.tsx`, `System.tsx`, or `projects.ts` files).
+
+### **INSTRUCTIONS FOR REPLIT**
+"Replace all existing string literals in the application with the text below."
+
+---
+
+### **1. NAVIGATION (Header Component)**
+* **Link 1:** Mission
+* **Link 2:** Process
+* **Link 3:** Ventures
+* **Link 4:** Standards
+* **Link 5:** Insights
+* **Link 6:** Connect
+
+---
+
+### **2. PAGE: MISSION (formerly Overview)**
+**File:** `client/src/pages/Overview.tsx`
+
+**Hero Section**
+* **Headline:** The Trust Layer for AI and Finance.
+* **Subhead:** We engineer infrastructure that ensures Artificial Intelligence is accurate and digital assets are secure. Every system is backed by our own capital—aligning our risk with yours.
+* **Primary Button:** See Our Ventures
+* **Secondary Button:** Audio Overview
+
+**Section: Core Objectives (The "Why Us")**
+* **Card 1 Title:** Eroding Trust
+* **Card 1 Body:** Digital markets are flooded with hallucinated data and unstable assets. In this environment, verifiable truth is the only scarce resource.
+* **Card 2 Title:** Cryptographic Verification
+* **Card 2 Body:** We replace human trust with mathematical proof. Our systems verify their own solvency, data lineage, and asset ownership.
+* **Card 3 Title:** Proof of Capital
+* **Card 3 Body:** We do not rely on theory. We deploy our own Bitcoin treasury to validate our systems before opening them to external partners.
+
+**Section: System Axioms (Operating Principles)**
+* **Principle 1:** Don't Trust, Verify.
+    * *Description:* We validate every assumption against market reality. If a system cannot survive the wild, we do not deploy it.
+* **Principle 2:** Backed by Value.
+    * *Description:* We reject empty hype. Every project is anchored by real resources and internal funding.
+* **Principle 3:** Bounded Execution.
+    * *Description:* Innovation requires constraints. We code strict limits into our software to prevent systemic failures.
+* **Principle 4:** Open Intelligence.
+    * *Description:* A transparent market is a resilient market. We publish our research to help partners navigate the noise.
+* **Principle 5:** Future Proof.
+    * *Description:* We architect for the next decade of autonomous agents, not just the manual tools of today.
+* **Principle 6:** Signal Integrity.
+    * *Description:* We protect our partners by focusing on technical reality rather than narrative cycles.
+
+---
+
+### **3. PAGE: PROCESS (formerly System)**
+**File:** `client/src/pages/System.tsx`
+
+**Hero Section**
+* **Headline:** Our Process
+* **Body:** We operate as a venture studio. By utilizing shared infrastructure across multiple specialized companies, we achieve high velocity without compromising security.
+
+**Section: The Lexicon (Definitions)**
+* **Term 1:** Verifiable Systems
+    * *Definition:* Infrastructure that is fully auditable. No black boxes; the logic is visible, the risk is defined, and the outcome is provable.
+* **Term 2:** Cited AI
+    * *Definition:* Artificial Intelligence that anchors its outputs to verified documents, eliminating hallucination.
+* **Term 3:** Bearer Assets
+    * *Definition:* Digital assets with absolute ownership rights, capable of moving freely without intermediary permission.
+
+**Section: The Treasury**
+* **Headline:** Powered by Bitcoin.
+* **Body:** Bitcoin serves as our reserve asset. Rather than liquidating capital to fund operations, we utilize responsible, over-collateralized borrowing. This sustains our long-term balance sheet while funding continuous innovation.
+
+---
+
+### **4. PAGE: VENTURES (formerly Pipeline)**
+**File:** `client/src/data/projects.ts` (Update the data objects)
+
+**Project 1: AXIOM**
+* **Tagline:** The AI Fact-Checker.
+* **Description:** Large Language Models (LLMs) are probabilistic; they guess. Axiom forces them to be deterministic by citing verified data sources. It renders AI reliable enough for enterprise use.
+* **Stage:** Research
+
+**Project 2: HELIOS**
+* **Tagline:** The Autonomous Treasury.
+* **Description:** An automated capital engine. It monitors market volatility 24/7 and manages treasury risk with sub-millisecond reaction times, far exceeding human capability.
+* **Stage:** Internal Alpha
+
+**Project 3: STACKME**
+* **Tagline:** Bitcoin-Backed Credit.
+* **Description:** A transparent lending interface allowing users to borrow against Bitcoin. Engineered to eliminate the hidden risks and predatory terms often found in crypto lending.
+* **Stage:** Architecture
+
+**Project 4: LUMINA**
+* **Tagline:** Digital Twins for Physical Assets.
+* **Description:** Linking high-value physical items to the blockchain via optical surface scanning. This creates a forgery-proof digital certificate for trading real-world assets.
+* **Stage:** Specification
+
+**Project 5: UNIQUENESS**
+* **Tagline:** Proof of Human.
+* **Description:** Validating human identity online without biometric surveillance. A privacy-first layer to prevent bot spam and ensure fair access.
+* **Stage:** Research
+
+---
+
+### **5. PAGE: STANDARDS (formerly Governance)**
+**File:** `client/src/pages/Governance.tsx`
+
+**Hero Section**
+* **Headline:** Safety & Standards
+* **Body:** Technology scales quickly; ethics must remain constant. These are the immutable rules we impose on our systems.
+
+**Section: Our Commitments**
+* **Item 1:** We never speculate with user funds.
+* **Item 2:** We never monetize user data.
+* **Item 3:** We never deploy a product we haven't stress-tested with our own capital.
+* **Item 4:** We never build "black boxes" that cannot be audited.
+
+**Section: Regulatory Posture**
+* **Headline:** Compliance by Design
+* **Body:** We do not wait for enforcement. We build safety into the protocol level, respecting local laws and proactively blocking bad actors.
+
+---
+
+### **6. PAGE: INSIGHTS (formerly Thesis)**
+**File:** `client/src/pages/Library.tsx`
+
+**Hero Section**
+* **Headline:** Insights
+* **Body:** The strategic thinking behind our infrastructure. We publish our research, our hypotheses, and our technical learnings.
+
+**Article Headlines (File: `client/src/data/articles.ts`)**
+* **Article 1:** Why AI Hallucinates (And How We Fix It).
+* **Article 2:** The Great Reallocation: The Migration of Capital On-Chain.
+* **Article 3:** Autonomous Settlement: Why AI Agents Need Bitcoin.
+
+---
+
+### **7. PAGE: CONNECT (formerly Contact)**
+**File:** `client/src/pages/Contact.tsx`
+
+**Hero Section**
+* **Headline:** Partner With Us.
+* **Body:** We are actively seeking partners who share our rigorous approach to the digital future.
+
+**Section: Who Should Reach Out**
+* **Point 1:** Founders building in AI Safety, DePIN, or Bitcoin infrastructure.
+* **Point 2:** Investors seeking deep technical advantage, not short-term speculation.
+* **Point 3:** Institutions looking to adopt digital asset technologies securely.
+
+**Section: Expectations**
+* **Body:** All inquiries are reviewed by the partners. We respond to aligned opportunities within 3 business days.
+
+---
+
+### **8. FOOTER**
+**File:** `client/src/components/Footer.tsx`
+* **Tagline:** Building the verification layer for the digital economy.
+* **Copyright:** © 2025 Verified Systems Group LLC. All rights reserved.
