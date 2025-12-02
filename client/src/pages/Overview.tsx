@@ -59,7 +59,7 @@ export default function Overview() {
     <Layout>
       <PageMeta 
         title="Mission" 
-        description="The Trust Layer for AI and Finance. We engineer infrastructure that ensures Artificial Intelligence is accurate and digital assets are secure." 
+        description="The Infrastructure of Autonomy. We are an innovation engine fusing the speed of AI with the security of Blockchain to verify truth, preserve wealth, and protect identity." 
       />
       
       <section 
@@ -90,12 +90,16 @@ export default function Overview() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
           <div className="grid lg:grid-cols-[1fr,320px] gap-12 items-center">
             <div className="max-w-2xl">
-              <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-[1.1] tracking-tight mb-6">
-                The Trust Layer for AI and Finance.
+              <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-6">
+                Two-founder studio
+              </p>
+              <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-[1.1] tracking-tight mb-6">
+                The Infrastructure of Autonomy.
               </h1>
               
-              <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-xl">
-                We engineer infrastructure that ensures <span className="text-foreground font-medium">Artificial Intelligence is accurate</span> and <span className="text-foreground font-medium">digital assets are secure</span>. Every system is backed by our own capital—aligning our risk with yours.
+              <p className="text-base text-foreground/80 leading-relaxed mb-8 max-w-xl">
+                We are an innovation engine fusing the speed of AI with the security of Blockchain. 
+                We build the tools that verify truth, preserve wealth, and protect identity.
               </p>
 
               <div className="flex flex-wrap gap-4 mb-10">
@@ -105,11 +109,20 @@ export default function Overview() {
                     className="font-mono text-xs uppercase tracking-wider"
                     data-testid="button-see-ventures"
                   >
-                    See Our Ventures
+                    See the Pipeline
                     <ArrowRight className="w-3.5 h-3.5 ml-2" />
                   </Button>
                 </Link>
-                <AudioModal />
+                <Link href="/process">
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="font-mono text-xs uppercase tracking-wider"
+                    data-testid="button-how-we-work"
+                  >
+                    How we work
+                  </Button>
+                </Link>
               </div>
 
               {/* Project Chips - "Active Ventures" */}
@@ -165,44 +178,46 @@ export default function Overview() {
 
       <section className="py-20 bg-card" data-testid="section-directive">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-            Core objectives
+          <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-8">
+            The VSG Directive
           </p>
-          <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-8">
-            Why We Exist
-          </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
-                  Problem
+                  Purpose
                 </p>
-                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Eroding Trust</h3>
+                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Democratize Leverage</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Digital markets are flooded with hallucinated data and unstable assets. In this environment, verifiable truth is the only scarce resource.
+                  To democratize institutional-grade leverage. We build tools that give individuals the same financial power as banks, without the intermediaries.
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
-                  Solution
+                  Vision
                 </p>
-                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Cryptographic Verification</h3>
+                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Engineered Trust</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  We replace human trust with mathematical proof. Our systems verify their own solvency, data lineage, and asset ownership.
+                  A future where "Trust" is an engineered feature, not a gamble. We replace blind faith with cryptographic proof and open code.
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
-                  Method
+                  The Mission
                 </p>
-                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Proof of Capital</h3>
+                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Verifiable Autonomy</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  We do not rely on theory. We deploy our own Bitcoin treasury to validate our systems before opening them to external partners.
+                  We engineer infrastructure across three pillars:
                 </p>
+                <div className="mt-2 space-y-1">
+                  <p className="text-sm text-foreground"><strong>Validate Signal</strong> (Axiom)</p>
+                  <p className="text-sm text-foreground"><strong>Preserve Value</strong> (Helios)</p>
+                  <p className="text-sm text-foreground"><strong>Protect Identity</strong> (Uniqueness)</p>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -273,10 +288,10 @@ export default function Overview() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              System axioms
+              Operating principles
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
-              Our Principles
+              How We Work
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
