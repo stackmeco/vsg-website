@@ -182,13 +182,11 @@
   }
 
   /* Ensure buttons and interactive elements have visible focus */
+  /* Note: input, textarea, select handle their own focus via Tailwind classes */
   button:focus-visible,
   a:focus-visible,
-  input:focus-visible,
-  textarea:focus-visible,
-  select:focus-visible,
   [role="button"]:focus-visible,
-  [tabindex]:focus-visible {
+  [tabindex]:focus-visible:not(input):not(textarea):not(select) {
     outline: 2px solid hsl(var(--primary));
     outline-offset: 2px;
     box-shadow: 0 0 0 4px hsl(var(--primary) / 0.15);
