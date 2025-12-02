@@ -9,41 +9,36 @@ import { NextStepBlock } from "@/components/NextStepBlock";
 import { StatBlock } from "@/components/StatBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Eye, Coins, Shield, Search, Compass, ShieldCheck } from "lucide-react";
+import { ArrowRight, Zap, Eye, Shield, Cog, Users } from "lucide-react";
 import { AudioModal } from "@/components/AudioModal";
 import gridTexture from "@assets/grid_texture.png";
 import { projects, getProjectHref } from "@/data/projects";
 
 const values = [
   {
-    title: "Don't Trust, Verify",
-    description: "We validate every assumption against market reality. If a system cannot survive the wild, we do not deploy it.",
+    title: "Intelligence Augmented (IA)",
+    description: "'Let the machine compute. Let the human connect.' We leverage AI to process data at the speed of Helios, liberating our team to focus on strategy, empathy, and high-level judgment.",
+    icon: <Zap className="w-5 h-5" />,
+  },
+  {
+    title: "Seek the Signal",
+    description: "'Verify, then trust.' In a world of noise, we engineer clarity. We force technology to be deterministic by integrating verified data sources. We rely on cryptographic proof, not faith.",
     icon: <Eye className="w-5 h-5" />,
   },
   {
-    title: "Backed by Value",
-    description: "We reject empty hype. Every project is anchored by real resources and internal funding.",
-    icon: <Coins className="w-5 h-5" />,
-  },
-  {
-    title: "Bounded Execution",
-    description: "Innovation requires constraints. We code strict limits into our software to prevent systemic failures.",
+    title: "Disciplined Audacity",
+    description: "'Dream in decades, execute in milliseconds.' We build generational technology—from capital engines to optical scanning—with extreme precision and rigorous safety rails.",
     icon: <Shield className="w-5 h-5" />,
   },
   {
-    title: "Open Intelligence",
-    description: "A transparent market is a resilient market. We publish our research to help partners navigate the noise.",
-    icon: <Search className="w-5 h-5" />,
+    title: "Own the Engine",
+    description: "'Understand the business to change the business.' We are pilots, not passengers. We require deep financial fluency and a first-principles understanding of how value is created.",
+    icon: <Cog className="w-5 h-5" />,
   },
   {
-    title: "Future Proof",
-    description: "We architect for the next decade of autonomous agents, not just the manual tools of today.",
-    icon: <Compass className="w-5 h-5" />,
-  },
-  {
-    title: "Signal Integrity",
-    description: "We protect our partners by focusing on technical reality rather than narrative cycles.",
-    icon: <ShieldCheck className="w-5 h-5" />,
+    title: "Value is a Mirror",
+    description: "'Serve first, succeed second.' We succeed only when our users thrive. We build non-custodial tools that restore power to the user, knowing that true value flows from service.",
+    icon: <Users className="w-5 h-5" />,
   },
 ];
 
