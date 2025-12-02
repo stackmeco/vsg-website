@@ -84,6 +84,7 @@ export function CommandPalette() {
         value={query}
         onValueChange={setQuery}
         data-testid="input-command-search"
+        aria-label="Search site content"
         autoFocus
       />
       <CommandList>
