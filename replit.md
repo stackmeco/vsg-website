@@ -20,6 +20,15 @@ The site follows a "control room aesthetic" with a dark theme emphasizing instit
 - 404 page copy improved with user-friendly messaging
 - All searchIndex.ts entries updated with new routes and labels
 
+### Quality & Integrity Fixes (December 2025)
+- **Visual Physics**: ConsolePanel now uses responsive grid (grid-cols-1 on mobile, grid-cols-2 on desktop)
+- **Loading States**: InsightCardSkeleton component with 150ms transition delay for Library filtering
+- **Form Validation**: Single source of truth in shared/schema.ts (removed duplicate from routes.ts)
+- **Rate Limiter**: Memory leak fixed with 5-minute cleanup interval for expired IPs
+- **CORS Security**: Hardcoded origins replaced with ALLOWED_ORIGIN environment variable
+- **SEO**: JSON-LD Organization schema added (founders, logo, description)
+- **PWA Support**: manifest.json with Tungsten palette colors, Add to Home Screen enabled
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
