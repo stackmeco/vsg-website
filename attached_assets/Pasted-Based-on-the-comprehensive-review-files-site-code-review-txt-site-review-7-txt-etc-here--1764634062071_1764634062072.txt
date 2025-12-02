@@ -1,0 +1,62 @@
+Based on the comprehensive review files (`site_code_review.txt`, `site_review (7).txt`, etc.), here is the **"What Else"** list.
+
+While the **Content** (Verifiable Systems vs. "We don't sell anything") was the biggest problem, the code reviews identified **Structural and Technical flaws** that will make the site feel "cheap" or "broken" even if the words are perfect.
+
+Here are the **3 Categories of Repairs** you must execute to match the quality of the new copy.
+
+---
+
+### **1. VISUAL PHYSICS (The "Uncanny Valley" Fixes)**
+*The design review noted that the site "looks pro" but has "micro-inconsistencies" that ruin the illusion of a high-end system.*
+
+* **Fix the "Soft" Edges:**
+    * [cite_start]**Issue:** The review found `rounded-sm` (3px) mixed with `rounded-[2px]` (Machined) in `StepCard.tsx`, `Overview.tsx` (Metrics Card), and `Pipeline.tsx` (View Toggle)[cite: 2758].
+    * **Fix:** You must **Hard Override** the Tailwind config so `sm` *equals* `2px`. Otherwise, developers will keep using the wrong class.
+    * **Why:** "Machined" aesthetics require mathematical perfection. 3px vs 2px is noticeable.
+
+* **Fix the "Mobile Break" (`ConsolePanel`):**
+    * [cite_start]**Issue:** The "Studio Metrics" panel cuts off text on mobile screens because it uses a horizontal flex layout that doesn't wrap[cite: 2695].
+    * **Fix:** Switch `ConsolePanel` to `grid-cols-1` on mobile and `grid-cols-2` on desktop.
+
+* **Add "Loading Physics":**
+    * [cite_start]**Issue:** Data fetches (like filtering the Library) happen instantly without a transition, or hang without a loader[cite: 2776].
+    * **Fix:** Add a **"Skeleton Pulse"** (`animate-pulse`) to every card while data is loading. Never show a blank space.
+
+---
+
+### **2. TECHNICAL INTEGRITY (The "Fragility" Fixes)**
+*The code review identified "High Severity" issues that could break the site in production.*
+
+* **The "Duplicate Truth" Problem (Validation):**
+    * [cite_start]**Issue:** `ContactForm.tsx` has one set of rules (e.g., "Name required"), and `server/routes.ts` has a *different* set of rules (with `.transform()` modifiers)[cite: 2747, 2753].
+    * **Risk:** A user could submit a form that the frontend accepts but the backend silently rejects.
+    * **Fix:** Delete the validation logic from *both* files and import a single `contactFormSchema` from `shared/schema.ts`.
+
+* **The "Memory Leak" (Rate Limiting):**
+    * [cite_start]**Issue:** The rate limiter in `server/routes.ts` stores IPs in a Map but **never deletes them**[cite: 2771].
+    * **Risk:** After a few weeks of traffic, the server memory will fill up and crash.
+    * **Fix:** Add a `setInterval` cleanup function to clear old IPs every hour.
+
+* **The "Hardcoded" Security Risk:**
+    * [cite_start]**Issue:** The backend explicitly allows CORS from `verifiedsystems.io`[cite: 2763].
+    * **Risk:** If you deploy to `verifiablesystems.com` (the actual domain mentioned in your DNS), the API will block your own frontend.
+    * **Fix:** Change this to an Environment Variable (`ALLOWED_ORIGIN`) immediately.
+
+---
+
+### **3. MISSING "TRUST" FEATURES**
+*Features that are standard for "Institutional" sites but are currently missing.*
+
+* **SEO & Social Proof (The "Invisible" Content):**
+    * [cite_start]**Issue:** The `PageMeta` component exists, but there is no **JSON-LD Structured Data** (Schema.org)[cite: 2696].
+    * **Fix:** Inject a `<script type="application/ld+json">` tag that tells Google: "This is an Organization. Here is our Logo. Here are our Founders." This makes you look official in search results.
+
+* **PWA (Progressive Web App) Status:**
+    * [cite_start]**Issue:** The design spec promised a "Field Unit" mobile experience, but there is **no manifest.json** or service worker[cite: 2698].
+    * **Fix:** Add a simple `manifest.json` file so users can "Add to Home Screen." This removes the browser bar and makes the site feel like a native app (Control Room Datapad).
+
+### **Summary of Work Remaining:**
+1.  **Config:** Override `borderRadius` in Tailwind.
+2.  **Refactor:** Merge Form Validation into `shared/schema.ts`.
+3.  **Logic:** Fix the Rate Limit memory leak.
+4.  **Meta:** Add JSON-LD Schema for SEO.
