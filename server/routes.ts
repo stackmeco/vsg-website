@@ -5,16 +5,7 @@ import * as fs from "fs";
 import * as path from "path";
 import crypto from "crypto";
 import { GoogleGenAI } from "@google/genai";
-
-const contactSchema = z.object({
-  name: z.string().min(1, "Name is required").max(100, "Name too long").transform(s => s.trim()),
-  email: z.string().email("Invalid email address").max(254, "Email too long").transform(s => s.toLowerCase().trim()),
-  organization: z.string().max(200, "Organization name too long").optional().transform(s => s?.trim()),
-  role: z.string().max(100, "Role too long").optional().transform(s => s?.trim()),
-  subject: z.string().min(1, "Subject is required").max(200, "Subject too long").transform(s => s.trim()),
-  message: z.string().min(20, "Message must be at least 20 characters").max(5000, "Message too long").transform(s => s.trim()),
-  consent: z.boolean().optional(),
-});
+import { contactFormSchema } from "@shared/schema";
 
 const CONTACTS_FILE = path.join(process.cwd(), "data", "contacts.json");
 const MAX_CONTACTS_FILE_SIZE = 10 * 1024 * 1024; // 10MB max file size
@@ -28,6 +19,25 @@ const ttsRateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const TTS_RATE_LIMIT_WINDOW = 60 * 1000;
 const TTS_RATE_LIMIT_MAX = 3;
 const TTS_MAX_TEXT_LENGTH = 2000;
+
+// Cleanup expired rate limit entries every 5 minutes
+setInterval(() => {
+  const now = Date.now();
+  
+  // Clean up contact form rate limits
+  Array.from(rateLimitMap.entries()).forEach(([key, entry]) => {
+    if (now > entry.resetTime) {
+      rateLimitMap.delete(key);
+    }
+  });
+  
+  // Clean up TTS rate limits
+  Array.from(ttsRateLimitMap.entries()).forEach(([key, entry]) => {
+    if (now > entry.resetTime) {
+      ttsRateLimitMap.delete(key);
+    }
+  });
+}, 5 * 60 * 1000); // Run every 5 minutes
 
 const fileLocks = new Map<string, Promise<void>>();
 
@@ -97,12 +107,17 @@ function checkTtsRateLimit(req: Request): boolean {
   return true;
 }
 
-const ALLOWED_HOSTS = [
+const DEFAULT_HOSTS = [
   "localhost:5000",
   "localhost:3000",
-  "verifiablesystems.com",
-  "www.verifiablesystems.com",
 ];
+
+// Parse additional allowed hosts from environment variable
+const envHosts = process.env.ALLOWED_ORIGIN
+  ? process.env.ALLOWED_ORIGIN.split(",").map(h => h.trim()).filter(Boolean)
+  : ["verifiablesystems.com", "www.verifiablesystems.com"];
+
+const ALLOWED_HOSTS = [...DEFAULT_HOSTS, ...envHosts];
 
 function validateOrigin(req: Request): boolean {
   const origin = req.headers.origin;
@@ -225,7 +240,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return;
       }
 
-      const validated = contactSchema.parse(req.body);
+      const validated = contactFormSchema.parse(req.body);
 
       const contactEntry = {
         id: crypto.randomBytes(8).toString("hex"),

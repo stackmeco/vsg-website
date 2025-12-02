@@ -44,13 +44,13 @@ export function ConsolePanel({
           <span className="w-2 h-2 rounded-full bg-primary animate-glow-pulse" />
         </div>
       )}
-      <div className="flex flex-wrap gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {chips.map((chip, index) => (
           <PolicyChip key={index} {...chip} />
         ))}
       </div>
       {metrics && metrics.length > 0 && (
-        <div className="flex flex-wrap gap-6 pt-2 border-t border-border">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2 border-t border-border">
           {metrics.map((metric, index) => (
             <div key={index} className="font-mono text-xs">
               <span className="text-muted-foreground">{metric.label}: </span>

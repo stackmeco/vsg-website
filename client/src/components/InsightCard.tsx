@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
 import { ArrowRight } from "lucide-react";
 
 interface InsightCardProps {
@@ -11,6 +12,30 @@ interface InsightCardProps {
   category: string;
   slug: string;
   className?: string;
+}
+
+export function InsightCardSkeleton({ className }: { className?: string }) {
+  return (
+    <Card
+      className={cn(
+        "bg-card border-card-border",
+        className
+      )}
+      data-testid="insight-card-skeleton"
+    >
+      <CardContent className="p-6">
+        <div className="flex items-center gap-2 mb-3">
+          <Skeleton className="h-5 w-16 rounded-sm" />
+          <Skeleton className="h-4 w-20" />
+        </div>
+        <Skeleton className="h-5 w-full mb-1.5" />
+        <Skeleton className="h-5 w-3/4 mb-2" />
+        <Skeleton className="h-4 w-full mb-1" />
+        <Skeleton className="h-4 w-5/6 mb-4" />
+        <Skeleton className="h-4 w-24" />
+      </CardContent>
+    </Card>
+  );
 }
 
 export function InsightCard({

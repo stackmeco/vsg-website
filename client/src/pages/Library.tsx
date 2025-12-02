@@ -1,18 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
-import { InsightCard } from "@/components/InsightCard";
+import { InsightCard, InsightCardSkeleton } from "@/components/InsightCard";
 import { Badge } from "@/components/ui/badge";
 import { articles, getAvailableCategories, type ContentType } from "@/data/articles";
 
+const SKELETON_COUNT = 6;
+const LOADING_DELAY_MS = 150;
+
 export default function Library() {
   const [activeType, setActiveType] = useState<ContentType>("All");
+  const [isLoading, setIsLoading] = useState(false);
 
   const filteredItems =
     activeType === "All"
       ? articles
       : articles.filter((item) => item.type === activeType);
+
+  const handleFilterChange = useCallback((type: ContentType) => {
+    if (type === activeType) return;
+    setIsLoading(true);
+    setActiveType(type);
+  }, [activeType]);
+
+  useEffect(() => {
+    if (!isLoading) return;
+    
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, LOADING_DELAY_MS);
+
+    return () => clearTimeout(timer);
+  }, [isLoading, activeType]);
 
   return (
     <Layout>
@@ -54,7 +74,7 @@ export default function Library() {
                 key={type}
                 variant={activeType === type ? "default" : "outline"}
                 className="cursor-pointer px-4 py-1.5"
-                onClick={() => setActiveType(type)}
+                onClick={() => handleFilterChange(type)}
                 data-testid={`filter-${type.toLowerCase()}`}
               >
                 {type}
@@ -62,7 +82,13 @@ export default function Library() {
             ))}
           </div>
           
-          {filteredItems.length === 0 ? (
+          {isLoading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-testid="section-items-loading">
+              {Array.from({ length: SKELETON_COUNT }).map((_, index) => (
+                <InsightCardSkeleton key={`skeleton-${index}`} />
+              ))}
+            </div>
+          ) : filteredItems.length === 0 ? (
             <div className="text-center py-12" data-testid="section-items-empty">
               <p className="text-base text-muted-foreground">No items found for this filter.</p>
             </div>
