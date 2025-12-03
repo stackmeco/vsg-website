@@ -25,7 +25,7 @@ function DesktopNavLink({ item, isActive }: { item: NavItem; isActive: boolean }
       <Link 
         href={item.href}
         className={cn(
-          "nav-button inline-flex items-center px-4 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+          "nav-button inline-flex items-center px-4 py-2 font-heading font-semibold text-base tracking-tight transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           isActive
             ? "text-primary nav-button-active"
             : "text-muted-foreground hover:text-foreground"
@@ -54,7 +54,7 @@ function DropdownNavItem({
     <NavigationMenuItem value={item.label.toLowerCase()}>
       <NavigationMenuTrigger 
         className={cn(
-          "inline-flex items-center px-4 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150",
+          "inline-flex items-center px-4 py-2 font-heading font-semibold text-base tracking-tight transition-all duration-150",
           isActive
             ? "text-primary"
             : "text-muted-foreground hover:text-foreground"
