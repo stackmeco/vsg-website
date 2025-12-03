@@ -54,11 +54,14 @@ export default function Ventures() {
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" aria-hidden="true" />
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
-              Venture Portfolio.
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4">
+              Active portfolio
+            </p>
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6">
+              Ventures built on our own capital.
             </h1>
-            <p className="text-lg text-foreground leading-relaxed">
-              Five projects moving through our development process. Each venture is self-funded and stress-tested with our own capital.
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+              Five projects moving through our six-stage development process. Each venture is self-funded, stress-tested internally, and designed to solve real infrastructure problems before seeking external adoption.
             </p>
           </div>
         </div>
@@ -156,7 +159,7 @@ export default function Ventures() {
       <NextStepBlock
         nextPage="Standards"
         description="Learn about our governance, risk management, and compliance framework."
-        href="/standards"
+        href="/approach/standards"
       />
     </Layout>
   );
