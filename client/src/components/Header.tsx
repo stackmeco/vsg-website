@@ -192,19 +192,30 @@ export function Header() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1" data-testid="nav-desktop" aria-label="Main navigation">
-            <NavigationMenu>
+            {/* Overview - standalone link before dropdown nav items */}
+            <DesktopNavLink 
+              item={NAV_ITEMS[0]} 
+              isActive={isPathActive(location, NAV_ITEMS[0].href)} 
+            />
+            
+            {/* Ventures, Approach, Studio - grouped for unified dropdown viewport */}
+            <NavigationMenu className="relative">
               <NavigationMenuList className="gap-1">
-                {NAV_ITEMS.map((item) => (
-                  item.children ? (
-                    <DropdownNavItem key={item.label} item={item} currentPath={location} />
-                  ) : (
-                    <NavigationMenuItem key={item.label}>
-                      <DesktopNavLink item={item} isActive={isPathActive(location, item.href)} />
-                    </NavigationMenuItem>
-                  )
+                {NAV_ITEMS.filter(item => item.children).map((item) => (
+                  <DropdownNavItem key={item.label} item={item} currentPath={location} />
                 ))}
               </NavigationMenuList>
             </NavigationMenu>
+            
+            {/* Insights, Connect - standalone links after dropdown nav items */}
+            {NAV_ITEMS.filter(item => !item.children && item.label !== "Overview").map((item) => (
+              <DesktopNavLink 
+                key={item.label}
+                item={item} 
+                isActive={isPathActive(location, item.href)} 
+              />
+            ))}
+            
             <Button
               variant="ghost"
               size="sm"
