@@ -1,0 +1,105 @@
+This is the **Ultimate Synchronization Protocol (vFinal)**.
+
+It combines **Structure, Content, Code, and Design** into a single, atomic instruction set. It fixes the navigation, updates the brand voice to "Infrastructure of Autonomy," aligns the project stages with your R&D process, and executes the necessary technical refactors.
+
+**How to use:**
+Copy the **entire block below** and paste it into your Replit Agent.
+
+***
+
+### **MASTER INSTRUCTION SET: HELIOS SITE OVERHAUL**
+
+> **ROLE:** Senior Full-Stack Architect & Brand Strategist.
+> **MISSION:** Execute a complete site refactor to align with the **v20.0 Production Status** and **"Infrastructure of Autonomy"** identity.
+>
+> **CRITICAL CONTEXT:**
+> * **Brand Voice:** Bold, Active, "Infrastructure of Autonomy."
+> * **Visuals:** "Industrial Control Room" (Dark, 2px Radius, High Density).
+> * **Architecture:** Renaming pages to match public identity.
+>
+> ---
+>
+> ### **PHASE 1: STRUCTURAL REFACTOR (Renaming)**
+> *Rename files to match the new public-facing identity. Update imports in `App.tsx`.*
+> 1.  **RENAME** `client/src/pages/System.tsx` $\rightarrow$ **`client/src/pages/Process.tsx`**
+> 2.  **RENAME** `client/src/pages/Pipeline.tsx` $\rightarrow$ **`client/src/pages/Ventures.tsx`**
+> 3.  **RENAME** `client/src/pages/PipelineDetail.tsx` $\rightarrow$ **`client/src/pages/VentureDetail.tsx`**
+> 4.  **RENAME** `client/src/pages/Governance.tsx` $\rightarrow$ **`client/src/pages/Standards.tsx`**
+> 5.  **RENAME** `client/src/pages/Library.tsx` $\rightarrow$ **`client/src/pages/Insights.tsx`**
+> 6.  **RENAME** `client/src/pages/LibraryArticle.tsx` $\rightarrow$ **`client/src/pages/InsightDetail.tsx`**
+> 7.  **RENAME** `client/src/pages/Contact.tsx` $\rightarrow$ **`client/src/pages/Connect.tsx`**
+>
+> **ACTION:** Update `App.tsx` routing:
+> * `/system` $\rightarrow$ `/process`
+> * `/pipeline` $\rightarrow$ `/ventures`
+> * `/pipeline/:slug` $\rightarrow$ `/ventures/:slug`
+> * `/governance` $\rightarrow$ `/standards`
+> * `/thesis` $\rightarrow$ `/insights`
+> * `/thesis/:slug` $\rightarrow$ `/insights/:slug`
+> * `/contact` $\rightarrow$ `/connect`
+>
+> **ACTION:** Update `client/src/components/Header.tsx` navigation:
+> * `{ name: "Mission", href: "/", number: "01" }`
+> * `{ name: "Process", href: "/process", number: "02" }`
+> * `{ name: "Ventures", href: "/ventures", number: "03" }`
+> * `{ name: "Standards", href: "/standards", number: "04" }`
+> * `{ name: "Insights", href: "/insights", number: "05" }`
+> * `{ name: "Connect", href: "/connect", number: "06" }`
+>
+> ---
+>
+> ### **PHASE 2: TECHNICAL HARDENING**
+>
+> **1. VISUAL PHYSICS (`tailwind.config.ts`)**
+> * **Force 2px Radius:** Override the default config. `borderRadius: { sm: "2px", DEFAULT: "2px", md: "4px" }`. This fixes "soft edges."
+>
+> **2. SCHEMA CONSOLIDATION**
+> * **Create** `shared/schema.ts` with `contactFormSchema` (Zod).
+> * **Refactor** `Connect.tsx` and `server/routes.ts` to use this single source of truth. Remove duplicate validation logic.
+>
+> **3. SECURITY (`server/routes.ts`)**
+> * **Origin Check:** Replace hardcoded `verifiedsystems.io` with `process.env.ALLOWED_ORIGINS`.
+>
+> ---
+>
+> ### **PHASE 3: DATA & VOCABULARY UPDATE**
+>
+> **1. UPDATE STAGES (`client/src/components/StageChip.tsx`)**
+> * Replace `StageVariant` types to match our process: `definition`, `validation`, `build`, `deployment`, `evolution`.
+> * Update colors: Definition (Blue), Validation (Amber), Build (Orange), Deployment (Green), Evolution (Purple).
+>
+> **2. UPDATE PROJECTS (`client/src/data/projects.ts`)**
+> * **Helios:** Stage: "Controlled Deployment". Tagline: "Preserve Value." Desc: "Autonomous treasury engine. v20.0 Production. Sub-4ms latency."
+> * **Axiom:** Stage: "Rapid Validation". Tagline: "Validate Signal." Desc: "Forcing AI to be deterministic and source-backed."
+> * **Stackme:** Stage: "Verified Build". Tagline: "Bitcoin-Backed Credit."
+> * **Lumina:** Stage: "Strategic Definition". Tagline: "Physical Asset Twins."
+> * **Uniqueness:** Stage: "Strategic Definition". Tagline: "Protect Identity."
+>
+> ---
+>
+> ### **PHASE 4: CONTENT INJECTION (New Voice)**
+>
+> **1. HOMEPAGE (`Overview.tsx`)**
+> * **Hero:** Headline **"The Infrastructure of Autonomy."** / Body **"We are an innovation engine fusing the speed of AI with the security of Blockchain."** / Buttons: "See the Pipeline" & "Audio Briefing".
+> * **Mission:** Cards for **Democratize Leverage**, **Engineered Trust**, **Verifiable Autonomy**.
+> * **Principles:** Replace with: **Intelligence Augmented**, **Seek the Signal**, **Engineered Ambition**, **Own the Engine**, **Value is a Mirror**, **Force Multiplier**.
+>
+> **2. PROCESS PAGE (`Process.tsx`)**
+> * **Hero:** Headline **"Own The Engine."** / Body **"We are pilots, not passengers. We require deep financial fluency and a first-principles understanding of value."**
+> * **MOVE SECTION:** Move the "R&D Process" (Strategic Definition -> Evolution) from the old Pipeline page to HERE. Use `StepCard` components.
+> * **REMOVE:** Delete the old "Functions" section.
+> * **Treasury:** Headline **"Powered by Bitcoin."**
+>
+> **3. VENTURES PAGE (`Ventures.tsx`)**
+> * **Hero:** Headline **"Venture Portfolio."** / Body **"Five projects moving through our development process. Each venture is self-funded and stress-tested with our own capital."**
+> * **Content:** Remove the "R&D Process" (since it moved to Process page). Show only the Project Cards.
+>
+> **4. STANDARDS PAGE (`Standards.tsx`)**
+> * **Hero:** Headline **"Disciplined Audacity."** / Body **"We embrace big risks by managing them with rigorous, automated safety rails."**
+> * **Controls:** Update Capital Controls to: "**2-of-3 Multisig** (Founder A, Founder B, Cold Storage)."
+>
+> **5. FOOTER (`Footer.tsx`)**
+> * **Tagline:** "The infrastructure of verifiable autonomy."
+> * **Links:** Update to match new routes.
+>
+> **EXECUTE ALL STEPS IN ORDER.**
