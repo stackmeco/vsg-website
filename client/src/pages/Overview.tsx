@@ -10,45 +10,16 @@ import { ArrowRight, Zap, Eye, Shield, Cog, Users, Scale } from "lucide-react";
 import { AudioModal } from "@/components/AudioModal";
 import gridTexture from "@assets/grid_texture.png";
 import { projects, getProjectHref } from "@/data/projects";
+import { values } from "@/data/studio";
 
-const principles = [
-  {
-    title: "Intelligence Augmented (IA)",
-    quote: "Let the machine compute. Let the human connect.",
-    body: "We use AI to amplify human capability.",
-    icon: <Zap className="w-5 h-5" />,
-  },
-  {
-    title: "Seek the Signal",
-    quote: "Verify, then trust.",
-    body: "We engineer clarity through cryptographic proof.",
-    icon: <Eye className="w-5 h-5" />,
-  },
-  {
-    title: "Engineered Ambition",
-    quote: "Dream in decades, execute in milliseconds.",
-    body: "We build generational technology with extreme precision.",
-    icon: <Shield className="w-5 h-5" />,
-  },
-  {
-    title: "Own the Engine",
-    quote: "Master the mechanics to rewrite the rules.",
-    body: "We are pilots, not passengers.",
-    icon: <Cog className="w-5 h-5" />,
-  },
-  {
-    title: "Value is a Mirror",
-    quote: "Serve first, succeed second.",
-    body: "We build non-custodial tools that restore power to the user.",
-    icon: <Users className="w-5 h-5" />,
-  },
-  {
-    title: "Force Multiplier",
-    quote: "Level the playing field.",
-    body: "We arm individuals with the tools to bypass gatekeepers.",
-    icon: <Scale className="w-5 h-5" />,
-  },
-];
+const valueIcons: Record<string, JSX.Element> = {
+  "ia": <Zap className="w-5 h-5" />,
+  "signal": <Eye className="w-5 h-5" />,
+  "ambition": <Shield className="w-5 h-5" />,
+  "engine": <Cog className="w-5 h-5" />,
+  "mirror": <Users className="w-5 h-5" />,
+  "multiplier": <Scale className="w-5 h-5" />,
+};
 
 export default function Overview() {
   return (
@@ -284,24 +255,24 @@ export default function Overview() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {principles.map((principle) => (
+            {values.map((value) => (
               <Card 
-                key={principle.title} 
+                key={value.id} 
                 className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
-                data-testid={`principle-card-${principle.title.toLowerCase().replace(/\s+/g, "-")}`}
+                data-testid={`principle-card-${value.shortName.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 <CardContent className="p-8">
                   <div className="w-10 h-10 rounded-[2px] bg-primary/10 flex items-center justify-center text-primary mb-4">
-                    {principle.icon}
+                    {valueIcons[value.id]}
                   </div>
                   <h3 className="font-heading font-semibold text-lg text-foreground mb-2">
-                    {principle.title}
+                    {value.shortName}
                   </h3>
                   <p className="text-base text-primary italic mb-3">
-                    "{principle.quote}"
+                    "{value.quote}"
                   </p>
                   <p className="text-base text-foreground leading-relaxed">
-                    {principle.body}
+                    {value.description}
                   </p>
                 </CardContent>
               </Card>

@@ -5,48 +5,19 @@ import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Eye, Shield, Cog, Cpu, Lock, GitBranch } from "lucide-react";
+import { pillarsInPractice, executionPrinciples } from "@/data/studio";
 
-const pillarsInPractice = [
-  {
-    name: "Validate Signal",
-    project: "Axiom",
-    description: "AI-powered news verification that separates signal from noise in real-time.",
-    icon: <Eye className="w-5 h-5" />,
-    href: "/ventures/axiom",
-  },
-  {
-    name: "Preserve Value",
-    project: "Helios",
-    description: "Non-custodial treasury management for individuals and small operators.",
-    icon: <Shield className="w-5 h-5" />,
-    href: "/ventures/helios",
-  },
-  {
-    name: "Protect Identity",
-    project: "Uniqueness Engine",
-    description: "Sybil-resistant identity verification without surveillance.",
-    icon: <Cog className="w-5 h-5" />,
-    href: "/ventures/uniqueness",
-  },
-];
+const pillarIcons: Record<string, JSX.Element> = {
+  "validate-signal": <Eye className="w-5 h-5" />,
+  "preserve-value": <Shield className="w-5 h-5" />,
+  "protect-identity": <Cog className="w-5 h-5" />,
+};
 
-const executionPrinciples = [
-  {
-    name: "AI-Native",
-    description: "Every tool we build assumes AI as a core capability, not an add-on. We design for human-AI collaboration from the start.",
-    icon: <Cpu className="w-5 h-5" />,
-  },
-  {
-    name: "Non-Custodial",
-    description: "We never hold user funds or control user assets. Our systems are designed so users maintain full sovereignty.",
-    icon: <Lock className="w-5 h-5" />,
-  },
-  {
-    name: "Five-Stage Process",
-    description: "Every venture moves through Strategic Definition, Rapid Validation, Verified Build, Controlled Deployment, and Data-Driven Evolution—with clear gates between each stage.",
-    icon: <GitBranch className="w-5 h-5" />,
-  },
-];
+const executionIcons: Record<string, JSX.Element> = {
+  "ai-native": <Cpu className="w-5 h-5" />,
+  "non-custodial": <Lock className="w-5 h-5" />,
+  "five-stage": <GitBranch className="w-5 h-5" />,
+};
 
 export default function Mission() {
   return (
@@ -64,7 +35,7 @@ export default function Mission() {
         <div className="absolute inset-0 bg-background" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-          <span className="inline-block text-sm font-mono uppercase tracking-widest text-primary mb-4" data-testid="text-category">
+          <span className="text-sm font-mono uppercase tracking-widest text-primary mb-4 block" data-testid="text-category">
             Studio
           </span>
           <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6" data-testid="text-page-title">
@@ -77,7 +48,7 @@ export default function Mission() {
       </section>
 
       {/* What We Do Now */}
-      <section className="py-16 sm:py-20" data-testid="section-what-we-do">
+      <section className="py-20" data-testid="section-what-we-do">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-4">
             What we do now
@@ -94,7 +65,7 @@ export default function Mission() {
       </section>
 
       {/* Three Pillars in Practice */}
-      <section className="py-16 sm:py-20 bg-card" data-testid="section-pillars-practice">
+      <section className="py-20 bg-card" data-testid="section-pillars-practice">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-4">
             Three pillars in practice
@@ -106,13 +77,13 @@ export default function Mission() {
           <div className="grid md:grid-cols-3 gap-6">
             {pillarsInPractice.map((pillar) => (
               <Card 
-                key={pillar.name} 
+                key={pillar.id} 
                 className="bg-background border-border hover:border-primary/30 transition-colors h-full"
-                data-testid={`card-pillar-${pillar.name.toLowerCase().replace(/\s+/g, "-")}`}
+                data-testid={`card-pillar-${pillar.id}`}
               >
                 <CardContent className="p-6 flex flex-col h-full">
                   <div className="w-10 h-10 rounded-[2px] bg-primary/10 flex items-center justify-center text-primary mb-4">
-                    {pillar.icon}
+                    {pillarIcons[pillar.id]}
                   </div>
                   <p className="text-sm font-mono uppercase tracking-widest text-primary mb-1">
                     {pillar.name}
@@ -136,7 +107,7 @@ export default function Mission() {
       </section>
 
       {/* How We Execute */}
-      <section className="py-16 sm:py-20" data-testid="section-how-execute">
+      <section className="py-20" data-testid="section-how-execute">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-4">
             How we execute
@@ -148,13 +119,13 @@ export default function Mission() {
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl">
             {executionPrinciples.map((principle) => (
               <Card 
-                key={principle.name} 
+                key={principle.id} 
                 className="bg-card border-border"
-                data-testid={`card-execution-${principle.name.toLowerCase().replace(/\s+/g, "-")}`}
+                data-testid={`card-execution-${principle.id}`}
               >
                 <CardContent className="p-6">
                   <div className="w-10 h-10 rounded-[2px] bg-primary/10 flex items-center justify-center text-primary mb-4">
-                    {principle.icon}
+                    {executionIcons[principle.id]}
                   </div>
                   <h3 className="font-heading font-semibold text-base text-foreground mb-2">
                     {principle.name}

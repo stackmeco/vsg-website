@@ -3,20 +3,7 @@ import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 import { XCircle, CheckCircle } from "lucide-react";
-
-const rulesOut = [
-  "We don't build custodial products that hold user funds.",
-  "We don't chase short-term trends or speculative hype.",
-  "We don't take outside capital that misaligns incentives.",
-  "We don't ship without stress-testing on our own capital first.",
-];
-
-const heuristics = [
-  "When in doubt, choose the path that increases user autonomy.",
-  "When in doubt, default to transparency over opacity.",
-  "When in doubt, build for the individual, not the institution.",
-  "When in doubt, verify rather than trust.",
-];
+import { purposeRulesOut, purposeHeuristics } from "@/data/studio";
 
 export default function Purpose() {
   return (
@@ -34,7 +21,7 @@ export default function Purpose() {
         <div className="absolute inset-0 bg-background" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-          <span className="inline-block text-sm font-mono uppercase tracking-widest text-primary mb-4" data-testid="text-category">
+          <span className="text-sm font-mono uppercase tracking-widest text-primary mb-4 block" data-testid="text-category">
             Studio
           </span>
           <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6" data-testid="text-page-title">
@@ -47,7 +34,7 @@ export default function Purpose() {
       </section>
 
       {/* Why This Exists */}
-      <section className="py-16 sm:py-20" data-testid="section-why">
+      <section className="py-20" data-testid="section-why">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-4">
             Why this exists
@@ -64,7 +51,7 @@ export default function Purpose() {
       </section>
 
       {/* What This Rules Out */}
-      <section className="py-16 sm:py-20 bg-card" data-testid="section-rules-out">
+      <section className="py-20 bg-card" data-testid="section-rules-out">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-4">
             What this purpose rules out
@@ -75,7 +62,7 @@ export default function Purpose() {
           
           <div className="max-w-3xl">
             <ul className="space-y-4">
-              {rulesOut.map((rule, index) => (
+              {purposeRulesOut.map((rule, index) => (
                 <li 
                   key={index} 
                   className="flex items-start gap-3"
@@ -91,7 +78,7 @@ export default function Purpose() {
       </section>
 
       {/* How It Guides Decisions */}
-      <section className="py-16 sm:py-20" data-testid="section-heuristics">
+      <section className="py-20" data-testid="section-heuristics">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-4">
             How it guides decisions
@@ -101,7 +88,7 @@ export default function Purpose() {
           </h2>
           
           <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
-            {heuristics.map((heuristic, index) => (
+            {purposeHeuristics.map((heuristic, index) => (
               <Card 
                 key={index} 
                 className="bg-card border-border"

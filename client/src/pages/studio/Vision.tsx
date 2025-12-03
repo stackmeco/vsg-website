@@ -3,27 +3,7 @@ import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertTriangle, Sparkles, Trophy } from "lucide-react";
-
-const brokenItems = [
-  "Trust is assumed, not verified.",
-  "Intermediaries extract value at every step.",
-  "Identity is fragmented across hundreds of databases you don't control.",
-  "Leverage is reserved for the already-wealthy.",
-];
-
-const futureItems = [
-  "Verification replaces blind faith.",
-  "Non-custodial rails eliminate the need for intermediaries.",
-  "Identity becomes portable, private, and user-controlled.",
-  "Institutional-grade tools become accessible to individuals.",
-];
-
-const successItems = [
-  "Individuals can verify any claim without trusting the source.",
-  "Treasury management works for a solo operator as well as it does for a fund.",
-  "One proof of humanity unlocks access everywhere.",
-  "The tools we build become invisible infrastructure—just how things work.",
-];
+import { visionBroken, visionFuture, visionSuccess } from "@/data/studio";
 
 export default function Vision() {
   return (
@@ -41,7 +21,7 @@ export default function Vision() {
         <div className="absolute inset-0 bg-background" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-          <span className="inline-block text-sm font-mono uppercase tracking-widest text-primary mb-4" data-testid="text-category">
+          <span className="text-sm font-mono uppercase tracking-widest text-primary mb-4 block" data-testid="text-category">
             Studio
           </span>
           <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6" data-testid="text-page-title">
@@ -54,7 +34,7 @@ export default function Vision() {
       </section>
 
       {/* What's Broken Today */}
-      <section className="py-16 sm:py-20" data-testid="section-broken">
+      <section className="py-20" data-testid="section-broken">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-4">
             <AlertTriangle className="w-5 h-5 text-destructive" />
@@ -68,7 +48,7 @@ export default function Vision() {
           
           <div className="max-w-3xl">
             <ul className="space-y-4">
-              {brokenItems.map((item, index) => (
+              {visionBroken.map((item, index) => (
                 <li 
                   key={index} 
                   className="flex items-start gap-3 pl-4 border-l-2 border-destructive/30"
@@ -83,7 +63,7 @@ export default function Vision() {
       </section>
 
       {/* The Future We're Building */}
-      <section className="py-16 sm:py-20 bg-card" data-testid="section-future">
+      <section className="py-20 bg-card" data-testid="section-future">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-4">
             <Sparkles className="w-5 h-5 text-primary" />
@@ -96,7 +76,7 @@ export default function Vision() {
           </h2>
           
           <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
-            {futureItems.map((item, index) => (
+            {visionFuture.map((item, index) => (
               <Card 
                 key={index} 
                 className="bg-background border-border"
@@ -112,7 +92,7 @@ export default function Vision() {
       </section>
 
       {/* What Success Looks Like */}
-      <section className="py-16 sm:py-20" data-testid="section-success">
+      <section className="py-20" data-testid="section-success">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-4">
             <Trophy className="w-5 h-5 text-primary" />
@@ -126,7 +106,7 @@ export default function Vision() {
           
           <div className="max-w-3xl">
             <ul className="space-y-4">
-              {successItems.map((item, index) => (
+              {visionSuccess.map((item, index) => (
                 <li 
                   key={index} 
                   className="flex items-start gap-3 pl-4 border-l-2 border-primary/30"
