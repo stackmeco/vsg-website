@@ -634,13 +634,14 @@
   z-index: 110;
 }
 
-/* Viewport wrapper - positioned absolutely below triggers */
+/* Viewport wrapper - positioned absolutely below triggers, pulled up to overlap */
 .nav-menu-viewport-wrapper {
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
   z-index: 99;
+  margin-top: -1px;
 }
 
 /* The dropdown panel - box-shadow creates border on left, right, bottom */
