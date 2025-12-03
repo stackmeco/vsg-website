@@ -61,7 +61,7 @@ function PageLoader() {
           <div className="w-1 h-6 bg-primary/60 animate-[heartbeat_1.2s_ease-in-out_0.45s_infinite]" />
           <div className="w-1 h-6 bg-primary/40 animate-[heartbeat_1.2s_ease-in-out_0.6s_infinite]" />
         </div>
-        <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Processing</span>
+        <span className="text-sm font-mono uppercase tracking-widest text-muted-foreground">Processing</span>
         <span className="sr-only">Loading page content, please wait</span>
       </div>
     </div>

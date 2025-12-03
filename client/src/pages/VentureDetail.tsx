@@ -131,7 +131,7 @@ export default function PipelineDetail() {
 
               <Card className="bg-card border-card-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-system-status">
                 <CardContent className="p-6">
-                  <h3 className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">
+                  <h3 className="font-mono text-sm uppercase tracking-wider text-muted-foreground mb-4">
                     System Status
                   </h3>
                   <ul className="space-y-3 text-sm" data-testid="list-current-state">
@@ -148,7 +148,7 @@ export default function PipelineDetail() {
                         <Button 
                           variant="ghost" 
                           size="sm" 
-                          className="text-xs font-mono uppercase tracking-wider text-primary gap-2 px-0 hover:bg-transparent hover:text-primary/80"
+                          className="text-sm font-mono uppercase tracking-wider text-primary gap-2 px-0 hover:bg-transparent hover:text-primary/80"
                           data-testid="link-related-thesis"
                         >
                           <FileText className="w-3.5 h-3.5" />
@@ -162,7 +162,7 @@ export default function PipelineDetail() {
 
               <Card className="bg-card border-card-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-active-rd">
                 <CardContent className="p-6">
-                  <h3 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
+                  <h3 className="font-mono text-sm uppercase tracking-wider text-primary mb-4">
                     Active R&D Modules
                   </h3>
                   <ul className="space-y-3 text-sm" data-testid="list-exploring">
@@ -180,7 +180,7 @@ export default function PipelineDetail() {
             <div className="lg:col-span-1">
               <Card className="h-full border-destructive/20 bg-destructive/5 hover:border-destructive/40 transition-colors duration-150 ease-mechanical" data-testid="card-constraints">
                 <CardContent className="p-6">
-                  <h3 className="font-mono text-xs uppercase tracking-wider text-destructive/80 mb-4">
+                  <h3 className="font-mono text-sm uppercase tracking-wider text-destructive/80 mb-4">
                     Negative Constraints
                   </h3>
                   <ul className="space-y-3 text-sm" data-testid="list-not-yet">

@@ -119,7 +119,7 @@ export function AudioModal() {
           ref={triggerRef}
           variant="outline" 
           size="lg" 
-          className="font-mono text-xs uppercase tracking-wider bg-background/50 backdrop-blur-md border-primary/20 group"
+          className="font-mono text-sm uppercase tracking-wider bg-background/50 backdrop-blur-md border-primary/20 group"
           data-testid="button-audio-briefing"
         >
           <Volume2 className="w-3.5 h-3.5 mr-2 group-hover:text-primary transition-colors" />
@@ -138,7 +138,7 @@ export function AudioModal() {
         </DialogDescription>
         
         <div className="p-4 pr-12 border-b border-border flex justify-between items-center bg-muted/10">
-          <span className="font-mono text-xs uppercase tracking-widest text-primary">
+          <span className="font-mono text-sm uppercase tracking-widest text-primary">
             {hasError ? (
               "Coming Soon"
             ) : isPlaying ? (

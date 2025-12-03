@@ -99,7 +99,7 @@ export default function Overview() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
           <div className="grid lg:grid-cols-[1fr,320px] gap-12 items-center">
             <div className="max-w-2xl">
-              <p className="text-xs font-mono uppercase tracking-widest text-primary mb-6">
+              <p className="text-sm font-mono uppercase tracking-widest text-primary mb-6">
                 Two-founder studio
               </p>
               <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-[1.1] tracking-tight mb-6">
@@ -115,7 +115,7 @@ export default function Overview() {
                 <Link href="/ventures">
                   <Button 
                     size="lg" 
-                    className="font-mono text-xs uppercase tracking-wider"
+                    className="font-mono text-sm uppercase tracking-wider"
                     data-testid="button-see-ventures"
                   >
                     See the Pipeline
@@ -143,7 +143,7 @@ export default function Overview() {
             {/* Right Side: Studio Metrics */}
             <div className="hidden lg:block relative z-20">
               <div className="bg-card/80 backdrop-blur-sm border border-border rounded-[2px] p-6 space-y-6">
-                <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground">
                   Studio metrics
                 </p>
                 <div className="space-y-6">
@@ -178,14 +178,14 @@ export default function Overview() {
 
       <section className="py-20 bg-card" data-testid="section-directive">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-8">
+          <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground mb-8">
             The VSG Directive
           </p>
           
           <div className="grid md:grid-cols-2 gap-6">
             <Card className="bg-background border-border h-full">
               <CardContent className="p-8 flex flex-col justify-center h-full">
-                <p className="text-xs font-mono uppercase tracking-wider text-primary mb-2">Purpose</p>
+                <p className="text-sm font-mono uppercase tracking-wider text-primary mb-2">Purpose</p>
                 <h3 className="font-heading font-semibold text-2xl text-foreground mb-4">
                   Democratize Leverage
                 </h3>
@@ -197,7 +197,7 @@ export default function Overview() {
 
             <Card className="bg-background border-border h-full">
               <CardContent className="p-8 flex flex-col justify-center h-full">
-                <p className="text-xs font-mono uppercase tracking-wider text-primary mb-2">Vision</p>
+                <p className="text-sm font-mono uppercase tracking-wider text-primary mb-2">Vision</p>
                 <h3 className="font-heading font-semibold text-2xl text-foreground mb-4">
                   Engineered Trust
                 </h3>
@@ -210,7 +210,7 @@ export default function Overview() {
             <Card className="bg-background border-border md:col-span-2">
               <CardContent className="p-8 md:p-10">
                 <div className="max-w-3xl">
-                  <p className="text-xs font-mono uppercase tracking-wider text-primary mb-2">The Mission</p>
+                  <p className="text-sm font-mono uppercase tracking-wider text-primary mb-2">The Mission</p>
                   <h3 className="font-heading font-semibold text-2xl text-foreground mb-6">
                     Verifiable Autonomy
                   </h3>
@@ -243,7 +243,7 @@ export default function Overview() {
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
+            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Venture portfolio
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
@@ -282,7 +282,7 @@ export default function Overview() {
       <section className="py-20 bg-card" data-testid="section-bitcoin">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
+            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Capital foundation
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
@@ -302,7 +302,7 @@ export default function Overview() {
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
+            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Operating principles
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">

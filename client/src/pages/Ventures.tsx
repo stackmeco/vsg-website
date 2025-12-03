@@ -67,7 +67,7 @@ export default function Ventures() {
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
-            <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
+            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Active portfolio
             </p>
             <div className="flex flex-wrap items-center justify-between gap-4">
@@ -108,10 +108,10 @@ export default function Ventures() {
               <Table>
                 <TableHeader>
                   <TableRow className="bg-card hover:bg-card">
-                    <TableHead className="font-mono text-xs uppercase tracking-wider">Project</TableHead>
-                    <TableHead className="font-mono text-xs uppercase tracking-wider">Status</TableHead>
-                    <TableHead className="font-mono text-xs uppercase tracking-wider hidden md:table-cell">Description</TableHead>
-                    <TableHead className="font-mono text-xs uppercase tracking-wider text-right">Action</TableHead>
+                    <TableHead className="font-mono text-sm uppercase tracking-wider">Project</TableHead>
+                    <TableHead className="font-mono text-sm uppercase tracking-wider">Status</TableHead>
+                    <TableHead className="font-mono text-sm uppercase tracking-wider hidden md:table-cell">Description</TableHead>
+                    <TableHead className="font-mono text-sm uppercase tracking-wider text-right">Action</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>

@@ -19,7 +19,7 @@ export default function Terms() {
 
           <div className="space-y-10">
             <section>
-              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
+              <h2 className="font-mono text-sm uppercase tracking-wider text-primary mb-4">
                 About this site
               </h2>
               <p className="text-base text-foreground leading-relaxed">
@@ -28,7 +28,7 @@ export default function Terms() {
             </section>
 
             <section>
-              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
+              <h2 className="font-mono text-sm uppercase tracking-wider text-primary mb-4">
                 No financial advice
               </h2>
               <p className="text-base text-foreground leading-relaxed mb-4">
@@ -51,7 +51,7 @@ export default function Terms() {
             </section>
 
             <section>
-              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
+              <h2 className="font-mono text-sm uppercase tracking-wider text-primary mb-4">
                 Forward-looking statements
               </h2>
               <p className="text-base text-foreground leading-relaxed">
@@ -60,7 +60,7 @@ export default function Terms() {
             </section>
 
             <section>
-              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
+              <h2 className="font-mono text-sm uppercase tracking-wider text-primary mb-4">
                 Intellectual property
               </h2>
               <p className="text-base text-foreground leading-relaxed">
@@ -69,7 +69,7 @@ export default function Terms() {
             </section>
 
             <section>
-              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
+              <h2 className="font-mono text-sm uppercase tracking-wider text-primary mb-4">
                 Limitation of liability
               </h2>
               <p className="text-base text-foreground leading-relaxed">
@@ -78,7 +78,7 @@ export default function Terms() {
             </section>
 
             <section>
-              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
+              <h2 className="font-mono text-sm uppercase tracking-wider text-primary mb-4">
                 Governing law
               </h2>
               <p className="text-base text-foreground leading-relaxed">
@@ -87,7 +87,7 @@ export default function Terms() {
             </section>
 
             <section>
-              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
+              <h2 className="font-mono text-sm uppercase tracking-wider text-primary mb-4">
                 Changes to terms
               </h2>
               <p className="text-base text-foreground leading-relaxed">
@@ -96,7 +96,7 @@ export default function Terms() {
             </section>
 
             <section>
-              <h2 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
+              <h2 className="font-mono text-sm uppercase tracking-wider text-primary mb-4">
                 Contact
               </h2>
               <p className="text-base text-foreground leading-relaxed">

@@ -20,7 +20,7 @@ export function StageChip({ stage, variant = "definition", className }: StageChi
   return (
     <span
       className={cn(
-        "inline-flex items-center px-2.5 py-1 rounded-[2px] text-xs font-mono font-medium uppercase tracking-widest border",
+        "inline-flex items-center px-2.5 py-1 rounded-[2px] text-sm font-mono font-medium uppercase tracking-widest border",
         variantStyles[variant],
         className
       )}

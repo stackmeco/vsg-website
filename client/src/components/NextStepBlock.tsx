@@ -14,7 +14,7 @@ export function NextStepBlock({ label = "Next", nextPage, description, href }: N
     <section className="py-20 border-t border-border" data-testid="section-next-step">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
+          <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
             {label}
           </p>
           <h3 className="font-heading font-semibold text-lg text-foreground mb-2">
