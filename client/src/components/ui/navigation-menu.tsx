@@ -23,7 +23,10 @@ const NavigationMenu = React.forwardRef<
         onValueChange={(value) => setOpenValue(value)}
         {...props}
       >
-        <div className={cn("nav-menu-container", openValue && "nav-menu-open")}>
+        <div 
+          className={cn("nav-menu-container", openValue && "nav-menu-open")}
+          data-dropdown-open={openValue ? "true" : undefined}
+        >
           <div className="nav-menu-triggers-row">
             {children}
           </div>

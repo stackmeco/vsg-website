@@ -1,0 +1,58 @@
+Based on the design system specifications found in the codebase and review documents, here are the specific details for **Shading** (Elevation/Glow) and the **"Mechanical Snap" Protocol**.
+
+### **1. The "Mechanical Snap" Protocol**
+
+This protocol governs all motion and transitions to ensure the interface feels like a precision instrument ("Industrial Control Room") rather than a fluid consumer app.
+
+  * **The Physics:**
+
+      * [cite_start]**Timing:** Strictly **150ms**[cite: 2326].
+      * [cite_start]**Easing Curve:** **`cubic-bezier(0.4, 0, 0.2, 1)`**[cite: 2326]. This curve starts fast and ends sharply, creating a "snap" effect rather than a soft float.
+      * **Philosophy:** "No Lift." Elements must **never** move vertically (`translateY`) on hover. [cite_start]They effectively "power on" in place[cite: 1200].
+
+  * **State Transitions:**
+
+      * **Idle $\rightarrow$ Hover:** Instant engagement. Border lights up to `primary/30` opacity. Background brightens slightly.
+      * **Hover $\rightarrow$ Active (Press):** Immediate feedback. Background brightens significantly.
+      * **Tab Switching:** Content **fades in** (Opacity 0% $\rightarrow$ 100%) in place over 150ms. [cite_start]**No lateral sliding**[cite: 2326].
+
+### **2. Shading & Elevation Details**
+
+Instead of traditional drop shadows, the system uses **"Luminosity Layering"** (Shading via brightness) to indicate depth. This mimics a backlit display or control panel.
+
+  * **The "Void" (Base Layer):**
+
+      * [cite_start]**Color:** `HSL 222 15% 5%` (Deep Tungsten Charcoal)[cite: 1787].
+      * **Shadow:** None. Flat against the "glass."
+
+  * **The "Surface" (Card Layer):**
+
+      * [cite_start]**Color:** `HSL 222 15% 7%` (Slightly lighter than background)[cite: 1788].
+      * [cite_start]**Border:** `HSL 222 15% 12%` (Structural Steel Gray)[cite: 1789].
+
+  * **Interaction Shading (The "Glow" Overlays):**
+
+      * [cite_start]**Hover Overlay (`--elevate-1`):** A white overlay at **4% opacity** (`rgba(255,255,255, .04)`)[cite: 1787]. This simulates a backlight brightening.
+      * [cite_start]**Active/Press Overlay (`--elevate-2`):** A white overlay at **9% opacity** (`rgba(255,255,255, .09)`)[cite: 1787].
+
+### **3. Implementation Reference**
+
+For the "Mechanical Snap" to work, ensure your CSS/Tailwind configuration matches these exact tokens found in `index.css`:
+
+```css
+:root {
+  /* The "Mechanical Snap" Curve */
+  --ease-mechanical: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Shading Overlays */
+  --elevate-1: rgba(255,255,255, .04); /* Hover */
+  --elevate-2: rgba(255,255,255, .09); /* Active */
+}
+
+/* The Protocol Class */
+.snap-transition {
+  transition-property: color, background-color, border-color, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: var(--ease-mechanical);
+}
+```
