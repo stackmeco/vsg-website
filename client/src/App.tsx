@@ -21,6 +21,7 @@ const Terms = lazy(() => import("@/pages/Terms"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 
+const ApproachPage = lazy(() => import("@/pages/approach/Approach"));
 const PillarsPage = lazy(() => import("@/pages/approach/Pillars"));
 const ProcessPage = lazy(() => import("@/pages/Process"));
 const StandardsPage = lazy(() => import("@/pages/Standards"));
@@ -37,7 +38,7 @@ function usePreloadPages() {
         () => import("@/pages/Ventures"),
         () => import("@/pages/Insights"),
         () => import("@/pages/Connect"),
-        () => import("@/pages/approach/Pillars"),
+        () => import("@/pages/approach/Approach"),
         () => import("@/pages/studio/Studio"),
       ];
 
@@ -89,6 +90,7 @@ function Router() {
         <Route path="/ventures/:slug" component={VentureDetail} />
         
         {/* Approach */}
+        <Route path="/approach" component={ApproachPage} />
         <Route path="/approach/pillars" component={PillarsPage} />
         <Route path="/approach/process" component={ProcessPage} />
         <Route path="/approach/standards" component={StandardsPage} />

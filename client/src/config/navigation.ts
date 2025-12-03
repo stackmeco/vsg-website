@@ -28,8 +28,9 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     label: "Approach",
-    href: "/approach/pillars",
+    href: "/approach",
     children: [
+      { label: "Approach", href: "/approach", description: "How we sequence pillars, process, and standards" },
       { label: "Pillars", href: "/approach/pillars", description: "Our foundational principles" },
       { label: "Process", href: "/approach/process", description: "How we build and validate ventures" },
       { label: "Standards", href: "/approach/standards", description: "Enterprise-grade quality benchmarks" },
