@@ -82,6 +82,10 @@ export default {
           offline: "rgb(156 163 175)",
         },
       },
+      fontSize: {
+        "2xs": ["0.667rem", { lineHeight: "1.2" }],
+        "btn": ["0.8rem", { lineHeight: "1.25" }],
+      },
       fontFamily: {
         sans: ['Manrope', 'sans-serif'],
         heading: ['Space Grotesk', 'sans-serif'],

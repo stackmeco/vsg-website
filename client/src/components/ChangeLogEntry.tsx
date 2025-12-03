@@ -23,11 +23,11 @@ export function ChangeLogEntry({
       data-testid={`changelog-${date}`}
     >
       <div className="flex items-center gap-3 flex-shrink-0">
-        <span className="text-[11px] font-mono text-muted-foreground w-24">
+        <span className="text-xs font-mono text-muted-foreground w-24">
           {date}
         </span>
         {version && (
-          <Badge variant="outline" className="font-mono text-[10px]">
+          <Badge variant="outline" className="font-mono text-2xs">
             {version}
           </Badge>
         )}

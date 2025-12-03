@@ -99,7 +99,7 @@ export default function Overview() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
           <div className="grid lg:grid-cols-[1fr,320px] gap-12 items-center">
             <div className="max-w-2xl">
-              <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-6">
+              <p className="text-2xs font-mono uppercase tracking-widest text-primary mb-6">
                 Two-founder studio
               </p>
               <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-[1.1] tracking-tight mb-6">
@@ -127,11 +127,11 @@ export default function Overview() {
 
               {/* Project Chips - "Active Ventures" */}
               <div className="flex flex-wrap items-center gap-3 border-t border-border pt-6">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Active Ventures:</span>
+                <span className="text-2xs font-mono uppercase tracking-widest text-muted-foreground">Active Ventures:</span>
                 <div className="flex flex-wrap gap-2">
                   {["Axiom", "Helios", "Stackme", "Lumina"].map((name) => (
                     <Link key={name} href={`/ventures/${name.toLowerCase()}`} data-testid={`chip-project-${name.toLowerCase()}`}>
-                      <span className="px-2.5 py-1 rounded-[2px] border border-border bg-secondary text-muted-foreground hover:text-primary hover:border-primary/30 text-[10px] font-mono uppercase tracking-widest transition-colors cursor-pointer">
+                      <span className="px-2.5 py-1 rounded-[2px] border border-border bg-secondary text-muted-foreground hover:text-primary hover:border-primary/30 text-2xs font-mono uppercase tracking-widest transition-colors cursor-pointer">
                         {name}
                       </span>
                     </Link>
@@ -243,7 +243,7 @@ export default function Overview() {
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
+            <p className="text-2xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Venture portfolio
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
@@ -282,7 +282,7 @@ export default function Overview() {
       <section className="py-20 bg-card" data-testid="section-bitcoin">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
+            <p className="text-2xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Capital foundation
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
@@ -302,7 +302,7 @@ export default function Overview() {
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
+            <p className="text-2xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Operating principles
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">

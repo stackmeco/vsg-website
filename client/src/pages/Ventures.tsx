@@ -67,7 +67,7 @@ export default function Ventures() {
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
-            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
+            <p className="text-2xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Active portfolio
             </p>
             <div className="flex flex-wrap items-center justify-between gap-4">

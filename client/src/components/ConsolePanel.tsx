@@ -38,7 +38,7 @@ export function ConsolePanel({
     >
       {title && (
         <div className="flex items-center justify-between">
-          <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
+          <span className="text-2xs font-mono text-muted-foreground uppercase tracking-widest">
             {title}
           </span>
           <span className="w-2 h-2 rounded-full bg-primary animate-glow-pulse" />
