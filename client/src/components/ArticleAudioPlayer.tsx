@@ -162,7 +162,7 @@ export function ArticleAudioPlayer({ audioSrc, articleTitle }: ArticleAudioPlaye
               "Article Briefing"
             )}
           </span>
-          <span className="font-mono text-xs text-muted-foreground">
+          <span className="font-mono text-sm text-muted-foreground">
             {hasError ? "--:--" : `${currentTime} / ${duration}`}
           </span>
         </div>
@@ -171,7 +171,7 @@ export function ArticleAudioPlayer({ audioSrc, articleTitle }: ArticleAudioPlaye
           {hasError ? (
             <div className="flex flex-col items-center justify-center gap-3">
               <AlertCircle className="w-8 h-8 text-muted-foreground/50" />
-              <p className="text-xs text-muted-foreground font-mono text-center px-4">
+              <p className="text-sm text-muted-foreground font-mono text-center px-4">
                 Audio briefing could not be loaded.<br />Please try again later.
               </p>
             </div>
@@ -247,14 +247,14 @@ export function ArticleAudioPlayer({ audioSrc, articleTitle }: ArticleAudioPlaye
 
         <div className="p-5 space-y-4">
           <h3 className="font-heading text-base text-foreground line-clamp-2">{articleTitle}</h3>
-          <p className="text-xs text-muted-foreground font-mono leading-relaxed border-l-2 border-primary/30 pl-3">
+          <p className="text-sm text-muted-foreground font-mono leading-relaxed border-l-2 border-primary/30 pl-3">
             Listen to this thesis article as an audio briefing. Pre-recorded for clarity and convenience.
           </p>
           <Button 
             variant="ghost" 
             size="sm" 
             onClick={() => setIsOpen(false)} 
-            className="w-full text-xs font-mono text-muted-foreground hover:text-foreground uppercase tracking-wider"
+            className="w-full text-sm font-mono text-muted-foreground hover:text-foreground uppercase tracking-wider"
             data-testid="button-close-article-audio"
           >
             Close Briefing

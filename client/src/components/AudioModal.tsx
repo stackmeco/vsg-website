@@ -150,7 +150,7 @@ export function AudioModal() {
               "Executive Briefing"
             )}
           </span>
-          <span className="font-mono text-xs text-muted-foreground">
+          <span className="font-mono text-sm text-muted-foreground">
             {hasError ? "~02:00" : `${currentTime} / ${duration}`}
           </span>
         </div>
@@ -159,7 +159,7 @@ export function AudioModal() {
           {hasError ? (
             <div className="flex flex-col items-center justify-center gap-3">
               <AlertCircle className="w-8 h-8 text-muted-foreground/50" />
-              <p className="text-xs text-muted-foreground font-mono text-center px-4">
+              <p className="text-sm text-muted-foreground font-mono text-center px-4">
                 Audio briefing is being prepared.<br />Check back soon.
               </p>
             </div>
@@ -235,14 +235,14 @@ export function AudioModal() {
 
         <div className="p-5 space-y-4">
           <h3 className="font-heading text-base text-foreground">Operational Briefing</h3>
-          <p className="text-xs text-muted-foreground font-mono leading-relaxed border-l-2 border-primary/30 pl-3">
+          <p className="text-sm text-muted-foreground font-mono leading-relaxed border-l-2 border-primary/30 pl-3">
             "We are an engineering lab focused on a single structural problem: The incompatibility between autonomous software and legacy infrastructure..."
           </p>
           <Button 
             variant="ghost" 
             size="sm" 
             onClick={() => setIsOpen(false)} 
-            className="w-full text-xs font-mono text-muted-foreground hover:text-foreground uppercase tracking-wider"
+            className="w-full text-sm font-mono text-muted-foreground hover:text-foreground uppercase tracking-wider"
             data-testid="button-close-briefing"
           >
             Close Briefing

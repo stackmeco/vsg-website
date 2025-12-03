@@ -34,7 +34,7 @@ export function ProjectTile({ slug, name, stage, stageVariant, description, expl
             </p>
             <ul className="space-y-1">
               {exploring.map((item, index) => (
-                <li key={index} className="text-xs text-foreground flex items-start gap-2">
+                <li key={index} className="text-sm text-foreground flex items-start gap-2">
                   <span className="w-1 h-1 rounded-full bg-primary mt-1.5 flex-shrink-0" />
                   {item}
                 </li>
@@ -44,7 +44,7 @@ export function ProjectTile({ slug, name, stage, stageVariant, description, expl
         )}
         <Link 
           href={href} 
-          className="inline-flex items-center gap-1.5 text-xs text-primary font-medium hover:text-primary/80 transition-colors"
+          className="inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:text-primary/80 transition-colors"
           data-testid={`link-project-${name.toLowerCase().replace(/\s+/g, "-")}`}
         >
           View Specification

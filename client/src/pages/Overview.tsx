@@ -127,11 +127,11 @@ export default function Overview() {
 
               {/* Project Chips - "Active Ventures" */}
               <div className="flex flex-wrap items-center gap-3 border-t border-border pt-6">
-                <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Active Ventures:</span>
+                <span className="text-sm font-mono uppercase tracking-widest text-muted-foreground">Active Ventures:</span>
                 <div className="flex flex-wrap gap-2">
                   {["Axiom", "Helios", "Stackme", "Lumina"].map((name) => (
                     <Link key={name} href={`/ventures/${name.toLowerCase()}`} data-testid={`chip-project-${name.toLowerCase()}`}>
-                      <span className="px-2.5 py-1 rounded-[2px] border border-border bg-secondary text-muted-foreground hover:text-primary hover:border-primary/30 text-xs font-mono uppercase tracking-widest transition-colors cursor-pointer">
+                      <span className="px-2.5 py-1 rounded-[2px] border border-border bg-secondary text-muted-foreground hover:text-primary hover:border-primary/30 text-sm font-mono uppercase tracking-widest transition-colors cursor-pointer">
                         {name}
                       </span>
                     </Link>

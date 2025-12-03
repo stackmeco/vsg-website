@@ -94,7 +94,7 @@ export default function LibraryArticle() {
               {article.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs font-mono text-muted-foreground bg-secondary px-2.5 py-1 rounded"
+                  className="text-sm font-mono text-muted-foreground bg-secondary px-2.5 py-1 rounded"
                 >
                   {tag}
                 </span>

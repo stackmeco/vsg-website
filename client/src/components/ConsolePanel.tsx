@@ -52,7 +52,7 @@ export function ConsolePanel({
       {metrics && metrics.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2 border-t border-border">
           {metrics.map((metric, index) => (
-            <div key={index} className="font-mono text-xs">
+            <div key={index} className="font-mono text-sm">
               <span className="text-muted-foreground">{metric.label}: </span>
               <span className="text-primary tabular-nums tracking-tight">{metric.value}</span>
             </div>

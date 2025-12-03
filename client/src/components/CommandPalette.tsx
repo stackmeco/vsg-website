@@ -88,7 +88,7 @@ export function CommandPalette() {
         autoFocus
       />
       <CommandList>
-        {!hasResults && <CommandEmpty className="font-mono text-xs text-muted-foreground py-6 text-center">NO MATCHING RECORDS</CommandEmpty>}
+        {!hasResults && <CommandEmpty className="font-mono text-sm text-muted-foreground py-6 text-center">NO MATCHING RECORDS</CommandEmpty>}
         {sortedGroups.map((groupId, index) => {
           const results = searchResults.get(groupId) ?? [];
           if (results.length === 0) return null;
@@ -107,7 +107,7 @@ export function CommandPalette() {
                   >
                     <entry.icon className="mr-2 h-4 w-4 text-muted-foreground" />
                     <span className="truncate">{entry.name}</span>
-                    <span className="ml-auto text-xs text-muted-foreground truncate max-w-[200px]">
+                    <span className="ml-auto text-sm text-muted-foreground truncate max-w-[200px]">
                       {entry.description}
                     </span>
                   </CommandItem>
@@ -118,9 +118,9 @@ export function CommandPalette() {
         })}
       </CommandList>
       <div className="border-t border-border px-3 py-2">
-        <p className="text-xs text-muted-foreground text-center font-mono">
-          <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-xs font-medium text-muted-foreground">
-            <span className="text-xs">⌘</span>K
+        <p className="text-sm text-muted-foreground text-center font-mono">
+          <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-sm font-medium text-muted-foreground">
+            <span className="text-sm">⌘</span>K
           </kbd>
           {" "}toggle | {searchResults.size} groups indexed
         </p>

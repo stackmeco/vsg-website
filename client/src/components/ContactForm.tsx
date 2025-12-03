@@ -123,7 +123,7 @@ export function ContactForm({ className }: ContactFormProps) {
         <p className="text-muted-foreground mb-4">
           Your inquiry has been recorded for review. We will contact you if there is strategic alignment.
         </p>
-        <p className="text-xs font-mono text-muted-foreground/70">
+        <p className="text-sm font-mono text-muted-foreground/70">
           Reference ID: <span className="text-primary">{refId}</span>
         </p>
       </div>
@@ -315,7 +315,7 @@ export function ContactForm({ className }: ContactFormProps) {
               "Send Message"
             )}
           </Button>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             We never share your information with third parties.
           </p>
         </div>

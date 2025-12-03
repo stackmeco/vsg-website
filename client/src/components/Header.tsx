@@ -72,7 +72,7 @@ export function Header() {
                 key={item.name} 
                 href={item.href}
                 className={cn(
-                  "px-3 py-2 text-xs font-mono uppercase tracking-widest transition-all duration-150 rounded-[2px] border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                  "px-3 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150 rounded-[2px] border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                   isActive(item.href)
                     ? "text-primary bg-primary/10 border-primary/20"
                     : "text-muted-foreground hover:text-foreground hover:bg-card/80 hover:border-primary/30"
@@ -88,7 +88,7 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-xs font-mono text-muted-foreground hover:text-foreground gap-1.5"
+                className="text-sm font-mono text-muted-foreground hover:text-foreground gap-1.5"
                 onClick={() => {
                   const event = new KeyboardEvent("keydown", { key: "k", metaKey: true });
                   document.dispatchEvent(event);

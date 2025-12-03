@@ -59,7 +59,7 @@ export function InsightCard({
           <Badge variant="secondary" className="text-xs">
             {category}
           </Badge>
-          <span className="text-xs font-mono text-muted-foreground">{date}</span>
+          <span className="text-sm font-mono text-muted-foreground">{date}</span>
         </div>
         <h3 className="font-heading font-semibold text-foreground mb-2 line-clamp-2">
           {title}
@@ -69,7 +69,7 @@ export function InsightCard({
         </p>
         <Link
           href={`/insights/${slug}`}
-          className="inline-flex items-center gap-1 text-xs font-mono uppercase tracking-wide text-primary group-hover:gap-2 transition-all"
+          className="inline-flex items-center gap-1 text-sm font-mono uppercase tracking-wide text-primary group-hover:gap-2 transition-all"
         >
           Read Analysis
           <ArrowRight className="w-3.5 h-3.5" />

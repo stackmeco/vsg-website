@@ -267,7 +267,7 @@ export default function Governance() {
                     Promising returns or fixed income
                   </li>
                 </ul>
-                <p className="text-xs text-muted-foreground mt-4 italic">
+                <p className="text-sm text-muted-foreground mt-4 italic">
                   This mirrors how some public companies use Bitcoin as a treasury reserve, but at far smaller scale and with more conservative leverage.
                 </p>
               </CardContent>
@@ -284,7 +284,7 @@ export default function Governance() {
                   <CardContent className="p-4">
                     <div className="flex items-center gap-2 mb-2">
                       <Lock className="w-4 h-4 text-primary" />
-                      <span className="text-xs font-mono text-muted-foreground">Control {index + 1}</span>
+                      <span className="text-sm font-mono text-muted-foreground">Control {index + 1}</span>
                     </div>
                     <p className="text-sm text-foreground">{control}</p>
                   </CardContent>
@@ -348,7 +348,7 @@ export default function Governance() {
                 <CardContent className="p-6">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                     <h4 className="font-heading font-semibold text-lg text-foreground">{project.name}</h4>
-                    <span className="text-xs font-mono text-muted-foreground bg-secondary px-2 py-1 rounded" data-testid={`status-${project.name.toLowerCase().replace(/\s+/g, "-")}`}>
+                    <span className="text-sm font-mono text-muted-foreground bg-secondary px-2 py-1 rounded" data-testid={`status-${project.name.toLowerCase().replace(/\s+/g, "-")}`}>
                       {project.status}
                     </span>
                   </div>

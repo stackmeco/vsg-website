@@ -43,7 +43,7 @@ export default function Contact() {
                 <h3 className="font-heading font-semibold text-base text-foreground mb-4">
                   We'd like to hear from
                 </h3>
-                <ul className="space-y-4 text-xs text-muted-foreground">
+                <ul className="space-y-4 text-sm text-muted-foreground">
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     <span>
@@ -65,10 +65,10 @@ export default function Contact() {
                 </ul>
 
                 <div className="mt-8 pt-6 border-t border-border">
-                  <h4 className="text-xs font-medium text-foreground mb-2">
+                  <h4 className="text-sm font-medium text-foreground mb-2">
                     What to expect
                   </h4>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     We respond within 3-5 business days to aligned inquiries. We do not send unsolicited outreach.
                   </p>
                 </div>

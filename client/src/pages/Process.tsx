@@ -174,7 +174,7 @@ export default function Process() {
                 Allow strategic Bitcoin accumulation during market downturns.
               </li>
             </ul>
-            <p className="text-xs text-muted-foreground italic">
+            <p className="text-sm text-muted-foreground italic">
               This is an internal program. We do not manage external capital or offer yield products.
             </p>
           </div>
