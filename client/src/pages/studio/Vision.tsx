@@ -11,79 +11,93 @@ export default function Vision() {
       <PageMeta 
         title="Our Vision" 
         description="Where we're heading. A future where verification replaces trust and individuals control their own identity, treasury, and access."
+        preloadImage="/hero-texture.png"
       />
       
       {/* Hero Section */}
-      <section 
-        className="relative min-h-[40vh] flex items-center border-b border-border" 
-        data-testid="section-hero"
-      >
+      <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage: `url(/hero-texture.png)`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.35,
+          }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background from-20% via-background/50 to-background/30 pointer-events-none" aria-hidden="true" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" aria-hidden="true" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-          <span className="text-sm font-mono uppercase tracking-widest text-primary mb-4 block" data-testid="text-category">
-            Studio
-          </span>
-          <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6" data-testid="text-page-title">
-            Our Vision
-          </h1>
-          <p className="text-lg text-foreground max-w-2xl leading-relaxed" data-testid="text-tldr">
-            A future where trust is engineered, not assumed.
-          </p>
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-mono uppercase tracking-widest text-primary mb-6">
+              Studio
+            </p>
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
+              Our Vision
+            </h1>
+            <p className="text-lg text-foreground leading-relaxed">
+              A future where trust is engineered, not assumed.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* What's Broken Today */}
-      <section className="py-20" data-testid="section-broken">
+      <section className="py-20 bg-card" data-testid="section-broken">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-4">
-            <AlertTriangle className="w-5 h-5 text-destructive" />
-            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground">
-              What's broken today
-            </p>
+          <div className="max-w-3xl mb-8">
+            <div className="flex items-center gap-3 mb-2">
+              <AlertTriangle className="w-5 h-5 text-destructive" />
+              <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground">
+                What's broken today
+              </p>
+            </div>
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
+              The Current System
+            </h2>
           </div>
-          <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-8 max-w-2xl">
-            The current system is built on fragile assumptions
-          </h2>
           
-          <div className="max-w-3xl">
-            <ul className="space-y-4">
-              {visionBroken.map((item, index) => (
-                <li 
-                  key={index} 
-                  className="flex items-start gap-3 pl-4 border-l-2 border-destructive/30"
-                  data-testid={`broken-${index}`}
-                >
-                  <span className="text-base text-muted-foreground leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="max-w-3xl space-y-3">
+            {visionBroken.map((item, index) => (
+              <div 
+                key={index} 
+                className="pl-4 border-l-2 border-destructive/30"
+                data-testid={`text-broken-${index}`}
+              >
+                <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* The Future We're Building */}
-      <section className="py-20 bg-card" data-testid="section-future">
+      <section className="py-20" data-testid="section-future">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-4">
-            <Sparkles className="w-5 h-5 text-primary" />
-            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground">
-              The future we're building toward
-            </p>
+          <div className="max-w-3xl mb-8">
+            <div className="flex items-center gap-3 mb-2">
+              <Sparkles className="w-5 h-5 text-primary" />
+              <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground">
+                The future we're building toward
+              </p>
+            </div>
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
+              Engineered Trust
+            </h2>
           </div>
-          <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-8 max-w-2xl">
-            Engineered trust at every layer
-          </h2>
           
           <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
             {visionFuture.map((item, index) => (
               <Card 
                 key={index} 
-                className="bg-background border-border"
-                data-testid={`future-${index}`}
+                className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-future-${index}`}
               >
                 <CardContent className="p-6">
-                  <span className="text-base text-foreground leading-relaxed">{item}</span>
+                  <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
                 </CardContent>
               </Card>
             ))}
@@ -92,30 +106,30 @@ export default function Vision() {
       </section>
 
       {/* What Success Looks Like */}
-      <section className="py-20" data-testid="section-success">
+      <section className="py-20 bg-card" data-testid="section-success">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-4">
-            <Trophy className="w-5 h-5 text-primary" />
-            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground">
-              What success looks like
-            </p>
+          <div className="max-w-3xl mb-8">
+            <div className="flex items-center gap-3 mb-2">
+              <Trophy className="w-5 h-5 text-primary" />
+              <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground">
+                What success looks like
+              </p>
+            </div>
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
+              The World We're Building
+            </h2>
           </div>
-          <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-8 max-w-2xl">
-            The world we're working toward
-          </h2>
           
-          <div className="max-w-3xl">
-            <ul className="space-y-4">
-              {visionSuccess.map((item, index) => (
-                <li 
-                  key={index} 
-                  className="flex items-start gap-3 pl-4 border-l-2 border-primary/30"
-                  data-testid={`success-${index}`}
-                >
-                  <span className="text-base text-foreground leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="max-w-3xl space-y-3">
+            {visionSuccess.map((item, index) => (
+              <div 
+                key={index} 
+                className="pl-4 border-l-2 border-primary/30"
+                data-testid={`text-success-${index}`}
+              >
+                <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
