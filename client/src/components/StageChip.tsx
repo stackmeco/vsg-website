@@ -16,14 +16,26 @@ const variantStyles: Record<StageVariant, string> = {
   evolution: "bg-purple-500/15 text-purple-400 border-purple-500/30",
 };
 
+const stageDescriptions: Record<StageVariant, string> = {
+  definition: "Strategic Definition: Early planning and requirements phase",
+  validation: "Validation: Testing and verification phase",
+  build: "Build: Active development and implementation phase",
+  deployment: "Deployment: Release and production launch phase",
+  evolution: "Evolution: Continuous improvement and iteration phase",
+};
+
 export function StageChip({ stage, variant = "definition", className }: StageChipProps) {
+  const description = stageDescriptions[variant];
+  
   return (
     <span
       className={cn(
-        "inline-flex items-center px-2.5 py-1 rounded-[2px] text-sm font-mono font-medium uppercase tracking-widest border",
+        "inline-flex items-center px-2.5 py-1 rounded-[2px] text-sm font-mono font-medium uppercase tracking-widest border whitespace-nowrap",
         variantStyles[variant],
         className
       )}
+      aria-label={description}
+      title={description}
       data-testid={`chip-stage-${stage.toLowerCase().replace(/\s+/g, "-")}`}
     >
       {stage}

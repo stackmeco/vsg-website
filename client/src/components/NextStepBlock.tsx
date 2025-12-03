@@ -21,7 +21,7 @@ export function NextStepBlock({ label = "Next", nextPage, description, href }: N
             {nextPage}
           </h3>
           <p className="text-base text-muted-foreground mb-6">{description}</p>
-          <Link href={href}>
+          <Link href={href} data-testid={`link-next-${href.replace(/\//g, "")}`}>
             <Button data-testid={`button-next-${href.replace(/\//g, "")}`}>
               Proceed
               <ArrowRight className="w-4 h-4" />

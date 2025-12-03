@@ -7,7 +7,8 @@ export default function Contact() {
     <Layout>
       <PageMeta 
         title="Connect" 
-        description="Start a conversation with the Verifiable Systems team. We welcome inquiries from partners aligned with our mission." 
+        description="Start a conversation with the Verifiable Systems team. We welcome inquiries from partners aligned with our mission."
+        preloadImage="/hero-texture.png"
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />

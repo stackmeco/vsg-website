@@ -13,7 +13,7 @@ export const articles: LibraryItem[] = [
   {
     title: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate",
     excerpt: "Creative writing thrives on variance. Treasury management demands precision. Why probabilistic models are structurally unfit for finance without a deterministic governor.",
-    date: "Dec 15, 2025",
+    date: "Nov 15, 2024",
     type: "Insight",
     tags: ["AI Safety", "Determinism", "Infrastructure"],
     slug: "insolvency-of-fiction",
@@ -21,7 +21,7 @@ export const articles: LibraryItem[] = [
   {
     title: "The Verification Standard: Charting the Great Reallocation",
     excerpt: "Fiscal dominance is no longer a theory; it is arithmetic. We map the multi-decade migration of capital from depreciating fiat ledgers to verifiable, on-chain bearer assets.",
-    date: "Nov 26, 2025",
+    date: "Oct 26, 2024",
     type: "Insight",
     tags: ["Bitcoin", "Macro", "Thesis"],
     slug: "verification-standard",
@@ -29,7 +29,7 @@ export const articles: LibraryItem[] = [
   {
     title: "Machine-Native Settlement: Why AI Agents Reject Legacy Banking",
     excerpt: "AI operates in milliseconds. Banking operates in days. Why the autonomous economy is physically incompatible with legacy rails—and why bearer assets are the only solution.",
-    date: "Oct 18, 2025",
+    date: "Sep 18, 2024",
     type: "Insight",
     tags: ["AI Agents", "Bitcoin", "Infrastructure"],
     slug: "machine-native-settlement",

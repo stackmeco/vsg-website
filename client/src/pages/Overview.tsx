@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
@@ -52,23 +51,12 @@ const principles = [
 ];
 
 export default function Overview() {
-  useEffect(() => {
-    const link = document.createElement("link");
-    link.rel = "preload";
-    link.as = "image";
-    link.href = gridTexture;
-    link.setAttribute("fetchpriority", "high");
-    document.head.appendChild(link);
-    return () => {
-      document.head.removeChild(link);
-    };
-  }, []);
-
   return (
     <Layout>
       <PageMeta 
         title="Mission" 
-        description="The Infrastructure of Autonomy. We are an innovation engine fusing the speed of AI with the security of Blockchain to verify truth, preserve wealth, and protect identity." 
+        description="The Infrastructure of Autonomy. We are an innovation engine fusing the speed of AI with the security of Blockchain to verify truth, preserve wealth, and protect identity."
+        preloadImage={gridTexture}
       />
       
       <section 
@@ -111,7 +99,7 @@ export default function Overview() {
                 We build the tools that verify truth, preserve wealth, and protect identity.
               </p>
 
-              <div className="flex flex-wrap gap-4 mb-10">
+              <div className="flex flex-wrap items-center gap-4 mb-10">
                 <Link href="/ventures">
                   <Button 
                     size="lg" 
@@ -244,6 +232,7 @@ export default function Overview() {
                 key={project.name} 
                 href={getProjectHref(project)}
                 className="group flex items-center justify-between p-4 hover:bg-primary/5 transition-colors duration-150"
+                data-testid={`link-venture-${project.name.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 {/* LEFT: Project Name (The Signal) */}
                 <div className="flex items-center gap-3">

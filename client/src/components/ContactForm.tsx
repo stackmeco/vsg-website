@@ -87,7 +87,7 @@ export function ContactForm({ className }: ContactFormProps) {
         setSubmitted(true);
         toast({
           title: "Message received",
-          description: "We'll respond if it's a clear fit for the studio.",
+          description: "Our founding team reviews every inquiry. Expect a response within 3-5 business days for aligned partnerships.",
         });
       } catch (error) {
         const errorMessage = "Failed to send message. Please try again.";
@@ -121,7 +121,7 @@ export function ContactForm({ className }: ContactFormProps) {
           SUBMISSION RECEIVED
         </h3>
         <p className="text-muted-foreground mb-4">
-          Your inquiry has been recorded for review. We will contact you if there is strategic alignment.
+          Our founding team reviews every inquiry. Expect a response within 3-5 business days for aligned partnerships.
         </p>
         <p className="text-sm font-mono text-muted-foreground/70">
           Reference ID: <span className="text-primary">{refId}</span>

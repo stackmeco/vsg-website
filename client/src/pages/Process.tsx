@@ -60,7 +60,8 @@ export default function Process() {
     <Layout>
       <PageMeta 
         title="Process" 
-        description="How we operate: our R&D process, Bitcoin treasury strategy, and the principles that govern our development lifecycle." 
+        description="How we operate: our R&D process, Bitcoin treasury strategy, and the principles that govern our development lifecycle."
+        preloadImage="/hero-texture.png"
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />
@@ -111,6 +112,9 @@ export default function Process() {
               />
             ))}
           </div>
+          <p className="text-sm text-muted-foreground mt-6">
+            After completing all six stages, ventures either graduate to independent operation or feed insights back into our research pipeline for future projects.
+          </p>
         </div>
       </section>
 
@@ -129,13 +133,13 @@ export default function Process() {
               const icons = [Terminal, Layers, Hash];
               const Icon = icons[index % icons.length];
               return (
-                <Card key={def.term} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-3 mb-3">
+                <Card key={def.term} className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
+                  <CardContent className="flex flex-col h-full p-6">
+                    <div className="flex items-start gap-3 mb-3 h-8">
                       <Icon className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                       <h3 className="font-heading font-semibold text-foreground">{def.term}</h3>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{def.definition}</p>
+                    <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{def.definition}</p>
                   </CardContent>
                 </Card>
               );

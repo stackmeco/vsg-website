@@ -70,6 +70,7 @@ export function InsightCard({
         <Link
           href={`/insights/${slug}`}
           className="inline-flex items-center gap-1 text-sm font-mono uppercase tracking-wide text-primary group-hover:gap-2 transition-all"
+          data-testid={`link-insight-${slug}`}
         >
           Read Analysis
           <ArrowRight className="w-3.5 h-3.5" />

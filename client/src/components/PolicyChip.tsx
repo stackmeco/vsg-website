@@ -37,6 +37,7 @@ export function PolicyChip({
   className,
 }: PolicyChipProps) {
   const { dot, glow } = variantStyles[variant];
+  const ariaLabel = meta ? `${label}: ${value} ${meta}` : `${label}: ${value}`;
 
   return (
     <div
@@ -46,6 +47,8 @@ export function PolicyChip({
         "font-mono text-xs tracking-wide",
         className
       )}
+      role="status"
+      aria-label={ariaLabel}
       data-testid={`chip-${label.toLowerCase().replace(/\s+/g, "-")}`}
     >
       <span

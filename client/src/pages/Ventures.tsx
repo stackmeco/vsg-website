@@ -35,7 +35,8 @@ export default function Ventures() {
     <Layout>
       <PageMeta 
         title="Ventures" 
-        description="Our venture portfolio: Helios, Axiom, Stackme, Lumina, and Uniqueness. Five projects moving through our development process, self-funded and stress-tested." 
+        description="Our venture portfolio: Helios, Axiom, Stackme, Lumina, and Uniqueness. Five projects moving through our development process, self-funded and stress-tested."
+        preloadImage="/hero-texture.png"
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />
@@ -116,7 +117,11 @@ export default function Ventures() {
                 </TableHeader>
                 <TableBody>
                   {projects.map((project) => (
-                    <TableRow key={project.name} className="hover:bg-card/50">
+                    <TableRow 
+                      key={project.name} 
+                      className="hover:bg-card/50"
+                      data-testid={`row-project-${project.name.toLowerCase().replace(/\s+/g, "-")}`}
+                    >
                       <TableCell className="font-heading font-semibold">
                         {project.name}
                       </TableCell>
@@ -128,7 +133,12 @@ export default function Ventures() {
                       </TableCell>
                       <TableCell className="text-right">
                         <Link href={getProjectHref(project)}>
-                          <Button variant="ghost" size="sm" className="gap-1">
+                          <Button 
+                            variant="ghost" 
+                            size="sm" 
+                            className="gap-1"
+                            data-testid={`button-view-${project.name.toLowerCase().replace(/\s+/g, "-")}`}
+                          >
                             View
                             <ArrowRight className="w-3 h-3" />
                           </Button>

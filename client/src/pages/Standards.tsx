@@ -84,7 +84,8 @@ export default function Governance() {
     <Layout>
       <PageMeta 
         title="Standards" 
-        description="Our governance framework: how decisions are made, how we manage risk, and our approach to compliance. Transparency over theater." 
+        description="Our governance framework: how decisions are made, how we manage risk, and our approach to compliance. Transparency over theater."
+        preloadImage="/hero-texture.png"
       />
       
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">

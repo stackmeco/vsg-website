@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription, SheetClose } from "@/components/ui/sheet";
 import { Menu, Search, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navItems = [
   { name: "Mission", href: "/", number: "01" },
@@ -62,7 +63,7 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
-            <div className="flex items-center gap-4 ml-4">
+            <div className="flex items-center gap-1 ml-4">
               <Button
                 variant="ghost"
                 size="sm"
@@ -79,6 +80,7 @@ export function Header() {
                   <span className="text-xs">⌘</span>K
                 </kbd>
               </Button>
+              <ThemeToggle />
             </div>
           </nav>
 
@@ -119,6 +121,7 @@ export function Header() {
                     >
                       <Search className="w-4 h-4" />
                     </Button>
+                    <ThemeToggle />
                     <SheetClose asChild>
                       <Button
                         variant="ghost"

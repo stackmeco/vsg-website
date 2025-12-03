@@ -1,6 +1,14 @@
 import type { StageVariant } from "@/components/StageChip";
 export type { StageVariant };
 
+export const STAGES = {
+  DEFINITION: "Strategic Definition",
+  VALIDATION: "Rapid Validation",
+  BUILD: "Verified Build",
+  DEPLOYMENT: "Controlled Deployment",
+  EVOLUTION: "Data-Driven Evolution",
+} as const;
+
 export interface Project {
   slug: string;
   name: string;
@@ -20,7 +28,7 @@ export const projects: Project[] = [
   {
     slug: "helios",
     name: "Helios",
-    stage: "Controlled Deployment",
+    stage: STAGES.DEPLOYMENT,
     stageVariant: "deployment",
     tagline: "Preserve Value.",
     description: "Autonomous treasury engine. v20.0 Production. Sub-4ms latency. It monitors market volatility 24/7 and manages treasury risk with sub-millisecond reaction times, far exceeding human capability.",
@@ -46,7 +54,7 @@ export const projects: Project[] = [
   {
     slug: "axiom",
     name: "Axiom",
-    stage: "Rapid Validation",
+    stage: STAGES.VALIDATION,
     stageVariant: "validation",
     tagline: "Validate Signal.",
     description: "Forcing AI to be deterministic and source-backed. Large Language Models (LLMs) are probabilistic; they guess. Axiom forces them to cite verified data sources, rendering AI reliable enough for enterprise use.",
@@ -72,7 +80,7 @@ export const projects: Project[] = [
   {
     slug: "stackme",
     name: "Stackme",
-    stage: "Verified Build",
+    stage: STAGES.BUILD,
     stageVariant: "build",
     tagline: "Bitcoin-Backed Credit.",
     description: "A transparent lending interface allowing users to borrow against Bitcoin. Engineered to eliminate the hidden risks and predatory terms often found in crypto lending.",
@@ -97,7 +105,7 @@ export const projects: Project[] = [
   {
     slug: "lumina",
     name: "Lumina",
-    stage: "Strategic Definition",
+    stage: STAGES.DEFINITION,
     stageVariant: "definition",
     tagline: "Physical Asset Twins.",
     description: "Linking high-value physical items to the blockchain via optical surface scanning. This creates a forgery-proof digital certificate for trading real-world assets.",
@@ -123,7 +131,7 @@ export const projects: Project[] = [
   {
     slug: "uniqueness-engine",
     name: "Uniqueness",
-    stage: "Strategic Definition",
+    stage: STAGES.DEFINITION,
     stageVariant: "definition",
     tagline: "Protect Identity.",
     description: "Validating human identity online without biometric surveillance. A privacy-first layer to prevent bot spam and ensure fair access.",

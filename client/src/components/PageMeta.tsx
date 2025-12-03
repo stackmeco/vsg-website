@@ -7,6 +7,7 @@ interface PageMetaProps {
   image?: string;
   type?: "website" | "article";
   publishedTime?: string;
+  preloadImage?: string;
 }
 
 const BASE_URL = "https://verifiablesystems.com";
@@ -17,7 +18,8 @@ export function PageMeta({
   description, 
   image = DEFAULT_IMAGE,
   type = "website",
-  publishedTime
+  publishedTime,
+  preloadImage
 }: PageMetaProps) {
   const [location] = useLocation();
   const fullTitle = `${title} | Verifiable Systems`;
@@ -69,7 +71,23 @@ export function PageMeta({
     if (type === "article" && publishedTime) {
       setMeta('meta[property="article:published_time"]', "content", publishedTime);
     }
-  }, [title, description, image, type, publishedTime, fullTitle, canonicalUrl, imageUrl]);
+
+    let preloadLink: HTMLLinkElement | null = null;
+    if (preloadImage) {
+      preloadLink = document.createElement("link");
+      preloadLink.rel = "preload";
+      preloadLink.as = "image";
+      preloadLink.href = preloadImage;
+      preloadLink.setAttribute("fetchpriority", "high");
+      document.head.appendChild(preloadLink);
+    }
+
+    return () => {
+      if (preloadLink) {
+        document.head.removeChild(preloadLink);
+      }
+    };
+  }, [title, description, image, type, publishedTime, fullTitle, canonicalUrl, imageUrl, preloadImage]);
 
   return null;
 }

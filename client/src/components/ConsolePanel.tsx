@@ -31,9 +31,9 @@ export function ConsolePanel({
       className={cn(
         "bg-card/90 backdrop-blur-sm rounded-sm border border-border",
         "p-4 flex flex-col gap-3",
+        "shadow-[0_0_30px_-10px_hsl(var(--primary)/0.15)]",
         className
       )}
-      style={{ boxShadow: "0 0 30px -10px rgba(242, 109, 33, 0.15)" }}
       data-testid="console-panel"
     >
       {title && (

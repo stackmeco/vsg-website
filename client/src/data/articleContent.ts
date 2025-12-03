@@ -16,11 +16,11 @@ export interface ArticleContent {
 export const articleContent: Record<string, ArticleContent> = {
   "insolvency-of-fiction": {
     title: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate",
-    date: "December 15, 2025",
+    date: "November 15, 2024",
     type: "Insight",
     tags: ["AI Safety", "Determinism", "Infrastructure"],
     description: "Creative writing thrives on variance. Treasury management demands precision. Why probabilistic models are structurally unfit for finance without a deterministic governor.",
-    publishedTime: "2025-12-15",
+    publishedTime: "2024-11-15",
     content: [
       {
         heading: "I. The Probabilistic Trap",
@@ -49,11 +49,11 @@ export const articleContent: Record<string, ArticleContent> = {
   },
   "verification-standard": {
     title: "The Verification Standard: Charting the Great Reallocation",
-    date: "November 26, 2025",
+    date: "October 26, 2024",
     type: "Insight",
     tags: ["Bitcoin", "Macro", "Thesis"],
     description: "Fiscal dominance is no longer a theory; it is arithmetic. We map the multi-decade migration of capital from depreciating fiat ledgers to verifiable, on-chain bearer assets.",
-    publishedTime: "2025-11-26",
+    publishedTime: "2024-10-26",
     content: [
       {
         heading: "I. The Macro Regime Shift: Entering Fiscal Dominance",
@@ -83,11 +83,11 @@ export const articleContent: Record<string, ArticleContent> = {
   },
   "machine-native-settlement": {
     title: "Machine-Native Settlement: Why AI Agents Reject Legacy Banking",
-    date: "October 18, 2025",
+    date: "September 18, 2024",
     type: "Insight",
     tags: ["AI Agents", "Bitcoin", "Infrastructure"],
     description: "AI operates in milliseconds. Banking operates in days. Why the autonomous economy is physically incompatible with legacy rails—and why bearer assets are the only solution.",
-    publishedTime: "2025-10-18",
+    publishedTime: "2024-09-18",
     content: [
       {
         heading: "I. The Unbanked Economy of the Future",

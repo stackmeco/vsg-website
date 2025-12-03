@@ -21,35 +21,36 @@ export function AudioModal() {
   };
 
   useEffect(() => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio("/system_briefing.mp3");
-      
-      audioRef.current.addEventListener("loadedmetadata", () => {
-        if (audioRef.current) {
-          setDuration(formatTime(audioRef.current.duration));
-          setHasError(false);
-        }
-      });
-      
-      audioRef.current.addEventListener("error", () => {
-        setHasError(true);
-      });
-      
-      audioRef.current.addEventListener("timeupdate", () => {
-        if (audioRef.current) {
-          const pct = (audioRef.current.currentTime / audioRef.current.duration) * 100;
-          setProgress(isNaN(pct) ? 0 : pct);
-          setCurrentTime(formatTime(audioRef.current.currentTime));
-        }
-      });
-      
-      audioRef.current.addEventListener("ended", () => {
-        setIsPlaying(false);
-        setProgress(0);
-        setCurrentTime("00:00");
-      });
-    }
-  }, []);
+    if (!isOpen) return;
+    if (audioRef.current) return;
+
+    audioRef.current = new Audio("/system_briefing.mp3");
+    
+    audioRef.current.addEventListener("loadedmetadata", () => {
+      if (audioRef.current) {
+        setDuration(formatTime(audioRef.current.duration));
+        setHasError(false);
+      }
+    });
+    
+    audioRef.current.addEventListener("error", () => {
+      setHasError(true);
+    });
+    
+    audioRef.current.addEventListener("timeupdate", () => {
+      if (audioRef.current) {
+        const pct = (audioRef.current.currentTime / audioRef.current.duration) * 100;
+        setProgress(isNaN(pct) ? 0 : pct);
+        setCurrentTime(formatTime(audioRef.current.currentTime));
+      }
+    });
+    
+    audioRef.current.addEventListener("ended", () => {
+      setIsPlaying(false);
+      setProgress(0);
+      setCurrentTime("00:00");
+    });
+  }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen && isPlaying) {
