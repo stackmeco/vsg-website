@@ -2,9 +2,8 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription, SheetClose } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/components/ui/sheet";
 import { Menu, Search, X } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navItems = [
   { name: "Mission", href: "/", number: "01" },
@@ -63,25 +62,22 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
-            <div className="flex items-center gap-1 ml-4">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-sm font-mono text-muted-foreground hover:text-foreground gap-1.5"
-                onClick={() => {
-                  const event = new KeyboardEvent("keydown", { key: "k", metaKey: true });
-                  document.dispatchEvent(event);
-                }}
-                data-testid="button-command-palette"
-                aria-label="Open command palette"
-              >
-                <Search className="w-3.5 h-3.5" />
-                <kbd className="pointer-events-none hidden sm:inline-flex h-5 select-none items-center gap-1 rounded-[2px] border border-border bg-muted px-1.5 font-mono text-xs font-medium text-muted-foreground">
-                  <span className="text-xs">⌘</span>K
-                </kbd>
-              </Button>
-              <ThemeToggle />
-            </div>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-sm font-mono text-muted-foreground hover:text-foreground gap-1.5 ml-4"
+              onClick={() => {
+                const event = new KeyboardEvent("keydown", { key: "k", metaKey: true });
+                document.dispatchEvent(event);
+              }}
+              data-testid="button-command-palette"
+              aria-label="Open command palette"
+            >
+              <Search className="w-3.5 h-3.5" />
+              <kbd className="pointer-events-none hidden sm:inline-flex h-5 select-none items-center gap-1 rounded-[2px] border border-border bg-muted px-1.5 font-mono text-xs font-medium text-muted-foreground">
+                <span className="text-xs">⌘</span>K
+              </kbd>
+            </Button>
           </nav>
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -121,7 +117,6 @@ export function Header() {
                     >
                       <Search className="w-4 h-4" />
                     </Button>
-                    <ThemeToggle />
                     <SheetClose asChild>
                       <Button
                         variant="ghost"

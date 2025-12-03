@@ -52,8 +52,7 @@ The site follows a "control room aesthetic" with a dark theme emphasizing instit
 - **ErrorBoundary**: Wrapped main content in Layout for graceful error recovery
 
 ### Theme & Design Updates (December 2025)
-- **ThemeToggle**: New component with dark/light toggle, localStorage persistence ("vsg-theme")
-- **System preference fallback**: Respects prefers-color-scheme on first visit
+- **Dark-only theme**: Site enforces dark mode only (user preference)
 - **Process page**: Fixed definition card alignment with fixed icon heights
 - **Process page**: Added outcome messaging after stage 6 (graduate or feed back)
 - **Hero CTAs**: Added items-center to flex container for height alignment
