@@ -613,7 +613,7 @@
   border-color: hsl(var(--primary) / 0.3);
 }
 
-/* Trigger specific styling */
+/* Trigger specific styling - no border, let wrapper handle it */
 .nav-menu-trigger {
   border: 1px solid transparent;
 }
@@ -629,24 +629,18 @@
 }
 
 /* === STATE: This tab IS the active dropdown === */
-/* Full border on 3 sides, bottom border matches card to blend with panel */
+/* Background matches card, no individual border - wrapper draws it */
 .nav-menu-item[data-dropdown-active="true"] {
   z-index: 110;
 }
 
 .nav-menu-item[data-dropdown-active="true"] .nav-menu-trigger {
   background: hsl(var(--card)) !important;
-  border: 1px solid hsl(var(--primary) / 0.32) !important;
-  border-bottom-color: hsl(var(--card)) !important;
-  border-radius: 2px 2px 0 0;
-  position: relative;
-  z-index: 110;
-  /* Extend trigger down to overlap with viewport */
-  margin-bottom: -1px;
-  padding-bottom: calc(0.5rem + 1px);
+  color: hsl(var(--primary));
+  border-color: transparent !important;
 }
 
-/* Viewport wrapper - positioned absolutely below triggers */
+/* Viewport wrapper - contains both trigger overlay and panel */
 .nav-menu-viewport-wrapper {
   position: absolute;
   top: 100%;
@@ -655,14 +649,36 @@
   z-index: 99;
 }
 
-/* The dropdown panel - border on left, right, bottom */
+/* The dropdown panel - simple card background, no border */
 .nav-menu-viewport {
   width: 100%;
   background: hsl(var(--card));
   color: hsl(var(--card-foreground));
-  border: 1px solid hsl(var(--primary) / 0.32);
-  border-top: none;
+  border: none;
   border-radius: 0 0 2px 2px;
+}
+
+/* === UNIFIED BORDER: Draw one continuous border around active tab + panel === */
+/* This pseudo-element on the menu item draws the complete tab shape */
+.nav-menu-item[data-dropdown-active="true"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Extend down to cover the viewport */
+  bottom: calc(-1 * var(--radix-navigation-menu-viewport-height, 0px));
+  border: 1px solid hsl(var(--primary) / 0.32);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 105;
+  background: hsl(var(--card));
+}
+
+/* Position the trigger content above the border overlay */
+.nav-menu-item[data-dropdown-active="true"] .nav-menu-trigger {
+  position: relative;
+  z-index: 106;
 }
 
 /* Container styling when open */
@@ -672,6 +688,8 @@
 
 .nav-menu-content {
   width: 100%;
+  position: relative;
+  z-index: 106;
 }
 
 /* Terminal Text Selection - Developer/Hacker Polish */
