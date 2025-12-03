@@ -35,6 +35,33 @@ The site follows a "control room aesthetic" with a dark theme emphasizing instit
 - **SEO**: JSON-LD Organization schema added (founders, logo, description)
 - **PWA Support**: manifest.json with Tungsten palette colors, Add to Home Screen enabled
 
+### Accessibility & UX Improvements (December 2025)
+- **StageChip**: Added aria-labels with stage descriptions and title tooltips
+- **PolicyChip**: Added role="status" and dynamic aria-labels (label + value)
+- **ConsolePanel**: Replaced inline box-shadow with theme-compatible Tailwind shadow
+- **ProjectTile**: Consistent card heights with flexbox (h-full, flex-1, mt-auto)
+- **Insights**: Removed fake 150ms loading delay; content renders immediately on filter
+- **Footer**: Responsive gaps, dynamic copyright year, improved mobile spacing
+- **ContactForm**: Success toast includes SLA messaging (3-5 business days)
+- **data-testid**: Comprehensive coverage on ventures, links, buttons, and cards
+
+### Performance Optimizations (December 2025)
+- **AudioModal**: Lazy audio loading - file loads only when modal opens
+- **PageMeta**: Added preloadImage prop for hero texture preloading
+- **All pages**: Use preloadImage="/hero-texture.png" to prevent texture flash
+- **ErrorBoundary**: Wrapped main content in Layout for graceful error recovery
+
+### Theme & Design Updates (December 2025)
+- **ThemeToggle**: New component with dark/light toggle, localStorage persistence ("vsg-theme")
+- **System preference fallback**: Respects prefers-color-scheme on first visit
+- **Process page**: Fixed definition card alignment with fixed icon heights
+- **Process page**: Added outcome messaging after stage 6 (graduate or feed back)
+- **Hero CTAs**: Added items-center to flex container for height alignment
+
+### Data Consistency (December 2025)
+- **STAGES enum**: Created central const in projects.ts (DEFINITION, VALIDATION, BUILD, DEPLOYMENT, EVOLUTION)
+- **Article dates**: Updated from future (2025) to realistic past (2024)
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
