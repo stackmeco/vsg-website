@@ -1,32 +1,17 @@
 import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
-import { StageChip } from "@/components/StageChip";
-import { NextStepBlock } from "@/components/NextStepBlock";
-import { StatBlock } from "@/components/StatBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Zap, Eye, Shield, Cog, Users, Scale } from "lucide-react";
-import { AudioModal } from "@/components/AudioModal";
+import { ArrowRight } from "lucide-react";
 import gridTexture from "@assets/grid_texture.png";
-import { projects, getProjectHref } from "@/data/projects";
-import { values } from "@/data/studio";
-
-const valueIcons: Record<string, JSX.Element> = {
-  "ia": <Zap className="w-5 h-5" />,
-  "signal": <Eye className="w-5 h-5" />,
-  "ambition": <Shield className="w-5 h-5" />,
-  "engine": <Cog className="w-5 h-5" />,
-  "mirror": <Users className="w-5 h-5" />,
-  "multiplier": <Scale className="w-5 h-5" />,
-};
 
 export default function Overview() {
   return (
     <Layout>
       <PageMeta 
-        title="Mission" 
-        description="The Infrastructure of Autonomy. We are an innovation engine fusing the speed of AI with the security of Blockchain to verify truth, preserve wealth, and protect identity."
+        title="Verifiable Systems Group" 
+        description="Verifiable Systems Group is a venture studio that builds verifiable autonomy infrastructure—systems where AI, capital, and identity flows are observable, governed, and non-custodial by design."
         preloadImage={gridTexture}
       />
       
@@ -34,10 +19,7 @@ export default function Overview() {
         className="relative min-h-[85vh] flex items-center overflow-hidden border-b border-border" 
         data-testid="section-hero"
       >
-        {/* LAYER 1: The Tungsten Base (Fallback) */}
         <div className="absolute inset-0 bg-background" />
-
-        {/* LAYER 2: The "Structure" (Infrastructure Grid) */}
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
@@ -49,243 +31,276 @@ export default function Overview() {
           }}
           aria-hidden="true"
         />
-
-        {/* LAYER 3: The "Void" Gradients (Vignette) */}
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-background from-20% via-background/50 to-background/30 pointer-events-none" aria-hidden="true" />
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" aria-hidden="true" />
 
-        {/* LAYER 4: The Content */}
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-          <div className="grid lg:grid-cols-[1fr,320px] gap-12 items-center">
-            <div className="max-w-2xl">
-              <p className="text-sm font-mono uppercase tracking-widest text-primary mb-6">
-                Two-founder studio
-              </p>
-              <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-[1.1] tracking-tight mb-6">
-                The Infrastructure of Autonomy.
-              </h1>
-              
-              <p className="text-lg text-foreground leading-relaxed mb-8 max-w-xl">
-                We are an innovation engine fusing the speed of AI with the security of Blockchain. 
-                We build the tools that verify truth, preserve wealth, and protect identity.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 mb-10">
-                <Link href="/ventures">
-                  <Button 
-                    size="lg" 
-                    className="font-mono text-sm uppercase tracking-wider"
-                    data-testid="button-see-ventures"
-                  >
-                    See the Pipeline
-                    <ArrowRight className="w-3.5 h-3.5 ml-2" />
-                  </Button>
-                </Link>
-                <AudioModal />
-              </div>
-
-              {/* Project Chips - "Active Ventures" */}
-              <div className="flex flex-wrap items-center gap-3 border-t border-border pt-6">
-                <span className="text-sm font-mono uppercase tracking-widest text-muted-foreground">Active Ventures:</span>
-                <div className="flex flex-wrap gap-2">
-                  {["Axiom", "Helios", "Stackme", "Lumina"].map((name) => (
-                    <Link key={name} href={`/ventures/${name.toLowerCase()}`} data-testid={`chip-project-${name.toLowerCase()}`}>
-                      <span className="px-2.5 py-1 rounded-[2px] border border-border bg-secondary text-muted-foreground hover:text-primary hover:border-primary/30 text-sm font-mono uppercase tracking-widest transition-colors cursor-pointer">
-                        {name}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side: Studio Metrics */}
-            <div className="hidden lg:block relative z-20">
-              <div className="bg-card/80 backdrop-blur-sm border border-border rounded-[2px] p-6 space-y-6">
-                <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground">
-                  Studio metrics
-                </p>
-                <div className="space-y-6">
-                  <div data-testid="stat-projects">
-                    <StatBlock
-                      value="5"
-                      label="Active projects"
-                      subtext="In R&D pipeline"
-                      variant="primary"
-                    />
-                  </div>
-                  <div data-testid="stat-founders">
-                    <StatBlock
-                      value="2"
-                      label="Founders"
-                      subtext="Equity: Undiluted"
-                    />
-                  </div>
-                  <div data-testid="stat-selffunded">
-                    <StatBlock
-                      value="100%"
-                      label="Capitalization"
-                      subtext="Proprietary"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-card" data-testid="section-directive">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground mb-8">
-            The VSG Directive
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="bg-background border-border h-full">
-              <CardContent className="p-8 flex flex-col justify-center h-full">
-                <p className="text-sm font-mono uppercase tracking-wider text-primary mb-2">Purpose</p>
-                <h3 className="font-heading font-semibold text-2xl text-foreground mb-4">
-                  Democratize Leverage
-                </h3>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  To democratize institutional-grade leverage. We build tools that give individuals the same financial power as banks, without the intermediaries.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-background border-border h-full">
-              <CardContent className="p-8 flex flex-col justify-center h-full">
-                <p className="text-sm font-mono uppercase tracking-wider text-primary mb-2">Vision</p>
-                <h3 className="font-heading font-semibold text-2xl text-foreground mb-4">
-                  Engineered Trust
-                </h3>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  A future where "Trust" is an engineered feature, not a gamble. We replace blind faith with cryptographic proof and open code.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-background border-border md:col-span-2">
-              <CardContent className="p-8 md:p-10">
-                <div className="max-w-3xl">
-                  <p className="text-sm font-mono uppercase tracking-wider text-primary mb-2">The Mission</p>
-                  <h3 className="font-heading font-semibold text-2xl text-foreground mb-4">
-                    Verifiable Autonomy
-                  </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    We engineer the infrastructure of autonomy across three pillars: Validate Signal (Axiom), Preserve Value (Helios), and Protect Identity (Uniqueness).
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 relative" data-testid="section-ventures">
-        <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              Venture portfolio
+          <div className="max-w-2xl">
+            <p className="text-sm font-mono uppercase tracking-widest text-primary mb-6" data-testid="text-overline">
+              Verifiable Systems Group · Venture Studio
             </p>
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
-              Active Ventures
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              Five projects moving through our development process. Each venture is self-funded and stress-tested with our own capital before external deployment.
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-[1.1] tracking-tight mb-6" data-testid="text-hero-heading">
+              The infrastructure of verifiable autonomy.
+            </h1>
+            
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl" data-testid="text-hero-body">
+              We fuse the speed of intelligence automation with the assurances of modern cryptography to build systems where truth is provable, capital works without leaving your control, and identity is protected by design.
             </p>
-          </div>
-          <div className="border border-border rounded-[2px] bg-card divide-y divide-border">
-            {projects.map((project) => (
-              <Link 
-                key={project.name} 
-                href={getProjectHref(project)}
-                className="group flex items-center justify-between p-4 hover:bg-primary/5 transition-colors duration-150"
-                data-testid={`link-venture-${project.name.toLowerCase().replace(/\s+/g, "-")}`}
-              >
-                {/* LEFT: Project Name (The Signal) */}
-                <div className="flex items-center gap-3">
-                  <span className="font-heading font-semibold text-sm text-foreground tracking-tight group-hover:text-primary transition-colors">
-                    {project.name}
-                  </span>
-                </div>
 
-                {/* RIGHT: Stage + Indicator (The Context) */}
-                <div className="flex items-center gap-4">
-                  <StageChip stage={project.stage} variant={project.stageVariant} />
-                  
-                  <ArrowRight className="w-4 h-4 text-muted-foreground/50 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
-                </div>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link href="/ventures">
+                <Button 
+                  size="lg" 
+                  className="font-mono text-sm uppercase tracking-wider"
+                  data-testid="button-explore-ventures"
+                >
+                  Explore our ventures
+                  <ArrowRight className="w-3.5 h-3.5 ml-2" />
+                </Button>
               </Link>
-            ))}
+              <Link href="/approach">
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="font-mono text-sm uppercase tracking-wider"
+                  data-testid="button-how-we-work"
+                >
+                  How we work
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-bitcoin">
+      <section className="py-20 bg-card" data-testid="section-what-is-vsg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              Capital foundation
-            </p>
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
-              Powered by Bitcoin
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-whatis-heading">
+              What is Verifiable Systems Group?
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6">
-              Bitcoin serves as our reserve asset. Rather than liquidating capital to fund operations, we utilize responsible, over-collateralized borrowing. This sustains our long-term balance sheet while funding continuous innovation.
-            </p>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              We deploy our own capital first—aligning our incentives with every system we build.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-whatis-body">
+              Verifiable Systems Group (VSG) is a venture studio for verifiable systems—where critical behaviours can be inspected instead of hidden inside black boxes. We combine AI, cryptography, and non-custodial rails to build infrastructure that shifts power from centralized gatekeepers to the edge. Our work spans information, capital, and identity, but the mandate is constant: engineer trust as a feature, not a gamble.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 relative" data-testid="section-values">
-        <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" aria-hidden="true" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20" data-testid="section-three-ways">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              Operating principles
-            </p>
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
-              How We Work
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-threeways-heading">
+              Three ways we work
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {values.map((value) => (
-              <Card 
-                key={value.id} 
-                className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
-                data-testid={`principle-card-${value.shortName.toLowerCase().replace(/\s+/g, "-")}`}
-              >
-                <CardContent className="p-8">
-                  <div className="w-10 h-10 rounded-[2px] bg-primary/10 flex items-center justify-center text-primary mb-4">
-                    {valueIcons[value.id]}
-                  </div>
-                  <h3 className="font-heading font-semibold text-lg text-foreground mb-2">
-                    {value.shortName}
-                  </h3>
-                  <p className="text-base text-primary italic mb-3">
-                    "{value.quote}"
-                  </p>
-                  <p className="text-base text-foreground leading-relaxed">
-                    {value.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid="card-way-ventures">
+              <CardContent className="p-6 flex flex-col h-full">
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Ventures</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
+                  We incubate and operate a small, high-conviction portfolio of ventures that prove what verifiable systems can do in production—before we ever recommend an approach to anyone else.
+                </p>
+                <Link href="/ventures" className="text-sm text-primary hover:underline mt-auto" data-testid="link-way-ventures">
+                  View ventures →
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid="card-way-approach">
+              <CardContent className="p-6 flex flex-col h-full">
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Approach</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
+                  We apply a disciplined six-stage pipeline—from Define and Validate through Deploy, Evolve, and Recurse—grounded in clear standards, repeatable controls, and an explicit capital strategy.
+                </p>
+                <Link href="/approach" className="text-sm text-primary hover:underline mt-auto" data-testid="link-way-approach">
+                  See how we work →
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid="card-way-studio">
+              <CardContent className="p-6 flex flex-col h-full">
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Studio</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
+                  We work with a small number of aligned teams to architect verifiable systems, clarify mandates, and embed governance so the infrastructure can withstand both scale and scrutiny.
+                </p>
+                <Link href="/studio" className="text-sm text-primary hover:underline mt-auto" data-testid="link-way-studio">
+                  Meet the studio →
+                </Link>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      <NextStepBlock
-        nextPage="Process"
-        description="Learn how we operate as a venture studio."
-        href="/process"
-      />
+      <section className="py-20 bg-card" data-testid="section-where-focus">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-focus-heading">
+              Where we focus
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div data-testid="focus-signal">
+              <h3 className="font-heading font-semibold text-foreground mb-2">Signal</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Verified intelligence and information flows. We design systems that force AI and data pipelines to be source-backed, inspectable, and resistant to synthetic noise.
+              </p>
+            </div>
+            <div data-testid="focus-value">
+              <h3 className="font-heading font-semibold text-foreground mb-2">Value</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Non-custodial capital and risk infrastructure. We build rails—proven first on our own balance sheet—where assets can work without leaving governed environments, and where risk limits are encoded instead of implied.
+              </p>
+            </div>
+            <div data-testid="focus-human">
+              <h3 className="font-heading font-semibold text-foreground mb-2">Human</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Identity and uniqueness without surveillance. We explore architectures like the Uniqueness Engine to prove that a person or asset is "one-of-one" without exposing who they are or how they live.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20" data-testid="section-current-ventures">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-ventures-heading">
+              Current ventures
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid="card-venture-helios">
+              <CardContent className="p-6 flex flex-col h-full">
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-2">Helios</h3>
+                <p className="text-sm text-primary italic mb-3">An internal execution engine for VSG's own digital asset treasury.</p>
+                <ul className="space-y-2 text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
+                  <li className="flex items-start gap-2" data-testid="text-helios-bullet-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    Optimizes VSG's treasury across approved venues under strict, pre-defined risk limits.
+                  </li>
+                  <li className="flex items-start gap-2" data-testid="text-helios-bullet-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    Uses governed automation with human oversight to respond to market volatility without acting as a broker, exchange, or fund manager for others.
+                  </li>
+                  <li className="flex items-start gap-2" data-testid="text-helios-bullet-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    Designed to be auditable and policy-driven, not discretionary or opaque.
+                  </li>
+                </ul>
+                <Link href="/ventures/helios" className="text-sm text-primary hover:underline mt-auto" data-testid="link-venture-helios">
+                  Learn more →
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid="card-venture-lumina">
+              <CardContent className="p-6 flex flex-col h-full">
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-2">Lumina</h3>
+                <p className="text-sm text-primary italic mb-3">Physics-aware grading infrastructure for the trading card ecosystem.</p>
+                <ul className="space-y-2 text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
+                  <li className="flex items-start gap-2" data-testid="text-lumina-bullet-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    Turns raw card condition into instant, consistent pre-grading signals using mobile sensors and anomaly detection.
+                  </li>
+                  <li className="flex items-start gap-2" data-testid="text-lumina-bullet-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    Helps collectors, marketplaces, and graders make better decisions before they ship or slab assets.
+                  </li>
+                  <li className="flex items-start gap-2" data-testid="text-lumina-bullet-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    Built as software-first infrastructure, not hardware-locked kiosks.
+                  </li>
+                </ul>
+                <Link href="/ventures/lumina" className="text-sm text-primary hover:underline mt-auto" data-testid="link-venture-lumina">
+                  Learn more →
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid="card-venture-uniqueness">
+              <CardContent className="p-6 flex flex-col h-full">
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-2">Uniqueness Engine (VSP)</h3>
+                <p className="text-sm text-primary italic mb-3">Digital scarcity infrastructure for the AI age.</p>
+                <ul className="space-y-2 text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
+                  <li className="flex items-start gap-2" data-testid="text-uniqueness-bullet-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    Architects a "Global Uniqueness Layer" so critical events—like financing an asset—can be proven to have happened once without exposing underlying data.
+                  </li>
+                  <li className="flex items-start gap-2" data-testid="text-uniqueness-bullet-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    Uses privacy-preserving cryptography to help institutions coordinate against fraud without pooling customer information.
+                  </li>
+                  <li className="flex items-start gap-2" data-testid="text-uniqueness-bullet-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    Focuses first on high-impact domains: credit, democracy, and identity.
+                  </li>
+                </ul>
+                <Link href="/ventures/uniqueness" className="text-sm text-primary hover:underline mt-auto" data-testid="link-venture-uniqueness">
+                  Learn more →
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-card" data-testid="section-who-work-with">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-who-heading">
+              Who we work with
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-who-intro">
+              We partner with teams that need verifiable systems more than they need another dashboard.
+            </p>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3" data-testid="text-who-bullet-0">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground leading-relaxed">
+                  Institutions and startups facing high stakes around capital, identity, or AI-driven decisions.
+                </span>
+              </li>
+              <li className="flex items-start gap-3" data-testid="text-who-bullet-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground leading-relaxed">
+                  Builders exploring non-custodial rails who need clear risk, governance, and regulatory narratives—not just code.
+                </span>
+              </li>
+              <li className="flex items-start gap-3" data-testid="text-who-bullet-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground leading-relaxed">
+                  Operators and policymakers who want to understand what verifiable infrastructure makes possible before it becomes mandatory.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20" data-testid="section-talk-studio">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-talk-heading">
+              Talk to the studio
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-talk-body">
+              If you're building, regulating, or operating in any domain where verification, autonomy, and long-term resilience matter, we'd like to hear from you.
+            </p>
+            <Link href="/connect">
+              <Button 
+                size="lg" 
+                className="font-mono text-sm uppercase tracking-wider"
+                data-testid="button-start-conversation"
+              >
+                Start a conversation
+                <ArrowRight className="w-3.5 h-3.5 ml-2" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 }

@@ -1,20 +1,16 @@
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
-import { Card, CardContent } from "@/components/ui/card";
-import { X, Check } from "lucide-react";
-import { purposeRulesOut, purposeHeuristics } from "@/data/studio";
 
 export default function Purpose() {
   return (
     <Layout>
       <PageMeta 
-        title="Our Purpose" 
-        description="Why VSG exists. To democratize institutional-grade leverage and build tools that restore power to individuals."
+        title="Purpose" 
+        description="Why Verifiable Systems Group exists: to raise the trust floor of software-mediated financial and AI systems."
         preloadImage="/hero-texture.png"
       />
       
-      {/* Hero Section */}
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />
         <div
@@ -32,109 +28,101 @@ export default function Purpose() {
         
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-mono uppercase tracking-widest text-primary mb-6">
-              Studio
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
+              Studio · Purpose
             </p>
-            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6">
-              Our Purpose
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-hero-heading">
+              Why Verifiable Systems Group exists.
             </h1>
-            <p className="text-lg text-foreground leading-relaxed">
-              To democratize institutional-grade leverage.
+            <p className="text-lg text-foreground leading-relaxed font-semibold mb-4" data-testid="text-core-purpose">
+              VSG exists to raise the trust floor of high-impact digital systems.
+            </p>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-hero-body">
+              We believe financial, identity, and AI infrastructure should be as inspectable as any other critical system. Verifiability—not opacity—is what earns durable trust from institutions, regulators, and the people they serve.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Why This Exists */}
-      <section className="py-20 bg-card" data-testid="section-why">
+      <section className="py-20 bg-card" data-testid="section-problem">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              Why this exists
-            </p>
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
-              The Problem We Solve
-            </h2>
-          </div>
           <div className="max-w-3xl">
-            <p className="text-base text-muted-foreground leading-relaxed mb-4">
-              The financial system is built for institutions. Banks, funds, and corporations have access to tools that individuals don't—leverage, liquidity, and verification systems that compound their advantages.
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-problem-heading">
+              The problem we wake up to solve
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-problem-body">
+              Most critical digital systems still run on opaque code paths, implicit trust, and manual governance. The gap between how much power software has and how little of it can be inspected is where risk, mistrust, and regulatory friction live.
             </p>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              We exist to flip that equation. To build the infrastructure that gives individuals the same financial power as the institutions that have historically excluded them.
-            </p>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3" data-testid="text-problem-bullet-0">
+                <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground leading-relaxed">
+                  <strong className="text-foreground">Opaque infrastructure</strong> — Capital, identity, and AI decisions often move through systems that can't be meaningfully inspected by the people accountable for them.
+                </span>
+              </li>
+              <li className="flex items-start gap-3" data-testid="text-problem-bullet-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground leading-relaxed">
+                  <strong className="text-foreground">Compliance as drag, not design input</strong> — Regulation is usually treated as an after-the-fact constraint, not a design requirement wired in from the start.
+                </span>
+              </li>
+              <li className="flex items-start gap-3" data-testid="text-problem-bullet-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground leading-relaxed">
+                  <strong className="text-foreground">Experimentation without guardrails</strong> — New fintech and AI systems are launched as bets, not governed experiments, making it harder to contain failures or learn cleanly from them.
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* What This Rules Out */}
-      <section className="py-20" data-testid="section-rules-out">
+      <section className="py-20" data-testid="section-change">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              What this purpose rules out
-            </p>
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
-              Clear Boundaries
+          <div className="max-w-3xl">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-change-heading">
+              The change we are here to make
             </h2>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
-            {purposeRulesOut.map((rule, index) => (
-              <Card 
-                key={index} 
-                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
-                data-testid={`card-rule-${index}`}
-              >
-                <CardContent className="flex flex-col h-full p-6">
-                  <div className="flex items-start gap-3 mb-3 h-8">
-                    <X className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
-                    <h3 className="font-heading font-semibold text-foreground">Excluded</h3>
-                  </div>
-                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{rule}</p>
-                </CardContent>
-              </Card>
-            ))}
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-change-body">
+              Our purpose is fulfilled when verification, non-custodial design, and real governance feel normal, not niche. When that happens, risk conversations get clearer—and good systems become easier to green-light.
+            </p>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3" data-testid="text-change-bullet-0">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground leading-relaxed">
+                  Make <strong className="text-foreground">verifiable systems</strong> the default expectation for high-impact software, not an optional extra.
+                </span>
+              </li>
+              <li className="flex items-start gap-3" data-testid="text-change-bullet-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground leading-relaxed">
+                  Normalize <strong className="text-foreground">non-custodial rails</strong> so control stays with institutions and users, not hidden intermediaries.
+                </span>
+              </li>
+              <li className="flex items-start gap-3" data-testid="text-change-bullet-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground leading-relaxed">
+                  Turn <strong className="text-foreground">experiments into governed loops</strong> where failures are contained and lessons become shared standards.
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* How It Guides Decisions */}
-      <section className="py-20 bg-card" data-testid="section-heuristics">
+      <section className="py-16 bg-card" data-testid="section-oneline">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              How it guides decisions
+          <div className="max-w-3xl">
+            <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-oneline">
+              <span className="font-medium text-foreground">In one line:</span> VSG exists to make high-impact digital systems verifiable, non-custodial, and governable by design.
             </p>
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
-              Decision Heuristics
-            </h2>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
-            {purposeHeuristics.map((heuristic, index) => (
-              <Card 
-                key={index} 
-                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
-                data-testid={`card-heuristic-${index}`}
-              >
-                <CardContent className="flex flex-col h-full p-6">
-                  <div className="flex items-start gap-3 mb-3 h-8">
-                    <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                    <h3 className="font-heading font-semibold text-foreground">Guideline</h3>
-                  </div>
-                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{heuristic}</p>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
 
       <NextStepBlock
-        label="Next"
-        nextPage="Our Vision"
-        description="Where we're heading. The future we're building toward."
+        nextPage="Vision"
+        description="See the future state we're working toward if we do our job well."
         href="/studio/vision"
       />
     </Layout>
