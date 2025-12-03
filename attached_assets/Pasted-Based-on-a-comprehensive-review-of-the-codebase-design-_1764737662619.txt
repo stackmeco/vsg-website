@@ -1,0 +1,71 @@
+Based on a comprehensive review of the codebase, design specs, and site audits provided, here is the **Master Recommendation Report** for the Verified Systems Group (VSG) website.
+
+The site is **85-90% production-ready**. [cite_start]The "Industrial Control Room" aesthetic [cite: 336] is distinct and authoritative. However, there are **critical inconsistencies** in the visual geometry ("Machined Edges") and **fragilities** in the codebase (Validation/Security) that must be fixed before a public launch.
+
+### **1. CRITICAL VISUAL FIXES (The "Machined Edge" Protocol)**
+
+[cite_start]The design spec demands a strict **2px border radius** to convey "engineered precision."[cite: 298, 341]. Several components violate this, creating a "soft" or "generic SaaS" feel in specific areas.
+
+  * **The Issue:** You are mixing `rounded-sm` (typically 3px in Tailwind default) with `rounded-[2px]`.
+  * **The Fix:** You must **hard-override** the `sm` utility in `tailwind.config.ts` to force consistency, rather than chasing individual files.
+      * *Action:* Update `tailwind.config.ts`:
+        ```typescript
+        extend: {
+          borderRadius: {
+            lg: "9px",
+            md: "6px",
+            sm: "2px", // FORCE 2px HERE (was 3px)
+            DEFAULT: "2px", // Machined standard
+          }
+        }
+        ```
+  * **Specific Violations to Check:**
+      * [cite_start]`StepCard.tsx` (Currently uses `rounded-sm`)[cite: 258, 343].
+      * [cite_start]`Overview.tsx` (Metrics card)[cite: 342].
+      * [cite_start]`Pipeline.tsx` (View toggle & table container)[cite: 343].
+
+### **2. CODE INTEGRITY & SECURITY (High Priority)**
+
+The code review identified two "High Severity" issues that introduce risk and maintenance debt.
+
+  * **Consolidate Validation Logic:**
+
+      * *Issue:* You have duplicate validation rules. [cite_start]`ContactForm.tsx` has manual logic (lines 40-65) [cite: 260][cite_start], while `server/routes.ts` uses a separate Zod schema[cite: 266]. If one changes, the other breaks.
+      * *Fix:* Delete the manual logic in `ContactForm.tsx`. [cite_start]Import the shared schema from `shared/schema.ts` and use the `zodResolver` with React Hook Form[cite: 265].
+
+  * **Fix Hardcoded Origins:**
+
+      * [cite_start]*Issue:* `server/routes.ts` hardcodes `verifiedsystems.io` (and potentially typos) in the CORS check[cite: 276].
+      * *Fix:* Move this to an environment variable (`ALLOWED_ORIGINS`) to prevent blocking your own production domain or staging environments.
+
+  * **Data Persistence:**
+
+      * [cite_start]*Issue:* Contact form submissions are saved to a local JSON file (`contacts.json`)[cite: 280]. This data will be **lost** every time the server restarts or redeploys.
+      * *Fix:* Connect a lightweight database (SQLite or PostgreSQL) or, at minimum, integrate an email service (SendGrid/Resend) to dispatch the message immediately so data isn't lost.
+
+### **3. STRATEGIC & UX ENHANCEMENTS**
+
+To move from a "Project" to an "Institution," implement these missing layers.
+
+  * **PWA (Progressive Web App) Readiness:**
+
+      * [cite_start]*Status:* 0% Implemented[cite: 349, 361].
+      * *Recommendation:* Add a `manifest.json` and basic service worker. The "Control Room" aesthetic strongly benefits from being installable as a standalone app (removing the browser address bar) to feel like a native utility.
+
+  * **SEO & Social Proof:**
+
+      * [cite_start]*Status:* Missing Structured Data[cite: 348].
+      * *Recommendation:* Add **JSON-LD** (Organization schema) to the `PageMeta` component. This tells Google explicitly "We are a Corporation," linking your logo, founders, and socials, which establishes the "Institutional" legitimacy you want.
+
+  * **Mobile Optimization:**
+
+      * [cite_start]*Issue:* The `ConsolePanel` (terminal view) cuts off text on mobile screens[cite: 346].
+      * *Fix:* Switch the metrics grid from `flex-row` to `grid-cols-1` or `grid-cols-2` on mobile breakpoints to prevent truncation.
+
+### **4. SUMMARY ACTION PLAN**
+
+1.  **Config:** Update `tailwind.config.ts` to force `rounded-sm: 2px`.
+2.  **Refactor:** Switch `ContactForm` to use the shared Zod schema.
+3.  **Security:** Replace hardcoded origins with `process.env`.
+4.  **Asset:** Add `manifest.json` for PWA support.
+5.  **Content:** Ensure the "Internal/Defensive" tone (e.g., "We don't want your money") is balanced with "Visionary/Leading" signals so you don't scare away valuable partners.
