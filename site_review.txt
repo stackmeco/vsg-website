@@ -1,295 +1,507 @@
-================================================================================
-VSG WEBSITE - CONTENT & MESSAGING REVIEW
-Generated: December 2024
-Status: Fresh analysis - CRITICAL ISSUES IDENTIFIED
-================================================================================
-
-CORE PROBLEM
-============
-Users report: "I don't understand what you do."
-
-This is a MESSAGING FAILURE. The site explains HOW VSG operates internally
-but never tells visitors WHAT VSG offers or WHY they should care.
+# VERIFIABLE SYSTEMS GROUP (VSG) - COMPLETE SITE REVIEW
+# Generated: December 2025
+# Domain: verifiablesystems.com
 
 ================================================================================
-1. HOMEPAGE (Overview.tsx) - CRITICAL ISSUES
+SITE IDENTITY & POSITIONING
 ================================================================================
 
-CURRENT HERO HEADLINE:
-"Engineering verifiable systems for intelligence and value."
+Company: Verifiable Systems Group LLC
+Tagline: "The infrastructure of verifiable autonomy."
+Entity Type: Wyoming LLC, foreign-qualified in Massachusetts
+Structure: Two-founder, self-funded venture studio
+Treasury: Bitcoin-first with collateralized borrowing strategy
 
-PROBLEM: This is abstract. What does "verifiable systems" mean to a visitor?
-         What is "intelligence and value"? This sounds like internal mission
-         statement language, not customer-facing communication.
-
-CURRENT SUBHEAD:
-"We engineer deterministic systems for Value, Intelligence, and Physical
-Reality. Bitcoin verifies value; Axiom verifies truth. Deployment is gated
-by internal capital verification."
-
-PROBLEMS:
-- "Deterministic systems" - technical jargon
-- "Value, Intelligence, Physical Reality" - vague categories
-- "Axiom verifies truth" - who is Axiom? No context given.
-- "internal capital verification" - why would a visitor care about this?
-
-CURRENT CTA:
-"View Pipeline"
-
-PROBLEM: This leads to more internal R&D documentation, not engagement.
-         There's no "Contact Us", "Partner With Us", or "Learn More" path.
-
---------------------------------------------------------------------------------
-
-SECTION: "The VSG Directive"
-
-PURPOSE CARD:
-"To engineer verifiable systems at the frontier of AI and Digital Assets.
-We enable the use of new forms of value without compromising ownership or
-control—reclaiming human attention for higher-value work."
-
-PROBLEMS:
-- "frontier of AI and Digital Assets" - buzzword territory
-- "new forms of value" - what forms? Be specific.
-- "reclaiming human attention" - suddenly about productivity?
-
-VISION CARD:
-"A future where digital assets possess the clarity and durability of hard
-currency. We build for a reality where ownership is absolute, risks are
-visible, and systems compound human productivity..."
-
-PROBLEM: This is aspirational vision statement, not concrete offering.
-
-MISSION CARD:
-"To navigate the frontier of AI and digital assets with our own capital
-as the first customer."
-
-PROBLEM: "We are our own customer" = you're saying you don't serve others?
-
---------------------------------------------------------------------------------
-
-SECTION: "Active Development Cycles"
-
-"Five projects in our Pipeline. Axiom is in research; Helios is in internal
-alpha; Stackme is in architecture. None are currently accepting external
-capital or users."
-
-CRITICAL PROBLEM: You're explicitly telling visitors there's nothing for them.
-                  This is anti-marketing. Why would anyone stay on the site?
-
---------------------------------------------------------------------------------
-
-SECTION: "Bitcoin is Reserve, Not Product"
-
-"This is internal treasury management. We do not offer external yield
-products or manage third-party capital."
-
-PROBLEM: Another disclaimer saying "we don't offer you anything."
-
---------------------------------------------------------------------------------
-
-SECTION: "Operating Principles"
-
-The six principles (Empirical Verification, Proof of Capital, Bounded
-Execution, etc.) are internally-focused. They describe how YOU work,
-not what VALUE you provide to others.
+Brand Voice: "Visionary Architect" - Professional but Accessible
+Design System: VOS v3.0 - Industrial Control Room Aesthetic
+- Tungsten dark palette (HSL 222 15% 5% background)
+- Signal Orange primary (#F26D21 / HSL 25 95% 53%)
+- 14px base font size
+- 2px border radius (machined edges)
+- Mechanical easing (cubic-bezier 0.4, 0, 0.2, 1)
+- 150ms transition timing
 
 ================================================================================
-2. PROCESS PAGE (System.tsx) - ISSUES
+NAVIGATION STRUCTURE
 ================================================================================
 
-CURRENT HEADLINE:
-"Our Process"
+Primary Navigation:
+1. Mission (/) - Home/Overview page
+2. Process (/process) - How we operate
+3. Ventures (/ventures) - Project portfolio
+4. Standards (/standards) - Governance framework
+5. Insights (/insights) - Research library
+6. Connect (/connect) - Contact form
 
-CURRENT SUBHEAD:
-"A unified R&D unit backed by a proprietary Bitcoin treasury. System
-integrity is maintained through strict functional separation: Governance
-caps risk, Treasury manages capital, Engineering validates truth."
-
-PROBLEM: This reads like internal documentation. "Governance caps risk" and
-         "Engineering validates truth" are internal operations, not offerings.
-
---------------------------------------------------------------------------------
-
-SECTION: "Terms we use, defined plainly"
-
-- "Verifiable Systems" - "Infrastructure where state, logic, and risk are
-  mathematically provable. Auditability is an architectural constraint."
-
-- "Deterministic Intelligence" - "Systems that constrain stochastic models
-  with rigid verification layers..."
-
-PROBLEM: These "plain" definitions are still highly technical. A non-technical
-         visitor would not understand "stochastic models" or "verification
-         layers."
-
---------------------------------------------------------------------------------
-
-SECTION: "Bitcoin Treasury Program"
-
-Again: "This is an internal program. We don't manage anyone else's assets."
-
-PROBLEM: Reinforcing that there's nothing for visitors here.
-
---------------------------------------------------------------------------------
-
-SECTION: "Functions behind the studio"
-
-Lists internal roles: Governance & Risk, Compliance, Finance & Treasury,
-Operations, External Consistency.
-
-PROBLEM: This is org chart content, not customer-facing value.
+Secondary/Footer:
+- Privacy (/privacy)
+- Terms (/terms)
 
 ================================================================================
-3. PIPELINE PAGE (Pipeline.tsx) - ISSUES
+PAGE 1: MISSION (Overview.tsx) - Route: /
 ================================================================================
 
-CURRENT HEADLINE:
-"The Pipeline"
+META:
+- Title: "Mission"
+- Description: "The Infrastructure of Autonomy. We are an innovation engine fusing the speed of AI with the security of Blockchain to verify truth, preserve wealth, and protect identity."
 
-CURRENT SUBHEAD:
-"Our R&D projects, tied to our BTC treasury, moving through defined stages.
-All self-funded. None public yet."
+HERO SECTION:
+- Eyebrow: "Two-founder studio"
+- Headline: "The Infrastructure of Autonomy."
+- Subhead: "We are an innovation engine fusing the speed of AI with the security of Blockchain. We build the tools that verify truth, preserve wealth, and protect identity."
+- CTA Primary: "See the Pipeline" -> /ventures
+- CTA Secondary: "Audio Briefing" (opens modal)
+- Active Ventures chips: Axiom, Helios, Stackme, Lumina
 
-PROBLEM: "None public yet" = nothing for you here. Go away.
+STUDIO METRICS PANEL (Right sidebar on desktop):
+- 5 Active projects / In R&D pipeline (primary highlight)
+- 2 Founders / Equity: Undiluted
+- 100% Capitalization / Proprietary
 
---------------------------------------------------------------------------------
+THE VSG DIRECTIVE SECTION (Bento Layout):
+Purpose Card:
+- Title: "Democratize Leverage"
+- Body: "To democratize institutional-grade leverage. We build tools that give individuals the same financial power as banks, without the intermediaries."
 
-PROJECT DESCRIPTIONS:
+Vision Card:
+- Title: "Engineered Trust"
+- Body: "A future where 'Trust' is an engineered feature, not a gamble. We replace blind faith with cryptographic proof and open code."
 
-AXIOM:
-"Standard LLMs are probabilistic engines—predicting the next token. Axiom
-is a constraint layer that forces the model to anchor every claim to a
-cryptographically verified record."
+Mission Card (Full-width):
+- Title: "Verifiable Autonomy"
+- Body: "We engineer the infrastructure of autonomy across three critical pillars, ensuring that every system we build is transparent, solvent, and secure."
+- Pillars:
+  1. Validate Signal - Forcing AI to be deterministic and source-backed (Axiom).
+  2. Preserve Value - Merging DeFi safety with HFT speed (Stackme & Helios).
+  3. Protect Identity - Proving personhood without surveillance (Uniqueness Engine).
 
-PROBLEM: Technical description. Doesn't explain the benefit or use case.
-         Who would use this? For what? Why should I care?
+ACTIVE VENTURES SECTION:
+- Lists all 5 projects with stage chips
+- Links to individual venture detail pages
 
-HELIOS:
-"Helios automates treasury operations into bounded, rule-driven positions.
-Deploys capital with explicit limits and real-time solvency monitoring.
-Internal use only."
+POWERED BY BITCOIN SECTION:
+- Headline: "Powered by Bitcoin"
+- Body: "Bitcoin serves as our reserve asset. Rather than liquidating capital to fund operations, we utilize responsible, over-collateralized borrowing. This sustains our long-term balance sheet while funding continuous innovation."
+- Closing: "We deploy our own capital first—aligning our incentives with every system we build."
 
-PROBLEM: "Internal use only" - again, nothing for visitors.
+OPERATING PRINCIPLES SECTION (6 Principles, 2-column grid):
 
-STACKME:
-"Stackme is a protocol-native lending interface designed for clarity,
-conservative leverage, and graduated liquidation mechanics."
+1. Intelligence Augmented (IA)
+   Quote: "Let the machine compute. Let the human connect."
+   Body: "We use AI to amplify human capability. By offloading high-velocity data processing to our Helios engine, we free our team to focus on the things machines cannot do: strategy, empathy, and judgment."
 
-PROBLEM: Technical jargon. What problem does this solve for users?
+2. Seek the Signal
+   Quote: "Verify, then trust."
+   Body: "We recognize that narratives are often engineered to obscure reality. We don't rely on blind faith or centralized perception; we engineer clarity through cryptographic proof."
 
-LUMINA:
-"Lumina links high-value physical inventory to on-chain rails via a
-proprietary optical physics engine. Verifies surface topology and
-material response..."
+3. Engineered Ambition
+   Quote: "Dream in decades, execute in milliseconds."
+   Body: "We are building generational technology—from automated capital engines to optical surface scanning—with extreme precision. We embrace big risks by managing them with rigorous, automated safety rails."
 
-PROBLEM: "Optical physics engine" and "surface topology" - deeply technical.
-         What does this mean for someone who might use it?
+4. Own the Engine
+   Quote: "Master the mechanics to rewrite the rules."
+   Body: "We are a team of architects, not passengers. We require deep financial fluency and a first-principles understanding of how value is created, stored, and protected within our treasury."
 
-================================================================================
-4. GOVERNANCE PAGE (Governance.tsx)
-================================================================================
+5. Value is a Mirror
+   Quote: "Serve first, succeed second."
+   Body: "We succeed only when our users thrive. We build non-custodial tools that restore power to the user—providing liquidity without selling assets—knowing that true value flows from service, not extraction."
 
-This page is detailed and well-structured, but it's for a very specific
-audience (regulators, compliance teams, potential partners). It's not the
-first thing casual visitors should see.
+6. Force Multiplier
+   Quote: "Level the playing field."
+   Body: "Structural asymmetries favor the incumbent. We build leverage for the underdog. We arm individuals with the tools to bypass gatekeepers and access the capabilities usually reserved for massive institutions."
 
-The content here is appropriate for its purpose but reinforces the pattern
-of internal-focused documentation rather than external value proposition.
-
-================================================================================
-5. MISSING ELEMENTS
-================================================================================
-
-1. WHO IS THIS FOR?
-   - No clear target audience defined
-   - Investors? Partners? Developers? Enterprises? Retail?
-
-2. WHAT DO YOU OFFER?
-   - No product or service clearly articulated
-   - No "here's what you can do with us" section
-
-3. WHY SHOULD I CARE?
-   - No problem statement ("You have X problem...")
-   - No outcome statement ("We help you achieve Y...")
-   - No case studies, testimonials, or proof points
-
-4. WHAT DO I DO NEXT?
-   - No clear CTA for engagement
-   - "View Pipeline" leads to more closed projects
-   - No "Contact Us" or "Get in Touch" emphasis
-
-5. SOCIAL PROOF / CREDIBILITY
-   - No third-party validation
-   - No press mentions, awards, or endorsements
-   - Founders aren't introduced (who are these 2 people?)
+NEXT STEP BLOCK:
+- "Next: Process"
+- "Learn how we operate as a venture studio."
 
 ================================================================================
-6. RECOMMENDED REWRITES
+PAGE 2: PROCESS (System.tsx) - Route: /process
 ================================================================================
 
-HERO - OPTION A (If targeting partners/enterprises):
-"We build verification infrastructure for AI and digital assets.
-Our systems prove what's true—so you don't have to trust."
+META:
+- Title: "Process"
+- Description: "How we operate: our Bitcoin treasury strategy, functional responsibilities, and the principles that govern our development lifecycle."
 
-HERO - OPTION B (If targeting investors/industry):
-"A research studio engineering the infrastructure layer for autonomous
-finance. Bitcoin-backed. Self-funded. Shipping verified systems."
+HERO SECTION:
+- Headline: "How We Operate"
+- Body: "A small, focused team backed by a Bitcoin treasury. We separate functions clearly: Risk Management defines limits, Treasury allocates capital, and Engineering verifies every build."
 
-SUBHEAD REWRITE:
-Replace abstract language with concrete outcomes:
-"We're building tools that make AI auditable, lending safer, and physical
-asset ownership provable. Here's what we're working on."
+CORE CONCEPTS SECTION (System Primitives):
+Eyebrow: "System Primitives"
+Title: "Core Concepts"
 
-CTA REWRITE:
-Instead of "View Pipeline" → "See Our Work" or "Explore Projects"
-Add: "Partner With Us" or "Get Updates" for engagement
+1. Verifiable Systems
+   "Infrastructure that is fully auditable. No black boxes. The rules are visible, the risk is defined, and the outcome is mathematically provable."
 
-PROJECT DESCRIPTION REWRITES:
+2. Deterministic AI
+   "Artificial Intelligence that follows rules instead of guessing. It anchors every output to a verified data source, eliminating hallucination."
 
-AXIOM:
-Current: "Constraint layer that forces the model to anchor every claim..."
-Better: "AI that cites its sources. Every claim verified against real data.
-Built for financial analysis where accuracy isn't optional."
+3. Digital Bearer Assets
+   "Assets you truly own, not just IOUs. They can move freely across the internet instantly, without needing permission from a bank or platform."
 
-HELIOS:
-Current: "Automates treasury operations into bounded positions..."
-Better: "Automated treasury management with built-in risk limits. We're
-using it internally—future: a tool for Bitcoin-native organizations."
+BITCOIN TREASURY SECTION:
+Eyebrow: "Capital strategy"
+Title: "Our Bitcoin Treasury"
+Body: "Our treasury is built on Bitcoin. When conditions are favorable, we borrow against a portion of our holdings using trusted, non-custodial lending venues. The proceeds either:"
+- Fund development and infrastructure for our ventures, or
+- Allow strategic Bitcoin accumulation during market downturns.
+Disclaimer: "This is an internal program. We do not manage external capital or offer yield products."
 
-STACKME:
-Current: "Protocol-native lending interface..."
-Better: "Borrow against Bitcoin with clear risk visibility. Designed to
-prevent over-leverage and surprise liquidations."
+FUNCTIONAL RESPONSIBILITIES SECTION:
+Eyebrow: "Functional responsibilities"
+Title: "How We're Organized"
+Body: "We are a small team, but we maintain clear functional separation. This clarity ensures accountability and reduces operational risk."
 
-LUMINA:
-Current: "Links physical inventory to on-chain rails via optical physics..."
-Better: "Prove you own a physical asset without trusting a third party.
-Uses material science to create verifiable digital certificates."
+Functions (5 cards):
+1. Risk Management - "We set strict limits on leverage and exposure. Defined solvency thresholds protect capital across all market conditions."
+2. Regulatory Alignment - "We operate within the law. All projects are designed for compliance in the jurisdictions where they may deploy."
+3. Treasury Operations - "We track all capital movement with auditable precision—from loan positions to operational expenditures."
+4. Development Lifecycle - "Every project follows a structured path from specification through build and testing before deployment."
+5. Public Accountability - "What we say externally matches what we do internally. Public documentation reflects actual system state."
 
-================================================================================
-7. FUNDAMENTAL QUESTION TO ANSWER
-================================================================================
-
-Before any rewrite, VSG needs to decide:
-
-"What is our relationship to the outside world?"
-
-OPTIONS:
-A) We are a closed R&D lab publishing research (like DeepMind)
-   → Then remove all "product" language, emphasize "research publication"
-
-B) We are building products that will eventually serve external users
-   → Then frame projects as "coming soon" with waitlist/interest capture
-
-C) We are seeking partners (enterprises, protocols, institutions)
-   → Then speak to their needs, not your internal operations
-
-D) We are seeking investors
-   → Then focus on the opportunity, market size, competitive moat
-
-The current site tries to be all of these and ends up being none of them.
+NEXT STEP BLOCK:
+- "Next: Ventures"
+- "See our active projects and their current development status."
 
 ================================================================================
-END OF CONTENT REVIEW
+PAGE 3: VENTURES (Pipeline.tsx) - Route: /ventures
+================================================================================
+
+META:
+- Title: "Ventures"
+- Description: "Our active ventures: Axiom, Helios, Stackme, Lumina, and Uniqueness. Self-funded projects moving through validated development stages."
+
+HERO SECTION:
+- Headline: "Our Ventures"
+- Body: "Five projects in active development. Each is self-funded and stress-tested with our own capital before external deployment."
+
+DEVELOPMENT LIFECYCLE SECTION:
+Eyebrow: "Development lifecycle"
+Title: "From Idea to Impact"
+Body: "Every venture moves through a validated development process. This structure surfaces risk early and ensures we build systems designed for long-term stability."
+
+Stages (5 steps):
+1. Define the Problem / Why before How
+   "We start with the problem, not the technology. Before any code is written, we validate the business case and define measurable success criteria."
+
+2. Validate the Concept / Risk Reduction
+   "Prove viability before building. We use rapid prototyping to test assumptions early—reducing the cost of failure and focusing resources on what works."
+
+3. Build with Verification / Security First
+   "Engineering with continuous checks. Automated testing verifies system integrity throughout the build, making security and stability foundational, not afterthoughts."
+
+4. Deploy Incrementally / Controlled Release
+   "No big-bang releases. Features roll out in stages, validated under real-world conditions before reaching all users."
+
+5. Iterate with Data / Continuous Improvement
+   "Launch is the beginning. We monitor performance and refine continuously based on real usage data."
+
+CURRENT VENTURES SECTION:
+Eyebrow: "Active portfolio"
+Title: "Current Ventures"
+View Toggle: Cards / Table
+
+PROJECT DATA (5 ventures):
+
+1. Axiom (Research)
+   Tagline: "The AI Fact-Checker."
+   Description: "Large Language Models (LLMs) are probabilistic; they guess. Axiom forces them to be deterministic by citing verified data sources. It renders AI reliable enough for enterprise use."
+   Current State:
+   - Core RAG architecture functional
+   - Citation enforcement layer active
+   - Internal deployment for VSG research summaries
+   Exploring:
+   - Automated fact-verification loops
+   - Truth layer (Axiom) to Value layer (Helios) integration
+   - Latency optimization for real-time verification
+   Not Yet:
+   - No public API
+   - Not a general-purpose inference engine
+   - Restricted domain knowledge only
+
+2. Helios (Internal Alpha)
+   Tagline: "The Autonomous Treasury."
+   Description: "An automated capital engine. It monitors market volatility 24/7 and manages treasury risk with sub-millisecond reaction times, far exceeding human capability."
+   Current State:
+   - Architecture and specification complete
+   - Core implementation in progress
+   - Internal deployment underway
+   Exploring:
+   - Automated yield strategies within risk bounds
+   - Multi-venue position management
+   - Real-time solvency monitoring and alerts
+   - Policy ladders for risk profiles
+   Not Yet:
+   - No external users
+   - No public API
+   - Not a product or service
+
+3. Stackme (Architecture)
+   Tagline: "Bitcoin-Backed Credit."
+   Description: "A transparent lending interface allowing users to borrow against Bitcoin. Engineered to eliminate the hidden risks and predatory terms often found in crypto lending."
+   Current State:
+   - Requirements complete
+   - Technical architecture defined
+   - Verified build phase in progress
+   Exploring:
+   - Risk visualization
+   - Conservative LTV limits
+   - Graduated liquidation tranches
+   - Solvency indicators
+   Not Yet:
+   - No live users
+   - No public access
+   - Not accepting deposits or loans
+
+4. Lumina (Specification)
+   Tagline: "Digital Twins for Physical Assets."
+   Description: "Linking high-value physical items to the blockchain via optical surface scanning. This creates a forgery-proof digital certificate for trading real-world assets."
+   Current State:
+   - Specification complete
+   - System design in progress
+   - Optical verification pipeline in development
+   Exploring:
+   - Photometric stereo scanning
+   - Edge-compute material analysis
+   - On-chain provenance
+   - Surface topology verification
+   Not Yet:
+   - No prototype yet
+   - No instruments issued
+   - Not accepting submissions
+
+5. Uniqueness (Research)
+   Tagline: "Proof of Human."
+   Description: "Validating human identity online without biometric surveillance. A privacy-first layer to prevent bot spam and ensure fair access."
+   Current State:
+   - Research and requirements phase
+   - Surveying existing approaches
+   - Defining success criteria
+   Exploring:
+   - Zero-Knowledge uniqueness proofs
+   - Cost-of-forgery signals
+   - Minimal footprint identity
+   - Decentralized attestation models
+   Not Yet:
+   - No prototype
+   - No defined architecture
+   - Not integrated with other projects
+
+NEXT STEP BLOCK:
+- "Next: Standards"
+- "Learn about our governance, risk management, and compliance framework."
+
+================================================================================
+PAGE 4: STANDARDS (Governance.tsx) - Route: /standards
+================================================================================
+
+META:
+- Title: "Standards"
+- Description: "Our governance framework: how decisions are made, how we manage risk, and our approach to compliance. Transparency over theater."
+
+HERO SECTION:
+- Headline: "Our Standards"
+- Body: "Trust requires transparency. This page explains how we make decisions, manage capital, and ensure our systems meet both our internal standards and external regulatory requirements."
+- Secondary: "We operate at the frontier of AI and digital assets. Clear governance is essential for both partners and regulators to understand how we work."
+
+TABLE OF CONTENTS (Sidebar):
+- Legal structure
+- BTC treasury policy
+- Risk governance
+- Regulatory stance
+
+LEGAL STRUCTURE SECTION:
+Eyebrow: "Legal structure"
+Title: "How the company is governed"
+Body: "Verifiable Systems Group LLC is a manager-managed Wyoming LLC, foreign-qualified in Massachusetts."
+
+Manager Card:
+- Title: "Manager" / Final authority
+- Body: "Sole Manager with final authority over business affairs. Also acts as CEO and Controller. Has 100% voting power on operational matters."
+
+COO Card:
+- Title: "COO" / Day-to-day operations
+- Body: "Responsible for day-to-day operations as delegated. Cannot sign contracts, approve major expenditures, or authorize on-chain treasury moves without explicit written approval."
+
+Fundamental Decisions Note:
+"Fundamental decisions (selling substantially all assets, admitting new members) require unanimous written consent of all members."
+
+BTC TREASURY SECTION:
+Eyebrow: "Capital governance"
+Title: "BTC treasury: what it is (and isn't)"
+Body: "Our treasury is Bitcoin-first and policy-driven. It is not a DeFi 'product' — it's our own balance sheet."
+
+Collateral Loop (3 steps):
+1. Post a risk-managed portion of company BTC as collateral in approved, non-custodial lending protocols.
+2. Borrow stablecoins at conservative loan-to-value ratio (LTV) (target ~35%, hard cap 50%).
+3. Use borrowed funds for operating runway, internal R&D, or selectively accumulating more BTC.
+
+What We Are NOT Doing:
+- Offering yield products to the public
+- Running a pooled investment vehicle
+- Promising returns or fixed income
+Note: "This mirrors how some public companies use Bitcoin as a treasury reserve, but at far smaller scale and with more conservative leverage."
+
+Capital Controls (3 items):
+1. Transparent funding — all capital contributions are documented with clear terms
+2. Priority structure — creditors are paid first, then loans, then any distributions
+3. Transaction oversight — every treasury move requires a signed authorization record
+Note: "No TAR, no transaction."
+
+RISK GOVERNANCE SECTION:
+Eyebrow: "Risk governance"
+Title: "How we cap risk before anything touches capital or users"
+Body: "We're pre-launch on every project. Governance here is about capping risk during development, not describing a fantasy future state."
+
+Stage-gates Card:
+"Every project moves through defined stages: Idea → Prototype → Internal → Venture. Moving stages requires joint decision from both founders."
+
+Risk Memo Card:
+- What can go wrong?
+- Max loss we're willing to tolerate.
+- How we would shut it down safely.
+
+Project-Specific Governance:
+
+Helios (Internal Alpha):
+- Internal capital only — no external deposits; operates on VSG treasury exclusively
+- Position limits — capped percentage of borrowed stablecoins at any time
+- Drawdown triggers — pre-defined loss thresholds activate capital reduction
+- Manual oversight — automated execution paired with alerts and human verification
+
+Stackme (Architecture):
+- Non-custodial architecture — user retains key control; interface is guidance layer
+- Solvency controls — graduated liquidation tranches reduce forced-sale risk
+- Regulatory gate — full compliance review required before deployment
+
+Lumina (Specification):
+- Verifiable provenance — metadata, grading, and chain-of-custody attestation
+- No return guarantees — explicit disclosure of speculative nature
+- Fee transparency — all costs and rights disclosed before instrument issuance
+
+Uniqueness (Research):
+- Privacy-first — no deployment without explicit privacy model
+- Consent architecture — explicit opt-in mechanics required
+- Regulatory clearance — KYC/AML impact assessment before any implementation
+
+REGULATORY STANCE SECTION:
+Eyebrow: "Regulatory stance"
+Title: "Regulatory Posture: Pre-Product"
+Body: "Compliance architecture defined before deployment. No products are live; this documents the framework for when they are."
+
+Where We Are Today:
+- US-based LLC with crypto-first accounting (books in Xero, digital asset sub-ledgers via Cryptoworth, specific-identification cost basis for tax reporting)
+- Website and Library are informational only — no offers to invest, no live financial products
+- Any BTC borrowing is on the company's own behalf, via non-custodial protocols, under internal risk limits
+
+How We Approach Product Regulation:
+- Jurisdiction-by-jurisdiction analysis — US (FinCEN, SEC/CFTC, state rules), EU/UK (MiCA and related frameworks)
+- Non-custodial does not mean regulation-free — reduces some obligations but doesn't eliminate consumer-protection or financial-crime requirements
+- AI = high-risk by default — anywhere AI touches lending, identity, or risk classification, we treat it as high-risk (EU AI Act spirit)
+- Licensing when required — get licenses, partner with regulated entities, or change the design
+
+Operational Prohibitions:
+- No token sales or investment offerings
+- No opaque yield products—if you can't see how it works, we won't build it
+- No hidden reuse of user assets without explicit consent
+- No circumventing sanctions, identity verification, or geographic restrictions
+Note: "These constraints are binding. Violations trigger immediate remediation."
+
+CONTACT CTA SECTION:
+Title: "Want to discuss governance?"
+Body: "For regulators and compliance teams, we share deeper materials (business plans, architecture diagrams, draft policies) under NDA. For partners working in AI, digital assets, or risk/compliance who see alignment, reach out."
+CTA: "Start a Conversation" -> /connect
+
+NEXT STEP BLOCK:
+- "Next: Insights"
+- "Read our published research and analysis."
+
+================================================================================
+PAGE 5: INSIGHTS (Library.tsx) - Route: /insights
+================================================================================
+
+META:
+- Title: "Insights"
+- Description: "Our research and analysis on AI, digital assets, and the future of verified systems. Published when we have something substantive to share."
+
+HERO SECTION:
+- Headline: "Insights"
+- Body: "Our research and analysis on AI, finance, and verification. We publish when we have something meaningful to share—not on a schedule."
+
+FILTER CONTROLS:
+- All | Insight | Note | Update
+
+ARTICLES (3 items, Q4 2025):
+
+1. "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate"
+   Date: Dec 15, 2025
+   Type: Insight
+   Tags: AI Safety, Determinism, Infrastructure
+   Excerpt: "In creative writing, variance is a feature. In automated treasury management, it is a felony. We analyze the friction between probabilistic models and deterministic settlement."
+   Slug: insolvency-of-fiction
+
+2. "The Verification Standard: Charting the Great Reallocation"
+   Date: Nov 26, 2025
+   Type: Insight
+   Tags: Bitcoin, Macro, Thesis
+   Excerpt: "Our thesis on fiscal dominance, Bitcoin as verified scarcity, and the multi-decade capital migration from depreciating fiat to appreciating hard assets."
+   Slug: verification-standard
+
+3. "Machine-Native Settlement: Why AI Agents Will Reject Legacy Banking"
+   Date: Oct 18, 2025
+   Type: Insight
+   Tags: AI Agents, Bitcoin, Infrastructure
+   Excerpt: "Autonomous software requires financial rails that operate with the same deterministic logic as the code itself. We analyze the friction between legacy banking and the emerging machine economy."
+   Slug: machine-native-settlement
+
+NEXT STEP BLOCK:
+- "Next: Connect"
+- "Start a conversation with our team."
+
+================================================================================
+PAGE 6: CONNECT (Contact.tsx) - Route: /connect
+================================================================================
+
+META:
+- Title: "Connect"
+- Description: "Start a conversation with the Verifiable Systems team. We welcome inquiries from partners aligned with our mission."
+
+HERO SECTION:
+- Headline: "Let's Connect"
+- Body: "Every inquiry is reviewed by our founding team. We prioritize conversations with partners who share our commitment to building verified, trustworthy systems."
+
+SIDEBAR - "We'd like to hear from":
+- Builders creating products in AI, digital assets, or financial infrastructure.
+- Investors who prioritize technical fundamentals and long-term value creation.
+- Researchers exploring the intersection of AI verification and financial systems.
+
+What to Expect:
+"We respond within 3-5 business days to aligned inquiries. We do not send unsolicited outreach."
+
+CONTACT FORM FIELDS:
+- Name (required)
+- Email (required)
+- Organization (optional)
+- Role (optional)
+- Subject (required)
+- Message (required)
+- Consent checkbox (required)
+
+================================================================================
+FOOTER (All Pages)
+================================================================================
+
+Left Side:
+- Company: "Verifiable Systems Group LLC"
+- Tagline: "The infrastructure of verifiable autonomy."
+
+Right Side:
+- Privacy link
+- Terms link
+
+Bottom:
+- Disclaimer: "Nothing on this site is financial advice or an offer of services."
+
+================================================================================
+END OF SITE REVIEW
 ================================================================================
