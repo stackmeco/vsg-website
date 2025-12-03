@@ -4,7 +4,6 @@ import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { ProjectTile } from "@/components/ProjectTile";
 import { NextStepBlock } from "@/components/NextStepBlock";
-import { StepCard } from "@/components/StepCard";
 import { Button } from "@/components/ui/button";
 import { StageChip } from "@/components/StageChip";
 import {
@@ -18,35 +17,7 @@ import {
 import { LayoutGrid, List, ArrowRight } from "lucide-react";
 import { projects, getProjectHref } from "@/data/projects";
 
-const stages = [
-  { 
-    name: "Define the Problem", 
-    focus: "Why before How",
-    description: "We start with the problem, not the technology. Before any code is written, we validate the business case and define measurable success criteria." 
-  },
-  { 
-    name: "Validate the Concept", 
-    focus: "Risk Reduction",
-    description: "Prove viability before building. We use rapid prototyping to test assumptions early—reducing the cost of failure and focusing resources on what works." 
-  },
-  { 
-    name: "Build with Verification", 
-    focus: "Security First",
-    description: "Engineering with continuous checks. Automated testing verifies system integrity throughout the build, making security and stability foundational, not afterthoughts." 
-  },
-  { 
-    name: "Deploy Incrementally", 
-    focus: "Controlled Release",
-    description: "No big-bang releases. Features roll out in stages, validated under real-world conditions before reaching all users." 
-  },
-  { 
-    name: "Iterate with Data", 
-    focus: "Continuous Improvement",
-    description: "Launch is the beginning. We monitor performance and refine continuously based on real usage data." 
-  },
-];
-
-export default function Pipeline() {
+export default function Ventures() {
   const [viewMode, setViewMode] = useState<"cards" | "table">(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("pipeline-view-mode");
@@ -64,7 +35,7 @@ export default function Pipeline() {
     <Layout>
       <PageMeta 
         title="Ventures" 
-        description="Our active ventures: Axiom, Helios, Stackme, Lumina, and Uniqueness. Self-funded projects moving through validated development stages." 
+        description="Our venture portfolio: Helios, Axiom, Stackme, Lumina, and Uniqueness. Five projects moving through our development process, self-funded and stress-tested." 
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />
@@ -83,37 +54,11 @@ export default function Pipeline() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
-              Our Ventures
+              Venture Portfolio.
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed">
-              Five projects in active development. Each is self-funded and stress-tested with our own capital before external deployment.
+              Five projects moving through our development process. Each venture is self-funded and stress-tested with our own capital.
             </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-card" data-testid="section-stages">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              Development lifecycle
-            </p>
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
-              From Idea to Impact
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              Every venture moves through a validated development process. This structure surfaces risk early and ensures we build systems designed for long-term stability.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {stages.map((stage, index) => (
-              <StepCard
-                key={stage.name}
-                number={index + 1}
-                title={stage.name}
-                description={stage.description}
-              />
-            ))}
           </div>
         </div>
       </section>

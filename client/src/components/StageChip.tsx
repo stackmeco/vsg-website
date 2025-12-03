@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-export type StageVariant = "research" | "specification" | "architecture" | "prototype" | "internal" | "production";
+export type StageVariant = "definition" | "validation" | "build" | "deployment" | "evolution";
 
 interface StageChipProps {
   stage: string;
@@ -8,18 +8,15 @@ interface StageChipProps {
   className?: string;
 }
 
-// INDUSTRIAL PALETTE ONLY: Tungsten grays + Signal orange
-// All stages use only Tungsten gray or Signal orange - no external colors
 const variantStyles: Record<StageVariant, string> = {
-  research: "bg-secondary text-muted-foreground border-border",
-  specification: "bg-secondary text-muted-foreground border-border",
-  architecture: "bg-primary/10 text-primary border-primary/20",
-  prototype: "bg-primary/10 text-primary border-primary/20",
-  internal: "bg-primary/15 text-primary border-primary/25",
-  production: "bg-primary/20 text-primary border-primary/30",
+  definition: "bg-blue-500/15 text-blue-400 border-blue-500/30",
+  validation: "bg-amber-500/15 text-amber-400 border-amber-500/30",
+  build: "bg-primary/15 text-primary border-primary/30",
+  deployment: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
+  evolution: "bg-purple-500/15 text-purple-400 border-purple-500/30",
 };
 
-export function StageChip({ stage, variant = "specification", className }: StageChipProps) {
+export function StageChip({ stage, variant = "definition", className }: StageChipProps) {
   return (
     <span
       className={cn(

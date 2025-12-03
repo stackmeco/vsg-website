@@ -18,12 +18,38 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "helios",
+    name: "Helios",
+    stage: "Controlled Deployment",
+    stageVariant: "deployment",
+    tagline: "Preserve Value.",
+    description: "Autonomous treasury engine. v20.0 Production. Sub-4ms latency. It monitors market volatility 24/7 and manages treasury risk with sub-millisecond reaction times, far exceeding human capability.",
+    currentState: [
+      "v20.0 Production status achieved",
+      "Sub-4ms execution latency",
+      "Internal deployment active on VSG treasury",
+    ],
+    exploring: [
+      "Automated yield strategies within risk bounds",
+      "Multi-venue position management",
+      "Real-time solvency monitoring and alerts",
+      "Policy ladders for risk profiles",
+    ],
+    notYet: [
+      "No external users",
+      "No public API",
+      "Not a product or service",
+    ],
+    relatedArticle: "/insights/verification-standard",
+    nextProjectSlug: "axiom",
+  },
+  {
     slug: "axiom",
     name: "Axiom",
-    stage: "Research",
-    stageVariant: "research",
-    tagline: "The AI Fact-Checker.",
-    description: "Large Language Models (LLMs) are probabilistic; they guess. Axiom forces them to be deterministic by citing verified data sources. It renders AI reliable enough for enterprise use.",
+    stage: "Rapid Validation",
+    stageVariant: "validation",
+    tagline: "Validate Signal.",
+    description: "Forcing AI to be deterministic and source-backed. Large Language Models (LLMs) are probabilistic; they guess. Axiom forces them to cite verified data sources, rendering AI reliable enough for enterprise use.",
     currentState: [
       "Core RAG architecture functional",
       "Citation enforcement layer active",
@@ -40,40 +66,14 @@ export const projects: Project[] = [
       "Restricted domain knowledge only",
     ],
     relatedArticle: "/insights/insolvency-of-fiction",
-    nextProjectSlug: "helios",
-    texture: "axiom",
-  },
-  {
-    slug: "helios",
-    name: "Helios",
-    stage: "Internal Alpha",
-    stageVariant: "internal",
-    tagline: "The Autonomous Treasury.",
-    description: "An automated capital engine. It monitors market volatility 24/7 and manages treasury risk with sub-millisecond reaction times, far exceeding human capability.",
-    currentState: [
-      "Architecture and specification complete",
-      "Core implementation in progress",
-      "Internal deployment underway",
-    ],
-    exploring: [
-      "Automated yield strategies within risk bounds",
-      "Multi-venue position management",
-      "Real-time solvency monitoring and alerts",
-      "Policy ladders for risk profiles",
-    ],
-    notYet: [
-      "No external users",
-      "No public API",
-      "Not a product or service",
-    ],
-    relatedArticle: "/insights/verification-standard",
     nextProjectSlug: "stackme",
+    texture: "axiom",
   },
   {
     slug: "stackme",
     name: "Stackme",
-    stage: "Architecture",
-    stageVariant: "architecture",
+    stage: "Verified Build",
+    stageVariant: "build",
     tagline: "Bitcoin-Backed Credit.",
     description: "A transparent lending interface allowing users to borrow against Bitcoin. Engineered to eliminate the hidden risks and predatory terms often found in crypto lending.",
     currentState: [
@@ -97,9 +97,9 @@ export const projects: Project[] = [
   {
     slug: "lumina",
     name: "Lumina",
-    stage: "Specification",
-    stageVariant: "specification",
-    tagline: "Digital Twins for Physical Assets.",
+    stage: "Strategic Definition",
+    stageVariant: "definition",
+    tagline: "Physical Asset Twins.",
     description: "Linking high-value physical items to the blockchain via optical surface scanning. This creates a forgery-proof digital certificate for trading real-world assets.",
     currentState: [
       "Specification complete",
@@ -123,9 +123,9 @@ export const projects: Project[] = [
   {
     slug: "uniqueness-engine",
     name: "Uniqueness",
-    stage: "Research",
-    stageVariant: "research",
-    tagline: "Proof of Human.",
+    stage: "Strategic Definition",
+    stageVariant: "definition",
+    tagline: "Protect Identity.",
     description: "Validating human identity online without biometric surveillance. A privacy-first layer to prevent bot spam and ensure fair access.",
     currentState: [
       "Research and requirements phase",

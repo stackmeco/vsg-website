@@ -1,9 +1,9 @@
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
-import { ValueCard } from "@/components/ValueCard";
+import { StepCard } from "@/components/StepCard";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
-import { Shield, Scale, Wallet, Cog, MessageSquare, Hash, Terminal, Layers } from "lucide-react";
+import { Terminal, Layers, Hash } from "lucide-react";
 import gearsTexture from "@assets/gears_texture.png";
 
 const definitions = [
@@ -21,41 +21,41 @@ const definitions = [
   },
 ];
 
-const functions = [
-  {
-    title: "Risk Management",
-    description: "We set strict limits on leverage and exposure. Defined solvency thresholds protect capital across all market conditions.",
-    icon: <Shield className="w-5 h-5" />,
+const stages = [
+  { 
+    name: "Strategic Definition", 
+    focus: "Why before How",
+    description: "We start with the problem, not the technology. Before any code is written, we validate the business case and define measurable success criteria." 
   },
-  {
-    title: "Regulatory Alignment",
-    description: "We operate within the law. All projects are designed for compliance in the jurisdictions where they may deploy.",
-    icon: <Scale className="w-5 h-5" />,
+  { 
+    name: "Rapid Validation", 
+    focus: "Risk Reduction",
+    description: "Prove viability before building. We use rapid prototyping to test assumptions early—reducing the cost of failure and focusing resources on what works." 
   },
-  {
-    title: "Treasury Operations",
-    description: "We track all capital movement with auditable precision—from loan positions to operational expenditures.",
-    icon: <Wallet className="w-5 h-5" />,
+  { 
+    name: "Verified Build", 
+    focus: "Security First",
+    description: "Engineering with continuous checks. Automated testing verifies system integrity throughout the build, making security and stability foundational, not afterthoughts." 
   },
-  {
-    title: "Development Lifecycle",
-    description: "Every project follows a structured path from specification through build and testing before deployment.",
-    icon: <Cog className="w-5 h-5" />,
+  { 
+    name: "Controlled Deployment", 
+    focus: "Incremental Release",
+    description: "No big-bang releases. Features roll out in stages, validated under real-world conditions before reaching all users." 
   },
-  {
-    title: "Public Accountability",
-    description: "What we say externally matches what we do internally. Public documentation reflects actual system state.",
-    icon: <MessageSquare className="w-5 h-5" />,
+  { 
+    name: "Continuous Evolution", 
+    focus: "Data-Driven Iteration",
+    description: "Launch is the beginning. We monitor performance and refine continuously based on real usage data." 
   },
 ];
 
 
-export default function System() {
+export default function Process() {
   return (
     <Layout>
       <PageMeta 
         title="Process" 
-        description="How we operate: our Bitcoin treasury strategy, functional responsibilities, and the principles that govern our development lifecycle." 
+        description="How we operate: our R&D process, Bitcoin treasury strategy, and the principles that govern our development lifecycle." 
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />
@@ -74,11 +74,37 @@ export default function System() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
-              How We Operate
+              Own The Engine.
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed">
-              A small, focused team backed by a Bitcoin treasury. We separate functions clearly: Risk Management defines limits, Treasury allocates capital, and Engineering verifies every build.
+              We are pilots, not passengers. We require deep financial fluency and a first-principles understanding of how value is created, stored, and protected.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-card" data-testid="section-stages">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
+              R&D Process
+            </p>
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
+              From Idea to Impact
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed">
+              Every venture moves through a validated development process. This structure surfaces risk early and ensures we build systems designed for long-term stability.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {stages.map((stage, index) => (
+              <StepCard
+                key={stage.name}
+                number={index + 1}
+                title={stage.name}
+                description={stage.description}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -114,7 +140,6 @@ export default function System() {
       </section>
 
       <section className="py-20 relative overflow-hidden" data-testid="section-treasury">
-        {/* Gears Texture Background */}
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           style={{
@@ -134,7 +159,7 @@ export default function System() {
               Capital strategy
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">
-              Our Bitcoin Treasury
+              Powered by Bitcoin
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-6">
               Our treasury is built on Bitcoin. When conditions are favorable, we borrow against a portion of our holdings using trusted, non-custodial lending venues. The proceeds either:
@@ -152,27 +177,6 @@ export default function System() {
             <p className="text-xs text-muted-foreground italic">
               This is an internal program. We do not manage external capital or offer yield products.
             </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-card" data-testid="section-functions">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              Functional responsibilities
-            </p>
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
-              How We're Organized
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              We are a small team, but we maintain clear functional separation. This clarity ensures accountability and reduces operational risk.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {functions.map((func) => (
-              <ValueCard key={func.title} {...func} />
-            ))}
           </div>
         </div>
       </section>

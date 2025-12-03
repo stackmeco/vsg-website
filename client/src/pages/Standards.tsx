@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 const capitalControls = [
+  "2-of-3 Multisig — Founder A, Founder B, Cold Storage required for treasury moves",
   "Transparent funding — all capital contributions are documented with clear terms",
   "Priority structure — creditors are paid first, then loans, then any distributions",
   "Transaction oversight — every treasury move requires a signed authorization record",
@@ -32,7 +33,7 @@ const thingsWeWontDo = [
 const projectGovernance = [
   {
     name: "Helios",
-    status: "Internal Alpha",
+    status: "Controlled Deployment",
     rules: [
       "Internal capital only — no external deposits; operates on VSG treasury exclusively",
       "Position limits — capped percentage of borrowed stablecoins at any time",
@@ -41,8 +42,17 @@ const projectGovernance = [
     ],
   },
   {
+    name: "Axiom",
+    status: "Rapid Validation",
+    rules: [
+      "Citation enforcement — all AI outputs anchored to verified data sources",
+      "Domain restriction — limited knowledge scope prevents hallucination drift",
+      "Internal deployment only — no public API or external users",
+    ],
+  },
+  {
     name: "Stackme",
-    status: "Architecture",
+    status: "Verified Build",
     rules: [
       "Non-custodial architecture — user retains key control; interface is guidance layer",
       "Solvency controls — graduated liquidation tranches reduce forced-sale risk",
@@ -51,7 +61,7 @@ const projectGovernance = [
   },
   {
     name: "Lumina",
-    status: "Specification",
+    status: "Strategic Definition",
     rules: [
       "Verifiable provenance — metadata, grading, and chain-of-custody attestation",
       "No return guarantees — explicit disclosure of speculative nature",
@@ -60,7 +70,7 @@ const projectGovernance = [
   },
   {
     name: "Uniqueness",
-    status: "Research",
+    status: "Strategic Definition",
     rules: [
       "Privacy-first — no deployment without explicit privacy model",
       "Consent architecture — explicit opt-in mechanics required",
@@ -95,10 +105,10 @@ export default function Governance() {
           <div className="grid lg:grid-cols-[1fr,320px] gap-12 items-start">
             <div className="max-w-2xl">
               <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
-                Our Standards
+                Disciplined Audacity.
               </h1>
               <p className="text-base text-muted-foreground leading-relaxed mb-6">
-                Trust requires transparency. This page explains how we make decisions, manage capital, and ensure our systems meet both our internal standards and external regulatory requirements.
+                We embrace big risks by managing them with rigorous, automated safety rails. This page explains how we make decisions, manage capital, and ensure our systems meet both our internal standards and external regulatory requirements.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
                 We operate at the frontier of AI and digital assets. Clear governance is essential for both partners and regulators to understand how we work.
@@ -268,7 +278,7 @@ export default function Governance() {
             <h3 className="font-heading font-semibold text-xl text-foreground mb-6">
               Capital controls
             </h3>
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {capitalControls.map((control, index) => (
                 <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-control-${index + 1}`}>
                   <CardContent className="p-4">
