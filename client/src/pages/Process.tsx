@@ -109,7 +109,7 @@ export default function Process() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-definitions">
+      <section className="py-20" data-testid="section-definitions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8">
             <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
@@ -124,7 +124,7 @@ export default function Process() {
               const icons = [Terminal, Layers, Hash];
               const Icon = icons[index % icons.length];
               return (
-                <Card key={def.term} className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
+                <Card key={def.term} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-3 mb-3">
                       <Icon className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
