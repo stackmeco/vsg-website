@@ -558,7 +558,7 @@
 }
 
 .nav-menu-container {
-  position: relative;
+  position: static;
   display: inline-flex;
   flex-direction: column;
   overflow: visible;
@@ -630,10 +630,8 @@
 
 /* Viewport wrapper - positioned to overlap with trigger's bottom border */
 .nav-menu-viewport-wrapper {
-  position: absolute;
-  top: calc(100% - 1px);
-  left: 0;
-  right: 0;
+  position: relative;
+  margin-top: -1px;
   z-index: 10;
 }
 
