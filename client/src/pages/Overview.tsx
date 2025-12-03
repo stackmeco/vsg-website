@@ -178,45 +178,60 @@ export default function Overview() {
 
       <section className="py-20 bg-card" data-testid="section-directive">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-8">
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-8">
             The VSG Directive
           </p>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
-              <CardContent className="p-6">
-                <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
-                  Purpose
-                </p>
-                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Democratize Leverage</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="bg-background border-border h-full">
+              <CardContent className="p-8 flex flex-col justify-center h-full">
+                <p className="text-xs font-mono uppercase tracking-wider text-primary mb-2">Purpose</p>
+                <h3 className="font-heading font-semibold text-2xl text-foreground mb-4">
+                  Democratize Leverage
+                </h3>
+                <p className="text-base text-muted-foreground leading-relaxed">
                   To democratize institutional-grade leverage. We build tools that give individuals the same financial power as banks, without the intermediaries.
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
-              <CardContent className="p-6">
-                <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
-                  Vision
-                </p>
-                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Engineered Trust</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+
+            <Card className="bg-background border-border h-full">
+              <CardContent className="p-8 flex flex-col justify-center h-full">
+                <p className="text-xs font-mono uppercase tracking-wider text-primary mb-2">Vision</p>
+                <h3 className="font-heading font-semibold text-2xl text-foreground mb-4">
+                  Engineered Trust
+                </h3>
+                <p className="text-base text-muted-foreground leading-relaxed">
                   A future where "Trust" is an engineered feature, not a gamble. We replace blind faith with cryptographic proof and open code.
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
-              <CardContent className="p-6">
-                <p className="text-[10px] font-mono uppercase tracking-widest text-primary mb-1">
-                  The Mission
-                </p>
-                <h3 className="font-heading font-semibold text-base text-foreground mb-3">Verifiable Autonomy</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  We engineer infrastructure across three pillars:
-                </p>
-                <div className="mt-2 space-y-1">
-                  <p className="text-sm text-foreground"><strong>Validate Signal</strong> (Axiom)</p>
-                  <p className="text-sm text-foreground"><strong>Preserve Value</strong> (Helios)</p>
-                  <p className="text-sm text-foreground"><strong>Protect Identity</strong> (Uniqueness)</p>
+
+            <Card className="bg-background border-border md:col-span-2">
+              <CardContent className="p-8 md:p-10">
+                <div className="max-w-3xl">
+                  <p className="text-xs font-mono uppercase tracking-wider text-primary mb-2">The Mission</p>
+                  <h3 className="font-heading font-semibold text-2xl text-foreground mb-6">
+                    Verifiable Autonomy
+                  </h3>
+                  <p className="text-base text-muted-foreground leading-relaxed mb-6">
+                    We engineer the infrastructure of autonomy across three critical pillars, ensuring that every system we build is transparent, solvent, and secure.
+                  </p>
+                  
+                  <div className="grid sm:grid-cols-3 gap-8 pt-4 border-t border-border/50">
+                    <div>
+                      <h4 className="text-foreground font-semibold mb-2">Validate Signal</h4>
+                      <p className="text-sm text-muted-foreground">Forcing AI to be deterministic and source-backed (Axiom).</p>
+                    </div>
+                    <div>
+                      <h4 className="text-foreground font-semibold mb-2">Preserve Value</h4>
+                      <p className="text-sm text-muted-foreground">Merging DeFi safety with HFT speed (Stackme & Helios).</p>
+                    </div>
+                    <div>
+                      <h4 className="text-foreground font-semibold mb-2">Protect Identity</h4>
+                      <p className="text-sm text-muted-foreground">Proving personhood without surveillance (Uniqueness Engine).</p>
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>
