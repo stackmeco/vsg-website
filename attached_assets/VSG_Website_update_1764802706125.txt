@@ -1,0 +1,3337 @@
+You’re right to push on this—Process is one of the core “spines” of the site, so it needs to be mechanically clean *and* on-brand.
+
+I’ll do two things:
+
+1. **Tighten the Process page content spec** (clearer, more scannable, safer, more in line with current enterprise + UX best practices).
+2. **Improve the Replit agent prompt** so it’s less brittle and more “do exactly this, nothing more”.
+
+I’ll explicitly bake in what we know from current UX and enterprise-site guidance: short paragraphs, strong headings, scannable lists, no over-sharing of internals, no “security by obscurity” reliance.
+
+---
+
+## 1. Improved Process page content (public + safe + scannable)
+
+This keeps the **same layout and components** you already have in `Process.tsx` and just upgrades the strings and data structures.
+
+### 1.1 Page meta
+
+Keep the meta component, but make the description do more work in search/snippets.
+
+```tsx
+<PageMeta
+  title="Process"
+  description="How Verifiable Systems Group moves ventures from concept to governed, verifiable systems using a six-stage, Bitcoin-backed R&D process."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+* Starts with the key idea (“how VSG moves ventures…”), which matches guidance that the first sentence should front-load the main info for scanning and SEO.
+
+---
+
+### 1.2 Hero section (clear promise, scannable, no fluff)
+
+Update only the **text**, not the structure/classes.
+
+**Overline:**
+
+```tsx
+<p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+  How ventures move inside VSG
+</p>
+```
+
+**Heading:**
+
+```tsx
+<h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+  A six-stage runway for verifiable ventures.
+</h1>
+```
+
+**Body copy:**
+
+```tsx
+<p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+  Every venture at VSG follows the same six-stage path. We define and validate the problem, build and deploy under tight controls, then evolve and recurse based on real signals so risk is surfaced early and knowledge compounds instead of resetting with each project.
+</p>
+```
+
+Why this is better:
+
+* First sentence says **exactly** what this page is.
+* Sentences are short, with one idea each, which helps scannability and comprehension.
+
+---
+
+### 1.3 Stages (single words, even reading weight, UX-friendly)
+
+We keep your 6-stage pattern, but refine the copy so:
+
+* Each description is one tight sentence.
+* Line lengths are roughly similar, following guidance for bullet/list balance.
+
+Replace the `stages` constant with:
+
+```ts
+const stages = [
+  {
+    name: "Define",
+    focus: "Strategy & Alignment",
+    description:
+      "Clarify the problem, constraints, and regulatory surface so we know exactly who we serve, what is at stake, and when the venture should not exist.",
+  },
+  {
+    name: "Validate",
+    focus: "Risk & Signal",
+    description:
+      "Run small, low-risk experiments to test the core assumptions first, using models, prototypes, and controlled simulations instead of full production builds.",
+  },
+  {
+    name: "Build",
+    focus: "Security & Quality",
+    description:
+      "Engineer in short, verifiable increments with automated checks, threat modelling, and failure paths designed in from the start so every change is explainable.",
+  },
+  {
+    name: "Deploy",
+    focus: "Governed Launch",
+    description:
+      "Release into a controlled environment with clear guardrails, observability, and rollback so launch behaves like a structured experiment, not a cliff jump.",
+  },
+  {
+    name: "Evolve",
+    focus: "Data & Optimization",
+    description:
+      "Use live telemetry, behaviour, and incidents to refine the system so ventures either mature into durable infrastructure or are retired with clean exits.",
+  },
+  {
+    name: "Recurse",
+    focus: "Institutional Memory",
+    description:
+      "Treat anomalies and failures as high-value signals by running structured post-mortems and feeding the lessons back into our standards and pipeline.",
+  },
+];
+```
+
+Then update the explanatory sentence under the stage grid to:
+
+```tsx
+<p className="mt-6 max-w-2xl text-sm text-muted-foreground sm:text-base">
+  Ventures do not “graduate” by default. After moving through all six stages, they are either adopted as durable infrastructure, wrapped in ongoing governance, or archived with their lessons integrated into our standards and research backlog.
+</p>
+```
+
+This keeps the **recursive learning** philosophy but expresses it in language that reads like a real enterprise playbook.
+
+---
+
+### 1.4 Definitions (“System primitives” / core concepts)
+
+We keep the three-card layout but make the definitions sharper and more distinct, so each card clearly answers “what does this **mean** in our context?” and doesn’t blur together.
+
+Replace `definitions` with:
+
+```ts
+const definitions = [
+  {
+    term: "Verifiable Systems",
+    definition:
+      "Systems where critical behaviours can be inspected and, where it matters, formally or empirically proven. Capital flows, access controls, and decision paths must be observable—not hidden inside opaque services.",
+  },
+  {
+    term: "Deterministic AI",
+    definition:
+      "AI that behaves like infrastructure, not a slot machine. Narrow in scope, grounded in governed data, and constrained to repeatable, auditable outputs instead of open-ended guesswork.",
+  },
+  {
+    term: "Non-custodial Rails",
+    definition:
+      "Financial and identity rails where institutions and individuals retain control of keys and governance. Our systems orchestrate workflows and verification; they do not take custody of customer assets.",
+  },
+];
+```
+
+Alignment with current best practice:
+
+* Focused, one-idea sentences per card, which is recommended for scannable content.
+* Clear differentiation between the three terms (they don’t sound like synonyms).
+
+---
+
+### 1.5 Bitcoin / capital strategy section (safe + clear)
+
+We want this block to:
+
+* Explain *why* BTC matters to Process.
+* Make it explicit this is **internal-only**, non-custodial, and conservative.
+* Stay away from numeric risk dials that could drift over time or look like marketing.
+
+Keep your existing layout and image texture, but change the **copy** inside that section to:
+
+**Overline:**
+
+```tsx
+<p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+  Capital Strategy
+</p>
+```
+
+**Heading:**
+
+```tsx
+<h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
+  Bitcoin as long-term reserve, not a trading thesis.
+</h2>
+```
+
+**Lead paragraph:**
+
+```tsx
+<p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+  Bitcoin is our primary long-term reserve asset. When appropriate, we selectively borrow against it under conservative limits to fund research, infrastructure, and security work so we can keep long-term exposure while still shipping useful systems in the present.
+</p>
+```
+
+**Bullets (3 items, similar length):**
+
+```tsx
+<ul className="mt-4 space-y-2 text-sm text-muted-foreground sm:text-base">
+  <li>Fund deep research, security reviews, and shared infrastructure across our ventures.</li>
+  <li>Maintain an operating runway that is less exposed to short-term revenue volatility.</li>
+  <li>Absorb shocks so individual ventures can be evaluated on their merits, not on market noise.</li>
+</ul>
+```
+
+This follows guidance that bullets should be visually similar and focused on key benefits.
+
+**Closing note (very important for safety):**
+
+```tsx
+<p className="mt-4 text-xs italic text-muted-foreground">
+  This is an internal treasury program. We do not pool client funds, manage outside capital, or offer yield products.
+</p>
+```
+
+That language is well aligned with how real-world crypto treasury guides tell companies to talk about internal BTC treasuries and multi-sig setups: emphasize conservative risk, diversification, and clear separation from customer assets.
+
+---
+
+### 1.6 Content hygiene
+
+In **this file only**, the agent should:
+
+* Remove any remaining `...` / `[…]` placeholder text.
+* Ensure every string is a complete sentence or clear phrase.
+* Not add or remove sections/layout—this preserves your global visual system, which matters for enterprise consistency.
+
+---
+
+## 2. Improved Replit agent prompt (more precise, less risk of drift)
+
+Below is an updated version of the prompt you give the Replit AI agent for this checkpoint. It:
+
+* Emphasizes **no design or routing changes** beyond what we specify.
+* Asks the agent to run a quick compile/type-check.
+* Explicitly calls out placeholder removal and copy completeness.
+
+You can copy-paste this as-is.
+
+---
+
+### ✅ Replit AI Prompt – Process Page Cleanup (Checkpoint)
+
+> **Project:** `Verifiable-Systems-Group` (React + Vite + Tailwind + shadcn/ui, routing via `wouter` in `client/src/App.tsx`).
+>
+> **Goal for this checkpoint**
+>
+> Clean up and finalize the `Process` page so it reflects VSG’s 6-stage venture pipeline and internal Bitcoin-backed capital strategy in clear, scannable language. Also fix one small navigation bug in `Standards.tsx`.
+>
+> **Do not** change any global theming, layout primitives, or add/remove routes. Only touch the files and sections below.
+
+---
+
+#### 1) Update `client/src/pages/Process.tsx`
+
+**a. PageMeta**
+
+* Keep `title="Process"` and `preloadImage="/hero-texture.png"`.
+* Set the `description` prop to:
+
+```tsx
+description="How Verifiable Systems Group moves ventures from concept to governed, verifiable systems using a six-stage, Bitcoin-backed R&D process."
+```
+
+---
+
+**b. Hero section text**
+
+Keep the existing JSX结构 for the hero and background; just replace the strings:
+
+* Overline text:
+
+```tsx
+"How ventures move inside VSG"
+```
+
+* Heading:
+
+```tsx
+"A six-stage runway for verifiable ventures."
+```
+
+* Body paragraph:
+
+```tsx
+"Every venture at VSG follows the same six-stage path. We define and validate the problem, build and deploy under tight controls, then evolve and recurse based on real signals so risk is surfaced early and knowledge compounds instead of resetting with each project."
+```
+
+Do not change classes or container structure.
+
+---
+
+**c. Replace the `stages` constant**
+
+Replace the existing `const stages = [...]` definition with:
+
+```ts
+const stages = [
+  {
+    name: "Define",
+    focus: "Strategy & Alignment",
+    description:
+      "Clarify the problem, constraints, and regulatory surface so we know exactly who we serve, what is at stake, and when the venture should not exist.",
+  },
+  {
+    name: "Validate",
+    focus: "Risk & Signal",
+    description:
+      "Run small, low-risk experiments to test the core assumptions first, using models, prototypes, and controlled simulations instead of full production builds.",
+  },
+  {
+    name: "Build",
+    focus: "Security & Quality",
+    description:
+      "Engineer in short, verifiable increments with automated checks, threat modelling, and failure paths designed in from the start so every change is explainable.",
+  },
+  {
+    name: "Deploy",
+    focus: "Governed Launch",
+    description:
+      "Release into a controlled environment with clear guardrails, observability, and rollback so launch behaves like a structured experiment, not a cliff jump.",
+  },
+  {
+    name: "Evolve",
+    focus: "Data & Optimization",
+    description:
+      "Use live telemetry, behaviour, and incidents to refine the system so ventures either mature into durable infrastructure or are retired with clean exits.",
+  },
+  {
+    name: "Recurse",
+    focus: "Institutional Memory",
+    description:
+      "Treat anomalies and failures as high-value signals by running structured post-mortems and feeding the lessons back into our standards and pipeline.",
+  },
+];
+```
+
+Leave the `StepCard` component as-is; it should continue to map over `stages`.
+
+Under the stages grid, update the explanatory paragraph to:
+
+```tsx
+"Ventures do not “graduate” by default. After moving through all six stages, they are either adopted as durable infrastructure, wrapped in ongoing governance, or archived with their lessons integrated into our standards and research backlog."
+```
+
+---
+
+**d. Replace the `definitions` constant**
+
+Replace `const definitions = [...]` with:
+
+```ts
+const definitions = [
+  {
+    term: "Verifiable Systems",
+    definition:
+      "Systems where critical behaviours can be inspected and, where it matters, formally or empirically proven. Capital flows, access controls, and decision paths must be observable—not hidden inside opaque services.",
+  },
+  {
+    term: "Deterministic AI",
+    definition:
+      "AI that behaves like infrastructure, not a slot machine. Narrow in scope, grounded in governed data, and constrained to repeatable, auditable outputs instead of open-ended guesswork.",
+  },
+  {
+    term: "Non-custodial Rails",
+    definition:
+      "Financial and identity rails where institutions and individuals retain control of keys and governance. Our systems orchestrate workflows and verification; they do not take custody of customer assets.",
+  },
+];
+```
+
+Do not change the JSX that maps over `definitions`, only the data.
+
+---
+
+**e. Update the Bitcoin / capital strategy section**
+
+Locate the “Powered by Bitcoin” / capital strategy block in `Process.tsx`. Keep the overall layout and background image, but update text nodes as follows:
+
+* Overline:
+
+```tsx
+"Capital Strategy"
+```
+
+* Heading:
+
+```tsx
+"Bitcoin as long-term reserve, not a trading thesis."
+```
+
+* Intro paragraph:
+
+```tsx
+"Bitcoin is our primary long-term reserve asset. When appropriate, we selectively borrow against it under conservative limits to fund research, infrastructure, and security work so we can keep long-term exposure while still shipping useful systems in the present."
+```
+
+* Bullet list items (three LI elements):
+
+```tsx
+"Fund deep research, security reviews, and shared infrastructure across our ventures."
+"Maintain an operating runway that is less exposed to short-term revenue volatility."
+"Absorb shocks so individual ventures can be evaluated on their merits, not on market noise."
+```
+
+* Closing note (italic paragraph):
+
+```tsx
+"This is an internal treasury program. We do not pool client funds, manage outside capital, or offer yield products."
+```
+
+**Important:** Remove any `...` or truncated strings in this section so all copy is complete sentences.
+
+---
+
+**f. Content hygiene in `Process.tsx`**
+
+* Ensure there are **no placeholder ellipses (`...`)** left anywhere in `Process.tsx`.
+* Do not add new sections or components.
+
+---
+
+#### 2) Fix the `/library` 404 on Standards page
+
+File: `client/src/pages/Standards.tsx`
+
+At the bottom of the file there is a `NextStepBlock` configured to point at `/library`. This route does not exist; the correct collection is `/insights` (per `App.tsx`).
+
+Update that block to:
+
+```tsx
+<NextStepBlock
+  nextPage="Insights"
+  description="Read our notes, research, and updates."
+  href="/insights"
+/>
+```
+
+Do not change any other content or layout in `Standards.tsx`.
+
+---
+
+#### 3) Quality checks
+
+After making these edits:
+
+1. Run the dev server and visit `/process` to confirm:
+
+   * The hero, stages, definitions, and capital strategy sections render with the new copy.
+   * There are no TypeScript or runtime errors from these changes.
+
+2. Visit `/standards` and click the bottom CTA:
+
+   * Confirm it now routes to `/insights` without a 404.
+
+3. Confirm that no other pages, styles, or routes have been modified in this checkpoint.
+
+---
+
+If you’d like, once this is landed we can repeat this level of **surgery + precise agent prompt** for:
+
+* `Pillars` (turn it from Placeholder into the 3 core pillars we defined in the identity doc), and
+* The **Ventures overview** + Helios detail page, now that we’ve locked a safe, public voice for Helios.
+
+
+Got it — we’ll fix the **actual** nav, not just talk about it 😄
+
+You want:
+
+* The dropdown to **stop glitching** (borders / overlaps / weird conflicts)
+* All nav items (tabs, buttons, dropdown) to **feel identical** and on-brand
+* A prompt you can hand to Replit that gives it **exact answers**, not vibes
+
+I’ll do two things:
+
+1. Explain **what’s probably going wrong** (so you’re not flying blind).
+2. Give you a **cohesive nav design + concrete TSX code + Replit prompt** you can drop in.
+
+I’ll assume your stack is still: React + Tailwind + shadcn/ui + wouter.
+
+---
+
+## 1. What’s likely causing the glitch
+
+Based on common React/Tailwind + shadcn nav issues and best-practice examples:
+
+You’re probably hitting some combo of:
+
+1. **Mixed patterns in one header**
+
+   * Some links are plain `<a>` with utility classes
+   * Some are `Button` components
+   * Some are `DropdownMenu` or home-grown popovers
+
+   → They each bring their own padding, border, radius, and focus styles, so they visually fight.
+
+2. **Double borders / conflicting radii on the dropdown**
+
+   * Header has `border-b`
+   * Dropdown has its own `border`, `rounded`, maybe even `ring`
+   * Positioned slightly off (`top-full` vs padding) so the border visually “notches”
+
+3. **Z-index + positioning weirdness**
+
+   * Dropdown content not wrapped in `relative` header → content overlaps or tucks under other elements
+   * No coherent `z-40/50` on the dropdown content → flickering / clipping
+
+4. **No shared “nav link” style**
+
+   * Tabs in the main nav don’t reuse the same base class as dropdown items and mobile items
+
+The fix is: **one unified nav system** based on shadcn’s `NavigationMenu`, with:
+
+* A single `navLinkClass` used for all top-level links
+* A Ventures dropdown built on `NavigationMenuTrigger` + `NavigationMenuContent`
+* Dropdown content styled with **one border + shadow**, no extra rings
+* Proper `z-` and `relative` so it layers cleanly.
+
+This is exactly what shadcn’s own nav / navigation-menu docs and blocks show.
+
+---
+
+## 2. Cohesive nav design (behavior + look)
+
+Conceptually:
+
+* **Left:** Logo + brand mark (“Verifiable Systems Group” / VSG)
+* **Center:** Primary nav (Studio, Process, Standards) + **Ventures dropdown**
+* **Right:** Secondary CTAs (Insights, Contact) as real `Button`s
+* **Desktop first**, mobile can reuse same link styles wrapped in your existing hamburger/Sheet later.
+
+Visual language (matches your current vibe):
+
+* Background: `bg-background/80` + `backdrop-blur`
+* Border: single `border-b border-border` on header only
+* Links: muted by default, bold / darker on hover or active
+* Dropdown: `bg-popover` + `border border-border` + `shadow-lg`, radius from your theme
+* States: no weird outlines; rely on shadcn focus styles + subtle under-the-hood `data-state` classes.
+
+This lines up with modern SaaS/infra nav patterns in Tailwind + shadcn, and accessibility guidance around navs and dropdown menus.
+
+---
+
+## 3. Drop-in example: unified `MainNav` component
+
+You don’t have to name it `MainNav`, but I’ll use that here. This assumes:
+
+* You have shadcn’s `NavigationMenu` wired (`ui/navigation-menu` generated)
+* You have `Button` and `cn` utilities from your codegen
+* You use `wouter`’s `Link` and `useLocation`
+
+### 3.1 TSX for a cohesive nav (desktop)
+
+```tsx
+// client/src/components/layout/MainNav.tsx
+import * as React from "react";
+import { Link, useLocation } from "wouter";
+
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+const primaryLinks = [
+  { label: "Studio", href: "/studio" },
+  { label: "Process", href: "/process" },
+  { label: "Standards", href: "/standards" },
+];
+
+const ventures = [
+  {
+    label: "Overview",
+    href: "/ventures",
+    description: "How ventures move from idea to governed infrastructure.",
+  },
+  {
+    label: "Helios",
+    href: "/ventures/helios",
+    description: "Internal capital engine for VSG’s own balance sheet.",
+  },
+  {
+    label: "Stackme",
+    href: "/ventures/stackme",
+    description: "Consumer-facing leverage experience built on verifiable rails.",
+  },
+  {
+    label: "Lumina",
+    href: "/ventures/lumina",
+    description: "Digital authenticity and grading infrastructure for unique items.",
+  },
+  // Add/remove ventures as needed; this is just a scaffold.
+];
+
+export function MainNav() {
+  const [location] = useLocation();
+
+  const isActive = (href: string) =>
+    location === href || (href !== "/" && location.startsWith(href + "/"));
+
+  const navLinkClass =
+    "text-sm font-medium px-2 py-1 text-muted-foreground transition-colors hover:text-foreground data-[active=true]:text-foreground";
+
+  return (
+    <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Left: logo / wordmark */}
+        <div className="flex items-center gap-8">
+          <Link href="/" className="flex items-center gap-2">
+            {/* Swap this span for your real logo component */}
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              VSG
+            </span>
+          </Link>
+
+          {/* Primary nav (desktop) */}
+          <nav aria-label="Primary" className="hidden md:block">
+            <NavigationMenu>
+              <NavigationMenuList className="gap-2">
+                {primaryLinks.map((link) => (
+                  <NavigationMenuItem key={link.href}>
+                    <NavigationMenuLink asChild data-active={isActive(link.href)}>
+                      <Link href={link.href} className={navLinkClass}>
+                        {link.label}
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
+
+                {/* Ventures dropdown */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger
+                    className={cn(
+                      navLinkClass,
+                      "data-[state=open]:bg-muted/60 data-[state=open]:text-foreground"
+                    )}
+                  >
+                    Ventures
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent className="border border-border bg-popover shadow-lg">
+                    <ul className="grid w-[280px] gap-1 p-2">
+                      {ventures.map((venture) => (
+                        <li key={venture.href}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              href={venture.href}
+                              className={cn(
+                                "block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted/80 hover:text-foreground",
+                                isActive(venture.href) &&
+                                  "bg-muted/80 text-foreground"
+                              )}
+                            >
+                              <span className="font-medium">{venture.label}</span>
+                              {venture.description ? (
+                                <span className="mt-0.5 block text-xs text-muted-foreground/80">
+                                  {venture.description}
+                                </span>
+                              ) : null}
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </nav>
+        </div>
+
+        {/* Right: CTAs */}
+        <div className="flex items-center gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            asChild
+            className="hidden sm:inline-flex"
+          >
+            <Link href="/insights">Insights</Link>
+          </Button>
+          <Button size="sm" asChild>
+            <Link href="/contact">Contact</Link>
+          </Button>
+        </div>
+      </div>
+    </header>
+  );
+}
+```
+
+This solves:
+
+* **Glitchy border:**
+
+  * The header has one `border-b border-border`
+  * The dropdown has its own `border border-border` + `shadow-lg`
+  * They’re visually separate and balanced.
+
+* **Z-index / overlap:**
+
+  * `header` is `relative` by default; `NavigationMenuContent` from shadcn uses portals & positioning to sit above other content. Docs show similar patterns.
+
+* **Cohesion:**
+
+  * All top-level links use `navLinkClass`.
+  * Dropdown rows share hover & active states with top nav.
+  * CTAs on the right use your `Button` and match everything else.
+
+> 💡 **Important:** Make sure you have the shadcn `navigation-menu` styles imported once in your global CSS (often `globals.css`):
+>
+> ```css
+> @import "@/components/ui/navigation-menu.css";
+> ```
+
+If you already did a `npx shadcn-ui@latest add navigation-menu`, this should be present.
+
+---
+
+## 4. Unifying other nav buttons / tabs
+
+For the **mobile nav / tabs / other headers** that don’t feel aligned:
+
+1. **Use the same `navLinkClass` everywhere**
+
+   Anywhere you have a top-level link in:
+
+   * Mobile drawer / Sheet
+   * Secondary nav strips
+   * Section-level tabs (that behave like primary nav)
+
+   → pass `className={navLinkClass}` (or a very light variant) so hover, font, weight, and spacing match.
+
+2. **Avoid using full `Button` components as “tabs” in the main nav**
+
+   Instead:
+
+   * Use `Button` only for **true CTAs** (Contact, Get in touch, etc.).
+   * Use `NavigationMenuLink` or plain `Link` with `navLinkClass` for everything else.
+
+3. **Match the active state logic**
+
+   * For each place that needs “active” styling, call the same `isActive(href)` helper (as in the snippet).
+   * Use `data-active={isActive(href)}` and the same `data-[active=true]:…` classes so active styles are consistent.
+
+This is exactly how shadcn’s own nav examples and community blocks keep nav styles unified.
+
+---
+
+## 5. Exact Replit AI prompt to refactor the nav
+
+Here’s how to tell Replit *exactly* what to do, so it fixes the dropdown and unifies the nav without freelancing.
+
+You can paste this as-is:
+
+---
+
+**Prompt for Replit AI – Nav Refactor & Dropdown Fix**
+
+> **Project:** `Verifiable-Systems-Group` (React + Vite + Tailwind + shadcn/ui, routing via `wouter`).
+>
+> **Goal:**
+> Fix the glitchy dropdown in the main navbar and make *all* top-level nav links feel cohesive. Use `shadcn/ui`’s `NavigationMenu` for the desktop nav. Do not change global theme tokens or add/remove routes.
+>
+> ### 1) Find the main header / nav component
+>
+> * Search under `client/src` for the component that renders the top sticky header (look for `<header`, `sticky top-0`, or the current logo text).
+> * If there is already a component like `MainNav`, `SiteHeader`, or similar, use that file. If not, create `client/src/components/layout/MainNav.tsx` and wire it into the header where appropriate.
+>
+> ### 2) Implement the unified desktop nav using shadcn NavigationMenu
+>
+> * In the main header/nav component, replace the **desktop nav markup** with the following `MainNav` implementation (you can merge this into your existing header if needed, but keep the structure):
+>
+> ```tsx
+> import * as React from "react";
+> import { Link, useLocation } from "wouter";
+>
+> import {
+>   NavigationMenu,
+>   NavigationMenuContent,
+>   NavigationMenuItem,
+>   NavigationMenuLink,
+>   NavigationMenuList,
+>   NavigationMenuTrigger,
+> } from "@/components/ui/navigation-menu";
+> import { Button } from "@/components/ui/button";
+> import { cn } from "@/lib/utils";
+>
+> const primaryLinks = [
+>   { label: "Studio", href: "/studio" },
+>   { label: "Process", href: "/process" },
+>   { label: "Standards", href: "/standards" },
+> ];
+>
+> const ventures = [
+>   {
+>     label: "Overview",
+>     href: "/ventures",
+>     description: "How ventures move from idea to governed infrastructure.",
+>   },
+>   {
+>     label: "Helios",
+>     href: "/ventures/helios",
+>     description: "Internal capital engine for VSG’s own balance sheet.",
+>   },
+>   {
+>     label: "Stackme",
+>     href: "/ventures/stackme",
+>     description: "Consumer-facing leverage experience built on verifiable rails.",
+>   },
+>   {
+>     label: "Lumina",
+>     href: "/ventures/lumina",
+>     description: "Digital authenticity and grading infrastructure for unique items.",
+>   },
+> ];
+>
+> export function MainNav() {
+>   const [location] = useLocation();
+>
+>   const isActive = (href: string) =>
+>     location === href || (href !== "/" && location.startsWith(href + "/"));
+>
+>   const navLinkClass =
+>     "text-sm font-medium px-2 py-1 text-muted-foreground transition-colors hover:text-foreground data-[active=true]:text-foreground";
+>
+>   return (
+>     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
+>       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+>         {/* Left: logo / wordmark */}
+>         <div className="flex items-center gap-8">
+>           <Link href="/" className="flex items-center gap-2">
+>             {/* Swap this for your actual logo */}
+>             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+>               VSG
+>             </span>
+>           </Link>
+>
+>           {/* Primary nav (desktop) */}
+>           <nav aria-label="Primary" className="hidden md:block">
+>             <NavigationMenu>
+>               <NavigationMenuList className="gap-2">
+>                 {primaryLinks.map((link) => (
+>                   <NavigationMenuItem key={link.href}>
+>                     <NavigationMenuLink asChild data-active={isActive(link.href)}>
+>                       <Link href={link.href} className={navLinkClass}>
+>                         {link.label}
+>                       </Link>
+>                     </NavigationMenuLink>
+>                   </NavigationMenuItem>
+>                 ))}
+>
+>                 {/* Ventures dropdown */}
+>                 <NavigationMenuItem>
+>                   <NavigationMenuTrigger
+>                     className={cn(
+>                       navLinkClass,
+>                       "data-[state=open]:bg-muted/60 data-[state=open]:text-foreground"
+>                     )}
+>                   >
+>                     Ventures
+>                   </NavigationMenuTrigger>
+>                   <NavigationMenuContent className="border border-border bg-popover shadow-lg">
+>                     <ul className="grid w-[280px] gap-1 p-2">
+>                       {ventures.map((venture) => (
+>                         <li key={venture.href}>
+>                           <NavigationMenuLink asChild>
+>                             <Link
+>                               href={venture.href}
+>                               className={cn(
+>                                 "block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted/80 hover:text-foreground",
+>                                 isActive(venture.href) &&
+>                                   "bg-muted/80 text-foreground"
+>                               )}
+>                             >
+>                               <span className="font-medium">
+>                                 {venture.label}
+>                               </span>
+>                               {venture.description ? (
+>                                 <span className="mt-0.5 block text-xs text-muted-foreground/80">
+>                                   {venture.description}
+>                                 </span>
+>                               ) : null}
+>                             </Link>
+>                           </NavigationMenuLink>
+>                         </li>
+>                       ))}
+>                     </ul>
+>                   </NavigationMenuContent>
+>                 </NavigationMenuItem>
+>               </NavigationMenuList>
+>             </NavigationMenu>
+>           </nav>
+>         </div>
+>
+>         {/* Right: CTAs */}
+>         <div className="flex items-center gap-2">
+>           <Button
+>             variant="outline"
+>             size="sm"
+>             asChild
+>             className="hidden sm:inline-flex"
+>           >
+>             <Link href="/insights">Insights</Link>
+>           </Button>
+>           <Button size="sm" asChild>
+>             <Link href="/contact">Contact</Link>
+>           </Button>
+>         </div>
+>       </div>
+>     </header>
+>   );
+> }
+> ```
+>
+> * Make sure the header uses **only one bottom border**: `border-b border-border`.
+> * The dropdown (`NavigationMenuContent`) should use `border border-border bg-popover shadow-lg` and **no extra rings** that would visually conflict with the header border.
+>
+> ### 3) Unify nav styles for other header links
+>
+> * Find any other top-level nav links (including in mobile nav / hamburger menus) and reuse the same `navLinkClass` string (or a variant) so typography, spacing, and hover states match.
+> * Avoid using full `Button` components for primary nav links; only use `Button` for true CTAs (e.g., “Contact”, “Get in touch”).
+> * Use the same `isActive(href)` helper (or equivalent) for active state across all nav links, and pass `data-active={isActive(href)}` when using `navLinkClass`.
+>
+> ### 4) Ensure shadcn navigation styles are loaded
+>
+> * Confirm that the project imports the `navigation-menu` styles once in the global stylesheet, e.g.:
+>
+>   ```css
+>   @import "@/components/ui/navigation-menu.css";
+>   ```
+>
+>   If not present, add it.
+>
+> ### 5) Quality checks
+>
+> * Run the dev server and verify on desktop:
+>
+>   * The Ventures dropdown opens cleanly with a single clear border and shadow, aligned to the header.
+>   * The border between header and page content is a single, clean line (no double borders).
+>   * All primary nav items (Studio, Process, Standards, Ventures) share the same typography, spacing, and hover/active behavior.
+>   * The “Insights” and “Contact” buttons on the right are visually consistent with the rest of the site.
+> * Confirm that no routes have changed and no global theme tokens were modified.
+
+---
+
+If you want, next step after this is we can:
+
+* Do the **same cohesion pass on the mobile nav**, and
+* Align any secondary nav strips / tabs (e.g., on Studio or Ventures pages) to reuse the same navLinkClass and active-state logic so the whole site feels like it was designed once, not five times.
+
+
+Love this one. Let’s make the mobile nav feel like it was designed *on purpose* instead of “shrunk desktop.”
+
+I’ll:
+
+1. Define the **mobile pattern** we’re going to use (and why).
+2. Show you a **re-imagined mobile nav** that’s cohesive with the desktop header.
+3. Give you an **exact Replit AI prompt** to implement it.
+
+---
+
+## 1. Pattern choice: what we’re doing & why
+
+Given your site is a **B2B / infra-ish marketing site**, not an app, the best pattern is:
+
+> **Top sticky header + hamburger → left-side sheet (drawer) with vertical nav.**
+
+Why this choice:
+
+* For marketing/B2B sites with 5–8 top-level links, a hamburger + drawer is standard and keeps the UI clean.
+* A **single primary nav** is better than mixing bottom nav + drawer (Material specifically warns against combining bottom nav with a drawer).
+* A sheet/drawer is almost exactly what shadcn’s `Sheet` is built for (sliding content like nav, with built-in focus trapping and keyboard handling).
+* Mobile nav best-practice: clear labels, large tap targets, simple hierarchy. We’ll keep 1–2 levels max and group “Ventures” as a sub-section.
+
+So: **no bottom nav**, no weird hybrid patterns — just a **clean sheet menu** that mirrors desktop structure and brand voice.
+
+---
+
+## 2. Re-imagined mobile nav: behavior & structure
+
+### Behavior
+
+On screens `< md`:
+
+* Header shows:
+
+  * Left: **logo / VSG wordmark**
+  * Right: **hamburger icon button**
+* Tapping hamburger opens a **Sheet** (drawer) from the left:
+
+  * Top: logo + close “X”
+  * Middle: vertical nav
+
+    * Primary links (Studio, Process, Standards)
+    * Ventures section with sub-links (Overview, Helios, Stackme, Lumina, etc.)
+  * Bottom: full-width **Insights** and **Contact** buttons (same CTAs as desktop, just stacked)
+* Tapping any nav item **closes the drawer** (via `SheetClose asChild`).
+
+On screens `>= md`:
+
+* You keep the **desktop nav** we already designed (NavigationMenu + Ventures dropdown + CTAs), untouched.
+
+---
+
+## 3. Complete `MainNav` with desktop + mobile (drop-in code)
+
+This version **replaces** the previous `MainNav` I gave you and adds mobile behavior. It:
+
+* Reuses `primaryLinks` and `ventures` arrays for both desktop and mobile (so structure can’t drift).
+* Uses `shadcn/ui`’s `Sheet` for mobile nav.
+* Uses the same `isActive` logic for both.
+
+```tsx
+// client/src/components/layout/MainNav.tsx
+import * as React from "react";
+import { Link, useLocation } from "wouter";
+import { Menu, X } from "lucide-react";
+
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+const primaryLinks = [
+  { label: "Studio", href: "/studio" },
+  { label: "Process", href: "/process" },
+  { label: "Standards", href: "/standards" },
+];
+
+const ventures = [
+  {
+    label: "Overview",
+    href: "/ventures",
+    description: "How ventures move from idea to governed infrastructure.",
+  },
+  {
+    label: "Helios",
+    href: "/ventures/helios",
+    description: "Internal capital engine for VSG’s own balance sheet.",
+  },
+  {
+    label: "Stackme",
+    href: "/ventures/stackme",
+    description: "Consumer leverage experience built on verifiable rails.",
+  },
+  {
+    label: "Lumina",
+    href: "/ventures/lumina",
+    description: "Digital authenticity and grading for unique items.",
+  },
+  // Add/remove ventures here; both desktop and mobile will stay in sync.
+];
+
+export function MainNav() {
+  const [location] = useLocation();
+
+  const isActive = (href: string) =>
+    location === href || (href !== "/" && location.startsWith(href + "/"));
+
+  const navLinkClass =
+    "text-sm font-medium px-2 py-1 text-muted-foreground transition-colors hover:text-foreground data-[active=true]:text-foreground";
+
+  const mobileLinkClass =
+    "flex items-center justify-between rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-muted/70";
+
+  return (
+    <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Left: logo + desktop nav */}
+        <div className="flex items-center gap-8">
+          <Link href="/" className="flex items-center gap-2">
+            {/* TODO: swap span for real logo when ready */}
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              VSG
+            </span>
+          </Link>
+
+          {/* Desktop nav only */}
+          <nav aria-label="Primary" className="hidden md:block">
+            <NavigationMenu>
+              <NavigationMenuList className="gap-2">
+                {primaryLinks.map((link) => (
+                  <NavigationMenuItem key={link.href}>
+                    <NavigationMenuLink asChild data-active={isActive(link.href)}>
+                      <Link href={link.href} className={navLinkClass}>
+                        {link.label}
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
+
+                {/* Ventures dropdown */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger
+                    className={cn(
+                      navLinkClass,
+                      "data-[state=open]:bg-muted/60 data-[state=open]:text-foreground"
+                    )}
+                  >
+                    Ventures
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent className="border border-border bg-popover shadow-lg">
+                    <ul className="grid w-[280px] gap-1 p-2">
+                      {ventures.map((venture) => (
+                        <li key={venture.href}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              href={venture.href}
+                              className={cn(
+                                "block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted/80 hover:text-foreground",
+                                isActive(venture.href) &&
+                                  "bg-muted/80 text-foreground"
+                              )}
+                            >
+                              <span className="font-medium">{venture.label}</span>
+                              {venture.description ? (
+                                <span className="mt-0.5 block text-xs text-muted-foreground/80">
+                                  {venture.description}
+                                </span>
+                              ) : null}
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </nav>
+        </div>
+
+        {/* Right: desktop CTAs + mobile menu */}
+        <div className="flex items-center gap-2">
+          {/* Desktop CTAs */}
+          <div className="hidden items-center gap-2 md:flex">
+            <Button variant="outline" size="sm" asChild>
+              <Link href="/insights">Insights</Link>
+            </Button>
+            <Button size="sm" asChild>
+              <Link href="/contact">Contact</Link>
+            </Button>
+          </div>
+
+          {/* Mobile menu */}
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full"
+                  aria-label="Open navigation menu"
+                >
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent
+                side="left"
+                className="flex w-[84vw] max-w-xs flex-col gap-4 bg-background px-4 pb-6 pt-4"
+              >
+                <SheetHeader className="flex flex-row items-center justify-between space-y-0">
+                  <SheetTitle className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                    Verifiable Systems Group
+                  </SheetTitle>
+                  <SheetClose asChild>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="-mr-2 rounded-full"
+                      aria-label="Close navigation menu"
+                    >
+                      <X className="h-5 w-5" />
+                    </Button>
+                  </SheetClose>
+                </SheetHeader>
+
+                {/* Mobile primary nav */}
+                <nav
+                  aria-label="Mobile primary navigation"
+                  className="mt-2 space-y-1"
+                >
+                  {primaryLinks.map((link) => (
+                    <SheetClose asChild key={link.href}>
+                      <Link
+                        href={link.href}
+                        className={cn(
+                          mobileLinkClass,
+                          isActive(link.href) && "bg-muted/70"
+                        )}
+                      >
+                        <span>{link.label}</span>
+                      </Link>
+                    </SheetClose>
+                  ))}
+                </nav>
+
+                {/* Ventures group */}
+                <div className="mt-4 border-t border-border pt-4">
+                  <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                    Ventures
+                  </p>
+                  <div className="space-y-1">
+                    {ventures.map((venture) => (
+                      <SheetClose asChild key={venture.href}>
+                        <Link
+                          href={venture.href}
+                          className={cn(
+                            "flex flex-col rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted/70",
+                            isActive(venture.href) && "bg-muted/70 text-foreground"
+                          )}
+                        >
+                          <span className="font-medium text-foreground">
+                            {venture.label}
+                          </span>
+                          {venture.description ? (
+                            <span className="mt-0.5 text-xs text-muted-foreground/80">
+                              {venture.description}
+                            </span>
+                          ) : null}
+                        </Link>
+                      </SheetClose>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Spacer pushes CTAs to bottom */}
+                <div className="flex-1" />
+
+                {/* Mobile CTAs */}
+                <div className="space-y-2 border-t border-border pt-4">
+                  <SheetClose asChild>
+                    <Button variant="outline" className="w-full" asChild>
+                      <Link href="/insights">Insights</Link>
+                    </Button>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Button className="w-full" asChild>
+                      <Link href="/contact">Contact</Link>
+                    </Button>
+                  </SheetClose>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
+```
+
+**Why this fixes your “glitchy” feel:**
+
+* Only the **header** has `border-b`; the mobile sheet uses its own border on the *edges* (`SheetContent` default) but not where it meets the header, so no double lines.
+* All top-level nav links share the same configuration arrays and active logic, so desktop + mobile nav are guaranteed to match.
+* Tap targets in the sheet are all `py-2` at `text-base`, which hits typical guidelines for touch usability.
+
+---
+
+## 4. Exact Replit AI prompt to implement the mobile nav
+
+Here’s the “just do exactly this” prompt for Replit:
+
+> **Prompt – Re-imagine Mobile Nav with Sheet (shadcn/ui)**
+>
+> Project: `Verifiable-Systems-Group` (React + Vite + Tailwind + shadcn/ui, routing via `wouter`).
+>
+> **Goal**
+> Rebuild the mobile navigation so it uses a shadcn `Sheet` (drawer) on small screens, while keeping the existing desktop nav based on `NavigationMenu`. Make all nav items (desktop + mobile) share the same link config and feel.
+>
+> ### 1) Ensure `Sheet` component is available
+>
+> * If not already added, run the appropriate shadcn command to add the Sheet component (e.g., `npx shadcn-ui add sheet`) and ensure it’s exported from `@/components/ui/sheet`.
+>
+> ### 2) Update `MainNav` to include desktop + mobile nav
+>
+> * Open `client/src/components/layout/MainNav.tsx` (or the main header/nav file you created previously).
+> * Replace the existing `MainNav` implementation with the full version below, keeping imports consistent with your project:
+>
+> ```tsx
+> // Use this as the MainNav implementation
+> import * as React from "react";
+> import { Link, useLocation } from "wouter";
+> import { Menu, X } from "lucide-react";
+>
+> import {
+>   NavigationMenu,
+>   NavigationMenuContent,
+>   NavigationMenuItem,
+>   NavigationMenuLink,
+>   NavigationMenuList,
+>   NavigationMenuTrigger,
+> } from "@/components/ui/navigation-menu";
+> import {
+>   Sheet,
+>   SheetContent,
+>   SheetHeader,
+>   SheetTitle,
+>   SheetTrigger,
+>   SheetClose,
+> } from "@/components/ui/sheet";
+> import { Button } from "@/components/ui/button";
+> import { cn } from "@/lib/utils";
+>
+> const primaryLinks = [
+>   { label: "Studio", href: "/studio" },
+>   { label: "Process", href: "/process" },
+>   { label: "Standards", href: "/standards" },
+> ];
+>
+> const ventures = [
+>   {
+>     label: "Overview",
+>     href: "/ventures",
+>     description: "How ventures move from idea to governed infrastructure.",
+>   },
+>   {
+>     label: "Helios",
+>     href: "/ventures/helios",
+>     description: "Internal capital engine for VSG’s own balance sheet.",
+>   },
+>   {
+>     label: "Stackme",
+>     href: "/ventures/stackme",
+>     description: "Consumer leverage experience built on verifiable rails.",
+>   },
+>   {
+>     label: "Lumina",
+>     href: "/ventures/lumina",
+>     description: "Digital authenticity and grading for unique items.",
+>   },
+> ];
+>
+> export function MainNav() {
+>   const [location] = useLocation();
+>
+>   const isActive = (href: string) =>
+>     location === href || (href !== "/" && location.startsWith(href + "/"));
+>
+>   const navLinkClass =
+>     "text-sm font-medium px-2 py-1 text-muted-foreground transition-colors hover:text-foreground data-[active=true]:text-foreground";
+>
+>   const mobileLinkClass =
+>     "flex items-center justify-between rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-muted/70";
+>
+>   return (
+>     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
+>       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+>         {/* Left: logo + desktop nav */}
+>         <div className="flex items-center gap-8">
+>           <Link href="/" className="flex items-center gap-2">
+>             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+>               VSG
+>             </span>
+>           </Link>
+>
+>           {/* Desktop nav only */}
+>           <nav aria-label="Primary" className="hidden md:block">
+>             <NavigationMenu>
+>               <NavigationMenuList className="gap-2">
+>                 {primaryLinks.map((link) => (
+>                   <NavigationMenuItem key={link.href}>
+>                     <NavigationMenuLink asChild data-active={isActive(link.href)}>
+>                       <Link href={link.href} className={navLinkClass}>
+>                         {link.label}
+>                       </Link>
+>                     </NavigationMenuLink>
+>                   </NavigationMenuItem>
+>                 ))}
+>
+>                 {/* Ventures dropdown */}
+>                 <NavigationMenuItem>
+>                   <NavigationMenuTrigger
+>                     className={cn(
+>                       navLinkClass,
+>                       "data-[state=open]:bg-muted/60 data-[state=open]:text-foreground"
+>                     )}
+>                   >
+>                     Ventures
+>                   </NavigationMenuTrigger>
+>                   <NavigationMenuContent className="border border-border bg-popover shadow-lg">
+>                     <ul className="grid w-[280px] gap-1 p-2">
+>                       {ventures.map((venture) => (
+>                         <li key={venture.href}>
+>                           <NavigationMenuLink asChild>
+>                             <Link
+>                               href={venture.href}
+>                               className={cn(
+>                                 "block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted/80 hover:text-foreground",
+>                                 isActive(venture.href) &&
+>                                   "bg-muted/80 text-foreground"
+>                               )}
+>                             >
+>                               <span className="font-medium">{venture.label}</span>
+>                               {venture.description ? (
+>                                 <span className="mt-0.5 block text-xs text-muted-foreground/80">
+>                                   {venture.description}
+>                                 </span>
+>                               ) : null}
+>                             </Link>
+>                           </NavigationMenuLink>
+>                         </li>
+>                       ))}
+>                     </ul>
+>                   </NavigationMenuContent>
+>                 </NavigationMenuItem>
+>               </NavigationMenuList>
+>             </NavigationMenu>
+>           </nav>
+>         </div>
+>
+>         {/* Right: desktop CTAs + mobile menu */}
+>         <div className="flex items-center gap-2">
+>           {/* Desktop CTAs */}
+>           <div className="hidden items-center gap-2 md:flex">
+>             <Button variant="outline" size="sm" asChild>
+>               <Link href="/insights">Insights</Link>
+>             </Button>
+>             <Button size="sm" asChild>
+>               <Link href="/contact">Contact</Link>
+>             </Button>
+>           </div>
+>
+>           {/* Mobile menu */}
+>           <div className="md:hidden">
+>             <Sheet>
+>               <SheetTrigger asChild>
+>                 <Button
+>                   variant="ghost"
+>                   size="icon"
+>                   className="rounded-full"
+>                   aria-label="Open navigation menu"
+>                 >
+>                   <Menu className="h-5 w-5" />
+>                 </Button>
+>               </SheetTrigger>
+>               <SheetContent
+>                 side="left"
+>                 className="flex w-[84vw] max-w-xs flex-col gap-4 bg-background px-4 pb-6 pt-4"
+>               >
+>                 <SheetHeader className="flex flex-row items-center justify-between space-y-0">
+>                   <SheetTitle className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+>                     Verifiable Systems Group
+>                   </SheetTitle>
+>                   <SheetClose asChild>
+>                     <Button
+>                       variant="ghost"
+>                       size="icon"
+>                       className="-mr-2 rounded-full"
+>                       aria-label="Close navigation menu"
+>                     >
+>                       <X className="h-5 w-5" />
+>                     </Button>
+>                   </SheetClose>
+>                 </SheetHeader>
+>
+>                 {/* Mobile primary nav */}
+>                 <nav
+>                   aria-label="Mobile primary navigation"
+>                   className="mt-2 space-y-1"
+>                 >
+>                   {primaryLinks.map((link) => (
+>                     <SheetClose asChild key={link.href}>
+>                       <Link
+>                         href={link.href}
+>                         className={cn(
+>                           mobileLinkClass,
+>                           isActive(link.href) && "bg-muted/70"
+>                         )}
+>                       >
+>                         <span>{link.label}</span>
+>                       </Link>
+>                     </SheetClose>
+>                   ))}
+>                 </nav>
+>
+>                 {/* Ventures group */}
+>                 <div className="mt-4 border-t border-border pt-4">
+>                   <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+>                     Ventures
+>                   </p>
+>                   <div className="space-y-1">
+>                     {ventures.map((venture) => (
+>                       <SheetClose asChild key={venture.href}>
+>                         <Link
+>                           href={venture.href}
+>                           className={cn(
+>                             "flex flex-col rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted/70",
+>                             isActive(venture.href) && "bg-muted/70 text-foreground"
+>                           )}
+>                         >
+>                           <span className="font-medium text-foreground">
+>                             {venture.label}
+>                           </span>
+>                           {venture.description ? (
+>                             <span className="mt-0.5 text-xs text-muted-foreground/80">
+>                               {venture.description}
+>                             </span>
+>                           ) : null}
+>                         </Link>
+>                       </SheetClose>
+>                     ))}
+>                   </div>
+>                 </div>
+>
+>                 <div className="flex-1" />
+>
+>                 {/* Mobile CTAs */}
+>                 <div className="space-y-2 border-t border-border pt-4">
+>                   <SheetClose asChild>
+>                     <Button variant="outline" className="w-full" asChild>
+>                       <Link href="/insights">Insights</Link>
+>                     </Button>
+>                   </SheetClose>
+>                   <SheetClose asChild>
+>                     <Button className="w-full" asChild>
+>                       <Link href="/contact">Contact</Link>
+>                     </Button>
+>                   </SheetClose>
+>                 </div>
+>               </SheetContent>
+>             </Sheet>
+>           </div>
+>         </div>
+>       </div>
+>     </header>
+>   );
+> }
+> ```
+>
+> ### 3) Style & behavior requirements
+>
+> * On screens `< md`, hide the desktop nav and CTAs and show only the hamburger button.
+> * When the hamburger is tapped, the sheet should slide in from the left and show:
+>
+>   * Logo / title + close button at the top
+>   * Primary links (Studio, Process, Standards) as large tap targets
+>   * A “Ventures” section with the venture sub-links below
+>   * Insights + Contact as full-width buttons at the bottom
+> * Clicking any link in the sheet should close the sheet (via `SheetClose asChild`).
+> * On screens `≥ md`, behavior should be unchanged: desktop nav + Ventures dropdown + right-side CTAs.
+>
+> ### 4) Quality checks
+>
+> * Run the dev server and verify:
+>
+>   * Desktop: nav and dropdown look and behave as before (or better), no visual regressions.
+>   * Mobile: header shows logo + hamburger, sheet opens from left, no jittery borders or layout conflicts, all tap targets are accessible and close the sheet on navigation.
+>   * No new routes were added or removed, only the nav presentation changed.
+
+---
+
+If you want, next we can do a **quick audit of the mobile breakpoints on specific pages** (Studio/Process/Ventures) to make sure hero text, cards, and CTAs are all behaving nicely with this new header and not getting cramped or overlapping.
+
+Nice, that’s a *great* checkpoint to be at. Replit has now ingested:
+
+* ✅ Desktop nav spec
+* ✅ Mobile nav spec
+* ✅ Process page cleanup spec (the MD you pasted)
+
+So we can treat those as “implemented” and build from *this* state.
+
+Let me do two things for you:
+
+1. **Confirm what that MD spec actually did to `Process.tsx` (no gotchas)**
+2. **Propose the *next* focused checkpoint so we keep momentum and cohesion**
+
+---
+
+## 1. What that MD spec changes (sanity check)
+
+The markdown you pasted is essentially a **human-readable change log** for `Process.tsx` + a small Standards fix. If Replit followed it correctly, you now have:
+
+### On `/process`:
+
+* **Hero is tightened + on-brand**
+
+  * Overline: “How ventures move inside VSG”
+  * Headline: “A six-stage runway for verifiable ventures.”
+  * Body: explicit about the pipeline and compounding knowledge.
+
+* **Six stages are now single-word + consistent**
+
+  ```ts
+  const stages = [
+    { name: "Define",   focus: "Strategy & Alignment",   description: "…" },
+    { name: "Validate", focus: "Risk & Signal",          description: "…" },
+    { name: "Build",    focus: "Security & Quality",     description: "…" },
+    { name: "Deploy",   focus: "Governed Launch",        description: "…" },
+    { name: "Evolve",   focus: "Data & Optimization",    description: "…" },
+    { name: "Recurse",  focus: "Institutional Memory",   description: "…" },
+  ];
+  ```
+
+  And the paragraph under the grid makes it clear ventures **don’t auto-graduate**, they’re either:
+
+  * Adopted as durable infrastructure
+  * Wrapped in ongoing governance
+  * Archived with lessons integrated back into standards
+
+* **Definitions (“Verifiable Systems”, “Deterministic AI”, “Non-custodial Rails”) are sharp**
+
+  * Each is 1–2 sentences
+  * All emphasize *inspectability* and *non-custodial* control
+
+* **Bitcoin section is clearly internal-treasury-only**
+
+  * Heading: “Bitcoin as long-term reserve, not a trading thesis.”
+  * Explains borrowing *conservatively* to fund R&D and infra
+  * Ends with: “This is an internal treasury program. We do not pool client funds, manage outside capital, or offer yield products.”
+
+* **All `...` placeholders removed**
+
+  * Everything is full sentences, which will reduce the “this feels half-done” sensation across the page.
+
+### On `/standards`:
+
+* The broken CTA at the bottom now points to `/insights` instead of `/library`.
+  That alone removes one obvious “this site is half-built” papercut.
+
+So: from a structural point of view, that MD spec is *good*: it doesn’t mess with layout, it just makes content and copy production-grade and safe.
+
+If anything feels off visually now, it’ll be:
+
+* Minor line wrapping / text density
+* How Process now contrasts with other, still-placeholder pages (Pillars, Ventures, etc.)
+
+Which leads to…
+
+---
+
+## 2. Best next checkpoint from *this* state
+
+You’ve now:
+
+* Cleaned up **Process**
+* Brought **desktop + mobile nav** into a unified, shadcn-style system
+* Fixed at least one obvious 404/CTA issue in **Standards**
+
+The next thing that will make the *entire* site feel less “messy” is:
+
+> **Checkpoint – “Ventures Spine”**
+> A. Cohesive `/ventures` overview page
+> B. A real, public-safe `/ventures/helios` detail page
+
+Why this is the highest leverage next move:
+
+* The nav now has a **Ventures** dropdown that looks serious; clicking into those links and hitting placeholders will feel extra rough.
+* Helios is the one venture you already have a safe, high-level story for (internal capital engine, BTC reserve, no client capital, no yield products).
+* Once the Helios page is real, we can “stub” the other ventures (Stackme, Lumina, etc.) with one-paragraph summaries and proper sections, so nothing feels like a blank.
+
+If you’re good with that, the very next thing I can do for you in the next message is:
+
+* Give you a **full content spec + TSX structure** for:
+
+  * `client/src/pages/ventures/index.tsx` (or whatever your `Ventures` overview page is called)
+  * `client/src/pages/ventures/Helios.tsx` (public-safe Helios page)
+* And then a **Replit agent prompt** at the same fidelity as the Process one (very explicit, zero guesswork).
+
+That will bring **nav → Process → Ventures → Helios** into alignment, and the site will start to feel like a coherent system instead of a mix of finished and unfinished pieces.
+
+Perfect—since Replit’s already run the nav + Process changes, this is the moment to make the **Ventures spine** feel just as intentional.
+
+Below is everything you need:
+
+1. A **Ventures overview page spec** (content + structure).
+2. A **Helios venture detail page spec** (public-safe, institutional tone).
+3. An **exact Replit AI prompt** to implement both.
+
+I’ll lean on current B2B product-page best practices (clear overview, benefits, scannable sections, consistent CTAs) and keep all language high-level and safe.
+
+---
+
+## 1. Ventures overview page (`/ventures`)
+
+### 1.1 Role & tone
+
+* Role: **Portfolio hub** for all ventures.
+* Tone: Confident, forward-looking, slightly aspirational; more “lab / portfolio” than “feature list”.
+
+### 1.2 Content model
+
+Use the same basic layout pattern as `Studio` / `Process`:
+
+* `<PageMeta>`
+* Hero section
+* Active ventures grid
+* “How we choose what to build” section
+* “From venture to infrastructure” tie-in → CTA to `/process`
+
+#### A. Page meta
+
+```tsx
+<PageMeta
+  title="Ventures"
+  description="How Verifiable Systems Group evaluates, funds, and matures ventures from early experiments into governed, verifiable infrastructure."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+#### B. Hero
+
+**Overline:**
+
+> Ventures at VSG
+
+**Heading:**
+
+> Infrastructure-scale ideas, tested as ventures.
+
+**Body:**
+
+> We don’t ship random apps. Every venture starts as a tightly scoped hypothesis, moves through a six-stage process, and either graduates into shared infrastructure or is retired with its lessons preserved. This page is the front-door into that portfolio.
+
+#### C. Active ventures grid
+
+Drive this via a `const ventures = [...]` array, so desktop + mobile + nav stay in sync.
+
+```ts
+const ventures = [
+  {
+    name: "Helios",
+    slug: "helios",
+    href: "/ventures/helios",
+    tag: "Internal venture",
+    stage: "Evolve",
+    summary:
+      "VSG’s internal capital engine: a governed system for funding research and infrastructure from our own balance sheet, not client deposits.",
+  },
+  {
+    name: "Stackme",
+    slug: "stackme",
+    href: "/ventures/stackme",
+    tag: "Consumer venture",
+    stage: "Validate",
+    summary:
+      "A consumer experience for safely accessing leverage on verifiable rails, with clear constraints and real-time risk visibility.",
+  },
+  {
+    name: "Lumina",
+    slug: "lumina",
+    href: "/ventures/lumina",
+    tag: "Market infrastructure",
+    stage: "Build",
+    summary:
+      "Digital authenticity and grading rails for unique items, where provenance and condition can be inspected, not guessed.",
+  },
+  {
+    name: "Axiom",
+    slug: "axiom",
+    href: "/ventures/axiom",
+    tag: "In research",
+    stage: "Define",
+    summary:
+      "Early-stage R&D around audit-ready data pipelines and deterministic AI for institutional reporting and controls.",
+  },
+];
+```
+
+Card layout (using `Card` / `CardHeader` / `CardContent` etc from shadcn) should follow standard “product card” patterns: name, tag, short summary, stage label, link.
+
+Copy suggestion inside each card:
+
+* Name (H3)
+* Tag + Stage (small caps or pill)
+* Summary (2–3 lines)
+* “Learn more →” link using your `Link` component.
+
+#### D. Section: “How we decide what to build”
+
+Short, “board-ready” explanation of your filter.
+
+**Heading:**
+
+> How ventures earn a slot in the portfolio
+
+**Body (paragraph + bullets):**
+
+```text
+We treat portfolio slots as scarce. New ventures compete with existing work for capital, attention, and risk budget. To earn a place here, a venture has to clear three gates:
+
+- Strategic fit — Does it reinforce our purpose of building verifiable systems and non-custodial rails?
+- Risk surface — Can we bound the regulatory, operational, and capital risk in a way we’re willing to own?
+- Evidence of pull — Is there real demand from the institutions or ecosystems we serve, not just internal curiosity?
+```
+
+This mirrors guidance that good B2B pages should emphasize **problem/fit** and decision criteria, not just features.
+
+#### E. Section: “From venture to infrastructure” + CTA
+
+**Heading:**
+
+> From venture to infrastructure, or clean exit.
+
+**Body:**
+
+```text
+When a venture performs, it doesn’t just “live forever.” It either becomes shared infrastructure with explicit governance, or we archive it on purpose, with its insights folded back into our standards, patterns, and playbooks.
+```
+
+Then a **NextStepBlock**:
+
+```tsx
+<NextStepBlock
+  nextPage="Process"
+  description="See the six-stage path every venture follows inside VSG."
+  href="/process"
+/>
+```
+
+---
+
+## 2. Helios detail page (`/ventures/helios`)
+
+Helios should feel **institutional and governed**, not “degen trading engine”. We’ll echo how real companies talk about BTC treasuries: as long-term, conservative corporate assets, not speculative yield schemes.
+
+### 2.1 Content model
+
+* `<PageMeta>`
+* Hero (what Helios is in one breath)
+* 3-column “Mandate / What Helios is not / Where it lives”
+* Section: “What Helios makes possible”
+* Section: “Governance & risk posture”
+* Section: “Who Helios matters for”
+* CTA block to `/standards` or `/contact`
+
+### 2.2 Page meta
+
+```tsx
+<PageMeta
+  title="Helios"
+  description="Helios is VSG’s internal capital engine — a governed system for funding research, infrastructure, and resilience from our own balance sheet, not client deposits."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+### 2.3 Hero
+
+**Overline:**
+
+> Internal venture — capital systems
+
+**Heading:**
+
+> Helios: VSG’s internal capital engine.
+
+**Body:**
+
+```text
+Helios is how we put our own balance sheet to work. It allocates VSG’s capital into long-term reserve assets and selective borrowing programs so we can fund research, infrastructure, and resilience without ever touching client deposits or offering yield products.
+```
+
+Tone: calm, matter-of-fact, no hype.
+
+### 2.4 3-column “Mandate / Not / Where it lives”
+
+Use a 3-column grid (`md:grid-cols-3`) with small cards or callouts.
+
+**Column 1 – Mandate**
+
+> **Mandate**
+> Fund long-horizon work that would be hard to finance on a quarter-to-quarter budget: deep research, security reviews, infrastructure, and shared tooling across ventures.
+
+**Column 2 – What Helios is not**
+
+> **What Helios is not**
+> Helios does not pool client funds, accept deposits, run a public fund, or market yield products. It exists solely to manage VSG’s own capital under governed limits.
+
+**Column 3 – Where it lives**
+
+> **Where it lives**
+> Helios sits inside VSG’s internal stack alongside our treasury, risk, and engineering functions. It is designed to be explainable to auditors, banking partners, and regulators.
+
+This mirrors how responsible BTC-treasury companies position their strategies—clear separation from customer funds, long-term posture, and emphasis on explainability.
+
+### 2.5 Section: “What Helios makes possible”
+
+**Heading:**
+
+> What Helios makes possible for VSG
+
+**Body + bullets:**
+
+```text
+Helios is not about chasing short-term trades. Its job is to make the rest of the portfolio more resilient:
+
+- Smoother funding — Provide a buffer so high-value ventures are not shut down solely because external markets are noisy.
+- Shared infrastructure — Pay for common security, observability, and compliance work that benefits more than one venture.
+- Real-world stress testing — Let us run controlled, capital-backed experiments on new rails before they touch client-facing systems.
+```
+
+### 2.6 Section: “Governance & risk posture”
+
+You don’t leak mechanics; you highlight *principles*.
+
+**Heading:**
+
+> Governance & risk posture
+
+**Body:**
+
+```text
+Helios operates under explicit limits set by VSG’s governance framework. Capital allocation, reserve policies, and borrowing decisions are reviewed against predefined risk tolerances, with separation between those who propose positions and those who approve them.
+```
+
+Optional short bullets:
+
+* **Conservative by design** — Long-term reserve mindset, not high-frequency speculation.
+* **Non-custodial rails** — Where we use cryptographic rails, control stays with VSG; Helios never holds client keys.
+* **Audit-ready** — Every move is traceable so external reviewers can understand where risk sits and how it is controlled.
+
+This aligns with how treasury/crypto-treasury guides emphasize governance, risk limits, and auditability rather than specific instruments.
+
+### 2.7 Section: “Who Helios matters for”
+
+**Heading:**
+
+> Who Helios matters for
+
+Short paragraph:
+
+```text
+Most institutions will never interact with Helios directly. It matters because it underwrites the stability of everything else we build.
+```
+
+Then 3 short bullets:
+
+* **Banks & partners** — Clear separation between client flows and VSG’s own capital.
+* **Auditors & regulators** — A single place to understand how balance-sheet risk is managed.
+* **Customers & ecosystems** — Ventures that are less likely to be yanked back or abandoned mid-stream.
+
+### 2.8 CTA block
+
+At the bottom, a `NextStepBlock`:
+
+Option 1 (to Standards):
+
+```tsx
+<NextStepBlock
+  nextPage="Standards"
+  description="See the principles that govern how we design, test, and operate capital systems like Helios."
+  href="/standards"
+/>
+```
+
+Option 2 (if you want more BD-ish):
+
+```tsx
+<NextStepBlock
+  nextPage="Contact"
+  description="If you’re evaluating VSG as a partner, we can share additional details under NDA."
+  href="/contact"
+/>
+```
+
+---
+
+## 3. Exact Replit AI prompt – Ventures overview + Helios pages
+
+You can paste this straight into Replit’s agent.
+
+---
+
+**Prompt – Implement Ventures Overview and Helios Detail Pages**
+
+> **Project:** `Verifiable-Systems-Group` (React + Vite + Tailwind + shadcn/ui, routing via `wouter` in `client/src/App.tsx`).
+>
+> **Goal**
+> Implement a cohesive Ventures overview page at `/ventures` and a Helios venture detail page at `/ventures/helios`. Both pages should follow the same layout patterns as existing pages like `Studio` and `Process`, reuse existing components (`PageMeta`, `NextStepBlock`, shadcn `Card`, etc.), and keep copy public-safe: no implementation details, no promise of yield, no mention of client funds being managed.
+>
+> Do not change global theming or existing routes other than wiring these pages in.
+
+---
+
+### 3.1 Ventures overview page
+
+> **File(s):**
+>
+> * Prefer `client/src/pages/Ventures.tsx` or the existing file used for `/ventures`.
+> * If there is already a Ventures page, update its content instead of creating a duplicate.
+>
+> **Steps:**
+>
+> 1. In the Ventures page file, import and use `PageMeta` the same way it is used in `Process.tsx` and `Studio.tsx`. Set:
+>
+>    ```tsx
+>    <PageMeta
+>      title="Ventures"
+>      description="How Verifiable Systems Group evaluates, funds, and matures ventures from early experiments into governed, verifiable infrastructure."
+>      preloadImage="/hero-texture.png"
+>    />
+>    ```
+> 2. Implement a hero section with:
+>
+>    * Overline: `Ventures at VSG`
+>    * Heading: `Infrastructure-scale ideas, tested as ventures.`
+>    * Body paragraph:
+>      `"We don’t ship random apps. Every venture starts as a tightly scoped hypothesis, moves through a six-stage process, and either graduates into shared infrastructure or is retired with its lessons preserved. This page is the front-door into that portfolio."`
+> 3. Define a `const ventures = [...]` array near the top of the file:
+>
+>    ```ts
+>    const ventures = [
+>      {
+>        name: "Helios",
+>        slug: "helios",
+>        href: "/ventures/helios",
+>        tag: "Internal venture",
+>        stage: "Evolve",
+>        summary:
+>          "VSG’s internal capital engine: a governed system for funding research and infrastructure from our own balance sheet, not client deposits.",
+>      },
+>      {
+>        name: "Stackme",
+>        slug: "stackme",
+>        href: "/ventures/stackme",
+>        tag: "Consumer venture",
+>        stage: "Validate",
+>        summary:
+>          "A consumer experience for safely accessing leverage on verifiable rails, with clear constraints and real-time risk visibility.",
+>      },
+>      {
+>        name: "Lumina",
+>        slug: "lumina",
+>        href: "/ventures/lumina",
+>        tag: "Market infrastructure",
+>        stage: "Build",
+>        summary:
+>          "Digital authenticity and grading rails for unique items, where provenance and condition can be inspected, not guessed.",
+>      },
+>      {
+>        name: "Axiom",
+>        slug: "axiom",
+>        href: "/ventures/axiom",
+>        tag: "In research",
+>        stage: "Define",
+>        summary:
+>          "Early-stage R&D around audit-ready data pipelines and deterministic AI for institutional reporting and controls.",
+>      },
+>    ];
+>    ```
+> 4. Render these ventures as a responsive grid of cards using existing shadcn `Card` components (match imports from other pages):
+>
+>    * Each card should show:
+>
+>      * `name` as the title
+>      * `tag` and `stage` as small labels
+>      * `summary` as body text
+>      * A “Learn more” link using the project’s `Link` component, pointing at `href`.
+> 5. Below the grid, add a section titled `How ventures earn a slot in the portfolio` with:
+>
+>    * One paragraph:
+>      `"We treat portfolio slots as scarce. New ventures compete with existing work for capital, attention, and risk budget. To earn a place here, a venture has to clear three gates:"`
+>    * Then a bullet list:
+>
+>      * `Strategic fit — Does it reinforce our purpose of building verifiable systems and non-custodial rails?`
+>      * `Risk surface — Can we bound the regulatory, operational, and capital risk in a way we’re willing to own?`
+>      * `Evidence of pull — Is there real demand from the institutions or ecosystems we serve, not just internal curiosity?`
+> 6. Add a final section titled `From venture to infrastructure, or clean exit.` with:
+>
+>    * Paragraph:
+>      `"When a venture performs, it doesn’t just “live forever.” It either becomes shared infrastructure with explicit governance, or we archive it on purpose, with its insights folded back into our standards, patterns, and playbooks."`
+>    * A `NextStepBlock` pointing to `/process`:
+>
+>      ```tsx
+>      <NextStepBlock
+>        nextPage="Process"
+>        description="See the six-stage path every venture follows inside VSG."
+>        href="/process"
+>      />
+>      ```
+> 7. Ensure typography, spacing, and container widths match `Process.tsx` and `Standards.tsx`.
+
+---
+
+### 3.2 Helios venture detail page
+
+> **File(s):**
+>
+> * Create `client/src/pages/ventures/Helios.tsx` (or update the existing Helios page if it already exists).
+> * In `client/src/App.tsx`, ensure there is a route mapping `/ventures/helios` to this component. Use the same routing pattern as other pages (e.g. `Studio`, `Process`).
+>
+> **Steps:**
+>
+> 1. Add `PageMeta` at the top of the component:
+>
+>    ```tsx
+>    <PageMeta
+>      title="Helios"
+>      description="Helios is VSG’s internal capital engine — a governed system for funding research, infrastructure, and resilience from our own balance sheet, not client deposits."
+>      preloadImage="/hero-texture.png"
+>    />
+>    ```
+> 2. Implement a hero section with:
+>
+>    * Overline: `Internal venture — capital systems`
+>    * Heading: `Helios: VSG’s internal capital engine.`
+>    * Body paragraph:
+>      `"Helios is how we put our own balance sheet to work. It allocates VSG’s capital into long-term reserve assets and selective borrowing programs so we can fund research, infrastructure, and resilience without ever touching client deposits or offering yield products."`
+> 3. Add a three-column grid (stacked on mobile, `md:grid-cols-3`) with three callouts:
+>
+>    * **Mandate**
+>      `"Fund long-horizon work that would be hard to finance on a quarter-to-quarter budget: deep research, security reviews, infrastructure, and shared tooling across ventures."`
+>    * **What Helios is not**
+>      `"Helios does not pool client funds, accept deposits, run a public fund, or market yield products. It exists solely to manage VSG’s own capital under governed limits."`
+>    * **Where it lives**
+>      `"Helios sits inside VSG’s internal stack alongside our treasury, risk, and engineering functions. It is designed to be explainable to auditors, banking partners, and regulators."`
+> 4. Add a section titled `What Helios makes possible for VSG` with:
+>
+>    * Paragraph:
+>      `"Helios is not about chasing short-term trades. Its job is to make the rest of the portfolio more resilient:"`
+>    * Bullet list:
+>
+>      * `Smoother funding — Provide a buffer so high-value ventures are not shut down solely because external markets are noisy.`
+>      * `Shared infrastructure — Pay for common security, observability, and compliance work that benefits more than one venture.`
+>      * `Real-world stress testing — Let us run controlled, capital-backed experiments on new rails before they touch client-facing systems.`
+> 5. Add a section titled `Governance & risk posture` with:
+>
+>    * Paragraph:
+>      `"Helios operates under explicit limits set by VSG’s governance framework. Capital allocation, reserve policies, and borrowing decisions are reviewed against predefined risk tolerances, with separation between those who propose positions and those who approve them."`
+>    * Optional short bullet points:
+>
+>      * `Conservative by design — Long-term reserve mindset, not high-frequency speculation.`
+>      * `Non-custodial rails — Where we use cryptographic rails, control stays with VSG; Helios never holds client keys.`
+>      * `Audit-ready — Every move is traceable so external reviewers can understand where risk sits and how it is controlled.`
+> 6. Add a section titled `Who Helios matters for` with:
+>
+>    * Paragraph:
+>      `"Most institutions will never interact with Helios directly. It matters because it underwrites the stability of everything else we build."`
+>    * Bullets:
+>
+>      * `Banks & partners — Clear separation between client flows and VSG’s own capital.`
+>      * `Auditors & regulators — A single place to understand how balance-sheet risk is managed.`
+>      * `Customers & ecosystems — Ventures that are less likely to be yanked back or abandoned mid-stream.`
+> 7. Add a `NextStepBlock` at the bottom (pick one of these depending on existing IA):
+>
+>    ```tsx
+>    <NextStepBlock
+>      nextPage="Standards"
+>      description="See the principles that govern how we design, test, and operate capital systems like Helios."
+>      href="/standards"
+>    />
+>    ```
+>
+>    or
+>
+>    ```tsx
+>    <NextStepBlock
+>      nextPage="Contact"
+>      description="If you’re evaluating VSG as a partner, we can share additional details under NDA."
+>      href="/contact"
+>    />
+>    ```
+> 8. Keep styling consistent with `Process.tsx`:
+>
+>    * Use the same container width, vertical spacing, and typography scale.
+>    * No additional experimental colors or components; stick to existing design tokens.
+
+---
+
+If you want, the *next* micro-checkpoint after this can be:
+
+**“Stub in Stackme and Lumina detail pages with high-level, safe copy and match the Helios layout”** — so nothing in the Ventures dropdown ever feels like a dead end.
+
+
+Nice, then you’re in a really good spot.
+
+Right now your spine is:
+
+* ✅ Desktop + mobile nav (cohesive)
+* ✅ Process page (6-stage pipeline, clean, safe)
+* ✅ Ventures overview + Helios (once Replit finishes)
+
+**Next logical step:**
+Finish the **Ventures backbone** so *every* link in the Ventures dropdown lands on a real, on-brand page:
+
+> **Checkpoint – Stackme & Lumina venture detail pages**
+
+I’ll give you:
+
+1. What each page should *say* and how it should feel.
+2. An exact Replit prompt so it can implement both with zero guesswork.
+
+---
+
+## 1. Stackme detail page (`/ventures/stackme`)
+
+### 1.1 Role & tone
+
+* Role: Explain **what Stackme explores** at a high level, without implying it’s a live financial product.
+* Tone: Clear, cautious, consumer-aware; a bit more human than Helios, but still professional.
+
+### 1.2 Content model
+
+Use the same layout pattern as Helios:
+
+* `<PageMeta>`
+* Hero
+* 3-part “The problem / What Stackme explores / What Stackme is not”
+* Section: Principles
+* Section: Where Stackme is today
+* CTA → Ventures or Contact
+
+#### A. `PageMeta`
+
+```tsx
+<PageMeta
+  title="Stackme"
+  description="Stackme is a consumer venture in development that explores how everyday people could interact with leverage on verifiable, non-custodial rails—with clear constraints and real risk visibility."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+#### B. Hero
+
+**Overline:**
+`Consumer venture — leverage experience`
+
+**Heading:**
+`Stackme: exploring safer leverage for everyday people.`
+
+**Body:**
+
+```text
+Stackme is an experimental venture inside VSG. It asks a simple question: if adults are going to use leverage anyway, what would it look like to design that experience with clear guardrails, real-time visibility, and non-custodial rails from day one?
+```
+
+Add a very explicit disclaimer right below the hero paragraph, small text:
+
+```tsx
+<p className="mt-3 text-xs text-muted-foreground">
+  Stackme is an internal venture in development. It is not a live product, does not accept deposits, and is not an offer of credit, investment, or financial services.
+</p>
+```
+
+#### C. 3-column block: problem / explore / not
+
+Grid like Helios (`md:grid-cols-3`).
+
+1. **The problem Stackme studies**
+
+   > Many people interact with leverage through products they don’t fully understand. Fees, risk bands, and liquidation paths are often buried in fine print or hidden in complex interfaces.
+
+2. **What Stackme explores**
+
+   > Stackme prototypes experiences where risk bands, constraints, and downside are front-loaded and machine-readable. The goal is to see whether clearer interfaces and verifiable rails can make hard decisions easier to understand.
+
+3. **What Stackme is not**
+
+   > Stackme is not a broker, bank, or credit issuer. It does not pool client assets, provide investment advice, or market yield. It is a research venture focused on interface patterns and system design.
+
+#### D. Section: Design principles
+
+**Heading:**
+`Design principles behind Stackme`
+
+**Body + bullets:**
+
+```text
+Every prototype we run under the Stackme banner is evaluated against a short list of principles:
+```
+
+Bullets:
+
+* **Clarity first** — Users should be able to describe, in plain language, what they are doing and what could go wrong.
+* **Visible constraints** — Limits, thresholds, and worst-case scenarios are shown, not implied.
+* **Non-custodial by default** — Wherever possible, rails are structured so users and institutions keep key control; the system orchestrates flows, it does not take custody.
+* **Reversible where it matters** — We bias toward flows that can be rolled back or unwound under clear conditions, rather than one-way bets.
+
+#### E. Section: Where Stackme is today
+
+**Heading:**
+`Where Stackme is today`
+
+**Copy:**
+
+```text
+Today, Stackme lives as a collection of internal prototypes and research studies. We use them to test comprehension, risk perception, and behavioural responses to different leverage interfaces. Anything that moves beyond the lab will go through VSG’s standard venture process before it touches production users.
+```
+
+Then a small note:
+
+```tsx
+<p className="mt-3 text-xs text-muted-foreground">
+  Nothing described on this page should be interpreted as a live product, a public roadmap, or an invitation to transact.
+</p>
+```
+
+#### F. CTA
+
+Use `NextStepBlock` to keep people in safe territory:
+
+```tsx
+<NextStepBlock
+  nextPage="Ventures"
+  description="See how Stackme fits alongside other ventures in the VSG portfolio."
+  href="/ventures"
+/>
+```
+
+---
+
+## 2. Lumina detail page (`/ventures/lumina`)
+
+### 2.1 Role & tone
+
+* Role: Show Lumina as **market infrastructure** for authenticity/grading—no hype, no magic AI claims.
+* Tone: Analytical, infrastructure-y; similar to Helios but tuned toward marketplaces / collectibles instead of capital.
+
+### 2.2 Content model
+
+* `<PageMeta>`
+* Hero
+* 3-column “The problem / Lumina’s focus / What Lumina is not”
+* Section: What Lumina makes possible
+* Section: Where Lumina is in the process
+* CTA → Ventures / Process
+
+#### A. `PageMeta`
+
+```tsx
+<PageMeta
+  title="Lumina"
+  description="Lumina is a market-infrastructure venture exploring digital authenticity rails for unique items—so provenance, condition, and risk can be inspected instead of guessed."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+#### B. Hero
+
+**Overline:**
+`Market infrastructure — authenticity systems`
+
+**Heading:**
+`Lumina: digital authenticity rails for unique items.`
+
+**Body:**
+
+```text
+Lumina explores how to turn fragmented signals about authenticity, condition, and risk into something markets can actually use. Instead of relying on screenshots and scattered opinions, we work toward verifiable, machine-readable views of high-value items.
+```
+
+#### C. 3-column: problem / focus / not
+
+1. **The problem Lumina addresses**
+
+   > Authenticity and grading are often slow, opaque, and dependent on a single opinion. For many markets, that creates delays, disputes, and pricing that feels more like guesswork than infrastructure.
+
+2. **Lumina’s focus**
+
+   > Lumina focuses on building rails that can combine human expertise, imaging, and other data into structured signals. The aim is not to replace existing actors, but to give ecosystems better tools to see what they are trading.
+
+3. **What Lumina is not**
+
+   > Lumina is not a marketplace, escrow service, or grading company. It does not hold assets or execute trades. It is an infrastructure venture focused on how authenticity and condition data move between participants.
+
+#### D. Section: What Lumina makes possible
+
+**Heading:**
+`What Lumina makes possible`
+
+**Body + bullets:**
+
+```text
+If we can make authenticity and condition more visible, we can improve more than just pricing:
+```
+
+* **Faster decisions** — Buyers and sellers can see the same structured view of risk without waiting weeks for manual back-and-forth.
+* **Better routing** — Markets, platforms, and services can route items and orders based on verified signals, not just free-text notes.
+* **Shared language** — Different participants can talk about the same item using consistent terms and states instead of bespoke spreadsheets.
+
+#### E. Section: Where Lumina is in the process
+
+**Heading:**
+`Where Lumina is in the process`
+
+**Copy:**
+
+```text
+Lumina is currently in the build and early-validation stages. We are focused on tightly scoped pilots and internal tooling rather than broad public launches. Any expansion into production environments will follow VSG’s venture process and governance standards.
+```
+
+Add a subtle note:
+
+```tsx
+<p className="mt-3 text-xs text-muted-foreground">
+  Nothing on this page should be read as a commitment to support specific assets, marketplaces, or partners. It describes a direction of research, not a live product catalogue.
+</p>
+```
+
+#### F. CTA
+
+Tie back to Ventures or Process:
+
+```tsx
+<NextStepBlock
+  nextPage="Process"
+  description="See how ventures like Lumina move from early research into governed infrastructure."
+  href="/process"
+/>
+```
+
+---
+
+## 3. Exact Replit AI prompt – Stackme & Lumina pages
+
+Here’s the “do exactly this” prompt you can drop into Replit now.
+
+---
+
+**Prompt — Implement Stackme & Lumina Venture Detail Pages**
+
+> **Project:** `Verifiable-Systems-Group` (React + Vite + Tailwind + shadcn/ui, routing via `wouter` in `client/src/App.tsx`).
+>
+> **Goal**
+> Add two venture detail pages at `/ventures/stackme` and `/ventures/lumina` that match the tone and layout of the existing Helios venture page. Both pages must be public-safe: no implementation details, no promises of yield, no suggestion that these are live financial products or marketplaces.
+
+---
+
+### 3.1 Stackme page
+
+> **File(s):**
+>
+> * Create `client/src/pages/ventures/Stackme.tsx` (or update the existing Stackme page if it already exists).
+> * In `client/src/App.tsx`, ensure there is a route mapping `/ventures/stackme` to this component, following the same pattern as the Helios route.
+>
+> **Implementation details:**
+>
+> 1. Add `PageMeta` at the top of the component:
+>
+>    ```tsx
+>    <PageMeta
+>      title="Stackme"
+>      description="Stackme is a consumer venture in development that explores how everyday people could interact with leverage on verifiable, non-custodial rails—with clear constraints and real risk visibility."
+>      preloadImage="/hero-texture.png"
+>    />
+>    ```
+> 2. Implement a hero section with:
+>
+>    * Overline: `Consumer venture — leverage experience`
+>    * Heading: `Stackme: exploring safer leverage for everyday people.`
+>    * Body paragraph:
+>      `"Stackme is an experimental venture inside VSG. It asks a simple question: if adults are going to use leverage anyway, what would it look like to design that experience with clear guardrails, real-time visibility, and non-custodial rails from day one?"`
+>    * Immediately below, add a small disclaimer paragraph:
+>
+>      ```tsx
+>      <p className="mt-3 text-xs text-muted-foreground">
+>        Stackme is an internal venture in development. It is not a live product, does not accept deposits, and is not an offer of credit, investment, or financial services.
+>      </p>
+>      ```
+> 3. Add a three-column grid (stacked on mobile, `md:grid-cols-3`) with three callouts:
+>
+>    * **The problem Stackme studies**
+>      `"Many people interact with leverage through products they don’t fully understand. Fees, risk bands, and liquidation paths are often buried in fine print or hidden in complex interfaces."`
+>    * **What Stackme explores**
+>      `"Stackme prototypes experiences where risk bands, constraints, and downside are front-loaded and machine-readable. The goal is to see whether clearer interfaces and verifiable rails can make hard decisions easier to understand."`
+>    * **What Stackme is not**
+>      `"Stackme is not a broker, bank, or credit issuer. It does not pool client assets, provide investment advice, or market yield. It is a research venture focused on interface patterns and system design."`
+> 4. Add a section titled `Design principles behind Stackme` with:
+>
+>    * Intro paragraph:
+>      `"Every prototype we run under the Stackme banner is evaluated against a short list of principles:"`
+>    * Bullets:
+>
+>      * `Clarity first — Users should be able to describe, in plain language, what they are doing and what could go wrong.`
+>      * `Visible constraints — Limits, thresholds, and worst-case scenarios are shown, not implied.`
+>      * `Non-custodial by default — Wherever possible, rails are structured so users and institutions keep key control; the system orchestrates flows, it does not take custody.`
+>      * `Reversible where it matters — We bias toward flows that can be rolled back or unwound under clear conditions, rather than one-way bets.`
+> 5. Add a section titled `Where Stackme is today` with:
+>
+>    * Paragraph:
+>      `"Today, Stackme lives as a collection of internal prototypes and research studies. We use them to test comprehension, risk perception, and behavioural responses to different leverage interfaces. Anything that moves beyond the lab will go through VSG’s standard venture process before it touches production users."`
+>    * Small note:
+>
+>      ```tsx
+>      <p className="mt-3 text-xs text-muted-foreground">
+>        Nothing described on this page should be interpreted as a live product, a public roadmap, or an invitation to transact.
+>      </p>
+>      ```
+> 6. At the bottom, add a `NextStepBlock`:
+>
+>    ```tsx
+>    <NextStepBlock
+>      nextPage="Ventures"
+>      description="See how Stackme fits alongside other ventures in the VSG portfolio."
+>      href="/ventures"
+>    />
+>    ```
+> 7. Ensure layout, spacing, and typography match the Helios page and other venture pages.
+
+---
+
+### 3.2 Lumina page
+
+> **File(s):**
+>
+> * Create `client/src/pages/ventures/Lumina.tsx` (or update the existing Lumina page).
+> * In `client/src/App.tsx`, ensure there is a route mapping `/ventures/lumina` to this component, consistent with the other venture pages.
+>
+> **Implementation details:**
+>
+> 1. Add `PageMeta`:
+>
+>    ```tsx
+>    <PageMeta
+>      title="Lumina"
+>      description="Lumina is a market-infrastructure venture exploring digital authenticity rails for unique items—so provenance, condition, and risk can be inspected instead of guessed."
+>      preloadImage="/hero-texture.png"
+>    />
+>    ```
+> 2. Implement a hero section with:
+>
+>    * Overline: `Market infrastructure — authenticity systems`
+>    * Heading: `Lumina: digital authenticity rails for unique items.`
+>    * Body:
+>      `"Lumina explores how to turn fragmented signals about authenticity, condition, and risk into something markets can actually use. Instead of relying on screenshots and scattered opinions, we work toward verifiable, machine-readable views of high-value items."`
+> 3. Add a three-column grid with:
+>
+>    * **The problem Lumina addresses**
+>      `"Authenticity and grading are often slow, opaque, and dependent on a single opinion. For many markets, that creates delays, disputes, and pricing that feels more like guesswork than infrastructure."`
+>    * **Lumina’s focus**
+>      `"Lumina focuses on building rails that can combine human expertise, imaging, and other data into structured signals. The aim is not to replace existing actors, but to give ecosystems better tools to see what they are trading."`
+>    * **What Lumina is not**
+>      `"Lumina is not a marketplace, escrow service, or grading company. It does not hold assets or execute trades. It is an infrastructure venture focused on how authenticity and condition data move between participants."`
+> 4. Add a section titled `What Lumina makes possible` with:
+>
+>    * Intro:
+>      `"If we can make authenticity and condition more visible, we can improve more than just pricing:"`
+>    * Bullets:
+>
+>      * `Faster decisions — Buyers and sellers can see the same structured view of risk without waiting weeks for manual back-and-forth.`
+>      * `Better routing — Markets, platforms, and services can route items and orders based on verified signals, not just free-text notes.`
+>      * `Shared language — Different participants can talk about the same item using consistent terms and states instead of bespoke spreadsheets.`
+> 5. Add a section titled `Where Lumina is in the process` with:
+>
+>    * Paragraph:
+>      `"Lumina is currently in the build and early-validation stages. We are focused on tightly scoped pilots and internal tooling rather than broad public launches. Any expansion into production environments will follow VSG’s venture process and governance standards."`
+>    * Small note:
+>
+>      ```tsx
+>      <p className="mt-3 text-xs text-muted-foreground">
+>        Nothing on this page should be read as a commitment to support specific assets, marketplaces, or partners. It describes a direction of research, not a live product catalogue.
+>      </p>
+>      ```
+> 6. Add a `NextStepBlock`:
+>
+>    ```tsx
+>    <NextStepBlock
+>      nextPage="Process"
+>      description="See how ventures like Lumina move from early research into governed infrastructure."
+>      href="/process"
+>    />
+>    ```
+> 7. Keep all styling aligned with existing pages—same containers, spacing, and type scale.
+
+---
+
+Once Replit runs this, your Ventures dropdown will be *fully live*:
+
+* Helios → serious, institutional capital engine
+* Stackme → clearly “in development”, consumer-focused, not a live product
+* Lumina → clearly “infrastructure research”, not a marketplace
+
+After that, the next checkpoint is probably: **Pillars page** (bringing your 3 core pillars from the identity doc onto the site) and then **Purpose / Vision / Mission pages** as separate but linked detail pages. When you’re ready, I can spec those the same way.
+
+Short answer: next up is the **Studio page as your “who we are / what we do” front door**, wired into your identity (purpose/vision/pillars) and the ventures we just stood up.
+
+Right now you have:
+
+* ✅ Nav (desktop + mobile)
+* ✅ Process (6-stage pipeline)
+* ✅ Ventures overview
+* ✅ Helios / Stackme / Lumina detail pages
+
+What’s still missing (and what almost every serious B2B / venture-studio site leans on) is a **clear, scannable Studio/About page** that:
+
+* States **who VSG is** and **what kind of venture studio you are**.
+* Connects to **portfolio & process** (Ventures + Process pages).
+* Mirrors your **purpose / vision / mission / pillars** at a high level (details can live on dedicated pages later).
+
+So this checkpoint is:
+
+> **Checkpoint – Make `/studio` your identity “spine”**
+
+Below is:
+
+1. A content/structure spec for `Studio.tsx`.
+2. An exact Replit prompt like the others.
+
+---
+
+## 1. Studio page – content & structure
+
+Assume route: `/studio` → `client/src/pages/Studio.tsx` (or whatever you already use).
+
+### 1.1 Page meta
+
+Use `PageMeta` like on Process/Ventures:
+
+```tsx
+<PageMeta
+  title="Studio"
+  description="Verifiable Systems Group is a verification-first venture studio that designs, builds, and governs systems on non-custodial rails for institutions and ecosystems."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+This hits: who you are, your specialty, and who you’re for (institutions + ecosystems) in one line, which is exactly what best-practice mission/vision guidance suggests.
+
+---
+
+### 1.2 Hero – “who we are” in one breath
+
+**Overline:**
+
+> Verifiable Systems Group
+
+**Heading:**
+
+> A verification-first venture studio.
+
+**Body copy:**
+
+```text
+Verifiable Systems Group (VSG) is a small, focused studio that designs and operates systems where behaviour can be inspected, not guessed. We build on non-custodial rails, keep governance explicit, and treat every venture as an experiment that has to earn its place in the portfolio.
+```
+
+Underneath, a short supporting line to frame the rest of the page:
+
+```text
+The Studio is where we define our thesis, choose what to build, and decide how ventures like Helios, Stackme, and Lumina move from idea to governed infrastructure.
+```
+
+---
+
+### 1.3 Section: “What we do”
+
+This is basically your **service / capability map**, but described at a principles level (not “packages”).
+
+**Heading:**
+
+> What we do
+
+Grid: 3 cards (`md:grid-cols-3`), each a simple shadcn `Card` with title + body.
+
+1. **Systems Architecture & Research**
+
+   ```text
+   We map the real-world constraints around capital, identity, and regulation, then design systems that make those constraints explicit. That includes verification flows, risk boundaries, and the rails needed for institutions to stay in control.
+   ```
+
+2. **Venture Studio & Incubation**
+
+   ```text
+   We run a repeatable process for turning hypotheses into ventures. Each venture enters with a clear thesis, moves through our six-stage pipeline, and is either graduated into shared infrastructure or archived with its lessons preserved.
+   ```
+
+3. **Standards, Playbooks & Governance**
+
+   ```text
+   We turn what we learn into reusable standards: patterns, controls, and playbooks that can be applied across ventures. This is how we avoid solving the same problem twice and how external partners can evaluate how we work.
+   ```
+
+This maps very cleanly to how serious venture studios describe themselves: **thesis**, **venture-building process**, and **reusable playbooks/standards**.
+
+---
+
+### 1.4 Section: “Who we’re for”
+
+This is for prospective partners, banks, infra providers, etc.
+
+**Heading:**
+
+> Who we’re for
+
+Short intro:
+
+```text
+We exist for institutions and ecosystems that care about verification, not just velocity.
+```
+
+Bullets (or 3 horizontal chips):
+
+* **Financial institutions & fintechs** — who need non-custodial, audit-ready rails instead of opaque black boxes.
+* **Market and infrastructure providers** — building exchanges, marketplaces, and rails where authenticity, risk, or capital flows must be explainable.
+* **Ecosystems & protocols** — that want to see real-world use-cases built on top of their primitives under conservative, governed conditions.
+
+---
+
+### 1.5 Section: “How the Studio is structured”
+
+Link Studio → Ventures + Process in a single visual.
+
+**Heading:**
+
+> How the Studio is structured
+
+Body:
+
+```text
+We keep the Studio small and focused. Most of the complexity lives in the ventures and the systems they rely on.
+```
+
+Then a 3-column “structure” block:
+
+1. **The Studio**
+
+   ```text
+   A core team focused on thesis, architecture, standards, and governance. The Studio sets the bar for what we build and how risk is managed.
+   ```
+
+2. **Ventures**
+
+   ```text
+   Individual ventures like Helios, Stackme, and Lumina that explore specific opportunities. Each one competes for capital, attention, and risk budget.
+   ```
+
+3. **Standards & Library**
+
+   ```text
+   A growing set of standards, playbooks, and patterns that capture what works. This is how we avoid re-learning the same lesson in three different places.
+   ```
+
+Underneath, add two inline links:
+
+* “See the venture portfolio → /ventures”
+* “See the six-stage venture process → /process”
+
+This matches best-practice venture studio storytelling: clearly explain **structure**, not just logos or buzzwords.
+
+---
+
+### 1.6 Section: “Our pillars” (summary, not the full handbook)
+
+Here we surface your identity pillars in a **compressed** way, with a path to deeper pages later (Purpose/Vision/Mission/Pillars).
+
+**Heading:**
+
+> Our pillars
+
+Intro:
+
+```text
+Underneath the ventures and tooling, the Studio is anchored on a small number of pillars. They show up in everything we design and every venture we approve.
+```
+
+3 bullets (match the identity doc we crafted conceptually):
+
+1. **Verifiable Systems**
+
+   ```text
+   Critical behaviours must be observable, testable, and, where it matters, provable. We optimise for systems you can reason about under stress.
+   ```
+
+2. **Non-custodial Rails**
+
+   ```text
+   Wherever possible, we keep key and asset control with institutions and users. Our systems orchestrate workflows; they do not take custody.
+   ```
+
+3. **Governed Experiments**
+
+   ```text
+   We treat ventures as governed experiments with explicit limits, not permanent products. Risk budgets, constraints, and exit criteria are part of the design.
+   ```
+
+Below that, one line that sets up future pages:
+
+```tsx
+<p className="mt-4 text-sm text-muted-foreground">
+  Our purpose, vision, and mission expand on these pillars and how we apply them over time.
+</p>
+```
+
+Later we’ll hang `/purpose`, `/vision`, `/mission` pages off that sentence.
+
+---
+
+### 1.7 CTA: keep the path going
+
+Use `NextStepBlock` to route people into either Ventures or Standards.
+
+Example:
+
+```tsx
+<NextStepBlock
+  nextPage="Ventures"
+  description="See how the Studio’s thesis shows up in specific ventures."
+  href="/ventures"
+/>
+```
+
+---
+
+## 2. Exact Replit AI prompt – Studio page checkpoint
+
+Here’s the “just do this” prompt for Replit:
+
+---
+
+**Prompt – Implement/Refine the Studio Page as VSG’s Identity Spine**
+
+> **Project:** `Verifiable-Systems-Group` (React + Vite + Tailwind + shadcn/ui, routing via `wouter` in `client/src/App.tsx`).
+>
+> **Goal**
+> Update the `/studio` page so it acts as the primary “who we are / what we do” page for Verifiable Systems Group. It should connect clearly to Process and Ventures, summarise our pillars, and stay public-safe (no implementation details, no promises of yield, no suggestion we manage client funds).
+
+---
+
+### 2.1 Locate/define the Studio page
+
+```text
+1. Find the component used for the `/studio` route (likely something like client/src/pages/Studio.tsx).
+2. If the page already exists, keep its file and route but replace the inner content as specified below.
+3. If it does not exist yet, create Studio.tsx and wire `/studio` to it in client/src/App.tsx, following the pattern used for Process and Ventures.
+```
+
+---
+
+### 2.2 Add/Update PageMeta
+
+```text
+At the top of the Studio component, use PageMeta exactly like Process.tsx:
+
+<PageMeta
+  title="Studio"
+  description="Verifiable Systems Group is a verification-first venture studio that designs, builds, and governs systems on non-custodial rails for institutions and ecosystems."
+  preloadImage="/hero-texture.png"
+/>
+
+Keep the existing hero background / texture usage consistent with other pages.
+```
+
+---
+
+### 2.3 Hero section content
+
+```text
+Keep the same container and layout pattern as Process.tsx (same padding, max-width, etc.). Only update the text content:
+
+- Overline: "Verifiable Systems Group"
+- Heading: "A verification-first venture studio."
+- Body paragraph:
+
+  "Verifiable Systems Group (VSG) is a small, focused studio that designs and operates systems where behaviour can be inspected, not guessed. We build on non-custodial rails, keep governance explicit, and treat every venture as an experiment that has to earn its place in the portfolio."
+
+- Supporting line under the body:
+
+  "The Studio is where we define our thesis, choose what to build, and decide how ventures like Helios, Stackme, and Lumina move from idea to governed infrastructure."
+```
+
+---
+
+### 2.4 “What we do” section
+
+```text
+Below the hero, add a section titled "What we do".
+
+- Use a 3-column card grid on desktop (md:grid-cols-3), stacked on mobile.
+- Use shadcn Card components already used elsewhere if available.
+
+Define three cards:
+
+1) Title: "Systems Architecture & Research"
+   Body:
+   "We map the real-world constraints around capital, identity, and regulation, then design systems that make those constraints explicit. That includes verification flows, risk boundaries, and the rails needed for institutions to stay in control."
+
+2) Title: "Venture Studio & Incubation"
+   Body:
+   "We run a repeatable process for turning hypotheses into ventures. Each venture enters with a clear thesis, moves through our six-stage pipeline, and is either graduated into shared infrastructure or archived with its lessons preserved."
+
+3) Title: "Standards, Playbooks & Governance"
+   Body:
+   "We turn what we learn into reusable standards: patterns, controls, and playbooks that can be applied across ventures. This is how we avoid solving the same problem twice and how external partners can evaluate how we work."
+```
+
+---
+
+### 2.5 “Who we’re for” section
+
+```text
+Add a new section titled "Who we’re for".
+
+- Intro paragraph:
+
+  "We exist for institutions and ecosystems that care about verification, not just velocity."
+
+- Then render either a bullet list or three smaller blocks with:
+
+  - "Financial institutions & fintechs — who need non-custodial, audit-ready rails instead of opaque black boxes."
+  - "Market and infrastructure providers — building exchanges, marketplaces, and rails where authenticity, risk, or capital flows must be explainable."
+  - "Ecosystems & protocols — that want to see real-world use-cases built on top of their primitives under conservative, governed conditions."
+```
+
+---
+
+### 2.6 “How the Studio is structured” section
+
+```text
+Add a section titled "How the Studio is structured".
+
+- Intro paragraph:
+
+  "We keep the Studio small and focused. Most of the complexity lives in the ventures and the systems they rely on."
+
+- Below that, render three columns (md:grid-cols-3) with headings and body text:
+
+  1) Heading: "The Studio"
+     Body: "A core team focused on thesis, architecture, standards, and governance. The Studio sets the bar for what we build and how risk is managed."
+
+  2) Heading: "Ventures"
+     Body: "Individual ventures like Helios, Stackme, and Lumina that explore specific opportunities. Each one competes for capital, attention, and risk budget."
+
+  3) Heading: "Standards & Library"
+     Body: "A growing set of standards, playbooks, and patterns that capture what works. This is how we avoid re-learning the same lesson in three different places."
+
+- Under the three columns, add two inline links or buttons using the existing Link component:
+
+  - "See the venture portfolio" → href="/ventures"
+  - "See the six-stage venture process" → href="/process"
+```
+
+---
+
+### 2.7 “Our pillars” summary section
+
+```text
+Add a section titled "Our pillars".
+
+- Intro paragraph:
+
+  "Underneath the ventures and tooling, the Studio is anchored on a small number of pillars. They show up in everything we design and every venture we approve."
+
+- Then list three pillars (either as bullets or small cards):
+
+  1) Title: "Verifiable Systems"
+     Body: "Critical behaviours must be observable, testable, and, where it matters, provable. We optimise for systems you can reason about under stress."
+
+  2) Title: "Non-custodial Rails"
+     Body: "Wherever possible, we keep key and asset control with institutions and users. Our systems orchestrate workflows; they do not take custody."
+
+  3) Title: "Governed Experiments"
+     Body: "We treat ventures as governed experiments with explicit limits, not permanent products. Risk budgets, constraints, and exit criteria are part of the design."
+
+- Below the list, add:
+
+  <p className="mt-4 text-sm text-muted-foreground">
+    Our purpose, vision, and mission expand on these pillars and how we apply them over time.
+  </p>
+```
+
+---
+
+### 2.8 NextStepBlock CTA
+
+```text
+At the bottom of Studio.tsx, add a NextStepBlock (reusing the existing component):
+
+<NextStepBlock
+  nextPage="Ventures"
+  description="See how the Studio’s thesis shows up in specific ventures."
+  href="/ventures"
+/>
+
+Keep styling consistent with how NextStepBlock is used on other pages.
+```
+
+---
+
+### 2.9 Quality checks
+
+```text
+After implementing:
+
+1. Run the dev server and visit /studio on desktop and mobile.
+2. Confirm:
+   - Page uses the same general layout (max-width, padding, typography scale) as /process and /ventures.
+   - All new text renders correctly and there are no TypeScript or runtime errors.
+   - Inline links to /ventures and /process work and match the main navigation routes.
+3. Confirm no global theming, nav structure, or other pages were changed in this checkpoint.
+```
+
+---
+
+Once this is in, the “spine” of the site becomes:
+
+* Studio → who we are / what we do / pillars
+* Process → how ventures move
+* Ventures → what’s currently in the portfolio
+
+**Next next** after this Studio checkpoint (just so you can see ahead):
+we’ll do a **small, focused checkpoint to spin out `/purpose`, `/vision`, and `/mission`** as lightweight sub-pages, linked from Studio, without cluttering the main nav.
+
+You’re right to be suspicious of that asymmetry — from a UX / IA standpoint it *is* a little off.
+
+Let me give you:
+
+1. **Why it’s happening (the real reason)**
+2. **Why it’s not ideal from a UX / B2B-nav perspective**
+3. **What we *should* do: an Approach overview page + menu pattern that matches Ventures/Studio**
+4. **Exact spec + Replit prompt so you can fix it cleanly**
+
+---
+
+## 1. Why there’s no “Approach overview” item right now
+
+Mechanically, it’s simple:
+
+* For **Ventures**, your nav data includes an explicit **“All Ventures”** row, so the dropdown renderer treats that as the “hero” item.
+* For **Studio**, the nav data includes a **“Studio”** row as the first child, so you get a highlighted overview row there too.
+* For **Approach**, we only defined **Pillars, Process, Standards** as children — **no top-level “Approach” entry** in the dropdown data and no `/approach` page.
+
+So the code is doing exactly what it was told: render the items it knows about. We just never gave it an “Approach overview” object to work with.
+
+There’s no deep technical constraint; it’s an information-architecture gap.
+
+---
+
+## 2. Why that gap matters (UX + IA, not just aesthetics)
+
+For B2B sites with complex stories, research is pretty consistent on a few points:
+
+* **Top-level nav items with children should point to a summary/overview**, not be dead ends. Otherwise users are forced to know *exactly* which subpage they want.
+* Good navigation **shows the hierarchy clearly** – parent vs child – and keeps that pattern consistent across the menu, especially on large/mega menus.
+* Many high-performing mega menus add a **“View all / All X / Overview”** entry at the top of each column so users can zoom out instead of choosing a highly specific leaf by guess.
+* UX authors specifically recommend including a **link to the top-level page inside the dropdown**, styled differently so it’s obviously the parent.
+
+Right now:
+
+* **Ventures** and **Studio** follow that pattern (overview first, then children).
+* **Approach** breaks it (no overview row), which:
+
+  * Increases cognitive load: “Do I want Pillars? Process? Standards? What’s the difference?”
+  * Makes the IA feel less deliberate, especially to risk/ops people who *live* in “Approach” content.
+
+So your intuition is correct: **Approach needs an overview row** if you want the nav to feel intentional and institutional.
+
+---
+
+## 3. What we *should* do: add an Approach overview page + first dropdown item
+
+The clean, consistent fix is:
+
+1. **Create `/approach`** as a short, opinionated overview page that explains *how VSG operates*:
+
+   * How **Pillars**, **Process**, and **Standards** form one stack.
+   * How that stack protects partners and underwrites the ventures.
+2. **Add an `Approach` item as the first entry in the Approach dropdown**, mirroring “All Ventures” and “Studio”.
+
+Pattern becomes:
+
+* **Ventures**
+
+  * All Ventures (overview)
+  * Helios
+  * Stackme
+  * Lumina
+
+* **Approach**
+
+  * Approach (overview)
+  * Pillars
+  * Process
+  * Standards
+
+* **Studio**
+
+  * Studio (overview)
+  * Purpose
+  * Vision
+  * Mission
+
+That gives you:
+
+* Nav **consistency** (same mental model everywhere).
+* A clear “I don’t know, just give me the big picture” option in every complex cluster — which is exactly what IA folks recommend for multi-stakeholder B2B sites.
+
+You don’t have to change the click behaviour of the top bar label right now; just adding the overview row in the dropdown is enough to fix the visual and IA mismatch.
+
+---
+
+## 4. Concrete spec: `/approach` page content
+
+Here’s a tight, on-brand version of an Approach overview page that doesn’t duplicate Process, but *orchestrates* Pillars + Process + Standards.
+
+### 4.1 PageMeta
+
+```tsx
+<PageMeta
+  title="Approach"
+  description="How Verifiable Systems Group applies its pillars, venture process, and standards to design governed, verifiable systems on non-custodial rails."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+### 4.2 Hero
+
+* **Overline:** `Approach at VSG`
+* **Heading:** `How we turn principles into governed systems.`
+* **Body:**
+
+```text
+Our work is not just defined by what we build, but how we build it. The VSG approach brings three layers together — pillars, process, and standards — so every venture is constrained by the same principles and quality bar, not ad-hoc judgement.
+```
+
+Small supporting line:
+
+```text
+This page is the map: what we believe, how ventures move, and how we keep the bar high.
+```
+
+---
+
+### 4.3 Section: “Three layers of our approach”
+
+Cards for **Pillars**, **Process**, **Standards**, each with a short explanation and a link.
+
+1. **Pillars – what never changes**
+
+   > The pillars are the bedrock: verifiable systems, non-custodial rails, and governed experiments. They define what “acceptable” looks like and when we will say no, even if something looks commercially attractive.
+
+   Link: `Learn more → /pillars`
+
+2. **Process – how ventures move**
+
+   > Our six-stage venture process is how ideas earn their way into production. Ventures move from definition and validation through build and governed launch, then either evolve into durable infrastructure or exit cleanly.
+
+   Link: `See the venture process → /process`
+
+3. **Standards – how we codify the bar**
+
+   > Standards are where lessons become reusable: patterns, controls, and quality benchmarks that apply across ventures. They keep us from solving the same problem three times and give partners something concrete to evaluate.
+
+   Link: `Explore standards → /standards`
+
+---
+
+### 4.4 Section: “What this approach means for you”
+
+This is the buyer-facing rationale; keep it short and institutional.
+
+* **Heading:** `What this approach means for partners`
+
+Bullets:
+
+* **Predictability** — You’re not betting on one team’s mood. Every venture goes through the same process and pattern library.
+* **Explainability** — Pillars, process, and standards are documented, so you can explain to your own stakeholders *why* something is safe enough to pilot.
+* **Bounded risk** — Experiments are constrained by explicit limits and exit criteria; we design for clean failure, not hidden blast radius.
+
+---
+
+### 4.5 Section: “How it all fits together”
+
+You don’t need a diagram on v1; a simple paragraph works:
+
+* **Heading:** `How it all fits together`
+
+Copy:
+
+```text
+Pillars decide what kinds of systems we will build. Process decides how those systems move from idea to reality. Standards capture what we learn along the way so the next venture starts smarter, not from scratch. Together, they make our work repeatable, auditable, and explainable under stress.
+```
+
+CTA at the bottom:
+
+```tsx
+<NextStepBlock
+  nextPage="Process"
+  description="See the six-stage venture process that every VSG venture follows."
+  href="/process"
+/>
+```
+
+---
+
+## 5. Exact Replit prompt to add the Approach overview + dropdown item
+
+If you want to fix this now, here’s a ready-to-paste prompt for Replit:
+
+```text
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal
+Make the “Approach” section of the main navigation consistent with “Ventures” and “Studio” by:
+1) Adding an /approach overview page.
+2) Adding an “Approach” overview row as the first item in the Approach dropdown, styled like the “All Ventures” and “Studio” overview rows.
+
+Do NOT change global theming or other nav groups. Only touch the Approach nav config and the new Approacht.tsx page.
+
+---
+
+1. Create / update Approach page
+
+File:
+- If a page already exists for /approach, update that file.
+- If not, create client/src/pages/Approach.tsx and wire it to the /approach route in client/src/App.tsx using the same pattern as Process and Studio.
+
+Inside the Approach component:
+
+- Import and use PageMeta at the top:
+
+  <PageMeta
+    title="Approach"
+    description="How Verifiable Systems Group applies its pillars, venture process, and standards to design governed, verifiable systems on non-custodial rails."
+    preloadImage="/hero-texture.png"
+  />
+
+- Implement a hero section that matches the layout of other pages (same container, padding, typography). Only the text changes:
+
+  Overline: "Approach at VSG"
+  Heading: "How we turn principles into governed systems."
+  Body paragraph:
+
+  "Our work is not just defined by what we build, but how we build it. The VSG approach brings three layers together — pillars, process, and standards — so every venture is constrained by the same principles and quality bar, not ad-hoc judgement."
+
+  Supporting line under the body:
+
+  "This page is the map: what we believe, how ventures move, and how we keep the bar high."
+
+- Add a section titled "Three layers of our approach" with three cards (reuse Card components and grid patterns used on other pages). Content:
+
+  1) Title: "Pillars – what never changes"
+     Body: "The pillars are the bedrock: verifiable systems, non-custodial rails, and governed experiments. They define what “acceptable” looks like and when we will say no, even if something looks commercially attractive."
+     Link: "Learn more" → href="/pillars"
+
+  2) Title: "Process – how ventures move"
+     Body: "Our six-stage venture process is how ideas earn their way into production. Ventures move from definition and validation through build and governed launch, then either evolve into durable infrastructure or exit cleanly."
+     Link: "See the venture process" → href="/process"
+
+  3) Title: "Standards – how we codify the bar"
+     Body: "Standards are where lessons become reusable: patterns, controls, and quality benchmarks that apply across ventures. They keep us from solving the same problem three times and give partners something concrete to evaluate."
+     Link: "Explore standards" → href="/standards"
+
+- Add a section titled "What this approach means for partners" with one intro paragraph and a bullet list:
+
+  Intro:
+  "This stack matters most to the people who rely on us. It affects how predictable we are, how explainable our systems are, and how we handle risk."
+
+  Bullets:
+  - "Predictability — You’re not betting on one team’s mood. Every venture goes through the same process and pattern library."
+  - "Explainability — Pillars, process, and standards are documented, so you can explain to your own stakeholders why something is safe enough to pilot."
+  - "Bounded risk — Experiments are constrained by explicit limits and exit criteria; we design for clean failure, not hidden blast radius."
+
+- Add a section titled "How it all fits together" with:
+
+  Paragraph:
+  "Pillars decide what kinds of systems we will build. Process decides how those systems move from idea to reality. Standards capture what we learn along the way so the next venture starts smarter, not from scratch. Together, they make our work repeatable, auditable, and explainable under stress."
+
+- At the bottom of the page, add a NextStepBlock:
+
+  <NextStepBlock
+    nextPage="Process"
+    description="See the six-stage venture process that every VSG venture follows."
+    href="/process"
+  />
+
+Keep all styling consistent with Process and Studio (same max-width container, spacing, and typography scale).
+
+---
+
+2. Add “Approach” overview row to the Approach dropdown
+
+Locate the navigation config used for the main desktop nav (likely a file that defines arrays for the “Ventures”, “Approach”, and “Studio” dropdown items).
+
+Update the Approach nav group so it includes an overview item as the first entry, similar to how “All Ventures” and “Studio” are represented.
+
+For example, the Approach items array should look structurally like:
+
+const approachItems = [
+  {
+    label: "Approach",
+    href: "/approach",
+    description: "How we think about pillars, process, and standards.",
+    // If there is a flag for the larger/featured row (like for All Ventures), set it here
+    featured: true
+  },
+  {
+    label: "Pillars",
+    href: "/pillars",
+    description: "Our foundational principles.",
+  },
+  {
+    label: "Process",
+    href: "/process",
+    description: "How we build and validate ventures.",
+  },
+  {
+    label: "Standards",
+    href: "/standards",
+    description: "Enterprise-grade quality benchmarks.",
+  },
+];
+
+Make sure the rendering logic for the Approach dropdown uses this array in the same way it uses the data for the Ventures and Studio dropdowns, including the styling for the first/featured row.
+
+Do not change the behaviour of the top-level "Approach" nav label; just ensure the dropdown now shows an “Approach” overview row at the top.
+
+---
+
+3. Quality checks
+
+After implementing:
+
+1) Run the dev server and check:
+   - /approach renders with no TypeScript or runtime errors.
+   - Typography, spacing, and background match other main pages.
+2) Hover over the "Approach" top nav on desktop:
+   - Confirm the first row is now "Approach" with description "How we think about pillars, process, and standards."
+   - Confirm Pillars / Process / Standards still appear below with their descriptions.
+3) Click the "Approach" row in the dropdown:
+   - Confirm it routes to /approach.
+4) Ensure no other nav groups or pages were unintentionally modified.
+```
+
+---
+
+If you want, once this is in, we can do a quick pass to make sure the **mobile nav** mirrors the same “overview first, then children” pattern for Approaches so everything feels like one coherent system.
+
