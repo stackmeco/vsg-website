@@ -17,11 +17,6 @@ const Privacy = lazy(() => import("@/pages/Privacy"));
 const Terms = lazy(() => import("@/pages/Terms"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
-const HeliosPage = lazy(() => import("@/pages/ventures/Helios"));
-const AxiomPage = lazy(() => import("@/pages/ventures/Axiom"));
-const StackmePage = lazy(() => import("@/pages/ventures/Stackme"));
-const LuminaPage = lazy(() => import("@/pages/ventures/Lumina"));
-const UniquenessPage = lazy(() => import("@/pages/ventures/Uniqueness"));
 
 const PillarsPage = lazy(() => import("@/pages/approach/Pillars"));
 const ProcessPage = lazy(() => import("@/pages/Process"));
@@ -85,11 +80,6 @@ function Router() {
         
         {/* Ventures */}
         <Route path="/ventures" component={Ventures} />
-        <Route path="/ventures/helios" component={HeliosPage} />
-        <Route path="/ventures/axiom" component={AxiomPage} />
-        <Route path="/ventures/stackme" component={StackmePage} />
-        <Route path="/ventures/lumina" component={LuminaPage} />
-        <Route path="/ventures/uniqueness" component={UniquenessPage} />
         <Route path="/ventures/:slug" component={VentureDetail} />
         
         {/* Approach */}
