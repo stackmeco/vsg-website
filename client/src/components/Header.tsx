@@ -204,8 +204,8 @@ export function Header() {
             />
             
             {/* Ventures, Approach, Studio - grouped for unified dropdown viewport */}
-            <NavigationMenu className="relative nav-dropdown-group">
-              <NavigationMenuList className="gap-0 nav-dropdown-triggers">
+            <NavigationMenu shell>
+              <NavigationMenuList className="gap-0">
                 {NAV_ITEMS.filter(item => item.children).map((item) => (
                   <DropdownNavItem 
                     key={item.label} 

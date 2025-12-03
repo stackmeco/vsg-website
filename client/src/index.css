@@ -551,28 +551,24 @@
   }
 }
 
-/* ===== NAVIGATION DROPDOWN INTEGRATION ===== */
-/* Unified border: triggers + panel form one bordered box when any dropdown is open */
-
-/* The triggers container gets border on top, left, right when any child is open */
-.nav-dropdown-triggers {
+/* ===== NAVIGATION DROPDOWN SHELL ===== */
+/* Shell wraps triggers + viewport as a single bordered box when open */
+.nav-dropdown-shell {
   border: 1px solid transparent;
-  border-bottom: none;
-  border-radius: 2px 2px 0 0;
-  transition: border-color 150ms;
+  border-radius: 2px;
+  transition: border-color 150ms, background-color 150ms;
+  overflow: hidden;
 }
 
-/* When any trigger inside has data-state="open", show the border */
-.nav-dropdown-triggers:has([data-state="open"]) {
-  border-color: hsl(var(--primary));
+/* When any trigger is open, shell gets the card-style border */
+.nav-dropdown-shell:has([data-state="open"]) {
+  border-color: hsl(var(--border));
   background-color: hsl(var(--popover));
 }
 
-/* Viewport panel completes the border box (left, right, bottom) */
+/* Viewport inherits from shell - no extra borders needed */
 .nav-dropdown-viewport {
-  border: 1px solid hsl(var(--primary));
-  border-top: none;
-  border-radius: 0 0 2px 2px;
+  /* No border - shell handles the unified border */
 }
 
 /* Terminal Text Selection - Developer/Hacker Polish */
