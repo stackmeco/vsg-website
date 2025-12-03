@@ -7,7 +7,7 @@ import { NextStepBlock } from "@/components/NextStepBlock";
 import { StatBlock } from "@/components/StatBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Zap, Eye, Shield, Cog, Users, Scale, Play } from "lucide-react";
+import { ArrowRight, Zap, Eye, Shield, Cog, Users, Scale } from "lucide-react";
 import { AudioModal } from "@/components/AudioModal";
 import gridTexture from "@assets/grid_texture.png";
 import { projects, getProjectHref } from "@/data/projects";
@@ -118,7 +118,7 @@ export default function Overview() {
                     className="font-mono text-xs uppercase tracking-wider"
                     data-testid="button-see-ventures"
                   >
-                    See Our Ventures
+                    See the Pipeline
                     <ArrowRight className="w-3.5 h-3.5 ml-2" />
                   </Button>
                 </Link>
