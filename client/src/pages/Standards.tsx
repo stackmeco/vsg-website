@@ -105,10 +105,10 @@ export default function Governance() {
           <div className="grid lg:grid-cols-[1fr,320px] gap-12 items-start">
             <div className="max-w-2xl">
               <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
-                Disciplined Audacity.
+                Safety & Standards.
               </h1>
               <p className="text-lg text-foreground leading-relaxed mb-6">
-                We embrace big risks by managing them with rigorous, automated safety rails. This page explains how we make decisions, manage capital, and ensure our systems meet both our internal standards and external regulatory requirements.
+                Technology moves fast. Ethics shouldn't. We impose strict rules on ourselves to ensure we build responsible systems.
               </p>
               <p className="text-lg text-foreground leading-relaxed">
                 We operate at the frontier of AI and digital assets. Clear governance is essential for both partners and regulators to understand how we work.
