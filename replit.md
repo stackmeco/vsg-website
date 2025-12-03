@@ -66,13 +66,26 @@ Key files:
 - **All pages**: Use preloadImage="/hero-texture.png" to prevent texture flash
 - **ErrorBoundary**: Wrapped main content in Layout for graceful error recovery
 
+### Navigation Refactor (December 2025)
+Enterprise-grade unified navigation system based on shadcn NavigationMenu:
+- **Unified navLinkClass**: Single styling constant for all desktop nav links (`text-sm font-medium px-3 py-2 text-muted-foreground`)
+- **Single NavigationMenu**: All primary nav items wrapped in one NavigationMenu instance for cohesive dropdown behavior
+- **Dropdown styling**: `border border-border bg-popover shadow-lg` - no double borders or conflicting rings
+- **CTA separation**: Insights and Connect moved to right-side as Button components (variant="ghost" and default)
+- **Mobile nav overhaul**: Unified mobileNavLinkClass, removed numbered indices, added CTA section at bottom
+- **Z-index layering**: Header z-50, dropdown uses NavigationMenu portal defaults for proper layering
+- **Active states**: Consistent data-active handling across all nav items
+
+Key files:
+- `client/src/components/Header.tsx`: Unified navigation component
+- `client/src/config/navigation.ts`: Navigation configuration with primaryNavItems/ctaNavItems split
+
 ### Process Page Enterprise Content Update (December 2025)
 - **Hero section**: Updated with overline "How ventures move inside VSG", heading "A six-stage runway for verifiable ventures."
 - **Six-stage pipeline**: Define, Validate, Build, Deploy, Evolve, Recurse with enterprise-scannable copy
 - **Definitions section**: Verifiable Systems, Deterministic AI, Non-custodial Rails (replaced Digital Bearer Assets)
 - **Capital Strategy**: Safe, clear messaging about Bitcoin reserve with explicit internal treasury disclaimer
 - **Standards.tsx fix**: NextStepBlock now correctly points to /insights (was /library 404)
-- **Navigation styling**: Desktop nav links now use font-heading font-semibold (matches logo) instead of font-mono uppercase
 
 ### Theme & Design Updates (December 2025)
 - **Dark-only theme**: Site enforces dark mode only (user preference)
