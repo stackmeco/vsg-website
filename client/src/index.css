@@ -561,20 +561,7 @@
   position: relative;
   display: inline-flex;
   flex-direction: column;
-}
-
-/* The continuous border loop - drawn via ::before */
-.nav-menu-open::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 1px solid hsl(var(--primary) / 0.32);
-  border-radius: 2px;
-  pointer-events: none;
-  z-index: 0;
+  overflow: visible;
 }
 
 .nav-menu-triggers-row {
@@ -583,36 +570,27 @@
   z-index: 2;
 }
 
-/* Each menu item (tab) */
+/* Each menu item (tab) - NO borders by default */
 .nav-menu-item {
   position: relative;
   background: transparent;
+  border: none;
 }
 
-/* When dropdown is open, inactive tabs sit inside the border loop */
-.nav-menu-item-dropdown-open {
-  margin-bottom: -1px;
+/* When ANY dropdown is open: inactive tabs get border UNDER them */
+.nav-menu-item-dropdown-open:not(.nav-menu-item-active) {
   border-bottom: 1px solid hsl(var(--primary) / 0.32);
+  background: transparent;
 }
 
-/* Active tab: mask the top border segment so it looks connected */
+/* Active tab: connected to dropdown, no bottom border */
 .nav-menu-item-active {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--primary) / 0.32);
+  border-bottom: 1px solid hsl(var(--card));
+  border-radius: 2px 2px 0 0;
   margin-bottom: -1px;
-  border-bottom: none;
-  background: hsl(var(--card));
-  z-index: 3;
-}
-
-/* Active tab covers the border with a background patch */
-.nav-menu-item-active::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: hsl(var(--card));
-  z-index: 4;
+  z-index: 10;
 }
 
 /* Trigger styling */
@@ -630,20 +608,22 @@
   top: 100%;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 5;
 }
 
-/* The dropdown panel - no border, container ::before handles it */
+/* The dropdown panel - has its own border that connects to active tab */
 .nav-menu-viewport {
   width: 100%;
   background: hsl(var(--card));
   color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--primary) / 0.32);
+  border-top: none;
+  border-radius: 0 0 2px 2px;
 }
 
-/* When open, give container proper height for the border loop */
+/* Container background when open */
 .nav-menu-open {
-  background: hsl(var(--card));
-  border-radius: 2px;
+  background: transparent;
 }
 
 .nav-menu-content {
