@@ -235,34 +235,35 @@
      overriding all intentional sizing and breaking the typography hierarchy. */
 
   /* 5. SEMANTIC TYPOGRAPHY CLASSES */
-  /* These enforce the design system's type hierarchy */
+  /* All sizes proportional to 15px base (see tailwind.config.ts) */
+  /* Formula: desired_px / 15 = rem value */
   
-  /* Eyebrow: 12px uppercase tracked - ONLY for section labels */
+  /* Eyebrow: 12px (0.8rem) uppercase tracked - ONLY for section labels */
   .type-eyebrow {
     @apply text-eyebrow font-mono uppercase text-muted-foreground;
   }
   
-  /* Telemetry: 12px - ONLY for clocks, timestamps, technical data */
+  /* Telemetry: 12px (0.8rem) - ONLY for clocks, timestamps, technical data */
   .type-telemetry {
     @apply text-telemetry font-mono tabular-nums text-muted-foreground;
   }
   
-  /* Caption: 13px - Minimum for readable text (descriptions, metadata) */
+  /* Caption: 13px (0.8667rem) - Minimum for readable text */
   .type-caption {
     @apply text-caption text-muted-foreground;
   }
   
-  /* Body: 14px - Standard body text */
+  /* Body: 14px (0.9333rem) - Standard body text */
   .type-body {
     @apply text-body text-foreground leading-relaxed;
   }
   
-  /* Body Large: 16px - Prominent paragraphs */
+  /* Body Large: 16px (1.0667rem) - Prominent paragraphs */
   .type-body-lg {
     @apply text-body-lg text-foreground leading-relaxed;
   }
   
-  /* Legacy label class (updated to use semantic token) */
+  /* Legacy label class (uses eyebrow token) */
   .text-label {
     @apply text-eyebrow font-mono uppercase text-muted-foreground/70;
   }

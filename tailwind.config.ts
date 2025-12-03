@@ -83,35 +83,45 @@ export default {
         },
       },
       fontSize: {
-        /* ===== SEMANTIC TYPOGRAPHY TOKENS ===== */
-        /* These enforce the design system's minimum sizes */
+        /* ===== PROPORTIONAL TYPOGRAPHY SCALE ===== */
+        /* All values in rem, calculated from 15px base (html font-size: 15px) */
+        /* Formula: desired_px / 15 = rem value */
         
-        /* Telemetry: 12px - ONLY for clocks, timestamps, kbd shortcuts */
-        "telemetry": ["0.75rem", { lineHeight: "1.4", letterSpacing: "0.02em" }],
+        /* ===== SEMANTIC TOKENS ===== */
+        /* Telemetry: 12px (12/15 = 0.8rem) - ONLY for clocks, timestamps, kbd */
+        "telemetry": ["0.8rem", { lineHeight: "1.4", letterSpacing: "0.02em" }],
         
-        /* Eyebrow: 12px - ONLY for uppercase tracked labels */
-        "eyebrow": ["0.75rem", { lineHeight: "1.4", letterSpacing: "0.1em" }],
+        /* Eyebrow: 12px (12/15 = 0.8rem) - ONLY for uppercase tracked labels */
+        "eyebrow": ["0.8rem", { lineHeight: "1.4", letterSpacing: "0.1em" }],
         
-        /* Caption: 13px - Minimum readable size for descriptions, metadata */
-        "caption": ["0.8125rem", { lineHeight: "1.5" }],
+        /* Caption: 13px (13/15 = 0.8667rem) - Minimum readable for descriptions */
+        "caption": ["0.8667rem", { lineHeight: "1.5" }],
         
-        /* Body: 14px - Primary body text */
-        "body": ["0.875rem", { lineHeight: "1.6" }],
+        /* Body: 14px (14/15 = 0.9333rem) - Primary body text */
+        "body": ["0.9333rem", { lineHeight: "1.6" }],
         
-        /* Body Large: 16px - Prominent paragraphs */
-        "body-lg": ["1rem", { lineHeight: "1.65" }],
+        /* Body Large: 16px (16/15 = 1.0667rem) - Prominent paragraphs */
+        "body-lg": ["1.0667rem", { lineHeight: "1.65" }],
         
-        /* ===== LEGACY UTILITIES (mapped to semantic equivalents) ===== */
-        /* xs is mapped to caption (13px) to prevent 12px body text */
-        "xs": ["0.8125rem", { lineHeight: "1.5" }],
-        "sm": ["0.875rem", { lineHeight: "1.5" }],
+        /* ===== STANDARD SCALE (15px base) ===== */
+        /* xs: 13px (13/15 = 0.8667rem) - remapped to caption for safety */
+        "xs": ["0.8667rem", { lineHeight: "1.5" }],
+        /* sm: 14px (14/15 = 0.9333rem) */
+        "sm": ["0.9333rem", { lineHeight: "1.5" }],
+        /* base: 15px (15/15 = 1rem) */
         "base": ["1rem", { lineHeight: "1.6" }],
-        "lg": ["1.125rem", { lineHeight: "1.5" }],
-        "xl": ["1.25rem", { lineHeight: "1.4" }],
-        "2xl": ["1.5rem", { lineHeight: "1.3" }],
-        "3xl": ["1.875rem", { lineHeight: "1.25" }],
-        "4xl": ["2.25rem", { lineHeight: "1.2" }],
-        "5xl": ["3rem", { lineHeight: "1.1" }],
+        /* lg: 18px (18/15 = 1.2rem) */
+        "lg": ["1.2rem", { lineHeight: "1.5" }],
+        /* xl: 20px (20/15 = 1.3333rem) */
+        "xl": ["1.3333rem", { lineHeight: "1.4" }],
+        /* 2xl: 24px (24/15 = 1.6rem) */
+        "2xl": ["1.6rem", { lineHeight: "1.3" }],
+        /* 3xl: 30px (30/15 = 2rem) */
+        "3xl": ["2rem", { lineHeight: "1.25" }],
+        /* 4xl: 36px (36/15 = 2.4rem) */
+        "4xl": ["2.4rem", { lineHeight: "1.2" }],
+        /* 5xl: 48px (48/15 = 3.2rem) */
+        "5xl": ["3.2rem", { lineHeight: "1.1" }],
       },
       fontFamily: {
         sans: ['Manrope', 'sans-serif'],

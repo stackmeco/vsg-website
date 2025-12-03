@@ -68,44 +68,51 @@ Used strictly for Active State, Navigation, Verification.
 | Headlines (Signal) | Space Grotesk | -0.02em | 600 |
 | Data (Telemetry) | IBM Plex Mono | 0em | tabular-nums |
 
-### 3.2 Semantic Typography Tokens (REQUIRED)
-Use these semantic tokens instead of raw size utilities. Defined in `tailwind.config.ts`.
+### 3.2 Proportional Typography Scale
+All sizes use rem units calculated from the 15px base: `desired_px / 15 = rem`
 
-| Token | Size | Purpose | Utility Class |
-|-------|------|---------|---------------|
-| `text-telemetry` | 12px | Clocks, timestamps, kbd shortcuts ONLY | `text-telemetry` |
-| `text-eyebrow` | 12px | Uppercase tracked section labels ONLY | `text-eyebrow` |
-| `text-caption` | 13px | Minimum readable (descriptions, metadata) | `text-caption` |
-| `text-body` | 14px | Standard body text | `text-body` |
-| `text-body-lg` | 16px | Prominent paragraphs | `text-body-lg` |
+| Token | Pixels | Rem | Purpose |
+|-------|--------|-----|---------|
+| `text-telemetry` | 12px | 0.8rem | Clocks, timestamps, kbd ONLY |
+| `text-eyebrow` | 12px | 0.8rem | Uppercase tracked labels ONLY |
+| `text-caption` | 13px | 0.8667rem | Minimum readable (metadata) |
+| `text-body` | 14px | 0.9333rem | Standard body text |
+| `text-body-lg` | 16px | 1.0667rem | Prominent paragraphs |
 
-### 3.3 Component Typography Classes (index.css)
+### 3.3 Standard Tailwind Scale (recalculated for 15px base)
+
+| Utility | Pixels | Rem | Notes |
+|---------|--------|-----|-------|
+| `text-xs` | 13px | 0.8667rem | Remapped to caption (safe minimum) |
+| `text-sm` | 14px | 0.9333rem | Standard body |
+| `text-base` | 15px | 1rem | Base size |
+| `text-lg` | 18px | 1.2rem | Large text |
+| `text-xl` | 20px | 1.3333rem | Subheadings |
+| `text-2xl` | 24px | 1.6rem | Section headers |
+| `text-3xl` | 30px | 2rem | Page headers |
+| `text-4xl` | 36px | 2.4rem | Hero subheads |
+| `text-5xl` | 48px | 3.2rem | Hero headlines |
+
+### 3.4 Component Typography Classes (index.css)
 Pre-composed classes with proper color and spacing:
 
-| Class | Effect | Usage |
-|-------|--------|-------|
-| `.type-eyebrow` | 12px mono uppercase muted | Section labels |
-| `.type-telemetry` | 12px mono tabular-nums | Live data displays |
-| `.type-caption` | 13px muted | Descriptions, help text |
-| `.type-body` | 14px foreground relaxed | Body paragraphs |
-| `.type-body-lg` | 16px foreground relaxed | Hero paragraphs |
+| Class | Size | Effect |
+|-------|------|--------|
+| `.type-eyebrow` | 12px | mono uppercase muted |
+| `.type-telemetry` | 12px | mono tabular-nums muted |
+| `.type-caption` | 13px | muted foreground |
+| `.type-body` | 14px | foreground relaxed |
+| `.type-body-lg` | 16px | foreground relaxed |
 
-### 3.4 Legacy Utility Mapping
-The `text-xs` utility is remapped to 13px (caption size) to prevent accidental 12px body text:
+### 3.5 12px Text Rule
+**Only `text-telemetry` and `text-eyebrow` render at 12px.** All other text is 13px minimum.
 
-| Utility | Actual Size | Notes |
-|---------|-------------|-------|
-| `text-xs` | 13px | Remapped from 12px → safe minimum |
-| `text-sm` | 14px | Standard body |
-| `text-base` | 16px | Large body |
-
-**12px Text Rule:** Only `text-telemetry` and `text-eyebrow` render at 12px. All other text is 13px minimum.
-
-### 3.5 Heading Hierarchy
-| Element | Size | Font | Class |
-|---------|------|------|-------|
-| Header (Section) | 22.5px (1.5rem) | Space Grotesk | `text-2xl font-heading` |
-| Display (Hero) | 45px+ (3rem) | Space Grotesk | `text-5xl font-heading` |
+### 3.6 Heading Hierarchy
+| Element | Pixels | Rem | Class |
+|---------|--------|-----|-------|
+| Section Header | 24px | 1.6rem | `text-2xl font-heading` |
+| Page Header | 30px | 2rem | `text-3xl font-heading` |
+| Hero Display | 48px | 3.2rem | `text-5xl font-heading` |
 
 ---
 
