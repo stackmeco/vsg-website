@@ -25,9 +25,9 @@ function DesktopNavLink({ item, isActive }: { item: NavItem; isActive: boolean }
       <Link 
         href={item.href}
         className={cn(
-          "nav-link inline-flex items-center px-4 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150 border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+          "nav-button inline-flex items-center px-4 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           isActive
-            ? "text-primary bg-primary/10 border-primary/20"
+            ? "text-primary nav-button-active"
             : "text-muted-foreground hover:text-foreground"
         )}
         aria-current={isActive ? "page" : undefined}
