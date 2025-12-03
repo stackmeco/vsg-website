@@ -9,13 +9,13 @@ export default {
     /* Formula: desired_px / 15 = rem value */
     fontSize: {
       /* Semantic tokens */
-      "telemetry": ["0.8rem", { lineHeight: "1.4", letterSpacing: "0.02em" }],    /* 12px */
-      "eyebrow": ["0.8rem", { lineHeight: "1.4", letterSpacing: "0.1em" }],       /* 12px */
+      "telemetry": ["0.8rem", { lineHeight: "1.4", letterSpacing: "0.02em" }],    /* 12px - clocks only */
+      "eyebrow": ["0.9333rem", { lineHeight: "1.4", letterSpacing: "0.1em" }],    /* 14px - readable labels */
       "caption": ["0.8667rem", { lineHeight: "1.5" }],                             /* 13px */
       "body": ["0.9333rem", { lineHeight: "1.6" }],                                /* 14px */
       "body-lg": ["1.0667rem", { lineHeight: "1.65" }],                            /* 16px */
       /* Standard scale */
-      "xs": ["0.8rem", { lineHeight: "1.4" }],                                     /* 12px */
+      "xs": ["0.8667rem", { lineHeight: "1.4" }],                                  /* 13px - minimum readable */
       "sm": ["0.9333rem", { lineHeight: "1.5" }],                                  /* 14px */
       "base": ["1rem", { lineHeight: "1.6" }],                                     /* 15px */
       "lg": ["1.2rem", { lineHeight: "1.5" }],                                     /* 18px */
