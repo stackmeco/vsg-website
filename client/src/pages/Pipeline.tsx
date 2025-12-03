@@ -64,7 +64,7 @@ export default function Pipeline() {
     <Layout>
       <PageMeta 
         title="Ventures" 
-        description="Our active ventures: Axiom, Helios, Stackme, Lumina, and Uniqueness Engine. Self-funded projects moving through validated development stages." 
+        description="Our active ventures: Axiom, Helios, Stackme, Lumina, and Uniqueness. Self-funded projects moving through validated development stages." 
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />

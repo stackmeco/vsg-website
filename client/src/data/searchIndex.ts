@@ -131,7 +131,7 @@ const projectIconMap: Record<string, LucideIcon> = {
   "Helios": Zap,
   "Stackme": CreditCard,
   "Lumina": Sparkles,
-  "Uniqueness Engine": Fingerprint,
+  "Uniqueness": Fingerprint,
 };
 
 const projectEntries: SearchEntry[] = projects.map((project) => ({

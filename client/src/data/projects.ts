@@ -122,7 +122,7 @@ export const projects: Project[] = [
   },
   {
     slug: "uniqueness-engine",
-    name: "Uniqueness Engine",
+    name: "Uniqueness",
     stage: "Research",
     stageVariant: "research",
     tagline: "Proof of Human.",

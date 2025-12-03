@@ -59,7 +59,7 @@ const projectGovernance = [
     ],
   },
   {
-    name: "Uniqueness Engine",
+    name: "Uniqueness",
     status: "Research",
     rules: [
       "Privacy-first — no deployment without explicit privacy model",
