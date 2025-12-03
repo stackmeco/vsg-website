@@ -2,41 +2,52 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
-import { ValueCard } from "@/components/ValueCard";
 import { StageChip } from "@/components/StageChip";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { StatBlock } from "@/components/StatBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Zap, Eye, Shield, Cog, Users } from "lucide-react";
+import { ArrowRight, Zap, Eye, Shield, Cog, Users, Scale, Play } from "lucide-react";
+import { AudioModal } from "@/components/AudioModal";
 import gridTexture from "@assets/grid_texture.png";
 import { projects, getProjectHref } from "@/data/projects";
 
-const values = [
+const principles = [
   {
     title: "Intelligence Augmented (IA)",
-    description: "'Let the machine compute. Let the human connect.' We leverage AI to process data at the speed of Helios, liberating our team to focus on strategy, empathy, and high-level judgment.",
+    quote: "Let the machine compute. Let the human connect.",
+    body: "We use AI to amplify human capability. By offloading high-velocity data processing to our Helios engine, we free our team to focus on the things machines cannot do: strategy, empathy, and judgment.",
     icon: <Zap className="w-5 h-5" />,
   },
   {
     title: "Seek the Signal",
-    description: "'Verify, then trust.' In a world of noise, we engineer clarity. We force technology to be deterministic by integrating verified data sources. We rely on cryptographic proof, not faith.",
+    quote: "Verify, then trust.",
+    body: "We recognize that narratives are often engineered to obscure reality. We don't rely on blind faith or centralized perception; we engineer clarity through cryptographic proof.",
     icon: <Eye className="w-5 h-5" />,
   },
   {
-    title: "Disciplined Audacity",
-    description: "'Dream in decades, execute in milliseconds.' We build generational technology—from capital engines to optical scanning—with extreme precision and rigorous safety rails.",
+    title: "Engineered Ambition",
+    quote: "Dream in decades, execute in milliseconds.",
+    body: "We are building generational technology—from automated capital engines to optical surface scanning—with extreme precision. We embrace big risks by managing them with rigorous, automated safety rails.",
     icon: <Shield className="w-5 h-5" />,
   },
   {
     title: "Own the Engine",
-    description: "'Understand the business to change the business.' We are pilots, not passengers. We require deep financial fluency and a first-principles understanding of how value is created.",
+    quote: "Master the mechanics to rewrite the rules.",
+    body: "We are a team of architects, not passengers. We require deep financial fluency and a first-principles understanding of how value is created, stored, and protected within our treasury.",
     icon: <Cog className="w-5 h-5" />,
   },
   {
     title: "Value is a Mirror",
-    description: "'Serve first, succeed second.' We succeed only when our users thrive. We build non-custodial tools that restore power to the user, knowing that true value flows from service.",
+    quote: "Serve first, succeed second.",
+    body: "We succeed only when our users thrive. We build non-custodial tools that restore power to the user—providing liquidity without selling assets—knowing that true value flows from service, not extraction.",
     icon: <Users className="w-5 h-5" />,
+  },
+  {
+    title: "Force Multiplier",
+    quote: "Level the playing field.",
+    body: "Structural asymmetries favor the incumbent. We build leverage for the underdog. We arm individuals with the tools to bypass gatekeepers and access the capabilities usually reserved for massive institutions.",
+    icon: <Scale className="w-5 h-5" />,
   },
 ];
 
@@ -107,20 +118,11 @@ export default function Overview() {
                     className="font-mono text-xs uppercase tracking-wider"
                     data-testid="button-see-ventures"
                   >
-                    See the Pipeline
+                    See Our Ventures
                     <ArrowRight className="w-3.5 h-3.5 ml-2" />
                   </Button>
                 </Link>
-                <Link href="/process">
-                  <Button 
-                    variant="outline" 
-                    size="lg"
-                    className="font-mono text-xs uppercase tracking-wider"
-                    data-testid="button-how-we-work"
-                  >
-                    How we work
-                  </Button>
-                </Link>
+                <AudioModal />
               </div>
 
               {/* Project Chips - "Active Ventures" */}
@@ -292,9 +294,28 @@ export default function Overview() {
               How We Work
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map((value) => (
-              <ValueCard key={value.title} {...value} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {principles.map((principle) => (
+              <Card 
+                key={principle.title} 
+                className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`principle-card-${principle.title.toLowerCase().replace(/\s+/g, "-")}`}
+              >
+                <CardContent className="p-8">
+                  <div className="w-10 h-10 rounded-[2px] bg-primary/10 flex items-center justify-center text-primary mb-4">
+                    {principle.icon}
+                  </div>
+                  <h3 className="font-heading font-semibold text-lg text-foreground mb-2">
+                    {principle.title}
+                  </h3>
+                  <p className="text-base text-primary italic mb-3">
+                    "{principle.quote}"
+                  </p>
+                  <p className="text-base text-foreground leading-relaxed">
+                    {principle.body}
+                  </p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>

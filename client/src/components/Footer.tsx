@@ -18,7 +18,7 @@ export function Footer() {
               Verifiable Systems Group LLC
             </p>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Building the verification layer for the digital economy.
+              The infrastructure of verifiable autonomy.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-4 md:gap-6">
