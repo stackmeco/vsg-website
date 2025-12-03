@@ -594,11 +594,13 @@
   color: hsl(var(--primary));
 }
 
-/* Viewport wrapper - positioned below triggers */
+/* Viewport wrapper - positioned BELOW the nav bar */
 .nav-menu-viewport-wrapper {
-  position: relative;
-  width: 100%;
-  z-index: 1;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
 /* The dropdown panel */
@@ -611,7 +613,7 @@
   border-radius: 0 0 2px 2px;
 }
 
-/* When open, container shows left/right/bottom borders */
+/* When open, triggers row shows the top and side borders */
 .nav-menu-open .nav-menu-triggers-row {
   border-left: 1px solid hsl(var(--primary));
   border-right: 1px solid hsl(var(--primary));
