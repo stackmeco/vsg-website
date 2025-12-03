@@ -566,6 +566,7 @@
 
 .nav-menu-triggers-row {
   display: flex;
+  align-items: stretch;
   position: relative;
   z-index: 2;
 }
@@ -575,13 +576,24 @@
   position: relative;
   background: transparent;
   list-style: none;
+  display: flex;
+  align-items: stretch;
 }
 
-/* Trigger default styling - transparent border (so active state can show it) */
-.nav-menu-trigger {
-  border-radius: 0;
+/* === SHARED STYLES: All nav buttons (triggers AND standalone links) === */
+/* Ensures identical box model for perfect alignment */
+.nav-menu-trigger,
+.nav-link {
   border: 1px solid transparent;
+  border-radius: 0;
   background: transparent;
+  box-sizing: border-box;
+}
+
+/* Hover state for all nav items - subtle background */
+.nav-menu-trigger:hover,
+.nav-link:hover {
+  background: hsl(var(--card) / 0.5);
 }
 
 .nav-menu-trigger[data-state="open"] {
@@ -610,18 +622,16 @@
 .nav-menu-item[data-dropdown-active="true"] .nav-menu-trigger {
   background: hsl(var(--card)) !important;
   border: 1px solid hsl(var(--primary) / 0.32) !important;
-  border-bottom: none !important;
+  border-bottom-color: hsl(var(--card)) !important;
   border-radius: 2px 2px 0 0;
   position: relative;
   z-index: 20;
-  margin-bottom: -1px;
-  padding-bottom: calc(0.5rem + 1px);
 }
 
-/* Viewport wrapper - positioned BELOW the triggers */
+/* Viewport wrapper - positioned to overlap with trigger's bottom border */
 .nav-menu-viewport-wrapper {
   position: absolute;
-  top: 100%;
+  top: calc(100% - 1px);
   left: 0;
   right: 0;
   z-index: 10;

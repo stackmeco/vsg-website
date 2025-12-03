@@ -25,10 +25,10 @@ function DesktopNavLink({ item, isActive }: { item: NavItem; isActive: boolean }
       <Link 
         href={item.href}
         className={cn(
-          "px-3 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150 rounded-[2px] border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+          "nav-link inline-flex items-center px-4 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150 border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           isActive
             ? "text-primary bg-primary/10 border-primary/20"
-            : "text-muted-foreground hover:text-foreground hover:bg-card/80 hover:border-primary/30"
+            : "text-muted-foreground hover:text-foreground"
         )}
         aria-current={isActive ? "page" : undefined}
         data-testid={`nav-${item.label.toLowerCase()}`}
@@ -54,7 +54,7 @@ function DropdownNavItem({
     <NavigationMenuItem value={item.label.toLowerCase()}>
       <NavigationMenuTrigger 
         className={cn(
-          "px-4 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150",
+          "inline-flex items-center px-4 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150",
           isActive
             ? "text-primary"
             : "text-muted-foreground hover:text-foreground"
