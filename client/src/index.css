@@ -558,7 +558,7 @@
 }
 
 .nav-menu-container {
-  position: static;
+  position: relative;
   display: inline-flex;
   flex-direction: column;
   overflow: visible;
@@ -568,7 +568,7 @@
   display: flex;
   align-items: stretch;
   position: relative;
-  z-index: 2;
+  z-index: 100;
 }
 
 /* Each menu item (tab) - list item container */
@@ -616,7 +616,7 @@
 /* === STATE: This tab IS the active dropdown === */
 /* Full border on 3 sides (top, left, right), connecting to panel */
 .nav-menu-item[data-dropdown-active="true"] {
-  z-index: 20;
+  z-index: 110;
 }
 
 .nav-menu-item[data-dropdown-active="true"] .nav-menu-trigger {
@@ -625,14 +625,16 @@
   border-bottom-color: hsl(var(--card)) !important;
   border-radius: 2px 2px 0 0;
   position: relative;
-  z-index: 20;
+  z-index: 110;
 }
 
-/* Viewport wrapper - positioned to overlap with trigger's bottom border */
+/* Viewport wrapper - positioned absolutely below triggers, overlapping by 1px */
 .nav-menu-viewport-wrapper {
-  position: relative;
-  margin-top: -1px;
-  z-index: 10;
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 0;
+  right: 0;
+  z-index: 99;
 }
 
 /* The dropdown panel - border on left, right, bottom (no top - connects to active tab) */
