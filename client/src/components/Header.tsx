@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetClose } from "@/components/ui/sheet";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,23 +11,20 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { Menu, Search, X, ChevronDown } from "lucide-react";
-import { NAV_ITEMS, isPathActive, type NavItem, type NavChild } from "@/config/navigation";
+import { Menu, Search, X } from "lucide-react";
+import { NAV_ITEMS, isPathActive, type NavItem } from "@/config/navigation";
 
 const navLinkClass = "text-sm font-medium px-3 py-2 text-muted-foreground transition-colors hover:text-foreground data-[active=true]:text-foreground";
+
+const mobileLinkClass = "flex items-center justify-between rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-muted/70";
 
 const primaryNavItems = NAV_ITEMS.filter(item => 
   item.label !== "Insights" && item.label !== "Connect"
 );
 
-const ctaNavItems = NAV_ITEMS.filter(item => 
-  item.label === "Insights" || item.label === "Connect"
-);
+const standaloneNavItems = primaryNavItems.filter(item => !item.children);
+
+const dropdownNavItems = primaryNavItems.filter(item => item.children);
 
 function DropdownNavItem({ 
   item, 
@@ -77,81 +74,6 @@ function DropdownNavItem({
         </ul>
       </NavigationMenuContent>
     </NavigationMenuItem>
-  );
-}
-
-const mobileNavLinkClass = "flex items-center gap-4 px-4 py-3 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background";
-
-function MobileNavItem({ 
-  item, 
-  currentPath, 
-  onNavigate
-}: { 
-  item: NavItem; 
-  currentPath: string;
-  onNavigate: () => void;
-}) {
-  const [isOpen, setIsOpen] = useState(false);
-  const isActive = isPathActive(currentPath, item.href);
-
-  if (!item.children) {
-    return (
-      <Link
-        href={item.href}
-        onClick={onNavigate}
-        className={cn(
-          mobileNavLinkClass,
-          isActive 
-            ? "bg-muted/80 text-foreground" 
-            : "text-muted-foreground hover:bg-muted/80 hover:text-foreground"
-        )}
-        aria-current={isActive ? "page" : undefined}
-        data-testid={`mobile-nav-${item.label.toLowerCase()}`}
-      >
-        {item.label}
-      </Link>
-    );
-  }
-
-  return (
-    <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-      <CollapsibleTrigger asChild>
-        <button
-          className={cn(
-            mobileNavLinkClass,
-            "justify-between w-full",
-            isActive 
-              ? "bg-muted/80 text-foreground" 
-              : "text-muted-foreground hover:bg-muted/80 hover:text-foreground"
-          )}
-          data-testid={`mobile-nav-${item.label.toLowerCase()}`}
-        >
-          <span>{item.label}</span>
-          <ChevronDown className={cn(
-            "w-4 h-4 transition-transform duration-150",
-            isOpen && "rotate-180"
-          )} />
-        </button>
-      </CollapsibleTrigger>
-      <CollapsibleContent className="ml-4 mt-1 space-y-1 border-l border-border pl-4">
-        {item.children?.map((child) => (
-          <Link
-            key={child.href}
-            href={child.href}
-            onClick={onNavigate}
-            className={cn(
-              "block px-3 py-2 rounded-md text-sm transition-colors",
-              currentPath === child.href 
-                ? "bg-muted/80 text-foreground" 
-                : "text-muted-foreground hover:bg-muted/80 hover:text-foreground"
-            )}
-            data-testid={`mobile-nav-${child.label.toLowerCase().replace(/\s+/g, "-")}`}
-          >
-            {child.label}
-          </Link>
-        ))}
-      </CollapsibleContent>
-    </Collapsible>
   );
 }
 
@@ -245,31 +167,36 @@ export function Header() {
             </div>
           </div>
 
-          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-            <SheetTrigger asChild className="lg:hidden">
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="min-w-[44px] min-h-[44px]"
-                aria-label="Open navigation menu"
-                data-testid="button-mobile-menu"
+          <div className="lg:hidden">
+            <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+              <SheetTrigger asChild>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="rounded-full min-w-[44px] min-h-[44px]"
+                  aria-label="Open navigation menu"
+                  data-testid="button-mobile-menu"
+                >
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent
+                side="left"
+                className="flex w-[84vw] max-w-xs flex-col gap-4 bg-background px-4 pb-6 pt-4"
+                aria-describedby={undefined}
               >
-                <Menu className="w-5 h-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-full sm:w-80 p-0" aria-describedby={undefined} hideCloseButton>
-              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-              <div className="flex flex-col h-full">
-                <div className="p-4 border-b border-border flex items-center justify-between">
-                  <div className="flex items-center gap-2">
+                <SheetHeader className="flex flex-row items-center justify-between space-y-0">
+                  <SheetTitle className="flex items-center gap-2">
                     <img src="/logo.png" alt="VSG" className="h-6 w-auto" />
-                    <span className="font-heading font-bold text-lg">Verifiable Systems Group</span>
-                  </div>
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                      VSG
+                    </span>
+                  </SheetTitle>
                   <div className="flex items-center gap-1">
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="text-muted-foreground hover:text-foreground"
+                      className="-mr-1 rounded-full text-muted-foreground hover:text-foreground"
                       onClick={() => {
                         setMobileOpen(false);
                         setTimeout(() => {
@@ -280,51 +207,87 @@ export function Header() {
                       data-testid="mobile-button-search"
                       aria-label="Open search"
                     >
-                      <Search className="w-4 h-4" />
+                      <Search className="h-4 w-4" />
                     </Button>
                     <SheetClose asChild>
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="text-muted-foreground hover:text-foreground"
+                        className="-mr-2 rounded-full text-muted-foreground hover:text-foreground"
+                        aria-label="Close navigation menu"
                         data-testid="mobile-button-close"
-                        aria-label="Close menu"
                       >
-                        <X className="w-4 h-4" />
+                        <X className="h-5 w-5" />
                       </Button>
                     </SheetClose>
                   </div>
-                </div>
-                <nav className="flex flex-col p-4 gap-1 overflow-y-auto flex-1" aria-label="Mobile navigation">
-                  {primaryNavItems.map((item) => (
-                    <MobileNavItem
-                      key={item.label}
-                      item={item}
-                      currentPath={location}
-                      onNavigate={handleMobileNavClick}
-                    />
+                </SheetHeader>
+
+                <nav aria-label="Mobile primary navigation" className="mt-2 space-y-1">
+                  {standaloneNavItems.map((item) => (
+                    <SheetClose asChild key={item.href}>
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          mobileLinkClass,
+                          isPathActive(location, item.href) && "bg-muted/70"
+                        )}
+                        data-testid={`mobile-nav-${item.label.toLowerCase()}`}
+                      >
+                        <span>{item.label}</span>
+                      </Link>
+                    </SheetClose>
                   ))}
                 </nav>
-                <div className="p-4 border-t border-border space-y-2">
-                  <Button
-                    variant="outline"
-                    className="w-full justify-start"
-                    asChild
-                    onClick={handleMobileNavClick}
-                  >
-                    <Link href="/insights" data-testid="mobile-nav-insights">Insights</Link>
-                  </Button>
-                  <Button
-                    className="w-full justify-start"
-                    asChild
-                    onClick={handleMobileNavClick}
-                  >
-                    <Link href="/connect" data-testid="mobile-nav-connect">Connect</Link>
-                  </Button>
+
+                {dropdownNavItems.map((section) => (
+                  <div key={section.label} className="border-t border-border pt-4">
+                    <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                      {section.label}
+                    </p>
+                    <div className="space-y-1">
+                      {section.children?.map((child) => (
+                        <SheetClose asChild key={child.href}>
+                          <Link
+                            href={child.href}
+                            className={cn(
+                              "flex flex-col rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted/70",
+                              isPathActive(location, child.href) && "bg-muted/70 text-foreground"
+                            )}
+                            data-testid={`mobile-nav-${child.label.toLowerCase().replace(/\s+/g, "-")}`}
+                          >
+                            <span className="font-medium text-foreground">
+                              {child.label}
+                            </span>
+                            {child.description && (
+                              <span className="mt-0.5 text-xs text-muted-foreground/80">
+                                {child.description}
+                              </span>
+                            )}
+                          </Link>
+                        </SheetClose>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+
+                <div className="flex-1" />
+
+                <div className="space-y-2 border-t border-border pt-4">
+                  <SheetClose asChild>
+                    <Button variant="outline" className="w-full" asChild>
+                      <Link href="/insights" data-testid="mobile-nav-insights">Insights</Link>
+                    </Button>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Button className="w-full" asChild>
+                      <Link href="/connect" data-testid="mobile-nav-connect">Connect</Link>
+                    </Button>
+                  </SheetClose>
                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </header>
