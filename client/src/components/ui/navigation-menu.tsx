@@ -62,10 +62,10 @@ const NavigationMenuItem = React.forwardRef<
     <NavigationMenuPrimitive.Item
       ref={ref}
       value={value}
+      data-dropdown-open={isAnyOpen ? "true" : undefined}
+      data-dropdown-active={isActive ? "true" : undefined}
       className={cn(
-        "nav-menu-item",
-        isAnyOpen && "nav-menu-item-dropdown-open",
-        isActive && "nav-menu-item-active",
+        "nav-menu-item relative",
         className
       )}
       {...props}

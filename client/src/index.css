@@ -570,36 +570,52 @@
   z-index: 2;
 }
 
-/* Each menu item (tab) - NO borders by default */
+/* Each menu item (tab) - list item container */
 .nav-menu-item {
   position: relative;
   background: transparent;
-  border: none;
+  list-style: none;
 }
 
-/* When ANY dropdown is open: inactive tabs get border UNDER them */
-.nav-menu-item-dropdown-open:not(.nav-menu-item-active) {
-  border-bottom: 1px solid hsl(var(--primary) / 0.32);
-  background: transparent;
-}
-
-/* Active tab: connected to dropdown, no bottom border */
-.nav-menu-item-active {
-  background: hsl(var(--card));
-  border: 1px solid hsl(var(--primary) / 0.32);
-  border-bottom: 1px solid hsl(var(--card));
-  border-radius: 2px 2px 0 0;
-  margin-bottom: -1px;
-  z-index: 10;
-}
-
-/* Trigger styling */
+/* Trigger default styling - transparent border (so active state can show it) */
 .nav-menu-trigger {
   border-radius: 0;
+  border: 1px solid transparent;
+  background: transparent;
 }
 
 .nav-menu-trigger[data-state="open"] {
   color: hsl(var(--primary));
+}
+
+/* === STATE: Dropdown is open, but this tab is NOT active === */
+/* Show subtle orange underline for inactive tabs */
+.nav-menu-item[data-dropdown-open="true"]:not([data-dropdown-active="true"])::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: hsl(var(--primary) / 0.32);
+  z-index: 5;
+}
+
+/* === STATE: This tab IS the active dropdown === */
+/* Full border on 3 sides (top, left, right), connecting to panel */
+.nav-menu-item[data-dropdown-active="true"] {
+  z-index: 20;
+}
+
+.nav-menu-item[data-dropdown-active="true"] .nav-menu-trigger {
+  background: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--primary) / 0.32) !important;
+  border-bottom: none !important;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  z-index: 20;
+  margin-bottom: -1px;
+  padding-bottom: calc(0.5rem + 1px);
 }
 
 /* Viewport wrapper - positioned BELOW the triggers */
@@ -608,20 +624,20 @@
   top: 100%;
   left: 0;
   right: 0;
-  z-index: 5;
+  z-index: 10;
 }
 
-/* The dropdown panel - has its own border that connects to active tab */
+/* The dropdown panel - border on left, right, bottom (no top - connects to active tab) */
 .nav-menu-viewport {
   width: 100%;
   background: hsl(var(--card));
   color: hsl(var(--card-foreground));
   border: 1px solid hsl(var(--primary) / 0.32);
-  border-top: none;
+  border-top: 0 !important;
   border-radius: 0 0 2px 2px;
 }
 
-/* Container background when open */
+/* Container styling when open */
 .nav-menu-open {
   background: transparent;
 }
