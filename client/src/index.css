@@ -551,6 +551,36 @@
   }
 }
 
+/* ===== NAVIGATION DROPDOWN INTEGRATION ===== */
+/* Unified border treatment: trigger + panel as one box */
+.nav-dropdown-trigger {
+  border: 1px solid transparent;
+  border-radius: 0;
+}
+
+.nav-dropdown-trigger[data-state="open"] {
+  border-top-color: hsl(var(--primary));
+  border-bottom-color: transparent;
+}
+
+.nav-dropdown-trigger.first-trigger[data-state="open"] {
+  border-left-color: hsl(var(--primary));
+  border-top-left-radius: 2px;
+}
+
+.nav-dropdown-trigger.last-trigger[data-state="open"] {
+  border-right-color: hsl(var(--primary));
+  border-top-right-radius: 2px;
+}
+
+/* Viewport panel completes the border box */
+.nav-dropdown-viewport {
+  border: 1px solid hsl(var(--primary));
+  border-top: none;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
 /* Terminal Text Selection - Developer/Hacker Polish */
 ::selection {
   background-color: hsl(var(--primary) / 0.2);

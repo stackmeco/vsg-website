@@ -41,7 +41,7 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
 const NavigationMenuItem = NavigationMenuPrimitive.Item
 
 const navigationMenuTriggerStyle = cva(
-  "group inline-flex h-10 w-max items-center justify-center rounded-[2px] bg-transparent px-4 py-2 text-sm font-medium transition-colors duration-150 hover:bg-secondary hover:text-foreground focus:bg-secondary focus:text-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[state=open]:bg-secondary data-[state=open]:text-foreground"
+  "group inline-flex h-10 w-max items-center justify-center bg-transparent px-4 py-2 text-sm font-medium transition-colors duration-150 hover:text-foreground focus:text-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
 )
 
 const NavigationMenuTrigger = React.forwardRef<
@@ -86,7 +86,7 @@ const NavigationMenuViewport = React.forwardRef<
   <div className="absolute left-0 right-0 top-full">
     <NavigationMenuPrimitive.Viewport
       className={cn(
-        "origin-top relative mt-0 h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden rounded-b-[2px] border-x border-b border-primary bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in duration-150 w-full",
+        "nav-dropdown-viewport origin-top relative mt-0 h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in duration-150 w-full",
         className
       )}
       ref={ref}

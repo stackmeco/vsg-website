@@ -58,13 +58,10 @@ function DropdownNavItem({
     <NavigationMenuItem className="relative">
       <NavigationMenuTrigger 
         className={cn(
-          "px-4 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150 bg-transparent rounded-none",
-          "border-t border-b border-transparent",
-          "data-[state=open]:bg-popover data-[state=open]:border-primary data-[state=open]:border-t data-[state=open]:border-b-0",
-          isFirst && "data-[state=open]:border-l data-[state=open]:rounded-tl-[2px]",
-          isLast && "data-[state=open]:border-r data-[state=open]:rounded-tr-[2px]",
-          !isFirst && "data-[state=open]:border-l-0",
-          !isLast && "data-[state=open]:border-r-0",
+          "nav-dropdown-trigger px-4 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150",
+          "data-[state=open]:bg-popover",
+          isFirst && "first-trigger",
+          isLast && "last-trigger",
           isActive
             ? "text-primary"
             : "text-muted-foreground hover:text-foreground"
