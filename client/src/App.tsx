@@ -24,8 +24,8 @@ const LuminaPage = lazy(() => import("@/pages/ventures/Lumina"));
 const UniquenessPage = lazy(() => import("@/pages/ventures/Uniqueness"));
 
 const PillarsPage = lazy(() => import("@/pages/approach/Pillars"));
-const ProcessPage = lazy(() => import("@/pages/approach/Process"));
-const StandardsPage = lazy(() => import("@/pages/approach/Standards"));
+const ProcessPage = lazy(() => import("@/pages/Process"));
+const StandardsPage = lazy(() => import("@/pages/Standards"));
 
 const StudioPage = lazy(() => import("@/pages/studio/Studio"));
 const PurposePage = lazy(() => import("@/pages/studio/Purpose"));

@@ -8,6 +8,21 @@ The site follows a "control room aesthetic" with a dark theme emphasizing instit
 
 ## Recent Changes (December 2025)
 
+### Information Architecture Update (December 2025)
+New institutional navigation with dropdown menus:
+- **Overview** → / (home page)
+- **Ventures** (dropdown) → /ventures, /ventures/helios, /ventures/axiom, /ventures/stackme, /ventures/lumina, /ventures/uniqueness
+- **Approach** (dropdown) → /approach/pillars, /approach/process, /approach/standards
+- **Studio** (dropdown) → /studio, /studio/purpose, /studio/vision, /studio/mission
+- **Insights** → /insights
+- **Connect** → /connect
+
+Key files:
+- `client/src/config/navigation.ts`: Central navigation configuration (single source of truth)
+- `client/src/components/PlaceholderPage.tsx`: Reusable placeholder template for new pages
+- Desktop: shadcn NavigationMenu with hover dropdowns
+- Mobile: Collapsible accordions in Sheet navigation
+
 ### Navigation Rename & Content Rewrite
 - **Navigation renamed**: Overview→Mission, Pipeline→Ventures, Governance→Standards, Thesis→Insights, Contact→Connect (Process retained from System)
 - **Routes updated**: /process, /ventures, /standards, /insights, /connect (all internal references updated across codebase)
