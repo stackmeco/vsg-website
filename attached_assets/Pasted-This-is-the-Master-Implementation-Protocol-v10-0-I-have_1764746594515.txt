@@ -1,0 +1,119 @@
+This is the **Master Implementation Protocol (v10.0)**.
+
+I have integrated the **6th Step ("Recursive Learning")** into the R&D Process to complete the grid and address the "learning from failure" requirement. I have also re-verified all content to ensure "Engineered Ambition" is used correctly and the tone remains "Institutional Vanguard."
+
+**Major Improvements in v10.0:**
+1.  **New Process Step:** Added **"Recursive Learning"** to `Ventures.tsx`. This closes the loop on failure analysis and creates a perfect 2x3 grid layout.
+2.  **Tone Calibration:** Tightened the "Data-Driven Evolution" step to focus on *optimization* so it doesn't overlap with the new *learning* step.
+3.  **Final Polish:** Verified that "Disciplined Audacity" is gone forever, replaced by **"Engineered Ambition"** (Mission) and **"Safety & Standards"** (Governance).
+
+**How to use:**
+Copy the **entire block below** and paste it into your Replit Agent.
+
+***
+
+# **MASTER INSTRUCTION SET: HELIOS SITE FINALIZATION**
+
+> **ROLE:** Senior Full-Stack Architect & Brand Strategist.
+> **MISSION:** Update the entire site to **v10.0 (Production Identity)**.
+> **CRITICAL UPDATES:**
+> 1.  Add the **6th Step** to the Ventures process (Recursive Learning).
+> 2.  Ensure **"Engineered Ambition"** replaces "Disciplined Audacity."
+> 3.  Execute all file renames and content injections in one pass.
+>
+> ---
+>
+> ### **PHASE 1: STRUCTURAL REFACTOR (Renaming)**
+> *Rename files to match public identity. Update `App.tsx` and `Header.tsx`.*
+>
+> 1.  **RENAME** `client/src/pages/System.tsx` $\rightarrow$ **`client/src/pages/Process.tsx`**
+> 2.  **RENAME** `client/src/pages/Pipeline.tsx` $\rightarrow$ **`client/src/pages/Ventures.tsx`**
+> 3.  **RENAME** `client/src/pages/PipelineDetail.tsx` $\rightarrow$ **`client/src/pages/VentureDetail.tsx`**
+> 4.  **RENAME** `client/src/pages/Governance.tsx` $\rightarrow$ **`client/src/pages/Standards.tsx`**
+> 5.  **RENAME** `client/src/pages/Library.tsx` $\rightarrow$ **`client/src/pages/Insights.tsx`**
+> 6.  **RENAME** `client/src/pages/LibraryArticle.tsx` $\rightarrow$ **`client/src/pages/InsightDetail.tsx`**
+> 7.  **RENAME** `client/src/pages/Contact.tsx` $\rightarrow$ **`client/src/pages/Connect.tsx`**
+>
+> **ACTION:** Update `client/src/App.tsx` routes:
+> * `/` $\rightarrow$ `Overview`
+> * `/process` $\rightarrow$ `Process`
+> * `/ventures` $\rightarrow$ `Ventures`
+> * `/ventures/:slug` $\rightarrow$ `VentureDetail`
+> * `/standards` $\rightarrow$ `Standards`
+> * `/insights` $\rightarrow$ `Insights`
+> * `/insights/:slug` $\rightarrow$ `InsightDetail`
+> * `/connect` $\rightarrow$ `Connect`
+>
+> **ACTION:** Update `client/src/components/Header.tsx` navigation:
+> * Mission (/), Process (/process), Ventures (/ventures), Standards (/standards), Insights (/insights), Connect (/connect).
+>
+> ---
+>
+> ### **PHASE 2: CONTENT INJECTION (The Identity Source of Truth)**
+> *Overwrite text exactly as written below.*
+>
+> **1. MISSION PAGE (`Overview.tsx`):**
+> * **Hero:** Headline **"The Infrastructure of Autonomy."** / Body **"We are an innovation engine fusing the speed of AI with the security of Blockchain. We build the tools that verify truth, preserve wealth, and protect identity."**
+> * **Mission Cards:**
+>     * *Purpose:* **"Democratize Leverage"** - "To democratize institutional-grade leverage. We build tools that give individuals the same financial power as banks, without the intermediaries."
+>     * *Vision:* **"Engineered Trust"** - "A future where 'Trust' is an engineered feature, not a gamble. We replace blind faith with cryptographic proof and open code."
+>     * *Mission:* **"Verifiable Autonomy"** - "We engineer the infrastructure of autonomy across three pillars: Validate Signal (Axiom), Preserve Value (Helios), and Protect Identity (Uniqueness)."
+> * **Operating Principles:** Update `values` array:
+>     1.  **Intelligence Augmented (IA):** "'Let the machine compute. Let the human connect.' We use AI to amplify human capability."
+>     2.  **Seek the Signal:** "'Verify, then trust.' We engineer clarity through cryptographic proof."
+>     3.  **Engineered Ambition:** "'Dream in decades, execute in milliseconds.' We build generational technology with extreme precision."
+>     4.  **Own the Engine:** "'Master the mechanics to rewrite the rules.' We are pilots, not passengers."
+>     5.  **Value is a Mirror:** "'Serve first, succeed second.' We build non-custodial tools that restore power to the user."
+>     6.  **Force Multiplier:** "'Level the playing field.' We arm individuals with the tools to bypass gatekeepers."
+>
+> **2. PROCESS PAGE (`Process.tsx`):**
+> * **Hero:** Headline **"Own The Engine."** / Body **"We are pilots, not passengers. We require deep financial fluency and a first-principles understanding of how value is created."**
+> * **MOVE SECTION:** Move the **"How we verify value" (The R&D Process)** section from the old Pipeline page to HERE.
+> * **REMOVE:** Delete the old "Functions" section.
+> * **Treasury:** Headline **"Powered by Bitcoin."** / Body **"Bitcoin serves as our reserve asset. We utilize responsible, over-collateralized borrowing to fund innovation without selling our long-term position."**
+>
+> **3. VENTURES PAGE (`Ventures.tsx`):**
+> * **Hero:** Headline **"Venture Portfolio."** / Body **"Five projects moving through our development process. Each venture is self-funded and stress-tested with our own capital."**
+> * **Content:** Remove the "R&D Process" section (moved to Process). Show ONLY the Project Cards.
+>
+> **4. STANDARDS PAGE (`Standards.tsx`):**
+> * **Hero:** Headline **"Safety & Standards."** / Body **"Technology moves fast. Ethics shouldn't. We impose strict rules on ourselves to ensure we build responsible systems."**
+> * **Capital Controls:** Update to: "**2-of-3 Multisig** (Founder A, Founder B, Cold Storage). No single point of failure."
+>
+> **5. INSIGHTS PAGE (`Insights.tsx` & `data/articles.ts`):**
+> * **Article 1:** "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate"
+> * **Article 2:** "The Verification Standard: Charting the Great Reallocation"
+> * **Article 3:** "Machine-Native Settlement: Why AI Agents Reject Legacy Banking"
+>
+> **6. CONNECT PAGE (`Connect.tsx`):**
+> * **Hero:** "Let's Build the Future." / "We are actively seeking partners who share our rigorous approach."
+>
+> ---
+>
+> ### **PHASE 3: THE R&D PROCESS (6 Steps)**
+> *Update the `stages` array in `Process.tsx`. Use `grid md:grid-cols-2 lg:grid-cols-3` for a perfect 2x3 grid.*
+>
+> 1.  **Strategic Definition** (Alignment & ROI) - "We start with the problem, not the code. We verify the 'Why' before writing a single line."
+> 2.  **Rapid Validation** (Risk Mitigation) - "We prove the concept early. Risk is best managed before the build using rapid prototyping."
+> 3.  **The Verified Build** (Security & Stability) - "Engineering with automated safeguards. We build in iterative cycles with continuous verification."
+> 4.  **Controlled Deployment** (Reliability) - "Zero-downtime staged rollouts. No 'big bang' releases. Features deploy incrementally."
+> 5.  **Data-Driven Evolution** (Optimization) - "Launch is just the start. We aggressively monitor performance to refine efficiency based on real usage data."
+> 6.  **Recursive Learning** (Institutional Wisdom) - "We treat failure as high-value signal. Every anomaly triggers a mandatory post-mortem. We feed these lessons back into the system root, ensuring we never make the same mistake twice."
+>
+> ---
+>
+> ### **PHASE 4: VISUAL & TECHNICAL HARDENING**
+>
+> **1. VISUAL PHYSICS (`tailwind.config.ts`):**
+> * **Force 2px Radius:** Override config: `borderRadius: { sm: "2px", DEFAULT: "2px", md: "4px" }`.
+>
+> **2. MOBILE LAYOUT (`ConsolePanel.tsx`):**
+> * **Grid Fix:** Change container from `flex` to `grid grid-cols-1 md:grid-cols-2`.
+>
+> **3. SCHEMA CONSOLIDATION (`shared/schema.ts`):**
+> * **Unified Validation:** Create `contactFormSchema` in shared. Remove local Zod schemas in `Connect.tsx` and `routes.ts`.
+>
+> **4. SECURITY (`server/routes.ts`):**
+> * **Origin Check:** Replace hardcoded domain with `process.env.ALLOWED_ORIGINS`.
+>
+> **EXECUTE ALL STEPS IN ORDER.**
