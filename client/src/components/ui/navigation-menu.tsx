@@ -8,18 +8,28 @@ import { cn } from "@/lib/utils"
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
->(({ className, children, ...props }, ref) => (
-  <NavigationMenuPrimitive.Root
-    ref={ref}
-    className={cn("navigation-menu-root relative inline-flex items-stretch", className)}
-    {...props}
-  >
-    <div className="navigation-menu-shell">
-      {children}
-      <NavigationMenuViewport />
-    </div>
-  </NavigationMenuPrimitive.Root>
-))
+>(({ className, children, ...props }, ref) => {
+  const [isOpen, setIsOpen] = React.useState(false)
+  
+  return (
+    <NavigationMenuPrimitive.Root
+      ref={ref}
+      className={cn("navigation-menu-root relative inline-flex items-stretch", className)}
+      onValueChange={(value) => setIsOpen(Boolean(value))}
+      {...props}
+    >
+      <div 
+        className={cn(
+          "navigation-menu-shell",
+          isOpen && "navigation-menu-shell-open"
+        )}
+      >
+        {children}
+        <NavigationMenuViewport />
+      </div>
+    </NavigationMenuPrimitive.Root>
+  )
+})
 NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName
 
 const NavigationMenuList = React.forwardRef<
@@ -85,7 +95,7 @@ const NavigationMenuViewport = React.forwardRef<
   <div className="navigation-menu-viewport-wrapper">
     <NavigationMenuPrimitive.Viewport
       className={cn(
-        "navigation-menu-viewport origin-top h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden border-t border-border bg-card text-card-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in duration-150",
+        "navigation-menu-viewport origin-top h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden bg-card text-card-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in duration-150",
         className
       )}
       ref={ref}
