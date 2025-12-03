@@ -11,6 +11,8 @@ import Overview from "@/pages/Overview";
 const Ventures = lazy(() => import("@/pages/Ventures"));
 const VentureDetail = lazy(() => import("@/pages/VentureDetail"));
 const HeliosPage = lazy(() => import("@/pages/ventures/Helios"));
+const StackmePage = lazy(() => import("@/pages/ventures/Stackme"));
+const LuminaPage = lazy(() => import("@/pages/ventures/Lumina"));
 const Insights = lazy(() => import("@/pages/Insights"));
 const InsightDetail = lazy(() => import("@/pages/InsightDetail"));
 const Connect = lazy(() => import("@/pages/Connect"));
@@ -82,6 +84,8 @@ function Router() {
         {/* Ventures */}
         <Route path="/ventures" component={Ventures} />
         <Route path="/ventures/helios" component={HeliosPage} />
+        <Route path="/ventures/stackme" component={StackmePage} />
+        <Route path="/ventures/lumina" component={LuminaPage} />
         <Route path="/ventures/:slug" component={VentureDetail} />
         
         {/* Approach */}
