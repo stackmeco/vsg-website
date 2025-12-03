@@ -20,21 +20,20 @@ export function PlaceholderPage({ title, description, category }: PlaceholderPag
         description={metaDescription}
       />
       
-      <section className="relative min-h-[60vh] flex items-center border-b border-border">
+      <section className="relative min-h-[50vh] flex items-center border-b border-border">
         <div className="absolute inset-0 bg-background" />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
           {category && (
-            <span className="inline-block text-xs font-mono uppercase tracking-widest text-primary mb-4" data-testid="text-category">
+            <span className="inline-block text-sm font-mono uppercase tracking-widest text-primary mb-4" data-testid="text-category">
               {category}
             </span>
           )}
-          <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground mb-6" data-testid="text-page-title">
+          <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6" data-testid="text-page-title">
             {title}
           </h1>
           {description && (
-            <p className="text-lg text-muted-foreground max-w-2xl" data-testid="text-page-description">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed" data-testid="text-page-description">
               {description}
             </p>
           )}

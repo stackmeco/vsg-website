@@ -58,22 +58,22 @@ function DropdownNavItem({ item, currentPath }: { item: NavItem; currentPath: st
         {item.label}
       </NavigationMenuTrigger>
       <NavigationMenuContent>
-        <ul className="grid w-[280px] gap-1 p-2">
+        <ul className="grid w-[280px] gap-0.5 p-2">
           {item.children?.map((child) => (
             <li key={child.href}>
               <NavigationMenuLink asChild>
                 <Link
                   href={child.href}
                   className={cn(
-                    "block select-none rounded-[2px] p-3 leading-none no-underline outline-none transition-colors",
-                    "hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                    "block select-none rounded-[2px] p-3 leading-none no-underline outline-none transition-colors duration-150",
+                    "hover:bg-secondary focus:bg-secondary",
                     currentPath === child.href && "bg-primary/10 text-primary"
                   )}
                   data-testid={`nav-dropdown-${child.label.toLowerCase().replace(/\s+/g, "-")}`}
                 >
-                  <div className="text-sm font-medium leading-none mb-1">{child.label}</div>
+                  <div className="text-sm font-medium leading-none mb-1.5 text-foreground">{child.label}</div>
                   {child.description && (
-                    <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                    <p className="line-clamp-2 text-caption leading-snug text-muted-foreground">
                       {child.description}
                     </p>
                   )}
