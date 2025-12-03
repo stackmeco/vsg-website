@@ -12,8 +12,14 @@ The site follows a "control room aesthetic" with a dark theme emphasizing instit
 - **Navigation renamed**: Overview→Mission, Pipeline→Ventures, Governance→Standards, Thesis→Insights, Contact→Connect (Process retained from System)
 - **Routes updated**: /process, /ventures, /standards, /insights, /connect (all internal references updated across codebase)
 - **Content rewritten** across all pages with human-centric, outcome-focused copy per Gemini copywriting analysis
-- **Font size**: Updated to 15px base with unified rem-based typography (text-2xs, text-btn custom sizes)
 - **Domain**: verifiablesystems.com (not verifiedsystems.io)
+
+### Typography Architecture (December 2025)
+- **15px base**: All sizes proportional via rem (formula: px/15 = rem)
+- **Semantic tokens**: text-telemetry, text-eyebrow, text-caption, text-body, text-body-lg
+- **12px rule**: Only text-telemetry and text-eyebrow render at 12px (0.8rem)
+- **13px minimum**: All readable text is 13px+ (text-xs remapped to 0.8667rem)
+- **Component classes**: .type-eyebrow, .type-telemetry, .type-caption, .type-body, .type-body-lg
 
 ### Technical Updates
 - CSP headers updated to allow WebSocket connections for Vite HMR in development
