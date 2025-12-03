@@ -138,7 +138,7 @@ function MobileNavItem({
             </span>
           </div>
           <ChevronDown className={cn(
-            "w-5 h-5 text-muted-foreground transition-transform duration-200",
+            "w-5 h-5 text-muted-foreground transition-transform duration-150",
             isOpen && "rotate-180"
           )} />
         </button>
