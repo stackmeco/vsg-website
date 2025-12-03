@@ -473,9 +473,9 @@ export default function Governance() {
       </section>
 
       <NextStepBlock
-        nextPage="Library"
-        description="Read our notes, insights, and updates."
-        href="/library"
+        nextPage="Insights"
+        description="Read our notes, research, and updates."
+        href="/insights"
       />
     </Layout>
   );

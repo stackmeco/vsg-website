@@ -1,0 +1,412 @@
+````markdown
+# Process Page Cleanup & Replit Checkpoint Spec
+
+You’re right to push on this—Process is one of the core “spines” of the site, so it needs to be mechanically clean *and* on-brand.
+
+This document has two parts:
+
+1. **Improved Process page content spec** – clear, scannable, public-safe copy for `Process.tsx`.
+2. **Improved Replit agent prompt** – so the agent implements *only* the intended changes.
+
+---
+
+## 1. Improved Process Page Content (Public + Safe + Scannable)
+
+This keeps the **same layout and components** you already have in `Process.tsx` and just upgrades the strings and data structures.
+
+### 1.1 Page Meta
+
+Use a strong, descriptive meta so the meaning is clear in search/snippets:
+
+```tsx
+<PageMeta
+  title="Process"
+  description="How Verifiable Systems Group moves ventures from concept to governed, verifiable systems using a six-stage, Bitcoin-backed R&D process."
+  preloadImage="/hero-texture.png"
+/>
+````
+
+---
+
+### 1.2 Hero Section
+
+Update only the **text**, not the structure/classes.
+
+**Overline:**
+
+```tsx
+<p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+  How ventures move inside VSG
+</p>
+```
+
+**Heading:**
+
+```tsx
+<h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+  A six-stage runway for verifiable ventures.
+</h1>
+```
+
+**Body Copy:**
+
+```tsx
+<p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+  Every venture at VSG follows the same six-stage path. We define and validate the problem, build and deploy under tight controls, then evolve and recurse based on real signals so risk is surfaced early and knowledge compounds instead of resetting with each project.
+</p>
+```
+
+Notes:
+
+* First sentence states explicitly what the page is about.
+* Sentences are short and focused for readability.
+
+---
+
+### 1.3 Stages (Six Single-Word Stages)
+
+We keep your 6-stage pattern but refine the copy so each description is tight and consistent in tone.
+
+Replace the `stages` constant with:
+
+```ts
+const stages = [
+  {
+    name: "Define",
+    focus: "Strategy & Alignment",
+    description:
+      "Clarify the problem, constraints, and regulatory surface so we know exactly who we serve, what is at stake, and when the venture should not exist.",
+  },
+  {
+    name: "Validate",
+    focus: "Risk & Signal",
+    description:
+      "Run small, low-risk experiments to test the core assumptions first, using models, prototypes, and controlled simulations instead of full production builds.",
+  },
+  {
+    name: "Build",
+    focus: "Security & Quality",
+    description:
+      "Engineer in short, verifiable increments with automated checks, threat modelling, and failure paths designed in from the start so every change is explainable.",
+  },
+  {
+    name: "Deploy",
+    focus: "Governed Launch",
+    description:
+      "Release into a controlled environment with clear guardrails, observability, and rollback so launch behaves like a structured experiment, not a cliff jump.",
+  },
+  {
+    name: "Evolve",
+    focus: "Data & Optimization",
+    description:
+      "Use live telemetry, behaviour, and incidents to refine the system so ventures either mature into durable infrastructure or are retired with clean exits.",
+  },
+  {
+    name: "Recurse",
+    focus: "Institutional Memory",
+    description:
+      "Treat anomalies and failures as high-value signals by running structured post-mortems and feeding the lessons back into our standards and pipeline.",
+  },
+];
+```
+
+Then update the explanatory paragraph under the stage grid to:
+
+```tsx
+<p className="mt-6 max-w-2xl text-sm text-muted-foreground sm:text-base">
+  Ventures do not “graduate” by default. After moving through all six stages, they are either adopted as durable infrastructure, wrapped in ongoing governance, or archived with their lessons integrated into our standards and research backlog.
+</p>
+```
+
+---
+
+### 1.4 Definitions (“System Primitives” / Core Concepts)
+
+We keep the three-card layout but sharpen the copy for each term.
+
+Replace `definitions` with:
+
+```ts
+const definitions = [
+  {
+    term: "Verifiable Systems",
+    definition:
+      "Systems where critical behaviours can be inspected and, where it matters, formally or empirically proven. Capital flows, access controls, and decision paths must be observable—not hidden inside opaque services.",
+  },
+  {
+    term: "Deterministic AI",
+    definition:
+      "AI that behaves like infrastructure, not a slot machine. Narrow in scope, grounded in governed data, and constrained to repeatable, auditable outputs instead of open-ended guesswork.",
+  },
+  {
+    term: "Non-custodial Rails",
+    definition:
+      "Financial and identity rails where institutions and individuals retain control of keys and governance. Our systems orchestrate workflows and verification; they do not take custody of customer assets.",
+  },
+];
+```
+
+Keep the mapping JSX and icons the same—just swap the content.
+
+---
+
+### 1.5 Bitcoin / Capital Strategy Section
+
+This section should explain *why* BTC matters to Process and make clear it’s an **internal-only, conservative** program.
+
+Keep the existing layout and background texture, but update the **text** inside that block to:
+
+**Overline:**
+
+```tsx
+<p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+  Capital Strategy
+</p>
+```
+
+**Heading:**
+
+```tsx
+<h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
+  Bitcoin as long-term reserve, not a trading thesis.
+</h2>
+```
+
+**Lead Paragraph:**
+
+```tsx
+<p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+  Bitcoin is our primary long-term reserve asset. When appropriate, we selectively borrow against it under conservative limits to fund research, infrastructure, and security work so we can keep long-term exposure while still shipping useful systems in the present.
+</p>
+```
+
+**Bulleted List (Three Items):**
+
+```tsx
+<ul className="mt-4 space-y-2 text-sm text-muted-foreground sm:text-base">
+  <li>Fund deep research, security reviews, and shared infrastructure across our ventures.</li>
+  <li>Maintain an operating runway that is less exposed to short-term revenue volatility.</li>
+  <li>Absorb shocks so individual ventures can be evaluated on their merits, not on market noise.</li>
+</ul>
+```
+
+**Closing Note (Important for Safety):**
+
+```tsx
+<p className="mt-4 text-xs italic text-muted-foreground">
+  This is an internal treasury program. We do not pool client funds, manage outside capital, or offer yield products.
+</p>
+```
+
+This keeps the narrative (“Bitcoin-backed R&D engine”) while making it crystal clear this is **internal, non-custodial, and conservative**.
+
+---
+
+### 1.6 Content Hygiene in `Process.tsx`
+
+Within `Process.tsx`:
+
+* Remove **all** placeholder `...` or truncated strings.
+* Ensure every user-facing string is a complete sentence or phrase.
+* Do **not** change:
+
+  * Layout structure
+  * Components used
+  * Styling classes
+
+We’re only updating text and the `stages` / `definitions` arrays.
+
+---
+
+## 2. Replit AI Prompt – Process Page Cleanup (Checkpoint)
+
+This is the **exact** prompt to give the Replit AI agent so it edits only what you want.
+
+```text
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Clean up and finalize the Process page so it reflects VSG’s six-stage venture pipeline and internal Bitcoin-backed capital strategy in clear, scannable language. Also fix one small navigation bug in Standards.tsx.
+
+Do not change any global theming, layout primitives, or add/remove routes. Only touch the files and sections below.
+```
+
+---
+
+### 2.1 Update `client/src/pages/Process.tsx`
+
+**a. PageMeta**
+
+```text
+- Keep title="Process" and preloadImage="/hero-texture.png".
+- Set the description prop to:
+
+  "How Verifiable Systems Group moves ventures from concept to governed, verifiable systems using a six-stage, Bitcoin-backed R&D process."
+```
+
+**b. Hero Section Text**
+
+```text
+- Keep the existing JSX structure for the hero and background; just replace the strings:
+
+  Overline: "How ventures move inside VSG"
+
+  Heading: "A six-stage runway for verifiable ventures."
+
+  Body paragraph:
+
+  "Every venture at VSG follows the same six-stage path. We define and validate the problem, build and deploy under tight controls, then evolve and recurse based on real signals so risk is surfaced early and knowledge compounds instead of resetting with each project."
+
+- Do not change classes or container structure.
+```
+
+**c. Replace the `stages` Constant**
+
+```text
+- Replace the existing const stages = [...] definition with:
+
+  const stages = [
+    {
+      name: "Define",
+      focus: "Strategy & Alignment",
+      description:
+        "Clarify the problem, constraints, and regulatory surface so we know exactly who we serve, what is at stake, and when the venture should not exist.",
+    },
+    {
+      name: "Validate",
+      focus: "Risk & Signal",
+      description:
+        "Run small, low-risk experiments to test the core assumptions first, using models, prototypes, and controlled simulations instead of full production builds.",
+    },
+    {
+      name: "Build",
+      focus: "Security & Quality",
+      description:
+        "Engineer in short, verifiable increments with automated checks, threat modelling, and failure paths designed in from the start so every change is explainable.",
+    },
+    {
+      name: "Deploy",
+      focus: "Governed Launch",
+      description:
+        "Release into a controlled environment with clear guardrails, observability, and rollback so launch behaves like a structured experiment, not a cliff jump.",
+    },
+    {
+      name: "Evolve",
+      focus: "Data & Optimization",
+      description:
+        "Use live telemetry, behaviour, and incidents to refine the system so ventures either mature into durable infrastructure or are retired with clean exits.",
+    },
+    {
+      name: "Recurse",
+      focus: "Institutional Memory",
+      description:
+        "Treat anomalies and failures as high-value signals by running structured post-mortems and feeding the lessons back into our standards and pipeline.",
+    },
+  ];
+
+- Leave the StepCard component and mapping logic as-is.
+- Under the stages grid, update the explanatory paragraph text to:
+
+  "Ventures do not “graduate” by default. After moving through all six stages, they are either adopted as durable infrastructure, wrapped in ongoing governance, or archived with their lessons integrated into our standards and research backlog."
+```
+
+**d. Replace the `definitions` Constant**
+
+```text
+- Replace const definitions = [...] with:
+
+  const definitions = [
+    {
+      term: "Verifiable Systems",
+      definition:
+        "Systems where critical behaviours can be inspected and, where it matters, formally or empirically proven. Capital flows, access controls, and decision paths must be observable—not hidden inside opaque services.",
+    },
+    {
+      term: "Deterministic AI",
+      definition:
+        "AI that behaves like infrastructure, not a slot machine. Narrow in scope, grounded in governed data, and constrained to repeatable, auditable outputs instead of open-ended guesswork.",
+    },
+    {
+      term: "Non-custodial Rails",
+      definition:
+        "Financial and identity rails where institutions and individuals retain control of keys and governance. Our systems orchestrate workflows and verification; they do not take custody of customer assets.",
+    },
+  ];
+
+- Do not change the JSX that maps over definitions, only the data.
+```
+
+**e. Update the Bitcoin / Capital Strategy Section**
+
+```text
+- Locate the “Powered by Bitcoin” / capital strategy block in Process.tsx.
+- Keep the existing layout and use of gearsTexture, but update text nodes as follows:
+
+  Overline: "Capital Strategy"
+
+  Heading: "Bitcoin as long-term reserve, not a trading thesis."
+
+  Intro paragraph:
+
+  "Bitcoin is our primary long-term reserve asset. When appropriate, we selectively borrow against it under conservative limits to fund research, infrastructure, and security work so we can keep long-term exposure while still shipping useful systems in the present."
+
+  Bullet list items (three <li> elements):
+
+  "Fund deep research, security reviews, and shared infrastructure across our ventures."
+  "Maintain an operating runway that is less exposed to short-term revenue volatility."
+  "Absorb shocks so individual ventures can be evaluated on their merits, not on market noise."
+
+  Closing italic note:
+
+  "This is an internal treasury program. We do not pool client funds, manage outside capital, or offer yield products."
+
+- Important: Remove any "..." or truncated strings in this section so all copy is complete sentences.
+```
+
+**f. Content Hygiene in `Process.tsx`**
+
+```text
+- Ensure there are no placeholder ellipses ("...") left anywhere in Process.tsx.
+- Do not add new sections or components.
+```
+
+---
+
+### 2.2 Fix the `/library` 404 on Standards Page
+
+```text
+File: client/src/pages/Standards.tsx
+
+- At the bottom of the file there is a NextStepBlock configured to point at /library.
+- Update that block to:
+
+  <NextStepBlock
+    nextPage="Insights"
+    description="Read our notes, research, and updates."
+    href="/insights"
+  />
+
+- Do not change any other content or layout in Standards.tsx.
+```
+
+---
+
+### 2.3 Quality Checks
+
+```text
+After making these edits:
+
+1. Run the dev server and visit /process to confirm:
+   - The hero, stages, definitions, and capital strategy sections render with the new copy.
+   - There are no TypeScript or runtime errors from these changes.
+
+2. Visit /standards and click the bottom CTA:
+   - Confirm it now routes to /insights without a 404.
+
+3. Confirm that no other pages, styles, or routes have been modified in this checkpoint.
+```
+
+```
+::contentReference[oaicite:0]{index=0}
+```
