@@ -1,30 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription, SheetClose } from "@/components/ui/sheet";
 import { Menu, Search, X } from "lucide-react";
-
-function SystemClock() {
-  const [time, setTime] = useState(new Date());
-
-  useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const utcTime = time.toISOString().split("T")[1].split(".")[0];
-
-  return (
-    <span 
-      className="font-mono text-xs text-muted-foreground tabular-nums"
-      data-testid="text-system-clock"
-      aria-hidden="true"
-    >
-      {utcTime} <span className="text-primary/60">UTC</span>
-    </span>
-  );
-}
 
 const navItems = [
   { name: "Mission", href: "/", number: "01" },
@@ -84,7 +63,6 @@ export function Header() {
               </Link>
             ))}
             <div className="flex items-center gap-4 ml-4">
-              <SystemClock />
               <Button
                 variant="ghost"
                 size="sm"
