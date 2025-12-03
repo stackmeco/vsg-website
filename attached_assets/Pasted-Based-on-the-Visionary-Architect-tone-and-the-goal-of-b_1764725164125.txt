@@ -1,0 +1,65 @@
+Based on the "Visionary Architect" tone and the goal of being **"Professional but Accessible,"** the current header "Our Vocabulary" is a bit weak (it sounds like a school lesson), and "Core Definitions" is a bit dry (it sounds like a legal contract).
+
+To make it **Ideal**, we should frame these not just as "words we use," but as the **Fundamental Building Blocks** of your reality.
+
+Here is the **Ideal Optimization** for that section.
+
+### **1. The Section Header**
+
+  * **Current:** "Our Vocabulary" / "Core Definitions"
+  * **The Ideal:** **"Core Concepts"** or **"System Primitives"**
+      * *Why:* "Primitives" implies these are the atomic units you build everything else from. It sounds engineering-first. "Core Concepts" is the safer, standard business choice.
+      * *Recommendation:* Go with **"Core Concepts"** for maximum clarity, or **"System Primitives"** for maximum brand alignment.
+
+### **2. The Three Terms (The "Holy Trinity")**
+
+You rightly insisted on **"Verifiable Systems."** To make the set cohesive, the other two terms should also sound like **Categories of Engineering**, not just buzzwords.
+
+#### **Term 1: Verifiable Systems** (The Structure)
+
+  * *Status:* **Keep.** It is your name and your methodology.
+  * *Refined Definition:* "Infrastructure that is fully auditable. No black boxes. The rules are visible, the risk is defined, and the outcome is mathematically provable."
+      * *Improvement:* Added "mathematically provable" to give it weight.
+
+#### **Term 2: Deterministic AI** (The Intelligence)
+
+  * *Current:* "Cited AI" (Too functional/small).
+  * *The Ideal:* **"Deterministic AI"**
+  * *Refined Definition:* "Artificial Intelligence that follows rules instead of guessing. It anchors every output to a verified data source, eliminating hallucination."
+      * *Why:* "Deterministic" is the perfect antonym to the "Probabilistic" (guessing) nature of current LLMs. It tells the user: "Our AI is reliable."
+
+#### **Term 3: Digital Bearer Assets** (The Value)
+
+  * *Current:* "Bearer Assets" (A bit archaic/finance-heavy).
+  * *The Ideal:* **"Digital Bearer Assets"**
+  * *Refined Definition:* "Assets you truly own, not just IOUs. They can move freely across the internet instantly, without needing permission from a bank or platform."
+      * *Why:* Adding "Digital" bridges the gap between the old world (Cash/Gold) and the new world (Bitcoin).
+
+-----
+
+### **3. THE COPY-PASTE CODE (For Replit)**
+
+Update the `definitions` array in `client/src/pages/System.tsx` with this **Polished Set**:
+
+```typescript
+const definitions = [
+  {
+    term: "Verifiable Systems",
+    definition: "Infrastructure that is fully auditable. No black boxes. The rules are visible, the risk is defined, and the outcome is mathematically provable.",
+  },
+  {
+    term: "Deterministic AI",
+    definition: "Artificial Intelligence that follows rules instead of guessing. It anchors every output to a verified data source, eliminating hallucination.",
+  },
+  {
+    term: "Digital Bearer Assets",
+    definition: "Assets you truly own, not just IOUs. They can move freely across the internet instantly, without needing permission from a bank or platform.",
+  },
+];
+```
+
+### **Summary of Changes**
+
+1.  **"Cited AI" $\rightarrow$ "Deterministic AI":** Sounds like a *product class*, not a feature.
+2.  **"Bearer Assets" $\rightarrow$ "Digital Bearer Assets":** Clarifies the context immediately.
+3.  **Definitions:** Tightened to follow the "Problem $\rightarrow$ Solution" cadence.

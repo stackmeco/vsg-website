@@ -8,16 +8,16 @@ import gearsTexture from "@assets/gears_texture.png";
 
 const definitions = [
   {
-    term: "Verified Intelligence",
-    definition: "AI that cites its sources. Unlike standard LLMs that hallucinate, verified intelligence forces every output to be backed by provable data.",
+    term: "Verifiable Systems",
+    definition: "Infrastructure that is fully auditable. No black boxes. The rules are visible, the risk is defined, and the outcome is mathematically provable.",
   },
   {
-    term: "Proof of Solvency",
-    definition: "Systems that prove they are backed by real capital. A public record of assets ensures financial health is not just claimed, but confirmed.",
+    term: "Deterministic AI",
+    definition: "Artificial Intelligence that follows rules instead of guessing. It anchors every output to a verified data source, eliminating hallucination.",
   },
   {
-    term: "Digital Provenance",
-    definition: "A tamper-proof history for any asset—digital or physical. Blockchain technology provides an unalterable chain of custody record.",
+    term: "Digital Bearer Assets",
+    definition: "Assets you truly own, not just IOUs. They can move freely across the internet instantly, without needing permission from a bank or platform.",
   },
 ];
 
@@ -87,7 +87,7 @@ export default function System() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8">
             <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              Our vocabulary
+              System Primitives
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
               Core Concepts
