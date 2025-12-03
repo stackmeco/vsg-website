@@ -5,29 +5,32 @@ import { ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+const NavigationMenuContext = React.createContext<{
+  openValue: string
+}>({ openValue: "" })
+
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
 >(({ className, children, ...props }, ref) => {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [openValue, setOpenValue] = React.useState("")
   
   return (
-    <NavigationMenuPrimitive.Root
-      ref={ref}
-      className={cn("navigation-menu-root relative inline-flex items-stretch", className)}
-      onValueChange={(value) => setIsOpen(Boolean(value))}
-      {...props}
-    >
-      <div 
-        className={cn(
-          "navigation-menu-shell",
-          isOpen && "navigation-menu-shell-open"
-        )}
+    <NavigationMenuContext.Provider value={{ openValue }}>
+      <NavigationMenuPrimitive.Root
+        ref={ref}
+        className={cn("nav-menu-root", className)}
+        onValueChange={(value) => setOpenValue(value)}
+        {...props}
       >
-        {children}
-        <NavigationMenuViewport />
-      </div>
-    </NavigationMenuPrimitive.Root>
+        <div className={cn("nav-menu-container", openValue && "nav-menu-open")}>
+          <div className="nav-menu-triggers-row">
+            {children}
+          </div>
+          <NavigationMenuViewport />
+        </div>
+      </NavigationMenuPrimitive.Root>
+    </NavigationMenuContext.Provider>
   )
 })
 NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName
@@ -39,7 +42,7 @@ const NavigationMenuList = React.forwardRef<
   <NavigationMenuPrimitive.List
     ref={ref}
     className={cn(
-      "navigation-menu-list group flex list-none items-stretch justify-start gap-0",
+      "group flex list-none items-stretch gap-0 m-0 p-0",
       className
     )}
     {...props}
@@ -47,10 +50,32 @@ const NavigationMenuList = React.forwardRef<
 ))
 NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
 
-const NavigationMenuItem = NavigationMenuPrimitive.Item
+const NavigationMenuItem = React.forwardRef<
+  React.ElementRef<typeof NavigationMenuPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Item> & { value?: string }
+>(({ className, value, ...props }, ref) => {
+  const { openValue } = React.useContext(NavigationMenuContext)
+  const isActive = value && openValue === value
+  const isAnyOpen = Boolean(openValue)
+  
+  return (
+    <NavigationMenuPrimitive.Item
+      ref={ref}
+      value={value}
+      className={cn(
+        "nav-menu-item",
+        isAnyOpen && "nav-menu-item-dropdown-open",
+        isActive && "nav-menu-item-active",
+        className
+      )}
+      {...props}
+    />
+  )
+})
+NavigationMenuItem.displayName = NavigationMenuPrimitive.Item.displayName
 
 const navigationMenuTriggerStyle = cva(
-  "navigation-menu-trigger group inline-flex h-10 w-max items-center justify-center bg-transparent px-4 py-2 text-sm font-medium transition-colors duration-150 hover:text-foreground focus:text-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+  "group inline-flex h-10 w-max items-center justify-center bg-transparent px-4 py-2 text-sm font-medium transition-colors duration-150 hover:text-foreground focus:text-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
 )
 
 const NavigationMenuTrigger = React.forwardRef<
@@ -59,7 +84,7 @@ const NavigationMenuTrigger = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Trigger
     ref={ref}
-    className={cn(navigationMenuTriggerStyle(), "group", className)}
+    className={cn(navigationMenuTriggerStyle(), "group nav-menu-trigger", className)}
     {...props}
   >
     {children}{" "}
@@ -78,7 +103,7 @@ const NavigationMenuContent = React.forwardRef<
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
-      "navigation-menu-content w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out",
+      "w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out",
       className
     )}
     {...props}
@@ -92,10 +117,10 @@ const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
 >(({ className, ...props }, ref) => (
-  <div className="navigation-menu-viewport-wrapper">
+  <div className="nav-menu-viewport-wrapper">
     <NavigationMenuPrimitive.Viewport
       className={cn(
-        "navigation-menu-viewport origin-top h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden bg-card text-card-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in duration-150",
+        "nav-menu-viewport origin-top h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in duration-150",
         className
       )}
       ref={ref}

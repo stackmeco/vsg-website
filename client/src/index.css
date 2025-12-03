@@ -551,52 +551,76 @@
   }
 }
 
-/* ===== NAVIGATION MENU SHELL ===== */
-.navigation-menu-root {
+/* ===== NAVIGATION MENU - TAB STYLE ===== */
+.nav-menu-root {
   position: relative;
+  z-index: 50;
 }
 
-.navigation-menu-shell {
+.nav-menu-container {
   position: relative;
   display: inline-flex;
   flex-direction: column;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  background: transparent;
-  transition: border-color 150ms, background-color 150ms;
 }
 
-.navigation-menu-shell-open {
-  border-color: hsl(var(--border));
+.nav-menu-triggers-row {
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+
+/* Each menu item (tab) */
+.nav-menu-item {
+  position: relative;
+}
+
+/* When dropdown is open, inactive tabs get bottom border */
+.nav-menu-item-dropdown-open {
+  border-bottom: 1px solid hsl(var(--primary));
+}
+
+/* Active tab: no bottom border, connects to panel */
+.nav-menu-item-active {
+  border-bottom: 1px solid transparent;
   background: hsl(var(--card));
 }
 
-.navigation-menu-list {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-  padding: 0;
-}
-
-.navigation-menu-trigger {
+/* Trigger styling */
+.nav-menu-trigger {
   border-radius: 0;
 }
 
-.navigation-menu-trigger[data-state="open"] {
+.nav-menu-trigger[data-state="open"] {
   color: hsl(var(--primary));
 }
 
-.navigation-menu-viewport-wrapper {
+/* Viewport wrapper - positioned below triggers */
+.nav-menu-viewport-wrapper {
+  position: relative;
   width: 100%;
+  z-index: 1;
 }
 
-.navigation-menu-viewport {
+/* The dropdown panel */
+.nav-menu-viewport {
   width: 100%;
   background: hsl(var(--card));
   color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--primary));
+  border-top: none;
+  border-radius: 0 0 2px 2px;
 }
 
-.navigation-menu-content {
+/* When open, container shows left/right/bottom borders */
+.nav-menu-open .nav-menu-triggers-row {
+  border-left: 1px solid hsl(var(--primary));
+  border-right: 1px solid hsl(var(--primary));
+  border-top: 1px solid hsl(var(--primary));
+  border-radius: 2px 2px 0 0;
+  background: hsl(var(--card));
+}
+
+.nav-menu-content {
   width: 100%;
 }
 

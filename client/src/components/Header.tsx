@@ -51,11 +51,10 @@ function DropdownNavItem({
   const isActive = isPathActive(currentPath, item.href);
   
   return (
-    <NavigationMenuItem>
+    <NavigationMenuItem value={item.label.toLowerCase()}>
       <NavigationMenuTrigger 
         className={cn(
-          "px-4 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150 rounded-none",
-          "data-[state=open]:bg-popover",
+          "px-4 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150",
           isActive
             ? "text-primary"
             : "text-muted-foreground hover:text-foreground"
