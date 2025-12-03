@@ -1,0 +1,617 @@
+Love this one. Let’s make the mobile nav feel like it was designed *on purpose* instead of “shrunk desktop.”
+
+I’ll:
+
+1. Define the **mobile pattern** we’re going to use (and why).
+2. Show you a **re-imagined mobile nav** that’s cohesive with the desktop header.
+3. Give you an **exact Replit AI prompt** to implement it.
+
+---
+
+## 1. Pattern choice: what we’re doing & why
+
+Given your site is a **B2B / infra-ish marketing site**, not an app, the best pattern is:
+
+> **Top sticky header + hamburger → left-side sheet (drawer) with vertical nav.**
+
+Why this choice:
+
+* For marketing/B2B sites with 5–8 top-level links, a hamburger + drawer is standard and keeps the UI clean.
+* A **single primary nav** is better than mixing bottom nav + drawer (Material specifically warns against combining bottom nav with a drawer).
+* A sheet/drawer is almost exactly what shadcn’s `Sheet` is built for (sliding content like nav, with built-in focus trapping and keyboard handling).
+* Mobile nav best-practice: clear labels, large tap targets, simple hierarchy. We’ll keep 1–2 levels max and group “Ventures” as a sub-section.
+
+So: **no bottom nav**, no weird hybrid patterns — just a **clean sheet menu** that mirrors desktop structure and brand voice.
+
+---
+
+## 2. Re-imagined mobile nav: behavior & structure
+
+### Behavior
+
+On screens `< md`:
+
+* Header shows:
+
+  * Left: **logo / VSG wordmark**
+  * Right: **hamburger icon button**
+* Tapping hamburger opens a **Sheet** (drawer) from the left:
+
+  * Top: logo + close “X”
+  * Middle: vertical nav
+
+    * Primary links (Studio, Process, Standards)
+    * Ventures section with sub-links (Overview, Helios, Stackme, Lumina, etc.)
+  * Bottom: full-width **Insights** and **Contact** buttons (same CTAs as desktop, just stacked)
+* Tapping any nav item **closes the drawer** (via `SheetClose asChild`).
+
+On screens `>= md`:
+
+* You keep the **desktop nav** we already designed (NavigationMenu + Ventures dropdown + CTAs), untouched.
+
+---
+
+## 3. Complete `MainNav` with desktop + mobile (drop-in code)
+
+This version **replaces** the previous `MainNav` I gave you and adds mobile behavior. It:
+
+* Reuses `primaryLinks` and `ventures` arrays for both desktop and mobile (so structure can’t drift).
+* Uses `shadcn/ui`’s `Sheet` for mobile nav.
+* Uses the same `isActive` logic for both.
+
+```tsx
+// client/src/components/layout/MainNav.tsx
+import * as React from "react";
+import { Link, useLocation } from "wouter";
+import { Menu, X } from "lucide-react";
+
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+const primaryLinks = [
+  { label: "Studio", href: "/studio" },
+  { label: "Process", href: "/process" },
+  { label: "Standards", href: "/standards" },
+];
+
+const ventures = [
+  {
+    label: "Overview",
+    href: "/ventures",
+    description: "How ventures move from idea to governed infrastructure.",
+  },
+  {
+    label: "Helios",
+    href: "/ventures/helios",
+    description: "Internal capital engine for VSG’s own balance sheet.",
+  },
+  {
+    label: "Stackme",
+    href: "/ventures/stackme",
+    description: "Consumer leverage experience built on verifiable rails.",
+  },
+  {
+    label: "Lumina",
+    href: "/ventures/lumina",
+    description: "Digital authenticity and grading for unique items.",
+  },
+  // Add/remove ventures here; both desktop and mobile will stay in sync.
+];
+
+export function MainNav() {
+  const [location] = useLocation();
+
+  const isActive = (href: string) =>
+    location === href || (href !== "/" && location.startsWith(href + "/"));
+
+  const navLinkClass =
+    "text-sm font-medium px-2 py-1 text-muted-foreground transition-colors hover:text-foreground data-[active=true]:text-foreground";
+
+  const mobileLinkClass =
+    "flex items-center justify-between rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-muted/70";
+
+  return (
+    <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Left: logo + desktop nav */}
+        <div className="flex items-center gap-8">
+          <Link href="/" className="flex items-center gap-2">
+            {/* TODO: swap span for real logo when ready */}
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              VSG
+            </span>
+          </Link>
+
+          {/* Desktop nav only */}
+          <nav aria-label="Primary" className="hidden md:block">
+            <NavigationMenu>
+              <NavigationMenuList className="gap-2">
+                {primaryLinks.map((link) => (
+                  <NavigationMenuItem key={link.href}>
+                    <NavigationMenuLink asChild data-active={isActive(link.href)}>
+                      <Link href={link.href} className={navLinkClass}>
+                        {link.label}
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
+
+                {/* Ventures dropdown */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger
+                    className={cn(
+                      navLinkClass,
+                      "data-[state=open]:bg-muted/60 data-[state=open]:text-foreground"
+                    )}
+                  >
+                    Ventures
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent className="border border-border bg-popover shadow-lg">
+                    <ul className="grid w-[280px] gap-1 p-2">
+                      {ventures.map((venture) => (
+                        <li key={venture.href}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              href={venture.href}
+                              className={cn(
+                                "block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted/80 hover:text-foreground",
+                                isActive(venture.href) &&
+                                  "bg-muted/80 text-foreground"
+                              )}
+                            >
+                              <span className="font-medium">{venture.label}</span>
+                              {venture.description ? (
+                                <span className="mt-0.5 block text-xs text-muted-foreground/80">
+                                  {venture.description}
+                                </span>
+                              ) : null}
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </nav>
+        </div>
+
+        {/* Right: desktop CTAs + mobile menu */}
+        <div className="flex items-center gap-2">
+          {/* Desktop CTAs */}
+          <div className="hidden items-center gap-2 md:flex">
+            <Button variant="outline" size="sm" asChild>
+              <Link href="/insights">Insights</Link>
+            </Button>
+            <Button size="sm" asChild>
+              <Link href="/contact">Contact</Link>
+            </Button>
+          </div>
+
+          {/* Mobile menu */}
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full"
+                  aria-label="Open navigation menu"
+                >
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent
+                side="left"
+                className="flex w-[84vw] max-w-xs flex-col gap-4 bg-background px-4 pb-6 pt-4"
+              >
+                <SheetHeader className="flex flex-row items-center justify-between space-y-0">
+                  <SheetTitle className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                    Verifiable Systems Group
+                  </SheetTitle>
+                  <SheetClose asChild>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="-mr-2 rounded-full"
+                      aria-label="Close navigation menu"
+                    >
+                      <X className="h-5 w-5" />
+                    </Button>
+                  </SheetClose>
+                </SheetHeader>
+
+                {/* Mobile primary nav */}
+                <nav
+                  aria-label="Mobile primary navigation"
+                  className="mt-2 space-y-1"
+                >
+                  {primaryLinks.map((link) => (
+                    <SheetClose asChild key={link.href}>
+                      <Link
+                        href={link.href}
+                        className={cn(
+                          mobileLinkClass,
+                          isActive(link.href) && "bg-muted/70"
+                        )}
+                      >
+                        <span>{link.label}</span>
+                      </Link>
+                    </SheetClose>
+                  ))}
+                </nav>
+
+                {/* Ventures group */}
+                <div className="mt-4 border-t border-border pt-4">
+                  <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                    Ventures
+                  </p>
+                  <div className="space-y-1">
+                    {ventures.map((venture) => (
+                      <SheetClose asChild key={venture.href}>
+                        <Link
+                          href={venture.href}
+                          className={cn(
+                            "flex flex-col rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted/70",
+                            isActive(venture.href) && "bg-muted/70 text-foreground"
+                          )}
+                        >
+                          <span className="font-medium text-foreground">
+                            {venture.label}
+                          </span>
+                          {venture.description ? (
+                            <span className="mt-0.5 text-xs text-muted-foreground/80">
+                              {venture.description}
+                            </span>
+                          ) : null}
+                        </Link>
+                      </SheetClose>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Spacer pushes CTAs to bottom */}
+                <div className="flex-1" />
+
+                {/* Mobile CTAs */}
+                <div className="space-y-2 border-t border-border pt-4">
+                  <SheetClose asChild>
+                    <Button variant="outline" className="w-full" asChild>
+                      <Link href="/insights">Insights</Link>
+                    </Button>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Button className="w-full" asChild>
+                      <Link href="/contact">Contact</Link>
+                    </Button>
+                  </SheetClose>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
+```
+
+**Why this fixes your “glitchy” feel:**
+
+* Only the **header** has `border-b`; the mobile sheet uses its own border on the *edges* (`SheetContent` default) but not where it meets the header, so no double lines.
+* All top-level nav links share the same configuration arrays and active logic, so desktop + mobile nav are guaranteed to match.
+* Tap targets in the sheet are all `py-2` at `text-base`, which hits typical guidelines for touch usability.
+
+---
+
+## 4. Exact Replit AI prompt to implement the mobile nav
+
+Here’s the “just do exactly this” prompt for Replit:
+
+> **Prompt – Re-imagine Mobile Nav with Sheet (shadcn/ui)**
+>
+> Project: `Verifiable-Systems-Group` (React + Vite + Tailwind + shadcn/ui, routing via `wouter`).
+>
+> **Goal**
+> Rebuild the mobile navigation so it uses a shadcn `Sheet` (drawer) on small screens, while keeping the existing desktop nav based on `NavigationMenu`. Make all nav items (desktop + mobile) share the same link config and feel.
+>
+> ### 1) Ensure `Sheet` component is available
+>
+> * If not already added, run the appropriate shadcn command to add the Sheet component (e.g., `npx shadcn-ui add sheet`) and ensure it’s exported from `@/components/ui/sheet`.
+>
+> ### 2) Update `MainNav` to include desktop + mobile nav
+>
+> * Open `client/src/components/layout/MainNav.tsx` (or the main header/nav file you created previously).
+> * Replace the existing `MainNav` implementation with the full version below, keeping imports consistent with your project:
+>
+> ```tsx
+> // Use this as the MainNav implementation
+> import * as React from "react";
+> import { Link, useLocation } from "wouter";
+> import { Menu, X } from "lucide-react";
+>
+> import {
+>   NavigationMenu,
+>   NavigationMenuContent,
+>   NavigationMenuItem,
+>   NavigationMenuLink,
+>   NavigationMenuList,
+>   NavigationMenuTrigger,
+> } from "@/components/ui/navigation-menu";
+> import {
+>   Sheet,
+>   SheetContent,
+>   SheetHeader,
+>   SheetTitle,
+>   SheetTrigger,
+>   SheetClose,
+> } from "@/components/ui/sheet";
+> import { Button } from "@/components/ui/button";
+> import { cn } from "@/lib/utils";
+>
+> const primaryLinks = [
+>   { label: "Studio", href: "/studio" },
+>   { label: "Process", href: "/process" },
+>   { label: "Standards", href: "/standards" },
+> ];
+>
+> const ventures = [
+>   {
+>     label: "Overview",
+>     href: "/ventures",
+>     description: "How ventures move from idea to governed infrastructure.",
+>   },
+>   {
+>     label: "Helios",
+>     href: "/ventures/helios",
+>     description: "Internal capital engine for VSG’s own balance sheet.",
+>   },
+>   {
+>     label: "Stackme",
+>     href: "/ventures/stackme",
+>     description: "Consumer leverage experience built on verifiable rails.",
+>   },
+>   {
+>     label: "Lumina",
+>     href: "/ventures/lumina",
+>     description: "Digital authenticity and grading for unique items.",
+>   },
+> ];
+>
+> export function MainNav() {
+>   const [location] = useLocation();
+>
+>   const isActive = (href: string) =>
+>     location === href || (href !== "/" && location.startsWith(href + "/"));
+>
+>   const navLinkClass =
+>     "text-sm font-medium px-2 py-1 text-muted-foreground transition-colors hover:text-foreground data-[active=true]:text-foreground";
+>
+>   const mobileLinkClass =
+>     "flex items-center justify-between rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-muted/70";
+>
+>   return (
+>     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
+>       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+>         {/* Left: logo + desktop nav */}
+>         <div className="flex items-center gap-8">
+>           <Link href="/" className="flex items-center gap-2">
+>             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+>               VSG
+>             </span>
+>           </Link>
+>
+>           {/* Desktop nav only */}
+>           <nav aria-label="Primary" className="hidden md:block">
+>             <NavigationMenu>
+>               <NavigationMenuList className="gap-2">
+>                 {primaryLinks.map((link) => (
+>                   <NavigationMenuItem key={link.href}>
+>                     <NavigationMenuLink asChild data-active={isActive(link.href)}>
+>                       <Link href={link.href} className={navLinkClass}>
+>                         {link.label}
+>                       </Link>
+>                     </NavigationMenuLink>
+>                   </NavigationMenuItem>
+>                 ))}
+>
+>                 {/* Ventures dropdown */}
+>                 <NavigationMenuItem>
+>                   <NavigationMenuTrigger
+>                     className={cn(
+>                       navLinkClass,
+>                       "data-[state=open]:bg-muted/60 data-[state=open]:text-foreground"
+>                     )}
+>                   >
+>                     Ventures
+>                   </NavigationMenuTrigger>
+>                   <NavigationMenuContent className="border border-border bg-popover shadow-lg">
+>                     <ul className="grid w-[280px] gap-1 p-2">
+>                       {ventures.map((venture) => (
+>                         <li key={venture.href}>
+>                           <NavigationMenuLink asChild>
+>                             <Link
+>                               href={venture.href}
+>                               className={cn(
+>                                 "block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted/80 hover:text-foreground",
+>                                 isActive(venture.href) &&
+>                                   "bg-muted/80 text-foreground"
+>                               )}
+>                             >
+>                               <span className="font-medium">{venture.label}</span>
+>                               {venture.description ? (
+>                                 <span className="mt-0.5 block text-xs text-muted-foreground/80">
+>                                   {venture.description}
+>                                 </span>
+>                               ) : null}
+>                             </Link>
+>                           </NavigationMenuLink>
+>                         </li>
+>                       ))}
+>                     </ul>
+>                   </NavigationMenuContent>
+>                 </NavigationMenuItem>
+>               </NavigationMenuList>
+>             </NavigationMenu>
+>           </nav>
+>         </div>
+>
+>         {/* Right: desktop CTAs + mobile menu */}
+>         <div className="flex items-center gap-2">
+>           {/* Desktop CTAs */}
+>           <div className="hidden items-center gap-2 md:flex">
+>             <Button variant="outline" size="sm" asChild>
+>               <Link href="/insights">Insights</Link>
+>             </Button>
+>             <Button size="sm" asChild>
+>               <Link href="/contact">Contact</Link>
+>             </Button>
+>           </div>
+>
+>           {/* Mobile menu */}
+>           <div className="md:hidden">
+>             <Sheet>
+>               <SheetTrigger asChild>
+>                 <Button
+>                   variant="ghost"
+>                   size="icon"
+>                   className="rounded-full"
+>                   aria-label="Open navigation menu"
+>                 >
+>                   <Menu className="h-5 w-5" />
+>                 </Button>
+>               </SheetTrigger>
+>               <SheetContent
+>                 side="left"
+>                 className="flex w-[84vw] max-w-xs flex-col gap-4 bg-background px-4 pb-6 pt-4"
+>               >
+>                 <SheetHeader className="flex flex-row items-center justify-between space-y-0">
+>                   <SheetTitle className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+>                     Verifiable Systems Group
+>                   </SheetTitle>
+>                   <SheetClose asChild>
+>                     <Button
+>                       variant="ghost"
+>                       size="icon"
+>                       className="-mr-2 rounded-full"
+>                       aria-label="Close navigation menu"
+>                     >
+>                       <X className="h-5 w-5" />
+>                     </Button>
+>                   </SheetClose>
+>                 </SheetHeader>
+>
+>                 {/* Mobile primary nav */}
+>                 <nav
+>                   aria-label="Mobile primary navigation"
+>                   className="mt-2 space-y-1"
+>                 >
+>                   {primaryLinks.map((link) => (
+>                     <SheetClose asChild key={link.href}>
+>                       <Link
+>                         href={link.href}
+>                         className={cn(
+>                           mobileLinkClass,
+>                           isActive(link.href) && "bg-muted/70"
+>                         )}
+>                       >
+>                         <span>{link.label}</span>
+>                       </Link>
+>                     </SheetClose>
+>                   ))}
+>                 </nav>
+>
+>                 {/* Ventures group */}
+>                 <div className="mt-4 border-t border-border pt-4">
+>                   <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+>                     Ventures
+>                   </p>
+>                   <div className="space-y-1">
+>                     {ventures.map((venture) => (
+>                       <SheetClose asChild key={venture.href}>
+>                         <Link
+>                           href={venture.href}
+>                           className={cn(
+>                             "flex flex-col rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted/70",
+>                             isActive(venture.href) && "bg-muted/70 text-foreground"
+>                           )}
+>                         >
+>                           <span className="font-medium text-foreground">
+>                             {venture.label}
+>                           </span>
+>                           {venture.description ? (
+>                             <span className="mt-0.5 text-xs text-muted-foreground/80">
+>                               {venture.description}
+>                             </span>
+>                           ) : null}
+>                         </Link>
+>                       </SheetClose>
+>                     ))}
+>                   </div>
+>                 </div>
+>
+>                 <div className="flex-1" />
+>
+>                 {/* Mobile CTAs */}
+>                 <div className="space-y-2 border-t border-border pt-4">
+>                   <SheetClose asChild>
+>                     <Button variant="outline" className="w-full" asChild>
+>                       <Link href="/insights">Insights</Link>
+>                     </Button>
+>                   </SheetClose>
+>                   <SheetClose asChild>
+>                     <Button className="w-full" asChild>
+>                       <Link href="/contact">Contact</Link>
+>                     </Button>
+>                   </SheetClose>
+>                 </div>
+>               </SheetContent>
+>             </Sheet>
+>           </div>
+>         </div>
+>       </div>
+>     </header>
+>   );
+> }
+> ```
+>
+> ### 3) Style & behavior requirements
+>
+> * On screens `< md`, hide the desktop nav and CTAs and show only the hamburger button.
+> * When the hamburger is tapped, the sheet should slide in from the left and show:
+>
+>   * Logo / title + close button at the top
+>   * Primary links (Studio, Process, Standards) as large tap targets
+>   * A “Ventures” section with the venture sub-links below
+>   * Insights + Contact as full-width buttons at the bottom
+> * Clicking any link in the sheet should close the sheet (via `SheetClose asChild`).
+> * On screens `≥ md`, behavior should be unchanged: desktop nav + Ventures dropdown + right-side CTAs.
+>
+> ### 4) Quality checks
+>
+> * Run the dev server and verify:
+>
+>   * Desktop: nav and dropdown look and behave as before (or better), no visual regressions.
+>   * Mobile: header shows logo + hamburger, sheet opens from left, no jittery borders or layout conflicts, all tap targets are accessible and close the sheet on navigation.
+>   * No new routes were added or removed, only the nav presentation changed.
+
+---
+
+If you want, next we can do a **quick audit of the mobile breakpoints on specific pages** (Studio/Process/Ventures) to make sure hero text, cards, and CTAs are all behaving nicely with this new header and not getting cramped or overlapping.

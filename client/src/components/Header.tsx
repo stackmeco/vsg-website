@@ -19,27 +19,15 @@ import {
 import { Menu, Search, X, ChevronDown } from "lucide-react";
 import { NAV_ITEMS, isPathActive, type NavItem, type NavChild } from "@/config/navigation";
 
-function DesktopNavLink({ item, isActive }: { item: NavItem; isActive: boolean }) {
-  if (!item.children) {
-    return (
-      <Link 
-        href={item.href}
-        className={cn(
-          "nav-button inline-flex items-center px-4 py-2 font-heading font-semibold text-base tracking-tight transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-          isActive
-            ? "text-primary nav-button-active"
-            : "text-muted-foreground hover:text-foreground"
-        )}
-        aria-current={isActive ? "page" : undefined}
-        data-testid={`nav-${item.label.toLowerCase()}`}
-      >
-        {item.label}
-      </Link>
-    );
-  }
+const navLinkClass = "text-sm font-medium px-3 py-2 text-muted-foreground transition-colors hover:text-foreground data-[active=true]:text-foreground";
 
-  return null;
-}
+const primaryNavItems = NAV_ITEMS.filter(item => 
+  item.label !== "Insights" && item.label !== "Connect"
+);
+
+const ctaNavItems = NAV_ITEMS.filter(item => 
+  item.label === "Insights" || item.label === "Connect"
+);
 
 function DropdownNavItem({ 
   item, 
@@ -51,56 +39,57 @@ function DropdownNavItem({
   const isActive = isPathActive(currentPath, item.href);
   
   return (
-    <NavigationMenuItem value={item.label.toLowerCase()}>
+    <NavigationMenuItem>
       <NavigationMenuTrigger 
         className={cn(
-          "inline-flex items-center px-4 py-2 font-heading font-semibold text-base tracking-tight transition-all duration-150",
-          isActive
-            ? "text-primary"
-            : "text-muted-foreground hover:text-foreground"
+          navLinkClass,
+          "data-[state=open]:bg-muted/60 data-[state=open]:text-foreground",
+          isActive && "text-foreground"
         )}
+        data-active={isActive}
         data-testid={`nav-${item.label.toLowerCase()}`}
       >
         {item.label}
       </NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <div className="p-2">
+      <NavigationMenuContent className="border border-border bg-popover shadow-lg">
+        <ul className="grid w-[280px] gap-1 p-2">
           {item.children?.map((child) => (
-            <NavigationMenuLink key={child.href} asChild>
-              <Link
-                href={child.href}
-                className={cn(
-                  "block select-none rounded-[2px] p-3 leading-none no-underline outline-none transition-colors duration-150",
-                  "hover:bg-secondary focus:bg-secondary",
-                  currentPath === child.href && "bg-primary/10 text-primary"
-                )}
-                data-testid={`nav-dropdown-${child.label.toLowerCase().replace(/\s+/g, "-")}`}
-              >
-                <div className="text-sm font-medium leading-none mb-1.5 text-foreground">{child.label}</div>
-                {child.description && (
-                  <p className="line-clamp-2 text-caption leading-snug text-muted-foreground">
-                    {child.description}
-                  </p>
-                )}
-              </Link>
-            </NavigationMenuLink>
+            <li key={child.href}>
+              <NavigationMenuLink asChild>
+                <Link
+                  href={child.href}
+                  className={cn(
+                    "block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted/80 hover:text-foreground",
+                    currentPath === child.href && "bg-muted/80 text-foreground"
+                  )}
+                  data-testid={`nav-dropdown-${child.label.toLowerCase().replace(/\s+/g, "-")}`}
+                >
+                  <span className="font-medium">{child.label}</span>
+                  {child.description && (
+                    <span className="mt-0.5 block text-xs text-muted-foreground/80">
+                      {child.description}
+                    </span>
+                  )}
+                </Link>
+              </NavigationMenuLink>
+            </li>
           ))}
-        </div>
+        </ul>
       </NavigationMenuContent>
     </NavigationMenuItem>
   );
 }
 
+const mobileNavLinkClass = "flex items-center gap-4 px-4 py-3 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+
 function MobileNavItem({ 
   item, 
   currentPath, 
-  onNavigate,
-  number 
+  onNavigate
 }: { 
   item: NavItem; 
   currentPath: string;
   onNavigate: () => void;
-  number: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const isActive = isPathActive(currentPath, item.href);
@@ -111,16 +100,15 @@ function MobileNavItem({
         href={item.href}
         onClick={onNavigate}
         className={cn(
-          "flex items-center gap-4 p-4 rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-          isActive ? "bg-primary/10" : "hover:bg-secondary"
+          mobileNavLinkClass,
+          isActive 
+            ? "bg-muted/80 text-foreground" 
+            : "text-muted-foreground hover:bg-muted/80 hover:text-foreground"
         )}
         aria-current={isActive ? "page" : undefined}
         data-testid={`mobile-nav-${item.label.toLowerCase()}`}
       >
-        <span className="text-2xl font-mono text-muted-foreground">{number}</span>
-        <span className={cn("font-heading text-xl", isActive ? "text-primary" : "text-foreground")}>
-          {item.label}
-        </span>
+        {item.label}
       </Link>
     );
   }
@@ -130,34 +118,32 @@ function MobileNavItem({
       <CollapsibleTrigger asChild>
         <button
           className={cn(
-            "flex items-center justify-between w-full gap-4 p-4 rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-            isActive ? "bg-primary/10" : "hover:bg-secondary"
+            mobileNavLinkClass,
+            "justify-between w-full",
+            isActive 
+              ? "bg-muted/80 text-foreground" 
+              : "text-muted-foreground hover:bg-muted/80 hover:text-foreground"
           )}
           data-testid={`mobile-nav-${item.label.toLowerCase()}`}
         >
-          <div className="flex items-center gap-4">
-            <span className="text-2xl font-mono text-muted-foreground">{number}</span>
-            <span className={cn("font-heading text-xl", isActive ? "text-primary" : "text-foreground")}>
-              {item.label}
-            </span>
-          </div>
+          <span>{item.label}</span>
           <ChevronDown className={cn(
-            "w-5 h-5 text-muted-foreground transition-transform duration-150",
+            "w-4 h-4 transition-transform duration-150",
             isOpen && "rotate-180"
           )} />
         </button>
       </CollapsibleTrigger>
-      <CollapsibleContent className="pl-16 pr-4 pb-2 space-y-1">
+      <CollapsibleContent className="ml-4 mt-1 space-y-1 border-l border-border pl-4">
         {item.children?.map((child) => (
           <Link
             key={child.href}
             href={child.href}
             onClick={onNavigate}
             className={cn(
-              "block p-3 rounded-sm text-sm transition-colors",
+              "block px-3 py-2 rounded-md text-sm transition-colors",
               currentPath === child.href 
-                ? "bg-primary/10 text-primary" 
-                : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                ? "bg-muted/80 text-foreground" 
+                : "text-muted-foreground hover:bg-muted/80 hover:text-foreground"
             )}
             data-testid={`mobile-nav-${child.label.toLowerCase().replace(/\s+/g, "-")}`}
           >
@@ -195,52 +181,69 @@ export function Header() {
             </span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-1" data-testid="nav-desktop" aria-label="Main navigation">
-            {/* Overview - standalone link before dropdown nav items */}
-            <DesktopNavLink 
-              item={NAV_ITEMS[0]} 
-              isActive={isPathActive(location, NAV_ITEMS[0].href)} 
-            />
-            
-            {/* Ventures, Approach, Studio - grouped for unified dropdown viewport */}
-            <NavigationMenu>
-              <NavigationMenuList className="gap-0">
-                {NAV_ITEMS.filter(item => item.children).map((item) => (
-                  <DropdownNavItem 
-                    key={item.label} 
-                    item={item} 
-                    currentPath={location}
-                  />
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
-            
-            {/* Insights, Connect - standalone links after dropdown nav items */}
-            {NAV_ITEMS.filter(item => !item.children && item.label !== "Overview").map((item) => (
-              <DesktopNavLink 
-                key={item.label}
-                item={item} 
-                isActive={isPathActive(location, item.href)} 
-              />
-            ))}
-            
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-sm font-mono text-muted-foreground hover:text-foreground gap-1.5 ml-4"
-              onClick={() => {
-                const event = new KeyboardEvent("keydown", { key: "k", metaKey: true });
-                document.dispatchEvent(event);
-              }}
-              data-testid="button-command-palette"
-              aria-label="Open command palette"
-            >
-              <Search className="w-3.5 h-3.5" />
-              <kbd className="pointer-events-none hidden sm:inline-flex h-5 select-none items-center gap-1 rounded-[2px] border border-border bg-muted px-1.5 font-mono text-xs font-medium text-muted-foreground">
-                <span className="text-xs">⌘</span>K
-              </kbd>
-            </Button>
-          </nav>
+          <div className="hidden lg:flex items-center gap-8">
+            <nav aria-label="Primary" data-testid="nav-desktop">
+              <NavigationMenu>
+                <NavigationMenuList className="gap-1">
+                  {primaryNavItems.map((item) => (
+                    item.children ? (
+                      <DropdownNavItem 
+                        key={item.label} 
+                        item={item} 
+                        currentPath={location}
+                      />
+                    ) : (
+                      <NavigationMenuItem key={item.label}>
+                        <NavigationMenuLink asChild data-active={isPathActive(location, item.href)}>
+                          <Link 
+                            href={item.href} 
+                            className={cn(
+                              navLinkClass,
+                              isPathActive(location, item.href) && "text-foreground"
+                            )}
+                            aria-current={isPathActive(location, item.href) ? "page" : undefined}
+                            data-testid={`nav-${item.label.toLowerCase()}`}
+                          >
+                            {item.label}
+                          </Link>
+                        </NavigationMenuLink>
+                      </NavigationMenuItem>
+                    )
+                  ))}
+                </NavigationMenuList>
+              </NavigationMenu>
+            </nav>
+
+            <div className="flex items-center gap-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                asChild
+                className="text-sm"
+              >
+                <Link href="/insights" data-testid="nav-insights">Insights</Link>
+              </Button>
+              <Button
+                size="sm"
+                asChild
+              >
+                <Link href="/connect" data-testid="nav-connect">Connect</Link>
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-muted-foreground hover:text-foreground ml-2"
+                onClick={() => {
+                  const event = new KeyboardEvent("keydown", { key: "k", metaKey: true });
+                  document.dispatchEvent(event);
+                }}
+                data-testid="button-command-palette"
+                aria-label="Open command palette"
+              >
+                <Search className="w-4 h-4" />
+              </Button>
+            </div>
+          </div>
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild className="lg:hidden">
@@ -292,17 +295,33 @@ export function Header() {
                     </SheetClose>
                   </div>
                 </div>
-                <nav className="flex flex-col p-6 gap-2 overflow-y-auto" aria-label="Mobile navigation">
-                  {NAV_ITEMS.map((item, index) => (
+                <nav className="flex flex-col p-4 gap-1 overflow-y-auto flex-1" aria-label="Mobile navigation">
+                  {primaryNavItems.map((item) => (
                     <MobileNavItem
                       key={item.label}
                       item={item}
                       currentPath={location}
                       onNavigate={handleMobileNavClick}
-                      number={String(index + 1).padStart(2, "0")}
                     />
                   ))}
                 </nav>
+                <div className="p-4 border-t border-border space-y-2">
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start"
+                    asChild
+                    onClick={handleMobileNavClick}
+                  >
+                    <Link href="/insights" data-testid="mobile-nav-insights">Insights</Link>
+                  </Button>
+                  <Button
+                    className="w-full justify-start"
+                    asChild
+                    onClick={handleMobileNavClick}
+                  >
+                    <Link href="/connect" data-testid="mobile-nav-connect">Connect</Link>
+                  </Button>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
