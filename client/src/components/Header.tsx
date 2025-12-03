@@ -43,25 +43,19 @@ function DesktopNavLink({ item, isActive }: { item: NavItem; isActive: boolean }
 
 function DropdownNavItem({ 
   item, 
-  currentPath,
-  isFirst = false,
-  isLast = false
+  currentPath
 }: { 
   item: NavItem; 
   currentPath: string;
-  isFirst?: boolean;
-  isLast?: boolean;
 }) {
   const isActive = isPathActive(currentPath, item.href);
   
   return (
-    <NavigationMenuItem className="relative">
+    <NavigationMenuItem>
       <NavigationMenuTrigger 
         className={cn(
-          "nav-dropdown-trigger px-4 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150",
+          "px-4 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150 rounded-none",
           "data-[state=open]:bg-popover",
-          isFirst && "first-trigger",
-          isLast && "last-trigger",
           isActive
             ? "text-primary"
             : "text-muted-foreground hover:text-foreground"
@@ -210,15 +204,13 @@ export function Header() {
             />
             
             {/* Ventures, Approach, Studio - grouped for unified dropdown viewport */}
-            <NavigationMenu className="relative">
-              <NavigationMenuList className="gap-0">
-                {NAV_ITEMS.filter(item => item.children).map((item, index, arr) => (
+            <NavigationMenu className="relative nav-dropdown-group">
+              <NavigationMenuList className="gap-0 nav-dropdown-triggers">
+                {NAV_ITEMS.filter(item => item.children).map((item) => (
                   <DropdownNavItem 
                     key={item.label} 
                     item={item} 
                     currentPath={location}
-                    isFirst={index === 0}
-                    isLast={index === arr.length - 1}
                   />
                 ))}
               </NavigationMenuList>
