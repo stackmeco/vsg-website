@@ -77,7 +77,7 @@ export default function Process() {
               Own The Engine.
             </h1>
             <p className="text-lg text-foreground leading-relaxed">
-              We are pilots, not passengers. We require deep financial fluency and a first-principles understanding of how value is created, stored, and protected.
+              We are pilots, not passengers. We require deep financial fluency and a first-principles understanding of how value is created.
             </p>
           </div>
         </div>

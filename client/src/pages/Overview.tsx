@@ -16,37 +16,37 @@ const principles = [
   {
     title: "Intelligence Augmented (IA)",
     quote: "Let the machine compute. Let the human connect.",
-    body: "We use AI to amplify human capability. By offloading high-velocity data processing to our Helios engine, we free our team to focus on the things machines cannot do: strategy, empathy, and judgment.",
+    body: "We use AI to amplify human capability.",
     icon: <Zap className="w-5 h-5" />,
   },
   {
     title: "Seek the Signal",
     quote: "Verify, then trust.",
-    body: "We recognize that narratives are often engineered to obscure reality. We don't rely on blind faith or centralized perception; we engineer clarity through cryptographic proof.",
+    body: "We engineer clarity through cryptographic proof.",
     icon: <Eye className="w-5 h-5" />,
   },
   {
     title: "Engineered Ambition",
     quote: "Dream in decades, execute in milliseconds.",
-    body: "We are building generational technology—from automated capital engines to optical surface scanning—with extreme precision. We embrace big risks by managing them with rigorous, automated safety rails.",
+    body: "We build generational technology with extreme precision.",
     icon: <Shield className="w-5 h-5" />,
   },
   {
     title: "Own the Engine",
     quote: "Master the mechanics to rewrite the rules.",
-    body: "We are a team of architects, not passengers. We require deep financial fluency and a first-principles understanding of how value is created, stored, and protected within our treasury.",
+    body: "We are pilots, not passengers.",
     icon: <Cog className="w-5 h-5" />,
   },
   {
     title: "Value is a Mirror",
     quote: "Serve first, succeed second.",
-    body: "We succeed only when our users thrive. We build non-custodial tools that restore power to the user—providing liquidity without selling assets—knowing that true value flows from service, not extraction.",
+    body: "We build non-custodial tools that restore power to the user.",
     icon: <Users className="w-5 h-5" />,
   },
   {
     title: "Force Multiplier",
     quote: "Level the playing field.",
-    body: "Structural asymmetries favor the incumbent. We build leverage for the underdog. We arm individuals with the tools to bypass gatekeepers and access the capabilities usually reserved for massive institutions.",
+    body: "We arm individuals with the tools to bypass gatekeepers.",
     icon: <Scale className="w-5 h-5" />,
   },
 ];
@@ -211,27 +211,12 @@ export default function Overview() {
               <CardContent className="p-8 md:p-10">
                 <div className="max-w-3xl">
                   <p className="text-sm font-mono uppercase tracking-wider text-primary mb-2">The Mission</p>
-                  <h3 className="font-heading font-semibold text-2xl text-foreground mb-6">
+                  <h3 className="font-heading font-semibold text-2xl text-foreground mb-4">
                     Verifiable Autonomy
                   </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed mb-6">
-                    We engineer the infrastructure of autonomy across three critical pillars, ensuring that every system we build is transparent, solvent, and secure.
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    We engineer the infrastructure of autonomy across three pillars: Validate Signal (Axiom), Preserve Value (Helios), and Protect Identity (Uniqueness).
                   </p>
-                  
-                  <div className="grid sm:grid-cols-3 gap-8 pt-4 border-t border-border/50">
-                    <div>
-                      <h4 className="text-foreground font-semibold mb-2">Validate Signal</h4>
-                      <p className="text-sm text-muted-foreground">Forcing AI to be deterministic and source-backed (Axiom).</p>
-                    </div>
-                    <div>
-                      <h4 className="text-foreground font-semibold mb-2">Preserve Value</h4>
-                      <p className="text-sm text-muted-foreground">Merging DeFi safety with HFT speed (Stackme & Helios).</p>
-                    </div>
-                    <div>
-                      <h4 className="text-foreground font-semibold mb-2">Protect Identity</h4>
-                      <p className="text-sm text-muted-foreground">Proving personhood without surveillance (Uniqueness Engine).</p>
-                    </div>
-                  </div>
                 </div>
               </CardContent>
             </Card>
