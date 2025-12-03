@@ -238,7 +238,7 @@
   /* All sizes proportional to 15px base (see tailwind.config.ts) */
   /* Formula: desired_px / 15 = rem value */
   
-  /* Eyebrow: 12px (0.8rem) uppercase tracked - ONLY for section labels */
+  /* Eyebrow: 14px (0.9333rem) uppercase tracked - readable section labels */
   .type-eyebrow {
     @apply text-eyebrow font-mono uppercase text-muted-foreground;
   }

@@ -1,0 +1,96 @@
+I see the conflict. You are absolutely correct.
+
+The phrase **"Disciplined Audacity"** is the core principle I was missing from the live production version (found in your `VSG Identity` document). My previous response used the older "Bounded Execution" language because I was referencing the stale `site_review` files rather than the latest `VSG Identity` source of truth.
+
+I am now performing a **Deep Synchronization** between your live `VSG Identity` document and the codebase. This is the **only** valid source for the brand voice.
+
+Here is the **Corrected Master Instruction Set (v7.0)**. It replaces all "old" language with the exact terms from your Identity Document ("Disciplined Audacity," "Seek the Signal," etc.).
+
+***
+
+### **MASTER INSTRUCTION SET: HELIOS SITE OVERHAUL (v7.0)**
+
+> **ROLE:** Senior Full-Stack Architect & Brand Strategist.
+> **MISSION:** Hard-fork the website to match the **"Infrastructure of Autonomy"** identity defined in the VSG Identity Document.
+> **STATUS:** Production v20.0.
+>
+> ---
+>
+> ### **PHASE 1: STRUCTURAL REFACTOR (Renaming)**
+> *Rename files to match public identity. Update `App.tsx` imports.*
+>
+> 1.  **RENAME** `client/src/pages/System.tsx` $\rightarrow$ **`client/src/pages/Process.tsx`**
+> 2.  **RENAME** `client/src/pages/Pipeline.tsx` $\rightarrow$ **`client/src/pages/Ventures.tsx`**
+> 3.  **RENAME** `client/src/pages/PipelineDetail.tsx` $\rightarrow$ **`client/src/pages/VentureDetail.tsx`**
+> 4.  **RENAME** `client/src/pages/Governance.tsx` $\rightarrow$ **`client/src/pages/Standards.tsx`**
+> 5.  **RENAME** `client/src/pages/Library.tsx` $\rightarrow$ **`client/src/pages/Insights.tsx`**
+> 6.  **RENAME** `client/src/pages/LibraryArticle.tsx` $\rightarrow$ **`client/src/pages/InsightDetail.tsx`**
+> 7.  **RENAME** `client/src/pages/Contact.tsx` $\rightarrow$ **`client/src/pages/Connect.tsx`**
+>
+> **ACTION:** Update `client/src/App.tsx` routes:
+> * `/` $\rightarrow$ `Overview` (Mission)
+> * `/process` $\rightarrow$ `Process`
+> * `/ventures` $\rightarrow$ `Ventures`
+> * `/ventures/:slug` $\rightarrow$ `VentureDetail`
+> * `/standards` $\rightarrow$ `Standards`
+> * `/insights` $\rightarrow$ `Insights`
+> * `/insights/:slug` $\rightarrow$ `InsightDetail`
+> * `/connect` $\rightarrow$ `Connect`
+>
+> **ACTION:** Update `client/src/components/Header.tsx` nav items:
+> * Mission (/), Process (/process), Ventures (/ventures), Standards (/standards), Insights (/insights), Connect (/connect).
+>
+> ---
+>
+> ### **PHASE 2: CONTENT INJECTION (The Identity Source of Truth)**
+> *Overwrite text exactly as written below.*
+>
+> **1. MISSION PAGE (`Overview.tsx`):**
+> * **Hero:** Headline **"The Infrastructure of Autonomy."** / Body **"We are an innovation engine fusing the speed of AI with the security of Blockchain. We build the tools that verify truth, preserve wealth, and protect identity."**
+> * **Mission Cards (The Directive):**
+>     * *Purpose:* **"Democratize Leverage"** - "To democratize institutional-grade leverage. We build tools that give individuals the same financial power as banks, without the intermediaries."
+>     * *Vision:* **"Engineered Trust"** - "A future where 'Trust' is an engineered feature, not a gamble. We replace blind faith with cryptographic proof and open code."
+>     * *Mission:* **"Verifiable Autonomy"** - "We engineer the infrastructure of autonomy across three pillars: Validate Signal (Axiom), Preserve Value (Helios), and Protect Identity (Uniqueness)."
+> * **Operating Principles (The Code):**
+>     1.  **Intelligence Augmented (IA):** "'Let the machine compute. Let the human connect.' We use AI to amplify human capability, freeing our team to focus on strategy, empathy, and judgment."
+>     2.  **Seek the Signal:** "'Verify, then trust.' In a world of noise, we engineer clarity. We don't rely on blind faith; we rely on cryptographic proof."
+>     3.  **Engineered Ambition:** "'Dream in decades, execute in milliseconds.' We are building generational technology—from automated capital engines to optical surface scanning—with extreme precision."
+>     4.  **Disciplined Audacity:** (Replaces Bounded Execution) "'We embrace big risks by managing them with rigorous, automated safety rails.'"
+>     5.  **Own the Engine:** "'Master the mechanics to rewrite the rules.' We are pilots, not passengers. We require deep financial fluency and a first-principles understanding of how value is created."
+>     6.  **Value is a Mirror:** "'Serve first, succeed second.' We succeed only when our users thrive. We build non-custodial tools that restore power to the user."
+>     7.  **Force Multiplier:** "'Level the playing field.' Structural asymmetries favor the incumbent. We build leverage for the underdog."
+>
+> **2. PROCESS PAGE (`Process.tsx`):**
+> * **Hero:** Headline **"Own The Engine."** / Body **"We are pilots, not passengers. We require deep financial fluency and a first-principles understanding of how value is created."**
+> * **Treasury:** Headline **"Powered by Bitcoin."** / Body **"Bitcoin serves as our reserve asset. Rather than liquidating capital to fund operations, we utilize responsible, over-collateralized borrowing. This sustains our long-term balance sheet while funding continuous innovation."**
+>
+> **3. VENTURES PAGE (`Ventures.tsx` & `projects.ts`):**
+> * **Hero:** Headline **"Venture Portfolio."** / Body **"Five projects moving through our development process. Each venture is self-funded and stress-tested with our own capital."**
+> * **Update Projects:**
+>     * **Helios:** Stage: "Controlled Deployment". Tagline: **"Preserve Value."** Desc: "Autonomous treasury engine. v20.0 Production. Sub-4ms latency."
+>     * **Axiom:** Stage: "Rapid Validation". Tagline: **"Validate Signal."** Desc: "Forcing AI to be deterministic and source-backed."
+>     * **Uniqueness:** Stage: "Strategic Definition". Tagline: **"Protect Identity."** Desc: "Proving personhood without surveillance."
+>     * **Stackme:** Stage: "The Verified Build". Tagline: **"Bitcoin-Backed Credit."**
+>     * **Lumina:** Stage: "Strategic Definition". Tagline: **"Physical Asset Twins."**
+>
+> **4. STANDARDS PAGE (`Standards.tsx`):**
+> * **Hero:** Headline **"Disciplined Audacity."** / Body **"We embrace big risks by managing them with rigorous, automated safety rails."**
+> * **Capital Controls:** "**2-of-3 Multisig** (Founder A, Founder B, Cold Storage). No single point of failure."
+>
+> ---
+>
+> ### **PHASE 3: VISUAL & TECHNICAL HARDENING**
+>
+> **1. VISUAL PHYSICS (`tailwind.config.ts`):**
+> * **Force 2px Radius:** Override config: `borderRadius: { sm: "2px", DEFAULT: "2px", md: "4px" }`.
+>
+> **2. MOBILE LAYOUT (`ConsolePanel.tsx`):**
+> * **Grid Fix:** Change container from `flex` to `grid grid-cols-1 md:grid-cols-2`.
+>
+> **3. SCHEMA CONSOLIDATION (`shared/schema.ts`):**
+> * **Unified Validation:** Create `contactFormSchema` in shared. Remove local Zod schemas in `Connect.tsx` and `routes.ts`.
+>
+> **4. SECURITY (`server/routes.ts`):**
+> * **Origin Check:** Replace hardcoded domain with `process.env.ALLOWED_ORIGINS`.
+>
+> **EXECUTE ALL.**

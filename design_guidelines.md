@@ -71,12 +71,12 @@ Used strictly for Active State, Navigation, Verification.
 ### 3.2 Proportional Typography Scale
 All sizes use rem units calculated from the 15px base: `desired_px / 15 = rem`
 
-**IMPORTANT:** fontSize is defined at `theme` level (NOT `extend`) to REPLACE Tailwind defaults.
+**CRITICAL:** fontSize is defined at `theme` level (NOT `extend`) to REPLACE Tailwind defaults.
 
 | Token | Pixels | Rem | Purpose |
 |-------|--------|-----|---------|
 | `text-telemetry` | 12px | 0.8rem | Clocks, timestamps, kbd ONLY |
-| `text-eyebrow` | 12px | 0.8rem | Uppercase tracked labels ONLY |
+| `text-eyebrow` | 14px | 0.9333rem | Readable uppercase mono labels |
 | `text-caption` | 13px | 0.8667rem | Minimum readable (metadata) |
 | `text-body` | 14px | 0.9333rem | Standard body text |
 | `text-body-lg` | 16px | 1.0667rem | Prominent paragraphs |
@@ -85,8 +85,8 @@ All sizes use rem units calculated from the 15px base: `desired_px / 15 = rem`
 
 | Utility | Pixels | Rem | Notes |
 |---------|--------|-----|-------|
-| `text-xs` | 12px | 0.8rem | Eyebrow/telemetry size |
-| `text-sm` | 14px | 0.9333rem | Standard body |
+| `text-xs` | 13px | 0.8667rem | **Safe minimum readable** |
+| `text-sm` | 14px | 0.9333rem | Standard body / eyebrows |
 | `text-base` | 15px | 1rem | Base size |
 | `text-lg` | 18px | 1.2rem | Large text |
 | `text-xl` | 20px | 1.3333rem | Subheadings |
@@ -95,21 +95,30 @@ All sizes use rem units calculated from the 15px base: `desired_px / 15 = rem`
 | `text-4xl` | 36px | 2.4rem | Hero subheads |
 | `text-5xl` | 48px | 3.2rem | Hero headlines |
 
-### 3.4 Component Typography Classes (index.css)
+### 3.4 Typography Rules
+
+**Eyebrow Labels** (uppercase mono with tracking):
+- Use `text-sm font-mono uppercase tracking-widest` (14px)
+- NEVER use text-xs for readable eyebrow labels
+
+**Telemetry/Status** (clocks, timestamps, kbd):
+- Use `text-telemetry` (12px) - ONLY non-essential display data
+
+### 3.5 Component Typography Classes (index.css)
 Pre-composed classes with proper color and spacing:
 
 | Class | Size | Effect |
 |-------|------|--------|
-| `.type-eyebrow` | 12px | mono uppercase muted |
-| `.type-telemetry` | 12px | mono tabular-nums muted |
+| `.type-eyebrow` | 14px | mono uppercase muted (readable labels) |
+| `.type-telemetry` | 12px | mono tabular-nums muted (clocks only) |
 | `.type-caption` | 13px | muted foreground |
 | `.type-body` | 14px | foreground relaxed |
 | `.type-body-lg` | 16px | foreground relaxed |
 
-### 3.5 12px Text Rule
-**Only `text-telemetry` and `text-eyebrow` render at 12px.** All other text is 13px minimum.
+### 3.6 12px Text Rule
+**Only `text-telemetry` renders at 12px.** Reserved for timestamps/clocks. All readable text is 13px minimum, eyebrow labels are 14px.
 
-### 3.6 Heading Hierarchy
+### 3.7 Heading Hierarchy
 | Element | Pixels | Rem | Class |
 |---------|--------|-----|-------|
 | Section Header | 24px | 1.6rem | `text-2xl font-heading` |
@@ -135,13 +144,13 @@ Pre-composed classes with proper color and spacing:
 
 ### 5.1 The Button (The Trigger)
 - **Shape:** Rectangular. 2px radius (`rounded-sm`)
-- **Text:** Uppercase. Uses `text-eyebrow` token (12px with tracking). Font Mono. Medium weight.
+- **Text:** Uppercase. Uses `text-xs` (13px with tracking). Font Mono. Medium weight.
 - **Primary:** Solid orange background. Dark text.
 - **Secondary:** Transparent background. Orange border. Orange text.
 
 ### 5.2 The Badge/Chip (The Status)
 - **Shape:** 2px radius
-- **Text:** Uses `text-eyebrow` token (12px Mono with tracking)
+- **Text:** Uses `text-xs` (13px Mono with tracking)
 - **Variants:** default, secondary, destructive, outline
 
 ### 5.3 The Card (The Unit of Containment)
