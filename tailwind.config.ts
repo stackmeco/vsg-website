@@ -4,6 +4,27 @@ export default {
   darkMode: ["class"],
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    /* ===== TYPOGRAPHY SCALE (REPLACES DEFAULTS) ===== */
+    /* All values in rem, calculated from 15px base (html font-size: 15px) */
+    /* Formula: desired_px / 15 = rem value */
+    fontSize: {
+      /* Semantic tokens */
+      "telemetry": ["0.8rem", { lineHeight: "1.4", letterSpacing: "0.02em" }],    /* 12px */
+      "eyebrow": ["0.8rem", { lineHeight: "1.4", letterSpacing: "0.1em" }],       /* 12px */
+      "caption": ["0.8667rem", { lineHeight: "1.5" }],                             /* 13px */
+      "body": ["0.9333rem", { lineHeight: "1.6" }],                                /* 14px */
+      "body-lg": ["1.0667rem", { lineHeight: "1.65" }],                            /* 16px */
+      /* Standard scale */
+      "xs": ["0.8rem", { lineHeight: "1.4" }],                                     /* 12px */
+      "sm": ["0.9333rem", { lineHeight: "1.5" }],                                  /* 14px */
+      "base": ["1rem", { lineHeight: "1.6" }],                                     /* 15px */
+      "lg": ["1.2rem", { lineHeight: "1.5" }],                                     /* 18px */
+      "xl": ["1.3333rem", { lineHeight: "1.4" }],                                  /* 20px */
+      "2xl": ["1.6rem", { lineHeight: "1.3" }],                                    /* 24px */
+      "3xl": ["2rem", { lineHeight: "1.25" }],                                     /* 30px */
+      "4xl": ["2.4rem", { lineHeight: "1.2" }],                                    /* 36px */
+      "5xl": ["3.2rem", { lineHeight: "1.1" }],                                    /* 48px */
+    },
     extend: {
       borderRadius: {
         lg: "4px", /* Machined edges */
@@ -81,47 +102,6 @@ export default {
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
         },
-      },
-      fontSize: {
-        /* ===== PROPORTIONAL TYPOGRAPHY SCALE ===== */
-        /* All values in rem, calculated from 15px base (html font-size: 15px) */
-        /* Formula: desired_px / 15 = rem value */
-        
-        /* ===== SEMANTIC TOKENS ===== */
-        /* Telemetry: 12px (12/15 = 0.8rem) - ONLY for clocks, timestamps, kbd */
-        "telemetry": ["0.8rem", { lineHeight: "1.4", letterSpacing: "0.02em" }],
-        
-        /* Eyebrow: 12px (12/15 = 0.8rem) - ONLY for uppercase tracked labels */
-        "eyebrow": ["0.8rem", { lineHeight: "1.4", letterSpacing: "0.1em" }],
-        
-        /* Caption: 13px (13/15 = 0.8667rem) - Minimum readable for descriptions */
-        "caption": ["0.8667rem", { lineHeight: "1.5" }],
-        
-        /* Body: 14px (14/15 = 0.9333rem) - Primary body text */
-        "body": ["0.9333rem", { lineHeight: "1.6" }],
-        
-        /* Body Large: 16px (16/15 = 1.0667rem) - Prominent paragraphs */
-        "body-lg": ["1.0667rem", { lineHeight: "1.65" }],
-        
-        /* ===== STANDARD SCALE (15px base) ===== */
-        /* xs: 13px (13/15 = 0.8667rem) - remapped to caption for safety */
-        "xs": ["0.8667rem", { lineHeight: "1.5" }],
-        /* sm: 14px (14/15 = 0.9333rem) */
-        "sm": ["0.9333rem", { lineHeight: "1.5" }],
-        /* base: 15px (15/15 = 1rem) */
-        "base": ["1rem", { lineHeight: "1.6" }],
-        /* lg: 18px (18/15 = 1.2rem) */
-        "lg": ["1.2rem", { lineHeight: "1.5" }],
-        /* xl: 20px (20/15 = 1.3333rem) */
-        "xl": ["1.3333rem", { lineHeight: "1.4" }],
-        /* 2xl: 24px (24/15 = 1.6rem) */
-        "2xl": ["1.6rem", { lineHeight: "1.3" }],
-        /* 3xl: 30px (30/15 = 2rem) */
-        "3xl": ["2rem", { lineHeight: "1.25" }],
-        /* 4xl: 36px (36/15 = 2.4rem) */
-        "4xl": ["2.4rem", { lineHeight: "1.2" }],
-        /* 5xl: 48px (48/15 = 3.2rem) */
-        "5xl": ["3.2rem", { lineHeight: "1.1" }],
       },
       fontFamily: {
         sans: ['Manrope', 'sans-serif'],

@@ -72,7 +72,7 @@ export function Header() {
                 key={item.name} 
                 href={item.href}
                 className={cn(
-                  "px-3 py-2 text-caption font-mono uppercase tracking-[0.1em] transition-all duration-150 rounded-[2px] border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                  "px-3 py-2 text-xs font-mono uppercase tracking-widest transition-all duration-150 rounded-[2px] border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                   isActive(item.href)
                     ? "text-primary bg-primary/10 border-primary/20"
                     : "text-muted-foreground hover:text-foreground hover:bg-card/80 hover:border-primary/30"

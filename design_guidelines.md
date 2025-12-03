@@ -71,6 +71,8 @@ Used strictly for Active State, Navigation, Verification.
 ### 3.2 Proportional Typography Scale
 All sizes use rem units calculated from the 15px base: `desired_px / 15 = rem`
 
+**IMPORTANT:** fontSize is defined at `theme` level (NOT `extend`) to REPLACE Tailwind defaults.
+
 | Token | Pixels | Rem | Purpose |
 |-------|--------|-----|---------|
 | `text-telemetry` | 12px | 0.8rem | Clocks, timestamps, kbd ONLY |
@@ -79,11 +81,11 @@ All sizes use rem units calculated from the 15px base: `desired_px / 15 = rem`
 | `text-body` | 14px | 0.9333rem | Standard body text |
 | `text-body-lg` | 16px | 1.0667rem | Prominent paragraphs |
 
-### 3.3 Standard Tailwind Scale (recalculated for 15px base)
+### 3.3 Standard Tailwind Scale (REPLACES defaults for 15px base)
 
 | Utility | Pixels | Rem | Notes |
 |---------|--------|-----|-------|
-| `text-xs` | 13px | 0.8667rem | Remapped to caption (safe minimum) |
+| `text-xs` | 12px | 0.8rem | Eyebrow/telemetry size |
 | `text-sm` | 14px | 0.9333rem | Standard body |
 | `text-base` | 15px | 1rem | Base size |
 | `text-lg` | 18px | 1.2rem | Large text |
