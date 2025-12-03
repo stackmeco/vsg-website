@@ -76,7 +76,7 @@ export default function Process() {
             <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
               Own The Engine.
             </h1>
-            <p className="text-base text-muted-foreground leading-relaxed">
+            <p className="text-lg text-foreground leading-relaxed">
               We are pilots, not passengers. We require deep financial fluency and a first-principles understanding of how value is created, stored, and protected.
             </p>
           </div>

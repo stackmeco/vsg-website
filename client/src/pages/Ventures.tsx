@@ -56,7 +56,7 @@ export default function Ventures() {
             <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
               Venture Portfolio.
             </h1>
-            <p className="text-base text-muted-foreground leading-relaxed">
+            <p className="text-lg text-foreground leading-relaxed">
               Five projects moving through our development process. Each venture is self-funded and stress-tested with our own capital.
             </p>
           </div>

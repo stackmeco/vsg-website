@@ -106,7 +106,7 @@ export default function Overview() {
                 The Infrastructure of Autonomy.
               </h1>
               
-              <p className="text-base text-foreground/80 leading-relaxed mb-8 max-w-xl">
+              <p className="text-lg text-foreground leading-relaxed mb-8 max-w-xl">
                 We are an innovation engine fusing the speed of AI with the security of Blockchain. 
                 We build the tools that verify truth, preserve wealth, and protect identity.
               </p>

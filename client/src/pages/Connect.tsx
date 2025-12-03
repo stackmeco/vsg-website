@@ -28,7 +28,7 @@ export default function Contact() {
             <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
               Let's Connect
             </h1>
-            <p className="text-base text-muted-foreground leading-relaxed">
+            <p className="text-lg text-foreground leading-relaxed">
               Every inquiry is reviewed by our founding team. We prioritize conversations with partners who share our commitment to building verified, trustworthy systems.
             </p>
           </div>

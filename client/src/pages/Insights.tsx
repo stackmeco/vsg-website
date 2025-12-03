@@ -59,7 +59,7 @@ export default function Library() {
             <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground leading-tight tracking-tight mb-6">
               Insights
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-foreground leading-relaxed">
               Our research and analysis on AI, finance, and verification. We publish when we have something meaningful to share—not on a schedule.
             </p>
           </div>
