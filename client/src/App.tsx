@@ -8,10 +8,8 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { ScrollManager } from "@/components/ScrollManager";
 import Overview from "@/pages/Overview";
 
-const Process = lazy(() => import("@/pages/Process"));
 const Ventures = lazy(() => import("@/pages/Ventures"));
 const VentureDetail = lazy(() => import("@/pages/VentureDetail"));
-const Standards = lazy(() => import("@/pages/Standards"));
 const Insights = lazy(() => import("@/pages/Insights"));
 const InsightDetail = lazy(() => import("@/pages/InsightDetail"));
 const Connect = lazy(() => import("@/pages/Connect"));
@@ -19,19 +17,30 @@ const Privacy = lazy(() => import("@/pages/Privacy"));
 const Terms = lazy(() => import("@/pages/Terms"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
+const HeliosPage = lazy(() => import("@/pages/ventures/Helios"));
+const AxiomPage = lazy(() => import("@/pages/ventures/Axiom"));
+const StackmePage = lazy(() => import("@/pages/ventures/Stackme"));
+const LuminaPage = lazy(() => import("@/pages/ventures/Lumina"));
+const UniquenessPage = lazy(() => import("@/pages/ventures/Uniqueness"));
+
+const PillarsPage = lazy(() => import("@/pages/approach/Pillars"));
+const ProcessPage = lazy(() => import("@/pages/approach/Process"));
+const StandardsPage = lazy(() => import("@/pages/approach/Standards"));
+
+const StudioPage = lazy(() => import("@/pages/studio/Studio"));
+const PurposePage = lazy(() => import("@/pages/studio/Purpose"));
+const VisionPage = lazy(() => import("@/pages/studio/Vision"));
+const MissionPage = lazy(() => import("@/pages/studio/Mission"));
+
 function usePreloadPages() {
   useEffect(() => {
     const preloadPages = async () => {
       const imports = [
-        () => import("@/pages/Process"),
         () => import("@/pages/Ventures"),
-        () => import("@/pages/Standards"),
         () => import("@/pages/Insights"),
-        () => import("@/pages/VentureDetail"),
-        () => import("@/pages/InsightDetail"),
         () => import("@/pages/Connect"),
-        () => import("@/pages/Privacy"),
-        () => import("@/pages/Terms"),
+        () => import("@/pages/approach/Pillars"),
+        () => import("@/pages/studio/Studio"),
       ];
 
       for (let i = 0; i < imports.length; i++) {
@@ -73,15 +82,37 @@ function Router() {
     <Suspense fallback={<PageLoader />}>
       <Switch>
         <Route path="/" component={Overview} />
-        <Route path="/process" component={Process} />
+        
+        {/* Ventures */}
         <Route path="/ventures" component={Ventures} />
+        <Route path="/ventures/helios" component={HeliosPage} />
+        <Route path="/ventures/axiom" component={AxiomPage} />
+        <Route path="/ventures/stackme" component={StackmePage} />
+        <Route path="/ventures/lumina" component={LuminaPage} />
+        <Route path="/ventures/uniqueness" component={UniquenessPage} />
         <Route path="/ventures/:slug" component={VentureDetail} />
-        <Route path="/standards" component={Standards} />
+        
+        {/* Approach */}
+        <Route path="/approach/pillars" component={PillarsPage} />
+        <Route path="/approach/process" component={ProcessPage} />
+        <Route path="/approach/standards" component={StandardsPage} />
+        
+        {/* Studio */}
+        <Route path="/studio" component={StudioPage} />
+        <Route path="/studio/purpose" component={PurposePage} />
+        <Route path="/studio/vision" component={VisionPage} />
+        <Route path="/studio/mission" component={MissionPage} />
+        
+        {/* Insights */}
         <Route path="/insights" component={Insights} />
         <Route path="/insights/:slug" component={InsightDetail} />
+        
+        {/* Connect & Legal */}
         <Route path="/connect" component={Connect} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/terms" component={Terms} />
+        
+        {/* 404 */}
         <Route component={NotFound} />
       </Switch>
     </Suspense>

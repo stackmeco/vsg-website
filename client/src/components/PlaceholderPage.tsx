@@ -60,10 +60,10 @@ export function PlaceholderPage({ title, description, category }: PlaceholderPag
       </section>
 
       <NextStepBlock
-        title="Explore Our Ventures"
+        label="Explore"
+        nextPage="Our Ventures"
         description="Discover the institutional-grade solutions we're building at VSG."
-        primaryAction={{ label: "View Ventures", href: "/ventures" }}
-        secondaryAction={{ label: "Get in Touch", href: "/connect" }}
+        href="/ventures"
       />
     </Layout>
   );

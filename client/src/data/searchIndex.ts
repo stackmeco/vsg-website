@@ -15,6 +15,10 @@ import {
   AlertTriangle,
   Lock,
   ScrollText,
+  Target,
+  Eye,
+  Compass,
+  Building2,
   type LucideIcon
 } from "lucide-react";
 import { articles, changelog } from "./articles";
@@ -53,21 +57,12 @@ export const searchGroups: SearchGroupMeta[] = [
 
 const pageEntries: SearchEntry[] = [
   { 
-    id: "page-mission", 
-    name: "Mission", 
+    id: "page-overview", 
+    name: "Overview", 
     description: "Home page - who we are and what we build",
     href: "/", 
     icon: Home, 
     keywords: ["home", "main", "start", "dashboard", "metrics", "overview"],
-    group: "pages"
-  },
-  { 
-    id: "page-process", 
-    name: "Process", 
-    description: "How we work - operations and treasury",
-    href: "/process", 
-    icon: Settings, 
-    keywords: ["architecture", "treasury", "btc", "bitcoin", "how", "work", "functions", "system"],
     group: "pages"
   },
   { 
@@ -80,12 +75,111 @@ const pageEntries: SearchEntry[] = [
     group: "pages"
   },
   { 
+    id: "page-helios", 
+    name: "Helios", 
+    description: "AI-powered treasury management",
+    href: "/ventures/helios", 
+    icon: Zap, 
+    keywords: ["treasury", "ai", "management", "automation", "yield"],
+    group: "pages"
+  },
+  { 
+    id: "page-axiom", 
+    name: "Axiom", 
+    description: "Decentralized governance infrastructure",
+    href: "/ventures/axiom", 
+    icon: FileText, 
+    keywords: ["governance", "decentralized", "voting", "dao"],
+    group: "pages"
+  },
+  { 
+    id: "page-stackme", 
+    name: "Stackme", 
+    description: "Composable financial primitives",
+    href: "/ventures/stackme", 
+    icon: CreditCard, 
+    keywords: ["finance", "composable", "primitives", "defi"],
+    group: "pages"
+  },
+  { 
+    id: "page-lumina", 
+    name: "Lumina", 
+    description: "Privacy-preserving analytics",
+    href: "/ventures/lumina", 
+    icon: Sparkles, 
+    keywords: ["privacy", "analytics", "data", "insights"],
+    group: "pages"
+  },
+  { 
+    id: "page-uniqueness", 
+    name: "Uniqueness", 
+    description: "Sybil-resistant identity verification",
+    href: "/ventures/uniqueness", 
+    icon: Fingerprint, 
+    keywords: ["identity", "sybil", "verification", "unique"],
+    group: "pages"
+  },
+  { 
+    id: "page-pillars", 
+    name: "Pillars", 
+    description: "Our foundational principles",
+    href: "/approach/pillars", 
+    icon: Target, 
+    keywords: ["principles", "values", "foundation", "approach"],
+    group: "pages"
+  },
+  { 
+    id: "page-process", 
+    name: "Process", 
+    description: "How we build and validate ventures",
+    href: "/approach/process", 
+    icon: Settings, 
+    keywords: ["process", "methodology", "build", "validate", "stages"],
+    group: "pages"
+  },
+  { 
     id: "page-standards", 
     name: "Standards", 
-    description: "Risk controls and compliance",
-    href: "/standards", 
+    description: "Enterprise-grade quality benchmarks",
+    href: "/approach/standards", 
     icon: Shield, 
-    keywords: ["risk", "compliance", "legal", "regulatory", "policy", "treasury", "governance"],
+    keywords: ["standards", "quality", "enterprise", "compliance"],
+    group: "pages"
+  },
+  { 
+    id: "page-studio", 
+    name: "Studio", 
+    description: "The VSG innovation engine",
+    href: "/studio", 
+    icon: Building2, 
+    keywords: ["studio", "about", "company", "innovation"],
+    group: "pages"
+  },
+  { 
+    id: "page-purpose", 
+    name: "Purpose", 
+    description: "Why VSG exists",
+    href: "/studio/purpose", 
+    icon: Target, 
+    keywords: ["purpose", "why", "reason", "mission"],
+    group: "pages"
+  },
+  { 
+    id: "page-vision", 
+    name: "Vision", 
+    description: "Where we're heading",
+    href: "/studio/vision", 
+    icon: Eye, 
+    keywords: ["vision", "future", "direction", "goals"],
+    group: "pages"
+  },
+  { 
+    id: "page-mission", 
+    name: "Mission", 
+    description: "What we do every day",
+    href: "/studio/mission", 
+    icon: Compass, 
+    keywords: ["mission", "daily", "work", "actions"],
     group: "pages"
   },
   { 
@@ -165,7 +259,7 @@ const governanceEntries: SearchEntry[] = [
     id: "gov-structure", 
     name: "Legal Structure", 
     description: "Wyoming LLC, two-founder governance",
-    href: "/standards#structure", 
+    href: "/approach/standards#structure", 
     icon: FileText, 
     keywords: ["llc", "wyoming", "founders", "ownership", "legal"],
     group: "governance"
@@ -174,7 +268,7 @@ const governanceEntries: SearchEntry[] = [
     id: "gov-treasury", 
     name: "BTC Treasury", 
     description: "Treasury policy and collateral loop",
-    href: "/standards#treasury", 
+    href: "/approach/standards#treasury", 
     icon: CreditCard, 
     keywords: ["bitcoin", "btc", "collateral", "leverage", "ltv", "capital"],
     group: "governance"
@@ -183,7 +277,7 @@ const governanceEntries: SearchEntry[] = [
     id: "gov-risk", 
     name: "Risk Governance", 
     description: "Stage-gates and risk controls",
-    href: "/standards#risk", 
+    href: "/approach/standards#risk", 
     icon: AlertTriangle, 
     keywords: ["risk", "stage", "gate", "controls", "memo"],
     group: "governance"
@@ -192,7 +286,7 @@ const governanceEntries: SearchEntry[] = [
     id: "gov-regulatory", 
     name: "Regulatory Stance", 
     description: "Compliance approach and prohibitions",
-    href: "/standards#regulatory", 
+    href: "/approach/standards#regulatory", 
     icon: Scale, 
     keywords: ["compliance", "regulation", "fincen", "sec", "mica", "legal"],
     group: "governance"
@@ -203,7 +297,7 @@ const changelogEntries: SearchEntry[] = changelog.map((entry, index) => ({
   id: `changelog-${index}`,
   name: entry.date,
   description: entry.entry,
-  href: "/process#changelog",
+  href: "/approach/process#changelog",
   icon: Clock,
   keywords: ["update", "change", "record", "history"],
   group: "changelog" as SearchGroup,

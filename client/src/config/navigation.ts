@@ -1,5 +1,3 @@
-import { lazy, ComponentType } from "react";
-
 export interface NavChild {
   label: string;
   href: string;
@@ -56,68 +54,6 @@ export const NAV_ITEMS: NavItem[] = [
     label: "Connect",
     href: "/connect",
   },
-];
-
-export interface RouteConfig {
-  path: string;
-  component: ComponentType;
-  preload?: () => Promise<{ default: ComponentType }>;
-}
-
-const Overview = lazy(() => import("@/pages/Overview"));
-const Ventures = lazy(() => import("@/pages/Ventures"));
-const VentureDetail = lazy(() => import("@/pages/VentureDetail"));
-const Insights = lazy(() => import("@/pages/Insights"));
-const InsightDetail = lazy(() => import("@/pages/InsightDetail"));
-const Connect = lazy(() => import("@/pages/Connect"));
-const Privacy = lazy(() => import("@/pages/Privacy"));
-const Terms = lazy(() => import("@/pages/Terms"));
-const NotFound = lazy(() => import("@/pages/not-found"));
-
-const HeliosPage = lazy(() => import("@/pages/ventures/Helios"));
-const AxiomPage = lazy(() => import("@/pages/ventures/Axiom"));
-const StackmePage = lazy(() => import("@/pages/ventures/Stackme"));
-const LuminaPage = lazy(() => import("@/pages/ventures/Lumina"));
-const UniquenessPage = lazy(() => import("@/pages/ventures/Uniqueness"));
-
-const PillarsPage = lazy(() => import("@/pages/approach/Pillars"));
-const ProcessPage = lazy(() => import("@/pages/approach/Process"));
-const StandardsPage = lazy(() => import("@/pages/approach/Standards"));
-
-const StudioPage = lazy(() => import("@/pages/studio/Studio"));
-const PurposePage = lazy(() => import("@/pages/studio/Purpose"));
-const VisionPage = lazy(() => import("@/pages/studio/Vision"));
-const MissionPage = lazy(() => import("@/pages/studio/Mission"));
-
-export const ROUTES: RouteConfig[] = [
-  { path: "/", component: Overview },
-  { path: "/ventures", component: Ventures },
-  { path: "/ventures/helios", component: HeliosPage },
-  { path: "/ventures/axiom", component: AxiomPage },
-  { path: "/ventures/stackme", component: StackmePage },
-  { path: "/ventures/lumina", component: LuminaPage },
-  { path: "/ventures/uniqueness", component: UniquenessPage },
-  { path: "/ventures/:slug", component: VentureDetail },
-  { path: "/approach/pillars", component: PillarsPage },
-  { path: "/approach/process", component: ProcessPage },
-  { path: "/approach/standards", component: StandardsPage },
-  { path: "/studio", component: StudioPage },
-  { path: "/studio/purpose", component: PurposePage },
-  { path: "/studio/vision", component: VisionPage },
-  { path: "/studio/mission", component: MissionPage },
-  { path: "/insights", component: Insights },
-  { path: "/insights/:slug", component: InsightDetail },
-  { path: "/connect", component: Connect },
-  { path: "/privacy", component: Privacy },
-  { path: "/terms", component: Terms },
-];
-
-export const PRELOAD_PAGES = [
-  () => import("@/pages/Ventures"),
-  () => import("@/pages/Insights"),
-  () => import("@/pages/Connect"),
-  () => import("@/pages/approach/Pillars"),
-  () => import("@/pages/studio/Studio"),
 ];
 
 export function getNavItemByPath(path: string): NavItem | NavChild | undefined {
