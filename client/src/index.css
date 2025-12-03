@@ -201,7 +201,7 @@
   /* 1. VOS PROFESSIONAL GRADE TYPOGRAPHY */
   html {
     font-family: 'Manrope', sans-serif;
-    font-size: 14px; /* VOS v3.0: Professional Grade - signals density */
+    font-size: 15px; /* VOS v3.0: Balanced - technical density with readability */
     letter-spacing: -0.015em; /* VOS: Manrope precision tracking */
     color: hsl(var(--foreground));
   }

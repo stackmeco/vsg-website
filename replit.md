@@ -12,7 +12,7 @@ The site follows a "control room aesthetic" with a dark theme emphasizing instit
 - **Navigation renamed**: Overview→Mission, Pipeline→Ventures, Governance→Standards, Thesis→Insights, Contact→Connect (Process retained from System)
 - **Routes updated**: /process, /ventures, /standards, /insights, /connect (all internal references updated across codebase)
 - **Content rewritten** across all pages with human-centric, outcome-focused copy per Gemini copywriting analysis
-- **Font size**: Staying with VOS v3.0 spec of 14px base (not 16px)
+- **Font size**: Updated to 15px base (balanced between technical density and readability)
 - **Domain**: verifiablesystems.com (not verifiedsystems.io)
 
 ### Technical Updates
