@@ -7,8 +7,8 @@ import { cn } from "@/lib/utils"
 
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root> & { shell?: boolean }
->(({ className, children, shell = false, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
+>(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Root
     ref={ref}
     className={cn(
@@ -17,17 +17,8 @@ const NavigationMenu = React.forwardRef<
     )}
     {...props}
   >
-    {shell ? (
-      <div className="nav-dropdown-shell flex flex-col">
-        {children}
-        <NavigationMenuViewport />
-      </div>
-    ) : (
-      <>
-        {children}
-        <NavigationMenuViewport />
-      </>
-    )}
+    {children}
+    <NavigationMenuViewport />
   </NavigationMenuPrimitive.Root>
 ))
 NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName
@@ -92,14 +83,16 @@ const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
 >(({ className, ...props }, ref) => (
-  <NavigationMenuPrimitive.Viewport
-    className={cn(
-      "nav-dropdown-viewport origin-top h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in duration-150 w-full",
-      className
-    )}
-    ref={ref}
-    {...props}
-  />
+  <div className="absolute left-0 right-0 top-full">
+    <NavigationMenuPrimitive.Viewport
+      className={cn(
+        "origin-top relative mt-0 h-[var(--radix-navigation-menu-viewport-height)] overflow-hidden bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in duration-150 w-full border border-border rounded-[2px]",
+        className
+      )}
+      ref={ref}
+      {...props}
+    />
+  </div>
 ))
 NavigationMenuViewport.displayName =
   NavigationMenuPrimitive.Viewport.displayName

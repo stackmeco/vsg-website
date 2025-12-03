@@ -204,7 +204,7 @@ export function Header() {
             />
             
             {/* Ventures, Approach, Studio - grouped for unified dropdown viewport */}
-            <NavigationMenu shell>
+            <NavigationMenu>
               <NavigationMenuList className="gap-0">
                 {NAV_ITEMS.filter(item => item.children).map((item) => (
                   <DropdownNavItem 

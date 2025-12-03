@@ -551,25 +551,7 @@
   }
 }
 
-/* ===== NAVIGATION DROPDOWN SHELL ===== */
-/* Shell wraps triggers + viewport as a single bordered box when open */
-.nav-dropdown-shell {
-  border: 1px solid transparent;
-  border-radius: 2px;
-  transition: border-color 150ms, background-color 150ms;
-  overflow: hidden;
-}
-
-/* When any trigger is open, shell gets the card-style border */
-.nav-dropdown-shell:has([data-state="open"]) {
-  border-color: hsl(var(--border));
-  background-color: hsl(var(--popover));
-}
-
-/* Viewport inherits from shell - no extra borders needed */
-.nav-dropdown-viewport {
-  /* No border - shell handles the unified border */
-}
+/* Navigation dropdown styling is handled inline in navigation-menu.tsx */
 
 /* Terminal Text Selection - Developer/Hacker Polish */
 ::selection {
