@@ -563,6 +563,20 @@
   flex-direction: column;
 }
 
+/* The continuous border loop - drawn via ::before */
+.nav-menu-open::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid hsl(var(--primary) / 0.32);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .nav-menu-triggers-row {
   display: flex;
   position: relative;
@@ -572,17 +586,33 @@
 /* Each menu item (tab) */
 .nav-menu-item {
   position: relative;
+  background: transparent;
 }
 
-/* When dropdown is open, inactive tabs get bottom border */
+/* When dropdown is open, inactive tabs sit inside the border loop */
 .nav-menu-item-dropdown-open {
-  border-bottom: 1px solid hsl(var(--primary));
+  margin-bottom: -1px;
+  border-bottom: 1px solid hsl(var(--primary) / 0.32);
 }
 
-/* Active tab: no bottom border, connects to panel */
+/* Active tab: mask the top border segment so it looks connected */
 .nav-menu-item-active {
-  border-bottom: 1px solid transparent;
+  margin-bottom: -1px;
+  border-bottom: none;
   background: hsl(var(--card));
+  z-index: 3;
+}
+
+/* Active tab covers the border with a background patch */
+.nav-menu-item-active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: hsl(var(--card));
+  z-index: 4;
 }
 
 /* Trigger styling */
@@ -594,32 +624,26 @@
   color: hsl(var(--primary));
 }
 
-/* Viewport wrapper - positioned BELOW the nav bar */
+/* Viewport wrapper - positioned BELOW the triggers */
 .nav-menu-viewport-wrapper {
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1;
 }
 
-/* The dropdown panel */
+/* The dropdown panel - no border, container ::before handles it */
 .nav-menu-viewport {
   width: 100%;
   background: hsl(var(--card));
   color: hsl(var(--card-foreground));
-  border: 1px solid hsl(var(--primary));
-  border-top: none;
-  border-radius: 0 0 2px 2px;
 }
 
-/* When open, triggers row shows the top and side borders */
-.nav-menu-open .nav-menu-triggers-row {
-  border-left: 1px solid hsl(var(--primary));
-  border-right: 1px solid hsl(var(--primary));
-  border-top: 1px solid hsl(var(--primary));
-  border-radius: 2px 2px 0 0;
+/* When open, give container proper height for the border loop */
+.nav-menu-open {
   background: hsl(var(--card));
+  border-radius: 2px;
 }
 
 .nav-menu-content {
