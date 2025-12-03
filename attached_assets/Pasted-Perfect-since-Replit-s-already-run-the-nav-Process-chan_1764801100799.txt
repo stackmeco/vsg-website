@@ -1,0 +1,501 @@
+Perfect—since Replit’s already run the nav + Process changes, this is the moment to make the **Ventures spine** feel just as intentional.
+
+Below is everything you need:
+
+1. A **Ventures overview page spec** (content + structure).
+2. A **Helios venture detail page spec** (public-safe, institutional tone).
+3. An **exact Replit AI prompt** to implement both.
+
+I’ll lean on current B2B product-page best practices (clear overview, benefits, scannable sections, consistent CTAs) and keep all language high-level and safe.
+
+---
+
+## 1. Ventures overview page (`/ventures`)
+
+### 1.1 Role & tone
+
+* Role: **Portfolio hub** for all ventures.
+* Tone: Confident, forward-looking, slightly aspirational; more “lab / portfolio” than “feature list”.
+
+### 1.2 Content model
+
+Use the same basic layout pattern as `Studio` / `Process`:
+
+* `<PageMeta>`
+* Hero section
+* Active ventures grid
+* “How we choose what to build” section
+* “From venture to infrastructure” tie-in → CTA to `/process`
+
+#### A. Page meta
+
+```tsx
+<PageMeta
+  title="Ventures"
+  description="How Verifiable Systems Group evaluates, funds, and matures ventures from early experiments into governed, verifiable infrastructure."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+#### B. Hero
+
+**Overline:**
+
+> Ventures at VSG
+
+**Heading:**
+
+> Infrastructure-scale ideas, tested as ventures.
+
+**Body:**
+
+> We don’t ship random apps. Every venture starts as a tightly scoped hypothesis, moves through a six-stage process, and either graduates into shared infrastructure or is retired with its lessons preserved. This page is the front-door into that portfolio.
+
+#### C. Active ventures grid
+
+Drive this via a `const ventures = [...]` array, so desktop + mobile + nav stay in sync.
+
+```ts
+const ventures = [
+  {
+    name: "Helios",
+    slug: "helios",
+    href: "/ventures/helios",
+    tag: "Internal venture",
+    stage: "Evolve",
+    summary:
+      "VSG’s internal capital engine: a governed system for funding research and infrastructure from our own balance sheet, not client deposits.",
+  },
+  {
+    name: "Stackme",
+    slug: "stackme",
+    href: "/ventures/stackme",
+    tag: "Consumer venture",
+    stage: "Validate",
+    summary:
+      "A consumer experience for safely accessing leverage on verifiable rails, with clear constraints and real-time risk visibility.",
+  },
+  {
+    name: "Lumina",
+    slug: "lumina",
+    href: "/ventures/lumina",
+    tag: "Market infrastructure",
+    stage: "Build",
+    summary:
+      "Digital authenticity and grading rails for unique items, where provenance and condition can be inspected, not guessed.",
+  },
+  {
+    name: "Axiom",
+    slug: "axiom",
+    href: "/ventures/axiom",
+    tag: "In research",
+    stage: "Define",
+    summary:
+      "Early-stage R&D around audit-ready data pipelines and deterministic AI for institutional reporting and controls.",
+  },
+];
+```
+
+Card layout (using `Card` / `CardHeader` / `CardContent` etc from shadcn) should follow standard “product card” patterns: name, tag, short summary, stage label, link.
+
+Copy suggestion inside each card:
+
+* Name (H3)
+* Tag + Stage (small caps or pill)
+* Summary (2–3 lines)
+* “Learn more →” link using your `Link` component.
+
+#### D. Section: “How we decide what to build”
+
+Short, “board-ready” explanation of your filter.
+
+**Heading:**
+
+> How ventures earn a slot in the portfolio
+
+**Body (paragraph + bullets):**
+
+```text
+We treat portfolio slots as scarce. New ventures compete with existing work for capital, attention, and risk budget. To earn a place here, a venture has to clear three gates:
+
+- Strategic fit — Does it reinforce our purpose of building verifiable systems and non-custodial rails?
+- Risk surface — Can we bound the regulatory, operational, and capital risk in a way we’re willing to own?
+- Evidence of pull — Is there real demand from the institutions or ecosystems we serve, not just internal curiosity?
+```
+
+This mirrors guidance that good B2B pages should emphasize **problem/fit** and decision criteria, not just features.
+
+#### E. Section: “From venture to infrastructure” + CTA
+
+**Heading:**
+
+> From venture to infrastructure, or clean exit.
+
+**Body:**
+
+```text
+When a venture performs, it doesn’t just “live forever.” It either becomes shared infrastructure with explicit governance, or we archive it on purpose, with its insights folded back into our standards, patterns, and playbooks.
+```
+
+Then a **NextStepBlock**:
+
+```tsx
+<NextStepBlock
+  nextPage="Process"
+  description="See the six-stage path every venture follows inside VSG."
+  href="/process"
+/>
+```
+
+---
+
+## 2. Helios detail page (`/ventures/helios`)
+
+Helios should feel **institutional and governed**, not “degen trading engine”. We’ll echo how real companies talk about BTC treasuries: as long-term, conservative corporate assets, not speculative yield schemes.
+
+### 2.1 Content model
+
+* `<PageMeta>`
+* Hero (what Helios is in one breath)
+* 3-column “Mandate / What Helios is not / Where it lives”
+* Section: “What Helios makes possible”
+* Section: “Governance & risk posture”
+* Section: “Who Helios matters for”
+* CTA block to `/standards` or `/contact`
+
+### 2.2 Page meta
+
+```tsx
+<PageMeta
+  title="Helios"
+  description="Helios is VSG’s internal capital engine — a governed system for funding research, infrastructure, and resilience from our own balance sheet, not client deposits."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+### 2.3 Hero
+
+**Overline:**
+
+> Internal venture — capital systems
+
+**Heading:**
+
+> Helios: VSG’s internal capital engine.
+
+**Body:**
+
+```text
+Helios is how we put our own balance sheet to work. It allocates VSG’s capital into long-term reserve assets and selective borrowing programs so we can fund research, infrastructure, and resilience without ever touching client deposits or offering yield products.
+```
+
+Tone: calm, matter-of-fact, no hype.
+
+### 2.4 3-column “Mandate / Not / Where it lives”
+
+Use a 3-column grid (`md:grid-cols-3`) with small cards or callouts.
+
+**Column 1 – Mandate**
+
+> **Mandate**
+> Fund long-horizon work that would be hard to finance on a quarter-to-quarter budget: deep research, security reviews, infrastructure, and shared tooling across ventures.
+
+**Column 2 – What Helios is not**
+
+> **What Helios is not**
+> Helios does not pool client funds, accept deposits, run a public fund, or market yield products. It exists solely to manage VSG’s own capital under governed limits.
+
+**Column 3 – Where it lives**
+
+> **Where it lives**
+> Helios sits inside VSG’s internal stack alongside our treasury, risk, and engineering functions. It is designed to be explainable to auditors, banking partners, and regulators.
+
+This mirrors how responsible BTC-treasury companies position their strategies—clear separation from customer funds, long-term posture, and emphasis on explainability.
+
+### 2.5 Section: “What Helios makes possible”
+
+**Heading:**
+
+> What Helios makes possible for VSG
+
+**Body + bullets:**
+
+```text
+Helios is not about chasing short-term trades. Its job is to make the rest of the portfolio more resilient:
+
+- Smoother funding — Provide a buffer so high-value ventures are not shut down solely because external markets are noisy.
+- Shared infrastructure — Pay for common security, observability, and compliance work that benefits more than one venture.
+- Real-world stress testing — Let us run controlled, capital-backed experiments on new rails before they touch client-facing systems.
+```
+
+### 2.6 Section: “Governance & risk posture”
+
+You don’t leak mechanics; you highlight *principles*.
+
+**Heading:**
+
+> Governance & risk posture
+
+**Body:**
+
+```text
+Helios operates under explicit limits set by VSG’s governance framework. Capital allocation, reserve policies, and borrowing decisions are reviewed against predefined risk tolerances, with separation between those who propose positions and those who approve them.
+```
+
+Optional short bullets:
+
+* **Conservative by design** — Long-term reserve mindset, not high-frequency speculation.
+* **Non-custodial rails** — Where we use cryptographic rails, control stays with VSG; Helios never holds client keys.
+* **Audit-ready** — Every move is traceable so external reviewers can understand where risk sits and how it is controlled.
+
+This aligns with how treasury/crypto-treasury guides emphasize governance, risk limits, and auditability rather than specific instruments.
+
+### 2.7 Section: “Who Helios matters for”
+
+**Heading:**
+
+> Who Helios matters for
+
+Short paragraph:
+
+```text
+Most institutions will never interact with Helios directly. It matters because it underwrites the stability of everything else we build.
+```
+
+Then 3 short bullets:
+
+* **Banks & partners** — Clear separation between client flows and VSG’s own capital.
+* **Auditors & regulators** — A single place to understand how balance-sheet risk is managed.
+* **Customers & ecosystems** — Ventures that are less likely to be yanked back or abandoned mid-stream.
+
+### 2.8 CTA block
+
+At the bottom, a `NextStepBlock`:
+
+Option 1 (to Standards):
+
+```tsx
+<NextStepBlock
+  nextPage="Standards"
+  description="See the principles that govern how we design, test, and operate capital systems like Helios."
+  href="/standards"
+/>
+```
+
+Option 2 (if you want more BD-ish):
+
+```tsx
+<NextStepBlock
+  nextPage="Contact"
+  description="If you’re evaluating VSG as a partner, we can share additional details under NDA."
+  href="/contact"
+/>
+```
+
+---
+
+## 3. Exact Replit AI prompt – Ventures overview + Helios pages
+
+You can paste this straight into Replit’s agent.
+
+---
+
+**Prompt – Implement Ventures Overview and Helios Detail Pages**
+
+> **Project:** `Verifiable-Systems-Group` (React + Vite + Tailwind + shadcn/ui, routing via `wouter` in `client/src/App.tsx`).
+>
+> **Goal**
+> Implement a cohesive Ventures overview page at `/ventures` and a Helios venture detail page at `/ventures/helios`. Both pages should follow the same layout patterns as existing pages like `Studio` and `Process`, reuse existing components (`PageMeta`, `NextStepBlock`, shadcn `Card`, etc.), and keep copy public-safe: no implementation details, no promise of yield, no mention of client funds being managed.
+>
+> Do not change global theming or existing routes other than wiring these pages in.
+
+---
+
+### 3.1 Ventures overview page
+
+> **File(s):**
+>
+> * Prefer `client/src/pages/Ventures.tsx` or the existing file used for `/ventures`.
+> * If there is already a Ventures page, update its content instead of creating a duplicate.
+>
+> **Steps:**
+>
+> 1. In the Ventures page file, import and use `PageMeta` the same way it is used in `Process.tsx` and `Studio.tsx`. Set:
+>
+>    ```tsx
+>    <PageMeta
+>      title="Ventures"
+>      description="How Verifiable Systems Group evaluates, funds, and matures ventures from early experiments into governed, verifiable infrastructure."
+>      preloadImage="/hero-texture.png"
+>    />
+>    ```
+> 2. Implement a hero section with:
+>
+>    * Overline: `Ventures at VSG`
+>    * Heading: `Infrastructure-scale ideas, tested as ventures.`
+>    * Body paragraph:
+>      `"We don’t ship random apps. Every venture starts as a tightly scoped hypothesis, moves through a six-stage process, and either graduates into shared infrastructure or is retired with its lessons preserved. This page is the front-door into that portfolio."`
+> 3. Define a `const ventures = [...]` array near the top of the file:
+>
+>    ```ts
+>    const ventures = [
+>      {
+>        name: "Helios",
+>        slug: "helios",
+>        href: "/ventures/helios",
+>        tag: "Internal venture",
+>        stage: "Evolve",
+>        summary:
+>          "VSG’s internal capital engine: a governed system for funding research and infrastructure from our own balance sheet, not client deposits.",
+>      },
+>      {
+>        name: "Stackme",
+>        slug: "stackme",
+>        href: "/ventures/stackme",
+>        tag: "Consumer venture",
+>        stage: "Validate",
+>        summary:
+>          "A consumer experience for safely accessing leverage on verifiable rails, with clear constraints and real-time risk visibility.",
+>      },
+>      {
+>        name: "Lumina",
+>        slug: "lumina",
+>        href: "/ventures/lumina",
+>        tag: "Market infrastructure",
+>        stage: "Build",
+>        summary:
+>          "Digital authenticity and grading rails for unique items, where provenance and condition can be inspected, not guessed.",
+>      },
+>      {
+>        name: "Axiom",
+>        slug: "axiom",
+>        href: "/ventures/axiom",
+>        tag: "In research",
+>        stage: "Define",
+>        summary:
+>          "Early-stage R&D around audit-ready data pipelines and deterministic AI for institutional reporting and controls.",
+>      },
+>    ];
+>    ```
+> 4. Render these ventures as a responsive grid of cards using existing shadcn `Card` components (match imports from other pages):
+>
+>    * Each card should show:
+>
+>      * `name` as the title
+>      * `tag` and `stage` as small labels
+>      * `summary` as body text
+>      * A “Learn more” link using the project’s `Link` component, pointing at `href`.
+> 5. Below the grid, add a section titled `How ventures earn a slot in the portfolio` with:
+>
+>    * One paragraph:
+>      `"We treat portfolio slots as scarce. New ventures compete with existing work for capital, attention, and risk budget. To earn a place here, a venture has to clear three gates:"`
+>    * Then a bullet list:
+>
+>      * `Strategic fit — Does it reinforce our purpose of building verifiable systems and non-custodial rails?`
+>      * `Risk surface — Can we bound the regulatory, operational, and capital risk in a way we’re willing to own?`
+>      * `Evidence of pull — Is there real demand from the institutions or ecosystems we serve, not just internal curiosity?`
+> 6. Add a final section titled `From venture to infrastructure, or clean exit.` with:
+>
+>    * Paragraph:
+>      `"When a venture performs, it doesn’t just “live forever.” It either becomes shared infrastructure with explicit governance, or we archive it on purpose, with its insights folded back into our standards, patterns, and playbooks."`
+>    * A `NextStepBlock` pointing to `/process`:
+>
+>      ```tsx
+>      <NextStepBlock
+>        nextPage="Process"
+>        description="See the six-stage path every venture follows inside VSG."
+>        href="/process"
+>      />
+>      ```
+> 7. Ensure typography, spacing, and container widths match `Process.tsx` and `Standards.tsx`.
+
+---
+
+### 3.2 Helios venture detail page
+
+> **File(s):**
+>
+> * Create `client/src/pages/ventures/Helios.tsx` (or update the existing Helios page if it already exists).
+> * In `client/src/App.tsx`, ensure there is a route mapping `/ventures/helios` to this component. Use the same routing pattern as other pages (e.g. `Studio`, `Process`).
+>
+> **Steps:**
+>
+> 1. Add `PageMeta` at the top of the component:
+>
+>    ```tsx
+>    <PageMeta
+>      title="Helios"
+>      description="Helios is VSG’s internal capital engine — a governed system for funding research, infrastructure, and resilience from our own balance sheet, not client deposits."
+>      preloadImage="/hero-texture.png"
+>    />
+>    ```
+> 2. Implement a hero section with:
+>
+>    * Overline: `Internal venture — capital systems`
+>    * Heading: `Helios: VSG’s internal capital engine.`
+>    * Body paragraph:
+>      `"Helios is how we put our own balance sheet to work. It allocates VSG’s capital into long-term reserve assets and selective borrowing programs so we can fund research, infrastructure, and resilience without ever touching client deposits or offering yield products."`
+> 3. Add a three-column grid (stacked on mobile, `md:grid-cols-3`) with three callouts:
+>
+>    * **Mandate**
+>      `"Fund long-horizon work that would be hard to finance on a quarter-to-quarter budget: deep research, security reviews, infrastructure, and shared tooling across ventures."`
+>    * **What Helios is not**
+>      `"Helios does not pool client funds, accept deposits, run a public fund, or market yield products. It exists solely to manage VSG’s own capital under governed limits."`
+>    * **Where it lives**
+>      `"Helios sits inside VSG’s internal stack alongside our treasury, risk, and engineering functions. It is designed to be explainable to auditors, banking partners, and regulators."`
+> 4. Add a section titled `What Helios makes possible for VSG` with:
+>
+>    * Paragraph:
+>      `"Helios is not about chasing short-term trades. Its job is to make the rest of the portfolio more resilient:"`
+>    * Bullet list:
+>
+>      * `Smoother funding — Provide a buffer so high-value ventures are not shut down solely because external markets are noisy.`
+>      * `Shared infrastructure — Pay for common security, observability, and compliance work that benefits more than one venture.`
+>      * `Real-world stress testing — Let us run controlled, capital-backed experiments on new rails before they touch client-facing systems.`
+> 5. Add a section titled `Governance & risk posture` with:
+>
+>    * Paragraph:
+>      `"Helios operates under explicit limits set by VSG’s governance framework. Capital allocation, reserve policies, and borrowing decisions are reviewed against predefined risk tolerances, with separation between those who propose positions and those who approve them."`
+>    * Optional short bullet points:
+>
+>      * `Conservative by design — Long-term reserve mindset, not high-frequency speculation.`
+>      * `Non-custodial rails — Where we use cryptographic rails, control stays with VSG; Helios never holds client keys.`
+>      * `Audit-ready — Every move is traceable so external reviewers can understand where risk sits and how it is controlled.`
+> 6. Add a section titled `Who Helios matters for` with:
+>
+>    * Paragraph:
+>      `"Most institutions will never interact with Helios directly. It matters because it underwrites the stability of everything else we build."`
+>    * Bullets:
+>
+>      * `Banks & partners — Clear separation between client flows and VSG’s own capital.`
+>      * `Auditors & regulators — A single place to understand how balance-sheet risk is managed.`
+>      * `Customers & ecosystems — Ventures that are less likely to be yanked back or abandoned mid-stream.`
+> 7. Add a `NextStepBlock` at the bottom (pick one of these depending on existing IA):
+>
+>    ```tsx
+>    <NextStepBlock
+>      nextPage="Standards"
+>      description="See the principles that govern how we design, test, and operate capital systems like Helios."
+>      href="/standards"
+>    />
+>    ```
+>
+>    or
+>
+>    ```tsx
+>    <NextStepBlock
+>      nextPage="Contact"
+>      description="If you’re evaluating VSG as a partner, we can share additional details under NDA."
+>      href="/contact"
+>    />
+>    ```
+> 8. Keep styling consistent with `Process.tsx`:
+>
+>    * Use the same container width, vertical spacing, and typography scale.
+>    * No additional experimental colors or components; stick to existing design tokens.
+
+---
+
+If you want, the *next* micro-checkpoint after this can be:
+
+**“Stub in Stackme and Lumina detail pages with high-level, safe copy and match the Helios layout”** — so nothing in the Ventures dropdown ever feels like a dead end.

@@ -19,12 +19,11 @@ export const NAV_ITEMS: NavItem[] = [
     label: "Ventures",
     href: "/ventures",
     children: [
-      { label: "Ventures", href: "/ventures", description: "Our portfolio of institutional-grade ventures" },
-      { label: "Helios", href: "/ventures/helios", description: "AI-powered treasury management" },
-      { label: "Axiom", href: "/ventures/axiom", description: "Decentralized governance infrastructure" },
-      { label: "Stackme", href: "/ventures/stackme", description: "Composable financial primitives" },
-      { label: "Lumina", href: "/ventures/lumina", description: "Privacy-preserving analytics" },
-      { label: "Uniqueness", href: "/ventures/uniqueness", description: "Sybil-resistant identity verification" },
+      { label: "All Ventures", href: "/ventures", description: "Our portfolio of institutional-grade ventures" },
+      { label: "Helios", href: "/ventures/helios", description: "Internal capital engine" },
+      { label: "Stackme", href: "/ventures/stackme", description: "Consumer leverage experience" },
+      { label: "Lumina", href: "/ventures/lumina", description: "Digital authenticity rails" },
+      { label: "Axiom", href: "/ventures/axiom", description: "Deterministic AI for institutions" },
     ],
   },
   {

@@ -1,0 +1,399 @@
+Nice, then you’re in a really good spot.
+
+Right now your spine is:
+
+* ✅ Desktop + mobile nav (cohesive)
+* ✅ Process page (6-stage pipeline, clean, safe)
+* ✅ Ventures overview + Helios (once Replit finishes)
+
+**Next logical step:**
+Finish the **Ventures backbone** so *every* link in the Ventures dropdown lands on a real, on-brand page:
+
+> **Checkpoint – Stackme & Lumina venture detail pages**
+
+I’ll give you:
+
+1. What each page should *say* and how it should feel.
+2. An exact Replit prompt so it can implement both with zero guesswork.
+
+---
+
+## 1. Stackme detail page (`/ventures/stackme`)
+
+### 1.1 Role & tone
+
+* Role: Explain **what Stackme explores** at a high level, without implying it’s a live financial product.
+* Tone: Clear, cautious, consumer-aware; a bit more human than Helios, but still professional.
+
+### 1.2 Content model
+
+Use the same layout pattern as Helios:
+
+* `<PageMeta>`
+* Hero
+* 3-part “The problem / What Stackme explores / What Stackme is not”
+* Section: Principles
+* Section: Where Stackme is today
+* CTA → Ventures or Contact
+
+#### A. `PageMeta`
+
+```tsx
+<PageMeta
+  title="Stackme"
+  description="Stackme is a consumer venture in development that explores how everyday people could interact with leverage on verifiable, non-custodial rails—with clear constraints and real risk visibility."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+#### B. Hero
+
+**Overline:**
+`Consumer venture — leverage experience`
+
+**Heading:**
+`Stackme: exploring safer leverage for everyday people.`
+
+**Body:**
+
+```text
+Stackme is an experimental venture inside VSG. It asks a simple question: if adults are going to use leverage anyway, what would it look like to design that experience with clear guardrails, real-time visibility, and non-custodial rails from day one?
+```
+
+Add a very explicit disclaimer right below the hero paragraph, small text:
+
+```tsx
+<p className="mt-3 text-xs text-muted-foreground">
+  Stackme is an internal venture in development. It is not a live product, does not accept deposits, and is not an offer of credit, investment, or financial services.
+</p>
+```
+
+#### C. 3-column block: problem / explore / not
+
+Grid like Helios (`md:grid-cols-3`).
+
+1. **The problem Stackme studies**
+
+   > Many people interact with leverage through products they don’t fully understand. Fees, risk bands, and liquidation paths are often buried in fine print or hidden in complex interfaces.
+
+2. **What Stackme explores**
+
+   > Stackme prototypes experiences where risk bands, constraints, and downside are front-loaded and machine-readable. The goal is to see whether clearer interfaces and verifiable rails can make hard decisions easier to understand.
+
+3. **What Stackme is not**
+
+   > Stackme is not a broker, bank, or credit issuer. It does not pool client assets, provide investment advice, or market yield. It is a research venture focused on interface patterns and system design.
+
+#### D. Section: Design principles
+
+**Heading:**
+`Design principles behind Stackme`
+
+**Body + bullets:**
+
+```text
+Every prototype we run under the Stackme banner is evaluated against a short list of principles:
+```
+
+Bullets:
+
+* **Clarity first** — Users should be able to describe, in plain language, what they are doing and what could go wrong.
+* **Visible constraints** — Limits, thresholds, and worst-case scenarios are shown, not implied.
+* **Non-custodial by default** — Wherever possible, rails are structured so users and institutions keep key control; the system orchestrates flows, it does not take custody.
+* **Reversible where it matters** — We bias toward flows that can be rolled back or unwound under clear conditions, rather than one-way bets.
+
+#### E. Section: Where Stackme is today
+
+**Heading:**
+`Where Stackme is today`
+
+**Copy:**
+
+```text
+Today, Stackme lives as a collection of internal prototypes and research studies. We use them to test comprehension, risk perception, and behavioural responses to different leverage interfaces. Anything that moves beyond the lab will go through VSG’s standard venture process before it touches production users.
+```
+
+Then a small note:
+
+```tsx
+<p className="mt-3 text-xs text-muted-foreground">
+  Nothing described on this page should be interpreted as a live product, a public roadmap, or an invitation to transact.
+</p>
+```
+
+#### F. CTA
+
+Use `NextStepBlock` to keep people in safe territory:
+
+```tsx
+<NextStepBlock
+  nextPage="Ventures"
+  description="See how Stackme fits alongside other ventures in the VSG portfolio."
+  href="/ventures"
+/>
+```
+
+---
+
+## 2. Lumina detail page (`/ventures/lumina`)
+
+### 2.1 Role & tone
+
+* Role: Show Lumina as **market infrastructure** for authenticity/grading—no hype, no magic AI claims.
+* Tone: Analytical, infrastructure-y; similar to Helios but tuned toward marketplaces / collectibles instead of capital.
+
+### 2.2 Content model
+
+* `<PageMeta>`
+* Hero
+* 3-column “The problem / Lumina’s focus / What Lumina is not”
+* Section: What Lumina makes possible
+* Section: Where Lumina is in the process
+* CTA → Ventures / Process
+
+#### A. `PageMeta`
+
+```tsx
+<PageMeta
+  title="Lumina"
+  description="Lumina is a market-infrastructure venture exploring digital authenticity rails for unique items—so provenance, condition, and risk can be inspected instead of guessed."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+#### B. Hero
+
+**Overline:**
+`Market infrastructure — authenticity systems`
+
+**Heading:**
+`Lumina: digital authenticity rails for unique items.`
+
+**Body:**
+
+```text
+Lumina explores how to turn fragmented signals about authenticity, condition, and risk into something markets can actually use. Instead of relying on screenshots and scattered opinions, we work toward verifiable, machine-readable views of high-value items.
+```
+
+#### C. 3-column: problem / focus / not
+
+1. **The problem Lumina addresses**
+
+   > Authenticity and grading are often slow, opaque, and dependent on a single opinion. For many markets, that creates delays, disputes, and pricing that feels more like guesswork than infrastructure.
+
+2. **Lumina’s focus**
+
+   > Lumina focuses on building rails that can combine human expertise, imaging, and other data into structured signals. The aim is not to replace existing actors, but to give ecosystems better tools to see what they are trading.
+
+3. **What Lumina is not**
+
+   > Lumina is not a marketplace, escrow service, or grading company. It does not hold assets or execute trades. It is an infrastructure venture focused on how authenticity and condition data move between participants.
+
+#### D. Section: What Lumina makes possible
+
+**Heading:**
+`What Lumina makes possible`
+
+**Body + bullets:**
+
+```text
+If we can make authenticity and condition more visible, we can improve more than just pricing:
+```
+
+* **Faster decisions** — Buyers and sellers can see the same structured view of risk without waiting weeks for manual back-and-forth.
+* **Better routing** — Markets, platforms, and services can route items and orders based on verified signals, not just free-text notes.
+* **Shared language** — Different participants can talk about the same item using consistent terms and states instead of bespoke spreadsheets.
+
+#### E. Section: Where Lumina is in the process
+
+**Heading:**
+`Where Lumina is in the process`
+
+**Copy:**
+
+```text
+Lumina is currently in the build and early-validation stages. We are focused on tightly scoped pilots and internal tooling rather than broad public launches. Any expansion into production environments will follow VSG’s venture process and governance standards.
+```
+
+Add a subtle note:
+
+```tsx
+<p className="mt-3 text-xs text-muted-foreground">
+  Nothing on this page should be read as a commitment to support specific assets, marketplaces, or partners. It describes a direction of research, not a live product catalogue.
+</p>
+```
+
+#### F. CTA
+
+Tie back to Ventures or Process:
+
+```tsx
+<NextStepBlock
+  nextPage="Process"
+  description="See how ventures like Lumina move from early research into governed infrastructure."
+  href="/process"
+/>
+```
+
+---
+
+## 3. Exact Replit AI prompt – Stackme & Lumina pages
+
+Here’s the “do exactly this” prompt you can drop into Replit now.
+
+---
+
+**Prompt — Implement Stackme & Lumina Venture Detail Pages**
+
+> **Project:** `Verifiable-Systems-Group` (React + Vite + Tailwind + shadcn/ui, routing via `wouter` in `client/src/App.tsx`).
+>
+> **Goal**
+> Add two venture detail pages at `/ventures/stackme` and `/ventures/lumina` that match the tone and layout of the existing Helios venture page. Both pages must be public-safe: no implementation details, no promises of yield, no suggestion that these are live financial products or marketplaces.
+
+---
+
+### 3.1 Stackme page
+
+> **File(s):**
+>
+> * Create `client/src/pages/ventures/Stackme.tsx` (or update the existing Stackme page if it already exists).
+> * In `client/src/App.tsx`, ensure there is a route mapping `/ventures/stackme` to this component, following the same pattern as the Helios route.
+>
+> **Implementation details:**
+>
+> 1. Add `PageMeta` at the top of the component:
+>
+>    ```tsx
+>    <PageMeta
+>      title="Stackme"
+>      description="Stackme is a consumer venture in development that explores how everyday people could interact with leverage on verifiable, non-custodial rails—with clear constraints and real risk visibility."
+>      preloadImage="/hero-texture.png"
+>    />
+>    ```
+> 2. Implement a hero section with:
+>
+>    * Overline: `Consumer venture — leverage experience`
+>    * Heading: `Stackme: exploring safer leverage for everyday people.`
+>    * Body paragraph:
+>      `"Stackme is an experimental venture inside VSG. It asks a simple question: if adults are going to use leverage anyway, what would it look like to design that experience with clear guardrails, real-time visibility, and non-custodial rails from day one?"`
+>    * Immediately below, add a small disclaimer paragraph:
+>
+>      ```tsx
+>      <p className="mt-3 text-xs text-muted-foreground">
+>        Stackme is an internal venture in development. It is not a live product, does not accept deposits, and is not an offer of credit, investment, or financial services.
+>      </p>
+>      ```
+> 3. Add a three-column grid (stacked on mobile, `md:grid-cols-3`) with three callouts:
+>
+>    * **The problem Stackme studies**
+>      `"Many people interact with leverage through products they don’t fully understand. Fees, risk bands, and liquidation paths are often buried in fine print or hidden in complex interfaces."`
+>    * **What Stackme explores**
+>      `"Stackme prototypes experiences where risk bands, constraints, and downside are front-loaded and machine-readable. The goal is to see whether clearer interfaces and verifiable rails can make hard decisions easier to understand."`
+>    * **What Stackme is not**
+>      `"Stackme is not a broker, bank, or credit issuer. It does not pool client assets, provide investment advice, or market yield. It is a research venture focused on interface patterns and system design."`
+> 4. Add a section titled `Design principles behind Stackme` with:
+>
+>    * Intro paragraph:
+>      `"Every prototype we run under the Stackme banner is evaluated against a short list of principles:"`
+>    * Bullets:
+>
+>      * `Clarity first — Users should be able to describe, in plain language, what they are doing and what could go wrong.`
+>      * `Visible constraints — Limits, thresholds, and worst-case scenarios are shown, not implied.`
+>      * `Non-custodial by default — Wherever possible, rails are structured so users and institutions keep key control; the system orchestrates flows, it does not take custody.`
+>      * `Reversible where it matters — We bias toward flows that can be rolled back or unwound under clear conditions, rather than one-way bets.`
+> 5. Add a section titled `Where Stackme is today` with:
+>
+>    * Paragraph:
+>      `"Today, Stackme lives as a collection of internal prototypes and research studies. We use them to test comprehension, risk perception, and behavioural responses to different leverage interfaces. Anything that moves beyond the lab will go through VSG’s standard venture process before it touches production users."`
+>    * Small note:
+>
+>      ```tsx
+>      <p className="mt-3 text-xs text-muted-foreground">
+>        Nothing described on this page should be interpreted as a live product, a public roadmap, or an invitation to transact.
+>      </p>
+>      ```
+> 6. At the bottom, add a `NextStepBlock`:
+>
+>    ```tsx
+>    <NextStepBlock
+>      nextPage="Ventures"
+>      description="See how Stackme fits alongside other ventures in the VSG portfolio."
+>      href="/ventures"
+>    />
+>    ```
+> 7. Ensure layout, spacing, and typography match the Helios page and other venture pages.
+
+---
+
+### 3.2 Lumina page
+
+> **File(s):**
+>
+> * Create `client/src/pages/ventures/Lumina.tsx` (or update the existing Lumina page).
+> * In `client/src/App.tsx`, ensure there is a route mapping `/ventures/lumina` to this component, consistent with the other venture pages.
+>
+> **Implementation details:**
+>
+> 1. Add `PageMeta`:
+>
+>    ```tsx
+>    <PageMeta
+>      title="Lumina"
+>      description="Lumina is a market-infrastructure venture exploring digital authenticity rails for unique items—so provenance, condition, and risk can be inspected instead of guessed."
+>      preloadImage="/hero-texture.png"
+>    />
+>    ```
+> 2. Implement a hero section with:
+>
+>    * Overline: `Market infrastructure — authenticity systems`
+>    * Heading: `Lumina: digital authenticity rails for unique items.`
+>    * Body:
+>      `"Lumina explores how to turn fragmented signals about authenticity, condition, and risk into something markets can actually use. Instead of relying on screenshots and scattered opinions, we work toward verifiable, machine-readable views of high-value items."`
+> 3. Add a three-column grid with:
+>
+>    * **The problem Lumina addresses**
+>      `"Authenticity and grading are often slow, opaque, and dependent on a single opinion. For many markets, that creates delays, disputes, and pricing that feels more like guesswork than infrastructure."`
+>    * **Lumina’s focus**
+>      `"Lumina focuses on building rails that can combine human expertise, imaging, and other data into structured signals. The aim is not to replace existing actors, but to give ecosystems better tools to see what they are trading."`
+>    * **What Lumina is not**
+>      `"Lumina is not a marketplace, escrow service, or grading company. It does not hold assets or execute trades. It is an infrastructure venture focused on how authenticity and condition data move between participants."`
+> 4. Add a section titled `What Lumina makes possible` with:
+>
+>    * Intro:
+>      `"If we can make authenticity and condition more visible, we can improve more than just pricing:"`
+>    * Bullets:
+>
+>      * `Faster decisions — Buyers and sellers can see the same structured view of risk without waiting weeks for manual back-and-forth.`
+>      * `Better routing — Markets, platforms, and services can route items and orders based on verified signals, not just free-text notes.`
+>      * `Shared language — Different participants can talk about the same item using consistent terms and states instead of bespoke spreadsheets.`
+> 5. Add a section titled `Where Lumina is in the process` with:
+>
+>    * Paragraph:
+>      `"Lumina is currently in the build and early-validation stages. We are focused on tightly scoped pilots and internal tooling rather than broad public launches. Any expansion into production environments will follow VSG’s venture process and governance standards."`
+>    * Small note:
+>
+>      ```tsx
+>      <p className="mt-3 text-xs text-muted-foreground">
+>        Nothing on this page should be read as a commitment to support specific assets, marketplaces, or partners. It describes a direction of research, not a live product catalogue.
+>      </p>
+>      ```
+> 6. Add a `NextStepBlock`:
+>
+>    ```tsx
+>    <NextStepBlock
+>      nextPage="Process"
+>      description="See how ventures like Lumina move from early research into governed infrastructure."
+>      href="/process"
+>    />
+>    ```
+> 7. Keep all styling aligned with existing pages—same containers, spacing, and type scale.
+
+---
+
+Once Replit runs this, your Ventures dropdown will be *fully live*:
+
+* Helios → serious, institutional capital engine
+* Stackme → clearly “in development”, consumer-focused, not a live product
+* Lumina → clearly “infrastructure research”, not a marketplace
+
+After that, the next checkpoint is probably: **Pillars page** (bringing your 3 core pillars from the identity doc onto the site) and then **Purpose / Vision / Mission pages** as separate but linked detail pages. When you’re ready, I can spec those the same way.

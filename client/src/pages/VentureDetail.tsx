@@ -115,7 +115,7 @@ export default function PipelineDetail() {
             <StageChip stage={project.stage} variant={project.stageVariant} />
           </div>
 
-          <p className="text-lg text-primary font-medium mb-3">{project.tagline}</p>
+          <p className="text-lg text-primary font-medium mb-3">{project.tag}</p>
 
           <p className="text-lg text-foreground leading-relaxed max-w-3xl">
             {project.description}

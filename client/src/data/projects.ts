@@ -2,19 +2,20 @@ import type { StageVariant } from "@/components/StageChip";
 export type { StageVariant };
 
 export const STAGES = {
-  DEFINITION: "Strategic Definition",
-  VALIDATION: "Rapid Validation",
-  BUILD: "Verified Build",
-  DEPLOYMENT: "Controlled Deployment",
-  EVOLUTION: "Data-Driven Evolution",
+  DEFINE: "Define",
+  VALIDATE: "Validate",
+  BUILD: "Build",
+  DEPLOY: "Deploy",
+  EVOLVE: "Evolve",
 } as const;
 
 export interface Project {
   slug: string;
   name: string;
+  tag: string;
   stage: string;
   stageVariant: StageVariant;
-  tagline: string;
+  summary: string;
   description: string;
   currentState: string[];
   exploring: string[];
@@ -28,9 +29,10 @@ export const projects: Project[] = [
   {
     slug: "helios",
     name: "Helios",
-    stage: STAGES.DEPLOYMENT,
-    stageVariant: "deployment",
-    tagline: "Preserve Value.",
+    tag: "Internal venture",
+    stage: STAGES.EVOLVE,
+    stageVariant: "evolution",
+    summary: "VSG's internal capital engine: a governed system for funding research and infrastructure from our own balance sheet, not client deposits.",
     description: "Helios is our internal capital engine. It manages VSG's Bitcoin treasury reserve with autonomous monitoring, conservative risk limits, and sub-4ms execution latency. Built to preserve purchasing power over decades, not chase short-term yield.",
     currentState: [
       "v20.0 Production deployed on VSG internal treasury",
@@ -51,48 +53,20 @@ export const projects: Project[] = [
       "No yield products or investment offerings",
     ],
     relatedArticle: "/insights/verification-standard",
-    nextProjectSlug: "axiom",
-  },
-  {
-    slug: "axiom",
-    name: "Axiom",
-    stage: STAGES.VALIDATION,
-    stageVariant: "validation",
-    tagline: "Validate Signal.",
-    description: "Axiom forces AI to be deterministic and source-backed. LLMs are probabilistic—they guess. Axiom constrains them to cite verified data sources, making AI outputs reliable enough for institutional decision-making.",
-    currentState: [
-      "Core RAG architecture functional and tested",
-      "Citation enforcement layer active on all outputs",
-      "Internal deployment for VSG research summaries",
-      "Validation phase: measuring accuracy against baselines",
-    ],
-    exploring: [
-      "Automated fact-verification with confidence scoring",
-      "Integration between Axiom (truth layer) and Helios (value layer)",
-      "Latency optimization for real-time verification",
-      "Domain-specific knowledge graph construction",
-    ],
-    notYet: [
-      "No public API or external access",
-      "Not a general-purpose inference engine",
-      "Restricted to curated domain knowledge only",
-      "No third-party integrations",
-    ],
-    relatedArticle: "/insights/insolvency-of-fiction",
     nextProjectSlug: "stackme",
-    texture: "axiom",
   },
   {
     slug: "stackme",
     name: "Stackme",
-    stage: STAGES.BUILD,
-    stageVariant: "build",
-    tagline: "Bitcoin-Backed Credit.",
+    tag: "Consumer venture",
+    stage: STAGES.VALIDATE,
+    stageVariant: "validation",
+    summary: "A consumer experience for safely accessing leverage on verifiable rails, with clear constraints and real-time risk visibility.",
     description: "A transparent lending interface for borrowing against Bitcoin. Engineered to eliminate hidden risks and predatory terms common in crypto lending, with clear solvency indicators and conservative risk limits.",
     currentState: [
       "Requirements and risk framework complete",
       "Technical architecture defined and reviewed",
-      "Verified build phase in active development",
+      "Validation phase in active development",
       "Security review pipeline established",
     ],
     exploring: [
@@ -112,9 +86,10 @@ export const projects: Project[] = [
   {
     slug: "lumina",
     name: "Lumina",
-    stage: STAGES.DEFINITION,
-    stageVariant: "definition",
-    tagline: "Physical Asset Twins.",
+    tag: "Market infrastructure",
+    stage: STAGES.BUILD,
+    stageVariant: "build",
+    summary: "Digital authenticity and grading rails for unique items, where provenance and condition can be inspected, not guessed.",
     description: "Linking high-value physical items to verifiable digital certificates via optical surface scanning. Creates forgery-proof provenance for trading real-world assets without centralized custody.",
     currentState: [
       "Specification and requirements complete",
@@ -132,36 +107,39 @@ export const projects: Project[] = [
       "No working prototype yet",
       "No instruments or certificates issued",
       "Not accepting asset submissions",
-      "Research phase only",
+      "Build phase only",
     ],
-    nextProjectSlug: "uniqueness-engine",
+    nextProjectSlug: "axiom",
     texture: "lumina",
   },
   {
-    slug: "uniqueness-engine",
-    name: "Uniqueness",
-    stage: STAGES.DEFINITION,
+    slug: "axiom",
+    name: "Axiom",
+    tag: "In research",
+    stage: STAGES.DEFINE,
     stageVariant: "definition",
-    tagline: "Protect Identity.",
-    description: "Validating human uniqueness online without biometric surveillance. A privacy-first layer to prevent Sybil attacks and bot spam while ensuring fair access to digital services.",
+    summary: "Early-stage R&D around audit-ready data pipelines and deterministic AI for institutional reporting and controls.",
+    description: "Axiom forces AI to be deterministic and source-backed. LLMs are probabilistic—they guess. Axiom constrains them to cite verified data sources, making AI outputs reliable enough for institutional decision-making.",
     currentState: [
       "Research and requirements phase active",
-      "Surveying existing identity approaches",
-      "Defining privacy and security requirements",
-      "Establishing success criteria and threat model",
+      "Surveying existing approaches",
+      "Defining accuracy and compliance requirements",
+      "Establishing success criteria",
     ],
     exploring: [
-      "Zero-knowledge uniqueness proofs",
-      "Cost-of-forgery economic signals",
-      "Minimal footprint identity attestations",
-      "Decentralized verification models",
+      "Automated fact-verification with confidence scoring",
+      "Citation enforcement for all AI outputs",
+      "Domain-specific knowledge graph construction",
+      "Latency optimization for real-time verification",
     ],
     notYet: [
-      "No prototype or proof-of-concept",
-      "No defined technical architecture",
-      "Not integrated with other VSG projects",
+      "No public API or external access",
+      "Not a general-purpose inference engine",
+      "Restricted to curated domain knowledge only",
       "Pure research phase",
     ],
+    relatedArticle: "/insights/insolvency-of-fiction",
+    texture: "axiom",
   },
 ];
 
