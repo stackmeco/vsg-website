@@ -210,7 +210,7 @@ export default function PipelineDetail() {
           <NextStepBlock
             nextPage="Standards"
             description="Learn about our governance and compliance framework."
-            href="/standards"
+            href="/approach/standards"
           />
         )}
       </div>
