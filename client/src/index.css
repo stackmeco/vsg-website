@@ -234,10 +234,37 @@
      NOT by color classes. Removed the forced text-sm on .text-muted-foreground as it was
      overriding all intentional sizing and breaking the typography hierarchy. */
 
-  /* 5. LABELS (The "Tiny" Text) */
-  /* Used for "SYSTEM STATUS" type labels */
+  /* 5. SEMANTIC TYPOGRAPHY CLASSES */
+  /* These enforce the design system's type hierarchy */
+  
+  /* Eyebrow: 12px uppercase tracked - ONLY for section labels */
+  .type-eyebrow {
+    @apply text-eyebrow font-mono uppercase text-muted-foreground;
+  }
+  
+  /* Telemetry: 12px - ONLY for clocks, timestamps, technical data */
+  .type-telemetry {
+    @apply text-telemetry font-mono tabular-nums text-muted-foreground;
+  }
+  
+  /* Caption: 13px - Minimum for readable text (descriptions, metadata) */
+  .type-caption {
+    @apply text-caption text-muted-foreground;
+  }
+  
+  /* Body: 14px - Standard body text */
+  .type-body {
+    @apply text-body text-foreground leading-relaxed;
+  }
+  
+  /* Body Large: 16px - Prominent paragraphs */
+  .type-body-lg {
+    @apply text-body-lg text-foreground leading-relaxed;
+  }
+  
+  /* Legacy label class (updated to use semantic token) */
   .text-label {
-    @apply text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground/70;
+    @apply text-eyebrow font-mono uppercase text-muted-foreground/70;
   }
 
   /* 6. DATA & NUMBERS */

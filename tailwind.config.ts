@@ -83,7 +83,27 @@ export default {
         },
       },
       fontSize: {
-        "xs": ["0.8rem", { lineHeight: "1.4" }],
+        /* ===== SEMANTIC TYPOGRAPHY TOKENS ===== */
+        /* These enforce the design system's minimum sizes */
+        
+        /* Telemetry: 12px - ONLY for clocks, timestamps, kbd shortcuts */
+        "telemetry": ["0.75rem", { lineHeight: "1.4", letterSpacing: "0.02em" }],
+        
+        /* Eyebrow: 12px - ONLY for uppercase tracked labels */
+        "eyebrow": ["0.75rem", { lineHeight: "1.4", letterSpacing: "0.1em" }],
+        
+        /* Caption: 13px - Minimum readable size for descriptions, metadata */
+        "caption": ["0.8125rem", { lineHeight: "1.5" }],
+        
+        /* Body: 14px - Primary body text */
+        "body": ["0.875rem", { lineHeight: "1.6" }],
+        
+        /* Body Large: 16px - Prominent paragraphs */
+        "body-lg": ["1rem", { lineHeight: "1.65" }],
+        
+        /* ===== LEGACY UTILITIES (mapped to semantic equivalents) ===== */
+        /* xs is mapped to caption (13px) to prevent 12px body text */
+        "xs": ["0.8125rem", { lineHeight: "1.5" }],
         "sm": ["0.875rem", { lineHeight: "1.5" }],
         "base": ["1rem", { lineHeight: "1.6" }],
         "lg": ["1.125rem", { lineHeight: "1.5" }],
