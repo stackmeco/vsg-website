@@ -2,9 +2,7 @@ import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
-import { ValueCard } from "@/components/ValueCard";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Eye, Shield, Cog, Users, Scale, Target, Compass, Flag } from "lucide-react";
 import { pillars, pvm, values } from "@/data/studio";
 
@@ -70,7 +68,7 @@ export default function Studio() {
       </section>
 
       {/* Who We Are */}
-      <section className="py-20 bg-card" data-testid="section-who-we-are">
+      <section className="py-20" data-testid="section-who-we-are">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
@@ -111,8 +109,10 @@ export default function Studio() {
                 data-testid={`card-pillar-${pillar.id}`}
               >
                 <CardContent className="flex flex-col h-full p-6">
-                  <div className="flex items-start gap-3 mb-3 h-8">
-                    {pillarIcons[pillar.id]}
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-8 rounded-[2px] bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                      {pillarIcons[pillar.id]}
+                    </div>
                     <h3 className="font-heading font-semibold text-foreground">
                       {pillar.name}
                     </h3>
@@ -120,15 +120,13 @@ export default function Studio() {
                   <p className="flex-1 text-sm text-muted-foreground leading-relaxed mb-4">
                     {pillar.description}
                   </p>
-                  <Link href={pillar.href}>
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="p-0 h-auto text-primary hover:text-primary/80 gap-1"
+                  <Link href={pillar.href} className="mt-auto">
+                    <span 
+                      className="text-xs font-mono uppercase tracking-widest text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
                       data-testid={`button-learn-pillar-${pillar.id}`}
                     >
                       Learn more <ArrowRight className="w-3 h-3" />
-                    </Button>
+                    </span>
                   </Link>
                 </CardContent>
               </Card>
@@ -138,7 +136,7 @@ export default function Studio() {
       </section>
 
       {/* Purpose, Vision, Mission */}
-      <section className="py-20 bg-card" data-testid="section-pvm">
+      <section className="py-20" data-testid="section-pvm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
@@ -151,29 +149,33 @@ export default function Studio() {
           
           <div className="grid md:grid-cols-3 gap-6">
             {pvm.map((item) => (
-              <Link 
-                key={item.id} 
-                href={item.href}
-                className="group"
-                data-testid={`link-read-${item.id}`}
+              <Card 
+                key={item.id}
+                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-pvm-${item.id}`}
               >
-                <Card className="flex flex-col h-full bg-background border-border group-hover:border-primary/30 transition-colors duration-150 ease-mechanical">
-                  <CardContent className="flex flex-col h-full p-6">
-                    <div className="flex items-start gap-3 mb-3 h-8">
+                <CardContent className="flex flex-col h-full p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-8 rounded-[2px] bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
                       {pvmIcons[item.id]}
-                      <p className="text-sm font-mono uppercase tracking-widest text-primary">
-                        {item.label}
-                      </p>
                     </div>
-                    <p className="flex-1 text-sm text-muted-foreground leading-relaxed mb-4">
-                      {item.tldr}
-                    </p>
-                    <span className="text-sm text-muted-foreground group-hover:text-primary transition-colors flex items-center gap-1">
-                      Read more <ArrowRight className="w-3 h-3" />
+                    <h3 className="font-heading font-semibold text-foreground">
+                      {item.label}
+                    </h3>
+                  </div>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed mb-4">
+                    {item.tldr}
+                  </p>
+                  <Link href={item.href} className="mt-auto">
+                    <span 
+                      className="text-xs font-mono uppercase tracking-widest text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
+                      data-testid={`link-learn-${item.id}`}
+                    >
+                      Learn more <ArrowRight className="w-3 h-3" />
                     </span>
-                  </CardContent>
-                </Card>
-              </Link>
+                  </Link>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -193,12 +195,25 @@ export default function Studio() {
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((value) => (
-              <ValueCard
+              <Card 
                 key={value.id}
-                title={value.shortName}
-                description={value.description}
-                icon={valueIcons[value.id]}
-              />
+                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-value-${value.id}`}
+              >
+                <CardContent className="flex flex-col h-full p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-8 rounded-[2px] bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                      {valueIcons[value.id]}
+                    </div>
+                    <h3 className="font-heading font-semibold text-foreground">
+                      {value.shortName}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {value.description}
+                  </p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
