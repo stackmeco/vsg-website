@@ -7,15 +7,15 @@ import { ArrowRight, Zap, Eye, Shield, Cog, Users, Scale, Target, Compass, Flag 
 import { pillars, pvm, values } from "@/data/studio";
 
 const pillarIcons: Record<string, JSX.Element> = {
-  "validate-signal": <Eye className="w-5 h-5" />,
-  "preserve-value": <Shield className="w-5 h-5" />,
-  "protect-identity": <Cog className="w-5 h-5" />,
+  "validate-signal": <Eye className="w-4 h-4" />,
+  "preserve-value": <Shield className="w-4 h-4" />,
+  "protect-identity": <Cog className="w-4 h-4" />,
 };
 
 const pvmIcons: Record<string, JSX.Element> = {
-  "purpose": <Target className="w-5 h-5" />,
-  "vision": <Compass className="w-5 h-5" />,
-  "mission": <Flag className="w-5 h-5" />,
+  "purpose": <Target className="w-4 h-4" />,
+  "vision": <Compass className="w-4 h-4" />,
+  "mission": <Flag className="w-4 h-4" />,
 };
 
 const valueIcons: Record<string, JSX.Element> = {
@@ -57,7 +57,7 @@ export default function Studio() {
             <p className="text-sm font-mono uppercase tracking-widest text-primary mb-6">
               About
             </p>
-            <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6">
               The infrastructure of autonomy.
             </h1>
             <p className="text-lg text-foreground leading-relaxed">
@@ -70,7 +70,7 @@ export default function Studio() {
       {/* Who We Are */}
       <section className="py-20" data-testid="section-who-we-are">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Who we are
             </p>
@@ -90,9 +90,9 @@ export default function Studio() {
       </section>
 
       {/* Three Pillars */}
-      <section className="py-20" data-testid="section-pillars">
+      <section className="py-20 bg-card" data-testid="section-pillars">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Three pillars
             </p>
@@ -105,14 +105,14 @@ export default function Studio() {
             {pillars.map((pillar) => (
               <Card 
                 key={pillar.id} 
-                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
                 data-testid={`card-pillar-${pillar.id}`}
               >
                 <CardContent className="flex flex-col h-full p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 rounded-[2px] bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                  <div className="flex items-start gap-3 mb-3 h-8">
+                    <span className="text-primary mt-0.5 flex-shrink-0">
                       {pillarIcons[pillar.id]}
-                    </div>
+                    </span>
                     <h3 className="font-heading font-semibold text-foreground">
                       {pillar.name}
                     </h3>
@@ -138,7 +138,7 @@ export default function Studio() {
       {/* Purpose, Vision, Mission */}
       <section className="py-20" data-testid="section-pvm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Foundation
             </p>
@@ -155,10 +155,10 @@ export default function Studio() {
                 data-testid={`card-pvm-${item.id}`}
               >
                 <CardContent className="flex flex-col h-full p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 rounded-[2px] bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                  <div className="flex items-start gap-3 mb-3 h-8">
+                    <span className="text-primary mt-0.5 flex-shrink-0">
                       {pvmIcons[item.id]}
-                    </div>
+                    </span>
                     <h3 className="font-heading font-semibold text-foreground">
                       {item.label}
                     </h3>
@@ -182,9 +182,9 @@ export default function Studio() {
       </section>
 
       {/* Our Values */}
-      <section className="py-20" data-testid="section-values">
+      <section className="py-20 bg-card" data-testid="section-values">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Operating principles
             </p>
@@ -197,18 +197,16 @@ export default function Studio() {
             {values.map((value) => (
               <Card 
                 key={value.id}
-                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
                 data-testid={`card-value-${value.id}`}
               >
                 <CardContent className="flex flex-col h-full p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 rounded-[2px] bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-                      {valueIcons[value.id]}
-                    </div>
-                    <h3 className="font-heading font-semibold text-foreground">
-                      {value.shortName}
-                    </h3>
+                  <div className="w-8 h-8 rounded-[2px] bg-primary/10 flex items-center justify-center text-primary mb-3">
+                    {valueIcons[value.id]}
                   </div>
+                  <h3 className="font-heading font-semibold text-base text-foreground mb-2">
+                    {value.shortName}
+                  </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {value.description}
                   </p>

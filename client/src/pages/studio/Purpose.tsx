@@ -35,7 +35,7 @@ export default function Purpose() {
             <p className="text-sm font-mono uppercase tracking-widest text-primary mb-6">
               Studio
             </p>
-            <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6">
               Our Purpose
             </h1>
             <p className="text-lg text-foreground leading-relaxed">
@@ -48,7 +48,7 @@ export default function Purpose() {
       {/* Why This Exists */}
       <section className="py-20 bg-card" data-testid="section-why">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Why this exists
             </p>
@@ -70,7 +70,7 @@ export default function Purpose() {
       {/* What This Rules Out */}
       <section className="py-20" data-testid="section-rules-out">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               What this purpose rules out
             </p>
@@ -79,16 +79,21 @@ export default function Purpose() {
             </h2>
           </div>
           
-          <div className="max-w-3xl space-y-3">
+          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
             {purposeRulesOut.map((rule, index) => (
-              <div 
+              <Card 
                 key={index} 
-                className="flex items-start gap-3"
-                data-testid={`text-rule-${index}`}
+                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-rule-${index}`}
               >
-                <X className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
-                <span className="text-sm text-muted-foreground leading-relaxed">{rule}</span>
-              </div>
+                <CardContent className="flex flex-col h-full p-6">
+                  <div className="flex items-start gap-3 mb-3 h-8">
+                    <X className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                    <h3 className="font-heading font-semibold text-foreground">Excluded</h3>
+                  </div>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{rule}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -97,7 +102,7 @@ export default function Purpose() {
       {/* How It Guides Decisions */}
       <section className="py-20 bg-card" data-testid="section-heuristics">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               How it guides decisions
             </p>
@@ -110,12 +115,15 @@ export default function Purpose() {
             {purposeHeuristics.map((heuristic, index) => (
               <Card 
                 key={index} 
-                className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
                 data-testid={`card-heuristic-${index}`}
               >
-                <CardContent className="p-6 flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-muted-foreground leading-relaxed">{heuristic}</span>
+                <CardContent className="flex flex-col h-full p-6">
+                  <div className="flex items-start gap-3 mb-3 h-8">
+                    <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <h3 className="font-heading font-semibold text-foreground">Guideline</h3>
+                  </div>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{heuristic}</p>
                 </CardContent>
               </Card>
             ))}

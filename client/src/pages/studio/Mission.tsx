@@ -9,9 +9,9 @@ import { ArrowRight, Eye, Shield, Cog, Cpu, Lock, GitBranch } from "lucide-react
 import { pillarsInPractice, executionPrinciples } from "@/data/studio";
 
 const pillarIcons: Record<string, JSX.Element> = {
-  "validate-signal": <Eye className="w-5 h-5" />,
-  "preserve-value": <Shield className="w-5 h-5" />,
-  "protect-identity": <Cog className="w-5 h-5" />,
+  "validate-signal": <Eye className="w-4 h-4" />,
+  "preserve-value": <Shield className="w-4 h-4" />,
+  "protect-identity": <Cog className="w-4 h-4" />,
 };
 
 const executionIcons: Record<string, JSX.Element> = {
@@ -50,7 +50,7 @@ export default function Mission() {
             <p className="text-sm font-mono uppercase tracking-widest text-primary mb-6">
               Studio
             </p>
-            <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6">
               Our Mission
             </h1>
             <p className="text-lg text-foreground leading-relaxed">
@@ -63,7 +63,7 @@ export default function Mission() {
       {/* What We Do Now */}
       <section className="py-20 bg-card" data-testid="section-what-we-do">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               What we do now
             </p>
@@ -85,7 +85,7 @@ export default function Mission() {
       {/* Three Pillars in Practice */}
       <section className="py-20" data-testid="section-pillars-practice">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Three pillars in practice
             </p>
@@ -103,7 +103,9 @@ export default function Mission() {
               >
                 <CardContent className="flex flex-col h-full p-6">
                   <div className="flex items-start gap-3 mb-3 h-8">
-                    {pillarIcons[pillar.id]}
+                    <span className="text-primary mt-0.5 flex-shrink-0">
+                      {pillarIcons[pillar.id]}
+                    </span>
                     <p className="text-sm font-mono uppercase tracking-widest text-primary">
                       {pillar.name}
                     </p>
@@ -114,14 +116,14 @@ export default function Mission() {
                   <p className="flex-1 text-sm text-muted-foreground leading-relaxed mb-4">
                     {pillar.description}
                   </p>
-                  <Link href={pillar.href}>
+                  <Link href={pillar.href} className="mt-auto">
                     <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="p-0 h-auto text-primary hover:text-primary/80 gap-1"
+                      variant="ghost"
+                      size="sm"
+                      className="h-8 px-0 font-mono text-xs uppercase tracking-widest text-primary hover:text-primary/80 hover:bg-transparent"
                       data-testid={`button-explore-${pillar.project.toLowerCase()}`}
                     >
-                      Explore {pillar.project} <ArrowRight className="w-3 h-3" />
+                      Explore {pillar.project} <ArrowRight className="w-3 h-3 ml-1" />
                     </Button>
                   </Link>
                 </CardContent>
@@ -134,7 +136,7 @@ export default function Mission() {
       {/* How We Execute */}
       <section className="py-20 bg-card" data-testid="section-how-execute">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               How we execute
             </p>
@@ -150,6 +152,7 @@ export default function Mission() {
                 title={principle.name}
                 description={principle.description}
                 icon={executionIcons[principle.id]}
+                className="bg-background"
               />
             ))}
           </div>

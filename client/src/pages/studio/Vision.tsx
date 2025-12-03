@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
-import { AlertTriangle, Sparkles, Trophy } from "lucide-react";
+import { AlertTriangle, Sparkles, Trophy, Check } from "lucide-react";
 import { visionBroken, visionFuture, visionSuccess } from "@/data/studio";
 
 export default function Vision() {
@@ -35,7 +35,7 @@ export default function Vision() {
             <p className="text-sm font-mono uppercase tracking-widest text-primary mb-6">
               Studio
             </p>
-            <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6">
               Our Vision
             </h1>
             <p className="text-lg text-foreground leading-relaxed">
@@ -48,7 +48,7 @@ export default function Vision() {
       {/* What's Broken Today */}
       <section className="py-20 bg-card" data-testid="section-broken">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <div className="flex items-center gap-3 mb-2">
               <AlertTriangle className="w-5 h-5 text-destructive" />
               <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground">
@@ -60,15 +60,21 @@ export default function Vision() {
             </h2>
           </div>
           
-          <div className="max-w-3xl space-y-3">
+          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
             {visionBroken.map((item, index) => (
-              <div 
+              <Card 
                 key={index} 
-                className="pl-4 border-l-2 border-destructive/30"
-                data-testid={`text-broken-${index}`}
+                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-broken-${index}`}
               >
-                <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
-              </div>
+                <CardContent className="flex flex-col h-full p-6">
+                  <div className="flex items-start gap-3 mb-3 h-8">
+                    <AlertTriangle className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                    <h3 className="font-heading font-semibold text-foreground">Problem</h3>
+                  </div>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{item}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -77,7 +83,7 @@ export default function Vision() {
       {/* The Future We're Building */}
       <section className="py-20" data-testid="section-future">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <div className="flex items-center gap-3 mb-2">
               <Sparkles className="w-5 h-5 text-primary" />
               <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground">
@@ -93,11 +99,15 @@ export default function Vision() {
             {visionFuture.map((item, index) => (
               <Card 
                 key={index} 
-                className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
                 data-testid={`card-future-${index}`}
               >
-                <CardContent className="p-6">
-                  <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
+                <CardContent className="flex flex-col h-full p-6">
+                  <div className="flex items-start gap-3 mb-3 h-8">
+                    <Sparkles className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <h3 className="font-heading font-semibold text-foreground">Solution</h3>
+                  </div>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{item}</p>
                 </CardContent>
               </Card>
             ))}
@@ -108,7 +118,7 @@ export default function Vision() {
       {/* What Success Looks Like */}
       <section className="py-20 bg-card" data-testid="section-success">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <div className="flex items-center gap-3 mb-2">
               <Trophy className="w-5 h-5 text-primary" />
               <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground">
@@ -120,15 +130,21 @@ export default function Vision() {
             </h2>
           </div>
           
-          <div className="max-w-3xl space-y-3">
+          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
             {visionSuccess.map((item, index) => (
-              <div 
+              <Card 
                 key={index} 
-                className="pl-4 border-l-2 border-primary/30"
-                data-testid={`text-success-${index}`}
+                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-success-${index}`}
               >
-                <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
-              </div>
+                <CardContent className="flex flex-col h-full p-6">
+                  <div className="flex items-start gap-3 mb-3 h-8">
+                    <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <h3 className="font-heading font-semibold text-foreground">Outcome</h3>
+                  </div>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{item}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
