@@ -1,0 +1,112 @@
+You are updating the Studio section of this Verifiable Systems Group (VSG) site.
+
+Goal: Implement the **Studio** overview page and the deep **Purpose / Vision / Mission** pages with REAL content from our brand identity. Keep everything visually consistent with the existing design system and make the copy highly scannable on web and mobile.
+
+Important:
+- The global nav and routes from Checkpoint 1 are already set up. DO NOT change the nav structure or routes.
+- Use the existing layout / header / footer / typography. DO NOT introduce a new visual style.
+
+### 1. Content & UX rules (very important)
+
+Follow modern web UX and writing best practices:
+- Short paragraphs (ideally 2–3 lines on mobile).
+- Clear headings and subheadings.
+- Bulleted lists where appropriate for scanning.
+- No long, unbroken text blocks. 
+- Use progressive disclosure: the overview page is lighter; the deep pages hold more detail. 
+
+### 2. Implement `/studio` (Studio overview page)
+
+Route: `/studio`
+
+Structure:
+
+- Hero section:
+  - H1: “The infrastructure of autonomy.”
+  - Subhead: 1–2 sentences explaining VSG as an AI-native, non-custodial finance R&D studio.
+
+- Section: “Who we are”
+  - Short paragraph explaining what VSG is and what we focus on.
+
+- Section: “Three pillars”
+  - Three mini-blocks for:
+    - Validate Signal
+    - Preserve Value
+    - Protect Identity
+  - Each: name + 1–2 sentence description + link to `/approach/pillars`.
+
+- Section: “Purpose, Vision, Mission”
+  - Three mini-blocks:
+    - Purpose – TL;DR line + link to `/studio/purpose`
+    - Vision – TL;DR line + link to `/studio/vision`
+    - Mission – TL;DR line + link to `/studio/mission`
+
+- Section: “Our values”
+  - Grid of 4–6 tiles:
+    - Intelligence-Augmented, Human-Accountable
+    - Seek the Signal
+    - Engineered Ambition
+    - Own the Engine
+    - Value is a Mirror
+    - Force Multiplier
+  - Each tile: value name + 1–2 sentence description.
+
+Use existing card/section components for these tiles so the page matches the site’s overall look.
+
+### 3. Implement `/studio/purpose`
+
+Route: `/studio/purpose`
+
+Structure:
+
+- H1: “Our Purpose”
+- TL;DR line at the top (one sentence).
+- Section 1: “Why this exists”
+  - 1–2 short paragraphs.
+- Section 2: “What this purpose rules out”
+  - Bulleted list of things we explicitly don’t do.
+- Section 3: “How it guides decisions”
+  - A few “When in doubt…” heuristics as bullets.
+
+### 4. Implement `/studio/vision`
+
+Route: `/studio/vision`
+
+Structure:
+
+- H1: “Our Vision”
+- TL;DR line at the top.
+- Section 1: “What’s broken today”
+- Section 2: “The future we’re building toward”
+- Section 3: “What success looks like”
+  - Each section: 1–2 short paragraphs, max.
+
+### 5. Implement `/studio/mission`
+
+Route: `/studio/mission`
+
+Structure:
+
+- H1: “Our Mission”
+- TL;DR line at the top.
+- Section 1: “What we do now”
+- Section 2: “Three pillars in practice”
+- Section 3: “How we execute”
+  - Explain AI-native, non-custodial rails, six-stage process, internal capital first, etc.
+
+### 6. Implementation details
+
+- Keep headings and spacing consistent with existing pages.
+- Reuse shared layout components (e.g. main layout, section wrappers).
+- DO NOT modify the nav or footer.
+- DO NOT create new color schemes or typography tokens; use what already exists.
+
+### 7. Content to use
+
+In my NEXT MESSAGE I will paste the exact copy for:
+- `/studio` sections
+- `/studio/purpose`
+- `/studio/vision`
+- `/studio/mission`
+
+Set up the page structures first, then use the copy I provide verbatim (minor formatting/JSX adjustments only).
