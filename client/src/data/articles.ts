@@ -12,7 +12,7 @@ export interface LibraryItem {
 export const articles: LibraryItem[] = [
   {
     title: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate",
-    excerpt: "In creative writing, variance is a feature. In automated treasury management, it is a felony. We analyze the friction between probabilistic models and deterministic settlement.",
+    excerpt: "Creative writing thrives on variance. Treasury management demands precision. Why probabilistic models are structurally unfit for finance without a deterministic governor.",
     date: "Dec 15, 2025",
     type: "Insight",
     tags: ["AI Safety", "Determinism", "Infrastructure"],
@@ -20,15 +20,15 @@ export const articles: LibraryItem[] = [
   },
   {
     title: "The Verification Standard: Charting the Great Reallocation",
-    excerpt: "Our thesis on fiscal dominance, Bitcoin as verified scarcity, and the multi-decade capital migration from depreciating fiat to appreciating hard assets.",
+    excerpt: "Fiscal dominance is no longer a theory; it is arithmetic. We map the multi-decade migration of capital from depreciating fiat ledgers to verifiable, on-chain bearer assets.",
     date: "Nov 26, 2025",
     type: "Insight",
     tags: ["Bitcoin", "Macro", "Thesis"],
     slug: "verification-standard",
   },
   {
-    title: "Machine-Native Settlement: Why AI Agents Will Reject Legacy Banking",
-    excerpt: "Autonomous software requires financial rails that operate with the same deterministic logic as the code itself. We analyze the friction between legacy banking and the emerging machine economy.",
+    title: "Machine-Native Settlement: Why AI Agents Reject Legacy Banking",
+    excerpt: "AI operates in milliseconds. Banking operates in days. Why the autonomous economy is physically incompatible with legacy rails—and why bearer assets are the only solution.",
     date: "Oct 18, 2025",
     type: "Insight",
     tags: ["AI Agents", "Bitcoin", "Infrastructure"],

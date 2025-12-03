@@ -24,28 +24,33 @@ const definitions = [
 const stages = [
   { 
     name: "Strategic Definition", 
-    focus: "Why before How",
-    description: "We start with the problem, not the technology. Before any code is written, we validate the business case and define measurable success criteria." 
+    focus: "Alignment & ROI",
+    description: "We start with the problem, not the code. We verify the 'Why' before writing a single line." 
   },
   { 
     name: "Rapid Validation", 
-    focus: "Risk Reduction",
-    description: "Prove viability before building. We use rapid prototyping to test assumptions early—reducing the cost of failure and focusing resources on what works." 
+    focus: "Risk Mitigation",
+    description: "We prove the concept early. Risk is best managed before the build using rapid prototyping." 
   },
   { 
-    name: "Verified Build", 
-    focus: "Security First",
-    description: "Engineering with continuous checks. Automated testing verifies system integrity throughout the build, making security and stability foundational, not afterthoughts." 
+    name: "The Verified Build", 
+    focus: "Security & Stability",
+    description: "Engineering with automated safeguards. We build in iterative cycles with continuous verification." 
   },
   { 
     name: "Controlled Deployment", 
-    focus: "Incremental Release",
-    description: "No big-bang releases. Features roll out in stages, validated under real-world conditions before reaching all users." 
+    focus: "Reliability",
+    description: "Zero-downtime staged rollouts. No 'big bang' releases. Features deploy incrementally." 
   },
   { 
-    name: "Continuous Evolution", 
-    focus: "Data-Driven Iteration",
-    description: "Launch is the beginning. We monitor performance and refine continuously based on real usage data." 
+    name: "Data-Driven Evolution", 
+    focus: "Optimization",
+    description: "Launch is just the start. We aggressively monitor performance to refine efficiency based on real usage data." 
+  },
+  { 
+    name: "Recursive Learning", 
+    focus: "Institutional Wisdom",
+    description: "We treat failure as high-value signal. Every anomaly triggers a mandatory post-mortem. We feed these lessons back into the system root, ensuring we never make the same mistake twice." 
   },
 ];
 
@@ -162,7 +167,7 @@ export default function Process() {
               Powered by Bitcoin
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-6">
-              Our treasury is built on Bitcoin. When conditions are favorable, we borrow against a portion of our holdings using trusted, non-custodial lending venues. The proceeds either:
+              Bitcoin serves as our reserve asset. We utilize responsible, over-collateralized borrowing to fund innovation without selling our long-term position.
             </p>
             <ul className="space-y-3 mb-6 text-base">
               <li className="flex items-start gap-3 text-foreground">
