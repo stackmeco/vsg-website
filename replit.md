@@ -66,6 +66,14 @@ Key files:
 - **All pages**: Use preloadImage="/hero-texture.png" to prevent texture flash
 - **ErrorBoundary**: Wrapped main content in Layout for graceful error recovery
 
+### Process Page Enterprise Content Update (December 2025)
+- **Hero section**: Updated with overline "How ventures move inside VSG", heading "A six-stage runway for verifiable ventures."
+- **Six-stage pipeline**: Define, Validate, Build, Deploy, Evolve, Recurse with enterprise-scannable copy
+- **Definitions section**: Verifiable Systems, Deterministic AI, Non-custodial Rails (replaced Digital Bearer Assets)
+- **Capital Strategy**: Safe, clear messaging about Bitcoin reserve with explicit internal treasury disclaimer
+- **Standards.tsx fix**: NextStepBlock now correctly points to /insights (was /library 404)
+- **Navigation styling**: Desktop nav links now use font-heading font-semibold (matches logo) instead of font-mono uppercase
+
 ### Theme & Design Updates (December 2025)
 - **Dark-only theme**: Site enforces dark mode only (user preference)
 - **Process page**: Fixed definition card alignment with fixed icon heights
