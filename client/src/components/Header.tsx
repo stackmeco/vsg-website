@@ -41,47 +41,58 @@ function DesktopNavLink({ item, isActive }: { item: NavItem; isActive: boolean }
   return null;
 }
 
-function DropdownNavItem({ item, currentPath }: { item: NavItem; currentPath: string }) {
+function DropdownNavItem({ 
+  item, 
+  currentPath,
+  isFirst = false,
+  isLast = false
+}: { 
+  item: NavItem; 
+  currentPath: string;
+  isFirst?: boolean;
+  isLast?: boolean;
+}) {
   const isActive = isPathActive(currentPath, item.href);
   
   return (
     <NavigationMenuItem>
       <NavigationMenuTrigger 
         className={cn(
-          "px-3 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150 rounded-[2px] border border-transparent bg-transparent",
+          "px-4 py-2 text-sm font-mono uppercase tracking-widest transition-all duration-150 bg-transparent border-t border-b border-transparent",
+          "data-[state=open]:bg-popover data-[state=open]:border-border data-[state=open]:border-t data-[state=open]:border-b",
+          isFirst && "border-l data-[state=open]:border-l data-[state=open]:rounded-tl-[2px]",
+          isLast && "border-r data-[state=open]:border-r data-[state=open]:rounded-tr-[2px]",
           isActive
-            ? "text-primary bg-primary/10 border-primary/20"
-            : "text-muted-foreground hover:text-foreground hover:bg-card/80 hover:border-primary/30 data-[state=open]:bg-card/80"
+            ? "text-primary"
+            : "text-muted-foreground hover:text-foreground"
         )}
         data-testid={`nav-${item.label.toLowerCase()}`}
       >
         {item.label}
       </NavigationMenuTrigger>
       <NavigationMenuContent>
-        <ul className="grid w-[280px] gap-0.5 p-2">
+        <div className="p-2">
           {item.children?.map((child) => (
-            <li key={child.href}>
-              <NavigationMenuLink asChild>
-                <Link
-                  href={child.href}
-                  className={cn(
-                    "block select-none rounded-[2px] p-3 leading-none no-underline outline-none transition-colors duration-150",
-                    "hover:bg-secondary focus:bg-secondary",
-                    currentPath === child.href && "bg-primary/10 text-primary"
-                  )}
-                  data-testid={`nav-dropdown-${child.label.toLowerCase().replace(/\s+/g, "-")}`}
-                >
-                  <div className="text-sm font-medium leading-none mb-1.5 text-foreground">{child.label}</div>
-                  {child.description && (
-                    <p className="line-clamp-2 text-caption leading-snug text-muted-foreground">
-                      {child.description}
-                    </p>
-                  )}
-                </Link>
-              </NavigationMenuLink>
-            </li>
+            <NavigationMenuLink key={child.href} asChild>
+              <Link
+                href={child.href}
+                className={cn(
+                  "block select-none rounded-[2px] p-3 leading-none no-underline outline-none transition-colors duration-150",
+                  "hover:bg-secondary focus:bg-secondary",
+                  currentPath === child.href && "bg-primary/10 text-primary"
+                )}
+                data-testid={`nav-dropdown-${child.label.toLowerCase().replace(/\s+/g, "-")}`}
+              >
+                <div className="text-sm font-medium leading-none mb-1.5 text-foreground">{child.label}</div>
+                {child.description && (
+                  <p className="line-clamp-2 text-caption leading-snug text-muted-foreground">
+                    {child.description}
+                  </p>
+                )}
+              </Link>
+            </NavigationMenuLink>
           ))}
-        </ul>
+        </div>
       </NavigationMenuContent>
     </NavigationMenuItem>
   );
@@ -200,9 +211,15 @@ export function Header() {
             
             {/* Ventures, Approach, Studio - grouped for unified dropdown viewport */}
             <NavigationMenu className="relative">
-              <NavigationMenuList className="gap-1">
-                {NAV_ITEMS.filter(item => item.children).map((item) => (
-                  <DropdownNavItem key={item.label} item={item} currentPath={location} />
+              <NavigationMenuList className="gap-0">
+                {NAV_ITEMS.filter(item => item.children).map((item, index, arr) => (
+                  <DropdownNavItem 
+                    key={item.label} 
+                    item={item} 
+                    currentPath={location}
+                    isFirst={index === 0}
+                    isLast={index === arr.length - 1}
+                  />
                 ))}
               </NavigationMenuList>
             </NavigationMenu>
