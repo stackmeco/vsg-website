@@ -29,7 +29,7 @@ export function ProjectTile({ slug, name, stage, stageVariant, description, expl
         </p>
         {exploring && exploring.length > 0 && (
           <div className="mb-4">
-            <p className="text-2xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
+            <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Exploring now
             </p>
             <ul className="space-y-1">

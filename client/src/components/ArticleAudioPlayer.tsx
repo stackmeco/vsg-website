@@ -150,7 +150,7 @@ export function ArticleAudioPlayer({ audioSrc, articleTitle }: ArticleAudioPlaye
         </DialogDescription>
         
         <div className="p-4 pr-12 border-b border-border flex justify-between items-center bg-muted/10">
-          <span className="font-mono text-2xs uppercase tracking-widest text-primary">
+          <span className="font-mono text-xs uppercase tracking-widest text-primary">
             {hasError ? (
               "Audio Unavailable"
             ) : isPlaying ? (
@@ -162,7 +162,7 @@ export function ArticleAudioPlayer({ audioSrc, articleTitle }: ArticleAudioPlaye
               "Article Briefing"
             )}
           </span>
-          <span className="font-mono text-2xs text-muted-foreground">
+          <span className="font-mono text-xs text-muted-foreground">
             {hasError ? "--:--" : `${currentTime} / ${duration}`}
           </span>
         </div>

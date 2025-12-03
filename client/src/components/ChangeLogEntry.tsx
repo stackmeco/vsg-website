@@ -27,7 +27,7 @@ export function ChangeLogEntry({
           {date}
         </span>
         {version && (
-          <Badge variant="outline" className="font-mono text-2xs">
+          <Badge variant="outline" className="font-mono text-xs">
             {version}
           </Badge>
         )}

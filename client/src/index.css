@@ -212,7 +212,7 @@
 
   /* 2. COMFORTABLE BODY TEXT */
   /* NOTE: Removed text-base from global p rule - font sizes should be set explicitly
-     on each element to avoid cascade conflicts with utility classes like text-2xs. 
+     on each element to avoid cascade conflicts with utility classes like text-xs. 
      Each component controls its own typography. */
   p {
     @apply leading-relaxed; 

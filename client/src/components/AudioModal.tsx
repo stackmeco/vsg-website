@@ -138,7 +138,7 @@ export function AudioModal() {
         </DialogDescription>
         
         <div className="p-4 pr-12 border-b border-border flex justify-between items-center bg-muted/10">
-          <span className="font-mono text-2xs uppercase tracking-widest text-primary">
+          <span className="font-mono text-xs uppercase tracking-widest text-primary">
             {hasError ? (
               "Coming Soon"
             ) : isPlaying ? (
@@ -150,7 +150,7 @@ export function AudioModal() {
               "Executive Briefing"
             )}
           </span>
-          <span className="font-mono text-2xs text-muted-foreground">
+          <span className="font-mono text-xs text-muted-foreground">
             {hasError ? "~02:00" : `${currentTime} / ${duration}`}
           </span>
         </div>

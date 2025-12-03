@@ -52,13 +52,14 @@ Used strictly for Active State, Navigation, Verification.
 | Token | HSL | Usage |
 |-------|-----|-------|
 | `--foreground` | 30 5% 90% | Primary text (off-white/silver) |
-| `--muted-foreground` | 220 5% 75% | Metadata, labels (calibrated for 14px legibility) |
+| `--muted-foreground` | 220 5% 75% | Metadata, labels |
 
 ---
 
 ## 3.0 Typography Architecture
 
-**Base Unit:** 14px (Professional Grade - signals density)
+**Base Unit:** 15px (Balanced - technical density with readability)
+**Minimum Size:** 12px (no text smaller than this)
 
 ### 3.1 Font Stacks
 | Role | Font | Tracking | Weight |
@@ -67,14 +68,14 @@ Used strictly for Active State, Navigation, Verification.
 | Headlines (Signal) | Space Grotesk | -0.02em | 600 |
 | Data (Telemetry) | IBM Plex Mono | 0em | tabular-nums |
 
-### 3.2 Hierarchy
+### 3.2 Hierarchy (All sizes in rem, scale with base)
 | Element | Size | Font | Class |
 |---------|------|------|-------|
-| Label (Eyebrow) | 10px | Mono | `text-[10px] uppercase tracking-[0.2em] font-mono` |
-| Meta (Detail) | 12px | Manrope | `text-xs` |
-| Body (Standard) | 14px | Manrope | `text-sm` |
-| Header (Section) | 24px | Space Grotesk | `text-2xl font-heading` |
-| Display (Hero) | 48px+ | Space Grotesk | `text-5xl font-heading` |
+| Label (Eyebrow) | 12px (0.8rem) | Mono | `text-xs uppercase tracking-[0.2em] font-mono` |
+| Meta (Detail) | 13px (0.875rem) | Manrope | `text-sm` |
+| Body (Standard) | 15px (1rem) | Manrope | `text-base` |
+| Header (Section) | 22.5px (1.5rem) | Space Grotesk | `text-2xl font-heading` |
+| Display (Hero) | 45px+ (3rem) | Space Grotesk | `text-5xl font-heading` |
 
 ---
 
@@ -95,13 +96,13 @@ Used strictly for Active State, Navigation, Verification.
 
 ### 5.1 The Button (The Trigger)
 - **Shape:** Rectangular. 2px radius (`rounded-sm`)
-- **Text:** Uppercase. 12px. Tracking 0.2em. Font Mono. Medium weight.
+- **Text:** Uppercase. 12px (0.8rem via `text-xs`). Tracking 0.2em. Font Mono. Medium weight.
 - **Primary:** Solid orange background. Dark text.
 - **Secondary:** Transparent background. Orange border. Orange text.
 
 ### 5.2 The Badge/Chip (The Status)
 - **Shape:** 2px radius
-- **Text:** 10px Mono
+- **Text:** 12px Mono (0.8rem via `text-xs`)
 - **Variants:** default, secondary, destructive, outline
 
 ### 5.3 The Card (The Unit of Containment)

@@ -86,7 +86,7 @@ export default function Process() {
       <section className="py-20 bg-card" data-testid="section-stages">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <p className="text-2xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
+            <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
               R&D Process
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
@@ -112,7 +112,7 @@ export default function Process() {
       <section className="py-20" data-testid="section-definitions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8">
-            <p className="text-2xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
+            <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
               System Primitives
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
@@ -155,7 +155,7 @@ export default function Process() {
         
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl">
-            <p className="text-2xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
+            <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Capital strategy
             </p>
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6">

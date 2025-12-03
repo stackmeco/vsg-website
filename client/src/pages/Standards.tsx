@@ -117,7 +117,7 @@ export default function Governance() {
 
             <div className="hidden lg:block">
               <nav className="bg-card/80 backdrop-blur-sm border border-border rounded-[2px] p-6" aria-label="Table of contents" data-testid="nav-toc">
-                <p className="text-2xs font-mono uppercase tracking-widest text-muted-foreground mb-4">
+                <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-4">
                   On this page
                 </p>
                 <ul className="space-y-3 list-none">
@@ -452,7 +452,7 @@ export default function Governance() {
       <section className="py-20 bg-card" data-testid="section-contact">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
-            <p className="text-2xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
+            <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Direct channel
             </p>
             <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-6">

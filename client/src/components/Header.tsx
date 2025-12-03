@@ -17,7 +17,7 @@ function SystemClock() {
 
   return (
     <span 
-      className="font-mono text-2xs text-muted-foreground tabular-nums"
+      className="font-mono text-xs text-muted-foreground tabular-nums"
       data-testid="text-system-clock"
       aria-hidden="true"
     >
@@ -72,7 +72,7 @@ export function Header() {
                 key={item.name} 
                 href={item.href}
                 className={cn(
-                  "px-3 py-2 text-2xs font-mono uppercase tracking-widest transition-all duration-150 rounded-[2px] border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                  "px-3 py-2 text-xs font-mono uppercase tracking-widest transition-all duration-150 rounded-[2px] border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                   isActive(item.href)
                     ? "text-primary bg-primary/10 border-primary/20"
                     : "text-muted-foreground hover:text-foreground hover:bg-card/80 hover:border-primary/30"
@@ -97,7 +97,7 @@ export function Header() {
                 aria-label="Open command palette"
               >
                 <Search className="w-3.5 h-3.5" />
-                <kbd className="pointer-events-none hidden sm:inline-flex h-5 select-none items-center gap-1 rounded-[2px] border border-border bg-muted px-1.5 font-mono text-2xs font-medium text-muted-foreground">
+                <kbd className="pointer-events-none hidden sm:inline-flex h-5 select-none items-center gap-1 rounded-[2px] border border-border bg-muted px-1.5 font-mono text-xs font-medium text-muted-foreground">
                   <span className="text-xs">⌘</span>K
                 </kbd>
               </Button>
