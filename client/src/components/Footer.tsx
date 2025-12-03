@@ -17,7 +17,7 @@ export function Footer() {
             <p className="font-heading font-semibold text-foreground mb-1">
               Verifiable Systems Group LLC
             </p>
-            <p className="text-xs text-muted-foreground leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               The infrastructure of verifiable autonomy.
             </p>
           </div>
@@ -26,7 +26,7 @@ export function Footer() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 data-testid={`footer-link-${link.name.toLowerCase()}`}
               >
                 {link.name}
@@ -35,7 +35,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-6 border-t border-border">
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             Nothing on this site is financial advice or an offer of services.
           </p>
         </div>
