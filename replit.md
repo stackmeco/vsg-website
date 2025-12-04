@@ -1,7 +1,7 @@
 # Verified Systems Group (VSG) Marketing Site
 
 ## Overview
-VSG is an AI-native finance R&D studio building governed rails for identity, treasury, and liquidity. This marketing site showcases VSG's ventures, governance principles, and institutional approach to AI-ready finance primitives. The site features a "control room aesthetic" with a dark theme emphasizing institutional trust, technical credibility, and calm confidence. It highlights three core ventures: Uniqueness Engine (Sybil resistance), Helios (treasury management), and VSG Liquidity Engine (liquidity for long-term holders). The project's ambition is to establish VSG as a leader in verifiable systems for autonomous finance, targeting high-agency individuals, institutional stewards, technical collaborators, and policy-adjacent readers.
+VSG is an AI-native finance R&D studio building governed rails for identity, treasury, and liquidity. This marketing site showcases VSG's ventures, governance principles, and institutional approach to AI-ready finance primitives. The site features a "control room aesthetic" with a dark theme emphasizing institutional trust, technical credibility, and calm confidence. It highlights three core ventures aligned with v3.0 domains: Lumina (Truth — evidence-backed grading), Helios (Capital — treasury management), and Uniqueness Engine (Dignity — personhood without exposure). The project's ambition is to establish VSG as a leader in verifiable systems for autonomous finance, targeting high-agency individuals, institutional stewards, technical collaborators, and policy-adjacent readers.
 
 ## User Preferences
 Preferred communication style: Simple, everyday language.
@@ -56,4 +56,11 @@ Preferred communication style: Simple, everyday language.
 - **Session Management**: `connect-pg-simple` (ready for database provisioning).
 
 ### Brand & Voice Tooling
-- **Brand Lint Script**: `scripts/brandLint.js` scans `client/src` for banned phrases from the v3.0 Brand & Voice System. Run with `node scripts/brandLint.js`. Detects deprecated language patterns like "AI-powered", "game-changing", old pillar references ("Signal / Value / Human"), and anti-patterns.
+- **Brand Lint Script**: `scripts/brandLint.js` scans `client/src` for banned phrases from the v3.0 Brand & Voice System. Run with `node scripts/brandLint.js`. Detects deprecated language patterns like "AI-powered", "game-changing", old pillar references ("Signal / Value / Human"), legacy brand names (Stackme, Axiom), and anti-patterns.
+
+### Brand v3.0 Alignment (December 2024)
+- **Legacy Names Removed**: Stackme venture deleted, Axiom references replaced with Lumina
+- **Domain Mappings**: Truth (Lumina), Capital (Helios), Dignity (Uniqueness Engine)
+- **studio.ts Updated**: Pillars array uses Truth/Capital/Dignity; "Seek the Signal" replaced with "Anchor to Evidence"
+- **PageMeta Compliance**: All 11 pages have exact v3.0 titles/descriptions with em-dash format
+- **Banned Phrases**: No banned phrases remain in client/src per brand lint validation
