@@ -1,0 +1,218 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Approach overview page** fully in line with VSG Brand & Voice System v3.0 and the Truth · Capital · Dignity model.
+
+This page should act as the high-level “how we think and work” hub that ties together:
+- The three domains (Truth · Capital · Dignity),
+- The six-stage Process,
+- Governance & Standards,
+- Our balance-sheet-first, AI-native, non-custodial stance.
+
+Do NOT change layout primitives, visual design, or routes. Only update text content, headings, and small local data structures in the Approach page file.
+
+---
+
+1) Locate the Approach overview page
+
+Find the component used for the Approach overview route, for example:
+
+- `client/src/pages/Approach.tsx`
+- or whatever file is rendered for `/approach` and is linked from the nav as “Approach Overview” (or similar).
+
+All changes below apply **only** inside this Approach overview page file.
+
+---
+
+2) Update the hero section
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only the text.
+
+- Overline:
+  "Approach"
+
+- Heading:
+  "From first questions to governed systems."
+
+- Body paragraph:
+  "We start every serious venture by asking three things: Does it hold true? Does capital survive the worst day? Does it protect people’s dignity even under pressure? Our approach turns those questions into a six-stage path, governed experiments, and patterns we run on our own balance sheet first."
+
+Hero CTAs:
+
+- Primary CTA label:
+  "See the six stages"
+  → Link to `/process`.
+
+- Secondary CTA label:
+  "Review governance"
+  → Link to `/standards` (or your Governance/Standards route).
+
+Keep the existing button components and styles; only update labels and hrefs if needed.
+
+---
+
+3) “Start with three questions” section
+
+Add or update a section near the top that frames Truth · Capital · Dignity as first questions, not just labels.
+
+Section heading:
+  "We start with three questions"
+
+Intro paragraph:
+  "Before we draw an architecture diagram or write a line of code, we test the idea against three domains. If it fails here, it never becomes a venture."
+
+Then three cards (reuse your existing 3-card layout):
+
+1) Title: "Truth — does it hold up?"
+   Text:
+   "What needs to be evidence-backed for this to matter? Truth is about making key decisions inspectable so we can see what they rest on when it’s quiet—and when it’s not."
+
+2) Title: "Capital — does it survive the worst day?"
+   Text:
+   "What happens to capital when markets move, venues fail, or assumptions break? Capital is about routes that keep value under governed control instead of handing the keys to intermediaries."
+
+3) Title: "Dignity — who carries the cost?"
+   Text:
+   "Whose time, safety, or personhood is on the line if we are wrong? Dignity is about letting people participate and prove presence without being over-exposed or turned into a product."
+
+Keep structure and styling; only change text.
+
+---
+
+4) “The six-stage runway” preview
+
+This page should preview the six stages and point to `/process` for detail.
+
+Section heading:
+  "The six-stage runway"
+
+Body paragraph:
+  "Once a venture passes the first questions, it moves through a six-stage path: Define, Validate, Build, Deploy, Evolve, and Recurse. Each stage has its own gates, limits, and artefacts so risk is surfaced early and knowledge compounds instead of resetting."
+
+Under this, use a compact visual (e.g., pill list or small cards). Keep styling consistent with your existing components; update copy:
+
+If you use an array like `const stages = [...]` in this file, set it to:
+
+  const stages = [
+    { name: "Define",    description: "Clarify the problem, constraints, and reasons not to build." },
+    { name: "Validate",  description: "Test the riskiest assumptions in low-exposure experiments." },
+    { name: "Build",     description: "Engineer in small, verifiable increments with clear checks." },
+    { name: "Deploy",    description: "Launch into a controlled environment with rollback planned." },
+    { name: "Evolve",    description: "Adapt to real signals, tightening or retiring paths as we learn." },
+    { name: "Recurse",   description: "Feed incidents and insights back into our standards and code." },
+  ];
+
+Below the visual, add a simple link:
+
+- Label:
+  "Read the full Process"
+- href:
+  `/process`.
+
+---
+
+5) “Balance-sheet-first” section
+
+Add or update a section that explains our internal-first stance at a conceptual level.
+
+Section heading:
+  "Balance-sheet-first by design"
+
+Body paragraph:
+  "We do not ask others to trust patterns we have not run ourselves. Serious flows—especially those touching capital, identity, or automation—are wired through VSG’s own balance sheet and operations first under conservative limits."
+
+Short bullet list (or 3 small items) under the paragraph:
+
+- "We feel the real stress and cost before anyone else depends on the pattern."
+- "We retire or rewrite paths that fail instead of externalizing the lessons."
+- "We share patterns only after they’ve survived real conditions, not just simulations."
+
+No protocol names, banks, or tickers—keep it principle-level.
+
+---
+
+6) “AI-native, human-governed” section
+
+Add or update a section that explains how AI fits into the approach.
+
+Section heading:
+  "AI-native, human-governed"
+
+Body paragraph:
+  "We assume machine intelligence is in the loop from day one, but we never outsource mandates or responsibility. AI handles the mechanics; people keep the veto."
+
+Then use three bullets or mini-cards:
+
+- "Machines scan high-velocity data, simulate paths, and flag anomalies."
+- "People define objectives, constraints, and emergency stops—and can override at any time."
+- "Automated actions must be explainable at the level stewards need to make decisions."
+
+Stay away from hype terms (“revolutionary”, “magic”, etc.). Keep this calm and declarative.
+
+---
+
+7) “Governed experiments, not bets” section
+
+Connect Approach explicitly to Governance/Standards in one place.
+
+Section heading:
+  "Governed experiments, not bets"
+
+Body paragraph:
+  "Our approach treats every serious change as a governed experiment: defined scope, explicit limits, named stewards, and clear observability. If we cannot describe how a system fails and how we roll it back, we do not ship it."
+
+Inline link or small button:
+
+- Label:
+  "Governance & Standards"
+- href:
+  `/standards`.
+
+Use your existing CTA/link style.
+
+---
+
+8) “How Approach connects to the rest of the site” (internal-only section)
+
+If there is a small “Next steps” strip at the bottom of the Approach page, configure it to guide people through the core sequence. Use whatever “NextStepBlock” or card component you already have:
+
+- Option 1: one block that points to `/ventures`.
+- Option 2: two small blocks stacked, depending on current design.
+
+Recommended text if you have one block:
+
+  Title:
+    "See the ventures"
+
+  Description:
+    "Helios, Lumina, and Uniqueness Engine are where this approach meets real conditions."
+
+  href:
+    `/ventures`.
+
+Do not add new components if they don’t already exist; just adjust props on whatever “next step” element is already at the bottom of this page.
+
+---
+
+9) Hygiene & brand checks for this file
+
+In the Approach overview page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents"
+  - "move fast and break things"
+  - "monetize users", "harvest data"
+  - "StackMe", "Stackme Holdings", or "VSP" as active brand names
+  - generic “the human” phrasing (use “people”, “participants”, “personhood”, or “dignity” instead)
+
+- Ensure the page clearly reinforces:
+  - Truth, Capital, and Dignity as the three domains and first questions.
+  - The six-stage path (Define, Validate, Build, Deploy, Evolve, Recurse).
+  - Balance-sheet-first stance.
+  - AI-native, human-governed position.
+  - Governed experiments instead of one-off bets.
+
+Do not touch other pages or routes in this checkpoint.
