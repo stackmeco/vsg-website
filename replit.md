@@ -106,6 +106,18 @@ Key files:
   - `VSG-Brand-Voice-System-v3.0.md`: Master brand & voice system (Truth · Capital · Dignity)
   - `VSG-Identity.md`: Core identity & ethos document
 
+### Brand Voice Alignment v3.0 (December 2025)
+Global user-facing text cleanup to align with Brand & Voice System v3.0:
+- **Title pattern**: Changed from pipe (|) to em-dash (—): "Page Title — Verifiable Systems Group"
+- **Default meta description**: Updated to canonical v3.0 text referencing Truth, Capital, Dignity domains
+- **Keywords**: Updated from "Truth Engineering" to "AI-native, non-custodial, verifiable systems, capital, identity, intelligence"
+- **Navigation domains**: Venture dropdowns now show domain labels (Helios — Capital, Axiom — Truth, Uniqueness Engine — Dignity)
+- **Banned phrases replaced**:
+  - "AI-powered" → "AI-native infrastructure"
+  - "the human" → "people", "individuals"
+  - "Truth Engineering" → "AI-native, cryptography-grounded venture studio"
+- **Files updated**: index.html, PageMeta.tsx, SeoHead.tsx, navigation.ts, studio.ts, searchIndex.ts
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
