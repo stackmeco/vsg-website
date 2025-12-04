@@ -8,25 +8,61 @@ import { ArrowRight } from "lucide-react";
 
 const ventures = [
   {
-    overline: "Capital",
-    title: "Helios — resilient capital engine.",
-    body: "Helios is the internal execution engine we use to route our own digital asset treasury under explicit limits, so capital can work without surrendering control.",
+    id: "helios",
+    name: "Helios",
+    domain: "Capital",
+    badge: "Helios · Capital",
+    tagline: "Resilient capital engine.",
+    description: "The internal execution engine that routes VSG's own digital asset treasury under explicit limits so capital can work without surrendering control.",
     href: "/ventures/helios",
-    testId: "helios",
   },
   {
-    overline: "Truth",
-    title: "Lumina — physics-aware grading.",
-    body: "Lumina turns raw card condition into evidence-backed grading signals instead of vibes, tying every result to verifiable inputs you can inspect.",
+    id: "lumina",
+    name: "Lumina",
+    domain: "Truth",
+    badge: "Lumina · Truth",
+    tagline: "Physics-aware grading.",
+    description: "Infrastructure that turns card condition into evidence-backed grading signals so decisions rest on measurable inputs instead of guesswork.",
     href: "/ventures/lumina",
-    testId: "lumina",
   },
   {
-    overline: "Dignity",
-    title: "Uniqueness Engine — personhood without exposure.",
-    body: "Uniqueness Engine proves one person is present without forcing them to hand over their life story, enabling sybil-resistant participation while keeping dignity and control intact.",
+    id: "uniqueness",
+    name: "Uniqueness Engine",
+    domain: "Dignity",
+    badge: "Uniqueness Engine · Dignity",
+    tagline: "Personhood without exposure.",
+    description: "Infrastructure for proving that one person is present without forcing them to hand over their life story, raising the cost of bots and duplicates.",
     href: "/ventures/uniqueness",
-    testId: "uniqueness",
+  },
+];
+
+const howWeTreatVentures = [
+  {
+    title: "Internal-first",
+    text: "We run each venture on our own balance sheet and operations first, under conservative limits.",
+  },
+  {
+    title: "Domain-anchored",
+    text: "Every venture has a home domain—Truth, Capital, or Dignity—so we know what it is responsible for protecting.",
+  },
+  {
+    title: "Governed by standards",
+    text: "Ventures inherit our governance, risk, and incident standards from day one, not as an afterthought.",
+  },
+];
+
+const whoVenturesServe = [
+  {
+    title: "Stewards of capital",
+    text: "People responsible for keeping treasuries resilient under stress.",
+  },
+  {
+    title: "Ecosystem builders",
+    text: "Teams wiring markets, grading flows, and infrastructure that others rely on.",
+  },
+  {
+    title: "Communities and networks",
+    text: "Networks that need stronger defences against bots and duplicates without resorting to heavy-handed identity checks.",
   },
 ];
 
@@ -59,19 +95,21 @@ export default function Ventures() {
               Ventures
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
-              Where we prove the rails first.
+              Where we prove the rails.
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground" data-testid="text-hero-body">
-              Each venture is a concrete proof of what we believe about Truth, Capital, and Dignity. We run them on our own balance sheet and infrastructure first, then share the patterns only after they have survived real conditions.
+              We are a focused venture studio. Helios, Lumina, and Uniqueness Engine are where we run our ideas against real conditions on our own balance sheet first—across Truth, Capital, and Dignity.
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-8">
-              <Button size="lg" variant="outline" data-testid="button-view-ventures" onClick={() => document.getElementById('ventures-grid')?.scrollIntoView({ behavior: 'smooth' })}>
-                View all ventures
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Button>
               <Link href="/approach">
-                <Button size="lg" variant="ghost" data-testid="button-how-we-work">
-                  How we work
+                <Button size="lg" data-testid="button-how-we-work">
+                  See how we work
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Button>
+              </Link>
+              <Link href="/standards">
+                <Button size="lg" variant="outline" data-testid="button-review-governance">
+                  Review governance
                 </Button>
               </Link>
             </div>
@@ -84,24 +122,27 @@ export default function Ventures() {
           <div className="grid md:grid-cols-3 gap-6">
             {ventures.map((venture) => (
               <Card 
-                key={venture.testId} 
+                key={venture.id} 
                 className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full"
-                data-testid={`card-venture-${venture.testId}`}
+                data-testid={`card-venture-${venture.id}`}
               >
                 <CardContent className="p-6 flex flex-col h-full">
-                  <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary mb-2" data-testid={`text-${venture.testId}-overline`}>
-                    {venture.overline}
+                  <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary mb-2" data-testid={`text-${venture.id}-badge`}>
+                    {venture.badge}
                   </p>
-                  <h3 className="font-heading font-semibold text-lg text-foreground mb-3" data-testid={`heading-${venture.testId}`}>
-                    {venture.title}
+                  <h3 className="font-heading font-semibold text-lg text-foreground mb-1" data-testid={`heading-${venture.id}`}>
+                    {venture.name}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4" data-testid={`text-${venture.testId}-body`}>
-                    {venture.body}
+                  <p className="text-sm text-foreground/80 mb-3" data-testid={`text-${venture.id}-tagline`}>
+                    {venture.tagline}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4" data-testid={`text-${venture.id}-body`}>
+                    {venture.description}
                   </p>
                   <Link 
                     href={venture.href} 
                     className="inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:text-primary/80 transition-colors"
-                    data-testid={`link-venture-${venture.testId}`}
+                    data-testid={`link-venture-${venture.id}`}
                   >
                     Learn more
                     <ArrowRight className="w-3 h-3" aria-hidden="true" />
@@ -113,65 +154,61 @@ export default function Ventures() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-how-ventures-fit">
+      <section className="py-20" data-testid="section-how-we-treat-ventures">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-how-ventures-fit">
-              How ventures fit the studio
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-how-we-treat-ventures">
+              How we treat ventures
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-how-ventures-fit-body">
-              VSG is a studio, not a product company. Helios, Lumina, and Uniqueness Engine are how we test ideas about Truth, Capital, and Dignity against real constraints. If a pattern does not survive in a venture, it does not graduate into our standards or advice.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-how-we-treat-ventures-body">
+              At VSG, a venture is not just a project. It is a system that survives real stress, carries clear guardrails, and earns its place in the portfolio by protecting Truth, Capital, or Dignity better than what came before.
             </p>
-            <p className="text-sm text-muted-foreground/80 leading-relaxed mb-6" data-testid="text-how-ventures-fit-secondary">
-              We use the same rails we would recommend to others, and we feel the consequences first.
-            </p>
-            <p className="text-sm text-muted-foreground/80 leading-relaxed" data-testid="text-ai-native-note">
-              All of our ventures are AI-native: machine intelligence handles the scanning and simulation; people define the mandates, limits, and veto.
-            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {howWeTreatVentures.map((item, index) => (
+              <Card 
+                key={index} 
+                className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-treat-ventures-${index}`}
+              >
+                <CardContent className="p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-criteria">
+      <section className="py-20 bg-card" data-testid="section-who-ventures-serve">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-criteria">
-              How ventures earn a slot in the portfolio
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-who-ventures-serve">
+              Who these ventures serve
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-criteria-body">
-              We treat portfolio slots as scarce. New ventures compete with existing work for capital, attention, and risk budget. To earn a place here, a venture has to clear three gates:
-            </p>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-foreground" data-testid="list-criteria-strategic">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <div>
-                  <span className="font-medium">Strategic fit</span>
-                  <span className="text-muted-foreground"> — Does it reinforce our purpose of building verifiable systems and non-custodial rails?</span>
-                </div>
-              </li>
-              <li className="flex items-start gap-3 text-foreground" data-testid="list-criteria-risk">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <div>
-                  <span className="font-medium">Risk surface</span>
-                  <span className="text-muted-foreground"> — Can we bound the regulatory, operational, and capital risk in a way we're willing to own?</span>
-                </div>
-              </li>
-              <li className="flex items-start gap-3 text-foreground" data-testid="list-criteria-pull">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <div>
-                  <span className="font-medium">Evidence of pull</span>
-                  <span className="text-muted-foreground"> — Is there real demand from the institutions or ecosystems we serve, not just internal curiosity?</span>
-                </div>
-              </li>
-            </ul>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {whoVenturesServe.map((item, index) => (
+              <Card 
+                key={index} 
+                className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-who-serve-${index}`}
+              >
+                <CardContent className="p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       <NextStepBlock
-        nextPage="Process"
-        description="See the six-stage path every venture follows inside VSG."
-        href="/approach/process"
+        nextPage="See how we build and govern"
+        description="Our approach and standards show how Truth, Capital, and Dignity show up in practice."
+        href="/approach"
       />
     </Layout>
   );
