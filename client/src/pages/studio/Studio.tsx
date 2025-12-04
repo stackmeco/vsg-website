@@ -6,72 +6,71 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, X } from "lucide-react";
 
-const whatVsgIs = [
-  "We design architectures that embed verifiability from the foundation.",
-  "We prove them in our own ventures and internal systems before sharing patterns.",
-  "We operate under explicit constraints, governance, and rollback mechanisms.",
-];
-
-const whatVsgIsNot = [
-  "Not a generic AI startup chasing trends or scale without safeguards.",
-  "Not a consultancy selling advice without ownership of the outcomes.",
-  "Not a custodial platform, yield product, or DeFi protocol pooling external funds.",
+const beliefs = [
+  {
+    title: "Leverage should be accessible.",
+    text: "Institutional-grade tools for protecting and growing value should not be reserved for the largest players. We design for individuals and small teams with real scar tissue, not just institutions.",
+  },
+  {
+    title: "Trust should be engineered.",
+    text: "If a decision or flow matters, it should rest on evidence you can inspect—not opaque narratives or black-box scores. Truth is something you can verify, not just something you are told.",
+  },
+  {
+    title: "People should not be the product.",
+    text: "Participation should not require over-exposure. We design systems where people can prove enough to participate while keeping personhood and time protected.",
+  },
 ];
 
 const domains = [
   {
     title: "Truth",
-    body: "Truth means decisions rest on evidence, not stories. We anchor key behaviours to provenance and tamper-evident logs so you can inspect how an outcome was formed instead of guessing.",
+    body: "Does this system rest on evidence solid enough to depend on? We build Truth ventures to make key decisions—like grading or risk flags—inspectable instead of opaque.",
   },
   {
     title: "Capital",
-    body: "Capital should be able to work without leaving governed control. In Capital, we run our own treasury through non-custodial rails with explicit limits, observability, and rollback paths.",
+    body: "Can capital move through this system without hidden downside? We build Capital ventures to make assets work without handing the keys to intermediaries.",
   },
   {
     title: "Dignity",
-    body: "Dignity means people keep control over how they appear in systems. We enable proof of presence and eligibility without turning people into products in someone else's database.",
+    body: "Does this system protect people's personhood and time? We build Dignity ventures to let people prove presence and rights without being turned into products.",
   },
 ];
 
-const purposeVisionMission = [
+const ventureSteps = [
   {
-    title: "Purpose — why we exist",
-    shortLine: "To democratize institutional-grade leverage.",
-    supportingText: "We exist to dismantle the barriers between individuals and elite financial tools, moving power from centralized gatekeepers to the edge so smaller actors can audit, control, and compound without extraction.",
+    step: "1. Test the questions",
+    text: "Does it hold true? Does capital survive the worst day? Does it protect dignity under stress? If not, we don't build it.",
   },
   {
-    title: "Vision — the world we want",
-    shortLine: "A future where trust is an engineered feature, not a gamble.",
-    supportingText: "We are working toward a world where systems are auditable by default, intelligence is anchored to facts, and financial assets work for you without leaving your control.",
+    step: "2. Run the runway",
+    text: "The idea moves through our six-stage path—Define, Validate, Build, Deploy, Evolve, Recurse—with limits, artefacts, and reviews at each step.",
   },
   {
-    title: "Mission — what we do",
-    shortLine: "We engineer the infrastructure of verifiable autonomy.",
-    supportingText: "We combine cryptography and machine intelligence to validate evidence, preserve capital under non-custodial control, and protect personhood without surveillance.",
+    step: "3. Prove it under stress",
+    text: "We wire it through our own systems first, under conservative limits, and keep it only if it survives real conditions and improves on what we already have.",
   },
 ];
 
-const howWeWork = [
-  {
-    title: "Balance-sheet-first",
-    body: "We wire new rails through our own balance sheet and operations first so we feel the stress and failure modes directly before anyone else adopts the pattern.",
-  },
-  {
-    title: "AI-native, human-governed",
-    body: "Machine intelligence scans, simulates, and flags anomalies; people define mandates, limits, and veto. AI is part of the mechanism, not the boss.",
-  },
-  {
-    title: "Non-custodial by design",
-    body: "Our systems orchestrate workflows, proofs, and controls. They do not pool client funds or seize keys.",
-  },
+const howWeOperate = [
+  "We run ventures on our own balance sheet first under conservative limits.",
+  "We build AI-native systems where machines handle the mechanics and people keep the veto.",
+  "We design for non-custodial control wherever capital or identity is involved.",
+  "We publish patterns and standards once they've survived real conditions—not just simulations.",
+];
+
+const whatWeAreNot = [
+  "Not a custodial exchange, wallet, or vault provider.",
+  "Not a pooled investment vehicle, yield product, or fund.",
+  "Not a generic consultancy or agency taking hourly briefs.",
+  "Not a place where users hand over their keys or identities in exchange for promises.",
 ];
 
 export default function Studio() {
   return (
     <Layout>
       <PageMeta
-        title="VSG Studio — AI-Native, Non-Custodial Venture Studio"
-        description="Verifiable Systems Group designs and proves verifiable systems for capital, identity, and intelligence on its own balance sheet first, under explicit limits and non-custodial control."
+        title="Studio — The Studio Behind the Rails"
+        description="Verifiable Systems Group is an AI-native, cryptography-grounded venture studio that builds infrastructure for verifiable autonomy across Truth, Capital, and Dignity."
         preloadImage="/hero-texture.png"
       />
 
@@ -92,19 +91,24 @@ export default function Studio() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
-              AI-native venture studio
+              Studio
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
-              We engineer the infrastructure of verifiable autonomy.
+              The studio behind the rails.
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground" data-testid="text-hero-body">
-              Verifiable Systems Group is an AI-native, cryptography-grounded venture studio. We build systems for capital, identity, and intelligence, run them on our own balance sheet first, and only share patterns once they have survived real stress.
+              Verifiable Systems Group is an AI-native, cryptography-grounded venture studio that builds infrastructure for verifiable autonomy. We run patterns on our own balance sheet first across Truth, Capital, and Dignity before they become rails anyone else can rely on.
             </p>
-            <div className="mt-8">
+            <div className="flex flex-wrap items-center gap-4 mt-8">
               <Link href="/ventures">
                 <Button size="lg" data-testid="button-explore-ventures">
-                  Explore the ventures
+                  Explore our ventures
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Button>
+              </Link>
+              <Link href="/approach">
+                <Button size="lg" variant="outline" data-testid="button-how-we-work">
+                  See how we work
                 </Button>
               </Link>
             </div>
@@ -112,56 +116,58 @@ export default function Studio() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-what-vsg-is">
+      <section className="py-20 bg-card" data-testid="section-who-we-are">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-what-vsg-is">
-                What VSG is
-              </h2>
-              <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-what-vsg-is">
-                Verifiable Systems Group (VSG) is an AI-native, cryptography-grounded venture studio that builds verifiable systems for capital, identity, and intelligence — on our own balance sheet first.
-              </p>
-              <ul className="space-y-3">
-                {whatVsgIs.map((item, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 text-foreground"
-                    data-testid={`list-what-vsg-is-${index}`}
-                  >
-                    <Check className="w-4 h-4 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
-                    <span className="text-sm text-muted-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-what-vsg-is-not">
-                What VSG is not
-              </h2>
-              <ul className="space-y-3">
-                {whatVsgIsNot.map((item, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 text-foreground"
-                    data-testid={`list-what-vsg-is-not-${index}`}
-                  >
-                    <X className="w-4 h-4 text-muted-foreground mt-1 flex-shrink-0" aria-hidden="true" />
-                    <span className="text-sm text-muted-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="max-w-3xl">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-who-we-are">
+              Who we are
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-who-we-are-1">
+              We are an architect's office for digital infrastructure. Instead of shipping generic tools or chasing hype cycles, we design and operate systems for capital, identity, and intelligence that must not fail silently.
+            </p>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-who-we-are-2">
+              We fuse machine intelligence and cryptography to build rails where behaviours can be inspected, limits are explicit, and people keep control over how they participate. We don't just publish patterns—we run them ourselves first.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-domains">
+      <section className="py-20" data-testid="section-what-we-believe">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground" data-testid="heading-domains">
-              Three domains we operate in
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-what-we-believe">
+              What we believe
             </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-what-we-believe-intro">
+              Our work is guided by a simple set of beliefs about how modern systems should behave.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {beliefs.map((item, index) => (
+              <Card
+                key={index}
+                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-belief-${index}`}
+              >
+                <CardContent className="flex flex-col h-full p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-card" data-testid="section-domains">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-domains">
+              Three domains we design for
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-domains-intro">
+              Every venture we run has a home domain. That gives us clarity about what it is responsible for protecting.
+            </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {domains.map((item) => {
@@ -169,7 +175,7 @@ export default function Studio() {
               return (
                 <Card
                   key={item.title}
-                  className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                  className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
                   data-testid={`card-domain-${slugTitle}`}
                 >
                   <CardContent className="flex flex-col h-full p-6">
@@ -187,74 +193,86 @@ export default function Studio() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-purpose-vision-mission">
+      <section className="py-20" data-testid="section-how-venture-becomes-real">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground" data-testid="heading-purpose-vision-mission">
-              Purpose, vision, and mission
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-how-venture-becomes-real">
+              How a venture becomes real
             </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-how-venture-becomes-real-intro">
+              We do not treat ideas as assets. To become a venture, an idea must clear our domain questions, survive the six-stage runway, and prove itself under governed experiments on our own balance sheet.
+            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {purposeVisionMission.map((item) => {
-              const slugTitle = item.title.split(" — ")[0].toLowerCase();
-              return (
-                <Card
-                  key={item.title}
-                  className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
-                  data-testid={`card-${slugTitle}`}
-                >
-                  <CardContent className="flex flex-col h-full p-6">
-                    <h3 className="font-heading font-semibold text-foreground mb-3" data-testid={`heading-${slugTitle}`}>
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-foreground font-medium mb-2" data-testid={`text-${slugTitle}-short`}>
-                      {item.shortLine}
-                    </p>
-                    <p className="flex-1 text-sm text-muted-foreground leading-relaxed" data-testid={`text-${slugTitle}-body`}>
-                      {item.supportingText}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {ventureSteps.map((item, index) => (
+              <Card
+                key={index}
+                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-venture-step-${index}`}
+              >
+                <CardContent className="flex flex-col h-full p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.step}</h3>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
+          <Link href="/process">
+            <Button variant="outline" data-testid="button-full-process">
+              Read the full Process
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Button>
+          </Link>
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-how-we-work">
+      <section className="py-20 bg-card" data-testid="section-how-we-operate">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground" data-testid="heading-how-we-work">
-              How we work
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-how-we-operate">
+              How we operate (and what we are not)
             </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-how-we-operate-intro">
+              We run VSG as a focused studio, not a general-purpose agency or fund. That means clear boundaries around what we do—and what we refuse to do.
+            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {howWeWork.map((item) => {
-              const slugTitle = item.title.toLowerCase().replace(/\s+/g, "-").replace(/,/g, "");
-              return (
-                <Card
-                  key={item.title}
-                  className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
-                  data-testid={`card-${slugTitle}`}
-                >
-                  <CardContent className="flex flex-col h-full p-6">
-                    <h3 className="font-heading font-semibold text-foreground mb-3" data-testid={`heading-${slugTitle}`}>
-                      {item.title}
-                    </h3>
-                    <p className="flex-1 text-sm text-muted-foreground leading-relaxed" data-testid={`text-${slugTitle}`}>
-                      {item.body}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <Card className="bg-background border-border" data-testid="card-how-we-operate">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-4">How we operate</h3>
+                <ul className="space-y-3">
+                  {howWeOperate.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3" data-testid={`list-how-we-operate-${index}`}>
+                      <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" aria-hidden="true" />
+                      <span className="text-sm text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="bg-background border-border" data-testid="card-what-we-are-not">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-4">What we are not</h3>
+                <ul className="space-y-3">
+                  {whatWeAreNot.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3" data-testid={`list-what-we-are-not-${index}`}>
+                      <X className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" aria-hidden="true" />
+                      <span className="text-sm text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           </div>
+          <p className="text-xs text-muted-foreground/80 leading-relaxed max-w-3xl" data-testid="text-studio-disclaimer">
+            Nothing on this page is investment, legal, or tax advice. It describes how we choose to operate, not a recommendation for anyone else's structure.
+          </p>
         </div>
       </section>
 
       <NextStepBlock
-        nextPage="Ventures"
-        description="See how the Studio's thesis shows up in specific ventures."
+        nextPage="See how this shows up in practice"
+        description="Explore the ventures, approach, and insights that put these principles under real conditions."
         href="/ventures"
       />
     </Layout>
