@@ -1,0 +1,132 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Do a **global brand hygiene pass** across the frontend to remove any leftover legacy language and align all copy with VSG Brand & Voice System v3.0 (Truth · Capital · Dignity, AI-native, non-custodial, balance-sheet-first).
+
+Scope: Only files under `client/src` (components, pages, layouts). Do NOT touch `docs/brand`, the brand lint script, or config outside the frontend.
+
+---
+
+1) Define banned and discouraged phrases (for this pass)
+
+Use this list as your search basis inside `client/src`:
+
+Hard-banned (must be removed or rewritten):
+- "Signal / Value / Human"
+- "Signal, Value, Human"
+- "validate the signal"
+- "AI-powered platform"
+- "revolutionary AI"
+- "game-changing agents"
+- "AI magic"
+- "move fast and break things"
+- "monetize users"
+- "harvest data"
+- "the human" (when used generically like “protect the human”)
+
+Legacy brand names (if used as active brand on site):
+- "StackMe Holdings"
+- "Stackme Holdings"
+- "Stackme"
+- "VSP "  (with trailing space, if used as a venture/brand, not as a filename/comment about legacy)
+
+Discouraged (prefer rewrite if found in copy):
+- "hypergrowth"
+- "maximise yield" / "maximize yield"
+- "it just works"
+- any casual meme/bro language like "hey guys", "real talk", emojis
+
+---
+
+2) Global search inside `client/src`
+
+For each `.tsx`, `.ts`, `.jsx`, `.js`, `.mdx`, `.md` file under `client/src`:
+
+- Search for each hard-banned phrase.
+- When you find one, **rewrite the sentence or phrase** to align with v3.0 brand. Use these mapping rules:
+
+  - Any “Signal / Value / Human” or “Signal, Value, Human”
+    → remove and, where needed, replace with “Truth, Capital, and Dignity”.
+
+  - “validate the signal”
+    → replace with something like “anchor decisions to evidence” or “ground the decision in verifiable inputs”, depending on context.
+
+  - “AI-powered platform”
+    → “AI-native infrastructure” or “AI-native venture studio” or “we use machine intelligence as part of the mechanism”, depending on context.
+
+  - “revolutionary”, “game-changing”, “AI magic”
+    → strip these entirely; replace with calm, precise descriptions of what the system does (e.g., “infrastructure-grade”, “verifiable”, “explicit guardrails”).
+
+  - “move fast and break things”
+    → “move fast inside guardrails” or remove and emphasise governed experiments instead.
+
+  - “monetize users”, “harvest data”
+    → replace with “align incentives”, “reduce extraction”, “return leverage to the edge” or similar ethical framing, if it’s our stance. If used to describe bad actors, make that explicit.
+
+  - Generic “the human”
+    → rewrite to “people”, “individuals”, “participants”, “personhood”, or “dignity” depending on context (“protect people’s dignity”, “protect personhood”, etc.).
+
+  - “StackMe Holdings”, “Stackme Holdings”, “Stackme” as current brand:
+    → replace with “Verifiable Systems Group (VSG)” unless the context is explicitly talking about history/legacy (there should be no such legacy context on the public site).
+
+  - “VSP ” as a brand or venture:
+    → replace with “VSG” if it refers to the studio, or “Uniqueness Engine” if it’s clearly the uniqueness/anti-duplicate venture. If the context is ambiguous, neutralise to “this infrastructure” or “the system” instead of creating a new name.
+
+- For “discouraged” phrases, adjust wording to be calmer and more precise (e.g., swap “hypergrowth” for “long-horizon, resilient growth”).
+
+---
+
+3) Keep docs and comments safe, but tidy obvious brand drift
+
+- It’s fine to update **inline comments** that still talk about old pillars (e.g., “…maps Signal/Value/Human to cards”). Update them to “…maps Truth/Capital/Dignity to cards”.
+- Do NOT touch:
+  - `scripts/brandLint.js` itself (except we already updated it in a prior checkpoint).
+  - Any brand v3.0 docs under `docs/brand` (they’re canonical).
+- If a comment explicitly documents “legacy behaviour” and is clearly not user-facing, you can leave it, but prefer updating to avoid confusion if it’s simple.
+
+---
+
+4) Align any remaining domain mentions
+
+While you’re editing, also fix any leftover domain references:
+
+- If you see “domains” or “pillars” still referring to three items that are clearly the old set, update them to “Truth, Capital, and Dignity”.
+- Make sure any place that maps a venture to a domain uses:
+  - Helios → Capital
+  - Lumina → Truth
+  - Uniqueness Engine → Dignity
+
+This includes small labels, badges, or subtitles on cards/components.
+
+---
+
+5) Quick micro-copy sanity pass (only in files you touched)
+
+In each file you modify:
+
+- Confirm the tone is calm, architectural, and on-voice:
+  - No hype, no memes, no casual slang.
+  - Preference for short, declarative sentences.
+- Where you mention AI, prefer:
+  - “AI-native”, “machine intelligence”, or “AI-native systems”,
+  - and make it clear that “people define mandates, limits, and veto”.
+
+Do NOT introduce:
+- Protocol names,
+- venues/banks,
+- tickers,
+- or yield/return promises.
+
+---
+
+6) Final check (for you after changes)
+
+- Ensure the project still compiles (no syntax errors from string edits).
+- If possible in this environment, run:
+
+  npm run brand:lint
+
+  and confirm there are no remaining banned phrases in `client/src`.
+
+This checkpoint is strictly a cleanup/alignment pass; no layout or routing changes.
