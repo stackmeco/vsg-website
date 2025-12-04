@@ -1,0 +1,145 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Update the **primary Overview / Home page** so it becomes the canonical public entry point for VSG, aligned with VSG Brand & Voice System v3.0 (Truth · Capital · Dignity, AI-native, balance-sheet-first).
+
+File: the page rendered for the root route (`/`) — for example `client/src/pages/Overview.tsx`, `Home.tsx`, or similar. Find the component actually used for `/` and apply these changes there.
+
+Do NOT change layout primitives, styling tokens, or routes. Only update text content and any local data structures.
+
+---
+
+1) Hero section (top of the home page)
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTA). Replace only the text:
+
+- Overline:
+  "Verifiable Systems Group"
+
+- Heading:
+  "The infrastructure of verifiable autonomy."
+
+- Body paragraph:
+  "You shouldn’t have to surrender control just to get leverage. Verifiable Systems Group is an AI-native, cryptography-grounded venture studio that builds systems for capital, identity, and intelligence—run on our own balance sheet first so you can verify, not just trust."
+
+- Primary CTA button label (if present):
+  "Explore the ventures"
+
+- Secondary CTA (if present):
+  "How we work"
+
+Keep all existing classes, layout, and button components; swap labels/text only.
+
+---
+
+2) Three domains section (Truth · Capital · Dignity)
+
+Locate the first major section under the hero that introduces domains / pillars. If it still uses “Signal / Value / Human” or a different triad, keep the layout but replace content with this.
+
+Section heading:
+  "Three domains we build in"
+
+Three cards:
+
+1) Title: "Truth"
+   Body:
+   "Truth means decisions rest on evidence, not stories. We anchor key behaviours to provenance and tamper-evident logs so you can see how outcomes were formed instead of guessing."
+
+2) Title: "Capital"
+   Body:
+   "Capital should be able to work without leaving governed control. In Capital, we run our own treasury through non-custodial rails with explicit limits, observability, and rollback paths."
+
+3) Title: "Dignity"
+   Body:
+   "Dignity means people keep control over how they appear in systems. We enable proof of presence and eligibility without turning people into products in someone else’s database."
+
+Use the existing card/grid components (just replace titles and body copy). Ensure no legacy “Signal / Value / Human” labels remain here.
+
+---
+
+3) “Why we exist” strip (Purpose-level)
+
+Add or update a short band/section (can be a single column or two-column layout) near the top third of the page.
+
+Section heading:
+  "Why we exist"
+
+Body paragraph:
+  "Our purpose is to democratize institutional-grade leverage. We build infrastructure that moves power from centralized gatekeepers to the edge, so smaller actors can audit, control, and compound without handing the keys to strangers."
+
+Optional second sentence (if there’s room in the layout):
+  "We felt the pain of losing value to opaque custodians and unverified feeds ourselves—so we decided to wire systems that don’t ask for blind trust."
+
+Reuse existing typography and spacing patterns; you don’t need new components.
+
+---
+
+4) “Ventures at a glance” section
+
+Locate the section that lists or previews the ventures (Helios, Lumina, Uniqueness Engine) on the home/overview page. Keep the grid/card layout and links; just standardize the copy.
+
+Section heading:
+  "Ventures at a glance"
+
+Per-venture card text:
+
+- **Helios**
+  - Overline: "Capital"
+  - Title: "Helios — resilient capital engine."
+  - Body: "Helios is the internal execution engine we use to route our own digital asset treasury under explicit limits, so capital can work without surrendering control."
+
+- **Lumina**
+  - Overline: "Truth"
+  - Title: "Lumina — physics-aware grading."
+  - Body: "Lumina turns raw card condition into evidence-backed grading signals instead of vibes, tying every result to verifiable inputs you can inspect."
+
+- **Uniqueness Engine**
+  - Overline: "Dignity"
+  - Title: "Uniqueness Engine — personhood without exposure."
+  - Body: "Uniqueness Engine proves one person is present without forcing them to hand over their life story, enabling sybil-resistant participation while keeping dignity intact."
+
+Do not change card links, routes, or images—only the text.
+
+---
+
+5) “How we work” summary strip
+
+Add or update a short “How we work” strip (can be three horizontal bullets or mini-cards) near the middle or bottom of the page.
+
+Section heading:
+  "How we work"
+
+Three items:
+
+1) Title: "Balance-sheet-first"
+   Text:
+   "We wire new rails through our own balance sheet and operations first, so we feel the stress and failure modes directly before anyone else adopts the pattern."
+
+2) Title: "AI-native, human-governed"
+   Text:
+   "Machine intelligence scans, simulates, and flags anomalies; people define mandates, limits, and veto. AI is part of the mechanism, not the boss."
+
+3) Title: "Non-custodial by design"
+   Text:
+   "Our systems orchestrate workflows, proofs, and controls. They do not pool client funds or seize keys."
+
+Use existing section / card components; don’t invent new layout primitives.
+
+---
+
+6) Hygiene & brand checks for the Overview/Home file
+
+In the root Overview/Home page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "game-changing agents", "AI magic"
+  - "StackMe", "Stackme Holdings", or "VSP" as active brand names
+  - any generic “the human” phrasing; prefer “people”, “individuals”, “participants”, or “personhood/dignity”
+
+- Make sure the page explicitly mentions:
+  - “AI-native” (or “AI-native venture studio”)
+  - “run on our own balance sheet first”
+  - “Truth, Capital, and Dignity” as the three domains
+
+Do not touch other pages or routes in this checkpoint.
