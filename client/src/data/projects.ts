@@ -9,10 +9,13 @@ export const STAGES = {
   EVOLVE: "Evolve",
 } as const;
 
+export type DomainType = "Truth" | "Capital" | "Dignity";
+
 export interface Project {
   slug: string;
   name: string;
   tag: string;
+  domain: DomainType;
   stage: string;
   stageVariant: StageVariant;
   summary: string;
@@ -30,9 +33,10 @@ export const projects: Project[] = [
     slug: "helios",
     name: "Helios",
     tag: "Internal venture",
+    domain: "Capital",
     stage: STAGES.EVOLVE,
     stageVariant: "evolution",
-    summary: "VSG's internal capital engine: a governed system for funding research and infrastructure from our own balance sheet, not client deposits.",
+    summary: "Helios is our internal execution engine for VSG's own digital asset treasury. It routes positions under explicit limits so capital can work without surrendering custody, operating as a non-custodial engine with observability and rollback built in.",
     description: "Helios is our internal capital engine. It manages VSG's Bitcoin treasury reserve with autonomous monitoring, conservative risk limits, and sub-4ms execution latency. Built to preserve purchasing power over decades, not chase short-term yield.",
     currentState: [
       "v20.0 Production deployed on VSG internal treasury",
@@ -59,9 +63,10 @@ export const projects: Project[] = [
     slug: "stackme",
     name: "Stackme",
     tag: "Consumer venture",
+    domain: "Capital",
     stage: STAGES.VALIDATE,
     stageVariant: "validation",
-    summary: "A consumer experience for safely accessing leverage on verifiable rails, with clear constraints and real-time risk visibility.",
+    summary: "A consumer experience for safely accessing leverage on verifiable rails, with clear constraints and real-time risk visibility. Built so individuals can see exactly where they stand before volatility moves.",
     description: "A transparent lending interface for borrowing against Bitcoin. Engineered to eliminate hidden risks and predatory terms common in crypto lending, with clear solvency indicators and conservative risk limits.",
     currentState: [
       "Requirements and risk framework complete",
@@ -87,9 +92,10 @@ export const projects: Project[] = [
     slug: "lumina",
     name: "Lumina",
     tag: "Market infrastructure",
+    domain: "Truth",
     stage: STAGES.BUILD,
     stageVariant: "build",
-    summary: "Digital authenticity and grading rails for unique items, where provenance and condition can be inspected, not guessed.",
+    summary: "Lumina is physics-aware grading infrastructure for cards and other physical assets. It ties every score to verifiable evidence—sensor readings, anomaly checks, and provenance logs—so grades rest on proof instead of stories.",
     description: "Linking high-value physical items to verifiable digital certificates via optical surface scanning. Creates forgery-proof provenance for trading real-world assets without centralized custody.",
     currentState: [
       "Specification and requirements complete",
@@ -116,9 +122,10 @@ export const projects: Project[] = [
     slug: "axiom",
     name: "Axiom",
     tag: "In research",
+    domain: "Truth",
     stage: STAGES.DEFINE,
     stageVariant: "definition",
-    summary: "Early-stage R&D around audit-ready data pipelines and deterministic AI for institutional reporting and controls.",
+    summary: "Our verifiable rails for AI-native flows anchor outputs to provenance and integrity checks. They make it possible to inspect how a decision or result was formed, so automated systems can be audited instead of guessed at.",
     description: "Axiom forces AI to be deterministic and source-backed. LLMs are probabilistic—they guess. Axiom constrains them to cite verified data sources, making AI outputs reliable enough for institutional decision-making.",
     currentState: [
       "Research and requirements phase active",

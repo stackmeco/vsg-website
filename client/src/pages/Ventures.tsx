@@ -12,7 +12,7 @@ export default function Ventures() {
     <Layout>
       <PageMeta 
         title="Ventures" 
-        description="How Verifiable Systems Group evaluates, funds, and matures ventures from early experiments into governed, verifiable infrastructure."
+        description="Verifiable Systems Group is an AI-native venture studio. We run each venture on our own balance sheet first as a living proof of what our rails can sustain across Truth, Capital, and Dignity."
         preloadImage="/hero-texture.png"
       />
       
@@ -33,13 +33,13 @@ export default function Ventures() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4">
-              Ventures at VSG
+              AI-native venture studio
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6">
-              Infrastructure-scale ideas, tested as ventures.
+              Ventures
             </h1>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              We don't ship random apps. Every venture starts as a tightly scoped hypothesis, moves through a six-stage process, and either graduates into shared infrastructure or is retired with its lessons preserved. This page is the front-door into that portfolio.
+              Verifiable Systems Group is an AI-native venture studio. We run each venture on our own balance sheet first as a living proof of what our rails can sustain across Truth, Capital, and Dignity.
             </p>
           </div>
         </div>
@@ -51,9 +51,12 @@ export default function Ventures() {
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
               Active Portfolio
             </p>
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
               Current Ventures
             </h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Every venture here runs on our own balance sheet first, so you can see how the rails behave before deciding what to trust.
+            </p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-6">
@@ -72,9 +75,15 @@ export default function Ventures() {
                       {project.stage}
                     </Badge>
                   </div>
-                  <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary">
-                    {project.tag}
-                  </p>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground" data-testid={`domain-${project.slug}`}>
+                      {project.domain}
+                    </span>
+                    <span className="text-muted-foreground/50">·</span>
+                    <span className="text-xs font-medium uppercase tracking-[0.15em] text-primary">
+                      {project.tag}
+                    </span>
+                  </div>
                 </CardHeader>
                 <CardContent className="flex flex-col h-full pt-0">
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
