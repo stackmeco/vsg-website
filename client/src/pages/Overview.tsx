@@ -227,7 +227,7 @@ export default function Overview() {
 
             <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid="card-venture-uniqueness">
               <CardContent className="p-6 flex flex-col h-full">
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-2">Uniqueness Engine (VSP)</h3>
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-2">Uniqueness Engine</h3>
                 <p className="text-sm text-primary italic mb-3">Digital scarcity infrastructure for the AI age.</p>
                 <ul className="space-y-2 text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
                   <li className="flex items-start gap-2" data-testid="text-uniqueness-bullet-0">

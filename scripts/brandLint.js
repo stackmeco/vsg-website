@@ -31,6 +31,8 @@ const BANNED = [
   "harvest data",
   // Dehumanizing language - we prefer "people", "individuals", or "personhood/dignity"
   "the human",
+  // Legacy typo - VSP was a typo for VSG, not a separate venture
+  "VSP ",
 ];
 
 function walk(dir, files = []) {
