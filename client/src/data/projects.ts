@@ -148,6 +148,34 @@ export const projects: Project[] = [
     relatedArticle: "/insights/insolvency-of-fiction",
     texture: "axiom",
   },
+  {
+    slug: "uniqueness",
+    name: "Uniqueness Engine",
+    tag: "Infrastructure venture",
+    domain: "Dignity",
+    stage: STAGES.BUILD,
+    stageVariant: "build",
+    summary: "Uniqueness Engine proves one person is present without forcing them to hand over their life story, enabling sybil-resistant participation while keeping dignity and control intact.",
+    description: "Uniqueness Engine is digital scarcity infrastructure for the AI age. It proves personhood and eligibility without exposing identity, so people can participate in systems without becoming products in someone else's database.",
+    currentState: [
+      "Architecture and protocol design complete",
+      "Privacy-preserving proof systems in development",
+      "Integration patterns defined for identity verification",
+      "Sybil-resistance mechanisms validated",
+    ],
+    exploring: [
+      "Zero-knowledge proofs for presence verification",
+      "Cross-platform uniqueness coordination",
+      "Credential issuance without data pooling",
+      "Decentralized identity binding patterns",
+    ],
+    notYet: [
+      "No public API or external access yet",
+      "Not issuing credentials to external parties",
+      "No biometric data collection",
+      "Build phase only",
+    ],
+  },
 ];
 
 export const getProjectBySlug = (slug: string): Project | undefined => {
