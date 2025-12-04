@@ -16,6 +16,29 @@ import {
   Scale
 } from "lucide-react";
 
+const operatingPrinciples = [
+  {
+    title: "Non-custodial by design",
+    text: "We do not pool client funds or take custody of external assets. Our systems orchestrate workflows and verification; you keep the keys and the veto.",
+  },
+  {
+    title: "Balance-sheet-first",
+    text: "We wire new rails through our own balance sheet before anyone else touches them, so we feel the stress, edge cases, and failure modes directly.",
+  },
+  {
+    title: "Governed experiments",
+    text: "Every launch is a governed experiment: defined scope, explicit limits, named stewards, and pre-agreed rollback paths—not a bet pushed into production.",
+  },
+  {
+    title: "Observability over opacity",
+    text: "We treat logs, provenance, and monitoring as first-class. You should be able to see how a system behaved, not reverse-engineer it from damage.",
+  },
+  {
+    title: "Conservative by default",
+    text: "We prefer constraints, caps, and safety margins over stretch. We would rather leave upside on the table than expose users to unbounded downside.",
+  },
+];
+
 const capitalControls = [
   "2-of-3 Multisig — Founder A, Founder B, Cold Storage required for treasury moves",
   "Transparent funding — all capital contributions are documented with clear terms",
@@ -84,7 +107,7 @@ export default function Governance() {
     <Layout>
       <PageMeta 
         title="Standards" 
-        description="Our governance framework: how decisions are made, how we manage risk, and our approach to compliance. Transparency over theater."
+        description="We run governed experiments on our own balance sheet first. Every serious system has explicit limits, named stewards, and observable behaviours."
         preloadImage="/hero-texture.png"
       />
       
@@ -105,14 +128,14 @@ export default function Governance() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid lg:grid-cols-[1fr,320px] gap-12 items-start">
             <div className="max-w-2xl">
-              <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
-                Safety & Standards.
-              </h1>
-              <p className="text-lg text-foreground leading-relaxed mb-6">
-                Technology moves fast. Ethics shouldn't. We impose strict rules on ourselves to ensure we build responsible systems.
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4">
+                Governance & Standards
               </p>
+              <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
+                How we constrain what we build.
+              </h1>
               <p className="text-lg text-foreground leading-relaxed">
-                We operate at the frontier of AI and digital assets. Clear governance is essential for both partners and regulators to understand how we work.
+                We run governed experiments on our own balance sheet first. Every serious system we operate has explicit limits, named stewards, and observable behaviours, so risk is modelled up front instead of discovered by accident.
               </p>
             </div>
 
@@ -122,6 +145,12 @@ export default function Governance() {
                   On this page
                 </p>
                 <ul className="space-y-3 list-none">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <a href="#principles" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-principles">
+                      Operating principles
+                    </a>
+                  </li>
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                     <a href="#structure" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-structure">
@@ -153,7 +182,31 @@ export default function Governance() {
         </div>
       </section>
 
-      <section id="structure" className="py-16 bg-card scroll-mt-20" data-testid="section-structure">
+      <section id="principles" className="py-16 bg-card scroll-mt-20" data-testid="section-principles">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground mb-2">
+              How we operate
+            </p>
+            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
+              Operating principles
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {operatingPrinciples.map((principle, index) => (
+              <Card key={index} className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-principle-${index + 1}`}>
+                <CardContent className="p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{principle.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{principle.text}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="structure" className="py-16 scroll-mt-20" data-testid="section-structure">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground mb-2">
@@ -468,6 +521,16 @@ export default function Governance() {
                 <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16" data-testid="section-closing">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-base text-muted-foreground leading-relaxed border-l-2 border-primary pl-6">
+              These standards apply across Truth, Capital, and Dignity. If a system cannot be described in terms of its limits, stewards, and failure handling, we do not ship it.
+            </p>
           </div>
         </div>
       </section>
