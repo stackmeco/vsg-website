@@ -1,0 +1,114 @@
+You are editing the codebase for **Verifiable Systems Group (VSG)**.
+
+VSG is an **AI-native, cryptography-grounded venture studio** that builds **verifiable systems for capital, identity, and intelligence**, and runs every serious pattern on its **own balance sheet first**.
+
+Brand canon (non-negotiable):
+- Our three domains are **Truth**, **Capital**, and **Dignity** — these replace any older “Signal / Value / Human” framing.
+  - Truth — Make decisions rest on evidence, not stories.
+  - Capital — Make capital work without leaving governed, non-custodial control.
+  - Dignity — Protect people and their personhood; prove eligibility and uniqueness without surveillance.
+- We are **AI-native**: machine intelligence is part of the mechanism and governance loops, not a bolt-on.
+- We are **non-custodial by design** and **balance-sheet-first**.
+- Tone: serious, architectural, ethically explicit; no hype, no memes, no “AI-powered platform” language.
+- Forbidden phrases (rewrite any you find): 
+  - “validate the signal”
+  - “Signal / Value / Human” as pillars
+  - “the human”
+  - “AI-powered platform”
+  - “revolutionary AI”, “game-changing agents”, “AI magic”
+  - casual slang or meme language
+
+Before changing copy or labels, align them with:
+- `docs/brand/VSG-Brand-Voice-System-v3.0.md`
+- `docs/brand/VSG-Identity.md`
+
+Now update the **Overview (home)** page to reflect Brand & Voice System v3.0.
+
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in `client/src/App.tsx`).
+
+File to edit: the page that renders the root route `/` (for example `client/src/pages/Overview.tsx` or similar). If the component name or path is different, locate the file actually used for `/` and apply these changes there.
+
+Goal:
+Make the Overview page the manifesto for VSG: tagline, AI-native stance, Truth/Capital/Dignity, and who we serve — all in v3.0 voice. Keep the existing layout and styling primitives; change text content only.
+
+Tasks:
+
+1) Hero section (top of page)
+- Keep existing structure (overline, h1, paragraph, CTA if present).
+- Replace the main headline text with:
+
+  Headline:
+  “The infrastructure of verifiable autonomy.”
+
+- Replace the main hero body copy with:
+
+  Body:
+  “You shouldn’t have to surrender control for leverage. Verifiable Systems Group is an AI-native, cryptography-grounded venture studio that builds verifiable systems for capital, identity, and intelligence. We run every serious pattern on our own balance sheet first across Truth, Capital, and Dignity.”
+
+- If there is a small overline/eyebrow above the headline, set it to:
+
+  Overline:
+  “AI-native venture studio for verifiable systems.”
+
+- Keep all existing Tailwind/shadcn classes and layout wrappers; only swap the string literals.
+
+2) Domains triptych: Truth · Capital · Dignity
+- Locate or create a section near the top (below the hero) that presents the three domains in a 3-column or 3-card layout.
+- Use these exact titles and blurbs (adapt to existing JSX structure, but keep wording as close as possible):
+
+  Card 1:
+  - Title: “Truth — Evidence you can inspect.”
+  - Body paragraph:
+    “Truth means decisions stop resting on stories and start resting on evidence. We anchor grades, approvals, and AI outputs to provenance and tamper-evident logs so you can see why something happened—not guess.”
+
+  Card 2:
+  - Title: “Capital — Leverage without surrender.”
+  - Body paragraph:
+    “Capital should work without leaving your control. In our Capital domain, we design non-custodial engines that route assets under explicit, stress-tested limits—always on our own balance sheet first.”
+
+  Card 3:
+  - Title: “Dignity — Personhood without exposure.”
+  - Body paragraph:
+    “Dignity means you stay a person, not a product. We prove uniqueness and eligibility with privacy-preserving proofs so you can move through systems without handing over your life story.”
+
+- If your existing components expect shorter blurbs, keep the first sentence and compress the rest without changing the core meaning.
+
+3) “Who we serve” section
+- Locate any existing section that describes the audience or create a new section below the domains.
+- Present four concise audience descriptors in cards or bullet format:
+
+  Heading:
+  “Who we serve”
+
+  Audience 1:
+  - Label: “High-agency individuals with scar tissue”
+  - Text:
+    “People who have lost money, time, or privacy to opaque systems and now care about control, verifiability, and survivability.”
+
+  Audience 2:
+  - Label: “Institutional stewards”
+  - Text:
+    “CIOs, partners, and risk or compliance leads who must defend decisions and need clear mechanisms, limits, and governance.”
+
+  Audience 3:
+  - Label: “Technical collaborators”
+  - Text:
+    “Engineers, protocol teams, and security practitioners who care about mechanics, stress paths, and constraints—not buzzwords.”
+
+  Audience 4:
+  - Label: “Policy and regulator-adjacent readers”
+  - Text:
+    “People evaluating whether we are a responsible actor: non-custodial by design, conservative, and explicit about risk.”
+
+- Keep design tokens and layout components; just replace the textual content.
+
+4) Brand-aligned closing / bridge
+- If the Overview page has a closing paragraph or bridge into Ventures / Approach, update it to something like:
+
+  “Across Truth, Capital, and Dignity, we build and run ventures on our own balance sheet first so you don’t have to take our word for it. You can inspect how the rails behave, how risk is constrained, and how personhood is protected—then decide what to trust.”
+
+5) Safety & constraints
+- Do NOT add protocol names, LTV numbers, bank names, or specific wallet details on this page.
+- Ensure there is no remaining reference to “Signal / Value / Human”, “validate the signal”, or “the human” in the Overview page after edits.
+
+Keep JSX structure, components, and classes intact — only update the string literals and, if needed, add simple wrappers for the new sections.

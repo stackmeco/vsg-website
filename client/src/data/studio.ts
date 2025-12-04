@@ -45,8 +45,8 @@ export const values = [
     id: "ia",
     name: "Intelligence-Augmented, Human-Accountable",
     shortName: "Intelligence Augmented (IA)",
-    quote: "Let the machine compute. Let the human connect.",
-    description: "AI amplifies capability. Humans make decisions. The machine computes; the human connects.",
+    quote: "Let the machine compute. Let people decide.",
+    description: "AI amplifies capability. People make decisions. The machine computes; people connect.",
   },
   {
     id: "signal",
@@ -90,7 +90,7 @@ export const pillarsInPractice = [
     id: "validate-signal",
     name: "Validate Signal",
     project: "Axiom",
-    description: "AI-powered news verification that separates signal from noise in real-time.",
+    description: "AI-native verification infrastructure that anchors outputs to provenance and evidence.",
     href: "/ventures/axiom",
   },
   {

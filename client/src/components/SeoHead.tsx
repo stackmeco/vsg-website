@@ -38,8 +38,8 @@ export function SeoHead({
     "alternateName": ["Verifiable Systems Group", "Verifiable Systems", "VSG"],
     "url": DOMAIN,
     "logo": `${DOMAIN}/favicon.svg`,
-    "description": "Engineering verifiable systems for intelligence and value.",
-    "knowsAbout": ["Artificial Intelligence", "Bitcoin", "Digital Assets", "System Engineering"]
+    "description": "An AI-native, cryptography-grounded venture studio building verifiable systems for capital, identity, and intelligence.",
+    "knowsAbout": ["Artificial Intelligence", "Verifiable Systems", "Non-custodial Finance", "Digital Identity"]
   };
 
   const articleSchema = type === 'article' ? {
@@ -81,8 +81,8 @@ export function SeoHead({
 
   return (
     <Helmet>
-      <title>{`${title} | Verifiable Systems`}</title>
-      <meta name="keywords" content="Verifiable Systems Group LLC, Verifiable Systems Group, Verifiable Systems, VSG, Truth Engineering, AI, Digital Assets, Bitcoin" />
+      <title>{`${title} — Verifiable Systems Group`}</title>
+      <meta name="keywords" content="Verifiable Systems Group, VSG, AI-native, non-custodial, verifiable systems, capital, identity, intelligence, Truth, Capital, Dignity" />
       <meta name="description" content={description} />
       <link rel="canonical" href={fullUrl} />
 

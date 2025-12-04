@@ -22,7 +22,7 @@ export function PageMeta({
   preloadImage
 }: PageMetaProps) {
   const [location] = useLocation();
-  const fullTitle = `${title} | Verifiable Systems`;
+  const fullTitle = `${title} — Verifiable Systems Group`;
   const canonicalUrl = `${BASE_URL}${location}`;
   const imageUrl = image.startsWith("http") ? image : `${BASE_URL}${image}`;
 
@@ -52,7 +52,7 @@ export function PageMeta({
     };
 
     setMeta('meta[name="description"]', "content", description);
-    setMeta('meta[name="keywords"]', "content", "Verifiable Systems Group LLC, Verifiable Systems Group, Verifiable Systems, VSG, Truth Engineering, AI, Digital Assets, Bitcoin");
+    setMeta('meta[name="keywords"]', "content", "Verifiable Systems Group, VSG, AI-native, non-custodial, verifiable systems, capital, identity, intelligence, Truth, Capital, Dignity");
     
     setMeta('meta[property="og:title"]', "content", fullTitle);
     setMeta('meta[property="og:description"]', "content", description);

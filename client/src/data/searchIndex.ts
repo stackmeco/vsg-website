@@ -77,7 +77,7 @@ const pageEntries: SearchEntry[] = [
   { 
     id: "page-helios", 
     name: "Helios", 
-    description: "AI-powered treasury management",
+    description: "Non-custodial treasury engine — Capital",
     href: "/ventures/helios", 
     icon: Zap, 
     keywords: ["treasury", "ai", "management", "automation", "yield"],
