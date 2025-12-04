@@ -1,0 +1,47 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Context:
+- “VSP” in older documents was a typo / legacy label for VSG, not a separate public venture.
+- Canon brand entity is **Verifiable Systems Group (VSG)**.
+- Public ventures are currently: Helios (Capital), Lumina (Truth), Uniqueness Engine (Dignity). There is no separate “VSP” venture in the current brand system.
+
+Goal:
+Clean up any leftover “VSP” mentions in the **codebase** so the public site is consistent. Do NOT undo any of the recent Truth · Capital · Dignity or venture updates.
+
+Tasks:
+
+1) Search for “VSP” in the frontend
+- Search in `client/src` for the string `VSP`.
+- For each occurrence:
+  - If it’s clearly referring to the **company/studio** (e.g., “VSP is an AI-native venture studio…”), change it to **“VSG”**.
+  - If it’s referring to a **venture name or product** that overlaps with what we now call **Uniqueness Engine** or “Architecture of Digital Scarcity”, either:
+    - Rename it to “Uniqueness Engine” if it fits that description, **or**
+    - Rewrite the sentence generically (e.g., “this infrastructure”) so it doesn’t introduce a new named venture.
+  - If it’s in a **comment** that is clearly obsolete, update it to VSG or remove it if it no longer makes sense.
+
+2) Check routes and nav
+- Confirm there is **no dedicated “VSP” route** in `client/src/App.tsx` or related route config.
+- If you find a `/vsp` or similar route:
+  - Comment it out or remove it only if it’s NOT linked from anywhere in the current UI, **or**
+  - Rename the label and copy to match an existing canonical venture (Helios, Lumina, Uniqueness Engine) if this is just a misnamed page.
+
+3) Keep brand docs as-is
+- Do NOT modify anything in `docs/brand/VSG-Brand-Voice-System-v3.0.md` or `docs/brand/VSG-Identity.md` in this step. Those are already correct and canonical.
+
+4) Brand lint update
+- In `scripts/brandLint.js`, extend the `BANNED` array to include `"VSP "` (with a trailing space) so future uses of VSP in `client/src` are caught:
+
+  Add this entry to BANNED:
+  `"VSP ",
+
+- Do not lint against VSP in `docs` outside `docs/brand` (old Word/legacy docs are fine); focus on frontend code.
+
+5) Safety
+- Don’t change any of the Truth/Capital/Dignity logic, the updated venture pages, or the navigation labels we just aligned.
+- After edits, run:
+  
+  `npm run brand:lint`
+  
+  and ensure it passes with no remaining VSP hits in `client/src`.
+
+This step is a targeted cleanup only; no large refactor or backtracking.

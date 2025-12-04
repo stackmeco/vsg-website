@@ -3,18 +3,18 @@ import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 
-const columns = [
+const whatHeliosDoes = [
   {
-    title: "Mandate",
-    body: "Fund long-horizon work that would be hard to finance on a quarter-to-quarter budget: deep research, security reviews, infrastructure, and shared tooling across ventures.",
+    title: "Routes inside guardrails",
+    body: "Helios routes positions only inside predefined guardrails, so exposures cannot drift silently. Every change is tied back to a clear mandate and risk envelope.",
   },
   {
-    title: "What Helios is not",
-    body: "Helios does not pool client funds, accept deposits, run a public fund, or market yield products. It exists solely to manage VSG's own capital under governed limits.",
+    title: "Non-custodial by design",
+    body: "Helios orchestrates flows; it does not take custody of external client assets. It is built for our own balance sheet, with controls that could apply to other stewards later.",
   },
   {
-    title: "Where it lives",
-    body: "Helios sits inside VSG's internal stack alongside our treasury, risk, and engineering functions. It is designed to be explainable to auditors, banking partners, and regulators.",
+    title: "Built for shocks, not just sunshine",
+    body: "We design Helios around stress, not ideal conditions—assuming volatility, dislocations, and failures. If we cannot describe how it behaves when things break, we do not ship it.",
   },
 ];
 
@@ -68,7 +68,7 @@ export default function Helios() {
     <Layout>
       <PageMeta
         title="Helios"
-        description="Helios is VSG's internal capital engine — a governed system for funding research, infrastructure, and resilience from our own balance sheet, not client deposits."
+        description="Helios is the execution engine VSG uses to route its own digital asset treasury under explicit limits. Non-custodial by design: we keep the keys, set the mandates, and feel the stress first."
         preloadImage="/hero-texture.png"
       />
 
@@ -88,23 +88,26 @@ export default function Helios() {
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" aria-hidden="true" />
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4">
-              Internal venture — capital systems
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
+              Venture · Capital
             </p>
-            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6">
-              Helios: VSG's internal capital engine.
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
+              Helios — our internal engine for resilient capital.
             </h1>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Helios is how we put our own balance sheet to work. It allocates VSG's capital into long-term reserve assets and selective borrowing programs so we can fund research, infrastructure, and resilience without ever touching client deposits or offering yield products.
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base" data-testid="text-hero-body">
+              Helios is the execution engine we use to route VSG's own digital asset treasury under explicit limits. It is non-custodial by design: we keep the keys, we set the mandates, and we feel the stress first, so capital can work without surrendering control.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-columns">
+      <section className="py-20 bg-card" data-testid="section-what-helios-does">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-8" data-testid="heading-what-helios-does">
+            What Helios does
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {columns.map((col) => (
+            {whatHeliosDoes.map((col) => (
               <Card key={col.title} className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-${col.title.toLowerCase().replace(/\s+/g, "-")}`}>
                 <CardContent className="flex flex-col h-full p-6">
                   <h3 className="font-heading font-semibold text-foreground mb-3">{col.title}</h3>
@@ -116,7 +119,23 @@ export default function Helios() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-capabilities">
+      <section className="py-20" data-testid="section-capital-domain">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2" data-testid="text-capital-eyebrow">
+              Domain
+            </p>
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-capital-domain">
+              Helios in the Capital domain
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-capital-body">
+              Capital should be able to work without leaving governed control. In the Capital domain, Helios is how we prove that: it applies conservative limits, transparent routing, and clear rollback paths to our own assets before any pattern is shared.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-card" data-testid="section-capabilities">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
@@ -142,7 +161,7 @@ export default function Helios() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-governance">
+      <section className="py-20" data-testid="section-governance">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
@@ -168,7 +187,7 @@ export default function Helios() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-stakeholders">
+      <section className="py-20 bg-card" data-testid="section-stakeholders">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
