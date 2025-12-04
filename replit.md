@@ -97,6 +97,15 @@ Key files:
 - **STAGES enum**: Created central const in projects.ts (DEFINITION, VALIDATION, BUILD, DEPLOYMENT, EVOLUTION)
 - **Article dates**: Updated from future (2025) to realistic past (2024)
 
+### Technical Audit & Brand Documentation (December 2025)
+- **Sitemap.xml**: Updated with correct routes (/ventures, /approach, /studio, /insights, /connect)
+- **Manifest.json**: Fixed icon configuration to use proper icon files
+- **MARKETING_SITE_FULL_REVIEW.md**: Comprehensive enterprise-grade audit document
+- **POST_REVIEW_OPTIMIZATIONS.md**: Quick-win optimization patches
+- **docs/brand/**: New brand documentation directory
+  - `VSG-Brand-Voice-System-v3.0.md`: Master brand & voice system (Truth · Capital · Dignity)
+  - `VSG-Identity.md`: Core identity & ethos document
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
