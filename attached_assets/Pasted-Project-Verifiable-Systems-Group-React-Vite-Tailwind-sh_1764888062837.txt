@@ -1,0 +1,86 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **site shell** in line with VSG Brand & Voice System v3.0 by:
+1) Updating the global footer copy.
+2) Updating the 404 / NotFound page copy.
+
+Do NOT change layout primitives, styling tokens, or routes. Only update text content in the relevant components.
+
+Brand canon (for reference while editing):
+- Name: Verifiable Systems Group (VSG)
+- One-liner: “We engineer the infrastructure of verifiable autonomy.”
+- Domains: Truth · Capital · Dignity
+- Stance: AI-native, non-custodial by design, balance-sheet-first, serious/architectural tone (no hype, no memes).
+
+---
+
+1) Update the footer component
+
+File: the global footer component (for example `client/src/components/layout/Footer.tsx` or similar). Find the footer that appears on most/all pages and update the text only.
+
+Keep the JSX structure and Tailwind/shadcn classes; just replace string literals.
+
+Target footer content (adapt to existing layout):
+
+- Primary line (near the logo or brand name):
+  "Verifiable Systems Group"
+
+- Tagline line:
+  "We engineer the infrastructure of verifiable autonomy."
+
+- Supporting line (small / muted text):
+  "AI-native, cryptography-grounded venture studio running every serious pattern on our own balance sheet first across Truth, Capital, and Dignity."
+
+- Compliance / reassurance line (smallest text, if there is a slot for this; otherwise skip):
+  "We do not pool client funds, manage outside capital, or offer yield products. Our systems are non-custodial by design."
+
+If the footer currently references:
+- “StackMe”, “Stackme Holdings”, or “VSP” → rename to “Verifiable Systems Group (VSG)”.
+- “Signal / Value / Human”, “validate the signal”, or hypey AI phrases → remove or rewrite to match the wording above.
+
+Do NOT:
+- Add any protocol names, venues, token tickers, or LTV numbers.
+- Add social/meme language.
+
+---
+
+2) Update the 404 / NotFound page
+
+File: the component used for unmatched routes (for example `client/src/pages/NotFound.tsx` or `client/src/pages/404.tsx`). Locate the page that renders when a route is not found and update the copy only.
+
+Keep layout and classes as-is; replace strings with the following:
+
+- Heading:
+  "This page isn’t wired into the system yet."
+
+- Main body paragraph:
+  "Either the route moved or it never existed in this configuration. We try not to leave dead ends in our systems—if you reached one here, start again from the Ventures or Insights pages."
+
+- Optional small helper text (if there is a secondary paragraph or muted text spot):
+  "If you typed a URL by hand, check the spelling. If you followed a link from us and it broke, that’s on our side—we’ll wire it up."
+
+If there is a button back to the home page, make sure its label is something simple and on-voice like:
+- "Back to overview"
+or
+- "Return to the studio"
+
+Avoid:
+- Jokes, memes, or overly casual language.
+- Any references to “Signal / Value / Human” or hypey AI phrases.
+
+---
+
+3) Hygiene for these two files
+
+In the footer and 404 components only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "game-changing agents", "AI magic"
+  - "StackMe" / "Stackme Holdings" / "VSP" as active brand names
+- Use “people”, “visitors”, or “users” instead of any generic “the human” phrasing.
+
+Do not touch any other components or routes in this checkpoint.
