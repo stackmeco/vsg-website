@@ -1,25 +1,25 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { InsightCard } from "@/components/InsightCard";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
 import { articles, getAvailableCategories, type ContentType } from "@/data/articles";
 
-const whatToExpect = [
-  {
-    title: "From live systems",
-    text: "We write from systems we run ourselves, not hypotheticals. If we describe a pattern, it has touched our balance sheet or operations.",
-  },
-  {
-    title: "Structured, not sensational",
-    text: "Each piece starts from a real failure mode or asymmetry, then walks through the mechanics and the fix. No drama, just structure.",
-  },
-  {
-    title: "Actionable verification",
-    text: "Where possible, we include ways to inspect behaviours—logs, specs, or checklists—so you can adapt the pattern without copying our stack.",
-  },
+const whatInsightsAre = [
+  "Field notes from running our own systems.",
+  "Post-mortems and design decisions we've actually implemented.",
+  "A way to see how Truth, Capital, and Dignity show up under stress.",
+];
+
+const whatInsightsAreNot = [
+  "Not marketing copy or product announcements.",
+  "Not investment, legal, or tax advice.",
+  "Not a complete description of any internal playbook.",
 ];
 
 export default function Library() {
@@ -54,52 +54,45 @@ export default function Library() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
-              Insights from the field
+              Insights
             </p>
-            <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
-              Notes on building verifiable autonomy.
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
+              From incidents to infrastructure.
             </h1>
-            <p className="text-lg text-foreground leading-relaxed" data-testid="text-hero-body">
-              We share what we learn as we run Truth, Capital, and Dignity on our own balance sheet first: what worked, what broke, and how we rewired the rails so you don't have to repeat the same failures.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-hero-body">
+              When something breaks—or works better than expected—we write it down. Insights are where we turn experiments, incidents, and field notes into patterns that shape how we design for Truth, Capital, and Dignity.
+            </p>
+            <div className="flex flex-wrap items-center gap-4 mt-8">
+              <Button 
+                size="lg" 
+                data-testid="button-see-entries"
+                onClick={() => document.getElementById('insights-list')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                See all entries
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Button>
+              <Link href="/approach">
+                <Button size="lg" variant="outline" data-testid="button-how-we-work">
+                  How we work
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="insights-list" className="py-20 bg-card" data-testid="section-insights-list">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-notes-from-rails">
+              Notes from running the rails
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-notes-from-rails">
+              These entries come from running our own systems under real conditions. Some are post-mortems, some are design memos, all are grounded in work we've actually done.
             </p>
           </div>
-        </div>
-      </section>
 
-      <section className="py-12 bg-card" data-testid="section-intro">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-intro">
-              These aren't press releases. They are working notes, post-mortems, and pattern write-ups from the systems we depend on ourselves. Expect structure, constraints, and evidence—not hype.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12" data-testid="section-what-to-expect">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-8" data-testid="heading-what-to-expect">
-            What to expect
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {whatToExpect.map((item) => {
-              const slugTitle = item.title.toLowerCase().replace(/\s+/g, "-").replace(/,/g, "");
-              return (
-                <Card key={item.title} className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-${slugTitle}`}>
-                  <CardContent className="flex flex-col h-full p-6">
-                    <h3 className="font-heading font-semibold text-foreground mb-3" data-testid={`heading-${slugTitle}`}>{item.title}</h3>
-                    <p className="flex-1 text-sm text-muted-foreground leading-relaxed" data-testid={`text-${slugTitle}`}>{item.text}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-8 pb-16 bg-card" data-testid="section-filters">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-2 mb-12" data-testid="filter-controls">
+          <div className="flex flex-wrap gap-2 mb-8" data-testid="filter-controls">
             {getAvailableCategories(articles).map((type) => (
               <Badge
                 key={type}
@@ -115,7 +108,7 @@ export default function Library() {
           
           {filteredItems.length === 0 ? (
             <div className="text-center py-12" data-testid="section-items-empty">
-              <p className="text-base text-muted-foreground">No items found for this filter.</p>
+              <p className="text-base text-muted-foreground">No entries found for this filter.</p>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-testid="section-items">
@@ -134,10 +127,49 @@ export default function Library() {
         </div>
       </section>
 
+      <section className="py-20" data-testid="section-what-insights-are">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-8" data-testid="heading-what-insights-are">
+            What Insights are / are not
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <Card className="bg-card border-border" data-testid="card-what-are">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-4">What Insights are</h3>
+                <ul className="space-y-3">
+                  {whatInsightsAre.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3" data-testid={`list-what-are-${index}`}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
+                      <span className="text-sm text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="bg-card border-border" data-testid="card-what-are-not">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-4">What Insights are not</h3>
+                <ul className="space-y-3">
+                  {whatInsightsAreNot.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3" data-testid={`list-what-are-not-${index}`}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground mt-2 flex-shrink-0" aria-hidden="true" />
+                      <span className="text-sm text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+          <p className="text-xs text-muted-foreground/80 leading-relaxed max-w-3xl" data-testid="text-insights-disclaimer">
+            These entries describe how we operate and what we've learned. They are not investment, legal, or tax advice, and they omit sensitive operational details by design.
+          </p>
+        </div>
+      </section>
+
       <NextStepBlock
-        nextPage="Connect"
-        description="Start a conversation with our team."
-        href="/connect"
+        nextPage="See how we structure the work"
+        description="Our approach and governance pages show how these lessons become standards."
+        href="/approach"
       />
     </Layout>
   );
