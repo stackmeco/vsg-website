@@ -2,13 +2,37 @@ import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+
+const futureCharacteristics = [
+  {
+    title: "Transparent by design",
+    text: "Key decisions come with evidence: where the inputs came from, how they were transformed, and which limits were enforced.",
+  },
+  {
+    title: "Non-custodial by default",
+    text: "Control over capital and identity stays as close to the edge as possible. Intermediaries run rails; they do not hold keys.",
+  },
+  {
+    title: "Governed, not improvised",
+    text: "Systems are built with clear mandates, limits, and rollback paths. Surprises are treated as design failures, not acceptable cost.",
+  },
+];
+
+const whatWeSayYesTo = [
+  "We say yes to systems we can explain under stress.",
+  "We say yes to designs that reduce asymmetry between incumbents and individuals.",
+  "We say yes to ventures that make it easier to verify first and trust second.",
+];
 
 export default function Vision() {
   return (
     <Layout>
       <PageMeta 
-        title="Vision" 
-        description="The future VSG is working toward: a world where verifiable, non-custodial, governed systems are the default rails for finance, identity, and AI."
+        title="Vision — A Future Where Trust Is Engineered" 
+        description="We envision a world where trust is an engineered feature, not a gamble—where flows that matter are verifiable by design and people can inspect what they depend on."
         preloadImage="/hero-texture.png"
       />
       
@@ -30,95 +54,74 @@ export default function Vision() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
-              Studio · Vision
+              Vision
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-hero-heading">
-              A world where verification is the default, not the exception.
+              A future where "trust" is an engineered feature, not a gamble.
             </h1>
-            <p className="text-lg text-foreground leading-relaxed font-semibold mb-4" data-testid="text-core-vision">
-              We envision a digital economy where critical systems are verifiable by default and custody stays where it belongs.
-            </p>
             <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-hero-body">
-              We imagine institutions, builders, and individuals relying on verifiable, non-custodial systems as readily as today's payment networks or cloud platforms. Regulators see live evidence instead of slideware. Experiments run under real governance, not "ship and hope."
+              Most systems still ask you to take trust on faith: hand over capital, data, or time and hope the rails hold. Our vision is a world where that hope is replaced with engineering—where the flows that matter are verifiable by design, and trust is something you can inspect, not just feel.
+            </p>
+            <div className="flex flex-wrap items-center gap-4 mt-8">
+              <Link href="/approach">
+                <Button size="lg" data-testid="button-how-we-design">
+                  See how we design
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Button>
+              </Link>
+              <Link href="/ventures">
+                <Button size="lg" variant="outline" data-testid="button-explore-ventures">
+                  Explore the ventures
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-card" data-testid="section-what-future-looks-like">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-what-future-looks-like">
+              What this future looks like
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-what-future-looks-like">
+              In our vision, the systems that matter most—those that move capital, anchor decisions, or govern participation—are observable end to end. They expose enough of their inner workings that stewards can see how they behave on the calmest and worst days, and people can understand how they are being treated.
             </p>
           </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-card" data-testid="section-five-ten-years">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="text-fiveten-heading">
-              Five–ten years out: what changes if we succeed
-            </h2>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3" data-testid="text-fiveten-bullet-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">For institutions</strong> — Critical flows (capital, identity, AI decisions) run on auditable rails. Risk and compliance teams can query systems, not just policies.
-                </span>
-              </li>
-              <li className="flex items-start gap-3" data-testid="text-fiveten-bullet-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">For builders</strong> — Designing for verifiability, non-custody, and governance is standard practice, not edge-case work for "regulated" projects.
-                </span>
-              </li>
-              <li className="flex items-start gap-3" data-testid="text-fiveten-bullet-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">For individuals</strong> — People hold keys and gain verifiable assurances about how systems use their assets and data.
-                </span>
-              </li>
-              <li className="flex items-start gap-3" data-testid="text-fiveten-bullet-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">For regulators and partners</strong> — Supervisory conversations are grounded in shared evidence and live telemetry, not static documents.
-                </span>
-              </li>
-            </ul>
+          <div className="grid md:grid-cols-3 gap-6">
+            {futureCharacteristics.map((item, index) => (
+              <Card
+                key={index}
+                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-future-${index}`}
+              >
+                <CardContent className="flex flex-col h-full p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-different">
+      <section className="py-20" data-testid="section-guides-choices">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-different-heading">
-              What will feel different day to day
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-guides-choices">
+              How it guides what we say yes to
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-different-body">
-              A credible vision should eventually feel boring. If we succeed, the interesting part won't be whether systems are verifiable, but what new things become safe to build on top of them.
-            </p>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3" data-testid="text-different-bullet-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  "Is this verifiable?" becomes as routine a question as "Is this secure?".
-                </span>
-              </li>
-              <li className="flex items-start gap-3" data-testid="text-different-bullet-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  Non-custodial architectures qualify for serious partnerships and regulated use-cases, not just hobby scale.
-                </span>
-              </li>
-              <li className="flex items-start gap-3" data-testid="text-different-bullet-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  New ventures inherit battle-tested governance patterns instead of reinventing control every time.
-                </span>
-              </li>
+            <ul className="space-y-4 mb-8">
+              {whatWeSayYesTo.map((item, index) => (
+                <li key={index} className="flex items-start gap-3" data-testid={`list-say-yes-${index}`}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
+                  <span className="text-base text-muted-foreground">{item}</span>
+                </li>
+              ))}
             </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-card" data-testid="section-crosslinks">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-crosslinks">
-              Our <Link href="/studio/purpose" className="text-primary hover:underline" data-testid="link-purpose">purpose</Link> explains why this matters today. Our <Link href="/studio/mission" className="text-primary hover:underline" data-testid="link-mission">mission</Link> explains how we're pursuing it right now.
+            <p className="text-sm text-muted-foreground/80 leading-relaxed" data-testid="text-vision-note">
+              If we cannot see how something behaves under stress, we do not build on it.
             </p>
           </div>
         </div>
@@ -127,7 +130,7 @@ export default function Vision() {
       <NextStepBlock
         nextPage="Mission"
         description="See what we are actually doing today to move toward this vision."
-        href="/studio/mission"
+        href="/mission"
       />
     </Layout>
   );

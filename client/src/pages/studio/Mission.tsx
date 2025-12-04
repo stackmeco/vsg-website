@@ -2,13 +2,37 @@ import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+
+const howWePursue = [
+  {
+    title: "AI-native, human-governed",
+    text: "We assume machine intelligence is in the loop from day one. It handles the mechanics; people keep the mandate, the veto, and the accountability.",
+  },
+  {
+    title: "Balance-sheet-first",
+    text: "We wire serious flows through our own capital and operations first, under conservative limits, so we feel the consequences before anyone else does.",
+  },
+  {
+    title: "Non-custodial by design",
+    text: "Where capital or identity is involved, we favour architectures where people and institutions keep control of their keys and rights.",
+  },
+];
+
+const domainMappings = [
+  "Truth — infrastructure that makes key decisions inspectable, from grading outputs to model flags.",
+  "Capital — infrastructure that lets assets work within guardrails instead of relying on opaque counterparties.",
+  "Dignity — infrastructure that lets people prove enough to participate without over-exposure.",
+];
 
 export default function Mission() {
   return (
     <Layout>
       <PageMeta 
-        title="Mission" 
-        description="What Verifiable Systems Group does today: designing, building, and operating verification-first ventures on non-custodial rails with real governance."
+        title="Mission — We Engineer the Infrastructure of Verifiable Autonomy" 
+        description="Our mission is to build rails where flows can be inspected, constrained, and rolled back—by fusing machine intelligence and cryptography, run on our own balance sheet first."
         preloadImage="/hero-texture.png"
       />
       
@@ -30,95 +54,74 @@ export default function Mission() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
-              Studio · Mission
+              Mission
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-hero-heading">
-              What we do, and for whom, right now.
+              We engineer the infrastructure of verifiable autonomy.
             </h1>
-            <p className="text-lg text-foreground leading-relaxed font-semibold mb-4" data-testid="text-core-mission">
-              Our mission is to design, build, and operate verification-first ventures that let institutions and individuals use non-custodial rails with the governance and reliability they require.
-            </p>
             <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-hero-body">
-              We do this by running a focused venture studio, maintaining shared standards, and investing in the research, infrastructure, and capital strategy needed to keep experimentation safe and aligned with real-world constraints.
+              Our mission is to build the rails that let people and systems act with confidence—because the flows they rely on can be inspected, constrained, and, when necessary, rolled back. We do this by fusing machine intelligence and cryptography, and by running every serious pattern on our own balance sheet first.
             </p>
+            <div className="flex flex-wrap items-center gap-4 mt-8">
+              <Link href="/ventures">
+                <Button size="lg" data-testid="button-explore-ventures">
+                  Explore our ventures
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Button>
+              </Link>
+              <Link href="/approach">
+                <Button size="lg" variant="outline" data-testid="button-review-approach">
+                  Review our approach
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-how">
+      <section className="py-20 bg-card" data-testid="section-how-we-pursue">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="text-how-heading">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-how-we-pursue">
               How we pursue this mission
             </h2>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3" data-testid="text-how-bullet-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">Studio model</strong> — We originate and co-build ventures where verifiable systems, non-custodial rails, and governed experiments are the starting point, not a retrofit.
-                </span>
-              </li>
-              <li className="flex items-start gap-3" data-testid="text-how-bullet-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">Shared standards</strong> — We maintain patterns, playbooks, and reference architectures so each new venture benefits from what the others have already learned.
-                </span>
-              </li>
-              <li className="flex items-start gap-3" data-testid="text-how-bullet-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">Conservative capital strategy</strong> — We use an internal, Bitcoin-anchored treasury program to fund R&D and infrastructure under conservative limits — without pooling client assets or offering yield products.
-                </span>
-              </li>
-              <li className="flex items-start gap-3" data-testid="text-how-bullet-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">Partnerships with serious counterparts</strong> — We work with institutions, infrastructure providers, and builders who care about governance as much as growth.
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20" data-testid="section-who">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-who-heading">
-              Who we serve
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-who-intro">
-              We work best with teams who see governance and verification as enablers, not just constraints.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-how-we-pursue-intro">
+              We treat "infrastructure of verifiable autonomy" as a job description, not a slogan. It shapes who we hire, which ideas become ventures, and how we respond when systems behave in unexpected ways.
             </p>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3" data-testid="text-who-bullet-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  Regulated and regulation-adjacent institutions that need verifiable, non-custodial infrastructure they can stand behind.
-                </span>
-              </li>
-              <li className="flex items-start gap-3" data-testid="text-who-bullet-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  Infrastructure and protocol teams who want verification-first design and governance to be part of their adoption story.
-                </span>
-              </li>
-              <li className="flex items-start gap-3" data-testid="text-who-bullet-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  Experienced builders and operators who care more about durable systems than one-off launches.
-                </span>
-              </li>
-            </ul>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {howWePursue.map((item, index) => (
+              <Card
+                key={index}
+                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-pursue-${index}`}
+              >
+                <CardContent className="flex flex-col h-full p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-card" data-testid="section-crosslinks">
+      <section className="py-20" data-testid="section-domain-mappings">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-crosslinks">
-              Our <Link href="/studio/vision" className="text-primary hover:underline" data-testid="link-vision">vision</Link> describes the future state we're aiming at. Our <Link href="/ventures" className="text-primary hover:underline" data-testid="link-ventures">venture portfolio</Link> shows where this mission is already at work.
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-domain-mappings">
+              How it maps to Truth, Capital, and Dignity
+            </h2>
+            <ul className="space-y-4 mb-8">
+              {domainMappings.map((item, index) => (
+                <li key={index} className="flex items-start gap-3" data-testid={`list-domain-${index}`}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
+                  <span className="text-base text-muted-foreground">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-xs text-muted-foreground/80 leading-relaxed" data-testid="text-mission-disclaimer">
+              This mission describes how we build and operate systems. It does not offer or imply any guarantees of performance or outcomes.
             </p>
           </div>
         </div>
