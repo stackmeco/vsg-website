@@ -1,0 +1,179 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Helios venture detail page** fully in line with VSG Brand & Voice System v3.0 and the Truth · Capital · Dignity model.
+
+Helios must clearly read as:
+- An internal **Capital** venture,
+- AI-native and human-governed,
+- Balance-sheet-first,
+- Non-custodial by design,
+- Not a yield product, not a fund, not a service for outside capital.
+
+Do NOT change layout primitives, visual design, or routes. Only update text content, headings, and small local data structures in the Helios page file.
+
+---
+
+1) Locate the Helios venture page
+
+Find the component used for the Helios detail route, e.g.:
+
+- `client/src/pages/ventures/Helios.tsx`
+- or whatever file is rendered for `/ventures/helios`.
+
+All changes below apply **only** inside this Helios page file.
+
+---
+
+2) Update the hero section
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTA). Replace only the text:
+
+- Overline (small label above the main heading):
+  "Helios · Capital"
+
+- Heading:
+  "Helios — resilient capital engine."
+
+- Body paragraph:
+  "Helios is the internal execution engine we use to route VSG’s own digital asset treasury under explicit limits, so capital can work without surrendering control. It exists to make sure our own balance sheet experiences the real stress first—before any pattern leaves the studio."
+
+If the hero has a primary CTA button for Helios, keep the component and styling but set the label to something neutral like:
+
+- "Back to ventures"
+or
+- "View all ventures"
+
+linking back to the `/ventures` route (or whatever route already exists for the ventures index).
+
+No signup / “get access” CTAs for Helios—this is an internal engine, not a product offering.
+
+---
+
+3) Add or update “Why Helios exists” section
+
+Find the first explanatory section under the hero. If one already exists, reuse its structure and replace the copy. If not, create a new section using the same section/typography components used on other venture pages.
+
+Section heading:
+  "Why Helios exists"
+
+Body text (single paragraph; break into multiple <p> if your component prefers):
+
+  "Most treasuries are forced to choose between staying idle in the name of safety or chasing yield through opaque intermediaries. We built Helios so our own capital does neither. It routes VSG’s digital asset treasury through approved venues under strict limits, giving us evidence about how the rails behave under stress—without handing the keys to anyone else."
+
+Optional second sentence (if layout allows):
+
+  "We’ve been liquidated by opaque custodians ourselves; Helios is how we make sure the systems we depend on now are governed, inspectable, and reversible when conditions change."
+
+(If you include that second line, keep it as one “scar” moment—don’t add more casual/emotional language.)
+
+---
+
+4) “What Helios is / is not” block
+
+If the page already has a “What it is / what it’s not” pattern, reuse it and just update the text. Otherwise, create a simple two-column or stacked section using your existing info-card component.
+
+Left column heading:
+  "What Helios is"
+
+Left column bullets:
+
+  - "An internal execution engine for VSG’s own digital asset treasury."
+  - "Part of the Capital domain: making assets work without leaving governed control."
+  - "AI-native and human-governed: machines scan and simulate; people define mandates, limits, and vetoes."
+  - "A way to turn conservative constraints into repeatable playbooks for our other ventures."
+
+Right column heading:
+  "What Helios is not"
+
+Right column bullets:
+
+  - "Not a fund, exchange, or wallet product for customers."
+  - "Not a pooled investment vehicle or yield product."
+  - "Not a promise of returns, yield, or protection for anyone outside VSG."
+  - "Not a place where we take custody of client assets or manage outside capital."
+
+Keep the structure and card styles; only update headings and copy.
+
+---
+
+5) “How Helios works (at a distance)” section
+
+Add or update a section that explains the mechanics **without** exposing specific protocols, venues, token tickers, or ratios.
+
+Section heading:
+  "How Helios works (at a distance)"
+
+Short lead paragraph:
+  "Helios treats our treasury as a governed system, not a trading account. It decides how capital moves based on a set of constraints we can describe, monitor, and roll back."
+
+Under this, use three mini-cards or bullets (reuse an existing layout pattern):
+
+1) Title: "Balance-sheet-first"
+   Text:
+   "Every path Helios uses touches our own balance sheet first. If a flow fails, we feel it directly and retire that pattern before it ever becomes advice."
+
+2) Title: "AI-native, human-governed"
+   Text:
+   "Machine intelligence scans markets, simulates paths, and flags anomalies. People set mandates, limits, and emergency stops. No fully autonomous loops, no unchecked exposure."
+
+3) Title: "Non-custodial by design"
+   Text:
+   "Helios orchestrates how capital moves across non-custodial rails. It does not pool client funds, hold deposits, or control keys for anyone outside VSG."
+
+Do not mention specific protocol names, banks, bridges, or tickers. Keep it conceptual and on-voice.
+
+---
+
+6) “Where Helios fits in the studio” section
+
+Add or update a short section that connects Helios to the rest of VSG.
+
+Section heading:
+  "Where Helios fits in VSG"
+
+Body paragraph:
+  "Helios is how we prove the Capital side of our work. It runs alongside Lumina in Truth and the Uniqueness Engine in Dignity, giving us a live view of how conservative, non-custodial treasury patterns behave under real conditions."
+
+Optional short list (if there is a list component here already):
+
+- "Feeds our capital standards and playbooks."
+- "Provides stress data for risk and governance work."
+- "Keeps our advice grounded in systems we actually run."
+
+Keep this section compact; it’s a bridge, not a full case study.
+
+---
+
+7) Safety & scope disclaimer (bottom of page)
+
+At the bottom of the Helios page, add a small, muted disclaimer paragraph if the layout supports it (use the same style you use for legal-ish copy elsewhere, e.g., `text-xs text-muted-foreground`):
+
+  "Helios is an internal engine for VSG’s own balance sheet. We do not pool client funds, manage outside capital, or market Helios as a yield product. Nothing on this page is investment, legal, or tax advice."
+
+One paragraph; no extra legalese needed.
+
+---
+
+8) Hygiene & brand checks for this file
+
+In the Helios page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents"
+  - "move fast and break things"
+  - "monetize users", "harvest data"
+  - "StackMe", "Stackme Holdings", or "VSP" as active brand names
+  - generic “the human” phrasing (use “people”, “individuals”, “participants”, “personhood”, or “dignity” instead)
+
+- Ensure Helios is clearly tied to:
+  - The **Capital** domain.
+  - “AI-native, human-governed.”
+  - “Balance-sheet-first.”
+  - “Non-custodial by design.”
+  - Internal scope only (no outside capital, no yield promise).
+
+Do not touch any other venture pages or routes in this checkpoint.

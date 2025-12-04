@@ -52,8 +52,8 @@ export default function Approach() {
   return (
     <Layout>
       <PageMeta
-        title="Approach"
-        description="How we design and prove systems. Our work starts from three questions about Truth, Capital, and Dignity, then runs every serious venture through a six-stage path on our own balance sheet first."
+        title="Approach — How VSG Designs and Proves Systems"
+        description="From first questions about Truth, Capital, and Dignity to governed launches, VSG runs every serious venture through a six-stage path on its own balance sheet first."
         preloadImage="/hero-texture.png"
       />
 

@@ -37,8 +37,8 @@ export default function Uniqueness() {
   return (
     <Layout>
       <PageMeta
-        title="Uniqueness Engine"
-        description="Uniqueness Engine proves that one person is present without forcing them to hand over their life story. It enables sybil-resistant access using privacy-preserving proofs."
+        title="Uniqueness Engine — Personhood Without Exposure"
+        description="Uniqueness Engine proves one person is present without forcing full exposure, enabling sybil-resistant participation while keeping dignity and control intact."
         preloadImage="/hero-texture.png"
       />
 

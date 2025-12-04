@@ -106,8 +106,8 @@ export default function Governance() {
   return (
     <Layout>
       <PageMeta 
-        title="Standards" 
-        description="We run governed experiments on our own balance sheet first. Every serious system has explicit limits, named stewards, and observable behaviours."
+        title="Governance & Standards — Guardrails for Verifiable Systems" 
+        description="How VSG runs governed experiments on its own balance sheet first: explicit limits, named stewards, and observable behaviours for systems that must not fail silently."
         preloadImage="/hero-texture.png"
       />
       

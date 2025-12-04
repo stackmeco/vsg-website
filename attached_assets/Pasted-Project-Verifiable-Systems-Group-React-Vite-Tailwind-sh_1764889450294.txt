@@ -1,0 +1,193 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Improve accessibility and HTML semantics across the site shell so the experience is robust for keyboard users, screen readers, and assistive tech—without changing the visual design or routing.
+
+Focus on:
+- Landmarks (header/nav/main/footer)
+- Skip link to main content
+- Accessible labels for icon-only controls
+- Sensible alt text for images
+- Safe external link behaviour
+
+Do NOT change theme tokens, colors, spacing, or component libraries. Only adjust markup, attributes, and small utility classes where needed.
+
+---
+
+1) Add a “skip to content” link in the main layout
+
+File: the top-level layout/shell component that wraps all pages (for example `client/src/components/layout/Layout.tsx`, `SiteShell.tsx`, or similar). This is the component that renders the header/nav and page body together.
+
+Tasks:
+
+- At the very top of the layout’s JSX (inside the outermost wrapper, but before the header/nav), add a visually-hidden-until-focus skip link:
+
+  <a
+    href="#main-content"
+    className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-background focus:px-3 focus:py-2 focus:text-sm focus:shadow"
+  >
+    Skip to main content
+  </a>
+
+- Ensure the main content region on every page has an element with id="main-content":
+
+  - If the layout already wraps page content in a <main> element, add id="main-content" to that <main>.
+  - If there is no <main> in the layout yet, wrap the page body in:
+
+    <main id="main-content" className="...existing classes...">
+      {children}
+    </main>
+
+  Keep all existing classes and structure; just add <main> and id if they’re missing.
+
+---
+
+2) Ensure header/nav/footer use semantic landmarks
+
+Files:
+- Header component (for example `client/src/components/layout/Header.tsx`).
+- Footer component (previously updated in another checkpoint).
+
+Tasks:
+
+- In the Header component:
+  - If the root wrapper is a <div>, convert it to <header> and retain all existing className and children.
+  - Ensure the navigation container is a <nav> element (not just a <div>). Keep its classes and children intact.
+  - Add aria-label="Primary" to the <nav> element if it doesn’t already have a label:
+
+    <nav aria-label="Primary" className="...existing classes...">
+      ...
+    </nav>
+
+- In the Footer component:
+  - Ensure the root wrapper uses <footer> (not just a <div>), retaining all className and children.
+
+Do not alter any layout classes or content—only the HTML tag names and optional aria-label.
+
+---
+
+3) Make the mobile nav toggle fully accessible
+
+File: the mobile navigation / menu toggle component (for example `client/src/components/layout/MobileNav.tsx` or wherever the hamburger/menu button lives).
+
+Tasks:
+
+- Locate the button that opens/closes the mobile menu (often a hamburger icon).
+
+- Ensure the element is a <button> with:
+
+  - type="button"
+  - A descriptive aria-label that reflects state, for example:
+
+    <button
+      type="button"
+      aria-expanded={isOpen}
+      aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+      className="...existing classes..."
+    >
+      {/* icon */}
+    </button>
+
+- If the icon is purely decorative (e.g., <MenuIcon />), ensure it either:
+  - has aria-hidden="true", OR
+  - is treated as decorative via the icon component’s own props.
+
+Do not change the visual design or behaviour; just ensure the button and state are labelled for assistive tech.
+
+---
+
+4) Ensure all interactive elements are actual buttons/links
+
+Scope: throughout client/src/components and client/src/pages.
+
+Tasks:
+
+- Search for clickable elements that look like:
+
+  - <div onClick={...}> or <span onClick={...}> used as a button or link.
+  - Any non-interactive tag with role="button" or role="link".
+
+- For each:
+
+  - If it navigates to another route or URL, convert it to a <Link> (from your router) or <a> element, keeping all classes and content.
+  - If it performs an action (opens a modal, toggles a panel, etc.), convert it to a <button type="button"> with the same classes and children.
+
+- Ensure every <button> has type="button" unless it is intentionally a submit button inside a <form>.
+
+Do not change what these elements do; only choose the correct semantic element and keep styles.
+
+---
+
+5) Image alt text and decorative textures
+
+Scope: all <img> and Image components in client/src.
+
+Tasks:
+
+- For purely decorative background/texture images (e.g., hero textures, abstract patterns):
+  - Set alt="" (empty string) to remove them from the accessibility tree.
+  - Ensure they do not also have aria-label or title.
+
+- For meaningful images (e.g., logos, venture illustrations used to convey meaning):
+  - Ensure alt describes the content or function succinctly, e.g.:
+    - Logo: alt="Verifiable Systems Group logo"
+    - Venture icon: alt="Helios venture mark" or similar.
+  - Avoid stuffing keywords; keep it factual and crisp.
+
+Do not change the source files or classes—only adjust alt props.
+
+---
+
+6) External links safety & clarity
+
+Scope: all <a> elements with target="_blank" in client/src.
+
+Tasks:
+
+- Ensure each such link also has rel="noreferrer" (or rel="noopener noreferrer"):
+
+  <a
+    href="https://example.com"
+    target="_blank"
+    rel="noreferrer"
+    className="..."
+  >
+    ...
+  </a>
+
+- If an external link text is non-obvious (e.g., “Learn more”), consider adding aria-label that clarifies where it goes, such as:
+
+  <a
+    href="https://example.com"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Learn more about Verifiable Systems Group on example.com (opens in a new tab)"
+  >
+    Learn more
+  </a>
+
+Only add aria-label where needed; don’t duplicate purely for the sake of it.
+
+---
+
+7) Hygiene & brand checks (only in files you modify here)
+
+While editing for accessibility in this checkpoint:
+
+- Do NOT introduce:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents"
+  - "StackMe", "Stackme Holdings", or "VSP" as current brands
+  - generic “the human” phrasing; prefer “people”, “individuals”, “participants”, “personhood”, or “dignity” instead.
+
+- Ensure any new text you add is:
+  - Calm, precise, and short.
+  - On-voice with VSG Brand & Voice v3.0.
+
+After changes, confirm the dev server still builds and that:
+
+- The skip link appears on first Tab and moves focus to the main region.
+- You can tab into the nav, open/close the mobile menu, and reach the main content.
+- No visual regressions were introduced.

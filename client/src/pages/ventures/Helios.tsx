@@ -67,8 +67,8 @@ export default function Helios() {
   return (
     <Layout>
       <PageMeta
-        title="Helios"
-        description="Helios is the execution engine VSG uses to route its own digital asset treasury under explicit limits. Non-custodial by design: we keep the keys, set the mandates, and feel the stress first."
+        title="Helios — Internal Engine for Resilient Capital"
+        description="Helios routes VSG's own digital asset treasury under explicit limits, proving that capital can work without surrendering keys or leaving governed control."
         preloadImage="/hero-texture.png"
       />
 

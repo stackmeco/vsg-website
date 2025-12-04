@@ -70,8 +70,8 @@ export default function Studio() {
   return (
     <Layout>
       <PageMeta
-        title="Studio"
-        description="Verifiable Systems Group is an AI-native, cryptography-grounded venture studio that builds systems for capital, identity, and intelligence on our own balance sheet first."
+        title="VSG Studio — AI-Native, Non-Custodial Venture Studio"
+        description="Verifiable Systems Group designs and proves verifiable systems for capital, identity, and intelligence on its own balance sheet first, under explicit limits and non-custodial control."
         preloadImage="/hero-texture.png"
       />
 

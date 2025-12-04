@@ -37,8 +37,8 @@ export default function Lumina() {
   return (
     <Layout>
       <PageMeta
-        title="Lumina"
-        description="Lumina turns raw card condition into evidence-backed grading signals. It ties every score to verifiable inputs—sensor data, checks, and logs—so you can see why a grade happened."
+        title="Lumina — Physics-Aware Grading You Can Inspect"
+        description="Lumina turns raw card condition into evidence-backed grading signals, anchoring each result to verifiable inputs so decisions rest on evidence, not vibes."
         preloadImage="/hero-texture.png"
       />
 

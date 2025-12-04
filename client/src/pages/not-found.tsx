@@ -8,8 +8,8 @@ export default function NotFound() {
   return (
     <Layout>
       <PageMeta
-        title="Page Not Found"
-        description="This page isn't wired into the system yet. Start again from the Ventures or Insights pages."
+        title="Page Not Found — Verifiable Systems Group"
+        description="This route is not wired into the current configuration. Start again from the VSG overview, Ventures, or Insights pages."
       />
       <section className="py-32 text-center" data-testid="section-404">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -33,8 +33,8 @@ export default function Library() {
   return (
     <Layout>
       <PageMeta 
-        title="Insights" 
-        description="Working notes, post-mortems, and pattern write-ups from the systems we run ourselves. Expect structure, constraints, and evidence—not hype."
+        title="Insights — Notes on Building Verifiable Autonomy" 
+        description="Working notes, post-mortems, and pattern write-ups from VSG's own systems across Truth, Capital, and Dignity—what worked, what broke, and how we rewired the rails."
         preloadImage="/hero-texture.png"
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">

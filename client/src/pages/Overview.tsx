@@ -64,8 +64,8 @@ export default function Overview() {
   return (
     <Layout>
       <PageMeta 
-        title="Verifiable Systems Group" 
-        description="The infrastructure of verifiable autonomy. VSG is an AI-native, cryptography-grounded venture studio building systems for capital, identity, and intelligence—run on our own balance sheet first across Truth, Capital, and Dignity."
+        title="Verifiable Systems Group — Infrastructure of Verifiable Autonomy" 
+        description="AI-native, cryptography-grounded venture studio building systems for capital, identity, and intelligence—run on our own balance sheet first across Truth, Capital, and Dignity."
         preloadImage={gridTexture}
       />
       

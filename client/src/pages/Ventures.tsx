@@ -34,8 +34,8 @@ export default function Ventures() {
   return (
     <Layout>
       <PageMeta 
-        title="Ventures" 
-        description="Each venture is a concrete proof of what we believe about Truth, Capital, and Dignity. We run them on our own balance sheet and infrastructure first, then share the patterns only after they have survived real conditions."
+        title="Ventures — Helios, Lumina, Uniqueness Engine" 
+        description="See how VSG proves Truth, Capital, and Dignity through Helios, Lumina, and Uniqueness Engine—ventures wired through our own balance sheet before patterns are shared."
         preloadImage="/hero-texture.png"
       />
       

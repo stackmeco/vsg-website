@@ -59,8 +59,8 @@ export default function Process() {
   return (
     <Layout>
       <PageMeta 
-        title="Process" 
-        description="How Verifiable Systems Group moves ventures from concept to governed, verifiable systems using a six-stage, Bitcoin-backed R&D process."
+        title="Process — Six-Stage Runway for Verifiable Ventures" 
+        description="Define, Validate, Build, Deploy, Evolve, and Recurse: VSG's six-stage path for taking ventures from concept to governed, verifiable systems backed by conservative, non-custodial rails."
         preloadImage="/hero-texture.png"
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
