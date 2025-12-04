@@ -11,7 +11,7 @@ export default function Overview() {
     <Layout>
       <PageMeta 
         title="Verifiable Systems Group" 
-        description="Verifiable Systems Group is a venture studio that builds verifiable autonomy infrastructure—systems where AI, capital, and identity flows are observable, governed, and non-custodial by design."
+        description="Verifiable Systems Group is an AI-native, cryptography-grounded venture studio. We build verifiable systems for capital, identity, and intelligence, running every serious pattern on our own balance sheet first across Truth, Capital, and Dignity."
         preloadImage={gridTexture}
       />
       
@@ -37,14 +37,14 @@ export default function Overview() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
           <div className="max-w-2xl">
             <p className="text-sm font-mono uppercase tracking-widest text-primary mb-6" data-testid="text-overline">
-              Verifiable Systems Group · Venture Studio
+              AI-native venture studio for verifiable systems.
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-[1.1] tracking-tight mb-6" data-testid="text-hero-heading">
-              The infrastructure of verifiable autonomy.
+              We engineer the infrastructure of verifiable autonomy.
             </h1>
             
             <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl" data-testid="text-hero-body">
-              We fuse the speed of intelligence automation with the assurances of modern cryptography to build systems where truth is provable, capital works without leaving your control, and identity is protected by design.
+              You shouldn't have to surrender control for leverage. Verifiable Systems Group is an AI-native, cryptography-grounded venture studio that builds verifiable systems for capital, identity, and intelligence. We run every serious pattern on our own balance sheet first across Truth, Capital, and Dignity.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -133,32 +133,38 @@ export default function Overview() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-where-focus">
+      <section className="py-20 bg-card" data-testid="section-domains">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-focus-heading">
-              Where we focus
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-domains-heading">
+              Our three domains
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <div data-testid="focus-signal">
-              <h3 className="font-heading font-semibold text-foreground mb-2">Signal</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Verified intelligence and information flows. We design systems that force AI and data pipelines to be source-backed, inspectable, and resistant to synthetic noise.
-              </p>
-            </div>
-            <div data-testid="focus-value">
-              <h3 className="font-heading font-semibold text-foreground mb-2">Value</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Non-custodial capital and risk infrastructure. We build rails—proven first on our own balance sheet—where assets can work without leaving governed environments, and where risk limits are encoded instead of implied.
-              </p>
-            </div>
-            <div data-testid="focus-human">
-              <h3 className="font-heading font-semibold text-foreground mb-2">Human</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Identity and uniqueness without surveillance. We explore architectures like the Uniqueness Engine to prove that a person or asset is "one-of-one" without exposing who they are or how they live.
-              </p>
-            </div>
+            <Card className="bg-background border-border h-full" data-testid="domain-truth">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-3">Truth — Evidence you can inspect.</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Truth means decisions stop resting on stories and start resting on evidence. We anchor grades, approvals, and AI outputs to provenance and tamper-evident logs so you can see why something happened—not guess. Lumina and Axiom prove it.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-background border-border h-full" data-testid="domain-capital">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-3">Capital — Leverage without surrender.</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Capital should work without leaving your control. In our Capital domain, we design non-custodial engines that route assets under explicit, stress-tested limits—always on our own balance sheet first. Helios proves it.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-background border-border h-full" data-testid="domain-dignity">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-3">Dignity — Personhood without exposure.</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Dignity means you stay a person, not a product. We prove uniqueness and eligibility with privacy-preserving proofs so you can move through systems without handing over your life story. Uniqueness Engine proves it.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -246,35 +252,56 @@ export default function Overview() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-who-work-with">
+      <section className="py-20 bg-card" data-testid="section-who-serve">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-who-heading">
+              Who we serve
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="bg-background border-border h-full" data-testid="audience-individuals">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-2">High-agency individuals with scar tissue</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  People who have lost money, time, or privacy to opaque systems and now care about control, verifiability, and survivability.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-background border-border h-full" data-testid="audience-stewards">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-2">Institutional stewards</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  CIOs, partners, and risk or compliance leads who must defend decisions and need clear mechanisms, limits, and governance.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-background border-border h-full" data-testid="audience-collaborators">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-2">Technical collaborators</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Engineers, protocol teams, and security practitioners who care about mechanics, stress paths, and constraints—not buzzwords.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-background border-border h-full" data-testid="audience-policy">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-2">Policy and regulator-adjacent readers</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  People evaluating whether we are a responsible actor: non-custodial by design, conservative, and explicit about risk.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-card" data-testid="section-bridge">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-who-heading">
-              Who we work with
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-who-intro">
-              We partner with teams that need verifiable systems more than they need another dashboard.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-bridge-body">
+              Across Truth, Capital, and Dignity, we build and run ventures on our own balance sheet first so you don't have to take our word for it. You can inspect how the rails behave, how risk is constrained, and how personhood is protected—then decide what to trust.
             </p>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3" data-testid="text-who-bullet-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  Institutions and startups facing high stakes around capital, identity, or AI-driven decisions.
-                </span>
-              </li>
-              <li className="flex items-start gap-3" data-testid="text-who-bullet-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  Builders exploring non-custodial rails who need clear risk, governance, and regulatory narratives—not just code.
-                </span>
-              </li>
-              <li className="flex items-start gap-3" data-testid="text-who-bullet-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground leading-relaxed">
-                  Operators and policymakers who want to understand what verifiable infrastructure makes possible before it becomes mandatory.
-                </span>
-              </li>
-            </ul>
           </div>
         </div>
       </section>

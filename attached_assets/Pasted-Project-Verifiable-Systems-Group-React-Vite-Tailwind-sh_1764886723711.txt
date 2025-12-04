@@ -1,0 +1,64 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Update the **Process / Approach** page with:
+1) A “What runs through every stage” section for Truth · Capital · Dignity.
+2) A short AI-native callout.
+
+File: the page used for the Process/Approach route (for example `client/src/pages/Process.tsx` or `client/src/pages/Approach.tsx`).
+
+Do NOT change layout, components, or routes. Only add/update text in existing sections or simple wrappers.
+
+---
+
+1) Add “What runs through every stage” section
+
+Below the six-stage grid (after the section where the `stages` cards render), add a new section using the same container/spacing pattern as the rest of the page.
+
+Use this content (adapt to existing JSX, but keep the wording close):
+
+Heading:
+  "What runs through every stage"
+
+Three items (cards, columns, or list items):
+
+1. Title: "Truth"
+   Body:
+   "We make decisions rest on evidence, not stories, by anchoring critical behaviours to provenance and tamper-evident logs that can be inspected."
+
+2. Title: "Capital"
+   Body:
+   "We preserve value by running ventures on our own balance sheet first, under conservative, non-custodial limits with clear observability and rollback paths."
+
+3. Title: "Dignity"
+   Body:
+   "We protect people’s personhood and time by avoiding opaque, grind-you-down flows in favour of governed, inspectable paths that respect their constraints."
+
+Use existing typography classes (e.g., section heading, card titles, muted body text) so this section feels cohesive with the rest of the site.
+
+---
+
+2) Add a short AI-native callout on this page
+
+Add a short paragraph either:
+- directly under the hero body, OR
+- directly under the stages section, above “What runs through every stage”.
+
+Use this text (or a very close variant):
+
+"Machine intelligence scans, simulates, and flags anomalies at speed; people define the mandates, limits, and veto. We are AI-native, but control stays with people, not the model."
+
+Make sure this is just a normal `<p>` in the existing layout (no new components needed). Use the same text style as other supporting paragraphs on the page.
+
+---
+
+3) Hygiene checks for this file
+
+In this Process/Approach page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - hypey AI phrases like "AI-powered platform", "revolutionary AI", "game-changing agents", "AI magic"
+- Prefer “people” or “individuals” rather than the phrase “the human”.
+
+Do not touch any other pages or routes in this step.

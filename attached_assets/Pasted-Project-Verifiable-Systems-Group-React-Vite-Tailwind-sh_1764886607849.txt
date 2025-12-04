@@ -1,0 +1,67 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Update the **Process / Approach** page hero and six stages only.
+
+File: the page used for the Process/Approach route (for example `client/src/pages/Process.tsx` or `client/src/pages/Approach.tsx`).
+
+Goal:
+Make the hero and six stages reflect VSG’s current six-stage pipeline: Define, Validate, Build, Deploy, Evolve, Recurse.
+
+Tasks:
+
+1) Hero section
+- Keep existing structure and classes (overline, h1, paragraph).
+- Replace text with:
+
+  Overline:
+  "How ventures move inside VSG"
+
+  Heading:
+  "A six-stage runway for verifiable ventures."
+
+  Body:
+  "Every serious venture at VSG follows the same six-stage path. We define the boundary conditions, validate that the problem and mechanism are real, build and deploy under tight guardrails, then evolve and recurse based on hard evidence so knowledge compounds and risk is surfaced early."
+
+2) Stages array
+- Find the array that powers the stages (for example `const stages = [...]`) and replace it with:
+
+  const stages = [
+    {
+      name: "Define",
+      focus: "Scope & Constraints",
+      description:
+        "Establish the boundary conditions: who we are serving, what problem is worth solving, the regulatory and ethical constraints, and clear criteria for when the venture should not exist.",
+    },
+    {
+      name: "Validate",
+      focus: "Evidence Before Scale",
+      description:
+        "Run low-risk prototypes, simulations, and manual workflows to confirm the problem is real, the mechanism works, and the failure modes are understood—before capital or people are put under load.",
+    },
+    {
+      name: "Build",
+      focus: "Verifiable Mechanics",
+      description:
+        "Engineer the minimal verifiable system with automated checks, provenance hooks, and rollback paths from day one so we can inspect behaviour, not just outcomes.",
+    },
+    {
+      name: "Deploy",
+      focus: "Governed Launch",
+      description:
+        "Release into a controlled, observable environment with explicit limits, named stewards, and fallbacks. A launch is a governed experiment, not a cliff.",
+    },
+    {
+      name: "Evolve",
+      focus: "Feedback & Hardening",
+      description:
+        "Use real-world telemetry, incidents, and operator feedback to tune the system so it becomes less fragile and cleaner in practice—not just bigger.",
+    },
+    {
+      name: "Recurse",
+      focus: "Institutional Memory",
+      description:
+        "Run structured post-mortems on anomalies and dead ends, then feed those lessons back into our standards, templates, and tooling so every future venture starts stronger than the last.",
+    },
+  ];
+
+- Keep the JSX that maps over `stages` the same; only swap the data.
