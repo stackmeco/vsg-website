@@ -88,6 +88,9 @@ export default function Process() {
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
               Every serious venture at VSG follows the same six-stage path. We define the boundary conditions, validate that the problem and mechanism are real, build and deploy under tight guardrails, then evolve and recurse based on hard evidence so knowledge compounds and risk is surfaced early.
             </p>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+              Machine intelligence scans, simulates, and flags anomalies at speed; people define the mandates, limits, and veto. We are AI-native, but control stays with people, not the model.
+            </p>
           </div>
         </div>
       </section>
@@ -121,7 +124,46 @@ export default function Process() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-definitions">
+      <section className="py-20" data-testid="section-domains">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
+              Across every stage
+            </p>
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4">
+              What runs through every stage
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-domain-truth">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-3">Truth</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  We make decisions rest on evidence, not stories, by anchoring critical behaviours to provenance and tamper-evident logs that can be inspected.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-domain-capital">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-3">Capital</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  We preserve value by running ventures on our own balance sheet first, under conservative, non-custodial limits with clear observability and rollback paths.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-domain-dignity">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-3">Dignity</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  We protect people's personhood and time by avoiding opaque, grind-you-down flows in favour of governed, inspectable paths that respect their constraints.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-card" data-testid="section-definitions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
