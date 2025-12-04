@@ -1,0 +1,103 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Update the **Insights** page copy so it matches the VSG Brand & Voice System v3.0 (Truth · Capital · Dignity, AI-native, balance-sheet-first).
+
+File: the page used for the Insights route (for example `client/src/pages/Insights.tsx` or similar). Find the component actually rendered for `/insights` and apply these changes there.
+
+Do NOT change layout, components, or routes. Only update text content and any local data structures.
+
+---
+
+1) Hero section
+
+Keep the existing JSX and classes; only change text.
+
+- Overline:
+  "Insights from the field"
+
+- Heading:
+  "Notes on building verifiable autonomy."
+
+- Body paragraph:
+  "We share what we learn as we run Truth, Capital, and Dignity on our own balance sheet first: what worked, what broke, and how we rewired the rails so you don’t have to repeat the same failures."
+
+---
+
+2) Intro / explainer block
+
+If there is an intro text block under the hero, replace its copy with:
+
+"These aren’t press releases. They are working notes, post-mortems, and pattern write-ups from the systems we depend on ourselves. Expect structure, constraints, and evidence—not hype."
+
+If there is no such block, you can add a single paragraph using the existing body-text styles directly under the hero.
+
+---
+
+3) Filters / tags (if present)
+
+If the Insights page has a filter bar, tabs, or tag chips:
+
+- Keep the same UI components.
+- Update the **labels only** to:
+
+  - "All"
+  - "Truth"
+  - "Capital"
+  - "Dignity"
+  - "Studio updates"
+
+If there is some other filter that clearly overlaps one of these, pick the closest mapping (e.g., “Research” → “Truth”, “Treasury” → “Capital”).
+
+---
+
+4) Post card subtitles (per-article meta)
+
+For the list of posts (cards or rows):
+
+- Do NOT change the data structure (slugs, dates, etc.).
+- Where there is a small subtitle or category text on each card, align it to:
+
+  - "Truth" for posts about grading, provenance, AI integrity, or verification.
+  - "Capital" for posts about treasury, risk, rails, or balance sheet.
+  - "Dignity" for posts about identity, personhood, access, or privacy.
+  - "Studio update" for general company / roadmap / meta posts.
+
+If these subtitles are currently free-text, keep them short and swap wording where needed to match one of the four above.
+
+---
+
+5) “What to expect here” section (optional but recommended)
+
+If there is a mid-page explainer section, use your existing section component and replace its content with:
+
+Heading:
+  "What to expect"
+
+Three bullets or mini-cards:
+
+1. Title: "From live systems"
+   Text:
+   "We write from systems we run ourselves, not hypotheticals. If we describe a pattern, it has touched our balance sheet or operations."
+
+2. Title: "Structured, not sensational"
+   Text:
+   "Each piece starts from a real failure mode or asymmetry, then walks through the mechanics and the fix. No drama, just structure."
+
+3. Title: "Actionable verification"
+   Text:
+   "Where possible, we include ways to inspect behaviours—logs, specs, or checklists—so you can adapt the pattern without copying our stack."
+
+---
+
+6) Hygiene & brand checks for this file
+
+In the Insights page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "game-changing agents", "AI magic"
+  - casual slang or meme language
+- Prefer “people”, “individuals”, “stewards”, or “participants” instead of any generic “the human” phrasing.
+
+Do not touch any other pages or routes in this step.

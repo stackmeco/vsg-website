@@ -3,18 +3,18 @@ import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 
-const columns = [
+const whatLuminaDoes = [
   {
-    title: "The problem Lumina addresses",
-    body: "Authenticity and grading are often slow, opaque, and dependent on a single opinion. For many markets, that creates delays, disputes, and pricing that feels more like guesswork than infrastructure.",
+    title: "Evidence-first grading",
+    body: "Lumina starts from measurements, not impressions. Condition data is captured and processed so the grade can be traced back to what was actually observed.",
   },
   {
-    title: "Lumina's focus",
-    body: "Lumina focuses on building rails that can combine human expertise, imaging, and other data into structured signals. The aim is not to replace existing actors, but to give ecosystems better tools to see what they are trading.",
+    title: "Consistent, not vibes",
+    body: "By using a repeatable pipeline, Lumina aims for the same inputs to produce the same outcomes. It reduces the randomness that comes from different days, reviewers, or moods.",
   },
   {
-    title: "What Lumina is not",
-    body: "Lumina is not a marketplace, escrow service, or grading company. It does not hold assets or execute trades. It is an infrastructure venture focused on how authenticity and condition data move between participants.",
+    title: "Built for AI-native flows",
+    body: "Lumina is designed for an AI-native world where machines assist, but cannot improvise the rules. Models operate inside clear constraints, and their outputs are anchored to logs you can audit.",
   },
 ];
 
@@ -38,7 +38,7 @@ export default function Lumina() {
     <Layout>
       <PageMeta
         title="Lumina"
-        description="Lumina is a market-infrastructure venture exploring digital authenticity rails for unique items—so provenance, condition, and risk can be inspected instead of guessed."
+        description="Lumina turns raw card condition into evidence-backed grading signals. It ties every score to verifiable inputs—sensor data, checks, and logs—so you can see why a grade happened."
         preloadImage="/hero-texture.png"
       />
 
@@ -58,24 +58,27 @@ export default function Lumina() {
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" aria-hidden="true" />
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4">
-              Market infrastructure — authenticity systems
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
+              Venture · Truth
             </p>
-            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6">
-              Lumina: digital authenticity rails for unique items.
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
+              Lumina — physics-aware grading you can inspect.
             </h1>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Lumina explores how to turn fragmented signals about authenticity, condition, and risk into something markets can actually use. Instead of relying on screenshots and scattered opinions, we work toward verifiable, machine-readable views of high-value items.
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base" data-testid="text-hero-body">
+              Lumina turns raw card condition into evidence-backed grading signals instead of vibes. It ties every score to verifiable inputs—sensor data, checks, and logs—so you can see why a grade happened, not just accept it.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-columns">
+      <section className="py-20 bg-card" data-testid="section-what-lumina-does">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-8" data-testid="heading-what-lumina-does">
+            What Lumina does
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {columns.map((col) => (
-              <Card key={col.title} className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-${col.title.toLowerCase().replace(/\s+/g, "-").replace(/'/g, "")}`}>
+            {whatLuminaDoes.map((col) => (
+              <Card key={col.title} className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-${col.title.toLowerCase().replace(/\s+/g, "-").replace(/,/g, "")}`}>
                 <CardContent className="flex flex-col h-full p-6">
                   <h3 className="font-heading font-semibold text-foreground mb-3">{col.title}</h3>
                   <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{col.body}</p>
@@ -86,7 +89,23 @@ export default function Lumina() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-possibilities">
+      <section className="py-20" data-testid="section-truth-domain">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2" data-testid="text-truth-eyebrow">
+              Domain
+            </p>
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-truth-domain">
+              Lumina in the Truth domain
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-truth-body">
+              Truth means decisions rest on evidence, not stories. In the Truth domain, Lumina is our proof: it anchors each grading decision to a trail of measurements and checks, so collectors and partners can inspect how a result was formed instead of guessing.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-card" data-testid="section-possibilities">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
@@ -112,7 +131,7 @@ export default function Lumina() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-status">
+      <section className="py-20" data-testid="section-status">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
