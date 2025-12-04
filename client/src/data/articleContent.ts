@@ -31,18 +31,18 @@ export const articleContent: Record<string, ArticleContent> = {
         ],
       },
       {
-        heading: "II. Engineering Constraints: The Axiom Approach",
+        heading: "II. Engineering Constraints: The Lumina Approach",
         paragraphs: [
-          "This is why we are building Axiom. Axiom is not a chatbot; it is a deterministic constraint layer that sits between the model and the execution environment. It treats the LLM as a reasoning engine, but never as a knowledge base.",
-          "Axiom forces the model to function like a rigorous auditor. Before any output is accepted, the system requires the AI to cite a cryptographically verified record—a specific block header, a signed contract, or a distinct database row. If the data is not present in the verified set, the system is engineered to fail silently rather than invent a plausible lie.",
-          "In this architecture, the AI is not allowed to 'think' about facts; it is only allowed to retrieve them. This separates the creative capability of the model from the factual integrity of the system."
+          "This is why we are building Lumina. Lumina is not a chatbot; it is a deterministic constraint layer that anchors every output to verifiable evidence. It treats sensor readings and provenance logs as the source of truth, never probabilistic inference.",
+          "Lumina forces the system to function like a rigorous auditor. Before any grading signal is accepted, the system requires verifiable evidence—sensor readings, anomaly checks, and chain-of-custody attestation. If the data is not present in the verified set, the system is engineered to fail silently rather than invent a plausible score.",
+          "In this architecture, grades rest on proof instead of stories. This separates subjective assessment from factual integrity, so decisions anchor to evidence rather than vibes."
         ],
       },
       {
         heading: "III. Truth as the Ultimate Asset Class",
         paragraphs: [
           "We are entering a decade where the cost of generating content approaches zero. The internet is flooding with synthetic media, deepfakes, and infinite noise. In this environment, verifiable truth becomes the scarcest and most valuable asset class.",
-          "By linking our financial verification (Bitcoin) with our semantic verification (Axiom), we are building a closed loop: systems that can verify what they own, and verify what they know. This is the prerequisite for the autonomous economy. An agent cannot be autonomous if it is delusional."
+          "By linking our financial verification (Bitcoin) with our evidence-based verification (Lumina), we are building a closed loop: systems that can verify what they own, and verify what they know. This is the prerequisite for the autonomous economy. An agent cannot be autonomous if it is delusional."
         ],
       },
     ],

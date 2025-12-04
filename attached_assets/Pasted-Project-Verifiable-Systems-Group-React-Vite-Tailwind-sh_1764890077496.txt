@@ -1,0 +1,228 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Governance / Standards page** fully in line with VSG Brand & Voice System v3.0 and the Truth · Capital · Dignity model.
+
+This page should feel like a formal, sober spec for how VSG runs **governed experiments on its own balance sheet first**, with:
+
+- Clear language about limits, stewards, and observability,
+- No protocol names, tickers, banks, or ratios,
+- No hype or product pitch—this is the “how we behave” page.
+
+Do NOT change layout primitives, visual design, or routes. Only update text content, headings, and small local data structures in the Governance/Standards page file.
+
+---
+
+1) Locate the Governance / Standards page
+
+Find the component used for the Governance/Standards route, e.g.:
+
+- `client/src/pages/Standards.tsx`
+- or whatever file is rendered for `/standards` or `/governance`.
+
+All changes below apply **only** inside this page file.
+
+---
+
+2) Update the hero section
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTA). Replace only the text:
+
+- Overline:
+  "Governance & Standards"
+
+- Heading:
+  "Guardrails for systems that must not fail silently."
+
+- Body paragraph:
+  "We treat every serious launch as a governed experiment on our own balance sheet first. That means explicit limits, named stewards, and observable behaviours before anyone else relies on the pattern."
+
+If the hero has a primary CTA button, keep the component and styling but set the label to:
+
+- "How we run experiments"
+
+and link it to the relevant section on this page (e.g., an internal anchor) or leave the href as-is if it already points to an in-page section.
+
+If there is a secondary CTA, label it:
+
+- "View the ventures"
+
+and ensure it points to `/ventures`.
+
+---
+
+3) “How we run experiments” section
+
+Add or update the first major section under the hero to describe your experimental stance.
+
+Section heading:
+  "How we run experiments"
+
+Body text (1–2 paragraphs; break into multiple <p> tags if needed):
+
+  "We do not ship unbounded bets. Every serious change—whether in capital flows, models, or access—starts life as a governed experiment with a defined scope, explicit limits, and a rollback path we can describe up front."
+
+  "We wire the experiment through our own balance sheet and operations first. If it fails, we feel it directly and retire or adjust the pattern before it becomes advice, infrastructure, or shared practice."
+
+Below this, use a simple three-item row or cards (reuse existing pattern) with short titles and texts:
+
+1) Title: "Defined scope"
+   Text:
+   "We specify what the experiment can and cannot touch—systems, assets, and people—before we begin."
+
+2) Title: "Explicit limits"
+   Text:
+   "We set clear thresholds for exposure, volume, and time, and we stop or roll back when those limits are hit."
+
+3) Title: "Observable behaviour"
+   Text:
+   "We define what we will watch, how often, and where it is logged, so no critical change happens in the dark."
+
+---
+
+4) “What we standardize” section
+
+Add or update a section that lists the main areas covered by standards.
+
+Section heading:
+  "What we standardize"
+
+Body paragraph:
+  "Our standards are how we make sure Truth, Capital, and Dignity show up the same way across ventures. They cover how we handle information, capital, and people—even when the context changes."
+
+Then use a bulleted list (or four small cards) for the categories:
+
+- "Capital flows"
+  Text:
+  "How value is allowed to move, which paths are permitted, and how limits and rollback are enforced."
+
+- "Model behaviour"
+  Text:
+  "How AI and automation are allowed to act, what they can decide alone, and where human veto is mandatory."
+
+- "Access and participation"
+  Text:
+  "Who can do what, under which conditions, and how we protect people’s time and personhood while they participate."
+
+- "Incidents and learnings"
+  Text:
+  "How we classify incidents, respond under pressure, and feed lessons back into our processes and code."
+
+Keep this high-level and generic; no protocol names, banks, or internal entity wiring.
+
+---
+
+5) “Roles and accountability” section
+
+Add or update a section that explains roles without naming individuals or legal entities.
+
+Section heading:
+  "Roles and accountability"
+
+Body paragraph:
+  "Every governed system has named stewards, clear responsibilities, and an explicit escalation path. We care less about titles and more about who is accountable when something breaks."
+
+Then use a compact list or three small role cards:
+
+- "Stewards"
+  Text:
+  "Stewards own the day-to-day health of a system or experiment. They watch the dashboards, respond to alerts, and propose changes."
+
+- "Approvers"
+  Text:
+  "Approvers sign off on changes that affect capital, models, or people. No critical path runs without an accountable human who understands the risk."
+
+- "Reviewers"
+  Text:
+  "Reviewers audit the system after the fact—verifying that limits were respected, logs are complete, and lessons are captured for the next iteration."
+
+No names, no committees—just role definitions.
+
+---
+
+6) “AI-native, human-governed” section
+
+Add or update a section that explicitly states how governance works in an AI-native context.
+
+Section heading:
+  "AI-native, human-governed"
+
+Body paragraph:
+  "We assume machine intelligence is in the loop from day one. Our standards define what it is allowed to do, what it must log, and where humans retain veto power."
+
+Then three bullets:
+
+- "Machines scan and simulate; people set mandates and limits."
+- "Automated actions must be explainable at the level stewards need to make decisions."
+- "No critical capital or identity flow runs without a defined human escalation path."
+
+This needs to be calm, non-hyped, and consistent with v3.0.
+
+---
+
+7) “What this page is / is not” disclaimer block
+
+Add a short “is / is not” block focused on scope and safety.
+
+Small heading (e.g., `h3` or section title):
+  "What this page is / is not"
+
+Two short lists or two columns:
+
+Left (What this page is):
+- "A high-level view of how we run governed experiments on our own systems and balance sheet."
+- "A summary of the principles we apply across Truth, Capital, and Dignity."
+- "A way to understand how we think about limits, stewards, and observability."
+
+Right (What this page is not):
+- "Not legal, regulatory, or investment advice."
+- "Not a complete description of our internal playbooks or controls."
+- "Not a guarantee that risk is eliminated—only that it is made explicit, monitored, and acted on."
+
+At the bottom of this section, add a small muted paragraph (e.g., `text-xs text-muted-foreground`):
+
+  "Nothing on this page should be treated as legal, regulatory, or investment advice. It describes how we hold ourselves to account, not how anyone else must operate."
+
+---
+
+8) Bottom CTA / next step
+
+Ensure the bottom of the page has a simple next-step CTA using your existing component (e.g., `NextStepBlock`):
+
+- If it currently points to `/library`, keep the structure but update to:
+
+  Next page label:
+    "Insights"
+
+  Description:
+    "See how these standards play out in real post-mortems and notes."
+
+  href:
+    "/insights"
+
+Do not change layout or styling—only these props if they exist.
+
+---
+
+9) Hygiene & brand checks for this file
+
+In the Governance/Standards page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents"
+  - "move fast and break things"
+  - "monetize users", "harvest data"
+  - "StackMe", "Stackme Holdings", or "VSP" as active brand names
+  - generic “the human” phrasing (use “people”, “participants”, “stewards”, or “personhood/dignity” instead)
+
+- Ensure this page clearly reinforces:
+  - Truth, Capital, and Dignity as the three domains.
+  - “Run on our own balance sheet first.”
+  - Governed experiments, explicit limits, named stewards, observability.
+  - AI-native, human-governed stance.
+  - Non-custodial, non-yield, non-advisory nature (no promises, no client capital).
+
+Do not touch any other pages or routes in this checkpoint.

@@ -16,11 +16,9 @@ import {
 import { Home, FileText } from "lucide-react";
 import { getProjectBySlug, getNextProject } from "@/data/projects";
 import gridTexture from "@assets/grid_texture.png";
-import axiomTexture from "@assets/axiom_cube.png";
 import luminaTexture from "@assets/lumina_lens.png";
 
 const textureMap: Record<string, string> = {
-  axiom: axiomTexture,
   lumina: luminaTexture,
 };
 
@@ -50,9 +48,7 @@ export default function PipelineDetail() {
     );
   }
 
-  const heroTexture = project.texture === "axiom" ? axiomTexture 
-    : project.texture === "lumina" ? luminaTexture 
-    : gridTexture;
+  const heroTexture = project.texture === "lumina" ? luminaTexture : gridTexture;
 
   const breadcrumbs = [
     { name: "Home", path: "/" },

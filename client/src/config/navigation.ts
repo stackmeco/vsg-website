@@ -21,9 +21,7 @@ export const NAV_ITEMS: NavItem[] = [
     children: [
       { label: "All Ventures", href: "/ventures", description: "Our portfolio across Truth, Capital, and Dignity" },
       { label: "Helios", href: "/ventures/helios", description: "Capital — Non-custodial treasury engine" },
-      { label: "Stackme", href: "/ventures/stackme", description: "Capital — Consumer leverage rails" },
-      { label: "Lumina", href: "/ventures/lumina", description: "Truth — Digital authenticity verification" },
-      { label: "Axiom", href: "/ventures/axiom", description: "Truth — Deterministic AI infrastructure" },
+      { label: "Lumina", href: "/ventures/lumina", description: "Truth — Evidence-backed grading signals" },
       { label: "Uniqueness Engine", href: "/ventures/uniqueness", description: "Dignity — Sybil-resistant identity verification" },
     ],
   },

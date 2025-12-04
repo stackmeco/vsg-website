@@ -25,7 +25,7 @@ export interface Project {
   notYet: string[];
   relatedArticle?: string;
   nextProjectSlug?: string;
-  texture?: "axiom" | "lumina" | "default";
+  texture?: "lumina" | "default";
 }
 
 export const projects: Project[] = [
@@ -57,35 +57,6 @@ export const projects: Project[] = [
       "No yield products or investment offerings",
     ],
     relatedArticle: "/insights/verification-standard",
-    nextProjectSlug: "stackme",
-  },
-  {
-    slug: "stackme",
-    name: "Stackme",
-    tag: "Consumer venture",
-    domain: "Capital",
-    stage: STAGES.VALIDATE,
-    stageVariant: "validation",
-    summary: "A consumer experience for safely accessing leverage on verifiable rails, with clear constraints and real-time risk visibility. Built so individuals can see exactly where they stand before volatility moves.",
-    description: "A transparent lending interface for borrowing against Bitcoin. Engineered to eliminate hidden risks and predatory terms common in crypto lending, with clear solvency indicators and conservative risk limits.",
-    currentState: [
-      "Requirements and risk framework complete",
-      "Technical architecture defined and reviewed",
-      "Validation phase in active development",
-      "Security review pipeline established",
-    ],
-    exploring: [
-      "Real-time risk visualization dashboards",
-      "Conservative LTV limits with graduated alerts",
-      "Transparent liquidation tranches",
-      "Solvency indicators visible to borrowers",
-    ],
-    notYet: [
-      "No live users or active loans",
-      "No public access or beta program",
-      "Not accepting deposits or collateral",
-      "Not a licensed financial service",
-    ],
     nextProjectSlug: "lumina",
   },
   {
@@ -115,38 +86,9 @@ export const projects: Project[] = [
       "Not accepting asset submissions",
       "Build phase only",
     ],
-    nextProjectSlug: "axiom",
-    texture: "lumina",
-  },
-  {
-    slug: "axiom",
-    name: "Axiom",
-    tag: "In research",
-    domain: "Truth",
-    stage: STAGES.DEFINE,
-    stageVariant: "definition",
-    summary: "Our verifiable rails for AI-native flows anchor outputs to provenance and integrity checks. They make it possible to inspect how a decision or result was formed, so automated systems can be audited instead of guessed at.",
-    description: "Axiom forces AI to be deterministic and source-backed. LLMs are probabilistic—they guess. Axiom constrains them to cite verified data sources, making AI outputs reliable enough for institutional decision-making.",
-    currentState: [
-      "Research and requirements phase active",
-      "Surveying existing approaches",
-      "Defining accuracy and compliance requirements",
-      "Establishing success criteria",
-    ],
-    exploring: [
-      "Automated fact-verification with confidence scoring",
-      "Citation enforcement for all AI outputs",
-      "Domain-specific knowledge graph construction",
-      "Latency optimization for real-time verification",
-    ],
-    notYet: [
-      "No public API or external access",
-      "Not a general-purpose inference engine",
-      "Restricted to curated domain knowledge only",
-      "Pure research phase",
-    ],
     relatedArticle: "/insights/insolvency-of-fiction",
-    texture: "axiom",
+    nextProjectSlug: "uniqueness",
+    texture: "lumina",
   },
   {
     slug: "uniqueness",

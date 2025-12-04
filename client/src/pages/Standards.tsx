@@ -65,28 +65,11 @@ const projectGovernance = [
     ],
   },
   {
-    name: "Axiom",
-    status: "Rapid Validation",
-    rules: [
-      "Citation enforcement — all AI outputs anchored to verified data sources",
-      "Domain restriction — limited knowledge scope prevents hallucination drift",
-      "Internal deployment only — no public API or external users",
-    ],
-  },
-  {
-    name: "Stackme",
-    status: "Verified Build",
-    rules: [
-      "Non-custodial architecture — user retains key control; interface is guidance layer",
-      "Solvency controls — graduated liquidation tranches reduce forced-sale risk",
-      "Regulatory gate — full compliance review required before deployment",
-    ],
-  },
-  {
     name: "Lumina",
-    status: "Strategic Definition",
+    status: "Build Phase",
     rules: [
       "Verifiable provenance — metadata, grading, and chain-of-custody attestation",
+      "Evidence-backed signals — every grade anchored to sensor readings and anomaly checks",
       "No return guarantees — explicit disclosure of speculative nature",
       "Fee transparency — all costs and rights disclosed before instrument issuance",
     ],

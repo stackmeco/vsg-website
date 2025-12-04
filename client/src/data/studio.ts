@@ -1,20 +1,20 @@
 export const pillars = [
   {
-    id: "validate-signal",
-    name: "Validate Signal",
-    description: "Cut through the noise. We build systems that separate truth from speculation using cryptographic proof.",
+    id: "truth",
+    name: "Truth",
+    description: "Decisions rest on evidence, not stories. We anchor key behaviours to provenance and tamper-evident logs.",
     href: "/approach/pillars",
   },
   {
-    id: "preserve-value",
-    name: "Preserve Value",
-    description: "Protect what matters. Non-custodial tools that keep your assets under your control.",
+    id: "capital",
+    name: "Capital",
+    description: "Capital works without leaving governed control. Non-custodial rails with explicit limits and rollback paths.",
     href: "/approach/pillars",
   },
   {
-    id: "protect-identity",
-    name: "Protect Identity",
-    description: "Own your identity. Verification without surveillance, privacy without anonymity.",
+    id: "dignity",
+    name: "Dignity",
+    description: "People keep control over how they appear in systems. Proof of presence without turning people into products.",
     href: "/approach/pillars",
   },
 ] as const;
@@ -49,10 +49,10 @@ export const values = [
     description: "AI amplifies capability. People make decisions. The machine computes; people connect.",
   },
   {
-    id: "signal",
-    name: "Seek the Signal",
-    shortName: "Seek the Signal",
-    quote: "Verify, then trust.",
+    id: "evidence",
+    name: "Anchor to Evidence",
+    shortName: "Anchor to Evidence",
+    quote: "Ground decisions in verifiable inputs.",
     description: "We engineer clarity through cryptographic proof and transparent systems.",
   },
   {
@@ -87,22 +87,22 @@ export const values = [
 
 export const pillarsInPractice = [
   {
-    id: "validate-signal",
-    name: "Validate Signal",
-    project: "Axiom",
+    id: "truth",
+    name: "Truth",
+    project: "Lumina",
     description: "AI-native verification infrastructure that anchors outputs to provenance and evidence.",
-    href: "/ventures/axiom",
+    href: "/ventures/lumina",
   },
   {
-    id: "preserve-value",
-    name: "Preserve Value",
+    id: "capital",
+    name: "Capital",
     project: "Helios",
-    description: "Non-custodial treasury management for individuals and small operators.",
+    description: "Non-custodial treasury management with balance-sheet-first positioning for individuals and small operators.",
     href: "/ventures/helios",
   },
   {
-    id: "protect-identity",
-    name: "Protect Identity",
+    id: "dignity",
+    name: "Dignity",
     project: "Uniqueness Engine",
     description: "Sybil-resistant identity verification without surveillance.",
     href: "/ventures/uniqueness",

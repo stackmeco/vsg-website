@@ -1,0 +1,220 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Home / Overview page (root route "/")** fully in line with VSG Brand & Voice System v3.0 and the Truth · Capital · Dignity model.
+
+The page should clearly communicate:
+- Who VSG is (AI-native, cryptography-grounded venture studio),
+- What we do (infrastructure for verifiable autonomy),
+- Our three domains (Truth · Capital · Dignity),
+- How Ventures, Approach, and Governance fit together,
+- That everything runs on our own balance sheet first, non-custodial by design.
+
+Do NOT change layout primitives, visual design, or routes. Only update text content, headings, and small local data structures in the Home/Overview page file.
+
+---
+
+1) Locate the Home / Overview page
+
+Find the component used for the root route `/`, e.g.:
+
+- `client/src/pages/Home.tsx`
+- `client/src/pages/Overview.tsx`
+- or whatever file is configured to render at path `/` in `client/src/App.tsx`.
+
+All changes below apply **only** inside this Home/Overview page file.
+
+---
+
+2) Update the hero section
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only the text.
+
+- Overline:
+  "Verifiable Systems Group"
+
+- Heading:
+  "Infrastructure for verifiable autonomy."
+
+- Body paragraph:
+  "You shouldn’t have to surrender control for leverage. Verifiable Systems Group is an AI-native, cryptography-grounded venture studio that builds systems for capital, identity, and intelligence—run on our own balance sheet first across Truth, Capital, and Dignity."
+
+(Use this as a single paragraph; if your component expects multiple <p> tags, split at the second sentence.)
+
+Hero CTAs:
+
+- Primary CTA label:
+  "Explore our ventures"
+  → Link to `/ventures` (or keep the existing href if it already points there).
+
+- Secondary CTA label:
+  "How we work"
+  → Link to `/approach` (or keep the existing href if it already points to your approach/process overview).
+
+Keep all existing button components and styling; only update labels and hrefs if needed.
+
+---
+
+3) Add or update the “Three domains” strip
+
+Right below the hero (or in the first content section), add or refine a three-column/three-card strip that introduces Truth, Capital, and Dignity. Reuse your existing card/grid components.
+
+Section heading:
+  "Three domains, one studio"
+
+Short intro paragraph:
+  "Every venture we run is anchored in one of three domains—Truth, Capital, or Dignity. Together they describe what must hold, what must survive, and who must be protected."
+
+Three cards:
+
+1) Title: "Truth"
+   Text:
+   "Does this system rest on evidence solid enough to depend on? Truth is about making key decisions inspectable instead of opaque."
+
+2) Title: "Capital"
+   Text:
+   "Can capital move through this system without hidden downside? Capital is about making assets work without handing over the keys."
+
+3) Title: "Dignity"
+   Text:
+   "Does this system protect people’s personhood and time? Dignity is about proving presence and rights without forcing exposure."
+
+Use the same typography and spacing patterns as other three-card sections (e.g., the Ventures index or Approach page).
+
+---
+
+4) Ventures highlight section
+
+Add or update a section that briefly showcases the three ventures with domain tags, linking into the full Ventures pages.
+
+Section heading:
+  "Where we prove the rails"
+
+Body paragraph:
+  "We do not stop at slideware. Helios, Lumina, and Uniqueness Engine are where we run our ideas under real conditions, using our own balance sheet first."
+
+Then use a three-card row (or your existing “venture cards”) with concise copy:
+
+- Card 1:
+  - Eyebrow / pill:
+    "Helios · Capital"
+  - Title:
+    "Resilient capital engine."
+  - Body:
+    "Routes VSG’s own digital asset treasury under explicit limits so capital can work without surrendering control."
+  - Link:
+    Existing Helios detail route (e.g., `/ventures/helios`).
+
+- Card 2:
+  - Eyebrow / pill:
+    "Lumina · Truth"
+  - Title:
+    "Physics-aware grading."
+  - Body:
+    "Turns card condition into evidence-backed grading signals so decisions rest on measurable inputs, not guesswork."
+  - Link:
+    Existing Lumina detail route (e.g., `/ventures/lumina`).
+
+- Card 3:
+  - Eyebrow / pill:
+    "Uniqueness Engine · Dignity"
+  - Title:
+    "Personhood without exposure."
+  - Body:
+    "Proves one person is present without forcing them to hand over their life story, raising the cost of bots and duplicates."
+  - Link:
+    Existing Uniqueness detail route (e.g., `/ventures/uniqueness`).
+
+Keep styling, layout, and card components intact; only update text and href.
+
+---
+
+5) Approach preview section
+
+Add or update a section that previews the Approach/Process content without repeating the full six-stage page.
+
+Section heading:
+  "How we design and prove systems"
+
+Body paragraph:
+  "Before we call anything real, it moves through a six-stage path: Define, Validate, Build, Deploy, Evolve, and Recurse. Each stage is designed to surface risk early, keep capital within guardrails, and make sure lessons compound instead of resetting."
+
+Below this, include a simple inline link or small button:
+
+- Label:
+  "See the six stages"
+- href:
+  `/process` (or the route used for your Process page).
+
+Optionally, include a short three-bullet list under the paragraph if your layout supports it:
+
+- "Start with boundary conditions and reasons not to build."
+- "Test assumptions in controlled experiments before scaling exposure."
+- "Treat every incident as a lesson fed back into our standards."
+
+---
+
+6) Governance preview section
+
+Add or update a section that previews Governance/Standards without exposing internals.
+
+Section heading:
+  "Governance baked in"
+
+Body paragraph:
+  "We treat serious launches as governed experiments, not one-off bets. That means defined scope, explicit limits, named stewards, and observability from day one."
+
+Inline link or small button:
+
+- Label:
+  "Review our standards"
+- href:
+  `/standards` (or your Governance/Standards route).
+
+Keep this section short and formal—no hype language.
+
+---
+
+7) Insights preview section
+
+Add or update a simple section that points to Insights/Notes.
+
+Section heading:
+  "From post-mortems to patterns"
+
+Body paragraph:
+  "When something breaks—or works better than expected—we document it. Insights are where we turn incidents, experiments, and observations into patterns we can reuse and improve."
+
+Inline link or small button:
+
+- Label:
+  "Read insights"
+- href:
+  `/insights`.
+
+Re-use your existing CTA/link component; only update text and href.
+
+---
+
+8) Hygiene & brand checks for this file
+
+In the Home/Overview page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents"
+  - "move fast and break things"
+  - "monetize users", "harvest data"
+  - "StackMe", "Stackme Holdings", or "VSP" as active brand names
+  - generic “the human” phrasing (use “people”, “participants”, “personhood”, or “dignity” instead)
+
+- Ensure the page clearly reinforces:
+  - VSG as an AI-native, cryptography-grounded venture studio.
+  - The line: “Infrastructure for verifiable autonomy.” (hero heading).
+  - Truth, Capital, and Dignity as the three domains.
+  - Ventures (Helios, Lumina, Uniqueness Engine) as proofs.
+  - Balance-sheet-first, non-custodial stance (without naming protocols, banks, or tickers).
+
+Do not touch other pages or routes in this checkpoint.

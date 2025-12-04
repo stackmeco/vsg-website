@@ -84,30 +84,12 @@ const pageEntries: SearchEntry[] = [
     group: "pages"
   },
   { 
-    id: "page-axiom", 
-    name: "Axiom", 
-    description: "Decentralized governance infrastructure",
-    href: "/ventures/axiom", 
-    icon: FileText, 
-    keywords: ["governance", "decentralized", "voting", "dao"],
-    group: "pages"
-  },
-  { 
-    id: "page-stackme", 
-    name: "Stackme", 
-    description: "Composable financial primitives",
-    href: "/ventures/stackme", 
-    icon: CreditCard, 
-    keywords: ["finance", "composable", "primitives", "defi"],
-    group: "pages"
-  },
-  { 
     id: "page-lumina", 
     name: "Lumina", 
-    description: "Privacy-preserving analytics",
+    description: "Evidence-backed grading signals — Truth",
     href: "/ventures/lumina", 
     icon: Sparkles, 
-    keywords: ["privacy", "analytics", "data", "insights"],
+    keywords: ["grading", "verification", "evidence", "provenance", "truth"],
     group: "pages"
   },
   { 
@@ -221,9 +203,7 @@ const pageEntries: SearchEntry[] = [
 ];
 
 const projectIconMap: Record<string, LucideIcon> = {
-  "Axiom": FileText,
   "Helios": Zap,
-  "Stackme": CreditCard,
   "Lumina": Sparkles,
   "Uniqueness": Fingerprint,
 };
