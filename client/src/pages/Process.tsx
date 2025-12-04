@@ -24,33 +24,33 @@ const definitions = [
 const stages = [
   {
     name: "Define",
-    focus: "Strategy & Alignment",
-    description: "Clarify the problem, constraints, and regulatory surface so we know exactly who we serve, what is at stake, and when the venture should not exist.",
+    focus: "Scope & Constraints",
+    description: "Establish the boundary conditions: who we are serving, what problem is worth solving, the regulatory and ethical constraints, and clear criteria for when the venture should not exist.",
   },
   {
     name: "Validate",
-    focus: "Risk & Signal",
-    description: "Run small, low-risk experiments to test the core assumptions first, using models, prototypes, and controlled simulations instead of full production builds.",
+    focus: "Evidence Before Scale",
+    description: "Run low-risk prototypes, simulations, and manual workflows to confirm the problem is real, the mechanism works, and the failure modes are understood—before capital or people are put under load.",
   },
   {
     name: "Build",
-    focus: "Security & Quality",
-    description: "Engineer in short, verifiable increments with automated checks, threat modelling, and failure paths designed in from the start so every change is explainable.",
+    focus: "Verifiable Mechanics",
+    description: "Engineer the minimal verifiable system with automated checks, provenance hooks, and rollback paths from day one so we can inspect behaviour, not just outcomes.",
   },
   {
     name: "Deploy",
     focus: "Governed Launch",
-    description: "Release into a controlled environment with clear guardrails, observability, and rollback so launch behaves like a structured experiment, not a cliff jump.",
+    description: "Release into a controlled, observable environment with explicit limits, named stewards, and fallbacks. A launch is a governed experiment, not a cliff.",
   },
   {
     name: "Evolve",
-    focus: "Data & Optimization",
-    description: "Use live telemetry, behaviour, and incidents to refine the system so ventures either mature into durable infrastructure or are retired with clean exits.",
+    focus: "Feedback & Hardening",
+    description: "Use real-world telemetry, incidents, and operator feedback to tune the system so it becomes less fragile and cleaner in practice—not just bigger.",
   },
   {
     name: "Recurse",
     focus: "Institutional Memory",
-    description: "Treat anomalies and failures as high-value signals by running structured post-mortems and feeding the lessons back into our standards and pipeline.",
+    description: "Run structured post-mortems on anomalies and dead ends, then feed those lessons back into our standards, templates, and tooling so every future venture starts stronger than the last.",
   },
 ];
 
@@ -86,7 +86,7 @@ export default function Process() {
               A six-stage runway for verifiable ventures.
             </h1>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Every venture at VSG follows the same six-stage path. We define and validate the problem, build and deploy under tight controls, then evolve and recurse based on real signals so risk is surfaced early and knowledge compounds instead of resetting with each project.
+              Every serious venture at VSG follows the same six-stage path. We define the boundary conditions, validate that the problem and mechanism are real, build and deploy under tight guardrails, then evolve and recurse based on hard evidence so knowledge compounds and risk is surfaced early.
             </p>
           </div>
         </div>
