@@ -54,3 +54,6 @@ Preferred communication style: Simple, everyday language.
 ### Integration Points
 - **Form Validation**: `react-hook-form` with Zod resolvers.
 - **Session Management**: `connect-pg-simple` (ready for database provisioning).
+
+### Brand & Voice Tooling
+- **Brand Lint Script**: `scripts/brandLint.js` scans `client/src` for banned phrases from the v3.0 Brand & Voice System. Run with `node scripts/brandLint.js`. Detects deprecated language patterns like "AI-powered", "game-changing", old pillar references ("Signal / Value / Human"), and anti-patterns.
