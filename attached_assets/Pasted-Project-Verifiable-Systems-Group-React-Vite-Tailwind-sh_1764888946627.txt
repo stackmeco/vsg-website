@@ -1,0 +1,177 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Make the **Approach / Process overview page** the high-level entry point for how VSG builds systems, pointing down into:
+- Process (six stages),
+- Governance & Standards,
+- Ventures (Helios, Lumina, Uniqueness Engine),
+
+and aligning the copy with VSG Brand & Voice System v3.0 (Truth · Capital · Dignity, AI-native, balance-sheet-first).
+
+Do NOT change layout primitives, styling tokens, or routes. Only update text content and any local data structures in this page.
+
+---
+
+1) Locate the Approach overview page
+
+Find the page that acts as the high-level “Approach” or “How we work” page, likely rendered for `/approach` (for example `client/src/pages/Approach.tsx`).
+
+If there is no dedicated `Approach.tsx` but you have a combined `Process.tsx` doing both “Approach + stages”, then:
+- Create a dedicated `Approach.tsx` based on your existing layout patterns, OR
+- Use whichever file is wired to the `/approach` route as the “overview” and apply these changes there.
+
+For this checkpoint, call that file “Approach page”.
+
+---
+
+2) Hero section (top of Approach page)
+
+Keep the existing hero JSX and Tailwind classes (overline, h1, paragraph, background, CTA). Replace only the text:
+
+- Overline:
+  "Approach"
+
+- Heading:
+  "How we design and prove systems."
+
+- Body paragraph:
+  "Our work starts from three questions: Is it true enough to depend on? Can capital survive it? Does it respect people’s dignity? From there, every serious venture runs through a six-stage path—defined, tested, governed, and hardened on our own balance sheet first."
+
+If there is a primary CTA button in this hero, keep its styling and update the label to:
+
+- "See the six stages"
+
+Link this CTA to the Process page route (e.g. `/process`), leaving routing code as-is if it already points there.
+
+If there is a secondary CTA, label it:
+
+- "Read our standards"
+
+and point it to the Governance/Standards route (e.g. `/standards`).
+
+---
+
+3) Add “Three questions first” section
+
+Directly under the hero, add or update a three-card/three-column section using your existing section + card layout.
+
+Section heading:
+  "Three questions we ask first"
+
+Three cards (titles + body):
+
+1) Title:
+   "Truth — is this real enough to depend on?"
+
+   Body:
+   "We start by asking whether the problem, the data, and the mechanism are grounded in reality. Decisions should rest on evidence, not stories, so we design for inspectable behaviours and provenance from day one."
+
+2) Title:
+   "Capital — can this survive real conditions?"
+
+   Body:
+   "We test whether capital can move through the system without exposing people to hidden downside. That means conservative limits, clear observability, and rollback paths before we scale exposure or volume."
+
+3) Title:
+   "Dignity — does this protect people’s personhood and time?"
+
+   Body:
+   "We examine how people show up in the system: what they must reveal, how much control they keep, and how the flows treat their time. Dignity means you are not forced into exposure or grind-you-down processes just to participate."
+
+Use the same typography classes as other section headings and card body text so this visually matches the rest of the site.
+
+---
+
+4) “From idea to governed system” section
+
+Below the “Three questions” section, add or update a section that briefly explains the six-stage pipeline and links into the detailed Process page.
+
+Section heading:
+  "From idea to governed system"
+
+Short body paragraph:
+  "Every serious venture follows the same six-stage path: Define, Validate, Build, Deploy, Evolve, and Recurse. The goal is simple: surface risk early, keep capital within guardrails, and make sure lessons compound instead of resetting with each project."
+
+If this section supports bullets or a small list, add a three-bullet summary:
+
+- "Define the boundary conditions and criteria for when the venture should not exist."
+- "Validate that the problem and mechanism are real before we scale people or capital."
+- "Build, deploy, and evolve inside explicit guardrails, then recurse what we learn back into our standards."
+
+At the bottom of this section, add a small inline link or button (using existing button/link components) with label:
+
+- "Deep dive into the six stages"
+
+and have it link to `/process` (or your Process route).
+
+---
+
+5) “Where we prove the rails” section (linking to ventures)
+
+Add or update a section that connects Approach to the Ventures page.
+
+Section heading:
+  "Where we prove the rails"
+
+Body paragraph:
+  "We are a studio, not a single product. Helios, Lumina, and Uniqueness Engine are where we prove our approach under load—each in a different domain of Truth, Capital, and Dignity."
+
+Below this paragraph, use a simple three-item row or compressed cards (reusing your existing venture-card components or a minimal variant), with very short lines:
+
+- Helios:
+  - Label: "Helios · Capital"
+  - Text: "Our internal engine for routing treasury under explicit limits."
+  - Link: existing Helios route.
+
+- Lumina:
+  - Label: "Lumina · Truth"
+  - Text: "Physics-aware grading built on evidence, not vibes."
+  - Link: existing Lumina route.
+
+- Uniqueness Engine:
+  - Label: "Uniqueness Engine · Dignity"
+  - Text: "Personhood without exposure for sybil-resistant systems."
+  - Link: existing Uniqueness route.
+
+Keep these short; this section is a bridge, not a second Ventures page.
+
+---
+
+6) “Governance baked in” section
+
+Near the bottom of the page, add or update a short governance/standards summary that points into the Governance page.
+
+Section heading:
+  "Governance baked in"
+
+Body paragraph:
+  "We treat every launch as a governed experiment: defined scope, explicit limits, named stewards, and pre-agreed rollback paths. If we cannot describe how a system behaves when things break, we do not ship it."
+
+Optional small inline link or button under this paragraph (using existing CTA styles):
+
+- Label:
+  "Review our standards"
+
+- Target:
+  Governance/Standards route (e.g. `/standards`).
+
+---
+
+7) Hygiene & brand checks for this file
+
+In the Approach page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "game-changing agents", "AI magic"
+  - "StackMe", "Stackme Holdings", or "VSP" as active brand names
+  - any generic “the human” phrasing; prefer “people”, “individuals”, “participants”, “personhood”, or “dignity”
+
+- Make sure this page:
+  - Mentions “Truth, Capital, and Dignity”.
+  - Mentions the six stages: Define, Validate, Build, Deploy, Evolve, Recurse.
+  - Links clearly to `/process`, `/standards`, and `/ventures` (either via CTAs or cards).
+
+Do not touch other pages or routes in this checkpoint.

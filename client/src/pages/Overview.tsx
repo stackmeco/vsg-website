@@ -6,12 +6,66 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import gridTexture from "@assets/grid_texture.png";
 
+const domains = [
+  {
+    title: "Truth",
+    body: "Truth means decisions rest on evidence, not stories. We anchor key behaviours to provenance and tamper-evident logs so you can see how outcomes were formed instead of guessing.",
+  },
+  {
+    title: "Capital",
+    body: "Capital should be able to work without leaving governed control. In Capital, we run our own treasury through non-custodial rails with explicit limits, observability, and rollback paths.",
+  },
+  {
+    title: "Dignity",
+    body: "Dignity means people keep control over how they appear in systems. We enable proof of presence and eligibility without turning people into products in someone else's database.",
+  },
+];
+
+const ventures = [
+  {
+    overline: "Capital",
+    title: "Helios — resilient capital engine.",
+    body: "Helios is the internal execution engine we use to route our own digital asset treasury under explicit limits, so capital can work without surrendering control.",
+    href: "/ventures/helios",
+    testId: "helios",
+  },
+  {
+    overline: "Truth",
+    title: "Lumina — physics-aware grading.",
+    body: "Lumina turns raw card condition into evidence-backed grading signals instead of vibes, tying every result to verifiable inputs you can inspect.",
+    href: "/ventures/lumina",
+    testId: "lumina",
+  },
+  {
+    overline: "Dignity",
+    title: "Uniqueness Engine — personhood without exposure.",
+    body: "Uniqueness Engine proves one person is present without forcing them to hand over their life story, enabling sybil-resistant participation while keeping dignity intact.",
+    href: "/ventures/uniqueness",
+    testId: "uniqueness",
+  },
+];
+
+const howWeWork = [
+  {
+    title: "Balance-sheet-first",
+    body: "We wire new rails through our own balance sheet and operations first, so we feel the stress and failure modes directly before anyone else adopts the pattern.",
+  },
+  {
+    title: "AI-native, human-governed",
+    body: "Machine intelligence scans, simulates, and flags anomalies; people define mandates, limits, and veto. AI is part of the mechanism, not the boss.",
+  },
+  {
+    title: "Non-custodial by design",
+    body: "Our systems orchestrate workflows, proofs, and controls. They do not pool client funds or seize keys.",
+  },
+];
+
 export default function Overview() {
   return (
     <Layout>
       <PageMeta 
         title="Verifiable Systems Group" 
-        description="Verifiable Systems Group is an AI-native, cryptography-grounded venture studio. We build verifiable systems for capital, identity, and intelligence, running every serious pattern on our own balance sheet first across Truth, Capital, and Dignity."
+        description="The infrastructure of verifiable autonomy. VSG is an AI-native, cryptography-grounded venture studio building systems for capital, identity, and intelligence—run on our own balance sheet first across Truth, Capital, and Dignity."
         preloadImage={gridTexture}
       />
       
@@ -37,14 +91,14 @@ export default function Overview() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
           <div className="max-w-2xl">
             <p className="text-sm font-mono uppercase tracking-widest text-primary mb-6" data-testid="text-overline">
-              AI-native venture studio for verifiable systems.
+              Verifiable Systems Group
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-[1.1] tracking-tight mb-6" data-testid="text-hero-heading">
-              We engineer the infrastructure of verifiable autonomy.
+              The infrastructure of verifiable autonomy.
             </h1>
             
             <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl" data-testid="text-hero-body">
-              You shouldn't have to surrender control for leverage. Verifiable Systems Group is an AI-native, cryptography-grounded venture studio that builds verifiable systems for capital, identity, and intelligence. We run every serious pattern on our own balance sheet first across Truth, Capital, and Dignity.
+              You shouldn't have to surrender control just to get leverage. Verifiable Systems Group is an AI-native, cryptography-grounded venture studio that builds systems for capital, identity, and intelligence—run on our own balance sheet first so you can verify, not just trust.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -54,7 +108,7 @@ export default function Overview() {
                   className="font-mono text-sm uppercase tracking-wider"
                   data-testid="button-explore-ventures"
                 >
-                  Explore our ventures
+                  Explore the ventures
                   <ArrowRight className="w-3.5 h-3.5 ml-2" />
                 </Button>
               </Link>
@@ -73,181 +127,110 @@ export default function Overview() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-what-is-vsg">
+      <section className="py-20 bg-card" data-testid="section-why-we-exist">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-whatis-heading">
-              What is Verifiable Systems Group?
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-why-we-exist">
+              Why we exist
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-whatis-body">
-              Verifiable Systems Group (VSG) is a venture studio for verifiable systems—where critical behaviours can be inspected instead of hidden inside black boxes. We combine AI, cryptography, and non-custodial rails to build infrastructure that shifts power from centralized gatekeepers to the edge. Our work spans information, capital, and identity, but the mandate is constant: engineer trust as a feature, not a gamble.
+            <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-why-we-exist-body">
+              Our purpose is to democratize institutional-grade leverage. We build infrastructure that moves power from centralized gatekeepers to the edge, so smaller actors can audit, control, and compound without handing the keys to strangers.
+            </p>
+            <p className="text-sm text-muted-foreground/80 leading-relaxed" data-testid="text-why-we-exist-secondary">
+              We felt the pain of losing value to opaque custodians and unverified feeds ourselves—so we decided to wire systems that don't ask for blind trust.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-three-ways">
+      <section className="py-20" data-testid="section-domains">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-threeways-heading">
-              Three ways we work
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid="card-way-ventures">
-              <CardContent className="p-6 flex flex-col h-full">
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Ventures</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
-                  We incubate and operate a small, high-conviction portfolio of ventures that prove what verifiable systems can do in production—before we ever recommend an approach to anyone else.
-                </p>
-                <Link href="/ventures" className="text-sm text-primary hover:underline mt-auto" data-testid="link-way-ventures">
-                  View ventures →
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid="card-way-approach">
-              <CardContent className="p-6 flex flex-col h-full">
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Approach</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
-                  We apply a disciplined six-stage pipeline—from Define and Validate through Deploy, Evolve, and Recurse—grounded in clear standards, repeatable controls, and an explicit capital strategy.
-                </p>
-                <Link href="/approach" className="text-sm text-primary hover:underline mt-auto" data-testid="link-way-approach">
-                  See how we work →
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid="card-way-studio">
-              <CardContent className="p-6 flex flex-col h-full">
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-3">Studio</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
-                  We work with a small number of aligned teams to architect verifiable systems, clarify mandates, and embed governance so the infrastructure can withstand both scale and scrutiny.
-                </p>
-                <Link href="/studio" className="text-sm text-primary hover:underline mt-auto" data-testid="link-way-studio">
-                  Meet the studio →
-                </Link>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-card" data-testid="section-domains">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-domains-heading">
-              Our three domains
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-domains">
+              Three domains we build in
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-background border-border h-full" data-testid="domain-truth">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-3">Truth — Evidence you can inspect.</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Truth means decisions stop resting on stories and start resting on evidence. We anchor grades, approvals, and AI outputs to provenance and tamper-evident logs so you can see why something happened—not guess. Lumina and Axiom prove it.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="bg-background border-border h-full" data-testid="domain-capital">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-3">Capital — Leverage without surrender.</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Capital should work without leaving your control. In our Capital domain, we design non-custodial engines that route assets under explicit, stress-tested limits—always on our own balance sheet first. Helios proves it.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="bg-background border-border h-full" data-testid="domain-dignity">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-3">Dignity — Personhood without exposure.</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Dignity means you stay a person, not a product. We prove uniqueness and eligibility with privacy-preserving proofs so you can move through systems without handing over your life story. Uniqueness Engine proves it.
-                </p>
-              </CardContent>
-            </Card>
+            {domains.map((domain) => {
+              const slugTitle = domain.title.toLowerCase();
+              return (
+                <Card key={domain.title} className="bg-card border-border h-full" data-testid={`card-domain-${slugTitle}`}>
+                  <CardContent className="p-6">
+                    <h3 className="font-heading font-semibold text-foreground mb-3" data-testid={`heading-domain-${slugTitle}`}>
+                      {domain.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-domain-${slugTitle}`}>
+                      {domain.body}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-current-ventures">
+      <section className="py-20 bg-card" data-testid="section-ventures">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-ventures-heading">
-              Current ventures
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-ventures">
+              Ventures at a glance
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid="card-venture-helios">
-              <CardContent className="p-6 flex flex-col h-full">
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-2">Helios</h3>
-                <p className="text-sm text-primary italic mb-3">An internal execution engine for VSG's own digital asset treasury.</p>
-                <ul className="space-y-2 text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
-                  <li className="flex items-start gap-2" data-testid="text-helios-bullet-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Optimizes VSG's treasury across approved venues under strict, pre-defined risk limits.
-                  </li>
-                  <li className="flex items-start gap-2" data-testid="text-helios-bullet-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Uses governed automation with human oversight to respond to market volatility without acting as a broker, exchange, or fund manager for others.
-                  </li>
-                  <li className="flex items-start gap-2" data-testid="text-helios-bullet-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Designed to be auditable and policy-driven, not discretionary or opaque.
-                  </li>
-                </ul>
-                <Link href="/ventures/helios" className="text-sm text-primary hover:underline mt-auto" data-testid="link-venture-helios">
-                  Learn more →
-                </Link>
-              </CardContent>
-            </Card>
+            {ventures.map((venture) => (
+              <Card 
+                key={venture.testId} 
+                className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" 
+                data-testid={`card-venture-${venture.testId}`}
+              >
+                <CardContent className="p-6 flex flex-col h-full">
+                  <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary mb-2" data-testid={`text-${venture.testId}-overline`}>
+                    {venture.overline}
+                  </p>
+                  <h3 className="font-heading font-semibold text-lg text-foreground mb-3" data-testid={`heading-${venture.testId}`}>
+                    {venture.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4" data-testid={`text-${venture.testId}-body`}>
+                    {venture.body}
+                  </p>
+                  <Link href={venture.href} className="text-sm text-primary hover:underline mt-auto" data-testid={`link-venture-${venture.testId}`}>
+                    Learn more →
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid="card-venture-lumina">
-              <CardContent className="p-6 flex flex-col h-full">
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-2">Lumina</h3>
-                <p className="text-sm text-primary italic mb-3">Physics-aware grading infrastructure for the trading card ecosystem.</p>
-                <ul className="space-y-2 text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
-                  <li className="flex items-start gap-2" data-testid="text-lumina-bullet-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Turns raw card condition into instant, consistent pre-grading signals using mobile sensors and anomaly detection.
-                  </li>
-                  <li className="flex items-start gap-2" data-testid="text-lumina-bullet-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Helps collectors, marketplaces, and graders make better decisions before they ship or slab assets.
-                  </li>
-                  <li className="flex items-start gap-2" data-testid="text-lumina-bullet-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Built as software-first infrastructure, not hardware-locked kiosks.
-                  </li>
-                </ul>
-                <Link href="/ventures/lumina" className="text-sm text-primary hover:underline mt-auto" data-testid="link-venture-lumina">
-                  Learn more →
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid="card-venture-uniqueness">
-              <CardContent className="p-6 flex flex-col h-full">
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-2">Uniqueness Engine</h3>
-                <p className="text-sm text-primary italic mb-3">Digital scarcity infrastructure for the AI age.</p>
-                <ul className="space-y-2 text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
-                  <li className="flex items-start gap-2" data-testid="text-uniqueness-bullet-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Architects a "Global Uniqueness Layer" so critical events—like financing an asset—can be proven to have happened once without exposing underlying data.
-                  </li>
-                  <li className="flex items-start gap-2" data-testid="text-uniqueness-bullet-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Uses privacy-preserving cryptography to help institutions coordinate against fraud without pooling customer information.
-                  </li>
-                  <li className="flex items-start gap-2" data-testid="text-uniqueness-bullet-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Focuses first on high-impact domains: credit, democracy, and identity.
-                  </li>
-                </ul>
-                <Link href="/ventures/uniqueness" className="text-sm text-primary hover:underline mt-auto" data-testid="link-venture-uniqueness">
-                  Learn more →
-                </Link>
-              </CardContent>
-            </Card>
+      <section className="py-20" data-testid="section-how-we-work">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground" data-testid="heading-how-we-work">
+              How we work
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {howWeWork.map((item) => {
+              const slugTitle = item.title.toLowerCase().replace(/\s+/g, "-").replace(/,/g, "");
+              return (
+                <Card
+                  key={item.title}
+                  className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                  data-testid={`card-${slugTitle}`}
+                >
+                  <CardContent className="flex flex-col h-full p-6">
+                    <h3 className="font-heading font-semibold text-foreground mb-3" data-testid={`heading-${slugTitle}`}>
+                      {item.title}
+                    </h3>
+                    <p className="flex-1 text-sm text-muted-foreground leading-relaxed" data-testid={`text-${slugTitle}`}>
+                      {item.body}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -255,39 +238,39 @@ export default function Overview() {
       <section className="py-20 bg-card" data-testid="section-who-serve">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-who-heading">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-who-serve">
               Who we serve
             </h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            <Card className="bg-background border-border h-full" data-testid="audience-individuals">
+            <Card className="bg-background border-border h-full" data-testid="card-audience-individuals">
               <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-2">High-agency individuals with scar tissue</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <h3 className="font-heading font-semibold text-foreground mb-2" data-testid="heading-audience-individuals">High-agency individuals with scar tissue</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-audience-individuals">
                   People who have lost money, time, or privacy to opaque systems and now care about control, verifiability, and survivability.
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-background border-border h-full" data-testid="audience-stewards">
+            <Card className="bg-background border-border h-full" data-testid="card-audience-stewards">
               <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-2">Institutional stewards</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <h3 className="font-heading font-semibold text-foreground mb-2" data-testid="heading-audience-stewards">Institutional stewards</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-audience-stewards">
                   CIOs, partners, and risk or compliance leads who must defend decisions and need clear mechanisms, limits, and governance.
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-background border-border h-full" data-testid="audience-collaborators">
+            <Card className="bg-background border-border h-full" data-testid="card-audience-collaborators">
               <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-2">Technical collaborators</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <h3 className="font-heading font-semibold text-foreground mb-2" data-testid="heading-audience-collaborators">Technical collaborators</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-audience-collaborators">
                   Engineers, protocol teams, and security practitioners who care about mechanics, stress paths, and constraints—not buzzwords.
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-background border-border h-full" data-testid="audience-policy">
+            <Card className="bg-background border-border h-full" data-testid="card-audience-policy">
               <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-2">Policy and regulator-adjacent readers</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <h3 className="font-heading font-semibold text-foreground mb-2" data-testid="heading-audience-policy">Policy and regulator-adjacent readers</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-audience-policy">
                   People evaluating whether we are a responsible actor: non-custodial by design, conservative, and explicit about risk.
                 </p>
               </CardContent>
@@ -296,23 +279,13 @@ export default function Overview() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-bridge">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-bridge-body">
-              Across Truth, Capital, and Dignity, we build and run ventures on our own balance sheet first so you don't have to take our word for it. You can inspect how the rails behave, how risk is constrained, and how personhood is protected—then decide what to trust.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="py-20" data-testid="section-talk-studio">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-talk-heading">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-talk-studio">
               Talk to the studio
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-talk-body">
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-talk-studio-body">
               If you're building, regulating, or operating in any domain where verification, autonomy, and long-term resilience matter, we'd like to hear from you.
             </p>
             <Link href="/connect">
