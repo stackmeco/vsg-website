@@ -73,7 +73,7 @@ export function InsightCard({
           data-testid={`link-insight-${slug}`}
         >
           Read Analysis
-          <ArrowRight className="w-3.5 h-3.5" />
+          <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
         </Link>
       </CardContent>
     </Card>

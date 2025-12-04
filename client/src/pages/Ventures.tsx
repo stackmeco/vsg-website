@@ -67,7 +67,7 @@ export default function Ventures() {
             <div className="flex flex-wrap items-center gap-4 mt-8">
               <Button size="lg" variant="outline" data-testid="button-view-ventures" onClick={() => document.getElementById('ventures-grid')?.scrollIntoView({ behavior: 'smooth' })}>
                 View all ventures
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Button>
               <Link href="/approach">
                 <Button size="lg" variant="ghost" data-testid="button-how-we-work">
@@ -104,7 +104,7 @@ export default function Ventures() {
                     data-testid={`link-venture-${venture.testId}`}
                   >
                     Learn more
-                    <ArrowRight className="w-3 h-3" />
+                    <ArrowRight className="w-3 h-3" aria-hidden="true" />
                   </Link>
                 </CardContent>
               </Card>

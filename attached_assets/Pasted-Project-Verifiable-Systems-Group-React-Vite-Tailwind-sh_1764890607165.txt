@@ -1,0 +1,208 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Ventures index page** fully in line with VSG Brand & Voice System v3.0 and the Truth · Capital · Dignity model.
+
+The Ventures page should:
+
+- Present VSG as a focused, internal-first venture studio (not an incubator or fund),
+- Clearly group Helios, Lumina, and Uniqueness Engine under their domains,
+- Make it obvious these are proofs run on VSG’s own balance sheet first,
+- Avoid any implication that these are public products, funds, or yield programs.
+
+Do NOT change layout primitives, visual design, or routes. Only update text content, headings, and local data structures in the Ventures page file.
+
+---
+
+1) Locate the Ventures index page
+
+Find the component used for the Ventures list route, for example:
+
+- `client/src/pages/Ventures.tsx`
+- or whatever file is rendered at `/ventures` in `client/src/App.tsx`.
+
+All changes below apply **only** inside this Ventures index page file.
+
+---
+
+2) Update the hero section
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only the text.
+
+- Overline:
+  "Ventures"
+
+- Heading:
+  "Where we prove the rails."
+
+- Body paragraph:
+  "We are a focused venture studio. Helios, Lumina, and Uniqueness Engine are where we run our ideas against real conditions on our own balance sheet first—across Truth, Capital, and Dignity."
+
+If there is a primary CTA in the hero:
+
+- Primary CTA label:
+  "See how we work"
+  → Link to `/approach` (or keep the existing href if it already points to the approach page).
+
+If there is a secondary CTA:
+
+- Secondary CTA label:
+  "Review governance"
+  → Link to `/standards`.
+
+Keep all button components, icons, and styles; only update labels and hrefs where needed.
+
+---
+
+3) Define or update the ventures data structure
+
+If this page uses an array like `const ventures = [...]` to render cards, update it to:
+
+- Explicitly map each venture to its domain,
+- Use copy consistent with the updated venture detail pages.
+
+Example shape (adjust to match your existing structure/props):
+
+  const ventures = [
+    {
+      id: "helios",
+      name: "Helios",
+      domain: "Capital",
+      badge: "Helios · Capital",
+      tagline: "Resilient capital engine.",
+      description:
+        "The internal execution engine that routes VSG’s own digital asset treasury under explicit limits so capital can work without surrendering control.",
+      href: "/ventures/helios",
+    },
+    {
+      id: "lumina",
+      name: "Lumina",
+      domain: "Truth",
+      badge: "Lumina · Truth",
+      tagline: "Physics-aware grading.",
+      description:
+        "Infrastructure that turns card condition into evidence-backed grading signals so decisions rest on measurable inputs instead of guesswork.",
+      href: "/ventures/lumina",
+    },
+    {
+      id: "uniqueness",
+      name: "Uniqueness Engine",
+      domain: "Dignity",
+      badge: "Uniqueness Engine · Dignity",
+      tagline: "Personhood without exposure.",
+      description:
+        "Infrastructure for proving that one person is present without forcing them to hand over their life story, raising the cost of bots and duplicates.",
+      href: "/ventures/uniqueness",
+    },
+  ];
+
+Then ensure the card rendering uses:
+
+- `badge` (or equivalent) as the small overline / pill,
+- `name` and `tagline` as the title line,
+- `description` as the body text,
+- `href` for the “View” link or card click.
+
+Keep card layout, iconography, and classes as they are.
+
+---
+
+4) “How we treat ventures” section
+
+Add or update a section under the cards that explains what “venture” means at VSG.
+
+Section heading:
+  "How we treat ventures"
+
+Body paragraph:
+  "At VSG, a venture is not just a project. It is a system that survives real stress, carries clear guardrails, and earns its place in the portfolio by protecting Truth, Capital, or Dignity better than what came before."
+
+Then add a short bullet list or three small items (reuse an existing list/card pattern):
+
+- "Internal-first"
+  Text:
+  "We run each venture on our own balance sheet and operations first, under conservative limits."
+
+- "Domain-anchored"
+  Text:
+  "Every venture has a home domain—Truth, Capital, or Dignity—so we know what it is responsible for protecting."
+
+- "Governed by standards"
+  Text:
+  "Ventures inherit our governance, risk, and incident standards from day one, not as an afterthought."
+
+No protocol names, tickers, or specific venues here.
+
+---
+
+5) Optional “Who the ventures serve” strip
+
+If the layout supports a short horizontal strip or 3-pill row, add a compact section explaining who benefits from these ventures without sounding like a sales page.
+
+Section heading:
+  "Who these ventures serve"
+
+Use a single paragraph or three short blurbs:
+
+Option A – one paragraph:
+  "Our ventures are built for people and teams who need systems that do not fail silently: stewards of treasuries, trading card ecosystem builders, and communities that need to keep bots and duplicates out without turning into surveillance systems."
+
+OR, Option B – three blurbs (if you already have a 3-col layout here):
+
+- "Stewards of capital"
+  Text:
+  "People responsible for keeping treasuries resilient under stress."
+
+- "Ecosystem builders"
+  Text:
+  "Teams wiring markets, grading flows, and infrastructure that others rely on."
+
+- "Communities and networks"
+  Text:
+  "Networks that need stronger defences against bots and duplicates without resorting to heavy-handed identity checks."
+
+Keep it high-level; no specific customers or partners named.
+
+---
+
+6) Bottom CTA / next step
+
+Ensure the bottom of the page has a simple next-step CTA using your existing “NextStepBlock” or equivalent component.
+
+Recommended text:
+
+- Title:
+  "See how we build and govern"
+
+- Description:
+  "Our approach and standards show how Truth, Capital, and Dignity show up in practice."
+
+- href:
+  `/approach`
+  (or `/process` if your flow is Ventures → Process; choose whichever matches the current layout, but do not add new routes).
+
+Do not change the component or style—only update the props.
+
+---
+
+7) Hygiene & brand checks for this file
+
+In the Ventures index page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents"
+  - "move fast and break things"
+  - "monetize users", "harvest data"
+  - "StackMe", "Stackme Holdings", or "VSP" as active brand names
+  - generic “the human” phrasing (use “people”, “participants”, “stewards”, “collectors”, “communities”, or “dignity/personhood” instead)
+
+- Ensure the page clearly reinforces:
+  - VSG as an AI-native, cryptography-grounded venture studio.
+  - Truth, Capital, and Dignity as the three domains.
+  - Helios, Lumina, and Uniqueness Engine as internal-first proofs, not public funds or grading lines.
+  - Balance-sheet-first, non-custodial stance (without naming protocols, venues, banks, or tickers).
+
+Do not touch other pages or routes in this checkpoint.

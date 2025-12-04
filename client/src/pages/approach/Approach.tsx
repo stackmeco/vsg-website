@@ -86,7 +86,7 @@ export default function Approach() {
               <Link href="/approach/process">
                 <Button size="lg" data-testid="button-six-stages">
                   See the six stages
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Button>
               </Link>
               <Link href="/approach/standards">
@@ -154,7 +154,7 @@ export default function Approach() {
             <Link href="/approach/process">
               <Button variant="outline" data-testid="button-deep-dive">
                 Deep dive into the six stages
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Button>
             </Link>
           </div>
@@ -191,7 +191,7 @@ export default function Approach() {
                     data-testid={`link-venture-${venture.testId}`}
                   >
                     Learn more
-                    <ArrowRight className="w-3 h-3" />
+                    <ArrowRight className="w-3 h-3" aria-hidden="true" />
                   </Link>
                 </CardContent>
               </Card>
@@ -212,7 +212,7 @@ export default function Approach() {
             <Link href="/approach/standards">
               <Button variant="outline" data-testid="button-review-standards">
                 Review our standards
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Button>
             </Link>
           </div>

@@ -104,7 +104,7 @@ export default function Studio() {
               <Link href="/ventures">
                 <Button size="lg" data-testid="button-explore-ventures">
                   Explore the ventures
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Button>
               </Link>
             </div>
@@ -129,7 +129,7 @@ export default function Studio() {
                     className="flex items-start gap-3 text-foreground"
                     data-testid={`list-what-vsg-is-${index}`}
                   >
-                    <Check className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                    <Check className="w-4 h-4 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
                     <span className="text-sm text-muted-foreground">{item}</span>
                   </li>
                 ))}
@@ -146,7 +146,7 @@ export default function Studio() {
                     className="flex items-start gap-3 text-foreground"
                     data-testid={`list-what-vsg-is-not-${index}`}
                   >
-                    <X className="w-4 h-4 text-muted-foreground mt-1 flex-shrink-0" />
+                    <X className="w-4 h-4 text-muted-foreground mt-1 flex-shrink-0" aria-hidden="true" />
                     <span className="text-sm text-muted-foreground">{item}</span>
                   </li>
                 ))}

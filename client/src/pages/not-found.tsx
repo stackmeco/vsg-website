@@ -15,7 +15,7 @@ export default function NotFound() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl mx-auto">
             <div className="flex justify-center mb-6">
-              <AlertTriangle className="w-12 h-12 text-destructive" />
+              <AlertTriangle className="w-12 h-12 text-destructive" aria-hidden="true" />
             </div>
             <p className="font-mono text-sm text-destructive uppercase tracking-wider mb-4" data-testid="text-error-code">
               Error 404
@@ -33,7 +33,7 @@ export default function NotFound() {
               <Link href="/">
                 <Button size="lg" data-testid="button-back-home">
                   Back to overview
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Button>
               </Link>
               <Link href="/ventures">

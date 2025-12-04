@@ -208,7 +208,7 @@ export default function Governance() {
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-primary" />
+                    <Shield className="w-5 h-5 text-primary" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold text-foreground">Manager</h3>
@@ -224,7 +224,7 @@ export default function Governance() {
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-sm bg-secondary flex items-center justify-center">
-                    <Users className="w-5 h-5 text-foreground" />
+                    <Users className="w-5 h-5 text-foreground" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold text-foreground">COO</h3>
@@ -287,7 +287,7 @@ export default function Governance() {
             <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <XCircle className="w-5 h-5 text-destructive" />
+                  <XCircle className="w-5 h-5 text-destructive" aria-hidden="true" />
                   What we are not doing
                 </h3>
                 <ul className="space-y-3 text-sm">
@@ -320,7 +320,7 @@ export default function Governance() {
                 <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-control-${index + 1}`}>
                   <CardContent className="p-4">
                     <div className="flex items-center gap-2 mb-2">
-                      <Lock className="w-4 h-4 text-primary" />
+                      <Lock className="w-4 h-4 text-primary" aria-hidden="true" />
                       <span className="text-sm font-mono text-muted-foreground">Control {index + 1}</span>
                     </div>
                     <p className="text-sm text-foreground">{control}</p>
@@ -353,7 +353,7 @@ export default function Governance() {
             <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <AlertTriangle className="w-5 h-5 text-accent-warm" />
+                  <AlertTriangle className="w-5 h-5 text-accent-warm" aria-hidden="true" />
                   <h3 className="font-heading font-semibold text-foreground">Stage-gates</h3>
                 </div>
                 <p className="text-sm text-muted-foreground mb-3">
@@ -364,7 +364,7 @@ export default function Governance() {
             <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
               <CardContent className="p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <FileText className="w-5 h-5 text-primary" />
+                  <FileText className="w-5 h-5 text-primary" aria-hidden="true" />
                   <h3 className="font-heading font-semibold text-foreground">Risk memo for each stage</h3>
                 </div>
                 <ul className="text-sm text-muted-foreground space-y-1">
@@ -392,7 +392,7 @@ export default function Governance() {
                   <ul className="grid sm:grid-cols-2 gap-2">
                     {project.rules.map((rule, index) => (
                       <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" aria-hidden="true" />
                         {rule}
                       </li>
                     ))}
@@ -445,19 +445,19 @@ export default function Governance() {
               </h3>
               <ul className="space-y-3 text-base">
                 <li className="flex items-start gap-3 text-foreground">
-                  <Scale className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                  <Scale className="w-4 h-4 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
                   <span><strong>Jurisdiction-by-jurisdiction analysis</strong> — US (FinCEN, SEC/CFTC, state rules), EU/UK (MiCA and related frameworks)</span>
                 </li>
                 <li className="flex items-start gap-3 text-foreground">
-                  <Scale className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                  <Scale className="w-4 h-4 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
                   <span><strong>Non-custodial does not mean regulation-free</strong> — reduces some obligations but doesn't eliminate consumer-protection or financial-crime requirements</span>
                 </li>
                 <li className="flex items-start gap-3 text-foreground">
-                  <Scale className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                  <Scale className="w-4 h-4 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
                   <span><strong>AI = high-risk by default</strong> — anywhere AI touches lending, identity, or risk classification, we treat it as high-risk (EU AI Act spirit)</span>
                 </li>
                 <li className="flex items-start gap-3 text-foreground">
-                  <Scale className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                  <Scale className="w-4 h-4 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
                   <span><strong>Licensing when required</strong> — get licenses, partner with regulated entities, or change the design</span>
                 </li>
               </ul>
@@ -467,7 +467,7 @@ export default function Governance() {
           <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
             <CardContent className="p-6">
               <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
-                <XCircle className="w-5 h-5 text-destructive" />
+                <XCircle className="w-5 h-5 text-destructive" aria-hidden="true" />
                 Operational Prohibitions
               </h3>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -501,7 +501,7 @@ export default function Governance() {
             <Link href="/connect">
               <Button data-testid="button-contact-governance">
                 Talk to us about governance
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Button>
             </Link>
           </div>

@@ -50,7 +50,7 @@ export function ProjectTile({ slug, name, stage, stageVariant, description, expl
           data-testid={`link-project-${name.toLowerCase().replace(/\s+/g, "-")}`}
         >
           View Specification
-          <ArrowRight className="w-3 h-3" />
+          <ArrowRight className="w-3 h-3" aria-hidden="true" />
         </Link>
       </CardContent>
     </Card>

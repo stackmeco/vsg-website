@@ -95,7 +95,7 @@ export function Header() {
           <Link href="/" data-testid="link-home" className="flex items-center gap-3 group">
             <img 
               src="/logo.png" 
-              alt="VSG Insignia" 
+              alt="Verifiable Systems Group logo" 
               className="h-8 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             />
             <span className="font-heading font-bold text-lg tracking-tight text-foreground group-hover:text-primary transition-colors">
@@ -162,7 +162,7 @@ export function Header() {
                 data-testid="button-command-palette"
                 aria-label="Open command palette"
               >
-                <Search className="w-4 h-4" />
+                <Search className="w-4 h-4" aria-hidden="true" />
               </Button>
             </div>
           </div>
@@ -171,13 +171,15 @@ export function Header() {
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger asChild>
                 <Button 
+                  type="button"
                   variant="ghost" 
                   size="icon" 
                   className="rounded-full min-w-[44px] min-h-[44px]"
-                  aria-label="Open navigation menu"
+                  aria-expanded={mobileOpen}
+                  aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
                   data-testid="button-mobile-menu"
                 >
-                  <Menu className="h-5 w-5" />
+                  <Menu className="h-5 w-5" aria-hidden="true" />
                 </Button>
               </SheetTrigger>
               <SheetContent
@@ -187,7 +189,7 @@ export function Header() {
               >
                 <SheetHeader className="flex flex-row items-center justify-between space-y-0">
                   <SheetTitle className="flex items-center gap-2">
-                    <img src="/logo.png" alt="VSG" className="h-6 w-auto" />
+                    <img src="/logo.png" alt="" className="h-6 w-auto" aria-hidden="true" />
                     <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
                       VSG
                     </span>
@@ -207,7 +209,7 @@ export function Header() {
                       data-testid="mobile-button-search"
                       aria-label="Open search"
                     >
-                      <Search className="h-4 w-4" />
+                      <Search className="h-4 w-4" aria-hidden="true" />
                     </Button>
                     <SheetClose asChild>
                       <Button
@@ -217,7 +219,7 @@ export function Header() {
                         aria-label="Close navigation menu"
                         data-testid="mobile-button-close"
                       >
-                        <X className="h-5 w-5" />
+                        <X className="h-5 w-5" aria-hidden="true" />
                       </Button>
                     </SheetClose>
                   </div>

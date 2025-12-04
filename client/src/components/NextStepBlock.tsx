@@ -24,7 +24,7 @@ export function NextStepBlock({ label = "Next", nextPage, description, href }: N
           <Link href={href} data-testid={`link-next-${href.replace(/\//g, "")}`}>
             <Button data-testid={`button-next-${href.replace(/\//g, "")}`}>
               Proceed
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Button>
           </Link>
         </div>

@@ -109,7 +109,7 @@ export default function Overview() {
                   data-testid="button-explore-ventures"
                 >
                   Explore the ventures
-                  <ArrowRight className="w-3.5 h-3.5 ml-2" />
+                  <ArrowRight className="w-3.5 h-3.5 ml-2" aria-hidden="true" />
                 </Button>
               </Link>
               <Link href="/approach">
@@ -295,7 +295,7 @@ export default function Overview() {
                 data-testid="button-start-conversation"
               >
                 Start a conversation
-                <ArrowRight className="w-3.5 h-3.5 ml-2" />
+                <ArrowRight className="w-3.5 h-3.5 ml-2" aria-hidden="true" />
               </Button>
             </Link>
           </div>

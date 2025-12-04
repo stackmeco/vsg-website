@@ -1,0 +1,206 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Insights index page** fully in line with VSG Brand & Voice System v3.0 and the Truth · Capital · Dignity model.
+
+This page should:
+
+- Read like a calm, principled “notes & post-mortems” hub, not a marketing blog,
+- Make clear that Insights are where we turn incidents and experiments into patterns,
+- Use the Truth · Capital · Dignity frame as light tagging (not heavy-handed branding),
+- Avoid protocol names, tickers, banks, internal wiring, or specific playbooks.
+
+Do NOT change layout primitives, visual design, or routes. Only update text content, headings, and local data structures in the Insights page file.
+
+---
+
+1) Locate the Insights index page
+
+Find the component used for the Insights list route, for example:
+
+- `client/src/pages/Insights.tsx`
+- or whatever file is rendered at `/insights` in `client/src/App.tsx`.
+
+All changes below apply **only** inside this Insights index page file.
+
+---
+
+2) Update the hero section
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only the text.
+
+- Overline:
+  "Insights"
+
+- Heading:
+  "From incidents to infrastructure."
+
+- Body paragraph:
+  "When something breaks—or works better than expected—we write it down. Insights are where we turn experiments, incidents, and field notes into patterns that shape how we design for Truth, Capital, and Dignity."
+
+If there is a primary CTA:
+
+- Primary CTA label:
+  "See all entries"
+  → Link to `#insights-list` or keep the current href if it already scrolls to the list.
+
+If there is a secondary CTA:
+
+- Secondary CTA label:
+  "How we work"
+  → Link to `/approach`.
+
+Do not change hero layout, background, or components—only text and hrefs.
+
+---
+
+3) Configure or refine the Insights list metadata
+
+If the page uses a data array like `const insights = [...]` to render cards, refine it so each entry has:
+
+- A title,
+- A short description,
+- A date or label,
+- An optional domain tag: "Truth", "Capital", or "Dignity".
+
+Example shape (adapt to your existing props):
+
+  const insights = [
+    {
+      slug: "example-post-slug",
+      title: "What we learned from simulating failure before launch",
+      description:
+        "A look at how we use governed experiments and dry runs to catch failure modes before they ever touch production capital or people.",
+      domain: "Capital",
+      date: "2025-02-01",
+    },
+    // ...
+  ];
+
+You can keep your existing slugs, dates, and titles—just ensure the descriptions and optional domain values are consistent with v3.0 voice and Truth · Capital · Dignity.
+
+Do NOT add protocol names, venue names, token tickers, banks, or legal-entity wiring into these descriptions.
+
+---
+
+4) Update the section heading above the list
+
+Right above the list/grid of insight cards, ensure there is a clear heading and short intro.
+
+Section heading:
+  "Notes from running the rails"
+
+Intro paragraph:
+  "These entries come from running our own systems under real conditions. Some are post-mortems, some are design memos, all are grounded in work we’ve actually done."
+
+If there is a filter bar or tag row, it should lightly expose domains:
+
+- “All”
+- “Truth”
+- “Capital”
+- “Dignity”
+
+Use the existing filter components; only adjust labels.
+
+---
+
+5) Domain labeling on cards (if supported)
+
+If your card component supports a small label/pill/eyebrow, use it to show the domain for each entry.
+
+For example, for each card header:
+
+- Eyebrow / pill:
+  - If `insight.domain === "Truth"` → "Truth"
+  - If `insight.domain === "Capital"` → "Capital"
+  - If `insight.domain === "Dignity"` → "Dignity"
+  - If domain is missing or mixed → omit the pill or use "Studio".
+
+Do NOT introduce “Signal / Value / Human” or any old domain language. Only Truth, Capital, Dignity, or a neutral “Studio” tag.
+
+---
+
+6) Refine card body copy
+
+For each insight card description, apply v3.0 voice:
+
+- Calm, precise, no hype.
+- Pain-forward where helpful (“what went wrong, what we changed”).
+- No protocol names, token tickers, banks, or internal wiring.
+- No phrases like “AI-powered”, “revolutionary”, “magic”, “game-changing”.
+
+Good patterns for card descriptions:
+
+- “What changed, why it mattered, and how we rewired the system.”
+- “How we caught this failure mode in a governed experiment instead of production.”
+- “What this taught us about running Truth/Capital/Dignity in the same system.”
+
+Keep them short (1–2 sentences per card).
+
+---
+
+7) “What Insights are / are not” section
+
+Add or update a short explanatory block near the bottom of the page.
+
+Section heading:
+  "What Insights are / are not"
+
+Two short lists, columns, or stacked sections (reuse an existing pattern):
+
+Left side – “What Insights are”:
+- "Field notes from running our own systems."
+- "Post-mortems and design decisions we’ve actually implemented."
+- "A way to see how Truth, Capital, and Dignity show up under stress."
+
+Right side – “What Insights are not”:
+- "Not marketing copy or product announcements."
+- "Not investment, legal, or tax advice."
+- "Not a complete description of any internal playbook."
+
+At the bottom of this section, add a muted disclaimer paragraph (e.g., `text-xs text-muted-foreground`):
+
+  "These entries describe how we operate and what we’ve learned. They are not investment, legal, or tax advice, and they omit sensitive operational details by design."
+
+---
+
+8) Optional “Suggested next steps” strip
+
+If the Insights page has a “NextStepBlock” or small CTA at the bottom, tune it to guide people back into the core structure.
+
+Recommended props:
+
+- Title:
+  "See how we structure the work"
+
+- Description:
+  "Our approach and governance pages show how these lessons become standards."
+
+- href:
+  `/approach` or `/standards` (choose the one that fits the current flow best; do not add new routes).
+
+Keep the component and styling; only adjust text and href.
+
+---
+
+9) Hygiene & brand checks for this file
+
+In the Insights index page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents"
+  - "move fast and break things"
+  - "monetize users", "harvest data"
+  - "StackMe", "Stackme Holdings", or "VSP" as active brand names
+  - generic “the human” phrasing (use “people”, “participants”, “stewards”, “collectors”, “communities”, “personhood”, or “dignity” instead)
+
+- Ensure the page clearly reinforces:
+  - Insights as post-mortems / memos from systems we actually run.
+  - Truth, Capital, and Dignity as light tags, not heavy branding.
+  - Balance-sheet-first, non-custodial, AI-native stance (conceptually, without specifics).
+  - No promises of yield, returns, or guarantees.
+
+Do not touch other pages or routes in this checkpoint.
