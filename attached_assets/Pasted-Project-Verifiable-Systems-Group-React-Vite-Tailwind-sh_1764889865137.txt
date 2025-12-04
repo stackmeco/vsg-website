@@ -1,0 +1,202 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Uniqueness Engine venture detail page** fully in line with VSG Brand & Voice System v3.0 and the Truth · Capital · Dignity model.
+
+Uniqueness Engine must clearly read as:
+- A **Dignity** venture,
+- Focused on personhood without exposure,
+- Privacy-first, sybil-resistance infrastructure,
+- AI-native and human-governed,
+- Not KYC, not surveillance, not a government ID or social credit system.
+
+Do NOT change layout primitives, visual design, or routes. Only update text content, headings, and small local data structures in the Uniqueness Engine page file.
+
+---
+
+1) Locate the Uniqueness Engine venture page
+
+Find the component used for the Uniqueness Engine detail route, e.g.:
+
+- `client/src/pages/ventures/Uniqueness.tsx`
+- or whatever file is rendered for `/ventures/uniqueness` (or similar).
+
+All changes below apply **only** inside this Uniqueness Engine page file.
+
+---
+
+2) Update the hero section
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTA). Replace only the text:
+
+- Overline:
+  "Uniqueness Engine · Dignity"
+
+- Heading:
+  "Uniqueness Engine — personhood without exposure."
+
+- Body paragraph:
+  "Uniqueness Engine proves that one person is present without forcing them to hand over their life story. It helps communities and systems resist bots and duplicates while letting people keep control over how they appear and what they reveal."
+
+If the hero has a primary CTA button, keep the component and styling but set the label to something neutral like:
+
+- "Back to ventures"
+or
+- "View all ventures"
+
+and link it to the `/ventures` route (or whatever route already exists for the ventures index).
+
+No “get verified”, “sign up”, or onboarding CTAs here—this page describes infrastructure and patterns, not a consumer verification funnel.
+
+---
+
+3) “Why Uniqueness Engine exists” section
+
+Find the first explanatory section under the hero. If one already exists, reuse its structure and replace the copy. If not, create a new section using the same section/typography components used on the other venture pages.
+
+Section heading:
+  "Why Uniqueness Engine exists"
+
+Body text (1–2 paragraphs; split into multiple <p> if needed):
+
+  "Most systems that try to stop bots and duplicates do it by collecting more data: IDs, selfies, device fingerprints, social graphs. That pushes people toward a choice between being excluded or being over-exposed. Uniqueness Engine exists to break that trade-off."
+
+  "Instead of building another database of identities, we focus on proving that one real person is present at a time, in a way that can be checked by the system but controlled by the person. The goal is simple: make it harder for attackers to fake presence, without turning participants into products."
+
+Keep the tone calm, direct, and architectural.
+
+---
+
+4) “What Uniqueness Engine is / is not” block
+
+If the page already has a “What it is / what it’s not” pattern, reuse it and just update the text. Otherwise, create a simple two-column or stacked section using your existing info-card component.
+
+Left column heading:
+  "What Uniqueness Engine is"
+
+Left column bullets:
+
+  - "Infrastructure for proving one person’s presence without exposing their full identity."
+  - "A Dignity-domain venture: protecting personhood and time while enabling sybil resistance."
+  - "AI-native and human-governed: machine intelligence helps detect patterns and anomalies; people define rules, thresholds, and recourse."
+  - "A way to give communities and systems a stronger sense of ‘who is here’ without collecting more than they need."
+
+Right column heading:
+  "What Uniqueness Engine is not"
+
+Right column bullets:
+
+  - "Not a KYC provider or government ID system."
+  - "Not a social credit score or surveillance feed."
+  - "Not a centralized biometric database or data broker."
+  - "Not a promise to eliminate all abuse—its job is to raise the cost of faking presence, not to rank people."
+
+Use existing card/grid components and styles; only update headings and copy.
+
+---
+
+5) “How Uniqueness Engine works (at a distance)” section
+
+Add or update a section that explains mechanics conceptually, without going into protocol names, biometric vendors, model architectures, or specific cryptographic constructions.
+
+Section heading:
+  "How Uniqueness Engine works (at a distance)"
+
+Short lead paragraph:
+  "Uniqueness Engine treats participation as a proof problem: can this system be confident that one real person is present, without learning more than it needs to?"
+
+Then use three mini-cards or bullets (reuse an existing pattern):
+
+1) Title: "Proofs, not dossiers"
+   Text:
+   "Instead of collecting and storing rich identity records, Uniqueness Engine focuses on generating proofs that a single participant is present or eligible, which can be checked by the system without revealing everything about the person."
+
+2) Title: "AI-native, human-governed"
+   Text:
+   "Machine intelligence helps spot suspicious patterns and attempt clusters; people define what counts as abuse, what thresholds to apply, and how to handle edge cases and appeals."
+
+3) Title: "Dignity by design"
+   Text:
+   "The design favours minimal disclosure and clear limits. People keep control over what they share, and systems get just enough assurance to function without resorting to blanket surveillance."
+
+Do NOT:
+- Name specific biometric methods, device-ID schemes, or third-party vendors.
+- Mention particular proof systems (zk-SNARK, etc.) by name unless they are already referenced elsewhere; this section should stay conceptual.
+
+---
+
+6) “Who Uniqueness Engine is for” section
+
+Add or update a section clarifying intended users at a high level.
+
+Section heading:
+  "Who Uniqueness Engine is for"
+
+Use either bullets or three small cards:
+
+- "Communities and networks"
+  Text:
+  "Communities that want to limit bots, duplicate accounts, or spam without forcing people through intrusive checks."
+
+- "Protocols and platforms"
+  Text:
+  "Protocols and platforms that need stronger sybil resistance for voting, access, or rewards, but want to avoid becoming custodians of sensitive identity data."
+
+- "Ecosystem builders"
+  Text:
+  "Builders who want personhood to be something you can prove on your own terms, not something held in someone else’s database."
+
+Keep scope general; do not name specific customers, partners, or chains.
+
+---
+
+7) “Where Uniqueness Engine fits in VSG” section
+
+Add or update a short section that connects Uniqueness Engine to the rest of the studio.
+
+Section heading:
+  "Where Uniqueness Engine fits in VSG"
+
+Body paragraph:
+  "Uniqueness Engine is how we prove the Dignity side of our work. It runs alongside Lumina in Truth and Helios in Capital, showing how AI-native systems can protect personhood and time while still giving systems what they need to function."
+
+Optional short list (if the layout already supports lists here):
+
+- "Feeds our standards for privacy-preserving participation."
+- "Informs how we design access controls and rate limits in other ventures."
+- "Demonstrates that stronger defences do not have to mean more exposure."
+
+---
+
+8) Safety & scope disclaimer (bottom of page)
+
+At the bottom of the Uniqueness Engine page, add a small, muted disclaimer paragraph if the layout supports it (use the same style as the Helios and Lumina disclaimers—e.g., `text-xs text-muted-foreground`):
+
+  "Uniqueness Engine is infrastructure for presence and personhood, not a government ID, KYC provider, or social credit system. Nothing on this page is legal, regulatory, or compliance advice."
+
+One paragraph only; keep it concise.
+
+---
+
+9) Hygiene & brand checks for this file
+
+In the Uniqueness Engine page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents"
+  - "move fast and break things"
+  - "monetize users", "harvest data"
+  - "StackMe", "Stackme Holdings", or "VSP" as active brand names
+  - generic “the human” phrasing (use “people”, “participants”, “personhood”, or “dignity” instead)
+
+- Ensure Uniqueness Engine is clearly tied to:
+  - The **Dignity** domain.
+  - “Personhood without exposure.”
+  - Sybil resistance / one-person presence, not identity harvesting.
+  - AI-native, human-governed stance.
+  - Privacy-first, non-surveillance positioning.
+
+Do not touch any other venture pages or routes in this checkpoint.
