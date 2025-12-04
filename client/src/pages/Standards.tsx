@@ -4,85 +4,73 @@ import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { 
-  Shield, 
-  Users, 
-  ArrowRight,
-  Lock,
-  CheckCircle,
-  XCircle,
-  FileText,
-  AlertTriangle,
-  Scale
-} from "lucide-react";
+import { Check, X, ArrowRight } from "lucide-react";
 
-const operatingPrinciples = [
+const howWeRunExperiments = [
   {
-    title: "Non-custodial by design",
-    text: "We do not pool client funds or take custody of external assets. Our systems orchestrate workflows and verification; you keep the keys and the veto.",
+    title: "Defined scope",
+    text: "We specify what the experiment can and cannot touch—systems, assets, and people—before we begin.",
   },
   {
-    title: "Balance-sheet-first",
-    text: "We wire new rails through our own balance sheet before anyone else touches them, so we feel the stress, edge cases, and failure modes directly.",
+    title: "Explicit limits",
+    text: "We set clear thresholds for exposure, volume, and time, and we stop or roll back when those limits are hit.",
   },
   {
-    title: "Governed experiments",
-    text: "Every launch is a governed experiment: defined scope, explicit limits, named stewards, and pre-agreed rollback paths—not a bet pushed into production.",
-  },
-  {
-    title: "Observability over opacity",
-    text: "We treat logs, provenance, and monitoring as first-class. You should be able to see how a system behaved, not reverse-engineer it from damage.",
-  },
-  {
-    title: "Conservative by default",
-    text: "We prefer constraints, caps, and safety margins over stretch. We would rather leave upside on the table than expose users to unbounded downside.",
+    title: "Observable behaviour",
+    text: "We define what we will watch, how often, and where it is logged, so no critical change happens in the dark.",
   },
 ];
 
-const capitalControls = [
-  "2-of-3 Multisig — Founder A, Founder B, Cold Storage required for treasury moves",
-  "Transparent funding — all capital contributions are documented with clear terms",
-  "Priority structure — creditors are paid first, then loans, then any distributions",
-  "Transaction oversight — every treasury move requires a signed authorization record",
+const whatWeStandardize = [
+  {
+    label: "Capital flows",
+    description: "How value is allowed to move, which paths are permitted, and how limits and rollback are enforced.",
+  },
+  {
+    label: "Model behaviour",
+    description: "How AI and automation are allowed to act, what they can decide alone, and where human veto is mandatory.",
+  },
+  {
+    label: "Access and participation",
+    description: "Who can do what, under which conditions, and how we protect people's time and personhood while they participate.",
+  },
+  {
+    label: "Incidents and learnings",
+    description: "How we classify incidents, respond under pressure, and feed lessons back into our processes and code.",
+  },
 ];
 
-const thingsWeWontDo = [
-  "No token sales or investment offerings",
-  "No opaque yield products—if you can't see how it works, we won't build it",
-  "No hidden reuse of user assets without explicit consent",
-  "No circumventing sanctions, identity verification, or geographic restrictions",
+const rolesAndAccountability = [
+  {
+    role: "Stewards",
+    description: "Stewards own the day-to-day health of a system or experiment. They watch the dashboards, respond to alerts, and propose changes.",
+  },
+  {
+    role: "Approvers",
+    description: "Approvers sign off on changes that affect capital, models, or people. No critical path runs without an accountable person who understands the risk.",
+  },
+  {
+    role: "Reviewers",
+    description: "Reviewers audit the system after the fact—verifying that limits were respected, logs are complete, and lessons are captured for the next iteration.",
+  },
 ];
 
-const projectGovernance = [
-  {
-    name: "Helios",
-    status: "Controlled Deployment",
-    rules: [
-      "Internal capital only — no external deposits; operates on VSG treasury exclusively",
-      "Position limits — capped percentage of borrowed stablecoins at any time",
-      "Drawdown triggers — pre-defined loss thresholds activate capital reduction",
-      "Manual oversight — automated execution paired with alerts and human verification",
-    ],
-  },
-  {
-    name: "Lumina",
-    status: "Build Phase",
-    rules: [
-      "Verifiable provenance — metadata, grading, and chain-of-custody attestation",
-      "Evidence-backed signals — every grade anchored to sensor readings and anomaly checks",
-      "No return guarantees — explicit disclosure of speculative nature",
-      "Fee transparency — all costs and rights disclosed before instrument issuance",
-    ],
-  },
-  {
-    name: "Uniqueness",
-    status: "Strategic Definition",
-    rules: [
-      "Privacy-first — no deployment without explicit privacy model",
-      "Consent architecture — explicit opt-in mechanics required",
-      "Regulatory clearance — KYC/AML impact assessment before any implementation",
-    ],
-  },
+const aiNativeGovernance = [
+  "Machines scan and simulate; people set mandates and limits.",
+  "Automated actions must be explainable at the level stewards need to make decisions.",
+  "No critical capital or identity flow runs without a defined human escalation path.",
+];
+
+const whatThisPageIs = [
+  "A high-level view of how we run governed experiments on our own systems and balance sheet.",
+  "A summary of the principles we apply across Truth, Capital, and Dignity.",
+  "A way to understand how we think about limits, stewards, and observability.",
+];
+
+const whatThisPageIsNot = [
+  "Not legal, regulatory, or investment advice.",
+  "Not a complete description of our internal playbooks or controls.",
+  "Not a guarantee that risk is eliminated—only that it is made explicit, monitored, and acted on.",
 ];
 
 export default function Governance() {
@@ -108,419 +96,190 @@ export default function Governance() {
         />
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-background from-20% via-background/50 to-background/30 pointer-events-none" aria-hidden="true" />
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" aria-hidden="true" />
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid lg:grid-cols-[1fr,320px] gap-12 items-start">
-            <div className="max-w-2xl">
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4">
-                Governance & Standards
-              </p>
-              <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
-                How we constrain what we build.
-              </h1>
-              <p className="text-lg text-foreground leading-relaxed">
-                We run governed experiments on our own balance sheet first. Every serious system we operate has explicit limits, named stewards, and observable behaviours, so risk is modelled up front instead of discovered by accident.
-              </p>
-            </div>
-
-            <div className="hidden lg:block">
-              <nav className="bg-card/80 backdrop-blur-sm border border-border rounded-[2px] p-6" aria-label="Table of contents" data-testid="nav-toc">
-                <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-4">
-                  On this page
-                </p>
-                <ul className="space-y-3 list-none">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <a href="#principles" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-principles">
-                      Operating principles
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <a href="#structure" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-structure">
-                      Legal structure
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <a href="#treasury" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-treasury">
-                      BTC treasury policy
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <a href="#risk" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-risk">
-                      Risk governance
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <a href="#regulatory" className="text-sm text-foreground hover:text-primary transition-colors" data-testid="link-toc-regulatory">
-                      Regulatory stance
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="principles" className="py-16 bg-card scroll-mt-20" data-testid="section-principles">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground mb-2">
-              How we operate
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
+              Governance & Standards
             </p>
-            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
-              Operating principles
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {operatingPrinciples.map((principle, index) => (
-              <Card key={index} className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-principle-${index + 1}`}>
-                <CardContent className="p-6">
-                  <h3 className="font-heading font-semibold text-foreground mb-3">{principle.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{principle.text}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="structure" className="py-16 scroll-mt-20" data-testid="section-structure">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground mb-2">
-              Legal structure
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
+              Guardrails for systems that must not fail silently.
+            </h1>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base" data-testid="text-hero-body">
+              We treat every serious launch as a governed experiment on our own balance sheet first. That means explicit limits, named stewards, and observable behaviours before anyone else relies on the pattern.
             </p>
-            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
-              How the company is governed
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              Verifiable Systems Group LLC is a manager-managed Wyoming LLC, foreign-qualified in Massachusetts.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-primary" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h3 className="font-heading font-semibold text-foreground">Manager</h3>
-                    <p className="text-sm text-muted-foreground">Final authority</p>
-                  </div>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Sole Manager with final authority over business affairs. Also acts as CEO and Controller. Has 100% voting power on operational matters.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-sm bg-secondary flex items-center justify-center">
-                    <Users className="w-5 h-5 text-foreground" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h3 className="font-heading font-semibold text-foreground">COO</h3>
-                    <p className="text-sm text-muted-foreground">Day-to-day operations</p>
-                  </div>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Responsible for day-to-day operations as delegated. Cannot sign contracts, approve major expenditures, or authorize on-chain treasury moves without explicit written approval.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
-            <CardContent className="p-6">
-              <p className="text-sm text-muted-foreground">
-                <strong className="text-foreground">Fundamental decisions</strong> (selling substantially all assets, admitting new members) require unanimous written consent of all members.
-              </p>
-            </CardContent>
-          </Card>
-
-        </div>
-      </section>
-
-      <section id="treasury" className="py-20 scroll-mt-20" data-testid="section-treasury">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground mb-2">
-              Capital governance
-            </p>
-            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
-              BTC treasury: what it is (and isn't)
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              Our treasury is Bitcoin-first and policy-driven. It is not a DeFi "product" — it's our own balance sheet.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8 mb-10">
-            <div>
-              <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
-                How the collateral loop works
-              </h3>
-              <ol className="space-y-4">
-                <li className="flex gap-4">
-                  <span className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 text-sm font-mono">1</span>
-                  <p className="text-base text-foreground pt-1">Post a risk-managed portion of company BTC as collateral in approved, non-custodial lending protocols.</p>
-                </li>
-                <li className="flex gap-4">
-                  <span className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 text-sm font-mono">2</span>
-                  <p className="text-base text-foreground pt-1">Borrow stablecoins at conservative loan-to-value ratio (LTV) (target ~35%, hard cap 50%).</p>
-                </li>
-                <li className="flex gap-4">
-                  <span className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 text-sm font-mono">3</span>
-                  <p className="text-base text-foreground pt-1">Use borrowed funds for operating runway, internal R&D, or selectively accumulating more BTC.</p>
-                </li>
-              </ol>
-            </div>
-
-            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <XCircle className="w-5 h-5 text-destructive" aria-hidden="true" />
-                  What we are not doing
-                </h3>
-                <ul className="space-y-3 text-sm">
-                  <li className="flex items-start gap-3 text-muted-foreground">
-                    <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground mt-2 flex-shrink-0" />
-                    Offering yield products to the public
-                  </li>
-                  <li className="flex items-start gap-3 text-muted-foreground">
-                    <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground mt-2 flex-shrink-0" />
-                    Running a pooled investment vehicle
-                  </li>
-                  <li className="flex items-start gap-3 text-muted-foreground">
-                    <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground mt-2 flex-shrink-0" />
-                    Promising returns or fixed income
-                  </li>
-                </ul>
-                <p className="text-sm text-muted-foreground mt-4 italic">
-                  This mirrors how some public companies use Bitcoin as a treasury reserve, but at far smaller scale and with more conservative leverage.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div>
-            <h3 className="font-heading font-semibold text-xl text-foreground mb-6">
-              Capital controls
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {capitalControls.map((control, index) => (
-                <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-control-${index + 1}`}>
-                  <CardContent className="p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Lock className="w-4 h-4 text-primary" aria-hidden="true" />
-                      <span className="text-sm font-mono text-muted-foreground">Control {index + 1}</span>
-                    </div>
-                    <p className="text-sm text-foreground">{control}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <p className="text-sm text-muted-foreground mt-4 font-mono">
-              No TAR, no transaction.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="risk" className="py-20 bg-card scroll-mt-20" data-testid="section-risk">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground mb-2">
-              Risk governance
-            </p>
-            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
-              How we cap risk before anything touches capital or users
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              We're pre-launch on every project. Governance here is about capping risk during development, not describing a fantasy future state.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 mb-10">
-            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <AlertTriangle className="w-5 h-5 text-accent-warm" aria-hidden="true" />
-                  <h3 className="font-heading font-semibold text-foreground">Stage-gates</h3>
-                </div>
-                <p className="text-sm text-muted-foreground mb-3">
-                  Every project moves through defined stages: Idea → Prototype → Internal → Venture. Moving stages requires joint decision from both founders.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <FileText className="w-5 h-5 text-primary" aria-hidden="true" />
-                  <h3 className="font-heading font-semibold text-foreground">Risk memo for each stage</h3>
-                </div>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>What can go wrong?</li>
-                  <li>Max loss we're willing to tolerate.</li>
-                  <li>How we would shut it down safely.</li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-
-          <h3 className="font-heading font-semibold text-xl text-foreground mb-6">
-            Project-specific governance
-          </h3>
-          <div className="space-y-4">
-            {projectGovernance.map((project) => (
-              <Card key={project.name} className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-governance-${project.name.toLowerCase().replace(/\s+/g, "-")}`}>
-                <CardContent className="p-6">
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-                    <h4 className="font-heading font-semibold text-lg text-foreground">{project.name}</h4>
-                    <span className="text-sm font-mono text-muted-foreground bg-secondary px-2 py-1 rounded" data-testid={`status-${project.name.toLowerCase().replace(/\s+/g, "-")}`}>
-                      {project.status}
-                    </span>
-                  </div>
-                  <ul className="grid sm:grid-cols-2 gap-2">
-                    {project.rules.map((rule, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" aria-hidden="true" />
-                        {rule}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="regulatory" className="py-20 scroll-mt-20" data-testid="section-regulatory">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <p className="text-sm font-mono uppercase tracking-wider text-muted-foreground mb-2">
-              Regulatory stance
-            </p>
-            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-4">
-              Regulatory Posture: Pre-Product
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              Compliance architecture defined before deployment. No products are live; this documents the framework for when they are.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8 mb-10">
-            <div>
-              <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
-                Where we are today
-              </h3>
-              <ul className="space-y-3 text-base">
-                <li className="flex items-start gap-3 text-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  US-based LLC with crypto-first accounting (books in Xero, digital asset sub-ledgers via Cryptoworth, specific-identification cost basis for tax reporting)
-                </li>
-                <li className="flex items-start gap-3 text-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  Website and Library are informational only — no offers to invest, no live financial products
-                </li>
-                <li className="flex items-start gap-3 text-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  Any BTC borrowing is on the company's own behalf, via non-custodial protocols, under internal risk limits
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-heading font-semibold text-xl text-foreground mb-4">
-                How we approach product regulation
-              </h3>
-              <ul className="space-y-3 text-base">
-                <li className="flex items-start gap-3 text-foreground">
-                  <Scale className="w-4 h-4 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
-                  <span><strong>Jurisdiction-by-jurisdiction analysis</strong> — US (FinCEN, SEC/CFTC, state rules), EU/UK (MiCA and related frameworks)</span>
-                </li>
-                <li className="flex items-start gap-3 text-foreground">
-                  <Scale className="w-4 h-4 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
-                  <span><strong>Non-custodial does not mean regulation-free</strong> — reduces some obligations but doesn't eliminate consumer-protection or financial-crime requirements</span>
-                </li>
-                <li className="flex items-start gap-3 text-foreground">
-                  <Scale className="w-4 h-4 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
-                  <span><strong>AI = high-risk by default</strong> — anywhere AI touches lending, identity, or risk classification, we treat it as high-risk (EU AI Act spirit)</span>
-                </li>
-                <li className="flex items-start gap-3 text-foreground">
-                  <Scale className="w-4 h-4 text-primary mt-1 flex-shrink-0" aria-hidden="true" />
-                  <span><strong>Licensing when required</strong> — get licenses, partner with regulated entities, or change the design</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical">
-            <CardContent className="p-6">
-              <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
-                <XCircle className="w-5 h-5 text-destructive" aria-hidden="true" />
-                Operational Prohibitions
-              </h3>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {thingsWeWontDo.map((item, index) => (
-                  <div key={index} className="flex items-start gap-2 text-sm text-foreground">
-                    <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
-                    {item}
-                  </div>
-                ))}
-              </div>
-              <p className="text-sm text-muted-foreground mt-4 italic">
-                These constraints are binding. Violations trigger immediate remediation.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <section className="py-20 bg-card" data-testid="section-contact">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2">
-              Direct channel
-            </p>
-            <h2 className="font-heading font-semibold text-2xl sm:text-[2rem] text-foreground mb-6">
-              Want to discuss governance?
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6">
-              For regulators and compliance teams, we share deeper materials (business plans, architecture diagrams, draft policies) under NDA. For partners working in AI, digital assets, or risk/compliance who see alignment, reach out.
-            </p>
-            <Link href="/connect">
-              <Button data-testid="button-contact-governance">
-                Talk to us about governance
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            <div className="flex flex-wrap gap-3 mt-8">
+              <Button asChild data-testid="button-how-experiments">
+                <a href="#experiments">
+                  How we run experiments
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </a>
               </Button>
-            </Link>
+              <Button variant="outline" asChild data-testid="button-view-ventures">
+                <Link href="/ventures">View the ventures</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16" data-testid="section-closing">
+      <section id="experiments" className="py-20 bg-card scroll-mt-20" data-testid="section-experiments">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-experiments">
+              How we run experiments
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-experiments-body-1">
+              We do not ship unbounded bets. Every serious change—whether in capital flows, models, or access—starts life as a governed experiment with a defined scope, explicit limits, and a rollback path we can describe up front.
+            </p>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-experiments-body-2">
+              We wire the experiment through our own balance sheet and operations first. If it fails, we feel it directly and retire or adjust the pattern before it becomes advice, infrastructure, or shared practice.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {howWeRunExperiments.map((item, index) => (
+              <Card key={index} className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-experiment-${index}`}>
+                <CardContent className="p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20" data-testid="section-standardize">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2" data-testid="text-standardize-eyebrow">
+              Coverage
+            </p>
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-standardize">
+              What we standardize
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-standardize-body">
+              Our standards are how we make sure Truth, Capital, and Dignity show up the same way across ventures. They cover how we handle information, capital, and people—even when the context changes.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {whatWeStandardize.map((item, index) => (
+              <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-standardize-${index}`}>
+                <CardContent className="p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.label}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-card" data-testid="section-roles">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2" data-testid="text-roles-eyebrow">
+              Accountability
+            </p>
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-roles">
+              Roles and accountability
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-roles-body">
+              Every governed system has named stewards, clear responsibilities, and an explicit escalation path. We care less about titles and more about who is accountable when something breaks.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {rolesAndAccountability.map((item, index) => (
+              <Card key={index} className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-role-${index}`}>
+                <CardContent className="p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.role}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20" data-testid="section-ai-native">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-base text-muted-foreground leading-relaxed border-l-2 border-primary pl-6">
-              These standards apply across Truth, Capital, and Dignity. If a system cannot be described in terms of its limits, stewards, and failure handling, we do not ship it.
+            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2" data-testid="text-ai-eyebrow">
+              AI Governance
             </p>
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-ai-native">
+              AI-native, human-governed
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-ai-body">
+              We assume machine intelligence is in the loop from day one. Our standards define what it is allowed to do, what it must log, and where people retain veto power.
+            </p>
+            <ul className="space-y-3">
+              {aiNativeGovernance.map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-foreground" data-testid={`ai-governance-item-${index}`}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
+                  <span className="text-sm">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-card" data-testid="section-is-not">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-8">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-is-not">
+              What this page is / is not
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <Card className="bg-background border-border" data-testid="card-what-page-is">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
+                  <Check className="w-5 h-5 text-primary" aria-hidden="true" />
+                  What this page is
+                </h3>
+                <ul className="space-y-3">
+                  {whatThisPageIs.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed" data-testid={`item-page-is-${index}`}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-background border-border" data-testid="card-what-page-is-not">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
+                  <X className="w-5 h-5 text-muted-foreground" aria-hidden="true" />
+                  What this page is not
+                </h3>
+                <ul className="space-y-3">
+                  {whatThisPageIsNot.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed" data-testid={`item-page-is-not-${index}`}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 mt-2 flex-shrink-0" aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          <p className="text-xs text-muted-foreground leading-relaxed max-w-3xl" data-testid="text-disclaimer">
+            Nothing on this page should be treated as legal, regulatory, or investment advice. It describes how we hold ourselves to account, not how anyone else must operate.
+          </p>
         </div>
       </section>
 
       <NextStepBlock
         nextPage="Insights"
-        description="Read our notes, research, and updates."
+        description="See how these standards play out in real post-mortems and notes."
         href="/insights"
       />
     </Layout>
