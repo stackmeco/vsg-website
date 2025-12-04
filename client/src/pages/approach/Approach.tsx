@@ -8,44 +8,38 @@ import { ArrowRight } from "lucide-react";
 
 const threeQuestions = [
   {
-    title: "Truth — is this real enough to depend on?",
-    body: "We start by asking whether the problem, the data, and the mechanism are grounded in reality. Decisions should rest on evidence, not stories, so we design for inspectable behaviours and provenance from day one.",
+    title: "Truth — does it hold up?",
+    body: "What needs to be evidence-backed for this to matter? Truth is about making key decisions inspectable so we can see what they rest on when it's quiet—and when it's not.",
   },
   {
-    title: "Capital — can this survive real conditions?",
-    body: "We test whether capital can move through the system without exposing people to hidden downside. That means conservative limits, clear observability, and rollback paths before we scale exposure or volume.",
+    title: "Capital — does it survive the worst day?",
+    body: "What happens to capital when markets move, venues fail, or assumptions break? Capital is about routes that keep value under governed control instead of handing the keys to intermediaries.",
   },
   {
-    title: "Dignity — does this protect people's personhood and time?",
-    body: "We examine how people show up in the system: what they must reveal, how much control they keep, and how the flows treat their time. Dignity means you are not forced into exposure or grind-you-down processes just to participate.",
+    title: "Dignity — who carries the cost?",
+    body: "Whose time, safety, or personhood is on the line if we are wrong? Dignity is about letting people participate and prove presence without being over-exposed or turned into a product.",
   },
 ];
 
-const pipelineBullets = [
-  "Define the boundary conditions and criteria for when the venture should not exist.",
-  "Validate that the problem and mechanism are real before we scale people or capital.",
-  "Build, deploy, and evolve inside explicit guardrails, then recurse what we learn back into our standards.",
+const stages = [
+  { name: "Define", description: "Clarify the problem, constraints, and reasons not to build." },
+  { name: "Validate", description: "Test the riskiest assumptions in low-exposure experiments." },
+  { name: "Build", description: "Engineer in small, verifiable increments with clear checks." },
+  { name: "Deploy", description: "Launch into a controlled environment with rollback planned." },
+  { name: "Evolve", description: "Adapt to real signals, tightening or retiring paths as we learn." },
+  { name: "Recurse", description: "Feed incidents and insights back into our standards and code." },
 ];
 
-const ventureLinks = [
-  {
-    label: "Helios · Capital",
-    text: "Our internal engine for routing treasury under explicit limits.",
-    href: "/ventures/helios",
-    testId: "helios",
-  },
-  {
-    label: "Lumina · Truth",
-    text: "Physics-aware grading built on evidence, not vibes.",
-    href: "/ventures/lumina",
-    testId: "lumina",
-  },
-  {
-    label: "Uniqueness Engine · Dignity",
-    text: "Personhood without exposure for sybil-resistant systems.",
-    href: "/ventures/uniqueness",
-    testId: "uniqueness",
-  },
+const balanceSheetBullets = [
+  "We feel the real stress and cost before anyone else depends on the pattern.",
+  "We retire or rewrite paths that fail instead of externalizing the lessons.",
+  "We share patterns only after they've survived real conditions, not just simulations.",
+];
+
+const aiNativeBullets = [
+  "Machines scan high-velocity data, simulate paths, and flag anomalies.",
+  "People define objectives, constraints, and emergency stops—and can override at any time.",
+  "Automated actions must be explainable at the level stewards need to make decisions.",
 ];
 
 export default function Approach() {
@@ -77,21 +71,21 @@ export default function Approach() {
               Approach
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
-              How we design and prove systems.
+              From first questions to governed systems.
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground" data-testid="text-hero-body">
-              Our work starts from three questions: Is it true enough to depend on? Can capital survive it? Does it respect people's dignity? From there, every serious venture runs through a six-stage path—defined, tested, governed, and hardened on our own balance sheet first.
+              We start every serious venture by asking three things: Does it hold true? Does capital survive the worst day? Does it protect people's dignity even under pressure? Our approach turns those questions into a six-stage path, governed experiments, and patterns we run on our own balance sheet first.
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-8">
-              <Link href="/approach/process">
+              <Link href="/process">
                 <Button size="lg" data-testid="button-six-stages">
                   See the six stages
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Button>
               </Link>
-              <Link href="/approach/standards">
+              <Link href="/standards">
                 <Button size="lg" variant="outline" data-testid="button-standards">
-                  Read our standards
+                  Review governance
                 </Button>
               </Link>
             </div>
@@ -102,9 +96,12 @@ export default function Approach() {
       <section className="py-20 bg-card" data-testid="section-three-questions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground" data-testid="heading-three-questions">
-              Three questions we ask first
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-three-questions">
+              We start with three questions
             </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-three-questions-intro">
+              Before we draw an architecture diagram or write a line of code, we test the idea against three domains. If it fails here, it never becomes a venture.
+            </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {threeQuestions.map((item) => {
@@ -130,88 +127,96 @@ export default function Approach() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-pipeline">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-pipeline">
-              From idea to governed system
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-pipeline-body">
-              Every serious venture follows the same six-stage path: Define, Validate, Build, Deploy, Evolve, and Recurse. The goal is simple: surface risk early, keep capital within guardrails, and make sure lessons compound instead of resetting with each project.
-            </p>
-            <ul className="space-y-3 mb-8">
-              {pipelineBullets.map((bullet, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-3 text-foreground"
-                  data-testid={`list-pipeline-${index}`}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  <span className="text-sm text-muted-foreground">{bullet}</span>
-                </li>
-              ))}
-            </ul>
-            <Link href="/approach/process">
-              <Button variant="outline" data-testid="button-deep-dive">
-                Deep dive into the six stages
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-card" data-testid="section-ventures-link">
+      <section className="py-20" data-testid="section-stages">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-ventures-link">
-              Where we prove the rails
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-stages">
+              The six-stage runway
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-ventures-link-body">
-              We are a studio, not a single product. Helios, Lumina, and Uniqueness Engine are where we prove our approach under load—each in a different domain of Truth, Capital, and Dignity.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-stages-body">
+              Once a venture passes the first questions, it moves through a six-stage path: Define, Validate, Build, Deploy, Evolve, and Recurse. Each stage has its own gates, limits, and artefacts so risk is surfaced early and knowledge compounds instead of resetting.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {ventureLinks.map((venture) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            {stages.map((stage, index) => (
               <Card
-                key={venture.testId}
-                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
-                data-testid={`card-venture-link-${venture.testId}`}
+                key={stage.name}
+                className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-stage-${index}`}
               >
-                <CardContent className="flex flex-col h-full p-6">
-                  <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary mb-2" data-testid={`text-${venture.testId}-label`}>
-                    {venture.label}
-                  </p>
-                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed mb-4" data-testid={`text-${venture.testId}-desc`}>
-                    {venture.text}
-                  </p>
-                  <Link
-                    href={venture.href}
-                    className="inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:text-primary/80 transition-colors mt-auto"
-                    data-testid={`link-venture-${venture.testId}`}
-                  >
-                    Learn more
-                    <ArrowRight className="w-3 h-3" aria-hidden="true" />
-                  </Link>
+                <CardContent className="p-5">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-xs font-mono text-primary">{String(index + 1).padStart(2, '0')}</span>
+                    <h3 className="font-heading font-semibold text-foreground">{stage.name}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{stage.description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
+          <Link href="/process">
+            <Button variant="outline" data-testid="button-full-process">
+              Read the full Process
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Button>
+          </Link>
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-governance">
+      <section className="py-20 bg-card" data-testid="section-balance-sheet">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-governance">
-              Governance baked in
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-balance-sheet">
+              Balance-sheet-first by design
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-governance-body">
-              We treat every launch as a governed experiment: defined scope, explicit limits, named stewards, and pre-agreed rollback paths. If we cannot describe how a system behaves when things break, we do not ship it.
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-balance-sheet-body">
+              We do not ask others to trust patterns we have not run ourselves. Serious flows—especially those touching capital, identity, or automation—are wired through VSG's own balance sheet and operations first under conservative limits.
             </p>
-            <Link href="/approach/standards">
-              <Button variant="outline" data-testid="button-review-standards">
-                Review our standards
+            <ul className="space-y-3">
+              {balanceSheetBullets.map((bullet, index) => (
+                <li key={index} className="flex items-start gap-3" data-testid={`list-balance-sheet-${index}`}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
+                  <span className="text-sm text-muted-foreground">{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20" data-testid="section-ai-native">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-ai-native">
+              AI-native, human-governed
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-ai-native-body">
+              We assume machine intelligence is in the loop from day one, but we never outsource mandates or responsibility. AI handles the mechanics; people keep the veto.
+            </p>
+            <ul className="space-y-3">
+              {aiNativeBullets.map((bullet, index) => (
+                <li key={index} className="flex items-start gap-3" data-testid={`list-ai-native-${index}`}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
+                  <span className="text-sm text-muted-foreground">{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-card" data-testid="section-governed">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-governed">
+              Governed experiments, not bets
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-governed-body">
+              Our approach treats every serious change as a governed experiment: defined scope, explicit limits, named stewards, and clear observability. If we cannot describe how a system fails and how we roll it back, we do not ship it.
+            </p>
+            <Link href="/standards">
+              <Button variant="outline" data-testid="button-governance-standards">
+                Governance & Standards
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Button>
             </Link>
@@ -220,9 +225,9 @@ export default function Approach() {
       </section>
 
       <NextStepBlock
-        nextPage="Process"
-        description="See the six-stage venture process that every VSG venture follows."
-        href="/approach/process"
+        nextPage="See the ventures"
+        description="Helios, Lumina, and Uniqueness Engine are where this approach meets real conditions."
+        href="/ventures"
       />
     </Layout>
   );
