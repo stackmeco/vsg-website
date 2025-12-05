@@ -247,6 +247,85 @@ describe('Brand & Voice Compliance', () => {
     });
   });
 
+  describe('Insights page v3.0 compliance', () => {
+    const insightsPath = path.join(process.cwd(), 'client/src/pages/Insights.tsx');
+    let content: string;
+
+    beforeAll(() => {
+      content = fs.readFileSync(insightsPath, 'utf-8');
+    });
+
+    it('should have correct hero heading', () => {
+      expect(content).toContain('Field notes from verifiable systems.');
+    });
+
+    it('should have correct PageMeta title', () => {
+      expect(content).toContain('title="Insights"');
+    });
+
+    it('should have "you shouldn\'t need hype" line in hero', () => {
+      expect(content).toContain("You shouldn't need hype to understand how a system behaves");
+    });
+
+    it('should have "What you\'ll find here" section', () => {
+      expect(content).toContain("What you'll find here");
+    });
+
+    it('should have domain-tagged content examples', () => {
+      expect(content).toContain('Helios: treasury drills, stress paths, exposure patterns.');
+      expect(content).toContain('Lumina: grading flows, provenance issues, sensor behavior.');
+      expect(content).toContain('Uniqueness Engine: personhood trade-offs, friction, revocation.');
+    });
+
+    it('should have "What counts as an insight" section', () => {
+      expect(content).toContain('What counts as an insight');
+    });
+
+    it('should have "How to read these" section', () => {
+      expect(content).toContain('How to read these');
+    });
+
+    it('should have "What Insights are / are not" section', () => {
+      expect(content).toContain('What Insights are / are not');
+    });
+
+    it('should have proper empty state copy', () => {
+      expect(content).toContain('Field notes are still being written.');
+    });
+
+    it('should have cross-links to ventures, approach, and standards', () => {
+      expect(content).toContain('href="/ventures"');
+      expect(content).toContain('href="/approach"');
+      expect(content).toContain('href="/standards"');
+    });
+
+    it('should have proper disclaimer', () => {
+      expect(content).toContain('not investment, legal, tax, or compliance advice');
+    });
+
+    it('should not contain old domain labels', () => {
+      expect(content).not.toContain('"Signal"');
+      expect(content).not.toContain('"Value"');
+      expect(content).not.toContain('"Human"');
+    });
+
+    it('should have proper data-testid attributes for key sections', () => {
+      const expectedTestIds = [
+        'section-hero',
+        'section-what-youll-find',
+        'section-what-counts',
+        'section-insights-list',
+        'section-how-to-read',
+        'section-what-insights-are',
+        'section-cross-links',
+      ];
+      
+      expectedTestIds.forEach(testId => {
+        expect(content).toContain(`data-testid="${testId}"`);
+      });
+    });
+  });
+
   describe('Overview page v3.0 compliance', () => {
     const overviewPath = path.join(process.cwd(), 'client/src/pages/Overview.tsx');
     let content: string;
