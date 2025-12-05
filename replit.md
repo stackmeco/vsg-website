@@ -105,13 +105,17 @@ Preferred communication style: Simple, everyday language.
   - Calm, architectural tone with two-paragraph explanation
   - Navigation: "Go to overview", "Explore ventures", "See how we build"
 - **Standards Page v3.0 Polish** (December 2024):
-  - PageMeta: title="Standards & Guardrails", description on guardrails/limits/stewards
-  - Hero: "Standards and guardrails for verifiable systems." with "Standards · Governance" overline
-  - "What these standards are for" section on preventing silent failure
-  - "Core dimensions of our standards" with 4 cards: Limits, Stewards, Evidence, Escalation
-  - "How standards relate to Truth, Capital, and Dignity" section with exact v3.0 copy
-  - "Internal-first, not advice" disclaimer section
-  - NextStepBlock points to /insights with v3.0 copy
+  - PageMeta: title="Standards", description on quality, risk, and governance for AI-native, non-custodial systems
+  - Hero: "Standards for systems that carry real stakes." with "Quality and risk framework" overline
+  - Hero body: Two paragraphs (only one warmth line with "you"), CTAs to /process and /pillars
+  - "What these standards cover" intro section with minimum bar framing
+  - Three standards categories grid: Design standards, Operational standards, Risk and incident standards
+  - "Governed experiments, not bets" section with progressive exposure and kill switches
+  - "Truth, Capital, Dignity in practice" section with three domain items (text-only, no cards)
+  - "What we refuse to ship" section with 5 constraint bullets (destructive bullet color)
+  - "Internal-first, not advice" disclaimer section including "compliance advice"
+  - NextStepBlock points to /insights with "how we apply these standards in practice"
+  - Old content removed: Core dimensions, How standards show up in ventures, How we use AI inside standards
 - **Values Page v3.0 Polish** (December 2024):
   - Route: /values with lazy loading in App.tsx
   - PageMeta: title="Values & Operating Code", description on how VSG designs, ships, and governs
@@ -147,4 +151,4 @@ Preferred communication style: Simple, everyday language.
   - Brand lint updated with CANONICAL_EXCEPTIONS for "Let the human decide." pillar mantra
   - Brand lint now excludes test files from scanning
   - Old content removed: Verifiable Systems, Non-custodial Rails, Governed Experiments sections
-- **Test Count**: 201 passing tests as of December 2024
+- **Test Count**: 218 passing tests as of December 2024

@@ -172,88 +172,6 @@ describe('Brand & Voice Compliance', () => {
     });
   });
 
-  describe('Standards page v3.0 compliance', () => {
-    const standardsPath = path.join(process.cwd(), 'client/src/pages/Standards.tsx');
-    let content: string;
-
-    beforeAll(() => {
-      content = fs.readFileSync(standardsPath, 'utf-8');
-    });
-
-    it('should have correct hero heading', () => {
-      expect(content).toContain('Standards and guardrails for verifiable systems.');
-    });
-
-    it('should have "What these standards are for" section', () => {
-      expect(content).toContain('What these standards are for');
-      expect(content).toContain('prevent silent failure');
-    });
-
-    it('should have "Core dimensions of our standards" section', () => {
-      expect(content).toContain('Core dimensions of our standards');
-      expect(content).toContain('Limits');
-      expect(content).toContain('Stewards');
-      expect(content).toContain('Evidence');
-      expect(content).toContain('Escalation');
-    });
-
-    it('should have "How standards relate to Truth, Capital, and Dignity" section', () => {
-      expect(content).toContain('How standards relate to Truth, Capital, and Dignity');
-    });
-
-    it('should have "How standards show up in ventures" section', () => {
-      expect(content).toContain('How standards show up in ventures');
-      expect(content).toContain('In treasury work');
-      expect(content).toContain('In grading flows');
-      expect(content).toContain('In uniqueness checks');
-    });
-
-    it('should have "How we use AI inside standards" section', () => {
-      expect(content).toContain('How we use AI inside standards');
-      expect(content).toContain('Monitoring and alerts');
-      expect(content).toContain('Simulations and drills');
-      expect(content).toContain('Human veto preserved');
-    });
-
-    it('should have "What these standards are / are not" section', () => {
-      expect(content).toContain('What these standards are / are not');
-      expect(content).toContain('Our standards are');
-      expect(content).toContain('Our standards are not');
-    });
-
-    it('should have proper disclaimer', () => {
-      expect(content).toContain('not investment, legal, or tax advice');
-    });
-
-    it('should have cross-links to ventures, approach, and insights', () => {
-      expect(content).toContain('href="/ventures"');
-      expect(content).toContain('href="/approach"');
-      expect(content).toContain('href="/insights"');
-    });
-
-    it('should have Internal-first, not advice disclaimer section', () => {
-      expect(content).toContain('Internal-first, not advice');
-      expect(content).toContain('make our own guardrails inspectable');
-    });
-
-    it('should have proper data-testid attributes for key sections', () => {
-      const expectedTestIds = [
-        'section-hero',
-        'section-why-standards',
-        'section-core-dimensions',
-        'section-three-questions',
-        'section-ventures',
-        'section-ai-standards',
-        'section-is-not',
-        'section-disclaimer',
-        'section-cross-links',
-      ];
-      
-      expectedTestIds.forEach(testId => {
-        expect(content).toContain(`data-testid="${testId}"`);
-      });
-    });
-  });
 
   describe('Uniqueness Engine page v3.0 compliance', () => {
     const uniquenessPath = path.join(process.cwd(), 'client/src/pages/ventures/Uniqueness.tsx');
@@ -1165,6 +1083,176 @@ describe('Brand & Voice Compliance', () => {
       expect(content).not.toContain('AI-powered platform');
       expect(content).not.toContain('StackMe');
       expect(content).not.toContain('Axiom');
+    });
+  });
+
+  describe('Standards Page v3.0', () => {
+    const content = fs.readFileSync('client/src/pages/Standards.tsx', 'utf-8');
+
+    it('should have correct PageMeta title', () => {
+      expect(content).toContain('title="Standards"');
+    });
+
+    it('should have correct PageMeta description with v3.0 domains', () => {
+      expect(content).toContain('quality, risk, and governance');
+      expect(content).toContain('AI-native, non-custodial systems');
+      expect(content).toContain('Truth, Capital, and Dignity');
+    });
+
+    it('should have correct overline', () => {
+      expect(content).toContain('Quality and risk framework');
+    });
+
+    it('should have correct hero heading', () => {
+      expect(content).toContain('Standards for systems that carry real stakes.');
+    });
+
+    it('should have hero body copy with v3.0 language', () => {
+      expect(content).toContain('real decisions, real capital, or real lives');
+      expect(content).toContain('They apply across Truth, Capital, and Dignity');
+    });
+
+    it('should have warmth line in hero', () => {
+      expect(content).toContain('You should not have to reverse-engineer');
+      expect(content).toContain('reliability is enforced by design instead of assumed');
+    });
+
+    it('should have primary and secondary CTAs', () => {
+      expect(content).toContain('href="/process"');
+      expect(content).toContain('See the six-stage process');
+      expect(content).toContain('href="/pillars"');
+      expect(content).toContain('Read the pillars');
+    });
+
+    it('should have "What these standards cover" section', () => {
+      expect(content).toContain('What these standards cover');
+      expect(content).toContain('minimum bar every system must clear');
+    });
+
+    it('should have three standards categories data structure', () => {
+      expect(content).toContain('standardCategories');
+      expect(content).toContain('Design standards');
+      expect(content).toContain('Operational standards');
+      expect(content).toContain('Risk and incident standards');
+    });
+
+    it('should have Design standards details', () => {
+      expect(content).toContain('purpose, threat model');
+      expect(content).toContain('what must never happen');
+      expect(content).toContain('Truth, Capital, and Dignity risks are identified explicitly');
+    });
+
+    it('should have Operational standards details', () => {
+      expect(content).toContain('logging, monitoring, and alerting');
+      expect(content).toContain('named stewards');
+      expect(content).toContain('escalation paths');
+    });
+
+    it('should have Risk and incident standards details', () => {
+      expect(content).toContain('documented playbooks');
+      expect(content).toContain('near-misses, and anomalies');
+      expect(content).toContain('six-stage process');
+    });
+
+    it('should have "Governed experiments, not bets" section', () => {
+      expect(content).toContain('Governed experiments, not bets');
+      expect(content).toContain('governed experiments, not one-way bets');
+      expect(content).toContain('progressive exposure, defence in depth');
+    });
+
+    it('should have "Truth, Capital, Dignity in practice" section', () => {
+      expect(content).toContain('Truth, Capital, Dignity in practice');
+      expect(content).toContain('threeDomainsInPractice');
+    });
+
+    it('should have Truth domain in practice copy', () => {
+      expect(content).toContain('anchored to evidence, logs, and explanations');
+      expect(content).toContain('inspected, not just inferred');
+    });
+
+    it('should have Capital domain in practice copy', () => {
+      expect(content).toContain('non-custodial control, clear limits');
+      expect(content).toContain('documented responses for stress and failure');
+    });
+
+    it('should have Dignity domain in practice copy', () => {
+      expect(content).toContain('participation and personhood are protected by design');
+      expect(content).toContain('avoiding unnecessary collection or exposure');
+    });
+
+    it('should have "What we refuse to ship" section', () => {
+      expect(content).toContain('What we refuse to ship');
+      expect(content).toContain('refuseToShip');
+    });
+
+    it('should have all five refuse to ship constraints', () => {
+      expect(content).toContain('without clear owners, review rhythms');
+      expect(content).toContain('cannot explain their critical decisions');
+      expect(content).toContain('without logging or monitoring');
+      expect(content).toContain('hidden assumptions we cannot test');
+      expect(content).toContain('expose more about a person');
+    });
+
+    it('should have refuse closing sentence', () => {
+      expect(content).toContain('we either redesign it under tighter constraints or decline it');
+    });
+
+    it('should have disclaimer section', () => {
+      expect(content).toContain('Internal-first, not advice');
+      expect(content).toContain('not investment, legal, tax, or compliance advice');
+    });
+
+    it('should have NextStepBlock pointing to insights', () => {
+      expect(content).toContain('nextPage="Insights"');
+      expect(content).toContain('href="/insights"');
+      expect(content).toContain('how we apply these standards in practice');
+    });
+
+    it('should have proper data-testid attributes for key sections', () => {
+      const expectedTestIds = [
+        'section-hero',
+        'section-intro',
+        'section-categories',
+        'section-experiments',
+        'section-domains',
+        'section-refuse',
+        'section-disclaimer',
+      ];
+      
+      expectedTestIds.forEach(testId => {
+        expect(content).toContain(`data-testid="${testId}"`);
+      });
+    });
+
+    it('should have category cards with proper data-testid pattern', () => {
+      expect(content).toContain('data-testid={`card-category-${index}`}');
+      expect(content).toContain('data-testid={`heading-category-${index}`}');
+    });
+
+    it('should have domain items with proper data-testid pattern', () => {
+      expect(content).toContain('data-testid={`domain-${item.label.toLowerCase()}`}');
+    });
+
+    it('should not contain old Standards page content', () => {
+      expect(content).not.toContain('coreDimensions');
+      expect(content).not.toContain('ventureExamples');
+      expect(content).not.toContain('aiInsideStandards');
+      expect(content).not.toContain('In treasury work');
+      expect(content).not.toContain('In grading flows');
+    });
+
+    it('should not contain banned phrases', () => {
+      expect(content).not.toContain('Signal / Value / Human');
+      expect(content).not.toContain('validate the signal');
+      expect(content).not.toContain('protect the human');
+      expect(content).not.toContain('AI-powered platform');
+      expect(content).not.toContain('StackMe');
+      expect(content).not.toContain('Axiom');
+    });
+
+    it('should use Cards component for categories', () => {
+      expect(content).toContain('<Card');
+      expect(content).toContain('<CardContent');
     });
   });
 });
