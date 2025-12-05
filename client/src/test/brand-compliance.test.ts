@@ -87,6 +87,91 @@ describe('Brand & Voice Compliance', () => {
     });
   });
 
+  describe('Approach page v3.0 compliance', () => {
+    const approachPath = path.join(process.cwd(), 'client/src/pages/approach/Approach.tsx');
+    let content: string;
+
+    beforeAll(() => {
+      content = fs.readFileSync(approachPath, 'utf-8');
+    });
+
+    it('should have correct PageMeta title', () => {
+      expect(content).toContain('title="Approach"');
+    });
+
+    it('should have correct overline', () => {
+      expect(content).toContain('How we build and govern');
+    });
+
+    it('should have correct hero heading', () => {
+      expect(content).toContain('A governed approach to AI-native systems.');
+    });
+
+    it('should have warmth line in hero', () => {
+      expect(content).toContain("You shouldn't have to reverse-engineer how a critical system behaves");
+    });
+
+    it('should have "Three beams: Truth, Capital, Dignity" section', () => {
+      expect(content).toContain('Three beams: Truth, Capital, Dignity');
+      expect(content).toContain('Everything in the studio hangs off three beams');
+    });
+
+    it('should have correct beam descriptions with ventures', () => {
+      expect(content).toContain('Lumina lives here');
+      expect(content).toContain('Helios lives here');
+      expect(content).toContain('The Uniqueness Engine lives here');
+    });
+
+    it('should have "Three layers of the approach" section', () => {
+      expect(content).toContain('Three layers of the approach');
+      expect(content).toContain('Pillars set the non-negotiables');
+    });
+
+    it('should have correct three layers cards with links', () => {
+      expect(content).toContain('title: "Pillars"');
+      expect(content).toContain('title: "Process"');
+      expect(content).toContain('title: "Standards"');
+      expect(content).toContain('href: "/pillars"');
+      expect(content).toContain('href: "/process"');
+      expect(content).toContain('href: "/standards"');
+    });
+
+    it('should have "The six stages at a glance" section', () => {
+      expect(content).toContain('The six stages at a glance');
+      expect(content).toContain('Process is where ambition meets discipline');
+    });
+
+    it('should have "What we refuse to do" section', () => {
+      expect(content).toContain('What we refuse to do');
+      expect(content).toContain('We do not pool client funds');
+      expect(content).toContain('We do not treat identity or behaviour data');
+      expect(content).toContain('We do not ship systems whose failure modes');
+      expect(content).toContain('We do not hide risk in opaque models');
+    });
+
+    it('should have proper data-testid attributes for key sections', () => {
+      const expectedTestIds = [
+        'section-hero',
+        'section-three-beams',
+        'section-three-layers',
+        'section-stages',
+        'section-refuse',
+        'section-disclaimer',
+        'section-cross-links',
+      ];
+      
+      expectedTestIds.forEach(testId => {
+        expect(content).toContain(`data-testid="${testId}"`);
+      });
+    });
+
+    it('should not contain old domain labels', () => {
+      expect(content).not.toContain('"Signal"');
+      expect(content).not.toContain('"Value"');
+      expect(content).not.toContain('"Human"');
+    });
+  });
+
   describe('Standards page v3.0 compliance', () => {
     const standardsPath = path.join(process.cwd(), 'client/src/pages/Standards.tsx');
     let content: string;

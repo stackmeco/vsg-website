@@ -4,98 +4,73 @@ import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 
-const howWeApproach = [
+const threeBeams = [
   {
-    title: "Start from real pain",
-    body: "We begin with specific asymmetries we have lived—uninspectable flows, brittle treasuries, extractive identity checks—not abstract opportunity slides.",
+    domain: "Truth",
+    body: "How do we know what is actually happening? Truth systems turn messy inputs into evidence and records people can inspect and reuse. Lumina lives here, starting with condition for physical assets like trading cards.",
   },
   {
-    title: "Design inside constraints",
-    body: "We define the limits first: what must be observable, what cannot be outsourced, and what is off-limits entirely. Ambition is wired through guardrails, not the other way around.",
+    domain: "Capital",
+    body: "How should capital behave under stress while people keep control? Capital systems define how assets move, what limits they respect, and how risk is surfaced early instead of hiding in footnotes. Helios lives here.",
   },
   {
-    title: "Prove it on ourselves first",
-    body: "We route our own operations and capital through new patterns before anyone else touches them. If a system fails, the blast radius lands on us.",
+    domain: "Dignity",
+    body: "How do people prove enough about themselves to participate safely without overexposure? Dignity systems protect identity, access, and personhood. The Uniqueness Engine lives here.",
   },
 ];
 
-const threeQuestions = [
+const threeLayers = [
   {
-    title: "Truth",
-    body: "Can you inspect how this system arrives at its claims—what data it used, how it processed it, and how it can fail? If key behaviors cannot be observed or challenged, they are not acceptable foundations.",
+    title: "Pillars",
+    subtitle: "What we refuse to compromise on",
+    body: "Pillars are the principles we will not trade away for speed, convenience, or trend cycles. They define how we treat Truth, Capital, and Dignity when no one is watching, and they constrain which ventures we will even consider.",
+    cta: "Read the pillars",
+    href: "/pillars",
   },
   {
-    title: "Capital",
-    body: "Does this design keep value resilient under stress, or does it quietly depend on best-case conditions? We care as much about exits and degraded modes as we do about normal operation.",
+    title: "Process",
+    subtitle: "The six-stage venture path",
+    body: "Every venture moves through the same six-stage path: Define, Validate, Build, Deploy, Evolve, Learn. Each stage has explicit entry/exit criteria, so ventures either earn the right to advance or are archived with their lessons captured.",
+    cta: "View the six stages",
+    href: "/process",
   },
   {
-    title: "Dignity",
-    body: "Does this system treat people as participants with agency, or as exhaust to harvest? People should be able to use the rails without surrendering unnecessary control over their time, identity, or data.",
-  },
-];
-
-const stages = [
-  { name: "Define", description: "Clarify the problem, constraints, stakeholders, and regulatory surface. Decide not just what we might build, but when it should not exist." },
-  { name: "Validate", description: "Run small, low-risk experiments to test the core assumptions with models, prototypes, and simulations instead of full production builds." },
-  { name: "Build", description: "Engineer in short, verifiable increments with automated checks and explicit failure paths so every change is explainable." },
-  { name: "Deploy", description: "Release into a controlled environment with guardrails, observability, and rollback. Launch is treated as a structured experiment, not a cliff jump." },
-  { name: "Evolve", description: "Use live behavior, incidents, and telemetry to refine the system. Ventures either mature into durable infrastructure or are reduced in scope." },
-  { name: "Learn", description: "Run structured post-mortems and feed lessons back into our standards and pipeline so we do not repeat the same mistakes." },
-];
-
-const howWeUseAi = [
-  {
-    title: "Machines handle the volume",
-    body: "High-velocity tasks—monitoring, anomaly detection, scenario runs—are offloaded to machine intelligence so we can see more than any human team could track directly.",
-  },
-  {
-    title: "Humans set the rules",
-    body: "Targets, thresholds, and trade-offs are set by people, documented in standards, and enforced by code. AI does not invent mandates; it executes under them.",
-  },
-  {
-    title: "No closed-loop autonomy",
-    body: "Critical paths keep a human veto. If a system could materially affect someone's money, time, or reputation, there must be a way for a person to inspect and intervene.",
+    title: "Standards",
+    subtitle: "The quality and risk framework",
+    body: "Standards describe the quality bar, risk controls, and review rhythms that apply to every system we run, regardless of domain. They cover how we log behaviour, respond to incidents, and decide when something is safe enough to carry real stakes.",
+    cta: "Review our standards",
+    href: "/standards",
   },
 ];
 
-const internalFirst = [
-  {
-    title: "Run on our own balance sheet",
-    body: "Treasury and financial experiments happen on our capital first. The pain from any early mistakes is ours.",
-  },
-  {
-    title: "Control stays with the owner",
-    body: "Where we touch capital or identity, we aim for non-custodial designs: you keep keys, you hold proofs, systems orchestrate flows under your rules.",
-  },
-  {
-    title: "No hidden dependencies",
-    body: "We avoid architectures that quietly rely on a single opaque intermediary. If a system depends on a chokepoint we cannot inspect, we redesign it.",
-  },
+const sixStages = [
+  { name: "Define", description: "Clarify the problem, who it is for, and when the venture should not exist." },
+  { name: "Validate", description: "Run small, low-risk experiments to test the core assumptions first." },
+  { name: "Build", description: "Engineer in short, verifiable increments with checks and failure paths designed in." },
+  { name: "Deploy", description: "Launch under explicit guardrails, observability, and rollback—not as a cliff jump." },
+  { name: "Evolve", description: "Refine based on live behaviour, telemetry, and incidents instead of wishful thinking." },
+  { name: "Learn", description: "Capture lessons into studio standards so knowledge compounds instead of resetting." },
 ];
 
-const weWill = [
-  "Run new architectures on our own balance sheet and operations first.",
-  "Document constraints, failure modes, and rollback paths before launch.",
-  "Design for verification, not blind trust, across Truth, Capital, and Dignity.",
-];
-
-const weWillNot = [
-  "We will not market yield, funds, or investment products.",
-  "We will not ask for more data or custody than a system truly needs.",
-  "We will not ship systems whose behavior we cannot explain under stress.",
+const refuseToDoItems = [
+  "We do not pool client funds or market Helios as a yield product.",
+  "We do not treat identity or behaviour data as something to harvest or resell.",
+  "We do not ship systems whose failure modes we cannot describe in plain language.",
+  "We do not hide risk in opaque models or uninspectable integrations.",
 ];
 
 export default function Approach() {
   return (
     <Layout>
       <PageMeta
-        title="Approach — How VSG Designs and Proves Systems"
-        description="From first questions about Truth, Capital, and Dignity to governed launches, VSG runs every serious venture through a six-stage path on its own balance sheet first."
+        title="Approach"
+        description="How Verifiable Systems Group designs and governs AI-native ventures across Truth, Capital, and Dignity using clear pillars, a six-stage process, and enforceable standards."
         preloadImage="/hero-texture.png"
       />
 
+      {/* Hero Section */}
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />
         <div
@@ -112,28 +87,28 @@ export default function Approach() {
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" aria-hidden="true" />
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
-              Approach
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary mb-4" data-testid="text-overline">
+              How we build and govern
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
-              We treat systems like infrastructure, not experiments on other people.
+              A governed approach to AI-native systems.
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-hero-body">
-              Our approach starts with lived failures—assets trapped, signals we could not inspect, systems that treated people as exhaust. From there, we design under clear constraints, run everything on our own balance sheet first, and move ventures through a six-stage runway anchored in Truth, Capital, and Dignity.
+              We build systems for decisions that cannot afford guesswork. Our approach is simple to say and strict to execute: define what must never happen, design rails that make it hard to happen by accident, and run everything on our own balance sheet before anyone else depends on it.
             </p>
             <p className="text-sm text-muted-foreground/80 leading-relaxed" data-testid="text-hero-secondary">
-              If a design cannot survive our guardrails, it does not move forward—no matter how appealing the story sounds.
+              You shouldn't have to reverse-engineer how a critical system behaves. Our approach is documented, testable, and enforced through three layers—Pillars, Process, and Standards—so Truth, Capital, and Dignity are protected by design, not just by intention.
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-8">
-              <Button asChild size="lg" data-testid="button-explore-ventures">
-                <Link href="/ventures">
-                  Explore ventures
+              <Button asChild size="lg" data-testid="button-view-process">
+                <Link href="/process">
+                  View the six-stage process
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" data-testid="button-see-process">
-                <Link href="/process">
-                  See the full process
+              <Button asChild size="lg" variant="outline" data-testid="button-see-pillars">
+                <Link href="/pillars">
+                  See our pillars
                 </Link>
               </Button>
             </div>
@@ -141,30 +116,27 @@ export default function Approach() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-how-we-approach">
+      {/* Three beams: Truth, Capital, Dignity */}
+      <section className="py-20 bg-card" data-testid="section-three-beams">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-how-we-approach">
-              How we approach verifiable autonomy
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-three-beams">
+              Three beams: Truth, Capital, Dignity
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-how-we-approach-body">
-              We build as if our systems will carry value, decisions, and identities for decades—but we only ship what we can observe, test, and roll back today. Every design starts with a specific failure we never want to repeat, then moves through tightly scoped experiments before it is allowed anywhere near other people's money, time, or reputation.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-three-beams-intro">
+              Everything in the studio hangs off three beams. They keep the portfolio coherent even as individual ventures evolve.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {howWeApproach.map((item, index) => (
+            {threeBeams.map((item) => (
               <Card
-                key={index}
+                key={item.domain}
                 className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
-                data-testid={`card-how-approach-${index}`}
+                data-testid={`card-beam-${item.domain.toLowerCase()}`}
               >
                 <CardContent className="flex flex-col h-full p-6">
-                  <h3 className="font-heading font-semibold text-foreground mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">
-                    {item.body}
-                  </p>
+                  <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary mb-3">{item.domain}</p>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{item.body}</p>
                 </CardContent>
               </Card>
             ))}
@@ -172,52 +144,54 @@ export default function Approach() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-three-questions">
+      {/* Three layers of the approach */}
+      <section className="py-20" data-testid="section-three-layers">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-three-questions">
-              Three questions we ask about every system
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-three-layers">
+              Three layers of the approach
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-three-questions-intro">
-              Every venture, internal tool, or experiment inside VSG is held up to the same three questions. If a design fails any one of them, it does not belong on rails other people might rely on.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-three-layers-intro">
+              We keep the studio predictable by separating what never changes from what can evolve. Pillars set the non-negotiables, Process defines how ventures move, Standards encode the minimum quality bar.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {threeQuestions.map((item) => (
+            {threeLayers.map((layer) => (
               <Card
-                key={item.title}
-                className="flex flex-col h-full bg-card border-border"
-                data-testid={`card-question-${item.title.toLowerCase()}`}
+                key={layer.title}
+                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-layer-${layer.title.toLowerCase()}`}
               >
                 <CardContent className="flex flex-col h-full p-6">
-                  <h3 className="font-heading font-semibold text-foreground mb-3" data-testid={`heading-question-${item.title.toLowerCase()}`}>
-                    {item.title}
-                  </h3>
-                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed" data-testid={`text-question-${item.title.toLowerCase()}`}>
-                    {item.body}
-                  </p>
+                  <h3 className="font-heading font-semibold text-foreground mb-1">{layer.title}</h3>
+                  <p className="text-xs text-muted-foreground/70 mb-3">{layer.subtitle}</p>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed mb-4">{layer.body}</p>
+                  <Button asChild variant="outline" size="sm" data-testid={`button-${layer.title.toLowerCase()}`}>
+                    <Link href={layer.href}>
+                      {layer.cta}
+                      <ArrowRight className="w-3 h-3" aria-hidden="true" />
+                    </Link>
+                  </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
-          <p className="text-xs text-muted-foreground/80 leading-relaxed mt-6 max-w-3xl" data-testid="text-three-questions-note">
-            If we cannot answer all three, we do not ship.
-          </p>
         </div>
       </section>
 
+      {/* The six stages at a glance */}
       <section className="py-20 bg-card" data-testid="section-stages">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-stages">
-              The six-stage runway
+              The six stages at a glance
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-stages-body">
-              Every venture moves through the same six-stage runway. The goal is simple: surface risk early, keep learning compounding, and avoid shipping anything that we cannot later explain.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-stages-intro">
+              Process is where ambition meets discipline. Every venture moves through the same six stages, with clear criteria for entering and leaving each one.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            {stages.map((stage, index) => (
+            {sixStages.map((stage, index) => (
               <Card
                 key={stage.name}
                 className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
@@ -233,120 +207,52 @@ export default function Approach() {
               </Card>
             ))}
           </div>
-          <p className="text-sm text-muted-foreground mb-4">
-            For the detailed version of this runway, see the full Process page.
-          </p>
           <Button asChild variant="outline" data-testid="button-full-process">
             <Link href="/process">
-              Read the detailed Process
+              View the full process
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
           </Button>
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-ai-native">
+      {/* What we refuse to do */}
+      <section className="py-20" data-testid="section-refuse">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-ai-native">
-              How we use AI
+          <div className="max-w-3xl">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-refuse">
+              What we refuse to do
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-ai-native-body">
-              We are AI-native: we design on the assumption that machine intelligence is in the loop from day one. But AI handles the mechanics; humans hold the mandate. Systems are built so machines scan, simulate, and surface risk, while people define objectives, constraints, and ethics—and retain the veto.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {howWeUseAi.map((card, index) => (
-              <Card
-                key={index}
-                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
-                data-testid={`card-ai-native-${index}`}
-              >
-                <CardContent className="flex flex-col h-full p-6">
-                  <h3 className="font-heading font-semibold text-foreground mb-3">{card.title}</h3>
-                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{card.body}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-card" data-testid="section-internal-first">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-internal-first">
-              Internal-first and non-custodial
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-internal-first-body">
-              We prove every pattern on ourselves before we point it at anyone else. That includes how capital moves, how truth is established, and how access is granted. We do not pool outside funds, and we do not build systems that require handing us custody to gain leverage.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {internalFirst.map((card, index) => (
-              <Card
-                key={index}
-                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
-                data-testid={`card-internal-first-${index}`}
-              >
-                <CardContent className="flex flex-col h-full p-6">
-                  <h3 className="font-heading font-semibold text-foreground mb-3">{card.title}</h3>
-                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{card.body}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20" data-testid="section-will-will-not">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-will-will-not">
-              What we will and will not do
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="bg-card border-border" data-testid="card-we-will">
+            <Card className="bg-card border-border mb-6" data-testid="card-refuse">
               <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <Check className="w-5 h-5 text-primary" aria-hidden="true" />
-                  We will
-                </h3>
                 <ul className="space-y-3">
-                  {weWill.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed" data-testid={`item-will-${index}`}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
-                      {item}
+                  {refuseToDoItems.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3" data-testid={`refuse-item-${index}`}>
+                      <X className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" aria-hidden="true" />
+                      <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
               </CardContent>
             </Card>
-            <Card className="bg-card border-border" data-testid="card-we-will-not">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <X className="w-5 h-5 text-muted-foreground" aria-hidden="true" />
-                  We will not
-                </h3>
-                <ul className="space-y-3">
-                  {weWillNot.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed" data-testid={`item-will-not-${index}`}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 mt-2 flex-shrink-0" aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+            <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-refuse-closing">
+              These constraints exist so that when we talk about Truth, Capital, and Dignity, they describe how our systems behave in practice—not just how we wish they behaved.
+            </p>
           </div>
-          <p className="text-xs text-muted-foreground/80 leading-relaxed mt-6 max-w-3xl" data-testid="text-disclaimer">
+        </div>
+      </section>
+
+      {/* Disclaimer */}
+      <section className="py-12 bg-card border-t border-border" data-testid="section-disclaimer">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-xs text-muted-foreground/80 leading-relaxed max-w-3xl" data-testid="text-disclaimer">
             This page describes how we build and operate our own systems. It is not investment, legal, tax, or compliance advice.
           </p>
         </div>
       </section>
 
-      <section className="py-12 bg-card" data-testid="section-cross-links">
+      {/* Cross links */}
+      <section className="py-12" data-testid="section-cross-links">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-6">
             <Button asChild variant="outline" size="sm" data-testid="link-ventures">
