@@ -7,7 +7,7 @@ export default function Contact() {
     <Layout>
       <PageMeta 
         title="Connect" 
-        description="Start a conversation with the Verifiable Systems team. We welcome inquiries from partners aligned with our mission."
+        description="Connect with Verifiable Systems Group about verifiable autonomy—where truth, capital, and dignity are at stake. We prioritize conversations where infrastructure, not slogans, is the problem."
         preloadImage="/hero-texture.png"
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
@@ -27,16 +27,16 @@ export default function Contact() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
-              Connect
+              Connect · Verifiable Systems Group
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6" data-testid="text-hero-heading">
-              Tell us what you're trying to verify, protect, or build.
+              Talk to us when verification matters.
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-hero-body">
-              We take on a limited number of external conversations and prioritize work where verifiable autonomy matters. Every inquiry is reviewed by the founding team.
+              We're a studio for verifiable autonomy, not a high-volume agency. We take on a limited number of conversations where the core problem is structural: how truth is proven, how capital moves, or how people participate without overexposure.
             </p>
             <p className="text-sm text-muted-foreground/80 leading-relaxed" data-testid="text-hero-secondary">
-              If your problem involves Truth, Capital, or Dignity—and you value evidence over narratives—we'd like to hear from you.
+              If you're facing those questions in a serious way, we're interested. If you just need generic AI or marketing, we're probably not the right fit.
             </p>
           </div>
         </div>
@@ -47,36 +47,37 @@ export default function Contact() {
           <div className="grid lg:grid-cols-5 gap-12">
             <div className="lg:col-span-2">
               <div className="bg-background border border-border rounded-[2px] p-6 sm:p-8 sticky top-24 z-30 hover:border-primary/30 transition-colors duration-150 ease-mechanical">
-                <h3 className="font-heading font-semibold text-base text-foreground mb-4">
-                  We'd like to hear from
+                <h3 className="font-heading font-semibold text-base text-foreground mb-3" data-testid="text-sidebar-heading">
+                  Tell us what you're trying to verify, protect, or build.
                 </h3>
-                <ul className="space-y-4 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-3">
+                <p className="text-sm text-muted-foreground mb-6" data-testid="text-sidebar-body">
+                  Be as specific as you can—what's at stake if this system is wrong, brittle, or opaque?
+                </p>
+
+                <div className="space-y-4 text-sm text-muted-foreground border-t border-border pt-6">
+                  <div className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     <span>
-                      <strong className="text-foreground">Builders</strong> creating products in AI, digital assets, or financial infrastructure.
+                      <strong className="text-foreground">Topic examples:</strong> grading infrastructure, treasury rails, personhood in a network.
                     </span>
-                  </li>
-                  <li className="flex items-start gap-3">
+                  </div>
+                  <div className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                     <span>
-                      <strong className="text-foreground">Investors</strong> who prioritize technical fundamentals and long-term value creation.
+                      <strong className="text-foreground">Context:</strong> What's the system? Who does it serve? What goes wrong if it fails silently?
                     </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    <span>
-                      <strong className="text-foreground">Researchers</strong> exploring the intersection of AI verification and financial systems.
-                    </span>
-                  </li>
-                </ul>
+                  </div>
+                </div>
 
                 <div className="mt-8 pt-6 border-t border-border">
-                  <h4 className="text-sm font-medium text-foreground mb-2">
+                  <h4 className="text-sm font-medium text-foreground mb-2" data-testid="text-expectations-heading">
                     What to expect
                   </h4>
-                  <p className="text-sm text-muted-foreground">
-                    We respond within 3-5 business days to aligned inquiries. We do not send unsolicited outreach.
+                  <p className="text-sm text-muted-foreground mb-3" data-testid="text-expectations-body">
+                    We review incoming messages for clear alignment with our work on Truth, Capital, or Dignity. We can't respond to every inquiry or provide individual investment, legal, or tax advice.
+                  </p>
+                  <p className="text-xs text-muted-foreground/70" data-testid="text-disclaimer">
+                    Nothing on this site or in our replies should be treated as financial, legal, or tax advice.
                   </p>
                 </div>
               </div>

@@ -2,12 +2,12 @@ import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, AlertTriangle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const helpfulLinks = [
   { name: "Overview", href: "/" },
-  { name: "Approach", href: "/approach" },
   { name: "Ventures", href: "/ventures" },
+  { name: "Approach", href: "/approach" },
   { name: "Insights", href: "/insights" },
 ];
 
@@ -16,33 +16,38 @@ export default function NotFound() {
     <Layout>
       <PageMeta
         title="Page Not Found — Verifiable Systems Group"
-        description="This route is not wired into the current configuration. Start again from the VSG overview, Ventures, or Insights pages."
+        description="This route is not wired into the current configuration. Start again from the VSG overview, Ventures, or Approach pages."
       />
       <section className="py-32 text-center" data-testid="section-404">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl mx-auto">
-            <div className="flex justify-center mb-6">
-              <AlertTriangle className="w-12 h-12 text-destructive" aria-hidden="true" />
-            </div>
-            <p className="font-mono text-sm text-destructive uppercase tracking-wider mb-4" data-testid="text-error-code">
-              Error 404
+            <p className="font-mono text-sm text-muted-foreground uppercase tracking-wider mb-4" data-testid="text-error-code">
+              404
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground mb-6" data-testid="text-heading-404">
-              This path doesn't exist in our system.
+              This page isn't wired up.
             </h1>
-            <p className="text-lg text-muted-foreground mb-4" data-testid="text-body-404">
-              You've reached a route that doesn't map to any of our current rails. If you typed a URL directly, check it for typos—or use the links below to get back to the parts of the studio that exist.
+            <p className="text-lg text-muted-foreground mb-2" data-testid="text-body-404">
+              Either this page never existed or it hasn't been wired into the current site. In either case, there's nothing verifiable here yet.
+            </p>
+            <p className="text-base text-muted-foreground mb-10" data-testid="text-body-404-secondary">
+              Use the links below to get back to the parts of the system that are live and inspectable.
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-10">
               <Link href="/">
-                <Button size="lg" data-testid="button-back-home">
-                  Back to the studio
+                <Button size="lg" data-testid="button-go-overview">
+                  Go to overview
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Button>
               </Link>
               <Link href="/ventures">
-                <Button variant="outline" size="lg" data-testid="button-see-ventures">
-                  Explore our ventures
+                <Button variant="outline" size="lg" data-testid="button-explore-ventures">
+                  Explore ventures
+                </Button>
+              </Link>
+              <Link href="/approach">
+                <Button variant="outline" size="lg" data-testid="button-see-approach">
+                  See how we build
                 </Button>
               </Link>
             </div>

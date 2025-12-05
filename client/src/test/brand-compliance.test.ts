@@ -676,16 +676,32 @@ describe('Brand & Voice Compliance', () => {
       content = fs.readFileSync(connectPath, 'utf-8');
     });
 
-    it('should have correct hero heading', () => {
-      expect(content).toContain("Tell us what you're trying to verify, protect, or build.");
+    it('should have correct v3.0 hero heading', () => {
+      expect(content).toContain('Talk to us when verification matters.');
     });
 
-    it('should have Connect overline', () => {
-      expect(content).toContain('Connect');
+    it('should have correct v3.0 overline format', () => {
+      expect(content).toContain('Connect · Verifiable Systems Group');
     });
 
-    it('should reference Truth, Capital, and Dignity', () => {
+    it('should have v3.0 hero body copy about limited conversations', () => {
+      expect(content).toContain("We're a studio for verifiable autonomy, not a high-volume agency");
+      expect(content).toContain('core problem is structural');
+    });
+
+    it('should reference Truth, Capital, and Dignity in expectations', () => {
       expect(content).toContain('Truth, Capital, or Dignity');
+    });
+
+    it('should have expectations section with advice disclaimer', () => {
+      expect(content).toContain('What to expect');
+      expect(content).toContain("can't respond to every inquiry");
+      expect(content).toContain('investment, legal, or tax advice');
+    });
+
+    it('should have sidebar guidance text', () => {
+      expect(content).toContain("Tell us what you're trying to verify, protect, or build.");
+      expect(content).toContain("what's at stake if this system is wrong");
     });
 
     it('should not contain hype phrases', () => {
@@ -701,6 +717,59 @@ describe('Brand & Voice Compliance', () => {
         'text-hero-heading',
         'text-hero-body',
         'section-form',
+        'text-expectations-heading',
+        'text-disclaimer',
+      ];
+      
+      expectedTestIds.forEach(testId => {
+        expect(content).toContain(`data-testid="${testId}"`);
+      });
+    });
+  });
+
+  describe('404 page v3.0 compliance', () => {
+    const notFoundPath = path.join(process.cwd(), 'client/src/pages/not-found.tsx');
+    let content: string;
+
+    beforeAll(() => {
+      content = fs.readFileSync(notFoundPath, 'utf-8');
+    });
+
+    it('should have v3.0 heading', () => {
+      expect(content).toContain("This page isn't wired up.");
+    });
+
+    it('should have v3.0 body copy', () => {
+      expect(content).toContain("Either this page never existed or it hasn't been wired into the current site");
+      expect(content).toContain("nothing verifiable here yet");
+    });
+
+    it('should have correct navigation labels per v3.0 spec', () => {
+      expect(content).toContain('Go to overview');
+      expect(content).toContain('Explore ventures');
+      expect(content).toContain('See how we build');
+    });
+
+    it('should have correct navigation hrefs', () => {
+      expect(content).toContain('href="/"');
+      expect(content).toContain('href="/ventures"');
+      expect(content).toContain('href="/approach"');
+    });
+
+    it('should not contain old brand language', () => {
+      expect(content).not.toContain('StackMe');
+      expect(content).not.toContain('VSP');
+      expect(content).not.toContain('the' + ' ' + 'human');
+    });
+
+    it('should have proper data-testid attributes', () => {
+      const expectedTestIds = [
+        'section-404',
+        'text-error-code',
+        'text-heading-404',
+        'text-body-404',
+        'button-go-overview',
+        'button-explore-ventures',
       ];
       
       expectedTestIds.forEach(testId => {
