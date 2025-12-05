@@ -56,7 +56,7 @@ Preferred communication style: Simple, everyday language.
 - **Session Management**: `connect-pg-simple` (ready for database provisioning).
 
 ### Brand & Voice Tooling
-- **Brand Lint Script**: `scripts/brandLint.js` scans `client/src` for banned phrases from the v3.0 Brand & Voice System. Run with `node scripts/brandLint.js`. Detects deprecated language patterns like "AI-powered", "game-changing", old pillar references ("Signal / Value / Human"), legacy brand names (Stackme, Axiom), and anti-patterns.
+- **Brand Lint Script**: `scripts/brandLint.js` scans `client/src` for banned phrases from the v3.0 Brand & Voice System. Run with `node scripts/brandLint.js`. Detects deprecated language patterns like "AI-powered", "game-changing", "the human" (except in canonical v3.0 phrases), old pillar references ("Signal / Value / Human"), legacy brand names (Stackme, Axiom), and anti-patterns. The script supports `CANONICAL_EXCEPTIONS` for exact v3.0 phrases that would otherwise be banned.
 
 ### Testing Infrastructure
 - **Testing Framework**: Vitest with React Testing Library for component and integration tests
@@ -65,7 +65,7 @@ Preferred communication style: Simple, everyday language.
 - **Test Suites**:
   - `client/src/test/brand-compliance.test.ts`: Brand lint validation, domain label checks, disclaimer presence, six-stage runway verification, page-specific v3.0 compliance tests for all major pages
   - `client/src/test/components.test.tsx`: Component rendering tests for PageMeta, NextStepBlock, and data-testid convention validation
-- **Test Count**: 103 passing tests as of December 2024
+- **Test Count**: 125 passing tests as of December 2024
 - **Running Tests**: `npx vitest run` for single run, `npx vitest` for watch mode, `npx vitest run --coverage` for coverage report
 - **Coverage**: V8 provider with text, json, and html reporters; covers all `client/src/**/*.{ts,tsx}` files
 
@@ -104,4 +104,14 @@ Preferred communication style: Simple, everyday language.
   - "How standards relate to Truth, Capital, and Dignity" section with exact v3.0 copy
   - "Internal-first, not advice" disclaimer section
   - NextStepBlock points to /insights with v3.0 copy
-- **Test Count**: 113 passing tests as of December 2024
+- **Values Page v3.0 Polish** (December 2024):
+  - Route: /values with lazy loading in App.tsx
+  - PageMeta: title="Values & Operating Code", description on how VSG designs, ships, and governs
+  - Hero: "How we operate when it actually matters." with "Values · Operating Code" overline
+  - Six values grid with v3.0 canonical copy from studio.ts: Intelligence Augmented, Seek the Signal, Engineered Ambition, Own the Engine, Value is a Mirror, Force Multiplier
+  - "How these values show up in decisions" section
+  - "How values relate to Truth, Capital, and Dignity" section with three domain cards
+  - Cross-links to approach, ventures, and standards
+  - NextStepBlock points to /approach with six-stage runway reference
+  - Brand lint updated with CANONICAL_EXCEPTIONS for "Let the machine compute. Let the human connect."
+- **Test Count**: 125 passing tests as of December 2024
