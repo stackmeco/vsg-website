@@ -6,105 +6,103 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, X, ArrowRight } from "lucide-react";
 
-const howStandardIsStructured = [
+const whyStandardsExist = [
   {
-    title: "Scope",
-    text: "Defines which systems, ventures, or processes it applies to, and which domains it touches—Truth, Capital, Dignity, or a combination.",
+    title: "Prevent quiet drift",
+    text: "Standards define what cannot happen, not just what would be nice to happen. They keep systems from gradually bending toward convenience or yield at the expense of resilience and dignity.",
   },
   {
-    title: "Controls & limits",
-    text: "Specifies the behaviours that must be enforced, the limits that may not be exceeded, and how those limits are measured or checked.",
+    title: "Name stewards and limits",
+    text: "Every critical system has named roles, decision rights, and hard boundaries. If no one is clearly responsible—or if the limits are unclear—the design is not ready.",
   },
   {
-    title: "Stewardship & review",
-    text: "Names accountable roles, review cadence, and the conditions under which the standard must be revisited or tightened.",
-  },
-];
-
-const domainStandards = [
-  {
-    domain: "Truth",
-    title: "Truth — evidence you can inspect",
-    body: "Truth standards require that critical claims are anchored to evidence that can be traced and challenged. Inputs must be documented, sources must be inspectable, and key paths must not depend on unverifiable feeds or opaque logic.",
-    bullets: [
-      "Document how critical facts are captured and stored.",
-      "Ensure important decisions can be traced back to identifiable inputs.",
-      "Avoid dependencies on unverified or unbounded external signals.",
-    ],
-  },
-  {
-    domain: "Capital",
-    title: "Capital — resilience over yield",
-    body: "Capital standards prioritize survival and resilience over raw yield. They require explicit limits on exposures, clear escalation paths when those limits are approached, and defined behaviours for degraded or stressed conditions.",
-    bullets: [
-      "Define which risks are acceptable and which are not.",
-      "Specify how exposures are measured and monitored.",
-      "Require documented actions when conditions breach predefined thresholds.",
-    ],
-  },
-  {
-    domain: "Dignity",
-    title: "Dignity — protect time and personhood",
-    body: "Dignity standards require that participation does not depend on over-exposure, coercive lock-in, or turning people into the product. Identity-related flows must minimize data collected, retain user control where possible, and avoid hidden incentives built on exploitation.",
-    bullets: [
-      "Limit the amount of personal information required for participation.",
-      "Avoid designs that make exit unreasonably costly or risky.",
-      "Require clarity on how people's data and contributions are used.",
-    ],
+    title: "Make behavior inspectable",
+    text: "Standards specify how behaviors are logged, reviewed, and challenged. If we cannot trace why something happened, we treat that as a failure of the design, not of the user.",
   },
 ];
 
-const stewardshipCards = [
+const whatStandardsCover = [
   {
-    title: "Clear ownership",
-    text: "Each standard is assigned to a steward role, not an anonymous group. Ownership is explicit.",
+    title: "Truth standards",
+    text: "How data is collected, processed, and surfaced. This includes provenance requirements, logging expectations, review paths, and how uncertainty must be exposed instead of hidden.",
   },
   {
-    title: "Regular review",
-    text: "Standards are reviewed on a fixed cadence or when triggered by incidents, architectural changes, or external shifts.",
+    title: "Capital standards",
+    text: "How our treasury and financial flows may behave. This includes exposure limits, diversification expectations, stress scenarios, and rules for when activity must halt or step down.",
   },
   {
-    title: "Documented decisions",
-    text: "Changes, exceptions, and waivers are documented so we can see why a decision was made and what it impacted.",
+    title: "Dignity standards",
+    text: "How systems may interact with people's time, data, and identity. This includes what can be asked, what must remain optional, and how to avoid turning participation into surveillance.",
   },
 ];
 
-const changeManagementCards = [
+const threeQuestions = [
   {
-    title: "Triggering events",
-    text: "Incidents, near-misses, new failure modes, or significant environmental changes trigger a review of affected standards.",
+    label: "Truth",
+    text: "Standards demand evidence for claims and clear paths to challenge them. We specify what must be logged, how long it is retained, and how reviewers can reconstruct why a system behaved as it did.",
   },
   {
-    title: "Structured updates",
-    text: "Changes move through a defined review process before they are adopted, including impact assessment on existing systems.",
+    label: "Capital",
+    text: "Standards require that capital flows can be described under normal and stressed conditions. We specify maximum exposures, concentration bands, and triggers for review or pause.",
   },
   {
-    title: "Versioned record",
-    text: "Standards are versioned so stewards can see what changed, when it changed, and which systems were built under which assumptions.",
+    label: "Dignity",
+    text: "Standards constrain what systems can ask of people. We specify minimum-disclosure principles, opt-out expectations, and bans on designs that rely on confusing or trapping participants.",
+  },
+];
+
+const ventureExamples = [
+  {
+    title: "In treasury work",
+    text: "Before a treasury pattern goes live, we apply capital standards that define what kinds of venues are allowed, how exposure is capped, and how often positions must be reviewed.",
+  },
+  {
+    title: "In grading flows",
+    text: "Before a grading pipeline touches real assets, we apply truth standards that define how captures are controlled, which signals count as evidence, and how disagreements are handled.",
+  },
+  {
+    title: "In uniqueness checks",
+    text: "Before an identity-related mechanism is piloted, we apply dignity standards that define what can be collected, how it is transformed, and what the participant can later revoke.",
+  },
+];
+
+const aiInsideStandards = [
+  {
+    title: "Monitoring and alerts",
+    text: "Machine intelligence scans logs and metrics for patterns people would miss, flagging behaviors that cross defined lines or look meaningfully different from expected baselines.",
+  },
+  {
+    title: "Simulations and drills",
+    text: "We use AI to stress-test designs with simulated events and sequences. Standards define which scenarios must be rehearsed and what constitutes a failed drill.",
+  },
+  {
+    title: "Human veto preserved",
+    text: "AI may recommend, but it does not have final say. Standards require that critical actions that could materially affect money, access, or reputation remain interceptable by people.",
   },
 ];
 
 const whatStandardsAre = [
-  "Internal operating requirements we apply to our own ventures and systems.",
-  "Constraints that shape how we design, build, and run infrastructure.",
-  "A way to make our expectations and responsibilities explicit.",
+  "Internal rules for how we build and run systems on our own balance sheet and infrastructure.",
+  "A way to keep Truth, Capital, and Dignity in view even when conditions are noisy.",
+  "Living documents that can evolve, but only through explicit review and versioning.",
 ];
 
 const whatStandardsAreNot = [
-  "Not a guarantee of specific outcomes, returns, or performance.",
-  "Not a legal, regulatory, or compliance manual for third parties.",
-  "Not investment, legal, or tax advice.",
+  "Not legal, tax, or compliance advice for anyone else.",
+  "Not a promise that specific outcomes, returns, or safeguards will always hold.",
+  "Not a replacement for independent review by regulators, counsel, or auditors where those are required.",
 ];
 
-export default function Governance() {
+export default function Standards() {
   return (
     <Layout>
       <PageMeta 
-        title="Governance & Standards — Guardrails for Verifiable Systems" 
-        description="How VSG runs governed experiments on its own balance sheet first: explicit limits, named stewards, and observable behaviours for systems that must not fail silently."
+        title="Standards — Guardrails for Verifiable Systems" 
+        description="How VSG encodes guardrails before writing code: explicit limits, named stewards, and observable behaviors for systems that must not fail silently."
         preloadImage="/hero-texture.png"
       />
       
+      {/* Hero Section */}
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />
         <div
@@ -122,58 +120,46 @@ export default function Governance() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
-              Governance & Standards
+              Standards
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
-              The guardrails we commit to.
+              We encode guardrails before we write code.
             </h1>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-hero-body">
-              Standards are how we turn principles into requirements. They describe how our systems are expected to behave under Truth, Capital, and Dignity—what is allowed, what is not, and who is responsible when something needs to change.
+            <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-hero-body">
+              Our standards define what systems at VSG are allowed to do with truth, capital, and people's time and data. They describe limits, stewards, and logs up front so ventures cannot drift into behaviors that look attractive on paper but fail the three questions in practice.
+            </p>
+            <p className="text-sm text-muted-foreground/80 leading-relaxed" data-testid="text-hero-secondary">
+              Every venture, internal tool, and experiment has to clear these guardrails before it touches our balance sheet or anyone else's decisions.
             </p>
             <div className="flex flex-wrap gap-3 mt-8">
               <Button asChild data-testid="button-see-approach">
                 <Link href="/approach">
-                  See our approach
+                  See how we work
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Link>
               </Button>
-              <Button variant="outline" asChild data-testid="button-view-process">
-                <Link href="/process">View the six-stage runway</Link>
+              <Button variant="outline" asChild data-testid="button-explore-ventures">
+                <Link href="/ventures">Explore ventures</Link>
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-why-publish">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-why-publish">
-              Why we publish standards
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-why-publish-1">
-              Systems that move truth, capital, or participation need more than intent—they need constraints that can be inspected. We publish standards so it is clear how we expect our own rails to behave, which risks we accept, and which behaviours are out of bounds.
-            </p>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-why-publish-2">
-              These standards apply to our internal ventures and infrastructure first. They are the baseline we hold ourselves to before anyone else can rely on our patterns.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20" data-testid="section-structure">
+      {/* Why standards exist here */}
+      <section className="py-20 bg-card" data-testid="section-why-standards">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-structure">
-              How a standard is structured
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-why-standards">
+              Why standards exist here
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-structure-body">
-              Each standard follows the same basic shape so stewards and builders know what is being required and why.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-why-standards-body">
+              We have felt what happens when guardrails are implicit instead of explicit: risk accumulates quietly, incentives drift, and people are forced to trust systems they cannot inspect. Our standards exist to make the constraints visible and binding long before anyone writes a line of integration code.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {howStandardIsStructured.map((item, index) => (
-              <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-structure-${index}`}>
+            {whyStandardsExist.map((item, index) => (
+              <Card key={index} className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-why-standards-${index}`}>
                 <CardContent className="p-6">
                   <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
@@ -184,30 +170,52 @@ export default function Governance() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-domain-standards">
+      {/* What our standards cover */}
+      <section className="py-20" data-testid="section-what-standards-cover">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-domain-standards">
-              Standards for Truth, Capital, and Dignity
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-what-standards-cover">
+              What our standards cover
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-domain-standards-body">
-              Different systems surface different risks. We group standards around the three questions that underlie our work.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-what-standards-cover-body">
+              Standards at VSG are organized around how systems behave, not around marketing claims. They cover how we handle information, how we move capital, and how we treat participants.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {whatStandardsCover.map((item, index) => (
+              <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-standards-cover-${index}`}>
+                <CardContent className="p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <p className="text-sm text-muted-foreground/80 mt-8 max-w-3xl" data-testid="text-standards-cover-footer">
+            Every major venture or internal system must map to each of these categories before launch.
+          </p>
+        </div>
+      </section>
+
+      {/* Standards and the three questions */}
+      <section className="py-20 bg-card" data-testid="section-three-questions">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-three-questions">
+              Standards and the three questions
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-three-questions-body">
+              The three questions—Truth, Capital, and Dignity—are our simplest test. Our standards are the detailed version of those questions, written down and enforced.
             </p>
           </div>
           <div className="grid lg:grid-cols-3 gap-6">
-            {domainStandards.map((item, index) => (
-              <Card key={index} className="bg-background border-border" data-testid={`card-domain-${item.domain.toLowerCase()}`}>
+            {threeQuestions.map((item, index) => (
+              <Card key={index} className="bg-background border-border" data-testid={`card-question-${item.label.toLowerCase()}`}>
                 <CardContent className="p-6">
-                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{item.body}</p>
-                  <ul className="space-y-2">
-                    {item.bullets.map((bullet, bIndex) => (
-                      <li key={bIndex} className="flex items-start gap-3 text-sm text-muted-foreground">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary mb-3" data-testid={`label-question-${item.label.toLowerCase()}`}>
+                    {item.label}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
                 </CardContent>
               </Card>
             ))}
@@ -215,19 +223,20 @@ export default function Governance() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-stewards">
+      {/* How standards show up in ventures */}
+      <section className="py-20" data-testid="section-ventures">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-stewards">
-              Stewards and accountability
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-ventures">
+              How standards show up in ventures
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-stewards-body">
-              Every standard has a steward. Stewards are accountable for keeping the standard accurate, ensuring it is applied where it should be, and initiating changes when reality or risk moves.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-ventures-body">
+              Standards are not a separate binder that no one reads. They are wired into how ventures are scoped, reviewed, and deployed. If a venture cannot be expressed in these terms, it is not ready.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {stewardshipCards.map((item, index) => (
-              <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-steward-${index}`}>
+            {ventureExamples.map((item, index) => (
+              <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-venture-${index}`}>
                 <CardContent className="p-6">
                   <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
@@ -238,19 +247,20 @@ export default function Governance() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-change-management">
+      {/* How we use AI inside standards */}
+      <section className="py-20 bg-card" data-testid="section-ai-standards">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-change-management">
-              Change management
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-ai-standards">
+              How we use AI inside standards
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-change-management-body">
-              Standards are living documents. When incidents, audits, or new information reveal gaps, we treat that as a requirement to update the standard—not to ignore it.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-ai-standards-body">
+              Our standards assume machine intelligence is watching the system alongside people. AI is used to surface anomalies, replay scenarios, and flag drift—not to quietly rewrite the rules.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {changeManagementCards.map((item, index) => (
-              <Card key={index} className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-change-${index}`}>
+            {aiInsideStandards.map((item, index) => (
+              <Card key={index} className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-ai-${index}`}>
                 <CardContent className="p-6">
                   <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
@@ -261,6 +271,7 @@ export default function Governance() {
         </div>
       </section>
 
+      {/* What these standards are / are not */}
       <section className="py-20" data-testid="section-is-not">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8">
@@ -274,7 +285,7 @@ export default function Governance() {
               <CardContent className="p-6">
                 <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
                   <Check className="w-5 h-5 text-primary" aria-hidden="true" />
-                  What these standards are
+                  Our standards are
                 </h3>
                 <ul className="space-y-3">
                   {whatStandardsAre.map((item, index) => (
@@ -291,7 +302,7 @@ export default function Governance() {
               <CardContent className="p-6">
                 <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
                   <X className="w-5 h-5 text-muted-foreground" aria-hidden="true" />
-                  What these standards are not
+                  Our standards are not
                 </h3>
                 <ul className="space-y-3">
                   {whatStandardsAreNot.map((item, index) => (
@@ -306,15 +317,41 @@ export default function Governance() {
           </div>
 
           <p className="text-xs text-muted-foreground/80 leading-relaxed max-w-3xl" data-testid="text-disclaimer">
-            This page describes how we choose to govern our own work. It does not constitute advice and should not be used as the sole basis for any decision.
+            This page describes how we govern our own work. It is not investment, legal, tax, or compliance advice.
           </p>
         </div>
       </section>
 
+      {/* Cross-links */}
+      <section className="py-12 bg-card border-t border-border" data-testid="section-cross-links">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Button variant="outline" asChild data-testid="link-ventures">
+              <Link href="/ventures">
+                See how ventures apply these standards
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            </Button>
+            <Button variant="outline" asChild data-testid="link-approach">
+              <Link href="/approach">
+                Review our approach
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            </Button>
+            <Button variant="outline" asChild data-testid="link-insights">
+              <Link href="/insights">
+                Read field notes and updates
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       <NextStepBlock
-        nextPage="Insights"
-        description="Our insights highlight incidents, changes, and lessons from running our own rails under these guardrails."
-        href="/insights"
+        nextPage="Ventures"
+        description="See how these standards shape our treasury, grading, and personhood ventures before anything touches other people's decisions."
+        href="/ventures"
       />
     </Layout>
   );

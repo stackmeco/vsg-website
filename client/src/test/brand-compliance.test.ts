@@ -84,4 +84,82 @@ describe('Brand & Voice Compliance', () => {
       });
     });
   });
+
+  describe('Standards page v3.0 compliance', () => {
+    const standardsPath = path.join(process.cwd(), 'client/src/pages/Standards.tsx');
+    let content: string;
+
+    beforeAll(() => {
+      content = fs.readFileSync(standardsPath, 'utf-8');
+    });
+
+    it('should have correct hero heading', () => {
+      expect(content).toContain('We encode guardrails before we write code.');
+    });
+
+    it('should have "Why standards exist here" section', () => {
+      expect(content).toContain('Why standards exist here');
+      expect(content).toContain('Prevent quiet drift');
+      expect(content).toContain('Name stewards and limits');
+      expect(content).toContain('Make behavior inspectable');
+    });
+
+    it('should have "What our standards cover" section with Truth/Capital/Dignity', () => {
+      expect(content).toContain('What our standards cover');
+      expect(content).toContain('Truth standards');
+      expect(content).toContain('Capital standards');
+      expect(content).toContain('Dignity standards');
+    });
+
+    it('should have "Standards and the three questions" section', () => {
+      expect(content).toContain('Standards and the three questions');
+    });
+
+    it('should have "How standards show up in ventures" section', () => {
+      expect(content).toContain('How standards show up in ventures');
+      expect(content).toContain('In treasury work');
+      expect(content).toContain('In grading flows');
+      expect(content).toContain('In uniqueness checks');
+    });
+
+    it('should have "How we use AI inside standards" section', () => {
+      expect(content).toContain('How we use AI inside standards');
+      expect(content).toContain('Monitoring and alerts');
+      expect(content).toContain('Simulations and drills');
+      expect(content).toContain('Human veto preserved');
+    });
+
+    it('should have "What these standards are / are not" section', () => {
+      expect(content).toContain('What these standards are / are not');
+      expect(content).toContain('Our standards are');
+      expect(content).toContain('Our standards are not');
+    });
+
+    it('should have proper disclaimer', () => {
+      expect(content).toContain('not investment, legal, tax, or compliance advice');
+    });
+
+    it('should have cross-links to ventures, approach, and insights', () => {
+      expect(content).toContain('href="/ventures"');
+      expect(content).toContain('href="/approach"');
+      expect(content).toContain('href="/insights"');
+    });
+
+    it('should have proper data-testid attributes for key sections', () => {
+      const expectedTestIds = [
+        'section-hero',
+        'section-why-standards',
+        'section-what-standards-cover',
+        'section-three-questions',
+        'section-ventures',
+        'section-ai-standards',
+        'section-is-not',
+        'section-cross-links',
+      ];
+      
+      expectedTestIds.forEach(testId => {
+        expect(content).toContain(`data-testid="${testId}"`);
+      });
+    });
+  });
 });
