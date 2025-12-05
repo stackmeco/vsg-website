@@ -7,64 +7,53 @@ import { InsightCard } from "@/components/InsightCard";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, X, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { articles, getAvailableCategories, type ContentType } from "@/data/articles";
 
-const whatYoullFindHere = [
+const whatYoullFind = [
+  "Field notes from running ventures inside the studio.",
+  "Memos on architecture, governance, and risk decisions.",
+  "Post-incident reflections and what changed as a result.",
+  "Patterns we think are ready to reuse across Truth, Capital, and Dignity.",
+];
+
+const insightsEntries = [
   {
-    domain: "Capital",
-    text: "Helios: treasury drills, stress paths, exposure patterns.",
+    title: "Designing systems that can admit failure",
+    category: "Standards \u00b7 Truth",
+    summary:
+      "Why we require every system to define what must never happen, how we would detect it, and what we do next\u2014before a single user relies on it.",
+    href: "#",
   },
   {
-    domain: "Truth",
-    text: "Lumina: grading flows, provenance issues, sensor behavior.",
+    title: "Running treasury drills without external promises",
+    category: "Standards \u00b7 Capital",
+    summary:
+      "How we run internal exercises on our own balance sheet to see how capital would behave under stress, without offering products or pooling outside funds.",
+    href: "#",
   },
   {
-    domain: "Dignity",
-    text: "Uniqueness Engine: personhood trade-offs, friction, revocation.",
+    title: "Proving personhood without overexposure",
+    category: "Standards \u00b7 Dignity",
+    summary:
+      "Why we treat participation and personhood as design constraints, and how we avoid collecting more about someone's life than a system actually needs.",
+    href: "#",
   },
 ];
 
-const whatCountsAsInsight = [
+const studioLinks = [
   {
-    title: "Post-mortems",
-    text: "Structured reviews of incidents and near-misses, with what we changed as a result.",
+    label: "Pillars",
+    text: "The principles that constrain which systems we build in the first place.",
   },
   {
-    title: "Patterns and frameworks",
-    text: "Reusable ways of thinking about risk, architecture, or incentives that survived contact with reality.",
+    label: "Process",
+    text: "The six-stage path every venture follows before it becomes infrastructure.",
   },
   {
-    title: "Field notes",
-    text: "Observations from experiments or small changes that surfaced something non-obvious.",
+    label: "Standards",
+    text: "The quality and risk bar systems must clear before they carry real stakes.",
   },
-];
-
-const howToRead = [
-  {
-    title: "Look for what changed.",
-    text: "Every post should make clear what we did differently after the observation or incident.",
-  },
-  {
-    title: "Watch for patterns.",
-    text: "We call out frameworks or patterns that might be reusable, along with where they could break.",
-  },
-  {
-    title: "Treat them as input, not instruction.",
-    text: "These are records of how we chose to operate. They are not blueprints you should follow without your own context and constraints.",
-  },
-];
-
-const whatInsightsAre = [
-  "Field notes from running our own systems.",
-  "Post-mortems and design decisions we've actually implemented.",
-  "A way to see how Truth, Capital, and Dignity show up under stress.",
-];
-
-const whatInsightsAreNot = [
-  "Not marketing copy or product announcements.",
-  "Not investment, legal, or tax advice.",
-  "Not a complete description of any internal playbook.",
 ];
 
 export default function Library() {
@@ -77,12 +66,12 @@ export default function Library() {
 
   return (
     <Layout>
-      <PageMeta 
-        title="Insights" 
-        description="Field notes from Verifiable Systems Group—observations from running AI-native, cryptography-grounded systems on our own balance sheet under Truth, Capital, and Dignity."
+      <PageMeta
+        title="Insights"
+        description="Notes, memos, and logs from Verifiable Systems Group on how we design, govern, and operate AI-native systems across Truth, Capital, and Dignity."
         preloadImage="/hero-texture.png"
       />
-      
+
       {/* Hero Section */}
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
         <div className="absolute inset-0 bg-background" />
@@ -101,27 +90,27 @@ export default function Library() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
-              Insights
+              Notes from the studio
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
-              Field notes from verifiable systems.
+              Insights from systems that have to hold up.
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-hero-body">
-              These are observations from running AI-native, cryptography-grounded systems on our own balance sheet and infrastructure. We document what held up under pressure, what failed, and what we changed—so you can see the mechanics, not just the outcomes.
+              Insights is where we share memos, notes, and logs from running AI-native systems under real constraints. Expect field reports, architectural patterns, and lessons from stress tests\u2014not slogans.
             </p>
             <p className="text-sm text-muted-foreground/80 leading-relaxed" data-testid="text-hero-secondary">
-              You shouldn't need hype to understand how a system behaves. You should be able to inspect the path it took.
+              You shouldn't have to guess how we think once real Truth, Capital, and Dignity are on the line. These pieces show how our standards and approach behave in practice.
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-8">
-              <Button asChild size="lg" data-testid="button-explore-ventures">
-                <Link href="/ventures">
-                  Explore ventures
+              <Button asChild size="lg" data-testid="button-see-how-we-build">
+                <Link href="/approach">
+                  See how we build
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" data-testid="button-review-approach">
-                <Link href="/approach">
-                  Review our approach
+              <Button asChild size="lg" variant="outline" data-testid="button-read-standards">
+                <Link href="/standards">
+                  Read our standards
                 </Link>
               </Button>
             </div>
@@ -132,61 +121,72 @@ export default function Library() {
       {/* What you'll find here */}
       <section className="py-20 bg-card" data-testid="section-what-youll-find">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
+          <div className="max-w-3xl">
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-what-youll-find">
               What you'll find here
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-what-youll-find-body">
-              Short, concrete memos from inside our systems and ventures: drills that went right and wrong in Helios, design decisions in Lumina, and trade-offs from Uniqueness Engine. We focus on the mechanics—constraints, failures, standards—not just polished outcomes.
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-what-youll-find-body">
+              This is not a generic blog. It's a working notebook for systems that must not fail silently. Each piece should map back to our pillars, process, and standards.
             </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {whatYoullFindHere.map((item, index) => (
-              <Card key={index} className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-find-here-${index}`}>
-                <CardContent className="p-6">
-                  <Badge variant="outline" className="mb-3">{item.domain}</Badge>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
-                </CardContent>
-              </Card>
-            ))}
+            <ul className="space-y-3">
+              {whatYoullFind.map((item, index) => (
+                <li key={index} className="flex items-start gap-3" data-testid={`list-what-youll-find-${index}`}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
+                  <span className="text-sm text-muted-foreground">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* What counts as an insight */}
-      <section className="py-20" data-testid="section-what-counts">
+      {/* Static entries grid */}
+      <section className="py-20" data-testid="section-entries">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-what-counts">
-              What counts as an insight
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-entries">
+              Recent notes
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-what-counts-body">
-              We only publish pieces that capture real work: incidents, rewires, experiments, and patterns from running our own systems. If it does not change how we operate—or how we think about Truth, Capital, or Dignity—it does not belong here.
-            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {whatCountsAsInsight.map((item, index) => (
-              <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-what-counts-${index}`}>
-                <CardContent className="p-6">
-                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
-                </CardContent>
-              </Card>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {insightsEntries.map((entry, index) => (
+              <article
+                key={entry.title}
+                className="flex flex-col justify-between rounded-xl border bg-card/60 p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                data-testid={`card-entry-${index}`}
+              >
+                <div className="space-y-2">
+                  <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                    {entry.category}
+                  </p>
+                  <h3 className="text-sm font-semibold tracking-tight sm:text-base text-foreground">
+                    {entry.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {entry.summary}
+                  </p>
+                </div>
+                <div className="mt-4">
+                  <a
+                    href={entry.href}
+                    className="text-xs font-medium uppercase tracking-[0.18em] text-primary"
+                  >
+                    Read note
+                  </a>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Notes from running the rails */}
+      {/* Dynamic insights list */}
       <section id="insights-list" className="py-20 bg-card" data-testid="section-insights-list">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-notes-from-rails">
-              Notes from running the rails
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-all-notes">
+              All notes
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-notes-from-rails">
-              These entries come from running our own systems under real conditions. Some are post-mortems, some are design memos, all are grounded in work we've actually done.
-            </p>
           </div>
 
           <div className="flex flex-wrap gap-2 mb-4" data-testid="filter-controls">
@@ -205,11 +205,11 @@ export default function Library() {
           <p className="text-xs text-muted-foreground/80 mb-8" data-testid="text-domain-legend">
             Truth covers evidence and provenance. Capital covers resilience and risk. Dignity covers how systems treat people's time and personhood.
           </p>
-          
+
           {filteredItems.length === 0 ? (
             <div className="text-center py-12 bg-background rounded-lg" data-testid="section-items-empty">
               <h3 className="font-heading font-semibold text-foreground mb-2">Field notes are still being written.</h3>
-              <p className="text-sm text-muted-foreground mb-6">We publish insights once they have survived real experiments on our own systems—no placeholders, no generic content. Check back soon, or start with our approach and standards in the meantime.</p>
+              <p className="text-sm text-muted-foreground mb-6">We publish insights once they have survived real experiments on our own systems\u2014no placeholders, no generic content. Check back soon, or start with our approach and standards in the meantime.</p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button asChild variant="outline" size="sm" data-testid="button-empty-approach">
                   <Link href="/approach">
@@ -242,22 +242,36 @@ export default function Library() {
         </div>
       </section>
 
-      {/* How to read these */}
-      <section className="py-20" data-testid="section-how-to-read">
+      {/* How we choose what to publish */}
+      <section className="py-20" data-testid="section-how-we-choose">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-how-to-read">
-              How to read these
+          <div className="max-w-3xl">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-how-we-choose">
+              How we choose what to publish
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-how-to-read-body">
-              These pieces are written for operators, stewards, and technical leaders who care more about mechanisms than messaging. They assume a basic familiarity with risk, systems, and incentives—but they are grounded in plain language wherever possible.
+            <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-how-we-choose-body-1">
+              We only publish when something has changed how we design or operate. That might be an incident, a stress test, or a pattern that has survived enough contact with reality to be worth sharing.
+            </p>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-how-we-choose-body-2">
+              Each piece should map back to our pillars, process, and standards. If we cannot explain what changed in the studio because of it, it belongs in an internal log\u2014not on this page.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Tying back to the rest of the studio */}
+      <section className="py-20 bg-card" data-testid="section-tying-back">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-tying-back">
+              Tying back to the rest of the studio
+            </h2>
+          </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {howToRead.map((item, index) => (
-              <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-how-to-read-${index}`}>
+            {studioLinks.map((item, index) => (
+              <Card key={index} className="bg-background border-border" data-testid={`card-studio-link-${index}`}>
                 <CardContent className="p-6">
-                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.label}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
                 </CardContent>
               </Card>
@@ -266,100 +280,19 @@ export default function Library() {
         </div>
       </section>
 
-      {/* What Insights are / are not */}
-      <section className="py-20 bg-card" data-testid="section-what-insights-are">
+      {/* Disclaimer */}
+      <section className="py-12" data-testid="section-disclaimer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-8" data-testid="heading-what-insights-are">
-            What Insights are / are not
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <Card className="bg-background border-border" data-testid="card-what-are">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <Check className="w-5 h-5 text-primary" aria-hidden="true" />
-                  What Insights are
-                </h3>
-                <ul className="space-y-3">
-                  {whatInsightsAre.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3" data-testid={`list-what-are-${index}`}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
-                      <span className="text-sm text-muted-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-            <Card className="bg-background border-border" data-testid="card-what-are-not">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <X className="w-5 h-5 text-muted-foreground" aria-hidden="true" />
-                  What Insights are not
-                </h3>
-                <ul className="space-y-3">
-                  {whatInsightsAreNot.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3" data-testid={`list-what-are-not-${index}`}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 mt-2 flex-shrink-0" aria-hidden="true" />
-                      <span className="text-sm text-muted-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-          <p className="text-xs text-muted-foreground/80 leading-relaxed max-w-3xl" data-testid="text-insights-disclaimer">
+          <p className="text-xs text-muted-foreground/80 leading-relaxed max-w-3xl" data-testid="text-disclaimer">
             Insights are records of how we run our own systems. They are not investment, legal, tax, or compliance advice, and should not be used as the sole basis for any decision.
           </p>
         </div>
       </section>
 
-      {/* Cross-links */}
-      <section className="py-20" data-testid="section-cross-links">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-cross-link-ventures">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-3">Explore ventures</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">See the ventures these field notes come from—treasury, grading, and personhood experiments run on our own balance sheet first.</p>
-                <Button asChild variant="outline" size="sm" data-testid="button-cross-ventures">
-                  <Link href="/ventures">
-                    View ventures
-                    <ArrowRight className="w-3 h-3" aria-hidden="true" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-cross-link-approach">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-3">Review our approach</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">See how we design inside constraints, prove patterns on ourselves first, and keep AI in the loop without handing it the mandate.</p>
-                <Button asChild variant="outline" size="sm" data-testid="button-cross-approach">
-                  <Link href="/approach">
-                    View approach
-                    <ArrowRight className="w-3 h-3" aria-hidden="true" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-cross-link-standards">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-3">Review our standards</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">See how Truth, Capital, and Dignity are turned into concrete guardrails for ventures, internal tools, and experiments.</p>
-                <Button asChild variant="outline" size="sm" data-testid="button-cross-standards">
-                  <Link href="/standards">
-                    View standards
-                    <ArrowRight className="w-3 h-3" aria-hidden="true" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       <NextStepBlock
-        nextPage="Ventures"
-        description="See the ventures these field notes come from—treasury, grading, and personhood experiments run on our own balance sheet first."
-        href="/ventures"
+        nextPage="Studio"
+        description="See how these notes connect back to the studio's purpose, vision, and mission."
+        href="/studio"
       />
     </Layout>
   );

@@ -43,3 +43,19 @@ Preferred communication style: Simple, everyday language.
 ### Integration Points
 - **Form Validation**: `react-hook-form` with Zod resolvers.
 - **Session Management**: `connect-pg-simple`.
+
+## Recent Changes
+
+- **Insights Page v3.0 Polish** (December 2024):
+  - PageMeta: title="Insights", description on notes/memos/logs across Truth, Capital, and Dignity
+  - Hero: "Insights from systems that have to hold up." with "Notes from the studio" overline
+  - Hero body: Two paragraphs (only one warmth line with "you"), CTAs to /approach and /standards
+  - "What you'll find here" section with bullet list (4 items)
+  - "Recent notes" section with static insightsEntries array (3 entries mapped to Truth/Capital/Dignity)
+  - "All notes" section with filter controls
+  - "How we choose what to publish" section (two paragraphs, no "you" language)
+  - "Tying back to the rest of the studio" section with Pillars/Process/Standards cards
+  - Disclaimer section, NextStepBlock points to /studio
+  - Old content removed: whatYoullFindHere, whatCountsAsInsight, howToRead, whatInsightsAre, whatInsightsAreNot
+  - 22 v3.0 assertions added to brand-compliance.test.ts
+  - 249 passing tests as of December 2024

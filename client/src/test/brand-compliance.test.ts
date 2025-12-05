@@ -553,52 +553,98 @@ describe('Brand & Voice Compliance', () => {
       content = fs.readFileSync(insightsPath, 'utf-8');
     });
 
-    it('should have correct hero heading', () => {
-      expect(content).toContain('Field notes from verifiable systems.');
-    });
-
     it('should have correct PageMeta title', () => {
       expect(content).toContain('title="Insights"');
     });
 
-    it('should have "you shouldn\'t need hype" line in hero', () => {
-      expect(content).toContain("You shouldn't need hype to understand how a system behaves");
+    it('should have correct PageMeta description with v3.0 domains', () => {
+      expect(content).toContain('Notes, memos, and logs from Verifiable Systems Group');
+      expect(content).toContain('Truth, Capital, and Dignity');
     });
 
-    it('should have "What you\'ll find here" section', () => {
+    it('should have correct overline', () => {
+      expect(content).toContain('Notes from the studio');
+    });
+
+    it('should have correct hero heading', () => {
+      expect(content).toContain('Insights from systems that have to hold up.');
+    });
+
+    it('should have hero body copy with v3.0 language', () => {
+      expect(content).toContain('memos, notes, and logs from running AI-native systems');
+      expect(content).toContain('field reports, architectural patterns, and lessons from stress tests');
+    });
+
+    it('should have single warmth line in hero', () => {
+      expect(content).toContain("You shouldn't have to guess how we think");
+      expect(content).toContain('standards and approach behave in practice');
+    });
+
+    it('should have primary and secondary CTAs', () => {
+      expect(content).toContain('href="/approach"');
+      expect(content).toContain('See how we build');
+      expect(content).toContain('href="/standards"');
+      expect(content).toContain('Read our standards');
+    });
+
+    it('should have "What you\'ll find here" section with bullet list', () => {
       expect(content).toContain("What you'll find here");
+      expect(content).toContain('whatYoullFind');
+      expect(content).toContain('Field notes from running ventures inside the studio');
+      expect(content).toContain('Memos on architecture, governance, and risk decisions');
+      expect(content).toContain('Post-incident reflections and what changed as a result');
+      expect(content).toContain('Patterns we think are ready to reuse across Truth, Capital, and Dignity');
     });
 
-    it('should have domain-tagged content examples', () => {
-      expect(content).toContain('Helios: treasury drills, stress paths, exposure patterns.');
-      expect(content).toContain('Lumina: grading flows, provenance issues, sensor behavior.');
-      expect(content).toContain('Uniqueness Engine: personhood trade-offs, friction, revocation.');
+    it('should have static insightsEntries array with v3.0 content', () => {
+      expect(content).toContain('insightsEntries');
+      expect(content).toContain('Designing systems that can admit failure');
+      expect(content).toContain('Running treasury drills without external promises');
+      expect(content).toContain('Proving personhood without overexposure');
     });
 
-    it('should have "What counts as an insight" section', () => {
-      expect(content).toContain('What counts as an insight');
+    it('should have entries mapped to domains', () => {
+      expect(content).toContain('Standards');
+      expect(content).toContain('Truth');
+      expect(content).toContain('Capital');
+      expect(content).toContain('Dignity');
+      expect(content).toMatch(/Standards.*Truth/);
+      expect(content).toMatch(/Standards.*Capital/);
+      expect(content).toMatch(/Standards.*Dignity/);
     });
 
-    it('should have "How to read these" section', () => {
-      expect(content).toContain('How to read these');
+    it('should have "How we choose what to publish" section', () => {
+      expect(content).toContain('How we choose what to publish');
+      expect(content).toContain('We only publish when something has changed how we design or operate');
+      expect(content).toContain('If we cannot explain what changed in the studio');
     });
 
-    it('should have "What Insights are / are not" section', () => {
-      expect(content).toContain('What Insights are / are not');
+    it('should have "Tying back to the rest of the studio" section', () => {
+      expect(content).toContain('Tying back to the rest of the studio');
+      expect(content).toContain('studioLinks');
+    });
+
+    it('should have studio links for Pillars, Process, Standards', () => {
+      expect(content).toContain('Pillars');
+      expect(content).toContain('principles that constrain which systems we build');
+      expect(content).toContain('Process');
+      expect(content).toContain('six-stage path every venture follows');
+      expect(content).toContain('Standards');
+      expect(content).toContain('quality and risk bar systems must clear');
     });
 
     it('should have proper empty state copy', () => {
       expect(content).toContain('Field notes are still being written.');
     });
 
-    it('should have cross-links to ventures, approach, and standards', () => {
-      expect(content).toContain('href="/ventures"');
-      expect(content).toContain('href="/approach"');
-      expect(content).toContain('href="/standards"');
-    });
-
     it('should have proper disclaimer', () => {
       expect(content).toContain('not investment, legal, tax, or compliance advice');
+    });
+
+    it('should have NextStepBlock pointing to studio', () => {
+      expect(content).toContain('nextPage="Studio"');
+      expect(content).toContain('href="/studio"');
+      expect(content).toContain("studio's purpose, vision, and mission");
     });
 
     it('should not contain old domain labels', () => {
@@ -607,15 +653,31 @@ describe('Brand & Voice Compliance', () => {
       expect(content).not.toContain('"Human"');
     });
 
+    it('should not contain banned phrases', () => {
+      expect(content).not.toContain('Signal / Value / Human');
+      expect(content).not.toContain('validate the signal');
+      expect(content).not.toContain('protect the human');
+      expect(content).not.toContain('AI-powered platform');
+      expect(content).not.toContain('StackMe');
+      expect(content).not.toContain('Axiom');
+    });
+
+    it('should not contain old Insights page content', () => {
+      expect(content).not.toContain('whatCountsAsInsight');
+      expect(content).not.toContain('howToRead');
+      expect(content).not.toContain('whatInsightsAre');
+      expect(content).not.toContain('whatInsightsAreNot');
+    });
+
     it('should have proper data-testid attributes for key sections', () => {
       const expectedTestIds = [
         'section-hero',
         'section-what-youll-find',
-        'section-what-counts',
+        'section-entries',
         'section-insights-list',
-        'section-how-to-read',
-        'section-what-insights-are',
-        'section-cross-links',
+        'section-how-we-choose',
+        'section-tying-back',
+        'section-disclaimer',
       ];
       
       expectedTestIds.forEach(testId => {
