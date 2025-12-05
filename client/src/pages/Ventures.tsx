@@ -11,10 +11,10 @@ const ventures = [
   {
     slug: "helios",
     name: "Helios",
-    domainLabel: "Capital · Venture",
+    domainLabel: "Capital · Internal venture",
     tagline: "Treasury execution under explicit constraints.",
     description:
-      "Helios is our internal execution engine for digital asset treasuries. It focuses on one task: routing positions across approved venues under predefined risk limits, so capital remains resilient under stress instead of quietly drifting toward hidden exposures.",
+      "Helios is our internal execution engine for digital asset treasuries—routing positions across approved venues under predefined limits so capital stays resilient under stress instead of drifting into hidden exposures.",
     primaryDomain: "Capital",
     secondaryDomains: ["Truth", "Dignity"],
     href: "/ventures/helios",
@@ -25,7 +25,7 @@ const ventures = [
     domainLabel: "Truth · Venture",
     tagline: "Physics-aware grading infrastructure.",
     description:
-      "Lumina turns the condition of an asset into evidence you can inspect, not a guess you have to accept. It uses sensors and machine intelligence to convert wear, defects, and anomalies into structured signals that can feed grading, insurance, and pricing decisions.",
+      "Lumina turns the condition of physical assets into structured, verifiable signals—captured from your own devices—so grading, insurance, and pricing workflows can rely on evidence instead of one-time, opaque judgments.",
     primaryDomain: "Truth",
     secondaryDomains: ["Capital", "Dignity"],
     href: "/ventures/lumina",
@@ -36,28 +36,10 @@ const ventures = [
     domainLabel: "Dignity · Venture",
     tagline: "Personhood without exposure.",
     description:
-      "Uniqueness Engine is infrastructure for one-person-one-presence—helping systems distinguish real participants from duplicates and automation without turning identity into surveillance or lock-in.",
+      "The Uniqueness Engine enforces one-person-one-presence in governed systems—proving uniqueness in context without demanding full dossiers, over-collecting identity data, or turning people into product.",
     primaryDomain: "Dignity",
     secondaryDomains: ["Truth", "Capital"],
     href: "/ventures/uniqueness",
-  },
-];
-
-const venturesSummary = [
-  {
-    name: "Helios",
-    domain: "Capital",
-    summary: "Resilient treasury execution.",
-  },
-  {
-    name: "Lumina",
-    domain: "Truth",
-    summary: "Evidence-first condition signals.",
-  },
-  {
-    name: "Uniqueness Engine",
-    domain: "Dignity",
-    summary: "Personhood without overexposure.",
   },
 ];
 
@@ -77,8 +59,8 @@ export default function Ventures() {
   return (
     <Layout>
       <PageMeta 
-        title="Ventures — Helios, Lumina, Uniqueness Engine" 
-        description="See how VSG proves Truth, Capital, and Dignity through Helios, Lumina, and Uniqueness Engine—ventures wired through our own balance sheet before patterns are shared."
+        title="Ventures" 
+        description="Ventures from Verifiable Systems Group that pressure-test our answers to Truth, Capital, and Dignity—run on our own balance sheet and environments first."
         preloadImage="/hero-texture.png"
       />
       
@@ -99,28 +81,28 @@ export default function Ventures() {
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" aria-hidden="true" />
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
-              Ventures
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary mb-4" data-testid="text-overline">
+              Ventures · Studio
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
-              Each venture is a proof of how we think.
+              Ventures, tested on our balance sheet first.
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-hero-body">
-              Every venture inside VSG starts with a failure we have lived—uninspectable flows, brittle treasuries, extractive identity checks—and then moves through our six-stage runway under Truth, Capital, and Dignity. We run them on our own balance sheet and systems first, so they are infrastructure we rely on, not ideas we only pitch.
+              Each venture is a focused system that answers a specific question about Truth, Capital, or Dignity. We run them on our own balance sheet and environments first, refine them under explicit constraints, and only then share the patterns.
             </p>
             <p className="text-sm text-muted-foreground/80 leading-relaxed" data-testid="text-hero-secondary">
-              If a venture cannot survive our guardrails, it never leaves the whiteboard.
+              You shouldn't have to trust untested rails—we start with our own exposure.
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-8">
-              <Button asChild size="lg" data-testid="button-see-approach">
-                <Link href="/approach">
-                  See how we work
+              <Button asChild size="lg" data-testid="button-see-process">
+                <Link href="/process">
+                  See how we build
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" data-testid="button-review-process">
-                <Link href="/process">
-                  Review the process
+              <Button asChild size="lg" variant="outline" data-testid="button-read-insights">
+                <Link href="/insights">
+                  Read field notes
                 </Link>
               </Button>
             </div>
@@ -128,27 +110,16 @@ export default function Ventures() {
         </div>
       </section>
 
-      {/* How these ventures fit together */}
-      <section className="py-20 bg-card" data-testid="section-fit-together">
+      {/* Three questions, three proof points */}
+      <section className="py-20 bg-card" data-testid="section-three-questions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-fit-together">
-              How these ventures fit together
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-three-questions">
+              Three questions, three proof points.
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-fit-together-body">
-              Each venture sits in a different part of the stack, but they share the same spine: systems that must not fail silently. Helios focuses on how capital moves under stress. Lumina focuses on whether information about condition can be trusted. Uniqueness Engine focuses on who is present and how they are treated. Together, they pressure-test our answers to Truth, Capital, and Dignity.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-three-questions-body">
+              We organize our work around three questions: What can be trusted? How should capital move? How do people participate without overexposure? Helios, Lumina, and the Uniqueness Engine are concrete answers—ventures that turn those questions into running systems.
             </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-4">
-            {venturesSummary.map((item, index) => (
-              <div key={index} className="flex items-center gap-3 p-4 rounded-md bg-background border border-border" data-testid={`summary-${item.name.toLowerCase().replace(/\s+/g, '-')}`}>
-                <Badge variant="outline" className="shrink-0">{item.domain}</Badge>
-                <div>
-                  <p className="text-sm font-medium text-foreground">{item.name}</p>
-                  <p className="text-xs text-muted-foreground">{item.summary}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -195,11 +166,11 @@ export default function Ventures() {
         </div>
       </section>
 
-      {/* Internal-first note */}
-      <section className="py-8 bg-card/50 border-y border-border" data-testid="section-internal-first">
+      {/* Supporting text below grid */}
+      <section className="py-8 bg-card/50 border-y border-border" data-testid="section-supporting-text">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-sm text-muted-foreground/80 leading-relaxed text-center max-w-3xl mx-auto" data-testid="text-internal-first">
-            We run these ventures on our own balance sheet and infrastructure first. This overview describes how we build and use them internally; it is not an offer of investment, yield, or services to the public.
+          <p className="text-sm text-muted-foreground/80 leading-relaxed text-center max-w-3xl mx-auto" data-testid="text-supporting">
+            We treat each venture as a live proof of how we think about Truth, Capital, and Dignity. Patterns that hold up under real conditions become part of our shared standards; those that do not are documented, retired, and folded into our internal playbooks.
           </p>
         </div>
       </section>
@@ -278,7 +249,7 @@ export default function Ventures() {
 
       <NextStepBlock
         nextPage="Approach"
-        description="See how ventures move through our six-stage runway under Truth, Capital, and Dignity before they touch anyone else's decisions."
+        description="See how we decide which questions become ventures—and how they move through our six-stage runway."
         href="/approach"
       />
     </Layout>
