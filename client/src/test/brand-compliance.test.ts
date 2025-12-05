@@ -179,7 +179,7 @@ describe('Brand & Voice Compliance', () => {
     });
 
     it('should have correct hero heading', () => {
-      expect(content).toContain('Personhood without exposure.');
+      expect(content).toContain('Uniqueness Engine: personhood without overexposure.');
     });
 
     it('should have correct PageMeta title', () => {
@@ -187,37 +187,42 @@ describe('Brand & Voice Compliance', () => {
     });
 
     it('should have correct overline with domain label', () => {
-      expect(content).toContain('Uniqueness Engine · Dignity · Venture');
+      expect(content).toContain('Venture — Dignity systems');
     });
 
-    it('should have "The problem Uniqueness Engine exists to solve" section', () => {
-      expect(content).toContain('The problem Uniqueness Engine exists to solve');
+    it('should have warmth line in hero', () => {
+      expect(content).toContain("You shouldn't have to expose everything about yourself just to prove you're real");
     });
 
-    it('should have "What the Uniqueness Engine is" section with context-bound proofs', () => {
-      expect(content).toContain('What the Uniqueness Engine is');
-      expect(content).toContain('Uniqueness, not biography');
-      expect(content).toContain('Context-bound proofs');
-      expect(content).toContain('Infrastructure role');
+    it('should have "What the Uniqueness Engine does" section', () => {
+      expect(content).toContain('What the Uniqueness Engine does');
+      expect(content).toContain('infrastructure for personhood');
+    });
+
+    it('should have "Why the Uniqueness Engine exists" section', () => {
+      expect(content).toContain('Why the Uniqueness Engine exists');
+      expect(content).toContain('give systems a third option');
+    });
+
+    it('should have "Inside the Uniqueness Engine" section with feature cards', () => {
+      expect(content).toContain('Inside the Uniqueness Engine');
+      expect(content).toContain('Uniqueness, not dossiers');
+      expect(content).toContain('Controlled disclosure');
+      expect(content).toContain('Abuse visibility');
+      expect(content).toContain('Composable for many systems');
     });
 
     it('should have "Uniqueness Engine under Truth, Capital, and Dignity" section', () => {
       expect(content).toContain('Uniqueness Engine under Truth, Capital, and Dignity');
     });
 
-    it('should have "How the Uniqueness Engine uses AI" section', () => {
-      expect(content).toContain('How the Uniqueness Engine uses AI');
-      expect(content).toContain('Pattern detection');
-      expect(content).toContain('Risk scoring under constraints');
-      expect(content).toContain('Escalation, not judgment');
-    });
-
     it('should have "What the Uniqueness Engine is / is not" section', () => {
       expect(content).toContain('What the Uniqueness Engine is / is not');
     });
 
-    it('should have "Where the Uniqueness Engine sits in the broader studio" section', () => {
-      expect(content).toContain('Where the Uniqueness Engine sits in the broader studio');
+    it('should have "Where the Uniqueness Engine sits in the studio" section', () => {
+      expect(content).toContain('Where the Uniqueness Engine sits in the studio');
+      expect(content).toContain('owns the Dignity beam');
     });
 
     it('should have cross-links to ventures, approach, and standards', () => {
@@ -239,12 +244,13 @@ describe('Brand & Voice Compliance', () => {
     it('should have proper data-testid attributes for key sections', () => {
       const expectedTestIds = [
         'section-hero',
-        'section-problem',
-        'section-what-uniqueness-is',
+        'section-what-uniqueness-does',
+        'section-why-uniqueness-exists',
+        'section-inside-uniqueness',
         'section-domains',
-        'section-ai',
         'section-is-is-not',
         'section-studio-context',
+        'section-disclaimer',
       ];
       
       expectedTestIds.forEach(testId => {

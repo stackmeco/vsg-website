@@ -4,26 +4,31 @@ import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Check, X, ArrowRight } from "lucide-react";
 
-const problemBullets = [
-  "Sybil and bot risk in systems that assume one-person-one-presence.",
-  "Identity checks that collect far more data than the risk actually requires.",
-  "People losing control over how, where, and how long their data is used.",
+const whatUniquenessEngineDoesBullets = [
+  "Proves that one person sits behind an identity without demanding full biographical exposure.",
+  "Makes it harder to create fake or duplicate accounts at scale, while keeping honest participants in control.",
+  "Supports fair allocation, voting, and access controls in systems that depend on real people, not bots.",
 ];
 
-const whatUniquenessIs = [
+const featureCards = [
   {
-    title: "Uniqueness, not biography",
-    body: "The system cares about whether someone is a single, real participant—not about their full life story. Where possible, it works with derived proofs or attributes instead of raw documents.",
+    title: "Uniqueness, not dossiers",
+    body: "The system focuses on proving that one person is present, not on collecting or storing their entire identity. Proofs are narrowly scoped to what a given interaction actually needs.",
   },
   {
-    title: "Context-bound proofs",
-    body: "Proofs are bound to specific contexts and purposes, with clear limits on reuse. Being unique in one network does not silently become a global identifier.",
+    title: "Controlled disclosure",
+    body: "Participants reveal only what is necessary for a specific context—no more. Different communities can set different thresholds while still relying on the same underlying rails.",
   },
   {
-    title: "Infrastructure role",
-    body: "The Uniqueness Engine is meant to plug into access control, voting, and allocation flows as a source of personhood signals—not as a stand-alone social network or data broker.",
+    title: "Abuse visibility",
+    body: "When abuse or fraud occurs, systems can respond with clear rules for limiting or removing access without exposing unrelated aspects of someone's life.",
+  },
+  {
+    title: "Composable for many systems",
+    body: "The Uniqueness Engine is meant to plug into existing networks, applications, and communities as an underlying layer, not to replace them with a single central platform.",
   },
 ];
 
@@ -42,21 +47,6 @@ const uniquenessDomains = [
   },
 ];
 
-const howUniquenessUsesAI = [
-  {
-    title: "Pattern detection",
-    body: "Models help spot abnormal patterns—repeated attempts, suspicious clusters, or behaviors that suggest automation—so stewards can tighten rules where needed.",
-  },
-  {
-    title: "Risk scoring under constraints",
-    body: "AI can suggest risk scores and recommended actions, but those outputs are bounded by policies that define what the system may and may not do with participants.",
-  },
-  {
-    title: "Escalation, not judgment",
-    body: "AI can flag and prioritize cases; it cannot unilaterally exclude someone. Critical decisions remain interceptable and reviewable by humans, with logs for why a flag was raised.",
-  },
-];
-
 const uniquenessIsItems = [
   "Infrastructure for enforcing one-person-one-presence in governed systems.",
   "A way to connect uniqueness checks to concrete policies without exposing full identities.",
@@ -69,18 +59,12 @@ const uniquenessIsNotItems = [
   "Not a tool for bypassing sanctions, KYC, or other compliance obligations.",
 ];
 
-const studioContext = [
-  { domain: "Truth", venture: "Lumina", text: "physics-aware grading infrastructure." },
-  { domain: "Capital", venture: "Helios", text: "constraint-aware treasury execution." },
-  { domain: "Dignity", venture: "Uniqueness Engine", text: "personhood without exposure." },
-];
-
 export default function Uniqueness() {
   return (
     <Layout>
       <PageMeta
         title="Uniqueness Engine"
-        description="The Uniqueness Engine is personhood infrastructure from VSG—proving one-person-one-presence without exposing people's full identities or turning them into product."
+        description="The Uniqueness Engine proves personhood without overexposure—enabling fair, sybil-resistant participation while people keep control of who they are."
         preloadImage="/hero-texture.png"
       />
 
@@ -102,27 +86,27 @@ export default function Uniqueness() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary mb-4" data-testid="text-overline">
-              Uniqueness Engine · Dignity · Venture
+              Venture — Dignity systems
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
-              Personhood without exposure.
+              Uniqueness Engine: personhood without overexposure.
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-hero-body">
-              The Uniqueness Engine helps systems enforce one-person-one-presence without demanding full dossiers on everyone who shows up. It focuses on uniqueness, not identity—proving that a participant is a real, singular person while revealing as little as possible.
+              The Uniqueness Engine proves that one person sits behind an account or action—without demanding their entire life story in return. It enables sybil-resistant participation and fair allocation in systems that depend on people, not bots or duplicate identities, while keeping control of identity with the individual instead of another centralized profile silo.
             </p>
             <p className="text-sm text-muted-foreground/80 leading-relaxed" data-testid="text-hero-secondary">
-              We built it after seeing how often 'anti-fraud' tooling became an excuse to over-collect, profile, and lock people into systems they could not meaningfully audit.
+              You shouldn't have to expose everything about yourself just to prove you're real. The Uniqueness Engine is designed to minimise what is shared, limit how it's reused, and make abuses of identity visible instead of invisible—so dignity is enforced by design, not just by policy.
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-8">
-              <Button asChild size="lg" data-testid="button-back-to-ventures">
+              <Button asChild size="lg" data-testid="button-see-ventures">
                 <Link href="/ventures">
-                  Back to ventures
+                  See all ventures
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" data-testid="button-read-insights">
-                <Link href="/insights">
-                  Read field notes
+              <Button asChild variant="outline" size="lg" data-testid="button-how-we-design">
+                <Link href="/approach">
+                  How we design Dignity systems
                 </Link>
               </Button>
             </div>
@@ -130,48 +114,62 @@ export default function Uniqueness() {
         </div>
       </section>
 
-      {/* The problem Uniqueness Engine exists to solve */}
-      <section className="py-20 bg-card" data-testid="section-problem">
+      {/* What the Uniqueness Engine does */}
+      <section className="py-20 bg-card" data-testid="section-what-uniqueness-does">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-problem">
-              The problem Uniqueness Engine exists to solve
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-what-uniqueness-does">
+              What the Uniqueness Engine does
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-problem-body">
-              Most systems that try to prevent abuse—bots, multi-accounts, coordinated fraud—reach for heavy identity checks. People are asked to hand over documents, biometrics, and behavioral traces just to prove they are not an attacker. That creates new risks: over-collection, reuse of data in ways no one agreed to, and lock-in.
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-what-uniqueness-does-body">
+              The Uniqueness Engine is infrastructure for personhood. It gives systems a way to tell that one person is behind an identity or action, without turning that person into a product. Instead of relying on crude checks or blanket KYC, it focuses on uniqueness: one person, one presence, one weight in a decision. It is designed to support fair distribution, spam-resistance, and community protection while revealing as little as possible about any individual. Attributes are proven only when necessary, and only for the context at hand.
             </p>
-            <ul className="space-y-3 mb-6">
-              {problemBullets.map((item, index) => (
-                <li key={index} className="flex items-start gap-3" data-testid={`problem-bullet-${index}`}>
+            <ul className="space-y-3">
+              {whatUniquenessEngineDoesBullets.map((item, index) => (
+                <li key={index} className="flex items-start gap-3" data-testid={`what-uniqueness-does-bullet-${index}`}>
                   <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
                   <span className="text-sm text-muted-foreground">{item}</span>
                 </li>
               ))}
             </ul>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-problem-closing">
-              The Uniqueness Engine exists to separate uniqueness from exposure—so systems can enforce basic protections without turning people into raw material.
+          </div>
+        </div>
+      </section>
+
+      {/* Why the Uniqueness Engine exists */}
+      <section className="py-20" data-testid="section-why-uniqueness-exists">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-6">
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground" data-testid="heading-why-uniqueness-exists">
+                Why the Uniqueness Engine exists
+              </h2>
+              <Badge variant="outline" className="text-xs">Dignity · Infrastructure</Badge>
+            </div>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-why-uniqueness-exists-body">
+              Most systems that try to keep out abuse force people into a trade-off: surrender detailed identity data to a central authority, or accept a flood of bots, fraud, and Sybil attacks. Both options erode dignity—either by overexposure or by making participation unsafe. The Uniqueness Engine exists to give systems a third option. It focuses on what is necessary for fairness and safety, and nothing more. That means uniqueness instead of surveillance, accountability without permanent dossiers, and rules that people can actually understand and inspect.
             </p>
           </div>
         </div>
       </section>
 
-      {/* What the Uniqueness Engine is */}
-      <section className="py-20" data-testid="section-what-uniqueness-is">
+      {/* Inside the Uniqueness Engine - feature cards */}
+      <section className="py-20 bg-card" data-testid="section-inside-uniqueness">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-what-uniqueness-is">
-              What the Uniqueness Engine is
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-inside-uniqueness">
+              Inside the Uniqueness Engine
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-what-uniqueness-is-intro">
-              The Uniqueness Engine is infrastructure for proving that a participant is a unique person in a given context, under clear constraints, without becoming a surveillance system. It focuses on the rails that connect event-level checks to higher-level guarantees.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-inside-uniqueness-intro">
+              The Uniqueness Engine is AI-native: machine intelligence assists with pattern detection and risk scoring while humans define policies and review edge cases.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {whatUniquenessIs.map((card, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featureCards.map((card, index) => (
               <Card 
                 key={index} 
-                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" 
-                data-testid={`card-what-is-${index}`}
+                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" 
+                data-testid={`card-feature-${index}`}
               >
                 <CardContent className="flex flex-col h-full p-6">
                   <h3 className="font-heading font-semibold text-foreground mb-3">{card.title}</h3>
@@ -184,7 +182,7 @@ export default function Uniqueness() {
       </section>
 
       {/* Uniqueness Engine under Truth, Capital, and Dignity */}
-      <section className="py-20 bg-card" data-testid="section-domains">
+      <section className="py-20" data-testid="section-domains">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-domains">
@@ -198,39 +196,11 @@ export default function Uniqueness() {
             {uniquenessDomains.map((card, index) => (
               <Card 
                 key={index} 
-                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" 
+                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" 
                 data-testid={`card-domain-${card.domain.toLowerCase()}`}
               >
                 <CardContent className="flex flex-col h-full p-6">
                   <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary mb-3">{card.domain}</p>
-                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{card.body}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How the Uniqueness Engine uses AI */}
-      <section className="py-20" data-testid="section-ai">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-ai">
-              How the Uniqueness Engine uses AI
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-ai-intro">
-              The Uniqueness Engine is AI-native, but AI does not get to decide who counts as a person in a vacuum. Machine intelligence helps spot patterns and edge cases; humans define the rules, thresholds, and escalation paths.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {howUniquenessUsesAI.map((card, index) => (
-              <Card 
-                key={index} 
-                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" 
-                data-testid={`card-ai-${index}`}
-              >
-                <CardContent className="flex flex-col h-full p-6">
-                  <h3 className="font-heading font-semibold text-foreground mb-3">{card.title}</h3>
                   <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{card.body}</p>
                 </CardContent>
               </Card>
@@ -279,32 +249,23 @@ export default function Uniqueness() {
               </CardContent>
             </Card>
           </div>
-          <p className="text-xs text-muted-foreground/80 leading-relaxed max-w-3xl" data-testid="text-disclaimer">
-            This page describes infrastructure we design and test in our own environments. It is not legal, compliance, or regulatory advice.
-          </p>
         </div>
       </section>
 
-      {/* Where the Uniqueness Engine sits in the broader studio */}
+      {/* Where the Uniqueness Engine sits in the studio */}
       <section className="py-20" data-testid="section-studio-context">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-studio-context">
-              Where the Uniqueness Engine sits in the broader studio
+              Where the Uniqueness Engine sits in the studio
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-studio-context">
-              The Uniqueness Engine is our primary answer to the Dignity question: how people participate in systems without becoming product. It works alongside ventures focused on Truth and Capital so that evidence, flows, and personhood are all treated as first-class concerns.
+              Within VSG, the Uniqueness Engine owns the Dignity beam. It protects the people inside systems that are otherwise focused on capital and information flows. Helios uses Dignity-aware signals to limit how capital can be abused by coordinated identities. Lumina can pair with the Uniqueness Engine so claims about assets and claims about people align without oversharing. Together, they form rails where people can participate, hold value, and act with confidence that their presence matters—without surrendering control to another profile silo.
             </p>
-            <ul className="space-y-3 mb-8">
-              {studioContext.map((item, index) => (
-                <li key={index} className="flex items-start gap-3" data-testid={`studio-context-${index}`}>
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
-                  <span className="text-sm text-muted-foreground">
-                    <span className="text-primary font-medium">{item.domain} · {item.venture}</span> — {item.text}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <div className="flex flex-wrap gap-3 mb-8">
+              <Badge variant="default" className="text-xs">Dignity · Venture</Badge>
+              <Badge variant="outline" className="text-xs">Designed to pair with Truth and Capital systems</Badge>
+            </div>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-cross-ventures">
@@ -321,9 +282,9 @@ export default function Uniqueness() {
             </Card>
             <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-cross-approach">
               <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-3">Review our approach</h3>
+                <h3 className="font-heading font-semibold text-foreground mb-3">How we design Dignity systems</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">Understand the principles and process that shape how the Uniqueness Engine is built and governed.</p>
-                <Button asChild variant="outline" size="sm" data-testid="button-review-approach">
+                <Button asChild variant="outline" size="sm" data-testid="button-view-approach">
                   <Link href="/approach">
                     View approach
                     <ArrowRight className="w-3 h-3" aria-hidden="true" />
@@ -332,6 +293,15 @@ export default function Uniqueness() {
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* Disclaimer */}
+      <section className="py-12 bg-card border-t border-border" data-testid="section-disclaimer">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-xs text-muted-foreground/80 leading-relaxed max-w-3xl" data-testid="text-disclaimer">
+            This page describes infrastructure we design and test in our own environments. It is not legal, compliance, or regulatory advice, and nothing here should be construed as a substitute for required identity or compliance checks.
+          </p>
         </div>
       </section>
 
