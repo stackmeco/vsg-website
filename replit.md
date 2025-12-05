@@ -46,6 +46,18 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+- **Helios Page v3.0 Polish** (December 2024):
+  - PageMeta: title="Helios", description on internal execution engine for digital asset treasury
+  - Hero: "Helios: governed capital under constraints." with "Capital · Internal treasury engine" overline
+  - Hero body: Two paragraphs (only one warmth line with "you"), CTAs to /approach and /standards
+  - "What Helios is" section with heliosIs/heliosIsNot arrays
+  - "Where Helios sits in the studio" section with Capital beam/Truth and telemetry/Dignity and control cards
+  - "How Helios runs" section with two paragraphs and howHeliosRuns array
+  - "Governance and standards" section with paragraph and governanceItems array
+  - "What Helios refuses to do" section with refusals array
+  - Disclaimer section, NextStepBlock points to /insights
+  - Old content removed: whatHeliosDoesBullets, mechanismCards, heliosDomains, whatHeliosIsItems, whatHeliosIsNotItems
+  - 23 v3.0 assertions added to brand-compliance.test.ts
 - **Insights Page v3.0 Polish** (December 2024):
   - PageMeta: title="Insights", description on notes/memos/logs across Truth, Capital, and Dignity
   - Hero: "Insights from systems that have to hold up." with "Notes from the studio" overline
@@ -58,4 +70,4 @@ Preferred communication style: Simple, everyday language.
   - Disclaimer section, NextStepBlock points to /studio
   - Old content removed: whatYoullFindHere, whatCountsAsInsight, howToRead, whatInsightsAre, whatInsightsAreNot
   - 22 v3.0 assertions added to brand-compliance.test.ts
-  - 249 passing tests as of December 2024
+  - 257 passing tests as of December 2024

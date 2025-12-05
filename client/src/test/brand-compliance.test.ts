@@ -466,60 +466,112 @@ describe('Brand & Voice Compliance', () => {
       content = fs.readFileSync(heliosPath, 'utf-8');
     });
 
-    it('should have correct hero heading', () => {
-      expect(content).toContain("Helios: VSG's internal capital engine.");
-    });
-
     it('should have correct PageMeta title', () => {
       expect(content).toContain('title="Helios"');
     });
 
+    it('should have correct PageMeta description', () => {
+      expect(content).toContain("Helios is Verifiable Systems Group's internal execution engine");
+      expect(content).toContain('preserve capital under constraints');
+      expect(content).toContain('non-custodial');
+    });
+
     it('should have correct overline with domain label', () => {
-      expect(content).toContain('Internal venture — Capital systems');
+      expect(content).toContain('Capital');
+      expect(content).toContain('Internal treasury engine');
     });
 
-    it('should have "What Helios does" section', () => {
-      expect(content).toContain('What Helios does');
-      expect(content).toContain('AI-native execution system');
+    it('should have correct hero heading', () => {
+      expect(content).toContain('Helios: governed capital under constraints.');
     });
 
-    it('should have "How we keep control" section', () => {
-      expect(content).toContain('How we keep control');
-      expect(content).toContain('capital should not disappear into black boxes');
+    it('should have hero body copy with v3.0 language', () => {
+      expect(content).toContain('internal execution engine for digital asset treasury');
+      expect(content).toContain('preserve capital under clear limits');
+      expect(content).toContain('keep control non-custodial');
     });
 
-    it('should have "Inside the mechanism" section with cards', () => {
-      expect(content).toContain('Inside the mechanism');
-      expect(content).toContain('Monitoring');
-      expect(content).toContain('Guardrails');
-      expect(content).toContain('Playbooks');
+    it('should have single warmth line in hero', () => {
+      expect(content).toContain("You shouldn't have to guess how your own capital will behave");
+      expect(content).toContain('Helios was built after we felt that uncertainty ourselves');
     });
 
-    it('should have "Helios under Truth, Capital, and Dignity" section', () => {
-      expect(content).toContain('Helios under Truth, Capital, and Dignity');
+    it('should have primary and secondary CTAs', () => {
+      expect(content).toContain('href="/approach"');
+      expect(content).toContain('See our approach');
+      expect(content).toContain('href="/standards"');
+      expect(content).toContain('Review our standards');
     });
 
-    it('should have "What Helios is / is not" section', () => {
-      expect(content).toContain('What Helios is / is not');
+    it('should have "What Helios is" section with is/is not lists', () => {
+      expect(content).toContain('What Helios is');
+      expect(content).toContain('heliosIs');
+      expect(content).toContain('heliosIsNot');
+      expect(content).toContain('internal engine for managing and testing digital asset treasury');
+    });
+
+    it('should have Helios is items per spec', () => {
+      expect(content).toContain("An internal execution engine for VSG's own treasury");
+      expect(content).toContain('preserving capital and making risk easier to inspect');
+      expect(content).toContain('keep control non-custodial and decisions explainable');
+      expect(content).toContain('same pillars, process, and standards');
+    });
+
+    it('should have Helios is not items per spec', () => {
+      expect(content).toContain('pooled fund, custodial platform, or yield product');
+      expect(content).toContain('promise about returns or market performance');
+      expect(content).toContain('black box');
+      expect(content).toContain('shortcut around risk management');
     });
 
     it('should have "Where Helios sits in the studio" section', () => {
       expect(content).toContain('Where Helios sits in the studio');
-      expect(content).toContain('Helios owns the Capital beam');
+      expect(content).toContain('studioPosition');
+      expect(content).toContain('Helios lives in the Capital beam');
     });
 
-    it('should have warmth line in hero', () => {
-      expect(content).toContain("You shouldn't have to choose between liquidity and control");
+    it('should have studio position items', () => {
+      expect(content).toContain('Capital beam');
+      expect(content).toContain('how capital behaves');
+      expect(content).toContain('Truth and telemetry');
+      expect(content).toContain('trustworthy data and logs');
+      expect(content).toContain('Dignity and control');
+      expect(content).toContain('keeps control non-custodial');
     });
 
-    it('should have cross-links to ventures, process, and standards', () => {
-      expect(content).toContain('href="/ventures"');
+    it('should have "How Helios runs" section', () => {
+      expect(content).toContain('How Helios runs');
+      expect(content).toContain('howHeliosRuns');
+      expect(content).toContain('internal mandates');
+      expect(content).toContain('machine intelligence and human oversight');
+    });
+
+    it('should have "Governance and standards" section', () => {
+      expect(content).toContain('Governance and standards');
+      expect(content).toContain('governanceItems');
+      expect(content).toContain('same standards and six-stage process');
+    });
+
+    it('should have "What Helios refuses to do" section', () => {
+      expect(content).toContain('What Helios refuses to do');
+      expect(content).toContain('refusals');
+      expect(content).toContain('Take custody of client funds');
+      expect(content).toContain('Hide material risk');
+    });
+
+    it('should have disclaimer section', () => {
+      expect(content).toContain('not investment, legal, tax, or compliance advice');
+    });
+
+    it('should have NextStepBlock pointing to insights', () => {
+      expect(content).toContain('nextPage="Insights"');
+      expect(content).toContain('href="/insights"');
+      expect(content).toContain('notes and memos on how we apply these constraints');
+    });
+
+    it('should have cross-links to process and standards', () => {
       expect(content).toContain('href="/process"');
       expect(content).toContain('href="/standards"');
-    });
-
-    it('should have proper disclaimer', () => {
-      expect(content).toContain('not investment, legal, tax, or compliance advice');
     });
 
     it('should not contain old domain labels', () => {
@@ -528,15 +580,32 @@ describe('Brand & Voice Compliance', () => {
       expect(content).not.toContain('"Human"');
     });
 
+    it('should not contain banned phrases', () => {
+      expect(content).not.toContain('Signal / Value / Human');
+      expect(content).not.toContain('validate the signal');
+      expect(content).not.toContain('protect the human');
+      expect(content).not.toContain('AI-powered platform');
+      expect(content).not.toContain('StackMe');
+      expect(content).not.toContain('Axiom');
+    });
+
+    it('should not contain old Helios page content', () => {
+      expect(content).not.toContain('whatHeliosDoesBullets');
+      expect(content).not.toContain('mechanismCards');
+      expect(content).not.toContain('heliosDomains');
+      expect(content).not.toContain('whatHeliosIsItems');
+      expect(content).not.toContain('whatHeliosIsNotItems');
+    });
+
     it('should have proper data-testid attributes for key sections', () => {
       const expectedTestIds = [
         'section-hero',
-        'section-what-helios-does',
-        'section-how-we-keep-control',
-        'section-mechanism',
-        'section-domains',
-        'section-is-is-not',
-        'section-studio-context',
+        'section-what-helios-is',
+        'section-studio-position',
+        'section-how-helios-runs',
+        'section-governance',
+        'section-refusals',
+        'section-disclaimer',
       ];
       
       expectedTestIds.forEach(testId => {
