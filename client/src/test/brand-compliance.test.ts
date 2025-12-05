@@ -247,6 +247,89 @@ describe('Brand & Voice Compliance', () => {
     });
   });
 
+  describe('Uniqueness Engine page v3.0 compliance', () => {
+    const uniquenessPath = path.join(process.cwd(), 'client/src/pages/ventures/Uniqueness.tsx');
+    let content: string;
+
+    beforeAll(() => {
+      content = fs.readFileSync(uniquenessPath, 'utf-8');
+    });
+
+    it('should have correct hero heading', () => {
+      expect(content).toContain('Personhood without exposure.');
+    });
+
+    it('should have correct PageMeta title', () => {
+      expect(content).toContain('title="Uniqueness Engine"');
+    });
+
+    it('should have correct overline with domain label', () => {
+      expect(content).toContain('Uniqueness Engine · Dignity · Venture');
+    });
+
+    it('should have "The problem Uniqueness Engine exists to solve" section', () => {
+      expect(content).toContain('The problem Uniqueness Engine exists to solve');
+    });
+
+    it('should have "What the Uniqueness Engine is" section with context-bound proofs', () => {
+      expect(content).toContain('What the Uniqueness Engine is');
+      expect(content).toContain('Uniqueness, not biography');
+      expect(content).toContain('Context-bound proofs');
+      expect(content).toContain('Infrastructure role');
+    });
+
+    it('should have "Uniqueness Engine under Truth, Capital, and Dignity" section', () => {
+      expect(content).toContain('Uniqueness Engine under Truth, Capital, and Dignity');
+    });
+
+    it('should have "How the Uniqueness Engine uses AI" section', () => {
+      expect(content).toContain('How the Uniqueness Engine uses AI');
+      expect(content).toContain('Pattern detection');
+      expect(content).toContain('Risk scoring under constraints');
+      expect(content).toContain('Escalation, not judgment');
+    });
+
+    it('should have "What the Uniqueness Engine is / is not" section', () => {
+      expect(content).toContain('What the Uniqueness Engine is / is not');
+    });
+
+    it('should have "Where the Uniqueness Engine sits in the broader studio" section', () => {
+      expect(content).toContain('Where the Uniqueness Engine sits in the broader studio');
+    });
+
+    it('should have cross-links to ventures, approach, and standards', () => {
+      expect(content).toContain('href="/ventures"');
+      expect(content).toContain('href="/approach"');
+      expect(content).toContain('href="/standards"');
+    });
+
+    it('should have proper disclaimer', () => {
+      expect(content).toContain('not legal, compliance, or regulatory advice');
+    });
+
+    it('should not contain old domain labels', () => {
+      expect(content).not.toContain('"Signal"');
+      expect(content).not.toContain('"Value"');
+      expect(content).not.toContain('"Human"');
+    });
+
+    it('should have proper data-testid attributes for key sections', () => {
+      const expectedTestIds = [
+        'section-hero',
+        'section-problem',
+        'section-what-uniqueness-is',
+        'section-domains',
+        'section-ai',
+        'section-is-is-not',
+        'section-studio-context',
+      ];
+      
+      expectedTestIds.forEach(testId => {
+        expect(content).toContain(`data-testid="${testId}"`);
+      });
+    });
+  });
+
   describe('Lumina page v3.0 compliance', () => {
     const luminaPath = path.join(process.cwd(), 'client/src/pages/ventures/Lumina.tsx');
     let content: string;
