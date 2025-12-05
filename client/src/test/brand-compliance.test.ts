@@ -627,46 +627,46 @@ describe('Brand & Voice Compliance', () => {
     });
 
     it('should have canon hero heading', () => {
-      expect(content).toContain('The infrastructure of verifiable autonomy.');
+      expect(content).toContain('We engineer the infrastructure of verifiable autonomy.');
     });
 
     it('should have v3.0 hero overline', () => {
-      expect(content).toContain('Verifiable Systems Group · Studio');
+      expect(content).toContain('AI-native venture studio');
     });
 
-    it('should have "Three questions we organize around" section', () => {
-      expect(content).toContain('Three questions we organize around');
-      expect(content).toContain('Instead of generic pillars');
+    it('should have "Three beams: Truth, Capital, Dignity" section', () => {
+      expect(content).toContain('Three beams: Truth, Capital, Dignity');
+      expect(content).toContain('Every venture in the studio exists to answer one of three questions');
     });
 
-    it('should have Truth, Capital, Dignity questions with titles', () => {
-      expect(content).toContain('Truth · What can be trusted?');
-      expect(content).toContain('Capital · How should value move?');
-      expect(content).toContain('Dignity · How do people participate?');
+    it('should have Truth, Capital, Dignity beams with proper body text', () => {
+      expect(content).toContain('What can we actually know, and show, about the world');
+      expect(content).toContain('How should capital behave under stress');
+      expect(content).toContain('How do people prove who they are without giving everything away');
     });
 
     it('should have "What VSG is" section with canonical copy', () => {
       expect(content).toContain('What VSG is');
-      expect(content).toContain('infrastructure-grade by design');
-      expect(content).toContain('AI-native studio');
-      expect(content).toContain('Cryptography-grounded');
-      expect(content).toContain('Internal-first and non-custodial');
+      expect(content).toContain("architect's office for digital infrastructure");
+      expect(content).toContain('AI-native systems, not bolt-on features');
+      expect(content).toContain('Non-custodial rails for capital and identity');
+      expect(content).toContain('Tested on our own balance sheet first');
     });
 
-    it('should have "Ventures: proofs of how we think" section', () => {
-      expect(content).toContain('Ventures: proofs of how we think');
+    it('should have "Ventures inside the studio" section', () => {
+      expect(content).toContain('Ventures inside the studio');
     });
 
     it('should have correct venture meta lines', () => {
-      expect(content).toContain('Helios · Capital · Venture');
-      expect(content).toContain('Lumina · Truth · Venture');
-      expect(content).toContain('Uniqueness Engine · Dignity · Venture');
+      expect(content).toContain('Helios · Capital');
+      expect(content).toContain('Lumina · Truth');
+      expect(content).toContain('Uniqueness Engine · Dignity');
     });
 
-    it('should have "How the studio fits together" section', () => {
-      expect(content).toContain('How the studio fits together');
-      expect(content).toContain("don't ship in isolation");
-      expect(content).toContain('six-stage runway');
+    it('should have "How we build and govern systems" section', () => {
+      expect(content).toContain('How we build and govern systems');
+      expect(content).toContain("do not ship one-off experiments");
+      expect(content).toContain('six stages');
     });
 
     it('should have all five studio cards (Ventures, Approach, Process, Standards, Insights)', () => {
@@ -686,10 +686,11 @@ describe('Brand & Voice Compliance', () => {
     it('should have proper data-testid attributes for key sections', () => {
       const expectedTestIds = [
         'section-hero',
-        'section-three-questions',
+        'section-three-beams',
         'section-what-vsg-is',
         'section-ventures',
         'section-how-we-build',
+        'section-why-we-exist',
         'section-talk-studio',
       ];
       

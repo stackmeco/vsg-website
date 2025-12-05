@@ -7,61 +7,52 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import gridTexture from "@assets/grid_texture.png";
 
-const threeQuestions = [
+const threeBeams = [
   {
     label: "Truth",
-    title: "Truth · What can be trusted?",
-    text: "We care about what can be proven, not just stated. Truth here means evidence: provenance trails, logs, and behaviors you can inspect and replay—not black-box scores or unverifiable feeds.",
+    title: "Truth",
+    text: "What can we actually know, and show, about the world? Truth systems turn messy inputs into evidence people can inspect and reuse. Think sensor data tied to a specific object at a specific time, or audit trails that make AI-derived answers accountable instead of mysterious.",
   },
   {
     label: "Capital",
-    title: "Capital · How should value move?",
-    text: "We focus on how value moves under constraints: limits, buffers, and clear paths for rollback. Capital should work without leaving governed control, not drift into opaque, brittle exposures.",
+    title: "Capital",
+    text: "How should capital behave under stress while people keep control of it? Capital systems define how assets move, what limits they respect, and how risk is surfaced early instead of hiding in footnotes. We start with our own treasury so incentives stay aligned.",
   },
   {
     label: "Dignity",
-    title: "Dignity · How do people participate?",
-    text: "People should not have to surrender their whole identity to show up. Dignity means personhood without exposure: proving enough to participate without becoming the product of the system.",
+    title: "Dignity",
+    text: "How do people prove who they are without giving everything away? Dignity systems let individuals participate, qualify, and coordinate without handing their identities to yet another silo. They protect the person while still making fraud and abuse provably harder.",
   },
 ];
 
-const whatVsgIs = [
-  {
-    title: "AI-native studio",
-    text: "We design as if machine intelligence is in the loop from day one. AI handles the mechanics—monitoring, patterning, and stress-testing—while people own mandates, ethics, and the veto.",
-  },
-  {
-    title: "Cryptography-grounded",
-    text: "We anchor flows to proofs, audit trails, and constraints instead of narratives. Verifiability and rollback paths are designed in before slogans and decks.",
-  },
-  {
-    title: "Internal-first and non-custodial",
-    text: "We route our own operations and capital through new architectures first, favoring non-custodial rails where possible. If a pattern fails early, the blast radius lands on us—not on outsiders.",
-  },
+const whatVsgIsBullets = [
+  "AI-native systems, not bolt-on features.",
+  "Non-custodial rails for capital and identity.",
+  "Tested on our own balance sheet first.",
 ];
 
 const ventures = [
   {
     slug: "helios",
-    metaLine: "Helios · Capital · Venture",
+    metaLine: "Helios · Capital",
     tagline: "Treasury execution under explicit constraints.",
-    description: "Helios is our internal execution engine for digital asset treasuries. It focuses on routing positions across approved venues under predefined risk limits, so capital remains resilient under stress instead of drifting into hidden exposures.",
+    description: "Our internal execution engine for digital asset treasury. Helios helps us keep capital working while risk stays inside explicit limits—always on our own balance sheet first.",
     primaryDomain: "Capital",
     href: "/ventures/helios",
   },
   {
     slug: "lumina",
-    metaLine: "Lumina · Truth · Venture",
-    tagline: "Physics-aware grading infrastructure.",
-    description: "Lumina turns the condition of an asset into evidence you can inspect, not a guess you have to accept. It converts wear, defects, and anomalies into structured signals that can feed grading, insurance, and pricing decisions.",
+    metaLine: "Lumina · Truth",
+    tagline: "Verifiable grading infrastructure.",
+    description: "Verifiable grading infrastructure for physical assets like trading cards. Lumina turns condition into evidence people can inspect, not just a one-line opinion.",
     primaryDomain: "Truth",
     href: "/ventures/lumina",
   },
   {
     slug: "uniqueness",
-    metaLine: "Uniqueness Engine · Dignity · Venture",
+    metaLine: "Uniqueness Engine · Dignity",
     tagline: "Personhood without exposure.",
-    description: "Uniqueness Engine is infrastructure for one-person-one-presence—helping systems distinguish real participants from duplicates and automation without turning identity into surveillance or lock-in.",
+    description: "Personhood without overexposure. The Uniqueness Engine proves that one person is behind an account or action without demanding their entire life story in return.",
     primaryDomain: "Dignity",
     href: "/ventures/uniqueness",
   },
@@ -105,7 +96,7 @@ export default function Overview() {
     <Layout>
       <PageMeta 
         title="Verifiable Systems Group" 
-        description="Verifiable Systems Group is an AI-native, cryptography-grounded venture studio. We engineer the infrastructure of verifiable autonomy across Truth, Capital, and Dignity—run on our own balance sheet first."
+        description="An AI-native venture studio that builds verifiable systems for Truth, Capital, and Dignity—run on our own balance sheet first."
         preloadImage={gridTexture}
       />
       
@@ -132,18 +123,18 @@ export default function Overview() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
           <div className="max-w-2xl">
             <p className="text-sm font-mono uppercase tracking-widest text-primary mb-6" data-testid="text-overline">
-              Verifiable Systems Group · Studio
+              AI-native venture studio
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-[1.1] tracking-tight mb-6" data-testid="text-hero-heading">
-              The infrastructure of verifiable autonomy.
+              We engineer the infrastructure of verifiable autonomy.
             </h1>
             
             <p className="text-lg text-muted-foreground leading-relaxed mb-4 max-w-xl" data-testid="text-hero-body">
-              Verifiable Systems Group (VSG) is an AI-native, cryptography-grounded venture studio. We design and run systems where behaviors are inspectable, capital moves under explicit constraints, and people participate without becoming product—starting with our own balance sheet and environments before any pattern becomes a public claim.
+              You shouldn't have to choose between speed and safety. Verifiable Systems Group is an AI-native, cryptography-grounded venture studio that builds systems for decisions that cannot afford guesswork. We run them on our own balance sheet first, so Truth, Capital, and Dignity are enforced in practice—not just promised.
             </p>
 
             <p className="text-sm text-muted-foreground/80 leading-relaxed mb-8 max-w-xl" data-testid="text-hero-secondary">
-              You shouldn't have to trust untested rails. We organize everything we build around three questions: what can be trusted, how should capital move, and how do people keep their dignity online.
+              Across a small portfolio of ventures, we turn three questions into infrastructure: What is actually true? How should capital behave? How do people keep control of who they are? Everything else in the studio hangs off those three beams.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -155,7 +146,7 @@ export default function Overview() {
               </Button>
               <Button asChild size="lg" variant="outline" className="font-mono text-sm uppercase tracking-wider" data-testid="button-see-how-we-build">
                 <Link href="/approach">
-                  See how we build
+                  How we build
                 </Link>
               </Button>
             </div>
@@ -163,25 +154,25 @@ export default function Overview() {
         </div>
       </section>
 
-      {/* Three questions we organize around */}
-      <section className="py-20 bg-card" data-testid="section-three-questions">
+      {/* Three beams: Truth, Capital, Dignity */}
+      <section className="py-20 bg-card" data-testid="section-three-beams">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-three-questions">
-              Three questions we organize around
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-three-beams">
+              Three beams: Truth, Capital, Dignity
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-three-questions-intro">
-              Instead of generic pillars, we use three questions to orient our work. Every venture, standard, and experiment has to answer at least one of them clearly—and it needs a way to prove that answer under stress.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-three-beams-intro">
+              Every venture in the studio exists to answer one of three questions. We design around these beams so the portfolio stays coherent, even as the surface area evolves.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {threeQuestions.map((item) => (
-              <Card key={item.label} className="bg-background border-border h-full" data-testid={`card-question-${item.label.toLowerCase()}`}>
+            {threeBeams.map((item) => (
+              <Card key={item.label} className="bg-background border-border h-full" data-testid={`card-beam-${item.label.toLowerCase()}`}>
                 <CardContent className="p-6">
-                  <h3 className="text-sm font-semibold text-foreground mb-3" data-testid={`label-question-${item.label.toLowerCase()}`}>
+                  <h3 className="text-sm font-semibold text-foreground mb-3" data-testid={`label-beam-${item.label.toLowerCase()}`}>
                     {item.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-question-${item.label.toLowerCase()}`}>
+                  <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-beam-${item.label.toLowerCase()}`}>
                     {item.text}
                   </p>
                 </CardContent>
@@ -194,36 +185,38 @@ export default function Overview() {
       {/* What VSG is */}
       <section className="py-20" data-testid="section-what-vsg-is">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-what-vsg-is">
-              What VSG is
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-what-vsg-is-body">
-              VSG is an AI-native, cryptography-grounded venture studio. We run every pattern on our own balance sheet first. We engineer systems where truth is provable, capital moves under constraints instead of vibes, and participation does not require overexposure. Our work is infrastructure-grade by design: precise, governed, and built to handle failure modes, not hide them.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {whatVsgIs.map((item, index) => (
-              <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid={`card-what-vsg-${index}`}>
-                <CardContent className="p-6">
-                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-what-vsg-is">
+                What VSG is
+              </h2>
+              <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-what-vsg-is-body">
+                Verifiable Systems Group (VSG) is an AI-native, cryptography-grounded venture studio. We build systems where critical behaviours are observable, constrained by design, and able to withstand stress in the real world. We start on our own balance sheet: new rails are tested against our assets, time, and risk before anyone else is invited in. We are not a consultancy, a custodial platform, or a hype engine. We are an architect's office for digital infrastructure—designing patterns that others can trust because we trusted them first.
+              </p>
+            </div>
+            <div className="lg:pt-2">
+              <ul className="space-y-3" data-testid="list-what-vsg-is">
+                {whatVsgIsBullets.map((bullet, index) => (
+                  <li key={index} className="flex items-start gap-3 text-sm text-muted-foreground" data-testid={`bullet-what-vsg-${index}`}>
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" aria-hidden="true" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Ventures: proofs of how we think */}
+      {/* Ventures inside the studio */}
       <section className="py-20 bg-card" data-testid="section-ventures">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-ventures">
-              Ventures: proofs of how we think
+              Ventures inside the studio
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-ventures-intro">
-              Each venture is a concrete answer to a problem we have lived ourselves: a treasury that felt brittle, a grade that could not be inspected, or an identity check that asked for too much. They exist to prove that our principles survive contact with real constraints.
+              We keep the portfolio intentionally small. Each venture is a concrete proof that the beams of Truth, Capital, and Dignity can be engineered into systems—not just talked about.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -259,15 +252,15 @@ export default function Overview() {
         </div>
       </section>
 
-      {/* How the studio fits together */}
+      {/* How we build and govern systems */}
       <section className="py-20" data-testid="section-how-we-build">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-how-we-build">
-              How the studio fits together
+              How we build and govern systems
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-how-we-build-body">
-              We don't ship in isolation. Ventures, our six-stage runway, and our standards framework reinforce each other—so every new system has a path from concept to governed operation, with clear reasons to exist.
+              We do not ship one-off experiments. Every venture moves through a defined sequence: clarify the problem, run small experiments, build in short verifiable steps, launch under guardrails, learn from incidents, and feed that learning back into the studio standards. Pillars describe what we refuse to compromise on; Process defines the six stages ventures move through; Standards encode the quality bar. The same rules that protect us apply to anyone building on these rails.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -286,11 +279,39 @@ export default function Overview() {
               </Card>
             ))}
           </div>
+          <div className="mt-8">
+            <Button asChild size="lg" variant="outline" className="font-mono text-sm uppercase tracking-wider" data-testid="button-explore-approach">
+              <Link href="/approach">
+                Explore the approach
+                <ArrowRight className="w-3.5 h-3.5 ml-2" aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why we exist */}
+      <section className="py-20 bg-card" data-testid="section-why-we-exist">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-why-we-exist">
+              Why we exist
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-why-we-exist-body">
+              Our purpose is simple to say and hard to execute: democratize institutional-grade leverage. Most rails favour incumbents who can afford opaque systems and bespoke intermediaries. We build for the people who can't. That means no hidden custodians, no fine-print games, and no dependence on unverifiable feeds. When we say we run systems on our own balance sheet first, it's because we've been on the wrong end of that asymmetry ourselves. The studio exists so those lessons become infrastructure anyone can use.
+            </p>
+            <Button asChild variant="outline" size="lg" className="font-mono text-sm uppercase tracking-wider" data-testid="button-read-purpose">
+              <Link href="/studio">
+                Read our purpose
+                <ArrowRight className="w-3.5 h-3.5 ml-2" aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
       {/* Talk to the studio */}
-      <section className="py-20 bg-card" data-testid="section-talk-studio">
+      <section className="py-20" data-testid="section-talk-studio">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-talk-studio">
