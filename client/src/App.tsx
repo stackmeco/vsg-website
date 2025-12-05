@@ -96,6 +96,11 @@ function Router() {
         <Route path="/approach/process" component={ProcessPage} />
         <Route path="/approach/standards" component={StandardsPage} />
         
+        {/* Alias routes for shorter paths (redirect compatibility) */}
+        <Route path="/pillars" component={PillarsPage} />
+        <Route path="/process" component={ProcessPage} />
+        <Route path="/standards" component={StandardsPage} />
+        
         {/* Studio */}
         <Route path="/studio" component={StudioPage} />
         <Route path="/studio/purpose" component={PurposePage} />

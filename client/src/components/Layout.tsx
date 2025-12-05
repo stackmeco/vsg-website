@@ -1,4 +1,4 @@
-import { Header } from "./Header";
+import { GlobalNav } from "./layout/GlobalNav";
 import { Footer } from "./Footer";
 import { CommandPalette } from "./CommandPalette";
 import { OrganizationJsonLd } from "./JsonLd";
@@ -19,7 +19,7 @@ export function Layout({ children }: LayoutProps) {
       >
         Skip to main content
       </a>
-      <Header />
+      <GlobalNav />
       <CommandPalette />
       <main id="main-content" className="flex-1 pt-16 lg:pt-[72px]" tabIndex={-1}>
         <ErrorBoundary>

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Link, useLocation } from "wouter";
 import { NAV_ITEMS, isPathActive, type NavItem } from "@/config/navigation";
 import { cn } from "@/lib/utils";
@@ -17,22 +17,75 @@ type DropdownProps = {
 
 function DesktopDropdown({ item, isActive }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const timeoutRef = useRef<number | null>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleMouseEnter = () => {
+  const clearCloseTimeout = useCallback(() => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
     }
-    setIsOpen(true);
-  };
+  }, []);
 
-  const handleMouseLeave = () => {
-    timeoutRef.current = window.setTimeout(() => {
+  const scheduleClose = useCallback(() => {
+    clearCloseTimeout();
+    timeoutRef.current = setTimeout(() => {
       setIsOpen(false);
     }, 150);
-  };
+  }, [clearCloseTimeout]);
+
+  const handleMouseEnter = useCallback(() => {
+    clearCloseTimeout();
+    setIsOpen(true);
+  }, [clearCloseTimeout]);
+
+  const handleMouseLeave = useCallback(() => {
+    scheduleClose();
+  }, [scheduleClose]);
+
+  const handleClick = useCallback(() => {
+    setIsOpen(prev => !prev);
+  }, []);
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      setIsOpen(false);
+    } else if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setIsOpen(prev => {
+        const newState = !prev;
+        if (newState) {
+          setTimeout(() => {
+            const firstLink = containerRef.current?.querySelector('a[role="menuitem"]') as HTMLElement;
+            firstLink?.focus();
+          }, 0);
+        }
+        return newState;
+      });
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (!isOpen) {
+        setIsOpen(true);
+        setTimeout(() => {
+          const firstLink = containerRef.current?.querySelector('a[role="menuitem"]') as HTMLElement;
+          firstLink?.focus();
+        }, 0);
+      } else {
+        const firstLink = containerRef.current?.querySelector('a[role="menuitem"]') as HTMLElement;
+        firstLink?.focus();
+      }
+    }
+  }, [isOpen]);
+
+  const handleFocus = useCallback(() => {
+    clearCloseTimeout();
+  }, [clearCloseTimeout]);
+
+  const handleBlur = useCallback((e: React.FocusEvent) => {
+    if (!containerRef.current?.contains(e.relatedTarget as Node)) {
+      scheduleClose();
+    }
+  }, [scheduleClose]);
 
   useEffect(() => {
     return () => {
@@ -46,23 +99,26 @@ function DesktopDropdown({ item, isActive }: DropdownProps) {
 
   return (
     <div
-      ref={dropdownRef}
+      ref={containerRef}
       className="relative"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
     >
       <button
         type="button"
         aria-haspopup="true"
         aria-expanded={isOpen}
         className={cn(
-          "inline-flex items-center gap-1.5 text-sm font-medium transition-colors px-3 py-2 rounded-md",
+          "inline-flex items-center gap-1.5 text-sm font-medium transition-colors px-3 py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
           isActive
             ? "text-foreground"
             : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
         )}
         data-testid={`nav-${item.key}`}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleClick}
+        onKeyDown={handleKeyDown}
       >
         <span>{item.label}</span>
         <ChevronDown 
@@ -76,20 +132,36 @@ function DesktopDropdown({ item, isActive }: DropdownProps) {
 
       {isOpen && (
         <div 
-          className="absolute left-1/2 top-full z-50 w-[320px] -translate-x-1/2 pt-3"
+          className="absolute left-1/2 top-full z-50 w-[320px] -translate-x-1/2 pt-2"
           role="menu"
           aria-label={`${item.label} submenu`}
         >
           <div className="rounded-lg border border-border bg-popover/98 shadow-xl shadow-black/25 backdrop-blur-sm">
             <div className="px-4 py-3 space-y-1">
-              {item.children.map((child) => (
+              {item.children.map((child, index) => (
                 <Link
                   key={child.href}
                   href={child.href}
-                  className="flex items-start gap-3 rounded-md px-3 py-2.5 transition-colors hover:bg-muted/60"
+                  className="flex items-start gap-3 rounded-md px-3 py-2.5 transition-colors hover:bg-muted/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   onClick={() => setIsOpen(false)}
                   role="menuitem"
+                  tabIndex={0}
                   data-testid={`nav-dropdown-${child.label.toLowerCase().replace(/\s+/g, "-")}`}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') {
+                      setIsOpen(false);
+                    } else if (e.key === 'ArrowDown') {
+                      e.preventDefault();
+                      const links = containerRef.current?.querySelectorAll('a[role="menuitem"]');
+                      const nextIndex = Math.min(index + 1, (links?.length || 1) - 1);
+                      (links?.[nextIndex] as HTMLElement)?.focus();
+                    } else if (e.key === 'ArrowUp') {
+                      e.preventDefault();
+                      const links = containerRef.current?.querySelectorAll('a[role="menuitem"]');
+                      const prevIndex = Math.max(index - 1, 0);
+                      (links?.[prevIndex] as HTMLElement)?.focus();
+                    }
+                  }}
                 >
                   <span 
                     className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" 
@@ -139,7 +211,7 @@ function DesktopNav() {
               key={item.key}
               href={item.href}
               className={cn(
-                "text-sm font-medium transition-colors px-3 py-2 rounded-md",
+                "text-sm font-medium transition-colors px-3 py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                 isActive
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
@@ -161,37 +233,32 @@ function DesktopNav() {
         );
       })}
 
-      <div className="flex items-center gap-2 ml-4 pl-4 border-l border-border/50">
+      <div className="flex items-center gap-3 ml-4 pl-4 border-l border-border/50">
         {insightsItem && (
-          <Button
-            variant="ghost"
-            size="sm"
-            asChild
-            className="text-sm font-medium"
+          <Link 
+            href={insightsItem.href}
+            className={cn(
+              "text-xs font-semibold uppercase tracking-[0.2em] transition-colors px-2 py-1.5 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+              isPathActive(activePath, insightsItem.href)
+                ? "text-foreground"
+                : "text-muted-foreground hover:text-foreground"
+            )}
+            data-testid="nav-insights"
+            aria-current={isPathActive(activePath, insightsItem.href) ? "page" : undefined}
           >
-            <Link 
-              href={insightsItem.href}
-              data-testid="nav-insights"
-              aria-current={isPathActive(activePath, insightsItem.href) ? "page" : undefined}
-            >
-              {insightsItem.label}
-            </Link>
-          </Button>
+            {insightsItem.label.toUpperCase()}
+          </Link>
         )}
         
         {connectItem && (
-          <Button
-            size="sm"
-            asChild
+          <Link 
+            href={connectItem.href}
+            className="rounded-sm px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] bg-primary text-primary-foreground hover:bg-primary/90 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            data-testid="nav-connect"
+            aria-current={isPathActive(activePath, connectItem.href) ? "page" : undefined}
           >
-            <Link 
-              href={connectItem.href}
-              data-testid="nav-connect"
-              aria-current={isPathActive(activePath, connectItem.href) ? "page" : undefined}
-            >
-              {connectItem.label}
-            </Link>
-          </Button>
+            {connectItem.label.toUpperCase()}
+          </Link>
         )}
 
         <Button
@@ -215,20 +282,28 @@ function DesktopNav() {
 function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
   const activePath = useActivePath();
-  const [expandedSections, setExpandedSections] = useState<string[]>([]);
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
 
-  const toggleSection = (key: string) => {
-    setExpandedSections(prev =>
-      prev.includes(key)
-        ? prev.filter(k => k !== key)
-        : [...prev, key]
-    );
-  };
+  const toggleSection = useCallback((key: string) => {
+    setExpandedSections(prev => {
+      const next = new Set(prev);
+      if (next.has(key)) {
+        next.delete(key);
+      } else {
+        next.add(key);
+      }
+      return next;
+    });
+  }, []);
 
-  const handleNavClick = () => {
+  const handleNavClick = useCallback(() => {
     setIsOpen(false);
-    setExpandedSections([]);
-  };
+    setExpandedSections(new Set());
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -239,6 +314,16 @@ function MobileNav() {
     return () => {
       document.body.style.overflow = "";
     };
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen]);
 
   const primaryItems = NAV_ITEMS.filter(
@@ -252,7 +337,7 @@ function MobileNav() {
       <Button
         variant="ghost"
         size="icon"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen(prev => !prev)}
         aria-expanded={isOpen}
         aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
         data-testid="button-mobile-menu"
@@ -269,7 +354,7 @@ function MobileNav() {
         <>
           <div
             className="fixed inset-0 top-16 z-40 bg-background/80 backdrop-blur-sm lg:top-[72px]"
-            onClick={() => setIsOpen(false)}
+            onClick={handleClose}
             aria-hidden="true"
           />
           <div 
@@ -284,9 +369,10 @@ function MobileNav() {
             >
               {primaryItems.map((item) => {
                 const isActive = isPathActive(activePath, item.href);
-                const isExpanded = expandedSections.includes(item.key);
+                const hasChildren = item.children && item.children.length > 0;
+                const isExpanded = expandedSections.has(item.key);
 
-                if (!item.children?.length) {
+                if (!hasChildren) {
                   return (
                     <Link
                       key={item.key}
@@ -317,21 +403,29 @@ function MobileNav() {
                       )}
                       onClick={() => toggleSection(item.key)}
                       aria-expanded={isExpanded}
+                      aria-controls={`mobile-submenu-${item.key}`}
                       data-testid={`mobile-nav-${item.key}`}
                     >
                       <span>{item.label}</span>
                       <ChevronDown
                         className={cn(
-                          "h-4 w-4 transition-transform duration-200",
+                          "h-4 w-4 shrink-0 transition-transform duration-200",
                           isExpanded && "rotate-180"
                         )}
                         aria-hidden="true"
                       />
                     </button>
 
-                    {isExpanded && (
-                      <div className="ml-3 space-y-0.5 border-l border-border/50 pl-3">
-                        {item.children.map((child) => (
+                    <div 
+                      id={`mobile-submenu-${item.key}`}
+                      className={cn(
+                        "ml-3 border-l border-border/50 pl-3 overflow-hidden transition-all duration-200",
+                        isExpanded ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                      )}
+                      aria-hidden={!isExpanded}
+                    >
+                      <div className="space-y-0.5 py-1">
+                        {item.children?.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
@@ -342,6 +436,7 @@ function MobileNav() {
                                 : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
                             )}
                             onClick={handleNavClick}
+                            tabIndex={isExpanded ? 0 : -1}
                             data-testid={`mobile-nav-${child.label.toLowerCase().replace(/\s+/g, "-")}`}
                           >
                             <span className="text-sm font-medium text-foreground">
@@ -355,7 +450,7 @@ function MobileNav() {
                           </Link>
                         ))}
                       </div>
-                    )}
+                    </div>
                   </div>
                 );
               })}

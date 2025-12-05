@@ -1,0 +1,278 @@
+```text
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Make the **Overview / home page** the canonical, premium entry point for VSG:
+
+- Align all copy with **Brand & Voice System v3.0** and **Truth · Capital · Dignity**.
+- Make it clear, in one screen, what VSG is and how Ventures / Approach / Studio connect.
+- Remove any remaining references to:
+  - “Signal, Value, Human”
+  - “validate the signal”
+  - “StackMe / Stackme Holdings”
+  - “VSP”
+  - “the human” as a noun
+- Keep the existing layout, section structure, and visual system. Only update text and small data arrays.
+
+Do NOT:
+- Touch `GlobalNav` or navigation config.
+- Add or remove major sections or components.
+- Mention specific counterparties, banks, protocols, tickers, or LTV numbers.
+
+--------------------------------------------------
+1) Locate the Overview page component
+--------------------------------------------------
+
+Find the page that renders the **home / overview** route, for example:
+
+- `client/src/pages/Overview.tsx`
+- or `client/src/pages/Home.tsx`
+- or the component mapped to `/` in `client/src/App.tsx`.
+
+We’ll call it “OverviewPage” below, but keep whatever name is in the code.
+
+--------------------------------------------------
+2) PageMeta – canonical description
+--------------------------------------------------
+
+Inside the Overview page, locate `<PageMeta ... />` (or equivalent) and set:
+
+- `title`:
+    "Verifiable Systems Group"
+- `description`:
+    "An AI-native venture studio that builds verifiable systems for Truth, Capital, and Dignity—run on our own balance sheet first."
+
+Keep `preloadImage` and any other props unchanged.
+
+--------------------------------------------------
+3) Hero section – one-screen explanation
+--------------------------------------------------
+
+In the main hero section at the top of the Overview page:
+
+3.1 Overline (small label above heading)
+
+Set to:
+
+  "AI-native venture studio"
+
+3.2 Main heading
+
+Set the `<h1>` to:
+
+  "We engineer the infrastructure of verifiable autonomy."
+
+3.3 Hero body copy (2 short paragraphs)
+
+Replace the current hero body text with exactly:
+
+Paragraph 1 (~40–55 words):
+
+  "You shouldn’t have to choose between speed and safety. Verifiable Systems Group is an AI-native, cryptography-grounded venture studio that builds systems for decisions that cannot afford guesswork. We run them on our own balance sheet first, so Truth, Capital, and Dignity are enforced in practice—not just promised."
+
+Paragraph 2 (~30–40 words):
+
+  "Across a small portfolio of ventures, we turn three questions into infrastructure: What is actually true? How should capital behave? How do people keep control of who they are? Everything else in the studio hangs off those three beams."
+
+Keep all existing classes and layout wrappers; only replace text.
+
+3.4 Hero CTAs
+
+If the hero has two buttons/links, configure them as:
+
+Primary CTA:
+- Label:
+    "Explore ventures"
+- `href`:
+    "/ventures"
+
+Secondary CTA (ghost / outline style):
+- Label:
+    "How we build"
+- `href`:
+    "/approach"
+
+If your code uses a shared `Button` component, just swap the labels and `href` values.
+
+--------------------------------------------------
+4) Section: “What VSG is”
+--------------------------------------------------
+
+Locate the first explanatory section below the hero that describes the studio (often a two-column block with text and maybe an image or stat). Reuse that layout.
+
+4.1 Section heading
+
+  "What VSG is"
+
+4.2 Body copy (~90–120 words)
+
+Replace the existing paragraph(s) with:
+
+  "Verifiable Systems Group (VSG) is an AI-native, cryptography-grounded venture studio. We build systems where critical behaviours are observable, constrained by design, and able to withstand stress in the real world. We start on our own balance sheet: new rails are tested against our assets, time, and risk before anyone else is invited in. We are not a consultancy, a custodial platform, or a hype engine. We are an architect’s office for digital infrastructure—designing patterns once, proving them in production, and then opening them up so others can plug in without surrendering control."
+
+If the layout allows a short bulleted list beside or under this copy, add a compact list:
+
+  - "AI-native systems, not bolt-on features."
+  - "Non-custodial rails for capital and identity."
+  - "Tested on our own balance sheet first."
+
+--------------------------------------------------
+5) Section: “Truth · Capital · Dignity” (three-column band)
+--------------------------------------------------
+
+Find the section that currently describes domains/pillars (it may still talk about “Signal / Value / Human” or something similar). Reuse the same three-column / three-card layout.
+
+Update section heading to:
+
+  "Three beams: Truth, Capital, Dignity"
+
+Optional short intro (~25–35 words):
+
+  "Every venture in the studio exists to answer one of three questions. We design around these beams so the portfolio stays coherent, even as the surface area evolves."
+
+Then update the three cards exactly as follows:
+
+Card 1 – Truth  
+- Title:
+    "Truth"
+- Body (~45–65 words):
+
+  "What can we actually know, and show, about the world? Truth systems turn messy inputs into evidence people can inspect and reuse. Think sensor data tied to a specific object at a specific time, or audit trails that make AI-derived answers accountable instead of mysterious."
+
+Card 2 – Capital  
+- Title:
+    "Capital"
+- Body:
+
+  "How should capital behave under stress while people keep control of it? Capital systems define how assets move, what limits they respect, and how risk is surfaced early instead of hiding in footnotes. We start with our own treasury so incentives stay aligned."
+
+Card 3 – Dignity  
+- Title:
+    "Dignity"
+- Body:
+
+  "How do people prove who they are without giving everything away? Dignity systems let individuals participate, qualify, and coordinate without handing their identities to yet another silo. They protect the person while still making fraud and abuse provably harder."
+
+Do not use the phrase “the human” anywhere; stick with “people” / “individuals”.
+
+--------------------------------------------------
+6) Section: “Ventures snapshot”
+--------------------------------------------------
+
+Locate the section that lists ventures on the Overview page (often a small grid or list of Helios, Lumina, etc.). Reuse the layout; just tighten the copy.
+
+Section heading:
+
+  "Ventures inside the studio"
+
+Short intro (~25–35 words):
+
+  "We keep the portfolio intentionally small. Each venture is a concrete proof that the beams of Truth, Capital, and Dignity can be engineered into systems—not just talked about."
+
+Update the venture blurbs (keeping existing links/icons; only text):
+
+Helios
+- Title:
+    "Helios · Capital"
+- Description:
+
+  "Our internal execution engine for digital asset treasury. Helios helps us keep capital working while risk stays inside explicit limits—always on our own balance sheet first."
+
+Lumina
+- Title:
+    "Lumina · Truth"
+- Description:
+
+  "Verifiable grading infrastructure for physical assets like trading cards. Lumina turns condition into evidence people can inspect, not just a one-line opinion."
+
+Uniqueness Engine
+- Title:
+    "Uniqueness Engine · Dignity"
+- Description:
+
+  "Personhood without overexposure. The Uniqueness Engine proves that one person is behind an account or action without demanding their entire life story in return."
+
+If any other ventures are present, keep their structure but ensure they are described in relation to Truth, Capital, or Dignity without adding technical plumbing details.
+
+--------------------------------------------------
+7) Section: “How we build” (Approach teaser)
+--------------------------------------------------
+
+Find the section that points toward `/approach`, `/pillars`, `/process`, or `/standards`. Reuse the existing layout (often a band with a short paragraph and a CTA card).
+
+Section heading:
+
+  "How we build and govern systems"
+
+Body (~70–100 words):
+
+  "We do not ship one-off experiments. Every venture moves through a defined sequence: clarify the problem, run small experiments, build in short verifiable steps, launch under guardrails, learn from incidents, and feed that learning back into the studio standards. Pillars describe what we refuse to compromise on; Process defines the six stages ventures move through; Standards encode the quality bar. The same rules that protect us apply to anyone building on these rails."
+
+CTA button / link (if present):
+
+- Label:
+    "Explore the approach"
+- `href`:
+    "/approach"
+
+--------------------------------------------------
+8) Section: “Why we exist” (Purpose teaser)
+--------------------------------------------------
+
+If the Overview page has a short “about” band pointing to Purpose/Vision/Mission (often tied to `/studio`), reuse that structure; otherwise, update the existing copy that references purpose.
+
+Body (~80–110 words; no heading change needed if one already exists):
+
+  "Our purpose is simple to say and hard to execute: democratize institutional-grade leverage. Most rails favour incumbents who can afford opaque systems and bespoke intermediaries. We build for the people who can’t. That means no hidden custodians, no fine-print games, and no dependence on unverifiable feeds. When we say we run systems on our own balance sheet first, it’s because we’ve been on the wrong end of that asymmetry ourselves. The studio exists so those lessons become infrastructure instead of just scars."
+
+If there is a link or CTA into `Studio` or `Purpose`, keep it but ensure the label is:
+
+  "Visit the studio"
+
+or
+
+  "Read our purpose"
+
+with `href` pointing to the relevant page.
+
+--------------------------------------------------
+9) Hygiene pass on Overview page
+--------------------------------------------------
+
+Within the Overview page file:
+
+1) Remove or rewrite ANY remaining occurrences of:
+   - “Signal, Value, Human”
+   - “validate the signal”
+   - “StackMe / Stackme Holdings / VSP”
+   - “the human” as a noun
+   - “AI-powered platform”, “revolutionary”, “game-changing”, “disruptive”
+
+2) Ensure all mentions of the three domains use:
+   - “Truth”, “Capital”, “Dignity” (capitalized)
+   - NOT “domains” if it makes the sentence feel abstract; “beams” or “lanes” is acceptable.
+
+3) Check that copy:
+   - Uses calm, declarative sentences (Architect + Judge voice).
+   - Includes at least one gentle “you” line in the hero or intro.
+   - Does NOT include emojis, slang, or exclamation marks.
+
+--------------------------------------------------
+10) Final QA
+--------------------------------------------------
+
+After edits:
+
+1) Run the dev server and open `/`:
+   - Hero clearly states what VSG is and what it does.
+   - Truth · Capital · Dignity section is visible above the fold or just below it.
+   - Ventures snapshot accurately tags Helios, Lumina, and the Uniqueness Engine.
+   - Approach/Studio teasers link to the correct routes.
+
+2) Confirm:
+   - No references to the old triad or old company names remain.
+   - The Overview page reads as a premium, institutional entry—consistent with the nav, Ventures pages, and the VSG v3 brand doc.
+
+Only commit once the Overview page feels like a clean, canonical introduction you’d be comfortable sending to a sophisticated investor or partner.
+```
