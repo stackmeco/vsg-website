@@ -4,6 +4,13 @@ import { PageMeta } from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, AlertTriangle } from "lucide-react";
 
+const helpfulLinks = [
+  { name: "Overview", href: "/" },
+  { name: "Approach", href: "/approach" },
+  { name: "Ventures", href: "/ventures" },
+  { name: "Insights", href: "/insights" },
+];
+
 export default function NotFound() {
   return (
     <Layout>
@@ -21,26 +28,35 @@ export default function NotFound() {
               Error 404
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-[2.5rem] text-foreground mb-6" data-testid="text-heading-404">
-              This page isn't wired into the system yet.
+              This path doesn't exist in our system.
             </h1>
             <p className="text-lg text-muted-foreground mb-4" data-testid="text-body-404">
-              Either the route moved or it never existed in this configuration. We try not to leave dead ends in our systems—if you reached one here, start again from the Ventures or Insights pages.
+              You've reached a route that doesn't map to any of our current rails. If you typed a URL directly, check it for typos—or use the links below to get back to the parts of the studio that exist.
             </p>
-            <p className="text-sm text-muted-foreground/80 mb-8" data-testid="text-helper-404">
-              If you typed a URL by hand, check the spelling. If you followed a link from us and it broke, that's on our side—we'll wire it up.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-4 mb-10">
               <Link href="/">
                 <Button size="lg" data-testid="button-back-home">
-                  Back to overview
+                  Back to the studio
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Button>
               </Link>
               <Link href="/ventures">
                 <Button variant="outline" size="lg" data-testid="button-see-ventures">
-                  View Ventures
+                  Explore our ventures
                 </Button>
               </Link>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 pt-6 border-t border-border">
+              {helpfulLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  data-testid={`link-helpful-${link.name.toLowerCase()}`}
+                >
+                  {link.name}
+                </Link>
+              ))}
             </div>
           </div>
         </div>

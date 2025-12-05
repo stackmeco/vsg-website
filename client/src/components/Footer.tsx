@@ -42,7 +42,7 @@ export function Footer() {
         <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-border">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
             <p className="text-sm text-muted-foreground" data-testid="copyright-notice">
-              © {currentYear} Verifiable Systems Group LLC
+              Nothing on this site is investment, legal, or tax advice. © {currentYear} Verifiable Systems Group LLC
             </p>
             <p className="text-xs text-muted-foreground/70 max-w-md leading-relaxed" data-testid="text-footer-compliance">
               We do not pool client funds, manage outside capital, or offer yield products. Our systems are non-custodial by design.
