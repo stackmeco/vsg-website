@@ -162,4 +162,88 @@ describe('Brand & Voice Compliance', () => {
       });
     });
   });
+
+  describe('Ventures page v3.0 compliance', () => {
+    const venturesPath = path.join(process.cwd(), 'client/src/pages/Ventures.tsx');
+    let content: string;
+
+    beforeAll(() => {
+      content = fs.readFileSync(venturesPath, 'utf-8');
+    });
+
+    it('should have correct hero heading', () => {
+      expect(content).toContain('Each venture is a proof of how we think.');
+    });
+
+    it('should have correct domain labels for ventures', () => {
+      expect(content).toContain('Capital · Venture');
+      expect(content).toContain('Truth · Venture');
+      expect(content).toContain('Dignity · Venture');
+    });
+
+    it('should have "How these ventures fit together" section', () => {
+      expect(content).toContain('How these ventures fit together');
+    });
+
+    it('should have all three ventures defined correctly', () => {
+      expect(content).toContain('slug: "helios"');
+      expect(content).toContain('slug: "lumina"');
+      expect(content).toContain('slug: "uniqueness"');
+    });
+
+    it('should have correct venture taglines', () => {
+      expect(content).toContain('Treasury execution under explicit constraints.');
+      expect(content).toContain('Physics-aware grading infrastructure.');
+      expect(content).toContain('Personhood without exposure.');
+    });
+
+    it('should have primary and secondary domains', () => {
+      expect(content).toContain('primaryDomain: "Capital"');
+      expect(content).toContain('primaryDomain: "Truth"');
+      expect(content).toContain('primaryDomain: "Dignity"');
+      expect(content).toContain('secondaryDomains:');
+    });
+
+    it('should have internal-first note section', () => {
+      expect(content).toContain('section-internal-first');
+      expect(content).toContain('We run these ventures on our own balance sheet and infrastructure first');
+    });
+
+    it('should have "What ventures are / are not" section', () => {
+      expect(content).toContain('What ventures are / are not');
+      expect(content).toContain('Ventures are');
+      expect(content).toContain('Ventures are not');
+    });
+
+    it('should have proper disclaimer', () => {
+      expect(content).toContain('not investment, legal, tax, or compliance advice');
+    });
+
+    it('should have cross-links to approach, process, and insights', () => {
+      expect(content).toContain('href="/approach"');
+      expect(content).toContain('href="/process"');
+      expect(content).toContain('href="/insights"');
+    });
+
+    it('should not contain old domain labels', () => {
+      expect(content).not.toContain('"Signal"');
+      expect(content).not.toContain('"Value"');
+      expect(content).not.toContain('"Human"');
+    });
+
+    it('should have proper data-testid attributes for key sections', () => {
+      const expectedTestIds = [
+        'section-hero',
+        'section-fit-together',
+        'section-ventures-grid',
+        'section-internal-first',
+        'section-what-ventures-are',
+        'section-cross-links',
+      ];
+      
+      expectedTestIds.forEach(testId => {
+        expect(content).toContain(`data-testid="${testId}"`);
+      });
+    });
+  });
 });
