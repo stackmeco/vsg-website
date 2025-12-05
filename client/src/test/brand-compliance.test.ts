@@ -666,4 +666,45 @@ describe('Brand & Voice Compliance', () => {
       });
     });
   });
+
+  describe('Connect page v3.0 compliance', () => {
+    const connectPath = path.join(process.cwd(), 'client/src/pages/Connect.tsx');
+    let content: string;
+
+    beforeAll(() => {
+      content = fs.readFileSync(connectPath, 'utf-8');
+    });
+
+    it('should have correct hero heading', () => {
+      expect(content).toContain("Tell us what you're trying to verify, protect, or build.");
+    });
+
+    it('should have Connect overline', () => {
+      expect(content).toContain('Connect');
+    });
+
+    it('should reference Truth, Capital, and Dignity', () => {
+      expect(content).toContain('Truth, Capital, or Dignity');
+    });
+
+    it('should not contain hype phrases', () => {
+      expect(content).not.toContain("Let's Build the Future");
+      expect(content).not.toContain('revolutionary');
+      expect(content).not.toContain('game' + '-' + 'changing');
+    });
+
+    it('should have proper data-testid attributes', () => {
+      const expectedTestIds = [
+        'section-hero',
+        'text-overline',
+        'text-hero-heading',
+        'text-hero-body',
+        'section-form',
+      ];
+      
+      expectedTestIds.forEach(testId => {
+        expect(content).toContain(`data-testid="${testId}"`);
+      });
+    });
+  });
 });

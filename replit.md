@@ -63,8 +63,9 @@ Preferred communication style: Simple, everyday language.
 - **Test Configuration**: `vitest.config.ts` configures jsdom environment, path aliases, and coverage reporting
 - **Test Setup**: `client/src/test/setup.ts` provides mocks for window.matchMedia, scrollTo, and wouter routing
 - **Test Suites**:
-  - `client/src/test/brand-compliance.test.ts`: Brand lint validation, domain label checks, disclaimer presence, six-stage runway verification
+  - `client/src/test/brand-compliance.test.ts`: Brand lint validation, domain label checks, disclaimer presence, six-stage runway verification, page-specific v3.0 compliance tests for all major pages
   - `client/src/test/components.test.tsx`: Component rendering tests for PageMeta, NextStepBlock, and data-testid convention validation
+- **Test Count**: 103 passing tests as of December 2024
 - **Running Tests**: `npx vitest run` for single run, `npx vitest` for watch mode, `npx vitest run --coverage` for coverage report
 - **Coverage**: V8 provider with text, json, and html reporters; covers all `client/src/**/*.{ts,tsx}` files
 
@@ -72,10 +73,12 @@ Preferred communication style: Simple, everyday language.
 - **Legacy Names Removed**: Stackme venture deleted, Axiom references replaced with Lumina
 - **Domain Mappings**: Truth (Lumina), Capital (Helios), Dignity (Uniqueness Engine)
 - **studio.ts Updated**: Pillars array uses Truth/Capital/Dignity; "Seek the Signal" replaced with "Anchor to Evidence"
-- **PageMeta Compliance**: All 11 pages have exact v3.0 titles/descriptions with em-dash format
+- **PageMeta Compliance**: All pages have exact v3.0 titles/descriptions with em-dash format
 - **Banned Phrases**: No banned phrases remain in client/src per brand lint validation
 - **Canonical Purpose/Vision/Mission Pages**: Updated with exact v3.0 canonical headings:
   - Purpose: "To democratize institutional-grade leverage." (explicit exception for "democratize" per spec directive)
   - Vision: "A future where 'trust' is an engineered feature, not a gamble."
   - Mission: "We engineer the infrastructure of verifiable autonomy."
 - **Page Structure**: Each page now includes hero, "what this means", Truth/Capital/Dignity domain mapping, and disclaimer sections
+- **Connect Page**: Updated to v3.0 Architect/Judge voice with precise, non-hype copy
+- **Ventures Index Page**: Added "Three questions, three proof points" section with v3.0 domain labels
