@@ -96,4 +96,12 @@ Preferred communication style: Simple, everyday language.
   - Heading: "This page isn't wired up."
   - Calm, architectural tone with two-paragraph explanation
   - Navigation: "Go to overview", "Explore ventures", "See how we build"
-- **Test Count**: 112 passing tests as of December 2024
+- **Standards Page v3.0 Polish** (December 2024):
+  - PageMeta: title="Standards & Guardrails", description on guardrails/limits/stewards
+  - Hero: "Standards and guardrails for verifiable systems." with "Standards · Governance" overline
+  - "What these standards are for" section on preventing silent failure
+  - "Core dimensions of our standards" with 4 cards: Limits, Stewards, Evidence, Escalation
+  - "How standards relate to Truth, Capital, and Dignity" section with exact v3.0 copy
+  - "Internal-first, not advice" disclaimer section
+  - NextStepBlock points to /insights with v3.0 copy
+- **Test Count**: 113 passing tests as of December 2024

@@ -1,0 +1,229 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Do a final **polish pass on the Standards / Governance page** so it becomes the clear, formal reference for:
+
+- How VSG thinks about **guardrails, limits, stewards, and evidence**.
+- How standards relate to **Truth, Capital, and Dignity** without leaking internal mechanics.
+- The Architect/Judge voice (precise, sober, ethics-forward, low-hype).
+- The “internal-first, non-custodial, not-advice” stance.
+
+Do NOT:
+
+- Change page routing or layout primitives.
+- Add/remove major sections or components.
+- Expose internal wiring, thresholds, protocols, wallet or bank details.
+
+Only update user-facing text (headings, paragraphs, helper copy) in the **Standards page** and any small local data arrays it uses.
+
+--------------------------------------------------
+1) Locate the Standards / Governance page
+--------------------------------------------------
+
+Find the React component that renders the **Standards** route, for example:
+
+- client/src/pages/Standards.tsx
+
+or whichever component is mapped to "/standards" in client/src/App.tsx.
+
+All changes below apply to that file and any small, page-local data structures it uses (e.g., arrays for cards or bullets).
+
+--------------------------------------------------
+2) PageMeta – precise, sober description
+--------------------------------------------------
+
+In the Standards page component, locate the `<PageMeta>` (or equivalent) and set:
+
+- title:
+    "Standards & Guardrails"
+- description:
+    "How Verifiable Systems Group defines guardrails, limits, and stewards for verifiable systems—before they touch real value or real people."
+
+Keep `preloadImage` or other props as they are.
+
+--------------------------------------------------
+3) Hero section – spec-like, not salesy
+--------------------------------------------------
+
+In the main hero of the Standards page:
+
+3.1 Overline
+
+Set the small overline to:
+
+  "Standards · Governance"
+
+3.2 Heading
+
+Set the main `<h1>` to:
+
+  "Standards and guardrails for verifiable systems."
+
+3.3 Hero body (2 tight paragraphs)
+
+Replace the hero body text with:
+
+Paragraph 1 (~35–50 words):
+
+  "This is where we define what must be true before our systems touch real value or real people. Standards set the guardrails: how risk is bounded, who is responsible, what must be logged, and what has to fail closed when something goes wrong."
+
+Paragraph 2 (~25–35 words):
+
+  "We run these standards on our own systems first. They do not describe public offers, funds, or advice—they describe the expectations we place on anything that claims to answer questions of Truth, Capital, or Dignity."
+
+No exclamation points. Keep existing layout/classes intact.
+
+--------------------------------------------------
+4) Section: “What standards are for”
+--------------------------------------------------
+
+Find the first explanatory section after the hero (often a heading + paragraph + maybe a few cards). If there isn’t one, repurpose the closest “intro” section.
+
+4.1 Section heading
+
+Set heading text to:
+
+  "What these standards are for"
+
+4.2 Body paragraph (~50–70 words)
+
+Replace existing copy with:
+
+  "Our standards exist to prevent silent failure. They define how we bound risk, name stewards, and require evidence before and after systems go live. They are not meant to impress regulators or investors—they exist so we can explain, in plain language, how a system is supposed to behave when markets are calm, stressed, or failing."
+
+Keep to one paragraph.
+
+--------------------------------------------------
+5) Section: “Core dimensions” – Limits, Stewards, Evidence, Escalation
+--------------------------------------------------
+
+If the page has a grid or card section describing aspects of standards, reuse that structure and set four cards (or adapt to however many cards exist). Do not add new components; just update titles and body copy.
+
+Section heading:
+
+  "Core dimensions of our standards"
+
+If there is an intro sentence, use:
+
+  "Every standard we care about fits into a small set of dimensions. Together they define how we bound behavior instead of just trusting intent."
+
+Then configure the cards like this (adjust field names to match your current `const items = [...]` or similar):
+
+Card 1 – Limits
+- Title:
+    "Limits"
+- Body:
+    "We set explicit limits before systems touch real value or people. Limits may cover scale, depth, or exposure, and they must be testable, observable, and enforceable—not aspirational."
+
+Card 2 – Stewards
+- Title:
+    "Stewards"
+- Body:
+    "Every system has named stewards—roles, not personalities—responsible for approving changes, monitoring behavior, and triggering rollback procedures when something crosses a boundary."
+
+Card 3 – Evidence
+- Title:
+    "Evidence"
+- Body:
+    "Claims about a system’s behavior must be backed by evidence: logs, traces, or records that can be inspected and, where appropriate, replayed. If we can’t show it, we don’t assert it."
+
+Card 4 – Escalation
+- Title:
+    "Escalation"
+- Body:
+    "When something breaks or drifts, we expect clear paths for escalation and rollback. Escalation is not a failure of design; silence in the face of a problem is."
+
+If your layout only supports three cards, drop the one that conflicts with your existing structure the most and keep the three that map best. Preserve icons and visual styles; only change text.
+
+--------------------------------------------------
+6) Section: “How standards relate to Truth, Capital, and Dignity”
+--------------------------------------------------
+
+If there is a section that currently mentions Signal/Value/Human or “pillars”, repurpose it. Otherwise, use the closest section that talks about “domains” or “pillars.”
+
+Section heading:
+
+  "How standards relate to Truth, Capital, and Dignity"
+
+Section body (single paragraph, ~60–80 words):
+
+  "We use standards to keep our work honest to the three questions that organize the studio. For Truth, that means evidence and provenance instead of unverified feeds. For Capital, it means exposure under constraints instead of drift. For Dignity, it means participation without overexposure, with clear limits on what data systems can demand from people."
+
+No bullets needed unless your existing layout requires them. If it already has a 3-row layout, you can convert to three small subpoints instead:
+
+- Truth: evidence and provenance.
+- Capital: constrained exposure.
+- Dignity: participation without overexposure.
+
+But keep the wording above as close as possible.
+
+--------------------------------------------------
+7) Section: “Internal-first, not advice” disclaimer
+--------------------------------------------------
+
+Near the bottom of the Standards page (above any NextStepBlock), add or refine a **short disclaimer block** using existing muted text styles.
+
+Heading (if the layout supports a small heading):
+
+  "Internal-first, not advice"
+
+Body paragraph (~35–50 words):
+
+  "These standards describe how we run our own systems and how we expect our ventures to behave under stress. They are not investment, legal, or tax advice, and they do not describe a public fund or offering. They exist to make our own guardrails inspectable."
+
+If a disclaimer already exists, merge this language into it and remove redundant or confusing lines.
+
+--------------------------------------------------
+8) Bottom CTA / Next step
+--------------------------------------------------
+
+At the very bottom of `Standards.tsx`, you already have a `<NextStepBlock>` configured to point at `/insights`. Keep the href but refine the copy.
+
+Set it to:
+
+  <NextStepBlock
+    nextPage="Insights"
+    description="See how these standards hold up in the field—drills, post-mortems, and notes from running our own systems."
+    href="/insights"
+  />
+
+If your component uses different prop names, adapt labels accordingly but keep the wording.
+
+--------------------------------------------------
+9) Hygiene & brand checks for Standards
+--------------------------------------------------
+
+Within `Standards.tsx`:
+
+1) Ensure there are **no** occurrences of:
+   - "Signal", "Value", "Human" as domain names or pillars.
+   - "validate the signal".
+   - "AI-powered", "revolutionary", "disruptive", "game-changing".
+   - "StackMe", "Stackme Holdings", "Stackme app", "VSP".
+   - "the human" as a noun; prefer “people” or “participants” or “personhood/dignity”.
+
+2) Ensure:
+   - Tone is formal, precise, sober—this page should feel closest to a spec sheet with ethics.
+   - It’s clear that standards are applied to VSG’s own systems first.
+   - There is no text that could be misread as a fund offering, yield promise, or regulatory guarantee.
+
+3) Warmth:
+   - Minimal. No more than one “you shouldn’t have to…”-style line on this page, if any.
+   - Focus on clarity and accountability, not persuasion.
+
+--------------------------------------------------
+10) Final checks
+--------------------------------------------------
+
+After edits:
+
+1) Ensure `Standards.tsx` compiles with no TypeScript/JSX errors.
+2) Run the dev server and visit `/standards`:
+   - Hero heading and body feel aligned with Overview, Ventures, and Approach.
+   - Core dimensions (Limits, Stewards, Evidence, Escalation) are clearly described.
+   - Truth / Capital / Dignity relationship is explained once, clearly.
+   - Internal-first, not-advice disclaimer is present and readable.
+   - Bottom CTA points to `/insights` with the updated copy.
+
+Only commit once the Standards page feels like a coherent, formal reference point that matches the rest of the polished site and VSG v3 voice.

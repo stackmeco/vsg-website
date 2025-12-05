@@ -94,25 +94,24 @@ describe('Brand & Voice Compliance', () => {
     });
 
     it('should have correct hero heading', () => {
-      expect(content).toContain('We encode guardrails before we write code.');
+      expect(content).toContain('Standards and guardrails for verifiable systems.');
     });
 
-    it('should have "Why standards exist here" section', () => {
-      expect(content).toContain('Why standards exist here');
-      expect(content).toContain('Prevent quiet drift');
-      expect(content).toContain('Name stewards and limits');
-      expect(content).toContain('Make behavior inspectable');
+    it('should have "What these standards are for" section', () => {
+      expect(content).toContain('What these standards are for');
+      expect(content).toContain('prevent silent failure');
     });
 
-    it('should have "What our standards cover" section with Truth/Capital/Dignity', () => {
-      expect(content).toContain('What our standards cover');
-      expect(content).toContain('Truth standards');
-      expect(content).toContain('Capital standards');
-      expect(content).toContain('Dignity standards');
+    it('should have "Core dimensions of our standards" section', () => {
+      expect(content).toContain('Core dimensions of our standards');
+      expect(content).toContain('Limits');
+      expect(content).toContain('Stewards');
+      expect(content).toContain('Evidence');
+      expect(content).toContain('Escalation');
     });
 
-    it('should have "Standards and the three questions" section', () => {
-      expect(content).toContain('Standards and the three questions');
+    it('should have "How standards relate to Truth, Capital, and Dignity" section', () => {
+      expect(content).toContain('How standards relate to Truth, Capital, and Dignity');
     });
 
     it('should have "How standards show up in ventures" section', () => {
@@ -136,7 +135,7 @@ describe('Brand & Voice Compliance', () => {
     });
 
     it('should have proper disclaimer', () => {
-      expect(content).toContain('not investment, legal, tax, or compliance advice');
+      expect(content).toContain('not investment, legal, or tax advice');
     });
 
     it('should have cross-links to ventures, approach, and insights', () => {
@@ -145,15 +144,21 @@ describe('Brand & Voice Compliance', () => {
       expect(content).toContain('href="/insights"');
     });
 
+    it('should have Internal-first, not advice disclaimer section', () => {
+      expect(content).toContain('Internal-first, not advice');
+      expect(content).toContain('make our own guardrails inspectable');
+    });
+
     it('should have proper data-testid attributes for key sections', () => {
       const expectedTestIds = [
         'section-hero',
         'section-why-standards',
-        'section-what-standards-cover',
+        'section-core-dimensions',
         'section-three-questions',
         'section-ventures',
         'section-ai-standards',
         'section-is-not',
+        'section-disclaimer',
         'section-cross-links',
       ];
       

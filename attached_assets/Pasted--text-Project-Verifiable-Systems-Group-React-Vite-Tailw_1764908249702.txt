@@ -1,0 +1,239 @@
+```text
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Do a focused **final polish on the Values / Principles page** so it:
+
+- Clearly expresses VSG’s six operating values in public-safe language.
+- Aligns with VSG Brand & Voice System v3.0 and the Truth · Capital · Dignity framing.
+- Uses the Architect/Judge voice (precise, infrastructural, low-hype).
+- Avoids creepy or legacy phrasing (no “validate the signal”, no “the human”).
+
+Do NOT:
+
+- Change routing or add/remove major sections.
+- Change layout primitives or card/grid structure.
+- Expose internal mechanics (no LTVs, wallet wiring, thresholds, etc.).
+
+Only update user-facing text and any local data arrays driving the values grid/list.
+
+--------------------------------------------------
+1) Locate the Values / Principles page
+--------------------------------------------------
+
+Find the component that renders VSG’s values/principles, e.g.:
+
+- client/src/pages/Values.tsx
+- client/src/pages/Principles.tsx
+- client/src/pages/Culture.tsx
+
+or similar. It will typically be the page linked as “Values”, “Principles”, or “How we operate” in the nav or footer.
+
+All edits below apply to that file and any local `const values = [...]` / `const principles = [...]` arrays it uses.
+
+--------------------------------------------------
+2) PageMeta – make it explicit and sober
+--------------------------------------------------
+
+In this page’s component, locate the <PageMeta> (or equivalent) and set:
+
+- title:
+    "Values & Operating Code"
+- description:
+    "The values that guide how Verifiable Systems Group designs, ships, and governs verifiable systems—how we decide what to build, what to decline, and how we respond when things break."
+
+Keep preloadImage or other props unchanged.
+
+--------------------------------------------------
+3) Hero section – “How we operate”
+--------------------------------------------------
+
+In the hero section for this page:
+
+3.1 Overline
+
+Set the small overline (if present) to:
+
+  "Values · Operating Code"
+
+3.2 Heading
+
+Set the main <h1> to:
+
+  "How we operate when it actually matters."
+
+3.3 Body copy (2 short paragraphs)
+
+Replace the hero body text with:
+
+Paragraph 1 (~35–50 words):
+
+  "Values here are not slogans. They describe how we behave when systems are under stress, when incentives are misaligned, or when something fails. They shape how we design, what we refuse to ship, and how we decide whether a venture should exist at all."
+
+Paragraph 2 (~25–35 words):
+
+  "These six values keep us honest to our core questions about Truth, Capital, and Dignity. They are written so you can hold us to them."
+
+No exclamation points. Keep layout and classes identical.
+
+--------------------------------------------------
+4) Values grid – define the six clearly
+--------------------------------------------------
+
+This page likely has a grid or list of values (cards or stacked sections). Reuse that layout and ensure it exposes **six** values:
+
+1) Intelligence Augmented  
+2) Seek the Signal  
+3) Engineered Ambition  
+4) Own the Engine  
+5) Value is a Mirror  
+6) Force Multiplier  
+
+Find the data structure that drives these cards, e.g.:
+
+- `const values = [...]` inside the page; or
+- an imported array from a small data file.
+
+Update the text fields only (name/title, short label, description).
+
+For each value, set:
+
+4.1 Intelligence Augmented (IA)
+
+- Title:
+    "Intelligence Augmented"
+- Short label / meta (if used):
+    "Let the machine compute. Let the human connect."
+- Body (2–3 sentences max):
+
+    "We are AI-native, not AI-dependent. Machines handle speed, volume, and patterning; people define mandates, constraints, and ethics. No fully autonomous loops on critical paths—there is always a human veto, and the system makes that veto easy to exercise."
+
+4.2 Seek the Signal
+
+- Title:
+    "Seek the Signal"
+- Short label / meta:
+    "Verify, then trust."
+- Body:
+
+    "We care about evidence, not vibes. Claims in our systems must trace back to verifiable records—provenance trails, logs, or proofs that can be inspected. We replace “we believe” with “we can show,” and we design so others can check us."
+
+(Important: do NOT use the phrase “validate the signal” anywhere; keep this exact wording.)
+
+4.3 Engineered Ambition
+
+- Title:
+    "Engineered Ambition"
+- Short label / meta:
+    "Dream in decades, execute in milliseconds."
+- Body:
+
+    "We go after structural problems, but we don’t gamble. Ambition is paired with guardrails: simulations, phased rollouts, and explicit rollback paths. Speed is allowed only where we can observe, reverse, and learn without hiding the cost."
+
+4.4 Own the Engine
+
+- Title:
+    "Own the Engine"
+- Short label / meta:
+    "Master the mechanics to rewrite the rules."
+- Body:
+
+    "If we depend on a system, we must understand how it behaves when things break. We avoid black boxes, document failure modes, and treat dependency as responsibility. We’d rather own fewer systems deeply than rent many we can’t explain."
+
+4.5 Value is a Mirror
+
+- Title:
+    "Value is a Mirror"
+- Short label / meta:
+    "Serve first, succeed second."
+- Body:
+
+    "Our upside comes from running better rails, not trapping users. We avoid extractive models that rely on confusion or lock-in. Incentives must mirror outcomes: if someone’s leverage, safety, or dignity decrease, we don’t get paid more for that."
+
+4.6 Force Multiplier
+
+- Title:
+    "Force Multiplier"
+- Short label / meta:
+    "Level the playing field."
+- Body:
+
+    "The world is tilted toward incumbents by default. We build tools so individuals and small teams can access institutional-grade leverage without becoming institutions themselves. Our work should increase access, not just amplify those who already hold power."
+
+Keep each description to 2–3 sentences so cards stay scannable.
+
+--------------------------------------------------
+5) Optional section: “How values show up in decisions”
+--------------------------------------------------
+
+If the page currently has a section describing “how we work” or “how this shows up day-to-day”, reuse its layout and tighten the copy.
+
+Section heading:
+
+  "How these values show up in decisions"
+
+Body paragraph (~55–75 words):
+
+  "These values are not wall art. They show up when we decide whether to launch a venture, how we respond to a near miss, and when we choose to shut something down. Intelligence Augmented and Seek the Signal govern how we use AI and data. Engineered Ambition and Own the Engine shape our architecture. Value is a Mirror and Force Multiplier guide who benefits—and who we’re building for."
+
+No bullets required unless the existing layout expects them.
+
+--------------------------------------------------
+6) Hygiene: kill legacy / creepy phrasing on this page
+--------------------------------------------------
+
+Within this Values/Principles component (and any local data arrays it uses):
+
+1) Ensure there are **no**:
+
+   - Mentions of “Signal, Value, Human” as domain/pillar names.
+   - Phrases like “validate the signal”.
+   - References to "the human" as a noun (use “people”, “participants”, “personhood/dignity”).
+   - “AI-powered platform”, “revolutionary”, “disruptive”, “game-changing”.
+   - Old brand names: "StackMe", "Stackme Holdings", "Stackme app", "VSP".
+
+2) Ensure tone is:
+
+   - Calm, architectural, declarative.
+   - Ethics-forward but not preachy.
+   - No jokes, memes, or emojis.
+
+3) Ensure:
+
+   - Values text is consistent with the v3 brand doc but written for a public audience (no internal-only details like specific channels, LTV numbers, or protocol names).
+   - At most one warm/pain line, if any, and only where it serves clarity (e.g., a single “You shouldn’t have to…” sentence, if already present and on-voice).
+
+--------------------------------------------------
+7) Bottom CTA / Next step
+--------------------------------------------------
+
+At the bottom of this page, if there is a call-to-action (often using <NextStepBlock>), configure it so the next logical step flows into *how* these values are expressed in systems.
+
+Set it to:
+
+  <NextStepBlock
+    nextPage="Approach"
+    description="See how these values turn into concrete decisions in our six-stage runway from concept to governed systems."
+    href="/approach"
+  />
+
+If your component uses different prop names, adapt them, but keep the strings as close as possible.
+
+If a NextStepBlock already points to another route and is clearly correct in your site’s overall flow, keep the href but update the copy to this wording.
+
+--------------------------------------------------
+8) Final checks
+--------------------------------------------------
+
+After edits:
+
+1) Ensure the Values/Principles page compiles with no TypeScript/JSX errors.
+2) Run the dev server and visit that route:
+   - Hero clearly states what this page is about.
+   - Six values are present with the updated titles and descriptions.
+   - No creepy phrasing (“the human”), no “validate the signal”, no old brands.
+   - Tone aligns with Overview, Ventures, Standards, Approach, and Process.
+
+Only commit once this page feels like a clean, public-safe representation of your operating code that matches VSG v3 voice.
+```
