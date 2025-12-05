@@ -26,11 +26,17 @@ export default function Contact() {
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" aria-hidden="true" />
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6">
-              Let's Build the Future.
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
+              Connect
+            </p>
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl text-foreground leading-tight tracking-tight mb-6" data-testid="text-hero-heading">
+              Tell us what you're trying to verify, protect, or build.
             </h1>
-            <p className="text-lg text-foreground leading-relaxed">
-              We are actively seeking partners who share our rigorous approach. Every inquiry is reviewed by our founding team.
+            <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-hero-body">
+              We take on a limited number of external conversations and prioritize work where verifiable autonomy matters. Every inquiry is reviewed by the founding team.
+            </p>
+            <p className="text-sm text-muted-foreground/80 leading-relaxed" data-testid="text-hero-secondary">
+              If your problem involves Truth, Capital, or Dignity—and you value evidence over narratives—we'd like to hear from you.
             </p>
           </div>
         </div>
