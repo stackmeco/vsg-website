@@ -1,0 +1,85 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal
+
+Ensure Purpose, Vision, and Mission are:
+
+- Canonical, using the v3 Brand & Voice text.
+- Clearly presented on `/studio` in a dedicated section.
+- Addressable via deep links: `/studio#purpose`, `/studio#vision`, `/studio#mission`.
+- NOT duplicated as separate top-level routes.
+
+Do NOT:
+- Add new routes for `/purpose`, `/vision`, `/mission`.
+- Change global theming.
+
+--------------------------------------------------
+1) Locate Studio page
+--------------------------------------------------
+
+- Find the Studio page component (e.g., `client/src/pages/Studio.tsx` or similar).
+- Confirm Studio is mapped to `/studio` in `client/src/App.tsx`.
+
+--------------------------------------------------
+2) Add / update P/V/M section
+--------------------------------------------------
+
+Inside the Studio component, add or refine a section with a clear container and heading, for example:
+
+  <section id="pvm" ...>
+
+Use heading:
+
+  "Purpose, Vision, Mission"
+
+Inside that section, create three sub-blocks, each with its own `id` for anchoring:
+
+  <div id="purpose">...</div>
+  <div id="vision">...</div>
+  <div id="mission">...</div>
+
+Each block:
+
+- Purpose:
+  - Label: "Purpose — Why we exist"
+  - Canonical line (exact from v3 doc):
+    "To democratize institutional-grade leverage."
+  - Supporting sentence(s) summarizing from v3 (keep it tight).
+
+- Vision:
+  - Label: "Vision — The world we want"
+  - Canonical line:
+    "A future where “trust” is an engineered feature, not a gamble."
+  - Supporting sentence(s) from v3.
+
+- Mission:
+  - Label: "Mission — What we do"
+  - Canonical line:
+    "We engineer the infrastructure of verifiable autonomy."
+  - Supporting sentence(s) from v3.
+
+Use existing typography classes (e.g., small caps label, bolder line, muted support text).
+
+--------------------------------------------------
+3) Add internal deep links (optional)
+--------------------------------------------------
+
+If there is a "quick links" area on Studio or elsewhere, ensure you can link to:
+
+- `/studio#purpose`
+- `/studio#vision`
+- `/studio#mission`
+
+Do not add separate routes.
+
+--------------------------------------------------
+4) Hygiene
+--------------------------------------------------
+
+- Make sure P/V/M wording exactly matches Brand & Voice v3.0 where specified as canonical.
+- Avoid any old “Signal / Value / Human” references in this section.
+- Ensure no hype language; keep it architectural and clear.
+
+Run dev, visit `/studio`, and verify:
+- P/V/M is easy to find and scan.
+- Anchors work in the browser.

@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeAll } from 'vitest';
 import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
@@ -1534,6 +1534,78 @@ describe('Brand & Voice Compliance', () => {
       expect(content).not.toContain('ventureSteps');
       expect(content).not.toContain('howWeOperate');
       expect(content).not.toContain('whatWeAreNot');
+    });
+
+    it('should have P/V/M section with anchor IDs for deep linking', () => {
+      expect(content).toContain('id="pvm"');
+      expect(content).toContain('id={item.label.toLowerCase()}');
+    });
+
+    it('should have P/V/M anchors with proper test IDs', () => {
+      expect(content).toContain('data-testid={`anchor-${item.label.toLowerCase()}`}');
+    });
+
+    it('should have P/V/M labels with sublabels per v3.0 spec', () => {
+      expect(content).toContain('"Purpose" ? "Why we exist"');
+      expect(content).toContain('"Vision" ? "The world we want"');
+      expect(content).toContain(': "What we do"');
+    });
+
+    it('should have scroll-mt offset for anchor navigation', () => {
+      expect(content).toContain('scroll-mt-24');
+    });
+  });
+
+  describe('P/V/M anchors in navigation and data files', () => {
+    it('should have P/V/M anchor links in navigation.ts', () => {
+      const navPath = path.join(process.cwd(), 'client/src/config/navigation.ts');
+      const content = fs.readFileSync(navPath, 'utf-8');
+      
+      expect(content).toContain('/studio#purpose');
+      expect(content).toContain('/studio#vision');
+      expect(content).toContain('/studio#mission');
+      expect(content).not.toContain('/studio/purpose');
+      expect(content).not.toContain('/studio/vision');
+      expect(content).not.toContain('/studio/mission');
+    });
+
+    it('should have P/V/M anchor links in studio.ts data', () => {
+      const studioPath = path.join(process.cwd(), 'client/src/data/studio.ts');
+      const content = fs.readFileSync(studioPath, 'utf-8');
+      
+      expect(content).toContain('/studio#purpose');
+      expect(content).toContain('/studio#vision');
+      expect(content).toContain('/studio#mission');
+    });
+
+    it('should have P/V/M anchor links in searchIndex.ts', () => {
+      const searchPath = path.join(process.cwd(), 'client/src/data/searchIndex.ts');
+      const content = fs.readFileSync(searchPath, 'utf-8');
+      
+      expect(content).toContain('/studio#purpose');
+      expect(content).toContain('/studio#vision');
+      expect(content).toContain('/studio#mission');
+    });
+
+    it('should NOT have separate P/V/M routes in App.tsx', () => {
+      const appPath = path.join(process.cwd(), 'client/src/App.tsx');
+      const content = fs.readFileSync(appPath, 'utf-8');
+      
+      expect(content).not.toContain('/studio/purpose');
+      expect(content).not.toContain('/studio/vision');
+      expect(content).not.toContain('/studio/mission');
+      expect(content).not.toContain('PurposePage');
+      expect(content).not.toContain('VisionPage');
+      expect(content).not.toContain('MissionPage');
+    });
+
+    it('should NOT have separate Purpose.tsx, Vision.tsx, Mission.tsx files', () => {
+      const studioDir = path.join(process.cwd(), 'client/src/pages/studio');
+      const files = fs.readdirSync(studioDir);
+      
+      expect(files).not.toContain('Purpose.tsx');
+      expect(files).not.toContain('Vision.tsx');
+      expect(files).not.toContain('Mission.tsx');
     });
   });
 });

@@ -24,19 +24,19 @@ export const pvm = [
     id: "purpose",
     label: "Purpose",
     tldr: "Democratize institutional-grade leverage.",
-    href: "/studio/purpose",
+    href: "/studio#purpose",
   },
   {
     id: "vision",
     label: "Vision",
     tldr: "A future where trust is an engineered feature, not a gamble.",
-    href: "/studio/vision",
+    href: "/studio#vision",
   },
   {
     id: "mission",
     label: "Mission",
     tldr: "We engineer the infrastructure of verifiable autonomy.",
-    href: "/studio/mission",
+    href: "/studio#mission",
   },
 ] as const;
 

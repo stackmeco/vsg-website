@@ -186,7 +186,7 @@ export default function Studio() {
       </section>
 
       {/* Purpose, Vision, Mission */}
-      <section className="py-20" data-testid="section-pvm">
+      <section id="pvm" className="py-20" data-testid="section-pvm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-pvm">
@@ -198,23 +198,29 @@ export default function Studio() {
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {pvm.map((item) => (
-              <Card
+              <div
                 key={item.label}
-                className="flex flex-col justify-between bg-card/60 border-border backdrop-blur"
-                data-testid={`card-pvm-${item.label.toLowerCase()}`}
+                id={item.label.toLowerCase()}
+                className="scroll-mt-24"
+                data-testid={`anchor-${item.label.toLowerCase()}`}
               >
-                <CardContent className="p-6 space-y-3">
-                  <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground" data-testid={`label-pvm-${item.label.toLowerCase()}`}>
-                    {item.label}
-                  </p>
-                  <h3 className="text-sm font-semibold tracking-tight sm:text-base text-foreground" data-testid={`line-pvm-${item.label.toLowerCase()}`}>
-                    {item.line}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {item.description}
-                  </p>
-                </CardContent>
-              </Card>
+                <Card
+                  className="flex flex-col justify-between h-full bg-card/60 border-border backdrop-blur"
+                  data-testid={`card-pvm-${item.label.toLowerCase()}`}
+                >
+                  <CardContent className="p-6 space-y-3">
+                    <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground" data-testid={`label-pvm-${item.label.toLowerCase()}`}>
+                      {item.label} — {item.label === "Purpose" ? "Why we exist" : item.label === "Vision" ? "The world we want" : "What we do"}
+                    </p>
+                    <h3 className="text-sm font-semibold tracking-tight sm:text-base text-foreground" data-testid={`line-pvm-${item.label.toLowerCase()}`}>
+                      {item.line}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
             ))}
           </div>
         </div>

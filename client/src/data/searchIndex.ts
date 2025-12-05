@@ -141,7 +141,7 @@ const pageEntries: SearchEntry[] = [
     id: "page-purpose", 
     name: "Purpose", 
     description: "Why VSG exists",
-    href: "/studio/purpose", 
+    href: "/studio#purpose", 
     icon: Target, 
     keywords: ["purpose", "why", "reason", "mission"],
     group: "pages"
@@ -150,7 +150,7 @@ const pageEntries: SearchEntry[] = [
     id: "page-vision", 
     name: "Vision", 
     description: "Where we're heading",
-    href: "/studio/vision", 
+    href: "/studio#vision", 
     icon: Eye, 
     keywords: ["vision", "future", "direction", "goals"],
     group: "pages"
@@ -159,7 +159,7 @@ const pageEntries: SearchEntry[] = [
     id: "page-mission", 
     name: "Mission", 
     description: "What we do every day",
-    href: "/studio/mission", 
+    href: "/studio#mission", 
     icon: Compass, 
     keywords: ["mission", "daily", "work", "actions"],
     group: "pages"

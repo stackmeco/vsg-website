@@ -27,9 +27,6 @@ const ProcessPage = lazy(() => import("@/pages/Process"));
 const StandardsPage = lazy(() => import("@/pages/Standards"));
 
 const StudioPage = lazy(() => import("@/pages/studio/Studio"));
-const PurposePage = lazy(() => import("@/pages/studio/Purpose"));
-const VisionPage = lazy(() => import("@/pages/studio/Vision"));
-const MissionPage = lazy(() => import("@/pages/studio/Mission"));
 const ValuesPage = lazy(() => import("@/pages/Values"));
 
 function usePreloadPages() {
@@ -103,9 +100,6 @@ function Router() {
         
         {/* Studio */}
         <Route path="/studio" component={StudioPage} />
-        <Route path="/studio/purpose" component={PurposePage} />
-        <Route path="/studio/vision" component={VisionPage} />
-        <Route path="/studio/mission" component={MissionPage} />
         
         {/* Values */}
         <Route path="/values" component={ValuesPage} />

@@ -46,6 +46,14 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+- **P/V/M Anchors on Studio Page** (December 2024):
+  - Added anchor IDs (#purpose, #vision, #mission) to P/V/M section for deep linking
+  - Updated P/V/M labels with sublabels per v3.0 spec (Purpose — Why we exist, etc.)
+  - Removed separate /studio/purpose, /studio/vision, /studio/mission routes
+  - Deleted Purpose.tsx, Vision.tsx, Mission.tsx files
+  - Updated navigation.ts, studio.ts, searchIndex.ts to use anchor links
+  - Added 9 new tests for P/V/M anchors and route cleanup
+  - 266 passing tests as of December 2024
 - **Helios Page v3.0 Polish** (December 2024):
   - PageMeta: title="Helios", description on internal execution engine for digital asset treasury
   - Hero: "Helios: governed capital under constraints." with "Capital · Internal treasury engine" overline

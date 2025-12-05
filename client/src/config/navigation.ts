@@ -45,9 +45,9 @@ export const NAV_ITEMS: NavItem[] = [
     href: "/studio",
     children: [
       { label: "Studio", href: "/studio", description: "The VSG innovation engine." },
-      { label: "Purpose", href: "/studio/purpose", description: "Why we exist." },
-      { label: "Vision", href: "/studio/vision", description: "Where we're heading." },
-      { label: "Mission", href: "/studio/mission", description: "What we do every day." },
+      { label: "Purpose", href: "/studio#purpose", description: "Why we exist." },
+      { label: "Vision", href: "/studio#vision", description: "Where we're heading." },
+      { label: "Mission", href: "/studio#mission", description: "What we do every day." },
     ],
   },
   {
