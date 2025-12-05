@@ -1,0 +1,298 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Standards / Governance page** fully in line with:
+
+- VSG Brand & Voice System v3.0
+- The Truth · Capital · Dignity model
+- The Architect/Judge voice (formal, precise, sober)
+- The internal-first, AI-native, non-custodial stance
+
+This page should:
+
+- Explain **why standards exist** at VSG and what they cover.
+- Show how standards govern ventures, internal systems, and experiments.
+- Tie standards explicitly to **Truth, Capital, and Dignity**.
+- Clarify how we use AI inside standards (monitoring, logs, escalation).
+- Clarify what these standards are / are not (internal framework, not legal advice).
+- Connect clearly to `/approach`, `/ventures`, `/process`, and `/insights`.
+
+Do NOT change global theming, layout primitives, or add/remove routes. Only update copy, labels, and any local data structures in the **Standards** page file.
+
+--------------------------------------------------
+1) Locate the Standards page
+--------------------------------------------------
+
+Find the component rendered for the “Standards” route, for example:
+
+- client/src/pages/Standards.tsx
+
+or whatever file is used for the `/standards` route and linked as “Standards” or “Governance” in the main nav.
+
+All changes below apply only inside this Standards page file.
+
+--------------------------------------------------
+2) Update the hero section
+--------------------------------------------------
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only the strings and hrefs.
+
+Overline:
+  "Standards"
+
+Heading:
+  "We encode guardrails before we write code."
+
+Body paragraph:
+  "Our standards define what systems at VSG are allowed to do with truth, capital, and people’s time and data. They describe limits, stewards, and logs up front so ventures cannot drift into behaviors that look attractive on paper but fail the three questions in practice."
+
+If the hero supports a small secondary line, set it to:
+
+  "Every venture, internal tool, and experiment has to clear these guardrails before it touches our balance sheet or anyone else’s decisions."
+
+Hero CTAs:
+
+- Primary CTA:
+  Label: "See how we work"
+  href: "/approach"
+
+- Secondary CTA (if present):
+  Label: "Explore ventures"
+  href: "/ventures"
+
+Do not change hero layout, background, or component types.
+
+--------------------------------------------------
+3) Section: “Why standards exist here”
+--------------------------------------------------
+
+Section heading:
+  "Why standards exist here"
+
+Body paragraph:
+  "We have felt what happens when guardrails are implicit instead of explicit: risk accumulates quietly, incentives drift, and people are forced to trust systems they cannot inspect. Our standards exist to make the constraints visible and binding long before anyone writes a line of integration code."
+
+If layout supports bullets or mini-cards, configure three:
+
+Card 1:
+  Title:
+    "Prevent quiet drift"
+  Text:
+    "Standards define what cannot happen, not just what would be nice to happen. They keep systems from gradually bending toward convenience or yield at the expense of resilience and dignity."
+
+Card 2:
+  Title:
+    "Name stewards and limits"
+  Text:
+    "Every critical system has named roles, decision rights, and hard boundaries. If no one is clearly responsible—or if the limits are unclear—the design is not ready."
+
+Card 3:
+  Title:
+    "Make behavior inspectable"
+  Text:
+    "Standards specify how behaviors are logged, reviewed, and challenged. If we cannot trace why something happened, we treat that as a failure of the design, not of the user."
+
+--------------------------------------------------
+4) Section: “What our standards cover”
+--------------------------------------------------
+
+Section heading:
+  "What our standards cover"
+
+Intro paragraph:
+  "Standards at VSG are organized around how systems behave, not around marketing claims. They cover how we handle information, how we move capital, and how we treat participants."
+
+Use three high-level groupings (bullets or mini-cards):
+
+Item 1:
+  Title:
+    "Truth standards"
+  Text:
+    "How data is collected, processed, and surfaced. This includes provenance requirements, logging expectations, review paths, and how uncertainty must be exposed instead of hidden."
+
+Item 2:
+  Title:
+    "Capital standards"
+  Text:
+    "How our treasury and financial flows may behave. This includes exposure limits, diversification expectations, stress scenarios, and rules for when activity must halt or step down."
+
+Item 3:
+  Title:
+    "Dignity standards"
+  Text:
+    "How systems may interact with people’s time, data, and identity. This includes what can be asked, what must remain optional, and how to avoid turning participation into surveillance."
+
+Optional muted line beneath:
+
+  "Every major venture or internal system must map to each of these categories before launch."
+
+--------------------------------------------------
+5) Section: “Standards and the three questions”
+--------------------------------------------------
+
+Section heading:
+  "Standards and the three questions"
+
+Intro paragraph:
+  "The three questions—Truth, Capital, and Dignity—are our simplest test. Our standards are the detailed version of those questions, written down and enforced."
+
+Then a three-item format:
+
+Item 1:
+  Label:
+    "Truth"
+  Text:
+    "Standards demand evidence for claims and clear paths to challenge them. We specify what must be logged, how long it is retained, and how reviewers can reconstruct why a system behaved as it did."
+
+Item 2:
+  Label:
+    "Capital"
+  Text:
+    "Standards require that capital flows can be described under normal and stressed conditions. We specify maximum exposures, concentration bands, and triggers for human review or pause."
+
+Item 3:
+  Label:
+    "Dignity"
+  Text:
+    "Standards constrain what systems can ask of people. We specify minimum-disclosure principles, opt-out expectations, and bans on designs that rely on confusing or trapping participants."
+
+--------------------------------------------------
+6) Section: “How standards show up in ventures”
+--------------------------------------------------
+
+Section heading:
+  "How standards show up in ventures"
+
+Body paragraph:
+  "Standards are not a separate binder that no one reads. They are wired into how ventures are scoped, reviewed, and deployed. If a venture cannot be expressed in these terms, it is not ready."
+
+Then give three venture-oriented examples (generic, no promises):
+
+Example 1:
+  Title:
+    "In treasury work"
+  Text:
+    "Before a treasury pattern goes live, we apply capital standards that define what kinds of venues are allowed, how exposure is capped, and how often positions must be reviewed."
+
+Example 2:
+  Title:
+    "In grading flows"
+  Text:
+    "Before a grading pipeline touches real assets, we apply truth standards that define how captures are controlled, which signals count as evidence, and how disagreements are handled."
+
+Example 3:
+  Title:
+    "In uniqueness checks"
+  Text:
+    "Before an identity-related mechanism is piloted, we apply dignity standards that define what can be collected, how it is transformed, and what the participant can later revoke."
+
+Keep language conceptual; do not name specific protocols, partners, or products.
+
+--------------------------------------------------
+7) Section: “How we use AI inside standards”
+--------------------------------------------------
+
+Section heading:
+  "How we use AI inside standards"
+
+Body paragraph:
+  "Our standards assume machine intelligence is watching the system alongside humans. AI is used to surface anomalies, replay scenarios, and flag drift—not to quietly rewrite the rules."
+
+If layout supports bullets or mini-cards, use three:
+
+Card 1:
+  Title:
+    "Monitoring and alerts"
+  Text:
+    "Machine intelligence scans logs and metrics for patterns humans would miss, flagging behaviors that cross defined lines or look meaningfully different from expected baselines."
+
+Card 2:
+  Title:
+    "Simulations and drills"
+  Text:
+    "We use AI to stress-test designs with simulated events and sequences. Standards define which scenarios must be rehearsed and what constitutes a failed drill."
+
+Card 3:
+  Title:
+    "Human veto preserved"
+  Text:
+    "AI may recommend, but it does not have final say. Standards require that critical actions that could materially affect money, access, or reputation remain interceptable by people."
+
+--------------------------------------------------
+8) Section: “What these standards are / are not”
+--------------------------------------------------
+
+Section heading:
+  "What these standards are / are not"
+
+Use a two-column “Are / Are not” pattern if available.
+
+Left side — “Our standards are”:
+- "Internal rules for how we build and run systems on our own balance sheet and infrastructure."
+- "A way to keep Truth, Capital, and Dignity in view even when conditions are noisy."
+- "Living documents that can evolve, but only through explicit review and versioning."
+
+Right side — “Our standards are not”:
+- "Not legal, tax, or compliance advice for anyone else."
+- "Not a promise that specific outcomes, returns, or safeguards will always hold."
+- "Not a replacement for independent review by regulators, counsel, or auditors where those are required."
+
+Muted small-text line beneath:
+
+  "This page describes how we govern our own work. It is not investment, legal, tax, or compliance advice."
+
+--------------------------------------------------
+9) Bottom “Next steps” / cross-links
+--------------------------------------------------
+
+At the bottom of the Standards page (just above any global footer), add a small “next steps” or cross-link row using existing link or button styles, for example:
+
+- Link 1:
+  Label: "See how ventures apply these standards"
+  href: "/ventures"
+
+- Link 2:
+  Label: "Review our approach"
+  href: "/approach"
+
+- Link 3:
+  Label: "Read field notes and updates"
+  href: "/insights"
+
+If the page uses a shared NextStepBlock component instead, configure it approximately as:
+
+- nextPage:
+    "Ventures"
+- description:
+    "See how these standards shape our treasury, grading, and personhood ventures before anything touches other people’s decisions."
+- href:
+    "/ventures"
+
+Do not change the component type or layout; only update props and copy.
+
+--------------------------------------------------
+10) Hygiene & brand checks for the Standards page
+--------------------------------------------------
+
+In the Standards page file only, ensure:
+
+1) There are **no** occurrences of:
+   - The old domains "Signal", "Value", "Human" as domain names.
+   - The phrase "validate the signal".
+   - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents".
+   - "move fast and break things".
+   - "monetize users", "harvest data".
+   - "StackMe", "Stackme Holdings", "Stackme app", or "VSP" as active brand names.
+   - The vague phrase "the human". Prefer: "people", "participants", "teams", "personhood", or "dignity".
+
+2) You do **not**:
+   - Mention specific protocol names, token tickers, bank names, or internal legal-entity wiring.
+   - Promise that standards guarantee specific levels of performance, yield, or protection.
+
+3) You **do**:
+   - Clearly connect standards to Truth, Capital, and Dignity.
+   - Emphasize internal-first, AI-native, non-custodial, governed design.
+   - Maintain the Architect/Judge voice: formal, precise, sober, with minimal but real warmth.
+
+Do not modify other pages or routes in this checkpoint.

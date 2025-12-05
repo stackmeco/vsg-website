@@ -58,6 +58,16 @@ Preferred communication style: Simple, everyday language.
 ### Brand & Voice Tooling
 - **Brand Lint Script**: `scripts/brandLint.js` scans `client/src` for banned phrases from the v3.0 Brand & Voice System. Run with `node scripts/brandLint.js`. Detects deprecated language patterns like "AI-powered", "game-changing", old pillar references ("Signal / Value / Human"), legacy brand names (Stackme, Axiom), and anti-patterns.
 
+### Testing Infrastructure
+- **Testing Framework**: Vitest with React Testing Library for component and integration tests
+- **Test Configuration**: `vitest.config.ts` configures jsdom environment, path aliases, and coverage reporting
+- **Test Setup**: `client/src/test/setup.ts` provides mocks for window.matchMedia, scrollTo, and wouter routing
+- **Test Suites**:
+  - `client/src/test/brand-compliance.test.ts`: Brand lint validation, domain label checks, disclaimer presence, six-stage runway verification
+  - `client/src/test/components.test.tsx`: Component rendering tests for PageMeta, NextStepBlock, and data-testid convention validation
+- **Running Tests**: `npx vitest run` for single run, `npx vitest` for watch mode, `npx vitest run --coverage` for coverage report
+- **Coverage**: V8 provider with text, json, and html reporters; covers all `client/src/**/*.{ts,tsx}` files
+
 ### Brand v3.0 Alignment (December 2024)
 - **Legacy Names Removed**: Stackme venture deleted, Axiom references replaced with Lumina
 - **Domain Mappings**: Truth (Lumina), Capital (Helios), Dignity (Uniqueness Engine)
