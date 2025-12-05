@@ -24,7 +24,14 @@ Preferred communication style: Simple, everyday language.
 - **Rationale**: Start with in-memory for speed, use an interface for seamless database integration later. Drizzle for type-safety, Neon for serverless PostgreSQL.
 
 ### System Design Choices
-- **Navigation**: Enterprise-grade unified navigation system using shadcn NavigationMenu, with a single source of truth in `client/src/config/navigation.ts`. Desktop navigation features hover dropdowns, while mobile uses collapsible accordions.
+- **Navigation**: Enterprise-grade unified navigation system with config-driven architecture:
+  - Single source of truth in `client/src/config/navigation.ts` with key, label, href, description, children fields
+  - Desktop: Hover dropdowns (320px wide) with click/keyboard support, ChevronDown rotation, premium bullet styling
+  - Mobile: Collapsible accordions with CSS transitions (max-h, opacity), touch-friendly 44px min targets
+  - Accessibility: Full keyboard navigation (ArrowUp/Down, Escape, Enter/Space), focus-visible indicators, ARIA attributes
+  - Route aliases: /pillars, /process, /standards redirect to /approach/* equivalents
+  - Styling: INSIGHTS uppercase with 0.2em tracking, CONNECT primary CTA with uppercase
+  - Component: `client/src/components/layout/GlobalNav.tsx` (551 lines, 35 dedicated tests)
 - **Typography**: 15px base with all sizes proportional via rem. Semantic tokens (`text-telemetry`, `text-eyebrow`, `text-caption`, `text-body`, `text-body-lg`) ensure consistent scaling.
 - **Performance**: Lazy loading for audio, image preloading for hero textures to prevent flashes, and an `ErrorBoundary` for graceful error recovery.
 - **Security**: CSP headers, rate limiting on contact forms, origin header validation, environment variable for `ALLOWED_ORIGIN`, JSON-LD for SEO, and PWA support with a manifest.json.
@@ -65,7 +72,8 @@ Preferred communication style: Simple, everyday language.
 - **Test Suites**:
   - `client/src/test/brand-compliance.test.ts`: Brand lint validation, domain label checks, disclaimer presence, six-stage runway verification, page-specific v3.0 compliance tests for all major pages
   - `client/src/test/components.test.tsx`: Component rendering tests for PageMeta, NextStepBlock, and data-testid convention validation
-- **Test Count**: 125 passing tests as of December 2024
+  - `client/src/test/global-nav.test.tsx`: Comprehensive GlobalNav component tests covering desktop dropdowns, mobile accordion, keyboard interaction, and accessibility attributes
+- **Test Count**: 162 passing tests as of December 2024
 - **Running Tests**: `npx vitest run` for single run, `npx vitest` for watch mode, `npx vitest run --coverage` for coverage report
 - **Coverage**: V8 provider with text, json, and html reporters; covers all `client/src/**/*.{ts,tsx}` files
 
@@ -126,4 +134,4 @@ Preferred communication style: Simple, everyday language.
   - Cross-links to ventures and insights
   - Disclaimer includes "investment, legal, tax, or compliance advice"
   - NextStepBlock points to /ventures with Truth, Capital, Dignity proof points copy
-- **Test Count**: 127 passing tests as of December 2024
+- **Test Count**: 162 passing tests as of December 2024

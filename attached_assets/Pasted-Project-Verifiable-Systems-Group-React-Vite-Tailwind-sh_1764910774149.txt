@@ -1,0 +1,216 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Ventures index page** (`/ventures`, “All ventures”) fully in line with the VSG Brand & Voice System v3.0 and the Truth · Capital · Dignity framing.
+
+Objectives:
+
+- Clear, premium explanation of what “a VSG venture” is.
+- Tight, on-brand blurbs for Helios, Lumina, and Uniqueness Engine.
+- No remaining references to:
+  - Signal / Value / Human
+  - “validate the signal”
+  - StackMe / Stackme Holdings / VSP
+  - “the human” as a noun
+- Keep existing layout & visual system (cards, grid, etc.). Only update text and any simple `ventures` data arrays.
+
+Do NOT:
+- Add or remove routes.
+- Change the global theme (colors, typography, spacing primitives).
+- Mention specific protocols, counterparties, or parameters (no tickers, LTV numbers, bank names, etc.).
+
+--------------------------------------------------
+1) Locate the Ventures index page
+--------------------------------------------------
+
+Find the page component for the “All ventures” view, e.g.:
+
+- `client/src/pages/Ventures.tsx`
+- or `client/src/pages/AllVentures.tsx`
+- or whatever file is wired to `/ventures` in `client/src/App.tsx`.
+
+We’ll call it `VenturesPage` below. Adjust to match the real component name.
+
+--------------------------------------------------
+2) PageMeta – title + description
+--------------------------------------------------
+
+Inside the Ventures page, locate the `<PageMeta ... />` (or equivalent) and set:
+
+- `title`:
+    "Ventures"
+- `description`:
+    "A small portfolio of AI-native ventures that turn Truth, Capital, and Dignity into verifiable systems—run on our own balance sheet first."
+
+Keep `preloadImage` and any other props as they are.
+
+--------------------------------------------------
+3) Hero section – define what a VSG venture is
+--------------------------------------------------
+
+In the top hero of the Ventures page:
+
+3.1 Overline
+
+Set the small overline to:
+
+  "All ventures"
+
+3.2 Main heading
+
+Set the `<h1>` heading to:
+
+  "A small portfolio built on our own balance sheet first."
+
+3.3 Hero body copy (two short paragraphs)
+
+Replace any existing hero paragraph text with exactly:
+
+Paragraph 1 (~40–55 words):
+
+  "Each venture in the studio is a proof, not a pitch deck. We use AI-native and cryptography-grounded systems to turn three beams—Truth, Capital, and Dignity—into infrastructure that can survive real-world stress. Every pattern runs on our own balance sheet first before anyone else depends on it."
+
+Paragraph 2 (~30–40 words):
+
+  "We keep the portfolio intentionally small: a capital engine that keeps assets working inside strict limits, a truth system that ties claims to evidence, and a dignity layer that lets people prove enough about themselves without giving everything away."
+
+3.4 Hero CTAs (if present)
+
+If the hero uses buttons or links:
+
+Primary CTA:
+- Label:
+    "Visit Helios"
+- `href`:
+    "/ventures/helios"
+
+Secondary CTA:
+- Label:
+    "Read how we build"
+- `href`:
+    "/approach"
+
+Do not change button components or classes—only labels and `href`.
+
+--------------------------------------------------
+4) Shared ventures data – clean, on-brand copy
+--------------------------------------------------
+
+If the page uses a `const ventures = [...]` array (or similar) to render cards, replace it with the following (adjust property names if needed: e.g., `name`, `tagline`, `description`, `href`, etc.):
+
+  const ventures = [
+    {
+      slug: "helios",
+      name: "Helios",
+      lane: "Capital",
+      href: "/ventures/helios",
+      tagline: "VSG’s internal capital engine.",
+      description:
+        "Helios is our internal execution engine for digital asset treasury. It helps us keep capital working while risk stays inside explicit limits—always on our own balance sheet first. No pooled client funds, no yield marketing, just governed paths for our own exposure.",
+    },
+    {
+      slug: "lumina",
+      name: "Lumina",
+      lane: "Truth",
+      href: "/ventures/lumina",
+      tagline: "Verifiable grading infrastructure.",
+      description:
+        "Lumina turns condition into evidence instead of opinion. Starting with trading cards, it anchors grading signals to sensor data and tamper-evident records, so collectors and partners can inspect how a conclusion was reached—not just accept a single opaque score.",
+    },
+    {
+      slug: "uniqueness",
+      name: "Uniqueness Engine",
+      lane: "Dignity",
+      href: "/ventures/uniqueness",
+      tagline: "Personhood without overexposure.",
+      description:
+        "The Uniqueness Engine proves that one person is behind an account or action without demanding their entire life story. It enables sybil-resistant access and fair participation while keeping control of identity with the individual, not yet another centralized profile silo.",
+    },
+  ];
+
+Where the JSX maps over this array:
+
+- Use `name` as the main card title.
+- Optionally surface `lane` as a small label (e.g., “Capital · Internal venture”) if the card design supports it.
+- Use `tagline` as a short subheading if your layout already has one.
+- Use `description` as the main body copy.
+
+Do NOT introduce the words “signal/value/human” here. The only three domain words should be `Truth`, `Capital`, `Dignity`, used in a human way.
+
+--------------------------------------------------
+5) Section: “How ventures map to Truth · Capital · Dignity”
+--------------------------------------------------
+
+If there’s a secondary explainer section on this page (e.g., a text block or mini grid that used to talk about “Signal / Value / Human”), reuse that layout and update the copy.
+
+Section heading:
+
+  "How the portfolio fits together"
+
+Body text (~90–120 words):
+
+  "Ventures don’t live in separate silos; they reinforce each other. Helios keeps capital resilient so we can keep building through volatility. Lumina turns messy inputs into evidence, so decisions about real-world assets can be grounded instead of guessed. The Uniqueness Engine protects people’s ability to participate without surrendering their identity. Together, they give us a studio where we can test new ideas without gambling on custody, unverified feeds, or exploitative identity practices. New ventures only join the portfolio if they strengthen at least one beam—Truth, Capital, or Dignity—without weakening the others."
+
+If this section uses mini “pill” labels or chips, ensure they display:
+
+- Truth
+- Capital
+- Dignity
+
+and not any of the old triad.
+
+--------------------------------------------------
+6) Optional small stats row (if you already have one)
+--------------------------------------------------
+
+If the Ventures page currently has a row of simple stats (e.g., “Ventures · Years of operation · Systems in production”), update any copy inside those stat blocks so it stays on brand and non-hype:
+
+Examples (only if you already have a stats layout):
+
+- "Ventures in the studio" → “3”
+- "Run on our own balance sheet" → “100%”
+- "Custodial platforms" → “0”
+
+Keep these minimal and factual; do not add them if the layout does not already exist.
+
+--------------------------------------------------
+7) Hygiene pass on Ventures page
+--------------------------------------------------
+
+Within the Ventures page file:
+
+1) Remove or replace any remaining:
+   - “Signal / Value / Human”
+   - “validate the signal”
+   - “StackMe / Stackme Holdings / VSP”
+   - “the human” as a noun
+   - Phrases like “AI-powered platform”, “revolutionary”, “game-changing”, “disruptive”
+
+2) Ensure all AI language uses v3-approved vocabulary:
+   - Use: “AI-native”, “machine intelligence”, “intelligence augmentation”.
+   - Avoid: “sprinkle AI”, “magic”, “AI does the rest”.
+
+3) Make sure at least one line on the page uses a gentle, approved warmth pattern, e.g.:
+
+   - “You shouldn’t have to choose between leverage and control.”
+   - “You can verify how a path behaves before you ever depend on it.”
+
+   (Use no more than one such line in this file.)
+
+--------------------------------------------------
+8) Final QA
+--------------------------------------------------
+
+After editing:
+
+1) Run the dev server and open `/ventures`:
+   - Hero clearly explains what a VSG venture is.
+   - Helios / Lumina / Uniqueness Engine cards render correctly with the new copy.
+   - Any “lanes” or tags reference Truth, Capital, and Dignity only.
+
+2) Confirm:
+   - No old terms (Signal/Value/Human, StackMe/Stackme Holdings, VSP, “the human”) remain anywhere on this page.
+   - The tone matches the Overview page and feels premium, institutional, and calm.
+
+Only commit once the Ventures page feels like a clean, investor-grade, brand-accurate portfolio index.
