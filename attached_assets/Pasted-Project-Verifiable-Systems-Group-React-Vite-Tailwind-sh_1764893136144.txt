@@ -1,0 +1,306 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Approach overview page** fully in line with:
+
+- VSG Brand & Voice System v3.0,
+- The Truth · Capital · Dignity model, and
+- The updated six-stage runway: Define · Validate · Build · Deploy · Evolve · Learn.
+
+This page should:
+
+- Explain **how** VSG works at a high level (before Process and Standards),
+- Start from the **three domain questions** (Truth, Capital, Dignity),
+- Reference the **six-stage runway** with the sixth stage named **Learn**,
+- Make clear that everything is **AI-native, balance-sheet-first, non-custodial, human-governed**,
+- Connect clearly to `/process`, `/standards`, and `/insights`.
+
+Do NOT change global theming, layout primitives, or add/remove routes. Only update text content, headings, and any local data structures in the Approach page file.
+
+---
+
+1) Locate the Approach overview page
+
+Find the component used for the main “Approach” route, for example:
+
+- `client/src/pages/Approach.tsx`
+
+or whatever file is rendered at `/approach` in `client/src/App.tsx` and linked as “Approach” in the navigation.
+
+All changes below apply **only** inside this Approach overview page file.
+
+---
+
+2) Update the hero section
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only text and hrefs where specified.
+
+- Overline:
+  "Approach"
+
+- Heading:
+  "How we turn hard questions into rails."
+
+- Body paragraph:
+  "Our work starts with a small set of non-negotiable questions: Is it true enough to depend on? Can capital survive the worst day? Does it protect people’s time and personhood? Our approach is how we move from those questions to governed, verifiable systems that we run on our own balance sheet first."
+
+Hero CTAs:
+
+- Primary CTA label:
+  "See the six-stage runway"
+  → href: `/process`
+
+- Secondary CTA label:
+  "Review our standards"
+  → href: `/standards`
+
+Do not change the hero layout, background media, or component types—only the strings and href targets.
+
+---
+
+3) “We start with three questions” section
+
+This section introduces Truth · Capital · Dignity as three domain questions.
+
+Section heading:
+  "We start with three questions"
+
+Intro paragraph:
+  "Every venture, system, or experiment inside VSG has to clear the same three questions before it gets real time or capital."
+
+Then configure three mini-cards or bullets (reuse the existing 3-column or stacked layout):
+
+Card 1:
+- Title:
+  "Truth"
+- Body:
+  "Is this grounded in evidence we’re willing to depend on? If we can’t see how the facts are gathered, checked, and challenged, we don’t treat them as a foundation."
+
+Card 2:
+- Title:
+  "Capital"
+- Body:
+  "Can this design survive a bad day, not just a good one? If we don’t understand how capital behaves under stress, it doesn’t go into the system."
+
+Card 3:
+- Title:
+  "Dignity"
+- Body:
+  "Does this protect people’s time and personhood? If participation requires over-exposure or turns people into the product, we walk away."
+
+Do not add protocol names, tickers, or specific implementations here. This should stay conceptual.
+
+---
+
+4) “The six-stage runway” section (high-level)
+
+This section references the updated stages, with the sixth stage named **Learn** (not Recurse).
+
+Section heading:
+  "The six-stage runway"
+
+Body paragraph:
+  "Once an idea clears those questions, it moves onto a six-stage runway—Define, Validate, Build, Deploy, Evolve, Learn. Each stage has artefacts, limits, and review gates so nothing moves forward on enthusiasm alone."
+
+Below this paragraph, use a simple list or row summarising the stages (reuse existing list or grid patterns):
+
+- "Define — Clarify the problem, constraints, and who it is for."
+- "Validate — Test the riskiest assumptions with small, low-impact experiments."
+- "Build — Ship in short, verifiable increments with checks and failure paths designed in."
+- "Deploy — Launch as a governed experiment with observability and rollback."
+- "Evolve — Use real usage and incidents to refine or retire the system."
+- "Learn — Run structured post-mortems, codify lessons, and update standards so we do not repeat the same failure twice."
+
+Under this list, add a small inline link or button using existing styles:
+
+- Label:
+  "Read the detailed Process"
+- href:
+  `/process`
+
+Do not re-implement the full Process content here. This is just a summary plus link.
+
+---
+
+5) “Governed experiments, not bets” section
+
+This section explains the philosophy behind how VSG runs experiments and launches.
+
+Section heading:
+  "Governed experiments, not bets"
+
+Body paragraph:
+  "We treat launches and changes as governed experiments. That means explicit limits, clear success and failure conditions, and named stewards—not open-ended bets that depend on luck or heroics."
+
+Below this, configure three bullets or mini-cards:
+
+Card 1:
+- Title:
+  "Limits encoded up front"
+- Body:
+  "We define what ‘too far’ looks like before we start—across exposure, impact, and blast radius—so we know when to slow down or stop."
+
+Card 2:
+- Title:
+  "Evidence instead of vibes"
+- Body:
+  "We measure the things that matter and decide based on what we see, not what we hope. If the evidence isn’t there, we don’t pretend it is."
+
+Card 3:
+- Title:
+  "Rollbacks rehearsed"
+- Body:
+  "We plan and test how to unwind changes. If a system can’t be rolled back safely, it doesn’t make it into production."
+
+Keep the structure consistent with existing section layouts.
+
+---
+
+6) “AI-native, balance-sheet-first” section
+
+This section connects AI-native stance and internal-first practice.
+
+Section heading:
+  "AI-native, balance-sheet-first"
+
+Body paragraph:
+  "We assume machine intelligence is in the loop from day one—but always under human-defined mandates. AI handles the mechanics; people keep the veto. And we wire serious patterns through our own operations and balance sheet first before anyone else can rely on them."
+
+Then three bullets or mini-cards:
+
+Card 1:
+- Title:
+  "AI handles the mechanics"
+- Body:
+  "High-volume analysis, simulations, and anomaly detection are automated wherever it is safe and explainable to do so."
+
+Card 2:
+- Title:
+  "Humans own the mandate"
+- Body:
+  "People set objectives, constraints, and emergency stops. They remain accountable for the decisions that matter."
+
+Card 3:
+- Title:
+  "We feel it first"
+- Body:
+  "When something fails, it hits us before it can hit anyone who depends on our patterns. That is by design, not an accident."
+
+Avoid phrases like “AI-powered platform”, “game-changing AI”, “AI magic”, or other hype.
+
+---
+
+7) “Standards and logs” section
+
+Bridge from “Approach” into `/standards` and `/insights`.
+
+Section heading:
+  "Standards and logs"
+
+Body paragraph:
+  "An approach is only real if it shows up in standards and logs. We encode what we learn into standards that guide new work, and we keep public-facing notes about what went wrong and what changed."
+
+If your layout supports a two-column split, configure:
+
+Left block — Standards
+
+- Small title:
+  "Standards"
+- Body:
+  "Our standards capture the controls, limits, and responsibilities we are willing to commit to—how we expect systems to behave across Truth, Capital, and Dignity."
+- Inline link:
+  - Label:
+    "Review standards"
+  - href:
+    `/standards`
+
+Right block — Insights
+
+- Small title:
+  "Insights"
+- Body:
+  "Our insights are field notes and post-mortems from running our own rails—what we missed, what failed, and how we rewired it."
+- Inline link:
+  - Label:
+    "Read insights"
+  - href:
+    `/insights`
+
+If there is no two-column pattern here, stack these blocks vertically using the existing section layout.
+
+---
+
+8) “What this approach is / is not” section
+
+Clarify boundaries and avoid misinterpretation.
+
+Section heading:
+  "What this approach is / is not"
+
+Use a two-column or two-list pattern if available:
+
+Left side — “What this approach is”
+- "A set of constraints we apply to ourselves first."
+- "A way to decide which ideas should never become ventures."
+- "A blueprint for how we run experiments, not just talk about them."
+
+Right side — “What this approach is not”
+- "Not a promise of specific returns, yields, or outcomes."
+- "Not a guarantee that every venture will succeed."
+- "Not a generic framework for anyone else’s compliance."
+
+Muted small-text line under this section (e.g., `text-xs text-muted-foreground`):
+
+  "This page describes how we choose to work. It is not investment, legal, or tax advice."
+
+Do not add any product-like CTAs in this section.
+
+---
+
+9) Bottom CTA / NextStepBlock for Approach
+
+If there is a “NextStepBlock” or similar CTA at the bottom of the Approach page, update its text to send people into the Process page.
+
+For example (adjust to your actual component props, but keep content):
+
+- Title:
+  "See the runway in detail"
+- Description:
+  "Our Process page walks through each stage—from Define to Learn—with the guardrails we rely on in practice."
+- href:
+  `/process`
+
+Do not change the component itself—only the props/strings.
+
+---
+
+10) Hygiene & brand checks for this file
+
+In the Approach overview page file only:
+
+1. Ensure there are **no** occurrences of:
+   - "Signal / Value / Human" as domain names,
+   - "validate the signal" as a tagline or phrase,
+   - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents",
+   - "move fast and break things",
+   - "monetize users", "harvest data",
+   - "StackMe", "Stackme Holdings", "Stackme app", or "VSP" as active brand names,
+   - the vague phrase “the human”; prefer “people”, “participants”, “teams”, “stewards”, “personhood”, or “dignity”.
+
+2. Ensure all references to the runway stages use:
+   "Define, Validate, Build, Deploy, Evolve, Learn"
+   - No remaining references to “Recurse” as a stage name.
+   - No mismatched descriptions.
+
+3. Do NOT mention:
+   - Specific protocols, token tickers, bank names, or legal-entity wiring,
+   - Exact LTVs, exposure limits, or internal treasury details.
+
+4. Confirm the tone matches the VSG v3.0 voice:
+   - Calm, precise, architect-style,
+   - Ethically explicit (Truth, Capital, Dignity present),
+   - AI-native, balance-sheet-first, non-custodial stance,
+   - No hype language.
+
+Do not touch other pages or routes in this checkpoint.
