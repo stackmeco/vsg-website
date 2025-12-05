@@ -246,4 +246,88 @@ describe('Brand & Voice Compliance', () => {
       });
     });
   });
+
+  describe('Overview page v3.0 compliance', () => {
+    const overviewPath = path.join(process.cwd(), 'client/src/pages/Overview.tsx');
+    let content: string;
+
+    beforeAll(() => {
+      content = fs.readFileSync(overviewPath, 'utf-8');
+    });
+
+    it('should have correct canon line in hero heading', () => {
+      expect(content).toContain('We engineer the infrastructure of verifiable autonomy.');
+    });
+
+    it('should have correct PageMeta title', () => {
+      expect(content).toContain('title="Verifiable Systems Group"');
+    });
+
+    it('should have "Three questions we ask about every system" section', () => {
+      expect(content).toContain('Three questions we ask about every system');
+    });
+
+    it('should have Truth, Capital, Dignity questions defined', () => {
+      expect(content).toContain('label: "Truth"');
+      expect(content).toContain('label: "Capital"');
+      expect(content).toContain('label: "Dignity"');
+    });
+
+    it('should have "What VSG is" section', () => {
+      expect(content).toContain('What VSG is');
+      expect(content).toContain('AI-native studio');
+      expect(content).toContain('Cryptography-grounded');
+      expect(content).toContain('Internal-first and non-custodial');
+    });
+
+    it('should have "Ventures: proofs of how we think" section', () => {
+      expect(content).toContain('Ventures: proofs of how we think');
+    });
+
+    it('should have correct venture meta lines', () => {
+      expect(content).toContain('Helios · Capital · Venture');
+      expect(content).toContain('Lumina · Truth · Venture');
+      expect(content).toContain('Uniqueness Engine · Dignity · Venture');
+    });
+
+    it('should have "How we build" section with approach and process', () => {
+      expect(content).toContain('How we build');
+      expect(content).toContain('six-stage runway');
+      expect(content).toContain('href: "/approach"');
+      expect(content).toContain('href: "/process"');
+    });
+
+    it('should have "Governance and standards" section', () => {
+      expect(content).toContain('Governance and standards');
+      expect(content).toContain('href="/standards"');
+    });
+
+    it('should have "Field notes" section', () => {
+      expect(content).toContain('Field notes');
+      expect(content).toContain('href="/insights"');
+    });
+
+    it('should not contain old domain labels', () => {
+      expect(content).not.toContain('"Signal"');
+      expect(content).not.toContain('"Value"');
+      expect(content).not.toContain('"Human"');
+    });
+
+    it('should have proper data-testid attributes for key sections', () => {
+      const expectedTestIds = [
+        'section-hero',
+        'section-three-questions',
+        'section-what-vsg-is',
+        'section-ventures',
+        'section-how-we-build',
+        'section-governance',
+        'section-field-notes',
+        'section-talk-studio',
+      ];
+      
+      expectedTestIds.forEach(testId => {
+        expect(content).toContain(`data-testid="${testId}"`);
+      });
+    });
+  });
 });

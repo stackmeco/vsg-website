@@ -3,63 +3,92 @@ import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import gridTexture from "@assets/grid_texture.png";
 
-const domains = [
+const threeQuestions = [
   {
-    title: "Truth",
-    body: "Does this system rest on evidence solid enough to depend on? Truth is about making key decisions inspectable instead of opaque.",
+    label: "Truth",
+    text: "Can you inspect how this system arrives at its claims—and how it can fail—without being asked to just accept it on trust?",
   },
   {
-    title: "Capital",
-    body: "Can capital move through this system without hidden downside? Capital is about making assets work without handing over the keys.",
+    label: "Capital",
+    text: "Does this design keep value resilient under stress, or does it quietly depend on best-case conditions to look safe?",
   },
   {
-    title: "Dignity",
-    body: "Does this system protect people's personhood and time? Dignity is about proving presence and rights without forcing exposure.",
+    label: "Dignity",
+    text: "Does this system let people participate without turning their time, data, or identity into exhaust to harvest?",
+  },
+];
+
+const whatVsgIs = [
+  {
+    title: "AI-native studio",
+    text: "We design as if machine intelligence is in the loop from day one. AI handles the mechanics—monitoring, patterning, and stress-testing—while people own mandates, ethics, and the veto.",
+  },
+  {
+    title: "Cryptography-grounded",
+    text: "We anchor flows to proofs, audit trails, and constraints instead of narratives. Verifiability and rollback paths are designed in before slogans and decks.",
+  },
+  {
+    title: "Internal-first and non-custodial",
+    text: "We route our own operations and capital through new architectures first, favoring non-custodial rails where possible. If a pattern fails early, the blast radius lands on us—not on outsiders.",
   },
 ];
 
 const ventures = [
   {
-    overline: "Helios · Capital",
-    title: "Resilient capital engine.",
-    body: "Routes VSG's own digital asset treasury under explicit limits so capital can work without surrendering control.",
+    slug: "helios",
+    metaLine: "Helios · Capital · Venture",
+    tagline: "Treasury execution under explicit constraints.",
+    description: "Helios is our internal execution engine for digital asset treasuries. It focuses on routing positions across approved venues under predefined risk limits, so capital remains resilient under stress instead of drifting into hidden exposures.",
+    primaryDomain: "Capital",
     href: "/ventures/helios",
-    testId: "helios",
   },
   {
-    overline: "Lumina · Truth",
-    title: "Physics-aware grading.",
-    body: "Turns card condition into evidence-backed grading signals so decisions rest on measurable inputs, not guesswork.",
+    slug: "lumina",
+    metaLine: "Lumina · Truth · Venture",
+    tagline: "Physics-aware grading infrastructure.",
+    description: "Lumina turns the condition of an asset into evidence you can inspect, not a guess you have to accept. It converts wear, defects, and anomalies into structured signals that can feed grading, insurance, and pricing decisions.",
+    primaryDomain: "Truth",
     href: "/ventures/lumina",
-    testId: "lumina",
   },
   {
-    overline: "Uniqueness Engine · Dignity",
-    title: "Personhood without exposure.",
-    body: "Proves one person is present without forcing them to hand over their life story, raising the cost of bots and duplicates.",
+    slug: "uniqueness",
+    metaLine: "Uniqueness Engine · Dignity · Venture",
+    tagline: "Personhood without exposure.",
+    description: "Uniqueness Engine is infrastructure for one-person-one-presence—helping systems distinguish real participants from duplicates and automation without turning identity into surveillance or lock-in.",
+    primaryDomain: "Dignity",
     href: "/ventures/uniqueness",
-    testId: "uniqueness",
   },
 ];
 
-const approachBullets = [
-  "Start with boundary conditions and reasons not to build.",
-  "Test assumptions in controlled experiments before scaling exposure.",
-  "Treat every incident as a lesson fed back into our standards.",
+const howWeBuild = [
+  {
+    title: "Approach",
+    text: "See how we design inside constraints, prove patterns on ourselves first, and keep AI in the loop without handing it the mandate.",
+    linkLabel: "Review our approach",
+    href: "/approach",
+  },
+  {
+    title: "Process",
+    text: "Walk through the six-stage runway that every venture follows—from first definition to long-term learning.",
+    linkLabel: "View the process",
+    href: "/process",
+  },
 ];
 
 export default function Overview() {
   return (
     <Layout>
       <PageMeta 
-        title="Verifiable Systems Group — Infrastructure for Verifiable Autonomy" 
-        description="AI-native, cryptography-grounded venture studio building systems for capital, identity, and intelligence—run on our own balance sheet first across Truth, Capital, and Dignity."
+        title="Verifiable Systems Group" 
+        description="Verifiable Systems Group is an AI-native, cryptography-grounded venture studio. We engineer the infrastructure of verifiable autonomy—systems where truth can be inspected, capital stays resilient under stress, and people keep dignity and control."
         preloadImage={gridTexture}
       />
       
+      {/* Hero Section */}
       <section 
         className="relative min-h-[85vh] flex items-center overflow-hidden border-b border-border" 
         data-testid="section-hero"
@@ -85,99 +114,55 @@ export default function Overview() {
               Verifiable Systems Group
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-[1.1] tracking-tight mb-6" data-testid="text-hero-heading">
-              Infrastructure for verifiable autonomy.
+              We engineer the infrastructure of verifiable autonomy.
             </h1>
             
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl" data-testid="text-hero-body">
-              You shouldn't have to surrender control for leverage. Verifiable Systems Group is an AI-native, cryptography-grounded venture studio that builds systems for capital, identity, and intelligence—run on our own balance sheet first across Truth, Capital, and Dignity.
+            <p className="text-lg text-muted-foreground leading-relaxed mb-4 max-w-xl" data-testid="text-hero-body">
+              We are an AI-native, cryptography-grounded venture studio that builds systems where truth can be inspected, capital stays resilient under stress, and people keep their dignity and control. Everything we ship runs on our own balance sheet and operations first, so it is infrastructure we rely on—not just ideas we talk about.
+            </p>
+
+            <p className="text-sm text-muted-foreground/80 leading-relaxed mb-8 max-w-xl" data-testid="text-hero-secondary">
+              You shouldn't have to trade control for leverage or guess how a system will behave when conditions turn.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <Link href="/ventures">
-                <Button 
-                  size="lg" 
-                  className="font-mono text-sm uppercase tracking-wider"
-                  data-testid="button-explore-ventures"
-                >
-                  Explore our ventures
+              <Button asChild size="lg" className="font-mono text-sm uppercase tracking-wider" data-testid="button-explore-ventures">
+                <Link href="/ventures">
+                  Explore ventures
                   <ArrowRight className="w-3.5 h-3.5 ml-2" aria-hidden="true" />
-                </Button>
-              </Link>
-              <Link href="/approach">
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="font-mono text-sm uppercase tracking-wider"
-                  data-testid="button-how-we-work"
-                >
-                  How we work
-                </Button>
-              </Link>
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="font-mono text-sm uppercase tracking-wider" data-testid="button-see-how-we-work">
+                <Link href="/approach">
+                  See how we work
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-domains">
+      {/* Three questions at the core */}
+      <section className="py-20 bg-card" data-testid="section-three-questions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-domains">
-              Three domains, one studio
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-three-questions">
+              Three questions we ask about every system
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-domains-intro">
-              Every venture we run is anchored in one of three domains—Truth, Capital, or Dignity. Together they describe what must hold, what must survive, and who must be protected.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-three-questions-intro">
+              Every venture, tool, or experiment at VSG is held up to the same three questions. If a design fails any one of them, it does not belong on rails other people might rely on.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {domains.map((domain) => {
-              const slugTitle = domain.title.toLowerCase();
-              return (
-                <Card key={domain.title} className="bg-background border-border h-full" data-testid={`card-domain-${slugTitle}`}>
-                  <CardContent className="p-6">
-                    <h3 className="font-heading font-semibold text-foreground mb-3" data-testid={`heading-domain-${slugTitle}`}>
-                      {domain.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-domain-${slugTitle}`}>
-                      {domain.body}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20" data-testid="section-ventures">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-ventures">
-              Where we prove the rails
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-ventures-intro">
-              We do not stop at slideware. Helios, Lumina, and Uniqueness Engine are where we run our ideas under real conditions, using our own balance sheet first.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {ventures.map((venture) => (
-              <Card 
-                key={venture.testId} 
-                className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" 
-                data-testid={`card-venture-${venture.testId}`}
-              >
-                <CardContent className="p-6 flex flex-col h-full">
-                  <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary mb-2" data-testid={`text-${venture.testId}-overline`}>
-                    {venture.overline}
+            {threeQuestions.map((item) => (
+              <Card key={item.label} className="bg-background border-border h-full" data-testid={`card-question-${item.label.toLowerCase()}`}>
+                <CardContent className="p-6">
+                  <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary mb-3" data-testid={`label-question-${item.label.toLowerCase()}`}>
+                    {item.label}
                   </p>
-                  <h3 className="font-heading font-semibold text-lg text-foreground mb-3" data-testid={`heading-${venture.testId}`}>
-                    {venture.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4" data-testid={`text-${venture.testId}-body`}>
-                    {venture.body}
+                  <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-question-${item.label.toLowerCase()}`}>
+                    {item.text}
                   </p>
-                  <Link href={venture.href} className="text-sm text-primary hover:underline mt-auto" data-testid={`link-venture-${venture.testId}`}>
-                    Learn more →
-                  </Link>
                 </CardContent>
               </Card>
             ))}
@@ -185,72 +170,154 @@ export default function Overview() {
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-approach">
+      {/* What VSG is */}
+      <section className="py-20" data-testid="section-what-vsg-is">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-approach">
-              How we design and prove systems
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-what-vsg-is">
+              What VSG is
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-approach-body">
-              Before we call anything real, it moves through a six-stage path: Define, Validate, Build, Deploy, Evolve, and Learn. Each stage is designed to surface risk early, keep capital within guardrails, and make sure lessons compound instead of resetting.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-what-vsg-is-body">
+              Verifiable Systems Group is an AI-native, cryptography-grounded venture studio that runs every pattern on its own balance sheet and infrastructure first. We engineer verifiable systems for capital, identity, and intelligence—systems where behaviors can be inspected, constraints are explicit, and control stays with the people who rely on them.
             </p>
-            <ul className="space-y-3 mb-8">
-              {approachBullets.map((bullet, index) => (
-                <li key={index} className="flex items-start gap-3" data-testid={`list-approach-${index}`}>
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
-                  <span className="text-sm text-muted-foreground">{bullet}</span>
-                </li>
-              ))}
-            </ul>
-            <Link href="/process">
-              <Button variant="outline" data-testid="button-six-stages">
-                See the six stages
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Button>
-            </Link>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {whatVsgIs.map((item, index) => (
+              <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" data-testid={`card-what-vsg-${index}`}>
+                <CardContent className="p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-governance">
+      {/* Ventures: proofs of how we think */}
+      <section className="py-20 bg-card" data-testid="section-ventures">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-ventures">
+              Ventures: proofs of how we think
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-ventures-intro">
+              Each venture is a concrete answer to a problem we have lived ourselves: a treasury that felt brittle, a grade that could not be inspected, or an identity check that asked for too much. They exist to prove that our principles survive contact with real constraints.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {ventures.map((venture) => (
+              <Card 
+                key={venture.slug} 
+                className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical h-full" 
+                data-testid={`card-venture-${venture.slug}`}
+              >
+                <CardContent className="p-6 flex flex-col h-full">
+                  <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary mb-3" data-testid={`text-${venture.slug}-meta`}>
+                    {venture.metaLine}
+                  </p>
+                  <h3 className="font-heading font-semibold text-lg text-foreground mb-2" data-testid={`heading-${venture.slug}`}>
+                    {venture.tagline}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4" data-testid={`text-${venture.slug}-body`}>
+                    {venture.description}
+                  </p>
+                  <div className="mb-4">
+                    <Badge variant="default" className="text-xs">{venture.primaryDomain}</Badge>
+                  </div>
+                  <Button asChild variant="outline" size="sm" data-testid={`button-venture-${venture.slug}`}>
+                    <Link href={venture.href}>
+                      View {venture.slug === "uniqueness" ? "Uniqueness Engine" : venture.slug.charAt(0).toUpperCase() + venture.slug.slice(1)}
+                      <ArrowRight className="w-3 h-3" aria-hidden="true" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How we build */}
+      <section className="py-20" data-testid="section-how-we-build">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-how-we-build">
+              How we build
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-how-we-build-body">
+              We treat systems like infrastructure, not experiments on other people. Every venture moves through a six-stage runway—Define, Validate, Build, Deploy, Evolve, Learn—under explicit guardrails for Truth, Capital, and Dignity.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {howWeBuild.map((item, index) => (
+              <Card key={index} className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-how-we-build-${index}`}>
+                <CardContent className="p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{item.text}</p>
+                  <Button asChild variant="outline" size="sm" data-testid={`button-${item.title.toLowerCase()}`}>
+                    <Link href={item.href}>
+                      {item.linkLabel}
+                      <ArrowRight className="w-3 h-3" aria-hidden="true" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Governance and standards */}
+      <section className="py-20 bg-card" data-testid="section-governance">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-governance">
-              Governance baked in
+              Governance and standards
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-governance-body">
-              We treat serious launches as governed experiments, not one-off bets. That means defined scope, explicit limits, named stewards, and observability from day one.
+              Our standards encode what systems at VSG are allowed to do before anyone writes code. They define limits, stewards, and logging requirements so ventures cannot drift into behaviors that look attractive on paper but fail under real conditions.
             </p>
-            <Link href="/standards">
-              <Button variant="outline" data-testid="button-standards">
-                Review our standards
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Button>
-            </Link>
+            <Card className="bg-background border-border" data-testid="card-standards">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-foreground mb-2">Review our standards</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  See how Truth, Capital, and Dignity are turned into concrete guardrails for ventures, internal tools, and experiments.
+                </p>
+                <Button asChild variant="outline" size="sm" data-testid="button-standards">
+                  <Link href="/standards">
+                    View standards
+                    <ArrowRight className="w-3 h-3" aria-hidden="true" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-insights">
+      {/* Field notes / Insights */}
+      <section className="py-20" data-testid="section-field-notes">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-insights">
-              From post-mortems to patterns
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-field-notes">
+              Field notes
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-insights-body">
-              When something breaks—or works better than expected—we document it. Insights are where we turn incidents, experiments, and observations into patterns we can reuse and improve.
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-field-notes-body">
+              We publish notes from real experiments—what held up under pressure, what failed, and how we adjusted. No theatrics; just mechanics and lessons.
             </p>
-            <Link href="/insights">
-              <Button variant="outline" data-testid="button-insights">
+            <Button asChild variant="outline" data-testid="button-read-insights">
+              <Link href="/insights">
                 Read insights
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-talk-studio">
+      {/* Talk to the studio */}
+      <section className="py-20 bg-card" data-testid="section-talk-studio">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-talk-studio">
@@ -259,16 +326,12 @@ export default function Overview() {
             <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-talk-studio-body">
               If you're building, regulating, or operating in any domain where verification, autonomy, and long-term resilience matter, we'd like to hear from you.
             </p>
-            <Link href="/connect">
-              <Button 
-                size="lg" 
-                className="font-mono text-sm uppercase tracking-wider"
-                data-testid="button-start-conversation"
-              >
+            <Button asChild size="lg" className="font-mono text-sm uppercase tracking-wider" data-testid="button-start-conversation">
+              <Link href="/connect">
                 Start a conversation
                 <ArrowRight className="w-3.5 h-3.5 ml-2" aria-hidden="true" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
