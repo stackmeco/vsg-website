@@ -11,10 +11,11 @@ const ventures = [
   {
     slug: "helios",
     name: "Helios",
+    lane: "Capital",
     domainLabel: "Capital · Internal venture",
-    tagline: "Treasury execution under explicit constraints.",
+    tagline: "VSG's internal capital engine.",
     description:
-      "Helios is our internal execution engine for digital asset treasuries. It routes positions across approved venues under predefined limits so capital stays resilient under stress instead of drifting into hidden exposures. We do not pool client funds or market yield products—Helios exists to make our own capital more robust.",
+      "Helios is our internal execution engine for digital asset treasury. It helps us keep capital working while risk stays inside explicit limits—always on our own balance sheet first. No pooled client funds, no yield marketing, just governed paths for our own exposure.",
     primaryDomain: "Capital",
     secondaryDomains: ["Truth", "Dignity"],
     href: "/ventures/helios",
@@ -22,10 +23,11 @@ const ventures = [
   {
     slug: "lumina",
     name: "Lumina",
+    lane: "Truth",
     domainLabel: "Truth · Venture",
-    tagline: "Physics-aware grading infrastructure.",
+    tagline: "Verifiable grading infrastructure.",
     description:
-      "Lumina turns the condition of physical assets into structured, verifiable signals, captured from your own devices. Grading, insurance, and pricing workflows can rely on evidence instead of one-time opaque judgments. We build infrastructure, not a grading house or marketplace.",
+      "Lumina turns condition into evidence instead of opinion. Starting with trading cards, it anchors grading signals to sensor data and tamper-evident records, so collectors and partners can inspect how a conclusion was reached—not just accept a single opaque score.",
     primaryDomain: "Truth",
     secondaryDomains: ["Capital", "Dignity"],
     href: "/ventures/lumina",
@@ -33,10 +35,11 @@ const ventures = [
   {
     slug: "uniqueness",
     name: "Uniqueness Engine",
+    lane: "Dignity",
     domainLabel: "Dignity · Venture",
-    tagline: "Personhood without exposure.",
+    tagline: "Personhood without overexposure.",
     description:
-      "The Uniqueness Engine enforces one-person-one-presence in governed systems—proving uniqueness in context without demanding full dossiers or over-collecting identity data. It protects participation without turning people into product or a line item in a centralized registry.",
+      "The Uniqueness Engine proves that one person is behind an account or action without demanding their entire life story. It enables sybil-resistant access and fair participation while keeping control of identity with the individual, not yet another centralized profile silo.",
     primaryDomain: "Dignity",
     secondaryDomains: ["Truth", "Capital"],
     href: "/ventures/uniqueness",
@@ -60,7 +63,7 @@ export default function Ventures() {
     <Layout>
       <PageMeta 
         title="Ventures" 
-        description="Ventures from Verifiable Systems Group that pressure-test our answers to Truth, Capital, and Dignity—run on our own balance sheet and environments first before becoming patterns we share."
+        description="A small portfolio of AI-native ventures that turn Truth, Capital, and Dignity into verifiable systems—run on our own balance sheet first."
         preloadImage="/hero-texture.png"
       />
       
@@ -82,27 +85,27 @@ export default function Ventures() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary mb-4" data-testid="text-overline">
-              Ventures · Studio
+              All ventures
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
-              Ventures, tested on our balance sheet first.
+              A small portfolio built on our own balance sheet first.
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-hero-body">
-              Each venture is a focused system built to answer a specific question about Truth, Capital, or Dignity. We run them on our own balance sheet and environments first, under explicit constraints, so they have to work for us before they become patterns we share.
+              Each venture in the studio is a proof, not a pitch deck. We use AI-native and cryptography-grounded systems to turn three beams—Truth, Capital, and Dignity—into infrastructure that can survive real-world stress. Every pattern runs on our own balance sheet first before anyone else depends on it.
             </p>
             <p className="text-sm text-muted-foreground/80 leading-relaxed" data-testid="text-hero-secondary">
-              You shouldn't have to trust untested rails. These are the places where we push on real risk, evidence, and participation—then turn what survives into standards.
+              We keep the portfolio intentionally small: a capital engine that keeps assets working inside strict limits, a truth system that ties claims to evidence, and a dignity layer that lets people prove enough about themselves without giving everything away.
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-8">
-              <Button asChild size="lg" data-testid="button-see-process">
-                <Link href="/process">
-                  See how we build
+              <Button asChild size="lg" data-testid="button-visit-helios">
+                <Link href="/ventures/helios">
+                  Visit Helios
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" data-testid="button-read-insights">
-                <Link href="/insights">
-                  Read field notes
+              <Button asChild size="lg" variant="outline" data-testid="button-read-approach">
+                <Link href="/approach">
+                  Read how we build
                 </Link>
               </Button>
             </div>
@@ -110,16 +113,21 @@ export default function Ventures() {
         </div>
       </section>
 
-      {/* Three questions, three proof points */}
+      {/* How the portfolio fits together */}
       <section className="py-20 bg-card" data-testid="section-three-questions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-three-questions">
-              Three questions, three proof points.
+              How the portfolio fits together
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-three-questions-body">
-              We organize our work around three questions: what can be trusted, how value should move, and how people can participate without overexposure. Helios, Lumina, and the Uniqueness Engine are concrete proofs of those answers, not abstract pillars.
+              Ventures don't live in separate silos; they reinforce each other. Helios keeps capital resilient so we can keep building through volatility. Lumina turns messy inputs into evidence, so decisions about real-world assets can be grounded instead of guessed. The Uniqueness Engine protects the ability to participate without surrendering identity. Together, they give us a studio where we can test new ideas without gambling on custody, unverifiable feeds, or exploitative data practices.
             </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Badge variant="default" className="text-xs">Truth</Badge>
+            <Badge variant="default" className="text-xs">Capital</Badge>
+            <Badge variant="default" className="text-xs">Dignity</Badge>
           </div>
         </div>
       </section>

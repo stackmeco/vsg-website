@@ -368,7 +368,7 @@ describe('Brand & Voice Compliance', () => {
     });
 
     it('should have correct hero heading', () => {
-      expect(content).toContain('Ventures, tested on our balance sheet first.');
+      expect(content).toContain('A small portfolio built on our own balance sheet first.');
     });
 
     it('should have correct PageMeta title', () => {
@@ -376,33 +376,32 @@ describe('Brand & Voice Compliance', () => {
     });
 
     it('should have correct overline', () => {
-      expect(content).toContain('Ventures · Studio');
+      expect(content).toContain('All ventures');
     });
 
-    it('should have "Three questions, three proof points" section', () => {
-      expect(content).toContain('Three questions, three proof points.');
-      expect(content).toContain('what can be trusted');
-      expect(content).toContain('how value should move');
-      expect(content).toContain('how people can participate without overexposure');
+    it('should have "How the portfolio fits together" section', () => {
+      expect(content).toContain('How the portfolio fits together');
+      expect(content).toContain('Ventures don\'t live in separate silos');
+      expect(content).toContain('Helios keeps capital resilient');
     });
 
     it('should have correct venture data for Helios', () => {
       expect(content).toContain('Capital · Internal venture');
-      expect(content).toContain('Treasury execution under explicit constraints.');
+      expect(content).toContain("VSG's internal capital engine.");
     });
 
     it('should have correct venture data for Lumina', () => {
       expect(content).toContain('Truth · Venture');
-      expect(content).toContain('Physics-aware grading infrastructure.');
+      expect(content).toContain('Verifiable grading infrastructure.');
     });
 
     it('should have correct venture data for Uniqueness Engine', () => {
       expect(content).toContain('Dignity · Venture');
-      expect(content).toContain('Personhood without exposure.');
+      expect(content).toContain('Personhood without overexposure.');
     });
 
-    it('should have warmth line in hero', () => {
-      expect(content).toContain("You shouldn't have to trust untested rails");
+    it('should have hero body copy about proof not pitch deck', () => {
+      expect(content).toContain('Each venture in the studio is a proof, not a pitch deck');
     });
 
     it('should have supporting text below grid', () => {
