@@ -1,0 +1,231 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Uniqueness Engine venture page** (`/ventures/uniqueness`) fully in line with:
+
+- VSG Brand & Voice System v3.0
+- Truth · Capital · Dignity (Uniqueness Engine = **Dignity** beam)
+- External-safety rules:
+  - No detailed identity-plumbing diagrams
+  - No specific vendor / protocol / chain names
+  - No biometric implementation specifics
+
+We want Uniqueness Engine to read as:
+
+- **Personhood without overexposure** — sybil-resistant participation without surveillance.
+- A Dignity system that protects people while still making abuse provably harder.
+- Calm, premium, institutional; Architect + Judge voice with one carefully chosen warmth line.
+
+Do NOT:
+- Change routes or add/remove sections.
+- Change global theming (colors, typography, primitives).
+- Mention specific biometric techniques, vendors, chains, wallets, or detailed KYC flows.
+- Use “Signal / Value / Human”, “validate the signal”, “StackMe / VSP”, or “the human” as a noun.
+
+--------------------------------------------------
+1) Locate the Uniqueness Engine page component
+--------------------------------------------------
+
+Find the page component mapped to `/ventures/uniqueness`, e.g.:
+
+- `client/src/pages/ventures/Uniqueness.tsx`
+- or `client/src/pages/UniquenessEngine.tsx`
+- or equivalent referenced in `client/src/App.tsx`.
+
+We’ll refer to it as `UniquenessPage` below. Apply the changes wherever that component lives.
+
+--------------------------------------------------
+2) PageMeta – title + description
+--------------------------------------------------
+
+Inside the Uniqueness Engine page, locate `<PageMeta ... />` and set:
+
+- `title`:
+    "Uniqueness Engine"
+- `description`:
+    "The Uniqueness Engine proves personhood without overexposure—enabling fair, sybil-resistant participation while people keep control of who they are."
+
+Keep `preloadImage` and any existing texture/OG props unchanged.
+
+--------------------------------------------------
+3) Hero section – Dignity-first intro
+--------------------------------------------------
+
+In the hero section at the top of the Uniqueness Engine page:
+
+3.1 Overline
+
+Set the overline (small label above the heading) to:
+
+  "Venture — Dignity systems"
+
+3.2 Heading (`<h1>`)
+
+Set the main heading to:
+
+  "Uniqueness Engine: personhood without overexposure."
+
+3.3 Hero body copy (two short paragraphs)
+
+Replace the current hero body text with:
+
+Paragraph 1 (~45–60 words):
+
+  "The Uniqueness Engine proves that one person sits behind an account or action—without demanding their entire life story in return. It enables sybil-resistant participation and fair allocation in systems that depend on people, not bots or duplicate identities, while keeping control of identity with the individual instead of another centralized profile silo."
+
+Paragraph 2 (~35–45 words, contains the single warmth line):
+
+  "You shouldn’t have to expose everything about yourself just to prove you’re real. The Uniqueness Engine is designed to minimise what is shared, limit how it’s reused, and make abuses of identity visible instead of invisible—so dignity is enforced by design, not just by policy."
+
+Keep all JSX and Tailwind layout classes intact; only update the text nodes.
+
+3.4 Hero CTAs (if present)
+
+If the hero exposes buttons/links, configure them as:
+
+Primary CTA:
+- Label:
+    "See all ventures"
+- `href`:
+    "/ventures"
+
+Secondary CTA:
+- Label:
+    "How we design Dignity systems"
+- `href`:
+    "/approach"
+
+Reuse your existing `<Button>` / link components and classes; only change label text and `href`.
+
+--------------------------------------------------
+4) Section: “What the Uniqueness Engine does”
+--------------------------------------------------
+
+Locate the first explanatory section under the hero that describes the system’s function (often a two-column block or feature list). Reuse that structure.
+
+4.1 Section heading
+
+  "What the Uniqueness Engine does"
+
+4.2 Main body paragraph (~80–110 words)
+
+Replace the body text with:
+
+  "The Uniqueness Engine is infrastructure for personhood. It gives systems a way to tell that one person is behind an identity or action, without turning that person into a product. Instead of relying on crude checks or blanket KYC, it focuses on uniqueness: one person, one presence, one weight in a decision. It is designed to support fair distribution, spam-resistance, and community protection while revealing as little as possible about any individual. Attributes are proven only when required, under clear rules, and can be revoked when those rules are broken."
+
+4.3 Supporting bullet list (3 bullets)
+
+If this section already uses bullets or icon rows, set the text to:
+
+- "Proves that one person sits behind an identity without demanding full biographical exposure."
+- "Makes it harder to create fake or duplicate accounts at scale, while keeping honest participants in control."
+- "Supports fair allocation, voting, and access controls in systems that depend on real people, not bots."
+
+Keep all existing icons and layout classes; only update strings.
+
+--------------------------------------------------
+5) Section: “Why it exists” (pain + Dignity lens)
+--------------------------------------------------
+
+Find the problem/pain-focused section on this page (if one exists). Reuse its layout and update the copy.
+
+Section heading:
+
+  "Why the Uniqueness Engine exists"
+
+Body (~90–120 words):
+
+  "Most systems that try to keep out abuse force people into a trade-off: surrender detailed identity data to a central authority, or accept a flood of bots, fraud, and Sybil attacks. Both options erode dignity—either by overexposure or by making participation unsafe. The Uniqueness Engine exists to give systems a third option. It focuses on what is necessary for fairness and safety, and nothing more. That means uniqueness instead of surveillance, accountability without permanent dossiers, and clear rules about when a proof is required and how it can be withdrawn."
+
+If this section uses a small tag or chip, set it to:
+
+  "Dignity · Infrastructure"
+
+--------------------------------------------------
+6) Section: “Where it sits in the studio”
+--------------------------------------------------
+
+If there is a portfolio-context section (e.g., “in the studio” / “in the portfolio”), reuse its layout for this copy.
+
+Section heading:
+
+  "Where the Uniqueness Engine sits in the studio"
+
+Body (~80–100 words):
+
+  "Within VSG, the Uniqueness Engine owns the Dignity beam. It protects the people inside systems that are otherwise focused on capital and information flows. Helios uses Dignity-aware signals to limit how capital can be abused by coordinated identities. Lumina can pair with the Uniqueness Engine so claims about assets and claims about people align without oversharing. Together, they form rails where people can participate, hold value, and act with confidence that their presence matters—but their lives are not unnecessarily exposed."
+
+If your layout supports chips/labels on this section, configure as:
+
+- "Dignity · Venture"
+- "Designed to pair with Truth and Capital systems"
+
+--------------------------------------------------
+7) Optional feature cards: “Inside the Uniqueness Engine”
+--------------------------------------------------
+
+If the page already has a grid of cards describing features/capabilities, reuse the structure and replace the text only. For example:
+
+Card 1  
+- Title: "Uniqueness, not dossiers"
+- Description:
+  "The system focuses on proving that one person is present, not on collecting or storing their entire identity. Proofs are narrowly scoped to what a given interaction actually needs."
+
+Card 2  
+- Title: "Controlled disclosure"
+- Description:
+  "Participants reveal only what is necessary for a specific context—no more. Different communities can set different thresholds while still relying on the same underlying rails."
+
+Card 3  
+- Title: "Abuse visibility"
+- Description:
+  "When abuse or fraud occurs, systems can respond with clear rules for limiting or removing access without exposing unrelated aspects of someone’s life."
+
+Card 4 (if you have a fourth slot)  
+- Title: "Composable for many systems"
+- Description:
+  "The Uniqueness Engine is meant to plug into existing networks, applications, and communities as an underlying layer, not to replace them with a single central platform."
+
+No mention of specific proof systems (e.g., zk-SNARK brand names), no biometrics descriptions, no chain/protocol names.
+
+--------------------------------------------------
+8) Hygiene pass on Uniqueness page
+--------------------------------------------------
+
+In the Uniqueness page file:
+
+1) Remove or rewrite any remaining references to:
+   - “Signal / Value / Human”
+   - “validate the signal”
+   - “StackMe / Stackme Holdings / VSP”
+   - “the human” as a noun
+   - “AI-powered identity platform”, “revolutionary”, “game-changing”, “disruptive”
+   - Specific identity vendors, chain names, biometric types, or detailed KYC flows.
+
+2) Ensure AI language matches v3 rules:
+   - Use: “AI-native”, “machine intelligence assists…”, “intelligence augmentation”.
+   - Avoid: “magic”, “AI does the rest”, “we sprinkle AI”.
+
+3) Verify there is at most **one** warmth line with “you” (we already used it in the hero). Do not add others elsewhere in this file.
+
+4) Ensure that references to the three beams on this page are:
+   - “Dignity” as the primary focus.
+   - References to “Truth” and “Capital” only in the context section.
+   - Avoid calling them “domains” if it makes things sound abstract—“beam” or “lane” is acceptable.
+
+--------------------------------------------------
+9) Final QA
+--------------------------------------------------
+
+After edits, run the dev server and open `/ventures/uniqueness`:
+
+- Hero clearly states Uniqueness Engine is about personhood without overexposure.
+- “What” and “Why” sections describe the system and pain in clear, non-hype language.
+- Context section positions it cleanly in relation to Helios and Lumina under the Truth · Capital · Dignity framing.
+- No sensitive implementation details are exposed (no vendors, chains, biometrics, or deeply technical wiring).
+
+Only commit once the Uniqueness Engine page is something you’d be comfortable putting in front of:
+- Security-conscious partners,
+- Privacy-conscious users,
+- And regulators who care about how identity and dignity are handled in digital systems.
