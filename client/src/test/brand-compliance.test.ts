@@ -783,4 +783,87 @@ describe('Brand & Voice Compliance', () => {
       });
     });
   });
+
+  describe('Values page v3.0 compliance', () => {
+    const valuesPath = path.join(process.cwd(), 'client/src/pages/Values.tsx');
+    let content: string;
+
+    beforeAll(() => {
+      content = fs.readFileSync(valuesPath, 'utf-8');
+    });
+
+    it('should have correct PageMeta title and description', () => {
+      expect(content).toContain('title="Values & Operating Code"');
+      expect(content).toContain('The values that guide how Verifiable Systems Group designs');
+    });
+
+    it('should have correct hero heading', () => {
+      expect(content).toContain('How we operate when it actually matters.');
+    });
+
+    it('should have correct overline', () => {
+      expect(content).toContain('Values · Operating Code');
+    });
+
+    it('should have all six v3.0 values from studio.ts', () => {
+      expect(content).toContain('values.map');
+    });
+
+    it('should have "Six values that govern how we work" section', () => {
+      expect(content).toContain('Six values that govern how we work');
+      expect(content).toContain('Each value is a constraint');
+    });
+
+    it('should have "How these values show up in decisions" section', () => {
+      expect(content).toContain('How these values show up in decisions');
+      expect(content).toContain('Intelligence Augmented');
+      expect(content).toContain('Seek the Signal');
+      expect(content).toContain('Engineered Ambition');
+      expect(content).toContain('Own the Engine');
+      expect(content).toContain('Value is a Mirror');
+      expect(content).toContain('Force Multiplier');
+    });
+
+    it('should have cross-links to approach, ventures, and standards', () => {
+      expect(content).toContain('href="/approach"');
+      expect(content).toContain('href="/ventures"');
+      expect(content).toContain('href="/standards"');
+    });
+
+    it('should have NextStepBlock pointing to approach', () => {
+      expect(content).toContain('nextPage="Approach"');
+      expect(content).toContain('six-stage runway');
+    });
+
+    it('should have proper data-testid attributes for key sections', () => {
+      const expectedTestIds = [
+        'section-hero',
+        'text-overline',
+        'text-heading',
+        'text-hero-body',
+        'section-values',
+        'heading-values',
+        'section-decisions',
+        'heading-decisions',
+        'section-cross-links',
+      ];
+      
+      expectedTestIds.forEach(testId => {
+        expect(content).toContain(`data-testid="${testId}"`);
+      });
+    });
+
+    it('should have value cards with proper data-testid pattern', () => {
+      expect(content).toContain('data-testid={`card-value-${value.id}`}');
+      expect(content).toContain('data-testid={`heading-value-${value.id}`}');
+      expect(content).toContain('data-testid={`quote-value-${value.id}`}');
+      expect(content).toContain('data-testid={`text-value-${value.id}`}');
+    });
+
+    it('should not contain old brand language', () => {
+      expect(content).not.toContain('"Anchor to Evidence"');
+      expect(content).not.toContain('StackMe');
+      expect(content).not.toContain('Axiom');
+    });
+  });
 });
