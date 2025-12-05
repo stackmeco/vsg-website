@@ -82,3 +82,8 @@ Preferred communication style: Simple, everyday language.
 - **Page Structure**: Each page now includes hero, "what this means", Truth/Capital/Dignity domain mapping, and disclaimer sections
 - **Connect Page**: Updated to v3.0 Architect/Judge voice with precise, non-hype copy
 - **Ventures Index Page**: Added "Three questions, three proof points" section with v3.0 domain labels
+- **Overview Page v3.0 Polish** (December 2024):
+  - Hero updated with canonical heading "The infrastructure of verifiable autonomy." and "Verifiable Systems Group · Studio" overline
+  - "Three questions we organize around" section with problem-framing titles (Truth · What can be trusted? / Capital · How should value move? / Dignity · How do people participate?)
+  - "What VSG is" section emphasizes infrastructure-grade design
+  - "How the studio fits together" section with 5 navigation cards: Ventures, Approach, Process, Standards, Insights

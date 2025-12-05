@@ -591,26 +591,32 @@ describe('Brand & Voice Compliance', () => {
       content = fs.readFileSync(overviewPath, 'utf-8');
     });
 
-    it('should have correct canon line in hero heading', () => {
-      expect(content).toContain('We engineer the infrastructure of verifiable autonomy.');
-    });
-
     it('should have correct PageMeta title', () => {
       expect(content).toContain('title="Verifiable Systems Group"');
     });
 
-    it('should have "Three questions we ask about every system" section', () => {
-      expect(content).toContain('Three questions we ask about every system');
+    it('should have canon hero heading', () => {
+      expect(content).toContain('The infrastructure of verifiable autonomy.');
     });
 
-    it('should have Truth, Capital, Dignity questions defined', () => {
-      expect(content).toContain('label: "Truth"');
-      expect(content).toContain('label: "Capital"');
-      expect(content).toContain('label: "Dignity"');
+    it('should have v3.0 hero overline', () => {
+      expect(content).toContain('Verifiable Systems Group · Studio');
     });
 
-    it('should have "What VSG is" section', () => {
+    it('should have "Three questions we organize around" section', () => {
+      expect(content).toContain('Three questions we organize around');
+      expect(content).toContain('Instead of generic pillars');
+    });
+
+    it('should have Truth, Capital, Dignity questions with titles', () => {
+      expect(content).toContain('Truth · What can be trusted?');
+      expect(content).toContain('Capital · How should value move?');
+      expect(content).toContain('Dignity · How do people participate?');
+    });
+
+    it('should have "What VSG is" section with canonical copy', () => {
       expect(content).toContain('What VSG is');
+      expect(content).toContain('infrastructure-grade by design');
       expect(content).toContain('AI-native studio');
       expect(content).toContain('Cryptography-grounded');
       expect(content).toContain('Internal-first and non-custodial');
@@ -626,21 +632,18 @@ describe('Brand & Voice Compliance', () => {
       expect(content).toContain('Uniqueness Engine · Dignity · Venture');
     });
 
-    it('should have "How we build" section with approach and process', () => {
-      expect(content).toContain('How we build');
+    it('should have "How the studio fits together" section', () => {
+      expect(content).toContain('How the studio fits together');
+      expect(content).toContain("don't ship in isolation");
       expect(content).toContain('six-stage runway');
+    });
+
+    it('should have all five studio cards (Ventures, Approach, Process, Standards, Insights)', () => {
+      expect(content).toContain('href: "/ventures"');
       expect(content).toContain('href: "/approach"');
       expect(content).toContain('href: "/process"');
-    });
-
-    it('should have "Governance and standards" section', () => {
-      expect(content).toContain('Governance and standards');
-      expect(content).toContain('href="/standards"');
-    });
-
-    it('should have "Field notes" section', () => {
-      expect(content).toContain('Field notes');
-      expect(content).toContain('href="/insights"');
+      expect(content).toContain('href: "/standards"');
+      expect(content).toContain('href: "/insights"');
     });
 
     it('should not contain old domain labels', () => {
@@ -656,8 +659,6 @@ describe('Brand & Voice Compliance', () => {
         'section-what-vsg-is',
         'section-ventures',
         'section-how-we-build',
-        'section-governance',
-        'section-field-notes',
         'section-talk-studio',
       ];
       
