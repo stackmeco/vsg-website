@@ -4,26 +4,27 @@ import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Check, X } from "lucide-react";
 
-const problemBullets = [
-  "Positions across venues without a single, inspectable view of limits.",
-  "Short-term optimization that hides long-term fragility.",
-  "Playbooks that exist in documents, not in the execution layer itself.",
+const whatHeliosDoesBullets = [
+  "Keeps capital working inside predefined guardrails instead of chasing unchecked yield.",
+  "Surfaces risk early through continuous monitoring and explainable decision paths.",
+  "Gives the studio a live environment to test new patterns before we share them.",
 ];
 
-const whatHeliosIs = [
+const mechanismCards = [
   {
-    title: "Execution engine",
-    body: "Helios takes high-level risk and allocation constraints and turns them into concrete execution rules for moving positions across approved venues and instruments.",
+    title: "Monitoring",
+    body: "Machine intelligence watches positions, flows, and conditions continuously, flagging behaviour that steps outside defined patterns so humans can decide what to do next.",
   },
   {
-    title: "Constraint-first design",
-    body: "Limits—on exposures, concentrations, and stress behaviors—are defined up front. Helios treats those limits as boundaries it cannot cross, not suggestions it can quietly override.",
+    title: "Guardrails",
+    body: "Policies define what exposures, venues, and actions are allowed. Anything outside those bounds simply doesn't execute, no matter how attractive it looks in the moment.",
   },
   {
-    title: "Internal-first",
-    body: "We route our own capital through Helios first. If a pattern fails, it fails on us. We do not pool client funds or market Helios as a yield or investment product.",
+    title: "Playbooks",
+    body: "When something breaks or moves fast, we do not improvise from scratch. We follow pre-defined playbooks so responses are consistent, explainable, and logged.",
   },
 ];
 
@@ -42,21 +43,6 @@ const heliosDomains = [
   },
 ];
 
-const howHeliosUsesAI = [
-  {
-    title: "Monitoring",
-    body: "AI keeps watch on positions, limits, and venue conditions, flagging unusual patterns early instead of waiting for a crisis to reveal them.",
-  },
-  {
-    title: "Simulation",
-    body: "We use AI to run simulations and drills—testing how portfolios behave under different shocks and what it would take to rebalance or unwind within defined constraints.",
-  },
-  {
-    title: "Escalation, not automation",
-    body: "AI can recommend—but it cannot commit—material changes to the treasury. Critical moves remain interceptable by humans, with clear logs of why an action was proposed.",
-  },
-];
-
 const whatHeliosIsItems = [
   "An internal execution system for how our own digital asset treasury moves under explicit limits.",
   "A way to embed risk constraints and playbooks into the mechanisms that actually move capital.",
@@ -69,18 +55,12 @@ const whatHeliosIsNotItems = [
   "Not a substitute for independent review by stewards, counsel, or auditors where those are required.",
 ];
 
-const studioContext = [
-  { domain: "Truth", venture: "Lumina", text: "making condition and grading flows inspectable." },
-  { domain: "Capital", venture: "Helios", text: "making treasury execution constraint-aware." },
-  { domain: "Dignity", venture: "Uniqueness Engine", text: "making personhood provable without turning identity into product." },
-];
-
 export default function Helios() {
   return (
     <Layout>
       <PageMeta
         title="Helios"
-        description="Helios is Verifiable Systems Group's internal treasury execution engine—routing digital asset positions under explicit constraints so capital remains resilient under stress."
+        description="Helios is VSG's internal capital engine—an AI-native execution system that keeps our treasury working inside explicit, non-custodial guardrails."
         preloadImage="/hero-texture.png"
       />
 
@@ -102,27 +82,27 @@ export default function Helios() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary mb-4" data-testid="text-overline">
-              Helios · Capital · Venture
+              Internal venture — Capital systems
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
-              Treasury execution under explicit constraints.
+              Helios: VSG's internal capital engine.
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-hero-body">
-              Helios is our internal execution engine for digital asset treasuries. It focuses on one task: routing positions across approved venues under predefined limits so capital stays resilient under stress instead of drifting into hidden exposures.
+              Helios is how we put our own balance sheet to work. It allocates VSG's reserve assets under explicit limits so capital can move, rebalance, and absorb stress without handing custody to third parties. Every path is designed for observability and rollback before it is trusted with real exposure.
             </p>
             <p className="text-sm text-muted-foreground/80 leading-relaxed" data-testid="text-hero-secondary">
-              We built it after seeing how quickly exposure can stack up inside opaque systems—even when everyone thinks they are being careful.
+              You shouldn't have to choose between liquidity and control. Helios treats capital flows as infrastructure: governed experiments, clear failure modes, and no hidden counterparties. We run it for ourselves first so any pattern we share has already survived live markets, not just backtests.
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-8">
-              <Button asChild size="lg" data-testid="button-back-to-ventures">
-                <Link href="/ventures">
-                  Back to ventures
+              <Button asChild size="lg" data-testid="button-how-helios-works">
+                <Link href="/approach">
+                  How Helios works
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" data-testid="button-see-standards">
-                <Link href="/standards">
-                  See our standards
+              <Button asChild variant="outline" size="lg" data-testid="button-back-to-ventures">
+                <Link href="/ventures">
+                  Back to all ventures
                 </Link>
               </Button>
             </div>
@@ -130,48 +110,62 @@ export default function Helios() {
         </div>
       </section>
 
-      {/* The problem Helios exists to solve */}
-      <section className="py-20 bg-card" data-testid="section-problem">
+      {/* What Helios does */}
+      <section className="py-20 bg-card" data-testid="section-what-helios-does">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-problem">
-              The problem Helios exists to solve
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-what-helios-does">
+              What Helios does
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-problem-body">
-              Most digital asset treasuries grow more complex over time—positions spread across venues, new assets appear, and risk accumulates quietly in the background. Exposure looks fine when charts are up and volatility is low, but during stress it becomes obvious that no one can clearly say where the limits are or how to unwind cleanly.
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-what-helios-does-body">
+              Helios is an AI-native execution system for our digital asset treasury. It coordinates how capital moves across approved venues, when positions change, and how risk is surfaced before it becomes loss. Machine intelligence monitors patterns, stress-tests scenarios, and enforces rules; humans define mandates, constraints, and veto points. There are no pooled client funds, no yield marketing, and no opaque 'strategies'. Helios exists so VSG can operate with institutional-grade observability—first for ourselves, and eventually as a reference pattern for others who need the same kind of discipline.
             </p>
-            <ul className="space-y-3 mb-6">
-              {problemBullets.map((item, index) => (
-                <li key={index} className="flex items-start gap-3" data-testid={`problem-bullet-${index}`}>
+            <ul className="space-y-3">
+              {whatHeliosDoesBullets.map((item, index) => (
+                <li key={index} className="flex items-start gap-3" data-testid={`what-helios-does-bullet-${index}`}>
                   <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
                   <span className="text-sm text-muted-foreground">{item}</span>
                 </li>
               ))}
             </ul>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-problem-closing">
-              Helios exists to make those limits explicit and binding in the way the treasury actually behaves.
+          </div>
+        </div>
+      </section>
+
+      {/* How we keep control */}
+      <section className="py-20" data-testid="section-how-we-keep-control">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-how-we-keep-control">
+              How we keep control
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-control-body-1">
+              Helios is built around one non-negotiable: capital should not disappear into black boxes. Every action runs through explicit policies that define what we will and will not do. We design for observability first—so we can see where capital is, how it is behaving, and what would happen if conditions change sharply. When something drifts outside its lane, humans are pulled back into the loop to decide what happens next.
+            </p>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-control-body-2">
+              Externally, that means we never market Helios as a product, manage outside capital, or promise yields. Internally, it means we treat every new integration as a governed experiment with a clear rollback path. The same standards that protect us are the ones we will expect from any rails we share.
             </p>
           </div>
         </div>
       </section>
 
-      {/* What Helios is */}
-      <section className="py-20" data-testid="section-what-helios-is">
+      {/* Inside the mechanism - mini cards */}
+      <section className="py-20 bg-card" data-testid="section-mechanism">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-what-helios-is">
-              What Helios is
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-mechanism">
+              Inside the mechanism
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-what-helios-is-intro">
-              Helios is not a fund, product, or strategy deck. It is an internal system that enforces how our treasury is allowed to move.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-mechanism-intro">
+              Helios is AI-native: machine intelligence sits alongside humans to keep track of patterns and scenarios that would be hard to see manually. But AI does not set mandates or goals—it amplifies our ability to enforce them.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {whatHeliosIs.map((card, index) => (
+            {mechanismCards.map((card, index) => (
               <Card 
                 key={index} 
-                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" 
-                data-testid={`card-what-is-${index}`}
+                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" 
+                data-testid={`card-mechanism-${index}`}
               >
                 <CardContent className="flex flex-col h-full p-6">
                   <h3 className="font-heading font-semibold text-foreground mb-3">{card.title}</h3>
@@ -184,7 +178,7 @@ export default function Helios() {
       </section>
 
       {/* Helios under Truth, Capital, and Dignity */}
-      <section className="py-20 bg-card" data-testid="section-domains">
+      <section className="py-20" data-testid="section-domains">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-domains">
@@ -198,39 +192,11 @@ export default function Helios() {
             {heliosDomains.map((card, index) => (
               <Card 
                 key={index} 
-                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" 
+                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" 
                 data-testid={`card-domain-${card.domain.toLowerCase()}`}
               >
                 <CardContent className="flex flex-col h-full p-6">
                   <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary mb-3">{card.domain}</p>
-                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{card.body}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How Helios uses AI */}
-      <section className="py-20" data-testid="section-ai">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-ai">
-              How Helios uses AI
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-ai-intro">
-              Helios is AI-native: machine intelligence sits alongside humans to keep track of patterns and scenarios that would be hard to see manually. But AI does not set mandates or goals—it amplifies our ability to enforce them.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {howHeliosUsesAI.map((card, index) => (
-              <Card 
-                key={index} 
-                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" 
-                data-testid={`card-ai-${index}`}
-              >
-                <CardContent className="flex flex-col h-full p-6">
-                  <h3 className="font-heading font-semibold text-foreground mb-3">{card.title}</h3>
                   <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{card.body}</p>
                 </CardContent>
               </Card>
@@ -285,26 +251,20 @@ export default function Helios() {
         </div>
       </section>
 
-      {/* Where Helios sits in the broader studio */}
+      {/* Where Helios sits in the studio */}
       <section className="py-20" data-testid="section-studio-context">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-studio-context">
-              Where Helios sits in the broader studio
+              Where Helios sits in the studio
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-studio-context">
-              Helios is one piece of a larger picture. It focuses on how capital moves. Other ventures focus on what information can be trusted and how people participate without overexposure. Together, they pressure-test our answers to Truth, Capital, and Dignity.
+              Within VSG, Helios owns the Capital beam. It doesn't try to solve every problem; it focuses on one: how our treasury should behave when the world is calm, when it is noisy, and when something breaks. Lumina and the Uniqueness Engine feed it better inputs about what is true and who is allowed to act. In return, Helios gives the studio staying power—so we can keep building Truth and Dignity systems through volatility instead of stopping whenever markets swing.
             </p>
-            <ul className="space-y-3 mb-8">
-              {studioContext.map((item, index) => (
-                <li key={index} className="flex items-start gap-3" data-testid={`studio-context-${index}`}>
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
-                  <span className="text-sm text-muted-foreground">
-                    <span className="text-primary font-medium">{item.domain} · {item.venture}:</span> {item.text}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <div className="flex flex-wrap gap-3 mb-8">
+              <Badge variant="default" className="text-xs">Capital · Internal venture</Badge>
+              <Badge variant="outline" className="text-xs">Runs on our own balance sheet first</Badge>
+            </div>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-cross-ventures">

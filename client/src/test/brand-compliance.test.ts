@@ -460,7 +460,7 @@ describe('Brand & Voice Compliance', () => {
     });
 
     it('should have correct hero heading', () => {
-      expect(content).toContain('Treasury execution under explicit constraints.');
+      expect(content).toContain("Helios: VSG's internal capital engine.");
     });
 
     it('should have correct PageMeta title', () => {
@@ -468,37 +468,41 @@ describe('Brand & Voice Compliance', () => {
     });
 
     it('should have correct overline with domain label', () => {
-      expect(content).toContain('Helios · Capital · Venture');
+      expect(content).toContain('Internal venture — Capital systems');
     });
 
-    it('should have "The problem Helios exists to solve" section', () => {
-      expect(content).toContain('The problem Helios exists to solve');
+    it('should have "What Helios does" section', () => {
+      expect(content).toContain('What Helios does');
+      expect(content).toContain('AI-native execution system');
     });
 
-    it('should have "What Helios is" section with internal-first emphasis', () => {
-      expect(content).toContain('What Helios is');
-      expect(content).toContain('Execution engine');
-      expect(content).toContain('Constraint-first design');
-      expect(content).toContain('Internal-first');
+    it('should have "How we keep control" section', () => {
+      expect(content).toContain('How we keep control');
+      expect(content).toContain('capital should not disappear into black boxes');
+    });
+
+    it('should have "Inside the mechanism" section with cards', () => {
+      expect(content).toContain('Inside the mechanism');
+      expect(content).toContain('Monitoring');
+      expect(content).toContain('Guardrails');
+      expect(content).toContain('Playbooks');
     });
 
     it('should have "Helios under Truth, Capital, and Dignity" section', () => {
       expect(content).toContain('Helios under Truth, Capital, and Dignity');
     });
 
-    it('should have "How Helios uses AI" section', () => {
-      expect(content).toContain('How Helios uses AI');
-      expect(content).toContain('Monitoring');
-      expect(content).toContain('Simulation');
-      expect(content).toContain('Escalation, not automation');
-    });
-
     it('should have "What Helios is / is not" section', () => {
       expect(content).toContain('What Helios is / is not');
     });
 
-    it('should have "Where Helios sits in the broader studio" section', () => {
-      expect(content).toContain('Where Helios sits in the broader studio');
+    it('should have "Where Helios sits in the studio" section', () => {
+      expect(content).toContain('Where Helios sits in the studio');
+      expect(content).toContain('Helios owns the Capital beam');
+    });
+
+    it('should have warmth line in hero', () => {
+      expect(content).toContain("You shouldn't have to choose between liquidity and control");
     });
 
     it('should have cross-links to ventures, process, and standards', () => {
@@ -520,10 +524,10 @@ describe('Brand & Voice Compliance', () => {
     it('should have proper data-testid attributes for key sections', () => {
       const expectedTestIds = [
         'section-hero',
-        'section-problem',
-        'section-what-helios-is',
+        'section-what-helios-does',
+        'section-how-we-keep-control',
+        'section-mechanism',
         'section-domains',
-        'section-ai',
         'section-is-is-not',
         'section-studio-context',
       ];
