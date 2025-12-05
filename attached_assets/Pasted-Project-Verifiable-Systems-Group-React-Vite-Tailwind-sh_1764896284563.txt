@@ -1,0 +1,261 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Insights / Field Notes page** fully in line with:
+
+- VSG Brand & Voice System v3.0
+- The Truth · Capital · Dignity model
+- The Architect/Judge voice (calm, technical, opinionated, low-hype)
+- The internal-first, AI-native, non-custodial stance
+
+This page should:
+
+- Feel like **field notes from the lab**, not marketing blog spam.
+- Explain what “Insights” are and how they relate to Truth, Capital, and Dignity.
+- Present posts in a clean, scannable way (title, short abstract, domain tag, date).
+- Make clear these are observations from **our own experiments**, not advice.
+- Provide a clear empty state if there are no posts yet.
+- Cross-link to `/ventures`, `/approach`, and `/standards`.
+
+Do NOT change global theming, layout primitives, or add/remove routes. Only update copy, labels, and local data structures in the **Insights** page file.
+
+--------------------------------------------------
+1) Locate the Insights page
+--------------------------------------------------
+
+Find the component rendered for the “Insights” or “Notes” route, for example:
+
+- client/src/pages/Insights.tsx
+- client/src/pages/Notes.tsx
+- client/src/pages/Library.tsx (if previously named “Library” but now routed as `/insights`)
+
+It should be the component mapped to `/insights` in client/src/App.tsx.
+
+All changes below apply only inside this page file.
+
+--------------------------------------------------
+2) Update PageMeta (SEO + snippet)
+--------------------------------------------------
+
+If this page uses a <PageMeta> component, update it as follows:
+
+- title:
+    "Insights"
+- description:
+    "Field notes from Verifiable Systems Group—observations from running AI-native, cryptography-grounded systems on our own balance sheet under Truth, Capital, and Dignity."
+
+Keep any preloadImage prop as-is (for example, "/hero-texture.png").
+
+Do not change the component structure or imports; only update the string values.
+
+--------------------------------------------------
+3) Hero section – “Field notes, not hype”
+--------------------------------------------------
+
+Keep the existing hero layout (background, container, grid). Replace only the strings and hrefs.
+
+Overline:
+  "Insights"
+
+Main heading:
+  "Field notes from verifiable systems."
+
+Body paragraph:
+  "These are observations from running AI-native, cryptography-grounded systems on our own balance sheet and infrastructure. We document what held up under pressure, what failed, and what we changed—so you can see the mechanics, not just the outcomes."
+
+If the hero supports a short secondary line, set it to:
+
+  "You shouldn’t need hype to understand how a system behaves. You should be able to inspect the path it took."
+
+Primary CTA (if the page has one at the top; if not, skip):
+  Label:
+    "Explore ventures"
+  href:
+    "/ventures"
+
+Secondary CTA (optional):
+  Label:
+    "Review our approach"
+  href:
+    "/approach"
+
+Do not change the hero layout or component types—only the copy and hrefs.
+
+--------------------------------------------------
+4) Standardize the posts data structure
+--------------------------------------------------
+
+If the page already has a `posts` (or similar) array used to render cards, **do not** change its shape arbitrarily. Instead:
+
+- Keep the same fields (id, title, description, href, date, etc.).
+- Add or normalize a `domain` or `category` field that can hold `"Truth" | "Capital" | "Dignity"` if it does not already exist.
+
+Example shape (adapt to actual file, but align content):
+
+  const posts = [
+    {
+      slug: "helios-drawdown-drill",
+      title: "What we learned from a simulated Helios drawdown drill",
+      description:
+        "A walkthrough of how we rehearsed a severe treasury stress scenario inside Helios—what worked, what broke, and how we tightened the constraints.",
+      href: "/insights/helios-drawdown-drill",
+      date: "2025-01-12",
+      readingTime: "8 min",
+      domain: "Capital",
+    },
+    {
+      slug: "lumina-sensor-drift",
+      title: "Chasing down a subtle sensor drift in Lumina",
+      description:
+        "How a small drift in input hardware almost turned into a systemic blind spot—and how shifting the standard from accuracy to provenance changed the design.",
+      href: "/insights/lumina-sensor-drift",
+      date: "2025-02-03",
+      readingTime: "6 min",
+      domain: "Truth",
+    },
+    {
+      slug: "uniqueness-friction-vs-dignity",
+      title: "Friction, dignity, and the Uniqueness Engine",
+      description:
+        "Balancing one-person-one-presence with the right to remain mostly opaque. Where we drew the line for proof requirements and how we backed it with standards.",
+      href: "/insights/uniqueness-friction-vs-dignity",
+      date: "2025-03-19",
+      readingTime: "7 min",
+      domain: "Dignity",
+    },
+  ];
+
+You do NOT need to add these exact posts; the important part is:
+
+- There is a field that can hold `"Truth"`, `"Capital"`, or `"Dignity"`.
+- Descriptions sound like **field notes** (what happened, what we learned), not sales copy.
+
+Leave any real posts you already have; just adjust their `description` copy to match the voice and add `domain` tags where appropriate.
+
+--------------------------------------------------
+5) Update the posts list layout copy
+--------------------------------------------------
+
+In the JSX that renders each post card:
+
+- Ensure each card shows:
+  - Title
+  - Domain / category chip (Truth, Capital, or Dignity)
+  - Short description (1–2 sentences max)
+  - Date and optional reading time
+  - Link to the full post
+
+Suggested text pattern in the card:
+
+Title:
+  "{post.title}"
+
+Meta (muted, small):
+  "{post.domain} · {formattedDate} · {post.readingTime}"
+
+Description:
+  "{post.description}"
+
+CTA (if present on each card):
+  Label:
+    "Read note"
+  href:
+    post.href
+
+Use existing small-chip or badge components (e.g., <Badge>) for `post.domain` if available, with consistent styling across cards.
+
+--------------------------------------------------
+6) Add / refine an intro block above the posts list
+--------------------------------------------------
+
+Above the grid/list of posts, add a short contextual block that reframes Insights as field notes.
+
+Section heading:
+  "What you’ll find here"
+
+Body paragraph:
+  "Short, concrete memos from inside our systems and ventures: drills that went right and wrong in Helios, design decisions in Lumina, and trade-offs from Uniqueness Engine. We focus on the mechanics—constraints, failures, standards—not just polished outcomes."
+
+Underneath (optional short list):
+
+- "Helios: treasury drills, stress paths, exposure patterns." (Capital)
+- "Lumina: grading flows, provenance issues, sensor behavior." (Truth)
+- "Uniqueness Engine: personhood trade-offs, friction, revocation." (Dignity)
+
+Keep this concise and scannable.
+
+--------------------------------------------------
+7) Empty state copy (no posts yet)
+--------------------------------------------------
+
+If the page has an “empty” state when there are no posts, update it to match the voice.
+
+Heading:
+  "Field notes are still being written."
+
+Body text:
+  "We publish insights once they have survived real experiments on our own systems—no placeholders, no generic content. Check back soon, or start with our approach and standards in the meantime."
+
+Provide two links:
+
+- Label:
+    "Review our approach"
+  href:
+    "/approach"
+
+- Label:
+    "Review our standards"
+  href:
+    "/standards"
+
+Keep the layout and styling of the empty state component; only update the text and hrefs.
+
+--------------------------------------------------
+8) Bottom cross-links / Next step
+--------------------------------------------------
+
+At the bottom of the Insights page (above the global footer), add a simple “next steps” or cross-link row using existing components.
+
+If you have a NextStepBlock or similar, configure approximately as:
+
+  <NextStepBlock
+    nextPage="Ventures"
+    description="See the ventures these field notes come from—treasury, grading, and personhood experiments run on our own balance sheet first."
+    href="/ventures"
+  />
+
+If you prefer three small links instead, you can use:
+
+- "Explore ventures" → "/ventures"
+- "Review our approach" → "/approach"
+- "Review our standards" → "/standards"
+
+Do not introduce new layout primitives; reuse existing link / CTA components.
+
+--------------------------------------------------
+9) Hygiene & brand checks for the Insights page
+--------------------------------------------------
+
+In the Insights page file only, ensure:
+
+1) There are **no** occurrences of:
+   - The old domains "Signal", "Value", "Human" as domain names.
+   - The phrase "validate the signal".
+   - Phrases like "AI-powered blog", "revolutionary AI insights", or other hype.
+   - "move fast and break things".
+   - "StackMe", "Stackme Holdings", "Stackme app", or "VSP" as active brand names.
+   - The phrase "the human" used in isolation. Prefer: "people", "participants", "teams", "personhood", or "dignity".
+
+2) You do **not**:
+   - Present posts as investment, legal, tax, or compliance advice.
+   - Promise yields, returns, or performance of systems.
+   - Reveal internal wiring like bank names, wallet topologies, or protocol-specific playbooks.
+
+3) You **do**:
+   - Make clear that Insights are field notes from VSG’s own experiments.
+   - Consistently tag posts under Truth, Capital, or Dignity (one primary domain per post).
+   - Maintain the Architect/Judge voice: calm, technical, opinionated, with a small amount of warmth.
+   - Include at least one “you shouldn’t have to…”-style line on the page, but not more than two.
+
+Do not modify other pages or routes in this checkpoint.
