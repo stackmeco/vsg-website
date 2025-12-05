@@ -118,9 +118,9 @@ export default function Lumina() {
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" data-testid="button-see-approach">
-                <Link href="/approach">
-                  See our approach
+              <Button asChild variant="outline" size="lg" data-testid="button-read-insights">
+                <Link href="/insights">
+                  Read field notes
                 </Link>
               </Button>
             </div>
@@ -307,13 +307,13 @@ export default function Lumina() {
                 </Button>
               </CardContent>
             </Card>
-            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-cross-standards">
+            <Card className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-cross-insights">
               <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-3">Review our standards</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">See the standards that shape how systems like Lumina are allowed to collect, store, and expose evidence.</p>
-                <Button asChild variant="outline" size="sm" data-testid="button-review-standards">
-                  <Link href="/standards">
-                    View standards
+                <h3 className="font-heading font-semibold text-foreground mb-3">Read field notes</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">See insights from the experiments and drills that shape Lumina and our other ventures.</p>
+                <Button asChild variant="outline" size="sm" data-testid="button-view-insights">
+                  <Link href="/insights">
+                    View insights
                     <ArrowRight className="w-3 h-3" aria-hidden="true" />
                   </Link>
                 </Button>
@@ -327,7 +327,7 @@ export default function Lumina() {
       <section className="py-12 bg-card border-t border-border" data-testid="section-disclaimer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs text-muted-foreground/80 leading-relaxed max-w-3xl" data-testid="text-disclaimer">
-            Lumina is grading infrastructure, not an offer to grade or insure assets on your behalf. Nothing on this page is investment, legal, or tax advice, and no specific guarantees about card values or outcomes are implied.
+            Lumina is grading infrastructure, not an offer to grade or insure assets on your behalf. Nothing on this page is investment, legal, tax, or compliance advice, and no specific guarantees about card values or outcomes are implied.
           </p>
         </div>
       </section>

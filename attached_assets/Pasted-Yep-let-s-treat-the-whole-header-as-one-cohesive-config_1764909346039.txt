@@ -1,0 +1,384 @@
+Yep, let’s treat the whole header as **one cohesive, config-driven unit** instead of a bunch of one-off dropdowns.
+
+Here’s a single Replit prompt that:
+
+* Creates a shared `navConfig` for **Overview / Ventures / Approach / Studio / Insights / Connect**
+* Refactors the **desktop nav** to use one `GlobalNav` component + one dropdown pattern
+* Reuses the same config for **mobile nav** so everything stays in sync
+* Cleans up the Approach menu so it matches Ventures/Studio
+
+Copy-paste this whole prompt into Replit:
+
+```text
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal
+
+Refactor the entire top navigation bar (desktop + mobile) into ONE coherent, config-driven unit:
+
+- A single `navConfig` object defines all top-level items and dropdown rows.
+- Desktop nav and mobile nav both read from the same config.
+- All dropdowns (Ventures, Approach, Studio) use the SAME markup, spacing, bullets, and border.
+- Approach menu gets an “overview” row like Ventures and Studio.
+- Remove the visual glitches where borders / bullets / padding differ between menus.
+
+Do NOT:
+- Change routes or URLs.
+- Change global colors, typography, or the logo.
+- Introduce new libraries; just use React + Tailwind + existing shadcn primitives.
+
+----------------------------------------------------------------
+1) Create shared nav config
+----------------------------------------------------------------
+
+Create a new file:
+
+  client/src/config/nav.ts
+
+Add the following (adapt path/type imports as needed):
+
+  export type NavChild = {
+    label: string;
+    href: string;
+    description?: string;
+  };
+
+  export type NavItem = {
+    key: string;
+    label: string;
+    href?: string;        // top-level link when clicked directly
+    children?: NavChild[]; // dropdown rows (optional)
+  };
+
+  export const NAV_ITEMS: NavItem[] = [
+    {
+      key: "overview",
+      label: "Overview",
+      href: "/",
+    },
+    {
+      key: "ventures",
+      label: "Ventures",
+      href: "/ventures",
+      children: [
+        {
+          label: "All ventures",
+          href: "/ventures",
+          description: "Our portfolio of institutional-grade ventures.",
+        },
+        {
+          label: "Helios",
+          href: "/ventures/helios",
+          description: "Internal capital engine.",
+        },
+        {
+          label: "Lumina",
+          href: "/ventures/lumina",
+          description: "Verifiable grading infrastructure.",
+        },
+        {
+          label: "Uniqueness Engine",
+          href: "/ventures/uniqueness",
+          description: "Personhood without overexposure.",
+        },
+      ],
+    },
+    {
+      key: "approach",
+      label: "Approach",
+      href: "/approach",
+      children: [
+        {
+          label: "Approach",
+          href: "/approach",
+          description: "How we sequence pillars, process, and standards.",
+        },
+        {
+          label: "Pillars",
+          href: "/pillars",
+          description: "Our foundational principles.",
+        },
+        {
+          label: "Process",
+          href: "/process",
+          description: "How we build, ship, and learn.",
+        },
+        {
+          label: "Standards",
+          href: "/standards",
+          description: "Guardrails and quality benchmarks.",
+        },
+      ],
+    },
+    {
+      key: "studio",
+      label: "Studio",
+      href: "/studio",
+      children: [
+        {
+          label: "Studio",
+          href: "/studio",
+          description: "The VSG innovation engine.",
+        },
+        {
+          label: "Purpose",
+          href: "/studio/purpose",
+          description: "Why we exist.",
+        },
+        {
+          label: "Vision",
+          href: "/studio/vision",
+          description: "Where we’re heading.",
+        },
+        {
+          label: "Mission",
+          href: "/studio/mission",
+          description: "What we do every day.",
+        },
+      ],
+    },
+    {
+      key: "insights",
+      label: "Insights",
+      href: "/insights",
+    },
+    {
+      key: "connect",
+      label: "CONNECT",
+      href: "/connect",
+    },
+  ];
+
+Make sure this file has no JSX; just types and data.
+
+----------------------------------------------------------------
+2) Create a single GlobalNav component (desktop + mobile)
+----------------------------------------------------------------
+
+Find the existing header/nav components (look for things like `SiteHeader`, `DesktopNav`, `MobileNav`, `MainNav` in client/src/components). 
+
+Create a new component file:
+
+  client/src/components/layout/GlobalNav.tsx
+
+Implement it roughly as:
+
+  import { Link, useLocation } from "wouter";
+  import { NAV_ITEMS, NavItem } from "@/config/nav";
+  import { cn } from "@/lib/utils";
+  import { Menu, X, ChevronDown } from "lucide-react"; // or existing icon set
+  import { useState } from "react";
+
+  // Helper to know active route
+  const useActivePath = () => {
+    const [location] = useLocation();
+    return location;
+  };
+
+  type DropdownProps = {
+    item: NavItem;
+    isActive: boolean;
+  };
+
+  function DesktopDropdown({ item, isActive }: DropdownProps) {
+    if (!item.children?.length) return null;
+
+    return (
+      <div className="relative group">
+        <button
+          className={cn(
+            "inline-flex items-center gap-1 text-sm font-medium transition-colors",
+            isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+          )}
+        >
+          <span>{item.label}</span>
+          <ChevronDown className="h-3 w-3" />
+        </button>
+
+        <div className="pointer-events-none absolute left-1/2 top-full z-40 hidden w-[420px] -translate-x-1/2 pt-4 group-hover:pointer-events-auto group-hover:block">
+          <div className="rounded-lg border border-border bg-background/95 shadow-xl backdrop-blur">
+            <div className="px-5 py-4 space-y-3">
+              {item.children.map((child) => (
+                <Link
+                  key={child.href}
+                  href={child.href}
+                  className="flex items-start gap-3 rounded-md px-2 py-2 hover:bg-muted/60"
+                >
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground" />
+                  <span className="flex flex-col">
+                    <span className="text-sm font-medium text-foreground">
+                      {child.label}
+                    </span>
+                    {child.description && (
+                      <span className="text-xs text-muted-foreground">
+                        {child.description}
+                      </span>
+                    )}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  function DesktopNav() {
+    const activePath = useActivePath();
+
+    return (
+      <nav className="hidden items-center gap-8 md:flex">
+        {NAV_ITEMS.map((item) => {
+          const isActive =
+            item.href && (activePath === item.href || activePath.startsWith(item.href + "/"));
+
+          // Dropdown item
+          if (item.children?.length) {
+            return (
+              <DesktopDropdown key={item.key} item={item} isActive={!!isActive} />
+            );
+          }
+
+          // Simple link item (Overview, Insights, CONNECT)
+          return (
+            <Link
+              key={item.key}
+              href={item.href ?? "/"}
+              className={cn(
+                "text-sm font-medium transition-colors",
+                isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+              )}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
+      </nav>
+    );
+  }
+
+  function MobileNav() {
+    const [open, setOpen] = useState(false);
+    const activePath = useActivePath();
+
+    return (
+      <div className="md:hidden">
+        <button
+          className="inline-flex items-center justify-center rounded-md border border-border bg-background px-2 py-1.5 text-xs font-medium"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-label="Toggle navigation"
+        >
+          {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+        </button>
+
+        {open && (
+          <div className="absolute inset-x-0 top-14 z-40 border-b border-border bg-background/95 pb-4 shadow-lg backdrop-blur">
+            <div className="px-4 pt-3 space-y-4">
+              {NAV_ITEMS.map((item) => (
+                <div key={item.key} className="space-y-2">
+                  <Link
+                    href={item.href ?? "/"}
+                    className={cn(
+                      "block text-sm font-medium",
+                      activePath === item.href
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
+                    )}
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+
+                  {item.children?.length && (
+                    <div className="space-y-1 border-l border-border/40 pl-3">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block text-xs text-muted-foreground hover:text-foreground"
+                          onClick={() => setOpen(false)}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  export function GlobalNav() {
+    return (
+      <header className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur">
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:h-16 sm:px-6 lg:px-8">
+          {/* Left: logo */}
+          <div className="flex items-center gap-3">
+            {/* keep existing Logo component or img here */}
+          </div>
+
+          {/* Center/right: nav + search + connect button, etc. */}
+          <div className="flex items-center gap-4">
+            <DesktopNav />
+            <MobileNav />
+            {/* Keep existing CONNECT button styling and search icon if they’re separate components */}
+          </div>
+        </div>
+      </header>
+    );
+  }
+
+Adjust imports (Logo component, icons, cn helper, etc.) to match the existing project.
+
+----------------------------------------------------------------
+3) Wire GlobalNav into the app shell
+----------------------------------------------------------------
+
+Find where the current header/nav is rendered (likely in something like `AppShell`, `Layout`, or directly in `App.tsx`).
+
+- Replace the old header/nav components with:
+
+    import { GlobalNav } from "@/components/layout/GlobalNav";
+
+    function AppShell() {
+      return (
+        <>
+          <GlobalNav />
+          {/* existing <main> / routing, etc. */}
+        </>
+      );
+    }
+
+- Ensure there is only ONE header/nav in the tree (remove outdated `<DesktopNav>` / `<MobileNav>` / `<MainNav>` usages).
+
+Do NOT change the main routing or page content; only swap header implementations.
+
+----------------------------------------------------------------
+4) Visual + behavior checks
+----------------------------------------------------------------
+
+After refactor:
+
+1) Desktop:
+   - All top-level items share the same font size, spacing, hover state.
+   - Ventures, Approach, Studio dropdowns all open with the same panel width, padding, bullet style, and border.
+   - Panels line up under their triggers and don’t “fight” with each other.
+
+2) Mobile:
+   - Tapping the menu icon slides down a single panel with all nav items.
+   - Children (dropdown items) appear as indented links under their parent.
+   - Tapping any link closes the panel.
+
+3) General:
+   - No console errors.
+   - No stray old nav components imported anywhere.
+   - No extra borders or weird overlapping backgrounds from previous implementations.
+
+Once this is done, the nav bar should behave and feel like a single coherent unit driven from `NAV_ITEMS` instead of a pile of one-offs.
+```

@@ -65,7 +65,9 @@ describe('Brand & Voice Compliance', () => {
           const content = fs.readFileSync(fullPath, 'utf-8');
           const hasDisclaimer = content.includes('not investment') || 
                                content.includes('not legal') || 
-                               content.includes('not tax');
+                               content.includes('not tax') ||
+                               content.includes('investment, legal') ||
+                               content.includes('legal, tax');
           expect(hasDisclaimer).toBe(true);
         }
       });
@@ -260,55 +262,70 @@ describe('Brand & Voice Compliance', () => {
     });
 
     it('should have correct hero heading', () => {
-      expect(content).toContain('Physics-aware grading infrastructure.');
+      expect(content).toContain('Grading that starts with evidence.');
     });
 
-    it('should have correct PageMeta title', () => {
-      expect(content).toContain('title="Lumina"');
+    it('should have correct PageMeta title with Truth framing', () => {
+      expect(content).toContain('title="Lumina · Truth"');
     });
 
     it('should have correct overline with domain label', () => {
-      expect(content).toContain('Lumina · Truth · Venture');
+      expect(content).toContain('Lumina · Truth venture');
     });
 
-    it('should have "The problem Lumina exists to solve" section', () => {
-      expect(content).toContain('The problem Lumina exists to solve');
+    it('should have infrastructure-first hero copy', () => {
+      expect(content).toContain('verifiable grading infrastructure for physical assets');
+      expect(content).toContain('sensors, physics, and machine intelligence');
+      expect(content).toContain('rails, not a grading house or marketplace');
     });
 
-    it('should have "What Lumina is" section with sensor-level rails', () => {
+    it('should have "What Lumina is" section with Truth question framing', () => {
       expect(content).toContain('What Lumina is');
+      expect(content).toContain('how we address the Truth question for physical assets');
       expect(content).toContain('Sensor-level rails');
       expect(content).toContain('Evidence engine');
       expect(content).toContain('Infrastructure, not a marketplace');
+    });
+
+    it('should have "How Lumina works" section with Capture/Compute/Share phases', () => {
+      expect(content).toContain('How Lumina works');
+      expect(content).toContain('capture, compute, and share');
+      expect(content).toContain('Capture');
+      expect(content).toContain('Compute');
+      expect(content).toContain('Share');
+      expect(content).toContain('Re-check');
     });
 
     it('should have "Lumina under Truth, Capital, and Dignity" section', () => {
       expect(content).toContain('Lumina under Truth, Capital, and Dignity');
     });
 
-    it('should have "How Lumina uses AI" section', () => {
-      expect(content).toContain('How Lumina uses AI');
-      expect(content).toContain('Computer vision');
-      expect(content).toContain('Anomaly detection');
-      expect(content).toContain('Replayable, not magical');
+    it('should have "Who Lumina is for" section', () => {
+      expect(content).toContain('Who Lumina is for');
+      expect(content).toContain('graders, marketplaces, insurers, vaults, and serious collectors');
     });
 
-    it('should have "What Lumina is / is not" section', () => {
+    it('should have "What Lumina is / is not" section with correct items', () => {
       expect(content).toContain('What Lumina is / is not');
+      expect(content).toContain('Not a grading house you ship cards to.');
+      expect(content).toContain('Not a marketplace or auction platform.');
+      expect(content).toContain('Not a one-size-fits-all score or investment recommendation.');
     });
 
-    it('should have "Where Lumina sits in the broader studio" section', () => {
-      expect(content).toContain('Where Lumina sits in the broader studio');
+    it('should have "Where Lumina sits in the studio" section with correct copy', () => {
+      expect(content).toContain('Where Lumina sits in the studio');
+      expect(content).toContain('Lumina lives in the Truth lane');
+      expect(content).toContain("If the evidence isn't clear enough to inspect and reuse");
     });
 
-    it('should have cross-links to ventures, process, and insights', () => {
+    it('should have cross-links to ventures and insights', () => {
       expect(content).toContain('href="/ventures"');
-      expect(content).toContain('href="/process"');
       expect(content).toContain('href="/insights"');
     });
 
-    it('should have proper disclaimer', () => {
-      expect(content).toContain('not investment, legal, tax, or pricing advice');
+    it('should have proper disclaimer about grading infrastructure', () => {
+      expect(content).toContain('Lumina is grading infrastructure, not an offer to grade or insure assets');
+      expect(content).toContain('Nothing on this page is investment, legal, tax, or compliance advice');
     });
 
     it('should not contain old domain labels', () => {
@@ -317,15 +334,23 @@ describe('Brand & Voice Compliance', () => {
       expect(content).not.toContain('"Human"');
     });
 
+    it('should have NextStepBlock pointing to ventures', () => {
+      expect(content).toContain('<NextStepBlock');
+      expect(content).toContain('nextPage="Ventures"');
+      expect(content).toContain('href="/ventures"');
+      expect(content).toContain('three concrete proofs of Truth, Capital, and Dignity');
+    });
+
     it('should have proper data-testid attributes for key sections', () => {
       const expectedTestIds = [
         'section-hero',
-        'section-problem',
         'section-what-lumina-is',
+        'section-how-lumina-works',
         'section-domains',
-        'section-ai',
+        'section-who-lumina-is-for',
         'section-is-is-not',
         'section-studio-context',
+        'section-disclaimer',
       ];
       
       expectedTestIds.forEach(testId => {
