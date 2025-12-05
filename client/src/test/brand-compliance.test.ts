@@ -998,4 +998,173 @@ describe('Brand & Voice Compliance', () => {
       expect(content).not.toContain('Axiom');
     });
   });
+
+  describe('Pillars page v3.0 compliance', () => {
+    const pillarsPath = path.join(process.cwd(), 'client/src/pages/approach/Pillars.tsx');
+    let content: string;
+
+    beforeAll(() => {
+      content = fs.readFileSync(pillarsPath, 'utf-8');
+    });
+
+    it('should have correct PageMeta title', () => {
+      expect(content).toContain('title="Pillars"');
+    });
+
+    it('should have correct PageMeta description with v3.0 domains', () => {
+      expect(content).toContain('AI-native, non-custodial systems across Truth, Capital, and Dignity');
+    });
+
+    it('should have correct overline', () => {
+      expect(content).toContain('What we will not trade away');
+    });
+
+    it('should have correct hero heading', () => {
+      expect(content).toContain('Pillars that hold under stress.');
+    });
+
+    it('should have hero body copy with v3.0 language', () => {
+      expect(content).toContain('lines we do not cross');
+      expect(content).toContain('across Truth, Capital, and Dignity');
+    });
+
+    it('should have warmth line in hero', () => {
+      expect(content).toContain("You shouldn't have to guess what we stand for");
+    });
+
+    it('should have primary and secondary CTAs', () => {
+      expect(content).toContain('See how we apply this');
+      expect(content).toContain('View the six-stage process');
+      expect(content).toContain('href="/approach"');
+      expect(content).toContain('href="/process"');
+    });
+
+    it('should have "How to read these pillars" section', () => {
+      expect(content).toContain('How to read these pillars');
+      expect(content).toContain('survive contact with real risk');
+    });
+
+    it('should have all six v3.0 pillar names', () => {
+      expect(content).toContain('Intelligence Augmented (IA)');
+      expect(content).toContain('Seek the Signal');
+      expect(content).toContain('Engineered Ambition');
+      expect(content).toContain('Own the Engine');
+      expect(content).toContain('Value is a Mirror');
+      expect(content).toContain('Force Multiplier');
+    });
+
+    it('should have all six v3.0 pillar mantras', () => {
+      expect(content).toContain('Let the machine compute. Let the human decide.');
+      expect(content).toContain('Make decisions rest on evidence, not stories.');
+      expect(content).toContain('Dream in decades, execute in milliseconds.');
+      expect(content).toContain('Master the mechanics to rewrite the rules.');
+      expect(content).toContain('Serve first, succeed second.');
+      expect(content).toContain('Level the playing field.');
+    });
+
+    it('should have "Where these pillars show up" section', () => {
+      expect(content).toContain('Where these pillars show up');
+      expect(content).toContain('constraints on design');
+    });
+
+    it('should have Truth, Capital, Dignity domain items', () => {
+      expect(content).toContain('Truth');
+      expect(content).toContain('Evidence, provenance, and inspectable decisions');
+      expect(content).toContain('Capital');
+      expect(content).toContain('Non-custodial control, limits, and rollback');
+      expect(content).toContain('Dignity');
+      expect(content).toContain('Personhood, eligibility, and privacy by design');
+    });
+
+    it('should have "What these pillars rule out" section', () => {
+      expect(content).toContain('What these pillars rule out');
+    });
+
+    it('should have all five constraint bullets', () => {
+      expect(content).toContain('We do not treat AI as a black box that replaces judgment');
+      expect(content).toContain('We do not base critical decisions on information that cannot be inspected');
+      expect(content).toContain('We do not pursue speed or yield at the expense of clear limits');
+      expect(content).toContain('We do not profit from users\' confusion, lock-in, or overexposure');
+      expect(content).toContain('We do not design systems where only one party can see the whole flow');
+    });
+
+    it('should have closing constraint sentence', () => {
+      expect(content).toContain('pillars require us to redesign it—or decline it');
+    });
+
+    it('should have NextStepBlock pointing to approach', () => {
+      expect(content).toContain('nextPage="Approach"');
+      expect(content).toContain('href="/approach"');
+    });
+
+    it('should have NextStepBlock description', () => {
+      expect(content).toContain('See how we apply these pillars across our approach');
+    });
+
+    it('should have pillar descriptions explaining AI and governance', () => {
+      expect(content).toContain('machine intelligence for scale, patterning, and monitoring');
+      expect(content).toContain('tightly governed experiments');
+      expect(content).toContain('verifiable autonomy');
+    });
+
+    it('should use Cards for pillar display', () => {
+      expect(content).toContain('<Card');
+      expect(content).toContain('<CardContent');
+    });
+
+    it('should have proper data-testid attributes for key sections', () => {
+      const expectedTestIds = [
+        'section-hero',
+        'section-explainer',
+        'section-pillars',
+        'section-domains',
+        'section-constraints',
+        'text-overline',
+        'text-hero-heading',
+        'text-hero-body-1',
+        'text-hero-body-2',
+        'button-primary-cta',
+        'button-secondary-cta',
+        'text-explainer-heading',
+        'text-explainer-body',
+        'text-domains-heading',
+        'text-domain-truth',
+        'text-domain-capital',
+        'text-domain-dignity',
+        'text-constraints-heading',
+      ];
+      
+      expectedTestIds.forEach(testId => {
+        expect(content).toContain(`data-testid="${testId}"`);
+      });
+    });
+
+    it('should have pillar cards with proper data-testid pattern', () => {
+      expect(content).toContain('data-testid={`card-pillar-${index}`}');
+      expect(content).toContain('data-testid={`text-pillar-name-${index}`}');
+      expect(content).toContain('data-testid={`text-pillar-mantra-${index}`}');
+    });
+
+    it('should have constraint items with proper data-testid pattern', () => {
+      expect(content).toContain('data-testid={`text-constraint-${index}`}');
+    });
+
+    it('should not contain old pillar names as section headers', () => {
+      expect(content).not.toContain('1 · Verifiable Systems');
+      expect(content).not.toContain('2 · Non-custodial Rails');
+      expect(content).not.toContain('3 · Governed Experiments');
+      expect(content).not.toContain('section-pillar-1');
+      expect(content).not.toContain('section-pillar-2');
+      expect(content).not.toContain('section-pillar-3');
+    });
+
+    it('should not contain banned phrases', () => {
+      expect(content).not.toContain('Signal / Value / Human');
+      expect(content).not.toContain('validate the signal');
+      expect(content).not.toContain('protect the human');
+      expect(content).not.toContain('AI-powered platform');
+      expect(content).not.toContain('StackMe');
+      expect(content).not.toContain('Axiom');
+    });
+  });
 });

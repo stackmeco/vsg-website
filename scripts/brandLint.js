@@ -39,6 +39,13 @@ const BANNED = [
 // These are exact phrases from the v3.0 Brand & Voice System that must be preserved
 const CANONICAL_EXCEPTIONS = [
   "Let the machine compute. Let the human connect.", // Intelligence Augmented value
+  "Let the machine compute. Let the human decide.", // Intelligence Augmented pillar mantra
+];
+
+// Files to exclude from brand lint (test files may contain banned phrases as assertions)
+const EXCLUDED_PATTERNS = [
+  /\.test\.(ts|tsx|js|jsx)$/,
+  /\.spec\.(ts|tsx|js|jsx)$/,
 ];
 
 function walk(dir, files = []) {
@@ -61,6 +68,11 @@ function lint() {
   const files = ROOTS.flatMap((root) => walk(root));
 
   for (const file of files) {
+    // Skip excluded files (test files)
+    if (EXCLUDED_PATTERNS.some((pattern) => pattern.test(file))) {
+      continue;
+    }
+    
     const content = fs.readFileSync(file, "utf8");
     
     // Check for canonical exceptions - if any are found, temporarily remove them

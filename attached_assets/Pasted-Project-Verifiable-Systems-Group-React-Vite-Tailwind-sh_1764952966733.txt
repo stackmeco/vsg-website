@@ -1,0 +1,263 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the Pillars page (`/pillars`) in line with:
+
+- VSG Identity (Purpose / Vision / Mission / Values)
+- VSG Brand & Voice System v3.0 (AI-native, Truth · Capital · Dignity, balance-sheet-first)
+- External safety rules (no detailed plumbing, no protocol names, no tickers, no entity wiring)
+- Updated language (no “validate the signal”, no “Signal / Value / Human”, no “the human” as a noun)
+
+We want `/pillars` to clearly state the non-negotiable principles that govern how VSG designs and runs systems, and to show how those pillars apply across Truth, Capital, and Dignity.
+
+Do NOT:
+- Change or add routes.
+- Change global theming (colors, typography, layout primitives).
+- Mention specific protocols, banks, tickers, or LTV numbers.
+- Use “Signal / Value / Human”, “validate the signal”, “protect the human”, or “AI-powered platform”.
+- Add more than one warmth line using “you”.
+
+--------------------------------------------------
+1) Locate the Pillars page component
+--------------------------------------------------
+
+1. In `client/src/App.tsx`, find the route for `/pillars`.
+2. Open the component that renders that route (for example `client/src/pages/Pillars.tsx` or a similarly named file).
+
+Apply all changes in this spec only to the component that renders `/pillars`.
+
+--------------------------------------------------
+2) PageMeta – title + description
+--------------------------------------------------
+
+Inside the Pillars page, locate `<PageMeta ... />` and set:
+
+- `title`: `"Pillars"`
+- `description`: `"The non-negotiable principles that guide how Verifiable Systems Group designs and governs AI-native, non-custodial systems across Truth, Capital, and Dignity."`
+
+Keep `preloadImage` and any other props unchanged.
+
+--------------------------------------------------
+3) Hero section – “what we will not trade away”
+--------------------------------------------------
+
+In the top hero section of the Pillars page:
+
+3.1 Overline
+
+Set the overline (small label above the heading) to:
+
+  "What we will not trade away"
+
+3.2 Heading (`<h1>`)
+
+Set the main heading to:
+
+  "Pillars that hold under stress."
+
+3.3 Hero body copy (two paragraphs)
+
+Replace the existing hero body text with:
+
+Paragraph 1:
+
+  "These pillars are the lines we do not cross, even when it would be easier or faster to look away. They decide which ventures we build, which we decline, and how systems must behave when no one is watching—across Truth, Capital, and Dignity."
+
+Paragraph 2 (this is the single warmth line):
+
+  "You shouldn’t have to guess what we stand for once real stakes are involved. Each pillar is a concrete constraint on how we use AI, move capital, and handle people’s lives—so trust rests on behaviour, not branding."
+
+Keep existing JSX structure, containers, and Tailwind classes; only update the text content.
+
+3.4 Hero CTAs (if present)
+
+If the hero has primary/secondary buttons or links, configure them as:
+
+Primary CTA:
+- Label: `"See how we apply this"`
+- `href`: `"/approach"`
+
+Secondary CTA:
+- Label: `"View the six-stage process"`
+- `href`: `"/process"`
+
+Reuse existing Button components / variants; only adjust text and `href`.
+
+--------------------------------------------------
+4) Short explainer: how to read the pillars
+--------------------------------------------------
+
+Immediately under the hero (above the grid of pillars), add or update an intro section.
+
+Section heading:
+
+  "How to read these pillars"
+
+Body copy:
+
+  "Each pillar is a principle that must survive contact with real risk. They show up in how we design Truth systems for evidence, Capital systems for governed control, and Dignity systems for personhood. If a venture conflicts with a pillar, we change the venture or walk away."
+
+Use the same typography utilities your other section intros use. Do not change layout or theming.
+
+--------------------------------------------------
+5) Core content: six pillars (cards backed by a data array)
+--------------------------------------------------
+
+Find the array or data structure that defines the pillar cards (for example `const pillars = [...]`). If none exists, create one and map over it in the existing grid.
+
+Replace or create the array with:
+
+  const pillars = [
+    {
+      name: "Intelligence Augmented (IA)",
+      mantra: "Let the machine compute. Let the human decide.",
+      description:
+        "We use machine intelligence for scale, patterning, and monitoring, and keep people responsible for mandates, ethics, and vetoes. No critical path runs without someone accountable for outcomes. AI is inside the mechanism, not in charge of the mission.",
+    },
+    {
+      name: "Seek the Signal",
+      mantra: "Make decisions rest on evidence, not stories.",
+      description:
+        "We treat narratives as hypotheses, not facts. Systems must anchor decisions to provenance, logs, and proofs that anyone affected can inspect. If we cannot show where a decision came from, we do not trust it—especially in our Truth work.",
+    },
+    {
+      name: "Engineered Ambition",
+      mantra: "Dream in decades, execute in milliseconds.",
+      description:
+        "We aim at structural, long-horizon change but move through tightly governed experiments. Every ambitious idea must be paired with constraints, telemetry, and rollback paths. Speed is allowed only where we can see, measure, and reverse the impact.",
+    },
+    {
+      name: "Own the Engine",
+      mantra: "Master the mechanics to rewrite the rules.",
+      description:
+        "We refuse to depend on black boxes we do not understand. If we rely on a flow for Truth, Capital, or Dignity, we must be able to describe its behaviour under normal conditions, under stress, and under failure—and we must be able to intervene.",
+    },
+    {
+      name: "Value is a Mirror",
+      mantra: "Serve first, succeed second.",
+      description:
+        "Our upside must mirror the value and safety we create for others. We avoid models that profit from confusion, lock-in, or surveillance. Incentives are aligned so that when users gain leverage and protection, we win by running better rails—not by extracting more.",
+    },
+    {
+      name: "Force Multiplier",
+      mantra: "Level the playing field.",
+      description:
+        "We build tools so smaller players can access institutional-grade leverage without becoming institutions. Systems should tilt power away from incumbents who rely on opacity, and toward individuals who insist on verifiable autonomy over their decisions, capital, and dignity.",
+    },
+  ];
+
+Then render them in your existing grid. For example (adapt class names to match your project):
+
+  <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+    {pillars.map((pillar) => (
+      <div
+        key={pillar.name}
+        className="flex flex-col justify-between rounded-xl border bg-card/60 p-6 shadow-sm backdrop-blur"
+      >
+        <div className="space-y-3">
+          <h2 className="text-base font-semibold tracking-tight">
+            {pillar.name}
+          </h2>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            {pillar.mantra}
+          </p>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            {pillar.description}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+Do not change the overall grid/theming; only ensure the content matches.
+
+--------------------------------------------------
+6) Section: “Where these pillars show up”
+--------------------------------------------------
+
+If there is already a secondary band under the cards, reuse it; otherwise, repurpose an existing subtle callout style (muted background, simple layout).
+
+Section heading:
+
+  "Where these pillars show up"
+
+Body copy:
+
+  "These pillars are not a manifesto on a wall; they are constraints on design. They shape how Truth systems anchor decisions to evidence, how Capital systems protect balance-sheet risk under non-custodial control, and how Dignity systems protect personhood without surveillance."
+
+Optionally add three short inline items (flex row or small grid, not full cards):
+
+- `"Truth – Evidence, provenance, and inspectable decisions."`
+- `"Capital – Non-custodial control, limits, and rollback."`
+- `"Dignity – Personhood, eligibility, and privacy by design."`
+
+Keep typography consistent with similar sections.
+
+--------------------------------------------------
+7) Section: “What these pillars rule out”
+--------------------------------------------------
+
+Add or update a callout band that explicitly states what is forbidden by these pillars. Use a similar visual style to the “What we refuse to do” band on `/approach`.
+
+Section heading:
+
+  "What these pillars rule out"
+
+Bullet list (3–5 items, each one sentence):
+
+- "We do not treat AI as a black box that replaces judgment; people keep the veto on every critical path."
+- "We do not base critical decisions on information that cannot be inspected or traced back to evidence."
+- "We do not pursue speed or yield at the expense of clear limits, observability, and rollback."
+- "We do not profit from users’ confusion, lock-in, or overexposure of their lives."
+- "We do not design systems where only one party can see the whole flow."
+
+Closing sentence:
+
+  "If a venture, feature, or integration depends on any of these behaviours, the pillars require us to redesign it—or decline it—before it ever touches real people or real capital."
+
+Do not mention specific protocols, tokens, venues, banks, or entity wiring.
+
+--------------------------------------------------
+8) Hygiene pass on Pillars page
+--------------------------------------------------
+
+In the Pillars page file:
+
+1) Remove or replace ANY remaining references to:
+   - “Signal / Value / Human” as domains.
+   - “validate the signal”.
+   - “protect the human”.
+   - “AI-powered platform”, “revolutionary”, “game-changing”, “disruptive”.
+   - “StackMe”, “Stackme Holdings”, “VSP”.
+
+2) Ensure AI language follows v3 rules:
+   - Use: “AI-native”, “machine intelligence”, “Intelligence Augmented (IA)”.
+   - Avoid: “magic”, “AI does the rest”, “we sprinkle AI across the stack”.
+
+3) Warmth:
+   - Keep exactly one warmth line using “you” on this page (the hero paragraph above). Do not add more “you shouldn’t…” lines.
+
+4) Domain terms:
+   - When you refer to the three beams, use “Truth, Capital, and Dignity” (capitalized).
+   - Do not call them “Signal / Value / Human”.
+
+5) Content consistency:
+   - Check that the six pillar names and mantras match the array and any other references on this page.
+   - Ensure spelling and capitalization are consistent with the rest of the site.
+
+--------------------------------------------------
+9) Final QA
+--------------------------------------------------
+
+After edits, run the dev server and open `/pillars`:
+
+- The hero clearly states that these are VSG’s non-negotiable principles.
+- The six pillar cards each show: name, concise mantra, and a clear, on-brand description.
+- The page mentions AI-native, non-custodial, and Truth / Capital / Dignity in a way that is consistent with the Overview, Ventures, and Approach pages.
+- The “Where these pillars show up” section makes sense in relation to `/approach`, `/process`, and `/standards`.
+- The “What these pillars rule out” band reads as an institutional-grade statement of constraints.
+- There are no remaining references to Signal/Value/Human, “validate the signal”, “protect the human”, or hype phrases.
+- Tone matches VSG: serious, architectural, ethically explicit, one controlled warmth line, no memes or slang.
+
+Only commit once `/pillars` feels like a clean, premium articulation of what VSG refuses to compromise on—something you’d hand to an institutional partner, senior engineer, or regulator as the “how we think” page.

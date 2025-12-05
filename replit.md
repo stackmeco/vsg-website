@@ -134,4 +134,17 @@ Preferred communication style: Simple, everyday language.
   - Cross-links to ventures and insights
   - Disclaimer includes "investment, legal, tax, or compliance advice"
   - NextStepBlock points to /ventures with Truth, Capital, Dignity proof points copy
-- **Test Count**: 162 passing tests as of December 2024
+- **Pillars Page v3.0 Polish** (December 2024):
+  - PageMeta: title="Pillars", description on AI-native, non-custodial systems across Truth, Capital, and Dignity
+  - Hero: "Pillars that hold under stress." with "What we will not trade away" overline
+  - Hero body: Two paragraphs (only one warmth line with "you"), CTAs to /approach and /process
+  - "How to read these pillars" explainer section
+  - Six pillar cards grid (md:2-col, xl:3-col): Intelligence Augmented (IA), Seek the Signal, Engineered Ambition, Own the Engine, Value is a Mirror, Force Multiplier
+  - Each pillar card shows: name, mantra (italic primary), description
+  - "Where these pillars show up" section with Truth/Capital/Dignity domain items (inline flex)
+  - "What these pillars rule out" section with 5 constraint bullets (destructive bullet color)
+  - NextStepBlock points to /approach
+  - Brand lint updated with CANONICAL_EXCEPTIONS for "Let the human decide." pillar mantra
+  - Brand lint now excludes test files from scanning
+  - Old content removed: Verifiable Systems, Non-custodial Rails, Governed Experiments sections
+- **Test Count**: 201 passing tests as of December 2024

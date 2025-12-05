@@ -3,13 +3,56 @@ import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+
+const pillars = [
+  {
+    name: "Intelligence Augmented (IA)",
+    mantra: "Let the machine compute. Let the human decide.",
+    description: "We use machine intelligence for scale, patterning, and monitoring, and keep people responsible for mandates, ethics, and vetoes. No critical path runs without someone accountable for outcomes. AI is inside the mechanism, not in charge of the mission.",
+  },
+  {
+    name: "Seek the Signal",
+    mantra: "Make decisions rest on evidence, not stories.",
+    description: "We treat narratives as hypotheses, not facts. Systems must anchor decisions to provenance, logs, and proofs that anyone affected can inspect. If we cannot show where a decision came from, we do not trust it—especially in our Truth work.",
+  },
+  {
+    name: "Engineered Ambition",
+    mantra: "Dream in decades, execute in milliseconds.",
+    description: "We aim at structural, long-horizon change but move through tightly governed experiments. Every ambitious idea must be paired with constraints, telemetry, and rollback paths. Speed is allowed only where we can see, measure, and reverse the impact.",
+  },
+  {
+    name: "Own the Engine",
+    mantra: "Master the mechanics to rewrite the rules.",
+    description: "We refuse to depend on black boxes we do not understand. If we rely on a flow for Truth, Capital, or Dignity, we must be able to describe its behaviour under normal conditions, under stress, and under failure—and we must be able to intervene.",
+  },
+  {
+    name: "Value is a Mirror",
+    mantra: "Serve first, succeed second.",
+    description: "Our upside must mirror the value and safety we create for others. We avoid models that profit from confusion, lock-in, or surveillance. Incentives are aligned so that when users gain leverage and protection, we win by running better rails—not by extracting more.",
+  },
+  {
+    name: "Force Multiplier",
+    mantra: "Level the playing field.",
+    description: "We build tools so smaller players can access institutional-grade leverage without becoming institutions. Systems should tilt power away from incumbents who rely on opacity, and toward individuals who insist on verifiable autonomy over their decisions, capital, and dignity.",
+  },
+];
+
+const constraints = [
+  "We do not treat AI as a black box that replaces judgment; people keep the veto on every critical path.",
+  "We do not base critical decisions on information that cannot be inspected or traced back to evidence.",
+  "We do not pursue speed or yield at the expense of clear limits, observability, and rollback.",
+  "We do not profit from users' confusion, lock-in, or overexposure of their lives.",
+  "We do not design systems where only one party can see the whole flow.",
+];
 
 export default function Pillars() {
   return (
     <Layout>
       <PageMeta
         title="Pillars"
-        description="The three pillars that govern every venture at Verifiable Systems Group: verifiable systems, non-custodial rails, and governed experiments."
+        description="The non-negotiable principles that guide how Verifiable Systems Group designs and governs AI-native, non-custodial systems across Truth, Capital, and Dignity."
         preloadImage="/hero-texture.png"
       />
 
@@ -29,296 +72,143 @@ export default function Pillars() {
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-background/30 pointer-events-none" aria-hidden="true" />
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
-              Approach · Pillars
+            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-4" data-testid="text-overline">
+              What we will not trade away
             </p>
-            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-hero-heading">
-              The constraints that govern what we build.
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground leading-tight tracking-tight mb-6" data-testid="text-hero-heading">
+              Pillars that hold under stress.
             </h1>
-            <p className="text-base leading-relaxed text-muted-foreground sm:text-lg mb-4" data-testid="text-hero-body">
-              Pillars are not slogans here. They are hard constraints on what we will build, how we will operate it, and when we will shut it down. Every VSG venture is evaluated against three pillars: verifiable systems, non-custodial rails, and governed experiments.
+            <p className="text-base leading-relaxed text-muted-foreground sm:text-lg mb-4" data-testid="text-hero-body-1">
+              These pillars are the lines we do not cross, even when it would be easier or faster to look away. They decide which ventures we build, which we decline, and how systems must behave when no one is watching—across Truth, Capital, and Dignity.
             </p>
-            <p className="text-sm leading-relaxed text-foreground font-medium" data-testid="text-hero-support">
-              If a venture can't hold these pillars, it doesn't ship — no matter how attractive the market looks.
+            <p className="text-sm leading-relaxed text-foreground font-medium mb-8" data-testid="text-hero-body-2">
+              You shouldn't have to guess what we stand for once real stakes are involved. Each pillar is a concrete constraint on how we use AI, move capital, and handle people's lives—so trust rests on behaviour, not branding.
             </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/approach">
+                <Button data-testid="button-primary-cta">
+                  See how we apply this
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Button>
+              </Link>
+              <Link href="/process">
+                <Button variant="outline" data-testid="button-secondary-cta">
+                  View the six-stage process
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-why-pillars">
+      <section className="py-20 bg-card" data-testid="section-explainer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-why-heading">
-              Why pillars, not slogans
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-explainer-heading">
+              How to read these pillars
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-why-body">
-              Most companies publish values that never touch their systems. We use pillars as design tools and governance levers. They describe what "acceptable" looks like, which trade-offs we will make, and which opportunities we will decline.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-explainer-body">
+              Each pillar is a principle that must survive contact with real risk. They show up in how we design Truth systems for evidence, Capital systems for governed control, and Dignity systems for personhood. If a venture conflicts with a pillar, we change the venture or walk away.
             </p>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-sm text-foreground" data-testid="text-why-bullet-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span><strong className="text-foreground">Design lever</strong> — If a design conflicts with a pillar, the design changes.</span>
-              </li>
-              <li className="flex items-start gap-3 text-sm text-foreground" data-testid="text-why-bullet-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span><strong className="text-foreground">Decision check</strong> — Reviews start with "does this uphold the pillars?" before growth or UX.</span>
-              </li>
-              <li className="flex items-start gap-3 text-sm text-foreground" data-testid="text-why-bullet-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <span><strong className="text-foreground">External signal</strong> — Partners can use these pillars as a checklist for fit.</span>
-              </li>
-            </ul>
           </div>
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-pillar-1">
+      <section className="py-20" data-testid="section-pillars">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-mono uppercase tracking-widest text-primary mb-2" data-testid="text-pillar1-number">
-              1 · Verifiable Systems
-            </p>
-            <p className="text-sm text-muted-foreground italic mb-4" data-testid="text-pillar1-tagline">
-              Systems you can inspect under stress.
-            </p>
-            <p className="text-base text-muted-foreground leading-relaxed mb-8" data-testid="text-pillar1-definition">
-              A system is verifiable when its critical behaviours can be inspected, tested, and, where it matters, formally or empirically proven. Capital flows, access controls, and decision paths must be visible—not buried in opaque services or one-off scripts.
-            </p>
-
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-heading font-semibold text-foreground mb-3" data-testid="text-pillar1-practice-label">What this means in practice</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar1-practice-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    We favour architectures where risk-critical logic is explicit and auditable, not hidden inside black-box vendors.
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar1-practice-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Instrumentation and logging are first-class features, designed up front, not bolted on after launch.
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar1-practice-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    We design for post-incident reconstruction — it must be possible to understand what happened and why.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="font-heading font-semibold text-foreground mb-3" data-testid="text-pillar1-nogo-label">What we say no to</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar1-nogo-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
-                    Systems that rely on unobservable third-party decision engines for risk-critical outcomes.
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar1-nogo-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
-                    Designs where key controls exist only in policy docs, not enforced in code or configuration.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="font-heading font-semibold text-foreground mb-3" data-testid="text-pillar1-signals-label">Signals you'll notice</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar1-signals-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Early questions like "how will we prove this works?" and "what does failure look like on the wire?".
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar1-signals-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    You receive concrete artefacts — diagrams, invariants, and test and telemetry plans — not only slideware.
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {pillars.map((pillar, index) => (
+              <Card 
+                key={index} 
+                className="bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical"
+                data-testid={`card-pillar-${index}`}
+              >
+                <CardContent className="p-6">
+                  <h3 
+                    className="font-heading font-semibold text-foreground mb-2"
+                    data-testid={`text-pillar-name-${index}`}
+                  >
+                    {pillar.name}
+                  </h3>
+                  <p 
+                    className="text-sm text-primary italic mb-4"
+                    data-testid={`text-pillar-mantra-${index}`}
+                  >
+                    {pillar.mantra}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {pillar.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-pillar-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-mono uppercase tracking-widest text-primary mb-2" data-testid="text-pillar2-number">
-              2 · Non-custodial Rails
-            </p>
-            <p className="text-sm text-muted-foreground italic mb-4" data-testid="text-pillar2-tagline">
-              Control stays with institutions and users.
-            </p>
-            <p className="text-base text-muted-foreground leading-relaxed mb-8" data-testid="text-pillar2-definition">
-              Non-custodial rails are financial and identity rails where institutions and individuals retain control of keys and governance. Our systems orchestrate workflows, verification, and coordination; they do not take custody of client assets.
-            </p>
-
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-heading font-semibold text-foreground mb-3" data-testid="text-pillar2-practice-label">What this means in practice</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar2-practice-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    We design around self-custody or institution-custody, not VSG custody, for production systems.
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar2-practice-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    We avoid flows where VSG would need to hold client keys, sweep balances, or intermediate order flow.
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar2-practice-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    When a bank, custodian, or exchange is involved, their role is explicit in architecture and governance, not implied.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="font-heading font-semibold text-foreground mb-3" data-testid="text-pillar2-nogo-label">What we say no to</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar2-nogo-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
-                    Ventures that require VSG to pool client assets, run omnibus accounts, or custody funds as a core behaviour.
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar2-nogo-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
-                    Designs where risk-critical custody decisions depend on a single opaque platform we cannot audit.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="font-heading font-semibold text-foreground mb-3" data-testid="text-pillar2-signals-label">Signals you'll notice</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar2-signals-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Architecture sessions focus on who holds what, where, and under which controls.
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar2-signals-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Diagrams clearly separate orchestration from custody, so responsibilities are visible to legal and compliance teams.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20" data-testid="section-pillar-3">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-mono uppercase tracking-widest text-primary mb-2" data-testid="text-pillar3-number">
-              3 · Governed Experiments
-            </p>
-            <p className="text-sm text-muted-foreground italic mb-4" data-testid="text-pillar3-tagline">
-              Experiments with boundaries, not bets without brakes.
-            </p>
-            <p className="text-base text-muted-foreground leading-relaxed mb-8" data-testid="text-pillar3-definition">
-              We treat ventures as governed experiments. Each initiative has a thesis, a risk budget, clear constraints, and exit criteria. Launching something new is not a one-way bet; it is a structured test that can be paused, rolled back, or shut down.
-            </p>
-
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-heading font-semibold text-foreground mb-3" data-testid="text-pillar3-practice-label">What this means in practice</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar3-practice-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    We document theses, assumptions, and risk budgets before scaling or broad rollout.
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar3-practice-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Experiments run with guardrails: scoped cohorts, controlled environments, and explicit rollback paths.
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar3-practice-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Outcomes feed back into standards and process, so the organisation learns, not just the team.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="font-heading font-semibold text-foreground mb-3" data-testid="text-pillar3-nogo-label">What we say no to</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar3-nogo-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
-                    Launches that cannot be rolled back, contained, or monitored if something goes wrong.
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar3-nogo-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
-                    Ventures that cannot state a falsifiable thesis — where success and failure would look the same.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="font-heading font-semibold text-foreground mb-3" data-testid="text-pillar3-signals-label">Signals you'll notice</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar3-signals-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    Roadmaps include decision gates, kill switches, and review points, not just launch dates.
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-muted-foreground" data-testid="text-pillar3-signals-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    We are comfortable saying "not yet" or "this stays internal" when something isn't ready.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-card" data-testid="section-crosslinks">
+      <section className="py-20 bg-card" data-testid="section-domains">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-crosslinks-heading">
-              How the pillars show up across VSG
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="text-domains-heading">
+              Where these pillars show up
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-crosslinks-body">
-              The pillars are not a side project. They are threaded through how we choose ventures, how we build them, and how we run them over time.
+            <p className="text-base text-muted-foreground leading-relaxed">
+              These pillars are not a manifesto on a wall; they are constraints on design. They shape how Truth systems anchor decisions to evidence, how Capital systems protect balance-sheet risk under non-custodial control, and how Dignity systems protect personhood without surveillance.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-crosslink-process">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-2">In the venture process</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  We use the pillars to decide which ideas enter the pipeline and which exit at each stage.
-                </p>
-                <Link href="/approach/process" className="text-sm text-primary hover:underline" data-testid="link-crosslink-process">
-                  View venture process →
-                </Link>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-crosslink-standards">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-2">In standards</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  When a pattern or control repeatedly upholds a pillar, it becomes part of our standards library.
-                </p>
-                <Link href="/approach/standards" className="text-sm text-primary hover:underline" data-testid="link-crosslink-standards">
-                  View standards →
-                </Link>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid="card-crosslink-ventures">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-foreground mb-2">In ventures</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  Ventures that remain in the portfolio are the ones that can express these pillars in their architecture and governance.
-                </p>
-                <Link href="/ventures" className="text-sm text-primary hover:underline" data-testid="link-crosslink-ventures">
-                  View ventures →
-                </Link>
-              </CardContent>
-            </Card>
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:gap-12">
+            <div className="flex items-start gap-3" data-testid="text-domain-truth">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+              <p className="text-sm text-foreground">
+                <strong>Truth</strong> – Evidence, provenance, and inspectable decisions.
+              </p>
+            </div>
+            <div className="flex items-start gap-3" data-testid="text-domain-capital">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+              <p className="text-sm text-foreground">
+                <strong>Capital</strong> – Non-custodial control, limits, and rollback.
+              </p>
+            </div>
+            <div className="flex items-start gap-3" data-testid="text-domain-dignity">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+              <p className="text-sm text-foreground">
+                <strong>Dignity</strong> – Personhood, eligibility, and privacy by design.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-background border-y border-border" data-testid="section-constraints">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="text-constraints-heading">
+              What these pillars rule out
+            </h2>
+            <ul className="space-y-4 mb-8">
+              {constraints.map((constraint, index) => (
+                <li 
+                  key={index} 
+                  className="flex items-start gap-3 text-sm text-muted-foreground"
+                  data-testid={`text-constraint-${index}`}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
+                  {constraint}
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm text-foreground font-medium leading-relaxed">
+              If a venture, feature, or integration depends on any of these behaviours, the pillars require us to redesign it—or decline it—before it ever touches real people or real capital.
+            </p>
           </div>
         </div>
       </section>
 
       <NextStepBlock
-        nextPage="Process"
-        description="See how ventures move through our six-stage process under these pillars."
-        href="/approach/process"
+        nextPage="Approach"
+        description="See how we apply these pillars across our approach."
+        href="/approach"
       />
     </Layout>
   );
