@@ -1,0 +1,225 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Lumina venture page** (`/ventures/lumina`) fully in line with:
+
+- VSG Brand & Voice System v3.0
+- Truth · Capital · Dignity (Lumina = **Truth** beam)
+- External-safety rules (no proprietary plumbing, no vendor names, no tickers, no protocol details)
+
+We want Lumina to read as:
+
+- Verifiable grading infrastructure for physical assets (starting with trading cards).
+- A **Truth system** that ties claims to evidence people can inspect.
+- Calm, premium, institutional—zero hype, zero “AI magic”.
+
+Do NOT:
+- Change routes or add/remove major sections.
+- Change global theming (colors, typography, primitives).
+- Mention specific grading companies, vendors, protocols, or training data sources.
+- Use “Signal / Value / Human”, “validate the signal”, “StackMe / VSP”, or “the human” as a noun.
+
+--------------------------------------------------
+1) Locate the Lumina page component
+--------------------------------------------------
+
+Find the page component mapped to `/ventures/lumina`, e.g.:
+
+- `client/src/pages/ventures/Lumina.tsx`
+- or `client/src/pages/Lumina.tsx`
+- or equivalent referenced in `client/src/App.tsx`.
+
+We’ll call it `LuminaPage` below.
+
+--------------------------------------------------
+2) PageMeta – title + description
+--------------------------------------------------
+
+Inside the Lumina page, locate `<PageMeta ... />` and set:
+
+- `title`:
+    "Lumina"
+- `description`:
+    "Lumina is verifiable grading infrastructure for physical assets—turning condition into evidence people can inspect, not just a one-line opinion."
+
+Keep `preloadImage` and any texture or OG image props unchanged.
+
+--------------------------------------------------
+3) Hero section – premium, Truth-first intro
+--------------------------------------------------
+
+In the hero section at the top of the Lumina page:
+
+3.1 Overline
+
+Set the overline (small label above the h1) to:
+
+  "Venture — Truth systems"
+
+3.2 Heading (`<h1>`)
+
+Set the heading to:
+
+  "Lumina: verifiable grading infrastructure."
+
+3.3 Hero body copy (two short paragraphs)
+
+Replace the current hero body text with exactly:
+
+Paragraph 1 (~45–60 words):
+
+  "Lumina is grading infrastructure for physical assets like trading cards, built to answer a simple question: what is actually true about this object? Instead of relying on a single opaque judgment, Lumina ties condition to captured data and tamper-evident records so people can inspect how a conclusion was reached."
+
+Paragraph 2 (~35–45 words):
+
+  "You shouldn’t have to ship a card into a black box and hope for the best. Lumina is designed for transparency: clear inputs, consistent procedures, and outputs that can be audited, not just believed. It’s Truth infrastructure that can plug into existing grading and insurance workflows."
+
+Keep all JSX structure and Tailwind classes in the hero; only replace text nodes.
+
+3.4 Hero CTAs (if present)
+
+If the hero uses two buttons/links:
+
+Primary CTA:
+- Label:
+    "See all ventures"
+- `href`:
+    "/ventures"
+
+Secondary CTA:
+- Label:
+    "How we build Truth systems"
+- `href`:
+    "/approach"
+
+Reuse the same Button components / variants; only update labels and `href`.
+
+--------------------------------------------------
+4) Section: “What Lumina does”
+--------------------------------------------------
+
+Find the first explanatory section under the hero that describes Lumina’s function (often a two-column copy block or feature list). Reuse the existing layout.
+
+4.1 Section heading
+
+  "What Lumina does"
+
+4.2 Main body paragraph (~80–110 words)
+
+Replace existing text with:
+
+  "Lumina turns condition into evidence instead of opinion. It helps turn raw observations—surface wear, centering, corners, edges, print issues—into structured data that can be reused across grading, insurance, trading, and archive workflows. Machine intelligence assists with detection and consistency; humans set the rules and thresholds. The goal is not to replace experts, but to give them a clearer, auditable foundation to work from. Every output is tied back to recorded inputs and procedures so disputes can be resolved with shared facts instead of dueling narratives."
+
+4.3 Supporting bullet list (3 bullets)
+
+If this section already uses bullets or icon rows, use:
+
+- "Captures condition in a structured, reusable way instead of a single opaque score."
+- "Assists experts with consistent, repeatable checks while keeping humans in charge of judgment."
+- "Anchors every conclusion to recorded inputs and procedures for later review."
+
+Keep icons / layout intact; only update the text.
+
+--------------------------------------------------
+5) Section: “Why Lumina exists” (pain + Truth lens)
+--------------------------------------------------
+
+Locate the section that explains the problem Lumina is solving (backlogs, inconsistency, opacity, etc.). Reuse its layout and update to:
+
+Section heading:
+
+  "Why Lumina exists"
+
+Body text (~90–120 words):
+
+  "Grading has become a bottleneck and a blind spot. Collectors, marketplaces, and insurers all depend on grades, yet the process is often opaque, inconsistent, and slow. A single number on a label can move thousands of dollars with very little visibility into how that number was produced. Lumina exists to make those decisions inspectable. By tying conclusions to recorded observations and repeatable procedures, it reduces disputes, helps experts focus on edge cases instead of routine checks, and makes it easier for partners to build fair policies around real-world condition—not guesswork."
+
+If this section has a small “tag” or chip, set it to:
+
+  "Truth · Infrastructure"
+
+--------------------------------------------------
+6) Section: “Where Lumina sits in the studio”
+--------------------------------------------------
+
+If the page already has a “context” or “in the portfolio” block, reuse its layout; otherwise, repurpose any brief contextual section.
+
+Section heading:
+
+  "Where Lumina sits in the studio"
+
+Body (~80–100 words):
+
+  "Within VSG, Lumina owns the Truth beam. It focuses on one job: turning messy, real-world assets into objects with verifiable, shared understanding of their condition. Helios relies on Lumina-style evidence when capital decisions depend on physical collateral. The Uniqueness Engine can pair with Lumina so people can prove which items they’re connected to without oversharing. Together, they form a loop: Truth about the world, disciplined Capital behaviour, and Dignity for the people involved—each reinforcing the others."
+
+If the design uses chips / labels, configure as:
+
+- "Truth · Venture"
+- "Plugs into existing grading and insurance flows"
+
+--------------------------------------------------
+7) Optional “Inside Lumina” feature cards
+--------------------------------------------------
+
+If the page already has a grid of feature cards or tiles (e.g., 3–4 cards describing capabilities), keep the structure and replace the text with something like:
+
+Card 1  
+- Title: "Evidence-first"
+- Description:
+  "Lumina starts with the record: what was observed, when, and how. Grades and decisions are built on top of that, not the other way around."
+
+Card 2  
+- Title: "Consistent procedures"
+- Description:
+  "Machine intelligence helps apply the same checks, in the same order, every time—while humans decide where exceptions and nuance belong."
+
+Card 3  
+- Title: "Audit-ready outputs"
+- Description:
+  "Each conclusion is tied back to recorded inputs so disputes can be resolved with shared facts instead of guesswork or memory."
+
+If there is a fourth card, label it:
+
+- Title: "Composable rails"
+- Description:
+  "Designed to integrate with existing grading, insurance, and marketplace workflows without forcing everyone into a single closed platform."
+
+No implementation specifics: no camera models, scan resolutions, or vendor libraries—keep it conceptual and externally safe.
+
+--------------------------------------------------
+8) Clean up old / off-brand language
+--------------------------------------------------
+
+In the Lumina page file:
+
+1) Remove or replace any remaining occurrences of:
+   - “Signal / Value / Human”
+   - “validate the signal”
+   - “StackMe / Stackme Holdings / VSP”
+   - “the human” as a noun
+   - “AI-powered grading platform”, “revolutionary”, “game-changing”, etc.
+
+2) Ensure AI language matches v3 rules:
+   - Use: “AI-native”, “machine intelligence assists…”, “intelligence augmentation”.
+   - Avoid: “magic”, “AI does the rest”, “we sprinkle AI”.
+
+3) Make sure there is at most **one** warmth line with “you” in the hero or problem section (we already have “You shouldn’t have to ship a card into a black box…”). Do not add more.
+
+4) Confirm the only three domain words used here are:
+   - “Truth” (primary)
+   - Mentions of “Capital” and “Dignity” only in the portfolio context section.
+   - No use of “domains” if it makes copy feel abstract; “beam” or “lane” is fine.
+
+--------------------------------------------------
+9) Final QA
+--------------------------------------------------
+
+After edits, run the dev server and open `/ventures/lumina`:
+
+- The hero clearly states Lumina is verifiable grading infrastructure, not a generic AI app.
+- The “What” and “Why” sections explain the function and pain without over-sharing proprietary mechanics.
+- The context section positions Lumina cleanly within Truth · Capital · Dignity.
+- Tone is calm, precise, institutional, and aligned with the Overview, Ventures index, and Helios pages.
+
+Only commit once the Lumina page is something you’d be comfortable sending to sophisticated collectors, marketplaces, insurers, or partners who care deeply about how grades are produced.
