@@ -1452,8 +1452,8 @@ describe('Brand & Voice Compliance', () => {
       expect(content).toContain('To democratize institutional-grade leverage');
     });
 
-    it('should have canonical Vision line', () => {
-      expect(content).toContain('A future where trust is an engineered feature, not a gamble');
+    it('should have canonical Vision line with curly quotes per v3', () => {
+      expect(content).toContain('A future where \\u201ctrust\\u201d is an engineered feature, not a gamble');
     });
 
     it('should have canonical Mission line', () => {
