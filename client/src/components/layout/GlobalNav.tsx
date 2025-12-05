@@ -132,11 +132,11 @@ function DesktopDropdown({ item, isActive }: DropdownProps) {
 
       {isOpen && (
         <div 
-          className="absolute left-1/2 top-full z-50 w-[320px] -translate-x-1/2 pt-2"
+          className="absolute left-1/2 top-full z-[60] w-[320px] -translate-x-1/2 pt-2"
           role="menu"
           aria-label={`${item.label} submenu`}
         >
-          <div className="rounded-lg border border-border bg-popover/98 shadow-xl shadow-black/25 backdrop-blur-sm">
+          <div className="rounded-lg border border-border bg-popover shadow-xl shadow-black/25">
             <div className="px-4 py-3 space-y-1">
               {item.children.map((child, index) => (
                 <Link
