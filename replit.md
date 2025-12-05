@@ -64,3 +64,8 @@ Preferred communication style: Simple, everyday language.
 - **studio.ts Updated**: Pillars array uses Truth/Capital/Dignity; "Seek the Signal" replaced with "Anchor to Evidence"
 - **PageMeta Compliance**: All 11 pages have exact v3.0 titles/descriptions with em-dash format
 - **Banned Phrases**: No banned phrases remain in client/src per brand lint validation
+- **Canonical Purpose/Vision/Mission Pages**: Updated with exact v3.0 canonical headings:
+  - Purpose: "To democratize institutional-grade leverage." (explicit exception for "democratize" per spec directive)
+  - Vision: "A future where 'trust' is an engineered feature, not a gamble."
+  - Mission: "We engineer the infrastructure of verifiable autonomy."
+- **Page Structure**: Each page now includes hero, "what this means", Truth/Capital/Dignity domain mapping, and disclaimer sections
