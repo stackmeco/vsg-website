@@ -1,0 +1,303 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Uniqueness Engine venture detail page** fully in line with:
+
+- VSG Brand & Voice System v3.0
+- The Truth · Capital · Dignity model
+- The Architect/Judge voice (precise, infrastructural, low-hype)
+- The internal-first, AI-native, non-custodial stance
+
+This page should:
+
+- Explain clearly what Uniqueness Engine is and why it exists.
+- Position Uniqueness Engine explicitly as a **Dignity**-domain venture, constrained by Truth and Capital.
+- Emphasize **personhood without exposure**: one person, one presence, without turning identity into surveillance.
+- Make it explicit that Uniqueness Engine is **infrastructure we run for our own use first**, not a public KYC/ID product.
+- Connect clearly back to `/ventures`, `/approach`, and `/insights`.
+
+Do NOT change global theming, layout primitives, or add/remove routes. Only update text content, labels, and any local data structures in the **Uniqueness Engine** venture detail page file.
+
+--------------------------------------------------
+1) Locate the Uniqueness Engine venture detail page
+--------------------------------------------------
+
+Find the component rendered for the Uniqueness Engine venture route, for example:
+
+- client/src/pages/ventures/Uniqueness.tsx
+- or whatever file is used for the `/ventures/uniqueness` route referenced in the Ventures overview list.
+
+All changes below apply only inside this Uniqueness Engine venture detail page file.
+
+--------------------------------------------------
+2) Update the hero section
+--------------------------------------------------
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only the strings and hrefs.
+
+Overline:
+  "Dignity · Venture"
+
+Heading:
+  "Uniqueness Engine proves personhood without exposure."
+
+Body paragraph:
+  "Uniqueness Engine focuses on one question: how do you let a system know that one real person is present—once—without forcing them to hand over their life story? It is infrastructure for one-person-one-presence, not another database of identities."
+
+If the hero supports a small secondary line, set it to:
+
+  "We run Uniqueness Engine in internal experiments first, so every pattern we share has been tested against real abuse attempts, edge cases, and privacy concerns."
+
+Hero CTAs:
+
+- Primary hero CTA:
+  Label: "Back to ventures"
+  href: "/ventures"
+
+- Secondary hero CTA (if present):
+  Label: "See how we work"
+  href: "/approach"
+
+Do not change hero layout, background, or component types.
+
+--------------------------------------------------
+3) “What Uniqueness Engine is”
+--------------------------------------------------
+
+Section heading:
+  "What Uniqueness Engine is"
+
+Body paragraph:
+  "Uniqueness Engine is infrastructure for proving that one person is present without turning them into a permanent record. It uses privacy-preserving cryptography and controlled signals to help systems distinguish real participants from duplicates and automation—while letting people keep control over what they share, where, and when."
+
+If your layout supports bullets or mini-cards, configure three:
+
+Card 1:
+  Title:
+    "Personhood, not profile"
+  Text:
+    "The goal is to prove that a single person is present, not to build a detailed profile. The system should know ‘one real participant, once’—and as little else as possible."
+
+Card 2:
+  Title:
+    "Dignity by design"
+  Text:
+    "Identity checks are treated as something owed respect, not a resource to extract. The default is minimal disclosure, reversible participation, and clear boundaries on what can be linked."
+
+Card 3:
+  Title:
+    "Infrastructure under constraints"
+  Text:
+    "Uniqueness Engine is built as rails that other systems can integrate, with strict rules on how signals are generated, held, and proved. It is not a free-form data lake."
+
+--------------------------------------------------
+4) “The problem Uniqueness Engine addresses”
+--------------------------------------------------
+
+Section heading:
+  "The problem Uniqueness Engine addresses"
+
+Body paragraph:
+  "Most systems that need to know ‘who is here’ reach for the same blunt tools: government IDs, centralized accounts, or surveillance-heavy scoring. That creates two kinds of harm at once: fake participation slips through, while real people are overexposed."
+
+Then a three-item list (bullets or mini-cards):
+
+Item 1:
+  Title:
+    "Sybil and bot abuse"
+  Text:
+    "Without a way to enforce one-person-one-presence, a small number of actors can flood systems with fake accounts—distorting votes, incentives, and outcomes."
+
+Item 2:
+  Title:
+    "Overexposed identities"
+  Text:
+    "The common fix is to collect more data: IDs, financial histories, biometrics. Once captured, that data is hard to contain and easy to repurpose."
+
+Item 3:
+  Title:
+    "Lock-in by design"
+  Text:
+    "Central identity providers become gatekeepers. Leaving a platform can mean leaving behind verifications, reputation, and access—all tied up inside one company’s database."
+
+Keep the tone calm, specific, and non-dramatic.
+
+--------------------------------------------------
+5) “How Uniqueness Engine works (high-level)”
+--------------------------------------------------
+
+High-level description only. No vendor names, no specific cryptographic schemes, no implementation details.
+
+Section heading:
+  "How Uniqueness Engine works (high-level)"
+
+Body paragraph:
+  "Uniqueness Engine is built as a sequence of checks and proofs. It assembles just enough signal to distinguish one real person from duplicates and automation, then turns that into reusable proofs that reveal as little as possible about the person behind them."
+
+Then three bullets or mini-cards:
+
+Card 1:
+  Title:
+    "Gather minimal signals"
+  Text:
+    "We start from the principle of sufficiency: collect only what is strictly needed to distinguish one presence from another, under clearly defined constraints."
+
+Card 2:
+  Title:
+    "Derive privacy-preserving proofs"
+  Text:
+    "Signals are transformed into proofs that answer specific questions—such as ‘is this the same participant?’ or ‘has this participant already claimed a benefit?’—without exposing raw inputs."
+
+Card 3:
+  Title:
+    "Reuse without rehousing"
+  Text:
+    "Participants should be able to carry proofs between compatible systems without re-enrolling everywhere or handing new copies of sensitive data to each service."
+
+Optional muted line (using existing small-text style):
+
+  "The target state is simple: systems get the assurance they need; people keep control over how they show up."
+
+--------------------------------------------------
+6) “Uniqueness Engine and the three questions”
+--------------------------------------------------
+
+Tie Uniqueness Engine explicitly to Dignity, and show how Truth and Capital constrain it.
+
+Section heading:
+  "Uniqueness Engine and the three questions"
+
+Intro paragraph:
+  "Uniqueness Engine lives primarily in Dignity, but any system that touches identity will affect Truth and Capital as well."
+
+Three-item format (bullets, mini-cards, or horizontal list):
+
+Item 1:
+  Label:
+    "Truth"
+  Text:
+    "Any uniqueness claim must be grounded in checks that can be inspected and challenged. We care not just that a proof exists, but that it comes from a process with clear limits and failure modes."
+
+Item 2:
+  Label:
+    "Capital"
+  Text:
+    "Who counts as ‘one participant’ shapes how resources, rewards, and protections are allocated. Uniqueness Engine is designed to prevent a small number of actors from quietly capturing outsized benefits."
+
+Item 3:
+  Label:
+    "Dignity"
+  Text:
+    "Dignity means letting people prove enough to participate without submitting to surveillance. Uniqueness Engine aims to separate ‘Can you join?’ from ‘May we follow you everywhere?’"
+
+--------------------------------------------------
+7) “Use cases Uniqueness Engine is exploring”
+--------------------------------------------------
+
+Section heading:
+  "Use cases Uniqueness Engine is exploring"
+
+Body paragraph:
+  "Because Uniqueness Engine is infrastructure, it can sit underneath different systems that need one-person-one-presence guarantees. We focus first on uses where abuse and overexposure both carry real cost."
+
+Use three example items, written as **explorations**, not product promises:
+
+Use case 1:
+  Title:
+    "Sybil-resistant access"
+  Text:
+    "Helping governed communities and applications enforce ‘one person, one participation’ in sensitive actions such as votes, allowlists, or gated discussions."
+
+Use case 2:
+  Title:
+    "Fair drops and incentives"
+  Text:
+    "Reducing the impact of bots and duplicate accounts in reward programs and distributions, so a small group cannot quietly claim most of the value."
+
+Use case 3:
+  Title:
+    "Reusable eligibility proofs"
+  Text:
+    "Letting people prove they meet a requirement—such as residency in a region or being a returning participant—without repeatedly disclosing full identity details."
+
+Stay in “exploring / enabling / supporting” language; do not imply a live, general-availability product.
+
+--------------------------------------------------
+8) “What Uniqueness Engine is / is not”
+--------------------------------------------------
+
+Section heading:
+  "What Uniqueness Engine is / is not"
+
+Use a two-column or two-list pattern if available.
+
+Left side — “Uniqueness Engine is”:
+- "Infrastructure for proving personhood and presence without overexposure."
+- "A Dignity-domain venture that we run in internal experiments and pilots first."
+- "A way for systems to enforce one-person-one-presence under clear, inspectable constraints."
+
+Right side — “Uniqueness Engine is not”:
+- "Not a generic KYC provider or data broker."
+- "Not a centralized identity platform that tracks people across every service."
+- "Not an offer of investment, yield, or securities."
+
+Muted small-text line under this section:
+
+  "This page describes how we design and use Uniqueness Engine for our own needs. It is not investment, legal, tax, or compliance advice."
+
+--------------------------------------------------
+9) Cross-links to related pages
+--------------------------------------------------
+
+At the bottom of the Uniqueness Engine page (just above any global footer), add a “next steps” or cross-link row using existing link or button styles, for example:
+
+- Link 1:
+  Label: "Back to all ventures"
+  href: "/ventures"
+
+- Link 2:
+  Label: "Read related insights"
+  href: "/insights"
+
+- Link 3:
+  Label: "Review our approach"
+  href: "/approach"
+
+If the page uses a shared NextStepBlock component instead, configure it approximately as:
+
+- Title:
+  "See the approach behind Uniqueness Engine"
+- Description:
+  "Our approach and standards describe how Truth, Capital, and Dignity shape systems that touch identity and access."
+- href:
+  "/approach"
+
+Use whichever pattern already exists; do not introduce new components.
+
+--------------------------------------------------
+10) Hygiene & brand checks for the Uniqueness Engine page
+--------------------------------------------------
+
+In the Uniqueness Engine venture detail page file only, ensure:
+
+1) There are **no** occurrences of:
+   - The old domains "Signal", "Value", "Human" as domain names.
+   - The phrase "validate the signal".
+   - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents".
+   - "move fast and break things".
+   - "monetize users", "harvest data".
+   - "StackMe", "Stackme Holdings", "Stackme app", or "VSP" as active brand names.
+   - The vague phrase "the human". Prefer: "people", "participants", "communities", "personhood", or "dignity".
+
+2) You do **not** mention:
+   - Specific identity vendors, government ID schemes, protocol names, token tickers, bank names, or legal-entity wiring.
+   - Any guarantees of access, eligibility, regulatory status, or investment performance.
+
+3) You **do**:
+   - Clearly position Uniqueness Engine as a Dignity-domain venture constrained by Truth and Capital.
+   - Emphasize personhood without exposure, one-person-one-presence, and privacy-preserving design.
+   - Reiterate internal-first, AI-native, governed stance.
+   - Maintain the Architect/Judge voice: calm, precise, infrastructural, with controlled warmth.
+
+Do not modify other pages or routes in this checkpoint.
