@@ -1,65 +1,75 @@
+import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { PageMeta } from "@/components/PageMeta";
 import { NextStepBlock } from "@/components/NextStepBlock";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, X } from "lucide-react";
 
-const whatLuminaIs = [
-  "Infrastructure for physics-aware grading signals in the trading card ecosystem.",
-  "A Truth-domain venture: anchoring condition to evidence, not to guesswork.",
-  "AI-native and human-governed: machine intelligence reads sensor data; people define thresholds, policies, and dispute paths.",
-  "A way to make grading behaviours inspectable so different parties can understand and audit them.",
+const whyExistsBullets = [
+  "Reduce guesswork before cards ever leave your hands.",
+  "Make condition assessments repeatable instead of purely subjective.",
+  "Turn condition into data that can be compared, audited, and improved.",
+];
+
+const whatLuminaDoes = [
+  {
+    title: "Captures the evidence",
+    body: "Uses defined capture flows—such as mobile scans or workstation sessions—to record how a card looks and behaves under consistent conditions.",
+  },
+  {
+    title: "Builds the signals",
+    body: "Transforms those captures into structured signals that describe defects, centering, surface quality, and other attributes in a consistent format.",
+  },
+  {
+    title: "Anchors the decisions",
+    body: "Produces grading signals that can be linked to downstream decisions—what to grade, insure, or move—so everyone can see what those choices rest on.",
+  },
+];
+
+const howLuminaOperates = [
+  {
+    title: "Evidence-first",
+    body: "Every grading signal traces back to captured evidence. If the underlying data isn't there, the signal doesn't exist.",
+  },
+  {
+    title: "Machine-assisted, not magic",
+    body: "Models help detect patterns and inconsistencies at scale, but their role is constrained and auditable—no unexplained jumps from raw input to final score.",
+  },
+  {
+    title: "Explainable decisions",
+    body: "Signals are structured so stewards and partners can ask: What evidence did this depend on? How would the result change if that evidence did?",
+  },
 ];
 
 const whatLuminaIsNot = [
-  "Not a retail grading queue or standalone grading brand.",
-  "Not a marketplace or vault for holding customer cards.",
-  "Not a guarantee of prices, returns, or investment outcomes.",
-  "Not a black-box model that hides how it reached a result.",
+  "Not a public grading service where you submit cards for official slabs.",
+  "Not a marketplace or exchange for cards, grades, or securities.",
+  "Not an investment advisory or appraisal service.",
+  "Not a promise of higher sale prices, yields, or returns.",
 ];
 
-const howItWorks = [
+const whoLuminaSupports = [
   {
-    title: "Evidence first",
-    body: "Lumina starts from measurable properties—surface, edges, corners, centering—and records the observations and transformations used to score them.",
+    title: "Collectors and stewards",
+    body: "People deciding what to ship, insure, or hold based on condition they can see and compare.",
   },
   {
-    title: "AI-native, governed outputs",
-    body: "Machine intelligence detects patterns and anomalies in the data; people define which signals matter, how they are weighted, and what happens when something looks off.",
+    title: "Ecosystem builders",
+    body: "Teams wiring marketplaces, vaults, or logistics that depend on reliable, repeatable grading signals.",
   },
   {
-    title: "Inspectable by design",
-    body: "Each output is tied back to the inputs and model decisions that created it, so participants can review the path instead of debating a single number in isolation.",
+    title: "Risk and coverage providers",
+    body: "Organizations that need transparent condition data to underwrite or protect card-backed positions.",
   },
-];
-
-const whoLuminaIsFor = [
-  {
-    label: "Collectors",
-    description: "Collectors who want more confidence about condition before they decide what to ship, insure, or trade.",
-  },
-  {
-    label: "Marketplaces and platforms",
-    description: "Marketplaces that need consistent, evidence-backed signals to reduce disputes and price more fairly.",
-  },
-  {
-    label: "Ecosystem builders",
-    description: "Ecosystem builders who want grading to behave like infrastructure—documented, repeatable, and auditable.",
-  },
-];
-
-const studioFitItems = [
-  "Feeds our standards for evidence-backed decisions.",
-  "Provides live data for governance and dispute models.",
-  "Demonstrates how AI can support, not replace, human judgment.",
 ];
 
 export default function Lumina() {
   return (
     <Layout>
       <PageMeta
-        title="Lumina — Physics-Aware Grading You Can Inspect"
-        description="Lumina turns raw card condition into evidence-backed grading signals, anchoring each result to verifiable inputs so decisions rest on evidence, not vibes."
+        title="Lumina — Physics-Aware Grading"
+        description="Lumina is grading infrastructure for the trading card ecosystem. It turns physical condition into evidence-backed grading signals that anyone can inspect and reason about."
         preloadImage="/hero-texture.png"
       />
 
@@ -80,14 +90,27 @@ export default function Lumina() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4" data-testid="text-overline">
-              Lumina · Truth
+              Ventures · Truth
             </p>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-[3rem] text-foreground leading-tight tracking-tight mb-6" data-testid="text-heading">
               Lumina — physics-aware grading.
             </h1>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base" data-testid="text-hero-body">
-              Lumina turns raw card condition into evidence-backed grading signals instead of vibes. It ties each result to measurable inputs so collectors, marketplaces, and insurers can see how a decision was formed instead of guessing.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-hero-body">
+              Lumina is grading infrastructure for the trading card ecosystem. Instead of asking people to trust a stranger's eye or a black-box score, it turns physical condition into evidence-backed grading signals that anyone can inspect and reason about.
             </p>
+            <div className="flex flex-wrap items-center gap-4 mt-8">
+              <Link href="/ventures">
+                <Button size="lg" data-testid="button-back-to-ventures">
+                  Back to all ventures
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Button>
+              </Link>
+              <Link href="/approach">
+                <Button variant="outline" size="lg" data-testid="button-see-how-we-work">
+                  See how we work
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -98,72 +121,44 @@ export default function Lumina() {
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-why-lumina-exists">
               Why Lumina exists
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-why-lumina-body-1">
-              Grading a card often means shipping it away, waiting, and hoping that a human eye sees what you see. Results can drift between graders, queues get clogged, and decisions are hard to audit later. Lumina exists to turn that process into something inspectable.
+            <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-why-lumina-1">
+              Card grading asks you to make serious decisions—what to ship, insure, or sell—based on processes you can't see. Criteria live in manuals, judgments happen behind closed doors, and scores can drift over time. That opacity turns every submission into a gamble.
             </p>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-why-lumina-body-2">
-              Instead of relying on a single opaque score, we start from measurable properties—surface, corners, centering, edges—and anchor each output to the data and models that produced it. The goal is simple: if a grade matters, you should be able to see how it was built.
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-why-lumina-2">
+              Lumina exists to anchor those decisions in measurable evidence. If a grade will affect what you do with an asset, you should be able to see which physical signals it rests on and how they were captured.
             </p>
+            <ul className="space-y-3">
+              {whyExistsBullets.map((item, index) => (
+                <li key={index} className="flex items-start gap-3" data-testid={`why-exists-bullet-${index}`}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
+                  <span className="text-sm text-muted-foreground">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-what-lumina-is-not">
+      <section className="py-20" data-testid="section-what-lumina-does">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="bg-card border-border" data-testid="card-what-lumina-is">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <Check className="w-5 h-5 text-primary" aria-hidden="true" />
-                  What Lumina is
-                </h3>
-                <ul className="space-y-3">
-                  {whatLuminaIs.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed" data-testid={`item-what-is-${index}`}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card border-border" data-testid="card-what-lumina-is-not">
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-4 flex items-center gap-2">
-                  <X className="w-5 h-5 text-muted-foreground" aria-hidden="true" />
-                  What Lumina is not
-                </h3>
-                <ul className="space-y-3">
-                  {whatLuminaIsNot.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed" data-testid={`item-what-is-not-${index}`}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 mt-2 flex-shrink-0" aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-card" data-testid="section-how-lumina-works">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-8">
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-how-lumina-works">
-              How Lumina works (at a distance)
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-what-lumina-does">
+              What Lumina does
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-how-lumina-lead">
-              Lumina treats card grading as a measurement and provenance problem, not just an opinion. It builds a chain from how a card was observed to how its condition was scored.
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-what-lumina-does">
+              Lumina turns raw physical condition into structured evidence for grading and risk decisions. It uses sensor inputs and defined checks to produce grading signals that can be traced, inspected, and replayed—not just accepted on trust.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {howItWorks.map((col) => (
-              <Card key={col.title} className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" data-testid={`card-${col.title.toLowerCase().replace(/\s+/g, "-").replace(/,/g, "")}`}>
+            {whatLuminaDoes.map((card, index) => (
+              <Card 
+                key={index} 
+                className="flex flex-col h-full bg-card border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" 
+                data-testid={`card-does-${index}`}
+              >
                 <CardContent className="flex flex-col h-full p-6">
-                  <h3 className="font-heading font-semibold text-foreground mb-3">{col.title}</h3>
-                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{col.body}</p>
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{card.title}</h3>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{card.body}</p>
                 </CardContent>
               </Card>
             ))}
@@ -171,66 +166,113 @@ export default function Lumina() {
         </div>
       </section>
 
-      <section className="py-20" data-testid="section-who-lumina-is-for">
+      <section className="py-20 bg-card" data-testid="section-how-lumina-operates">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2" data-testid="text-audience-eyebrow">
-              Audience
-            </p>
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-6" data-testid="heading-who-lumina-is-for">
-              Who Lumina is for
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-how-lumina-operates">
+              How Lumina operates
             </h2>
-            <ul className="space-y-4">
-              {whoLuminaIsFor.map((item, index) => (
-                <li key={index} className="flex items-start gap-3 text-foreground" data-testid={`audience-${item.label.toLowerCase().replace(/\s+/g, "-")}`}>
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
-                  <span>
-                    <strong>{item.label}</strong> — {item.description}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-how-lumina-operates">
+              Lumina is AI-native but not a guessing machine. Machine intelligence helps extract and compare patterns from captures, while the system stays grounded in observable evidence and defined checks.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {howLuminaOperates.map((card, index) => (
+              <Card 
+                key={index} 
+                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" 
+                data-testid={`card-operates-${index}`}
+              >
+                <CardContent className="flex flex-col h-full p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{card.title}</h3>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{card.body}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-card" data-testid="section-studio-fit">
+      <section className="py-20" data-testid="section-what-lumina-is-not">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-2" data-testid="text-studio-eyebrow">
-              Studio Integration
-            </p>
-            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-studio-fit">
-              Where Lumina fits in VSG
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-what-lumina-is-not">
+              What Lumina is not
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-studio-body">
-              Lumina is how we prove the Truth side of our work. It runs alongside Helios in Capital and the Uniqueness Engine in Dignity, showing how AI-native systems can make key decisions inspectable instead of opaque.
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-what-lumina-is-not-intro">
+              Lumina is infrastructure for generating and using grading signals. It is not a grading company, marketplace, or investment product.
             </p>
-            <ul className="space-y-3">
-              {studioFitItems.map((item, index) => (
-                <li key={index} className="flex items-start gap-3 text-foreground" data-testid={`studio-fit-item-${index}`}>
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" aria-hidden="true" />
-                  <span className="text-sm">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <Card className="bg-card border-border" data-testid="card-lumina-is-not">
+              <CardContent className="p-6">
+                <ul className="space-y-3">
+                  {whatLuminaIsNot.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3" data-testid={`is-not-${index}`}>
+                      <X className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" aria-hidden="true" />
+                      <span className="text-sm text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+            <p className="text-xs text-muted-foreground/80 leading-relaxed mt-6" data-testid="text-is-not-disclaimer">
+              This page describes how we think about grading infrastructure. It is not investment, legal, tax, or appraisal advice.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="py-12 border-t border-border" data-testid="section-disclaimer">
+      <section className="py-20 bg-card" data-testid="section-who-lumina-supports">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs text-muted-foreground leading-relaxed max-w-3xl" data-testid="text-disclaimer">
-            Lumina is grading infrastructure, not an investment or pricing guarantee. Nothing on this page is investment, legal, or tax advice, and we do not hold or custody customer cards.
-          </p>
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-who-lumina-supports">
+              Who Lumina supports
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-who-lumina-supports">
+              Lumina is built for people and teams who need grading to be more than a black box: collectors, marketplaces, insurers, and infrastructure providers who want condition to be measurable and explainable.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {whoLuminaSupports.map((card, index) => (
+              <Card 
+                key={index} 
+                className="flex flex-col h-full bg-background border-border hover:border-primary/30 transition-colors duration-150 ease-mechanical" 
+                data-testid={`card-supports-${index}`}
+              >
+                <CardContent className="flex flex-col h-full p-6">
+                  <h3 className="font-heading font-semibold text-foreground mb-3">{card.title}</h3>
+                  <p className="flex-1 text-sm text-muted-foreground leading-relaxed">{card.body}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20" data-testid="section-where-lumina-fits">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-where-lumina-fits">
+              Where Lumina fits inside VSG
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-where-lumina-fits">
+              Lumina sits in the Truth domain. It gives us a way to anchor trading card decisions in measurable evidence, complementing the resilience we build with Helios in Capital and the protections we pursue with Uniqueness Engine in Dignity.
+            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link href="/ventures" className="text-sm text-primary hover:underline" data-testid="link-all-ventures">
+                See all ventures
+              </Link>
+              <Link href="/insights" className="text-sm text-primary hover:underline" data-testid="link-insights">
+                Read more insights
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
       <NextStepBlock
-        label="View All"
-        nextPage="Ventures"
-        description="See all VSG ventures and how they connect across Truth, Capital, and Dignity."
-        href="/ventures"
+        nextPage="Approach"
+        description="Our approach and standards pages show how Truth, Capital, and Dignity show up across the studio."
+        href="/approach"
       />
     </Layout>
   );
