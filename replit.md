@@ -114,4 +114,16 @@ Preferred communication style: Simple, everyday language.
   - Cross-links to approach, ventures, and standards
   - NextStepBlock points to /approach with six-stage runway reference
   - Brand lint updated with CANONICAL_EXCEPTIONS for "Let the machine compute. Let the human connect."
-- **Test Count**: 125 passing tests as of December 2024
+- **Lumina Page v3.0 Polish** (December 2024):
+  - PageMeta: title="Lumina · Truth", infrastructure-first description
+  - Hero: "Grading that starts with evidence." with "Lumina · Truth venture" overline
+  - Hero CTAs: "Back to ventures" + "Read field notes" pointing to /ventures and /insights
+  - "What Lumina is" section with Truth question framing for physical assets
+  - "How Lumina works" section with Capture/Compute/Share/Re-check phases (4 cards)
+  - "Who Lumina is for" section describing graders, marketplaces, insurers, vaults, collectors
+  - "What Lumina is / is not" section with v3.0 items (not a grading house, not a marketplace, not investment advice)
+  - "Where Lumina sits in the studio" section with Truth lane framing and canonical bar sentence
+  - Cross-links to ventures and insights
+  - Disclaimer includes "investment, legal, tax, or compliance advice"
+  - NextStepBlock points to /ventures with Truth, Capital, Dignity proof points copy
+- **Test Count**: 127 passing tests as of December 2024
