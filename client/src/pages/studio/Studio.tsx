@@ -43,7 +43,7 @@ const ventureSteps = [
   },
   {
     step: "2. Run the runway",
-    text: "The idea moves through our six-stage path—Define, Validate, Build, Deploy, Evolve, Recurse—with limits, artefacts, and reviews at each step.",
+    text: "The idea moves through our six-stage path—Define, Validate, Build, Deploy, Evolve, Learn—with limits, artefacts, and reviews at each step.",
   },
   {
     step: "3. Prove it under stress",

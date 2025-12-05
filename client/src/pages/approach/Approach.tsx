@@ -27,7 +27,7 @@ const stages = [
   { name: "Build", description: "Engineer in small, verifiable increments with clear checks." },
   { name: "Deploy", description: "Launch into a controlled environment with rollback planned." },
   { name: "Evolve", description: "Adapt to real signals, tightening or retiring paths as we learn." },
-  { name: "Recurse", description: "Feed incidents and insights back into our standards and code." },
+  { name: "Learn", description: "Feed incidents and insights back into our standards and code." },
 ];
 
 const balanceSheetBullets = [
@@ -134,7 +134,7 @@ export default function Approach() {
               The six-stage runway
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-stages-body">
-              Once a venture passes the first questions, it moves through a six-stage path: Define, Validate, Build, Deploy, Evolve, and Recurse. Each stage has its own gates, limits, and artefacts so risk is surfaced early and knowledge compounds instead of resetting.
+              Once a venture passes the first questions, it moves through a six-stage path: Define, Validate, Build, Deploy, Evolve, and Learn. Each stage has its own gates, limits, and artefacts so risk is surfaced early and knowledge compounds instead of resetting.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">

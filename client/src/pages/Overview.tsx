@@ -192,7 +192,7 @@ export default function Overview() {
               How we design and prove systems
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-approach-body">
-              Before we call anything real, it moves through a six-stage path: Define, Validate, Build, Deploy, Evolve, and Recurse. Each stage is designed to surface risk early, keep capital within guardrails, and make sure lessons compound instead of resetting.
+              Before we call anything real, it moves through a six-stage path: Define, Validate, Build, Deploy, Evolve, and Learn. Each stage is designed to surface risk early, keep capital within guardrails, and make sure lessons compound instead of resetting.
             </p>
             <ul className="space-y-3 mb-8">
               {approachBullets.map((bullet, index) => (

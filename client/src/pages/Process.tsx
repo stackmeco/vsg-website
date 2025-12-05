@@ -48,9 +48,9 @@ const stages = [
     description: "Use real-world telemetry, incidents, and operator feedback to tune the system so it becomes less fragile and cleaner in practice—not just bigger.",
   },
   {
-    name: "Recurse",
-    focus: "Institutional Memory",
-    description: "Run structured post-mortems on anomalies and dead ends, then feed those lessons back into our standards, templates, and tooling so every future venture starts stronger than the last.",
+    name: "Learn",
+    focus: "Institutional Learning",
+    description: "Treat anomalies and failures as high-value signals by running structured post-mortems and feeding the lessons back into our standards, playbooks, and runway so we do not repeat the same failure twice.",
   },
 ];
 
@@ -60,7 +60,7 @@ export default function Process() {
     <Layout>
       <PageMeta 
         title="Process — Six-Stage Runway for Verifiable Ventures" 
-        description="Define, Validate, Build, Deploy, Evolve, and Recurse: VSG's six-stage path for taking ventures from concept to governed, verifiable systems backed by conservative, non-custodial rails."
+        description="Define, Validate, Build, Deploy, Evolve, and Learn: VSG's six-stage path for taking ventures from concept to governed, verifiable systems backed by conservative, non-custodial rails."
         preloadImage="/hero-texture.png"
       />
       <section className="py-20 lg:py-28 relative overflow-hidden" data-testid="section-hero">
@@ -86,7 +86,7 @@ export default function Process() {
               A six-stage runway for verifiable ventures.
             </h1>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Every serious venture at VSG follows the same six-stage path. We define the boundary conditions, validate that the problem and mechanism are real, build and deploy under tight guardrails, then evolve and recurse based on hard evidence so knowledge compounds and risk is surfaced early.
+              Every serious venture at VSG follows the same six-stage path. We define the boundary conditions, validate that the problem and mechanism are real, build and deploy under tight guardrails, then evolve and learn based on hard evidence so knowledge compounds and risk is surfaced early.
             </p>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
               Machine intelligence scans, simulates, and flags anomalies at speed; people define the mandates, limits, and veto. We are AI-native, but control stays with people, not the model.
