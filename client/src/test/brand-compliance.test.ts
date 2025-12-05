@@ -1255,4 +1255,154 @@ describe('Brand & Voice Compliance', () => {
       expect(content).toContain('<CardContent');
     });
   });
+
+  describe('Studio Page v3.0', () => {
+    const content = fs.readFileSync('client/src/pages/studio/Studio.tsx', 'utf-8');
+
+    it('should have correct PageMeta title', () => {
+      expect(content).toContain('title="Studio"');
+    });
+
+    it('should have correct PageMeta description with v3.0 domains', () => {
+      expect(content).toContain('AI-native, cryptography-grounded venture studio');
+      expect(content).toContain('infrastructure of verifiable autonomy');
+      expect(content).toContain('Truth, Capital, and Dignity');
+    });
+
+    it('should have correct overline', () => {
+      expect(content).toContain('AI-native venture studio');
+    });
+
+    it('should have correct hero heading', () => {
+      expect(content).toContain('The studio behind verifiable autonomy.');
+    });
+
+    it('should have hero body copy with v3.0 language', () => {
+      expect(content).toContain('cryptography-grounded venture studio');
+      expect(content).toContain('protected by construction, not by handshakes');
+    });
+
+    it('should have single warmth line in hero', () => {
+      expect(content).toContain("You shouldn't have to choose between safety and leverage");
+      expect(content).toContain('shaped by that experience');
+    });
+
+    it('should have primary and secondary CTAs', () => {
+      expect(content).toContain('href="/approach"');
+      expect(content).toContain('See how we build');
+      expect(content).toContain('href="/standards"');
+      expect(content).toContain('Read our standards');
+    });
+
+    it('should have "What VSG is" section', () => {
+      expect(content).toContain('What Verifiable Systems Group is');
+      expect(content).toContain('must not fail silently');
+    });
+
+    it('should have "We are" list with v3.0 items', () => {
+      expect(content).toContain('weAre');
+      expect(content).toContain('AI-native studio');
+      expect(content).toContain('Cryptography-grounded');
+      expect(content).toContain('Balance-sheet-first');
+    });
+
+    it('should have "We are not" list with v3.0 items', () => {
+      expect(content).toContain('weAreNot');
+      expect(content).toContain('consultancy selling bespoke advice');
+      expect(content).toContain('custodial platform');
+    });
+
+    it('should have Purpose, Vision, Mission section', () => {
+      expect(content).toContain('Purpose, vision, and mission');
+      expect(content).toContain('pvm');
+    });
+
+    it('should have canonical Purpose line', () => {
+      expect(content).toContain('To democratize institutional-grade leverage');
+    });
+
+    it('should have canonical Vision line', () => {
+      expect(content).toContain('A future where trust is an engineered feature, not a gamble');
+    });
+
+    it('should have canonical Mission line', () => {
+      expect(content).toContain('We engineer the infrastructure of verifiable autonomy');
+    });
+
+    it('should have "How the studio operates" section', () => {
+      expect(content).toContain('How the studio operates');
+      expect(content).toContain('studioOps');
+    });
+
+    it('should have studio ops items', () => {
+      expect(content).toContain('Balance-sheet-first');
+      expect(content).toContain('Three beams: Truth, Capital, Dignity');
+      expect(content).toContain('Three layers: Pillars, Process, Standards');
+    });
+
+    it('should have ventures section with v3.0 descriptions', () => {
+      expect(content).toContain('Ventures inside the studio');
+      expect(content).toContain('Helios');
+      expect(content).toContain('Capital beam');
+      expect(content).toContain('Lumina');
+      expect(content).toContain('Truth beam');
+      expect(content).toContain('Uniqueness Engine');
+      expect(content).toContain('Dignity beam');
+    });
+
+    it('should have "Who this studio is for" section', () => {
+      expect(content).toContain('Who this studio is for');
+      expect(content).toContain('whoThisIsFor');
+    });
+
+    it('should have audience bullet items', () => {
+      expect(content).toContain('Operators and founders');
+      expect(content).toContain('Stewards of capital');
+      expect(content).toContain('Builders who want AI-native systems');
+      expect(content).toContain('Partners who prefer clear constraints');
+    });
+
+    it('should have disclaimer section', () => {
+      expect(content).toContain('investment, legal, or tax advice');
+    });
+
+    it('should have NextStepBlock pointing to approach', () => {
+      expect(content).toContain('nextPage="Approach"');
+      expect(content).toContain('href="/approach"');
+      expect(content).toContain('pillars, process, and standards');
+    });
+
+    it('should have proper data-testid attributes for key sections', () => {
+      const expectedTestIds = [
+        'section-hero',
+        'section-what-vsg-is',
+        'section-pvm',
+        'section-studio-ops',
+        'section-ventures',
+        'section-who-for',
+        'section-disclaimer',
+      ];
+      
+      expectedTestIds.forEach(testId => {
+        expect(content).toContain(`data-testid="${testId}"`);
+      });
+    });
+
+    it('should not contain banned phrases', () => {
+      expect(content).not.toContain('Signal / Value / Human');
+      expect(content).not.toContain('validate the signal');
+      expect(content).not.toContain('protect the human');
+      expect(content).not.toContain('AI-powered platform');
+      expect(content).not.toContain('StackMe');
+      expect(content).not.toContain('Axiom');
+    });
+
+    it('should not contain old Studio page content', () => {
+      expect(content).not.toContain('beliefs');
+      expect(content).not.toContain('domains');
+      expect(content).not.toContain('ventureSteps');
+      expect(content).not.toContain('howWeOperate');
+      expect(content).not.toContain('whatWeAreNot');
+    });
+  });
 });
