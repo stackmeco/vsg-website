@@ -1,0 +1,234 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Update the Insights page so it fully matches:
+
+- VSG Brand & Voice System v3.0,
+- The Truth · Capital · Dignity model,
+- The “Insights / Notes / Updates” tone (human, calm, opinionated; principal’s memo),
+- The non-custodial, AI-native, balance-sheet-first stance.
+
+The Insights page should:
+
+- Explain what “Insights” are (field notes, post-mortems, architectural reflections),
+- Let users scan content by domain (Truth, Capital, Dignity) and type (note, post-mortem, framework) if applicable,
+- Use the Architect/Judge voice with controlled warmth,
+- Clearly state that Insights are not investment / legal / tax advice,
+- Link clearly to /approach, /ventures, and /standards.
+
+Do NOT change global theming, layout primitives, or add/remove routes. Only update text content, labels, and local data structures in the Insights page file.
+
+
+1) Locate the Insights page
+
+Find the component rendered at /insights in client/src/App.tsx, likely:
+
+- client/src/pages/Insights.tsx
+
+All changes below apply only inside this Insights page file.
+
+
+2) Update the hero section
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only the strings and hrefs.
+
+- Overline:
+  "Insights"
+
+- Heading:
+  "Field notes from running our own rails."
+
+- Body paragraph:
+  "Insights are working notes, post-mortems, and architectural reflections from running our own systems under Truth, Capital, and Dignity. They capture what broke, what held, and what changed as a result—so lessons do not stay trapped in a single incident."
+
+If there is a second, smaller line under the body, set it to:
+
+  "These are not announcements or marketing posts. They exist so other serious operators can see how we think, where we were wrong, and how we adjusted."
+
+Hero CTAs:
+
+- Primary CTA label: "See how we work"
+  href: "/approach"
+
+- Secondary CTA label: "Explore ventures"
+  href: "/ventures"
+
+Do not change layout, background image, or component types.
+
+
+3) Define “What counts as an insight”
+
+Add or update the first content block under the hero.
+
+Section heading:
+  "What counts as an insight"
+
+Body paragraph:
+  "We only publish pieces that capture real work: incidents, rewires, experiments, and patterns from running our own systems. If it does not change how we operate—or how we think about Truth, Capital, or Dignity—it does not belong here."
+
+If this section supports bullets or mini-cards, configure three items:
+
+- Title: "Post-mortems"
+  Text: "Structured reviews of incidents and near-misses, with what we changed as a result."
+
+- Title: "Patterns and frameworks"
+  Text: "Reusable ways of thinking about risk, architecture, or incentives that survived contact with reality."
+
+- Title: "Field notes"
+  Text: "Observations from experiments or small changes that surfaced something non-obvious."
+
+
+4) Update domain filters / tags (Truth · Capital · Dignity)
+
+If the page has any domain filters, chips, or tag legends for posts, align them with the new domains.
+
+In Insights.tsx, locate local constants for filters or tags. Replace any old domain labels (e.g., "Signal", "Value", "Human") with:
+
+const domainFilters = [
+  { id: "truth", label: "Truth" },
+  { id: "capital", label: "Capital" },
+  { id: "dignity", label: "Dignity" },
+];
+
+If there is an "All" option, keep it and add these three.
+
+If each post object has a domain/tag field, ensure:
+
+- Internal value is one of: "truth", "capital", "dignity"
+- User-facing label is "Truth", "Capital", "Dignity"
+
+Under the filter row, add a small explanatory line using the existing muted style (e.g. text-xs text-muted-foreground):
+
+"Truth covers evidence and provenance. Capital covers resilience and risk. Dignity covers how systems treat people’s time and personhood."
+
+
+5) Standardize insight card layout copy
+
+Locate the mapping over the list of insights (cards or rows).
+
+For each card:
+
+- Keep the existing card layout and components.
+- Ensure the domain tag uses the Truth / Capital / Dignity labels from the filters.
+- If there is a “type” badge, normalize the set of labels to something like:
+  - Note
+  - Post-mortem
+  - Framework
+
+For excerpts:
+
+- Remove any lorem ipsum or obviously placeholder text.
+- Each excerpt should be mechanism-focused and on-voice, not hype.
+
+If you need a neutral generic pattern for hard-coded examples, use:
+
+"This piece looks at [topic] through the lens of [Truth/Capital/Dignity] and documents what changed in our own systems as a result."
+
+Keep the existing date formatting and helpers unchanged.
+
+
+6) Empty states and no-results copy
+
+If there is an empty state when there are no insights at all:
+
+Heading:
+  "No insights published yet."
+
+Body:
+  "We only publish when we have something substantive to share from running our own rails. As we harden more systems under Truth, Capital, and Dignity, this space will fill with post-mortems and field notes."
+
+If there is a filtered empty state (no posts match current filters/search):
+
+Heading:
+  "Nothing matches these filters yet."
+
+Body:
+  "Try adjusting your filters, or check back after we publish more post-mortems and notes."
+
+Keep any existing illustration or icon as-is.
+
+
+7) Add “How to read these” section
+
+Add a guidance section below the list header or near the bottom, depending on your layout.
+
+Section heading:
+  "How to read these"
+
+Body paragraph:
+  "These pieces are written for operators, stewards, and technical leaders who care more about mechanisms than messaging. They assume a basic familiarity with risk, systems, and incentives—but they are grounded in plain language wherever possible."
+
+Then three bullets or mini-cards:
+
+- Title: "Look for what changed."
+  Text: "Every post should make clear what we did differently after the observation or incident."
+
+- Title: "Watch for patterns."
+  Text: "We call out frameworks or patterns that might be reusable, along with where they could break."
+
+- Title: "Treat them as input, not instruction."
+  Text: "These are records of how we chose to operate. They are not blueprints you should follow without your own context and constraints."
+
+
+8) Add / update non-advice disclaimer
+
+Ensure the Insights page has a clear disclaimer, either near the bottom or in a consistent small-text area.
+
+If a disclaimer already exists, replace its text with:
+
+"Insights are records of how we run our own systems. They are not investment, legal, tax, or compliance advice, and should not be used as the sole basis for any decision."
+
+Use the existing small-text / muted style (for example, text-xs text-muted-foreground).
+
+
+9) Bottom CTA / NextStepBlock for Insights
+
+If there is a NextStepBlock or similar CTA at the bottom of the Insights page, update its text and link.
+
+Set:
+
+- Title:
+  "See the guardrails behind these notes"
+
+- Description:
+  "Our standards and approach pages show how Truth, Capital, and Dignity shape the systems these insights come from."
+
+- href:
+  "/standards"
+
+If there is space for a secondary inline link near this block, add:
+
+- Label:
+  "Review our approach"
+- href:
+  "/approach"
+
+Use the existing CTA / link components; do not introduce new component types.
+
+
+10) Hygiene & brand checks for Insights.tsx
+
+In this file only, ensure:
+
+1) There are no occurrences of:
+   - "Signal", "Value", "Human" as domain names,
+   - "validate the signal" as a phrase,
+   - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents",
+   - "move fast and break things",
+   - "monetize users", "harvest data",
+   - "StackMe", "Stackme Holdings", "Stackme app", or "VSP" as active brand names,
+   - the vague phrase "the human". Prefer: "people", "participants", "communities", "stewards", "personhood", or "dignity".
+
+2) You do NOT mention:
+   - Specific protocol names, token tickers, bank names, or legal-entity wiring,
+   - Exact position sizes, LTVs, exposures, or other internal numeric details.
+
+3) The tone matches v3.0 Insights guidance:
+   - Human, calm, opinionated;
+   - Mechanism-first (what changed, what we learned, what we rewired);
+   - Light but intentional warmth (no memes, no hype, no slang).
+
+4) There are no placeholder ellipses like "..." left in user-facing text.
+
+Do not modify any other pages or routes in this checkpoint.

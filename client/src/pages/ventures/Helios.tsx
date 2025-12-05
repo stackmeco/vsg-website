@@ -84,17 +84,17 @@ export default function Helios() {
               Helios is the internal execution engine for VSG's own digital asset treasury. It exists to keep capital working without handing over the keys—routing positions under explicit limits so we can survive bad days, not just good ones.
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-8">
-              <Link href="/ventures">
-                <Button size="lg" data-testid="button-back-to-ventures">
+              <Button asChild size="lg" data-testid="button-back-to-ventures">
+                <Link href="/ventures">
                   Back to all ventures
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                </Button>
-              </Link>
-              <Link href="/approach">
-                <Button variant="outline" size="lg" data-testid="button-see-how-we-work">
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" data-testid="button-see-how-we-work">
+                <Link href="/approach">
                   See how we work
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

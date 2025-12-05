@@ -100,17 +100,17 @@ export default function Uniqueness() {
               Uniqueness Engine is infrastructure for proving that one person is present without forcing them to hand over their life story. It gives networks a way to resist bots and duplicates while protecting the dignity and privacy of the people who participate.
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-8">
-              <Link href="/ventures">
-                <Button size="lg" data-testid="button-back-to-ventures">
+              <Button asChild size="lg" data-testid="button-back-to-ventures">
+                <Link href="/ventures">
                   Back to all ventures
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                </Button>
-              </Link>
-              <Link href="/approach">
-                <Button variant="outline" size="lg" data-testid="button-see-how-we-work">
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" data-testid="button-see-how-we-work">
+                <Link href="/approach">
                   See how we work
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
