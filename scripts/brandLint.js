@@ -35,6 +35,12 @@ const BANNED = [
   "VSP ",
 ];
 
+// Canonical v3.0 phrases that would otherwise be banned
+// These are exact phrases from the v3.0 Brand & Voice System that must be preserved
+const CANONICAL_EXCEPTIONS = [
+  "Let the machine compute. Let the human connect.", // Intelligence Augmented value
+];
+
 function walk(dir, files = []) {
   if (!fs.existsSync(dir)) return files;
 
@@ -56,8 +62,16 @@ function lint() {
 
   for (const file of files) {
     const content = fs.readFileSync(file, "utf8");
+    
+    // Check for canonical exceptions - if any are found, temporarily remove them
+    // so they don't trigger false positives on banned substrings
+    let contentToCheck = content;
+    CANONICAL_EXCEPTIONS.forEach((exception) => {
+      contentToCheck = contentToCheck.split(exception).join("");
+    });
+    
     BANNED.forEach((phrase) => {
-      if (content.includes(phrase)) {
+      if (contentToCheck.includes(phrase)) {
         console.error(`❌ Found banned phrase "${phrase}" in ${file}`);
         errorCount++;
       }

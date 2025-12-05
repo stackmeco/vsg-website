@@ -824,6 +824,13 @@ describe('Brand & Voice Compliance', () => {
       expect(content).toContain('Force Multiplier');
     });
 
+    it('should have "How values relate to Truth, Capital, and Dignity" section', () => {
+      expect(content).toContain('How values relate to Truth, Capital, and Dignity');
+      expect(content).toContain('What can be trusted?');
+      expect(content).toContain('How should value move?');
+      expect(content).toContain('How do people participate?');
+    });
+
     it('should have cross-links to approach, ventures, and standards', () => {
       expect(content).toContain('href="/approach"');
       expect(content).toContain('href="/ventures"');
@@ -841,10 +848,17 @@ describe('Brand & Voice Compliance', () => {
         'text-overline',
         'text-heading',
         'text-hero-body',
+        'button-see-approach',
+        'button-explore-ventures',
         'section-values',
         'heading-values',
         'section-decisions',
         'heading-decisions',
+        'section-domains',
+        'heading-domains',
+        'card-domain-truth',
+        'card-domain-capital',
+        'card-domain-dignity',
         'section-cross-links',
       ];
       

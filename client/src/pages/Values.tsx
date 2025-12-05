@@ -102,9 +102,52 @@ export default function Values() {
             <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-decisions">
               How these values show up in decisions
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-decisions-body">
+            <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-decisions-body">
               These values are not wall art. They show up when we decide whether to launch a venture, how we respond to a near miss, and when we choose to shut something down. Intelligence Augmented and Seek the Signal govern how we use AI and data. Engineered Ambition and Own the Engine shape our architecture. Value is a Mirror and Force Multiplier guide who benefits—and who we're building for.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* How values relate to Truth, Capital, and Dignity */}
+      <section className="py-20 bg-card border-t border-border" data-testid="section-domains">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-4" data-testid="heading-domains">
+              How values relate to Truth, Capital, and Dignity
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-domains-intro">
+              Our values operationalize the three questions that organize VSG. Each value connects to one or more domains—because values without stakes are just decoration.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="bg-background" data-testid="card-domain-truth">
+              <CardContent className="p-6">
+                <p className="text-xs font-medium text-primary uppercase tracking-widest mb-2" data-testid="label-domain-truth">Truth</p>
+                <h3 className="font-heading font-semibold text-foreground mb-3" data-testid="heading-domain-truth">What can be trusted?</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-domain-truth">
+                  Seek the Signal and Intelligence Augmented ensure that claims in our systems trace back to verifiable records—not vibes, not assumptions.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-background" data-testid="card-domain-capital">
+              <CardContent className="p-6">
+                <p className="text-xs font-medium text-primary uppercase tracking-widest mb-2" data-testid="label-domain-capital">Capital</p>
+                <h3 className="font-heading font-semibold text-foreground mb-3" data-testid="heading-domain-capital">How should value move?</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-domain-capital">
+                  Engineered Ambition and Own the Engine shape how we build treasury infrastructure—with guardrails, explicit rollback paths, and deep system understanding.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-background" data-testid="card-domain-dignity">
+              <CardContent className="p-6">
+                <p className="text-xs font-medium text-primary uppercase tracking-widest mb-2" data-testid="label-domain-dignity">Dignity</p>
+                <h3 className="font-heading font-semibold text-foreground mb-3" data-testid="heading-domain-dignity">How do people participate?</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-domain-dignity">
+                  Value is a Mirror and Force Multiplier guide who benefits from our work—ensuring we serve first and never trap users for extraction.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
