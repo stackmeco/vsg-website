@@ -1,0 +1,300 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Uniqueness Engine venture detail page** fully in line with:
+
+- VSG Brand & Voice System v3.0
+- The Truth · Capital · Dignity model
+- The Architect/Judge voice (precise, infrastructural, low-hype)
+- The AI-native, internal-first, non-custodial stance
+
+This page should:
+
+- Present Uniqueness Engine as **personhood infrastructure**, not a surveillance ID product.
+- Emphasize “personhood without exposure”: uniqueness, not over-collection.
+- Show clearly how it maps to **Truth, Capital, and especially Dignity**.
+- Explain how AI is used (patterning, fraud signals) without creepiness or “AI magic”.
+- State clearly what it is and is not (no promises about compliance; not a replacement for required KYC).
+- Connect to `/ventures`, `/process`, `/standards`, and `/insights`.
+
+Do NOT change global theming, layout primitives, or add/remove routes. Only update text content, labels, and any local data structures in the **Uniqueness Engine page** file.
+
+--------------------------------------------------
+1) Locate the Uniqueness Engine page
+--------------------------------------------------
+
+Find the component that renders the **Uniqueness Engine** venture route, for example:
+
+- client/src/pages/ventures/Uniqueness.tsx
+- client/src/pages/UniquenessEngine.tsx
+
+or whichever file is mapped to `/ventures/uniqueness` (or similar) in client/src/App.tsx.
+
+All changes below apply only inside that Uniqueness Engine page file.
+
+--------------------------------------------------
+2) Update PageMeta for Uniqueness Engine
+--------------------------------------------------
+
+If this page uses a <PageMeta> (or similar) component, update:
+
+- title:
+    "Uniqueness Engine"
+- description:
+    "The Uniqueness Engine is personhood infrastructure from VSG—proving one-person-one-presence without exposing people’s full identities or turning them into product."
+
+Keep any preloadImage prop (e.g. "/hero-texture.png") unchanged.
+
+Do not modify imports or component structure; only update the string props.
+
+--------------------------------------------------
+3) Hero section – “personhood without exposure”
+--------------------------------------------------
+
+Keep the existing hero layout (background, columns, image/texture). Replace only the text and hrefs.
+
+Overline:
+  "Uniqueness Engine · Dignity · Venture"
+
+Main heading:
+  "Personhood without exposure."
+
+Body paragraph:
+  "The Uniqueness Engine helps systems enforce one-person-one-presence without demanding full dossiers on everyone who shows up. It focuses on uniqueness, not identity—proving that a participant is a real, singular person while revealing as little as possible."
+
+Optional secondary line (if the layout has room under the paragraph):
+  "We built it after seeing how often ‘anti-fraud’ tooling became an excuse to over-collect, profile, and lock people into systems they could not meaningfully audit."
+
+Hero CTAs:
+
+Primary CTA:
+  Label:
+    "Back to ventures"
+  href:
+    "/ventures"
+
+Secondary CTA (if present):
+  Label:
+    "Read field notes"
+  href:
+    "/insights"
+
+Do not change hero layout or component types—only these strings and hrefs.
+
+--------------------------------------------------
+4) Section: “The problem Uniqueness Engine exists to solve”
+--------------------------------------------------
+
+Section heading:
+  "The problem Uniqueness Engine exists to solve"
+
+Body paragraph:
+  "Most systems that try to prevent abuse—bots, multi-accounts, coordinated fraud—reach for heavy identity checks. People are asked to hand over documents, biometrics, and behavioral traces just to prove they are not an attacker. That creates new risks: over-collection, reuse of data in ways no one agreed to, and lock-in."
+
+If the layout supports bullets, add:
+
+- "Sybil and bot risk in systems that assume one-person-one-presence."
+- "Identity checks that collect far more data than the risk actually requires."
+- "People losing control over how, where, and how long their data is used."
+
+Closing sentence:
+
+  "The Uniqueness Engine exists to separate uniqueness from exposure—so systems can enforce basic protections without turning people into raw material."
+
+--------------------------------------------------
+5) Section: “What the Uniqueness Engine is”
+--------------------------------------------------
+
+Section heading:
+  "What the Uniqueness Engine is"
+
+Intro paragraph:
+  "The Uniqueness Engine is infrastructure for proving that a participant is a unique person in a given context, under clear constraints, without becoming a surveillance system. It focuses on the rails that connect event-level checks to higher-level guarantees."
+
+Then use three cards or list items (reuse existing card/column components):
+
+Card 1:
+  Title:
+    "Uniqueness, not biography"
+  Text:
+    "The system cares about whether someone is a single, real participant—not about their full life story. Where possible, it works with derived proofs or attributes instead of raw documents."
+
+Card 2:
+  Title:
+    "Context-bound proofs"
+  Text:
+    "Proofs are bound to specific contexts and purposes, with clear limits on reuse. Being unique in one network does not silently become a global identifier."
+
+Card 3:
+  Title:
+    "Infrastructure role"
+  Text:
+    "The Uniqueness Engine is meant to plug into access control, voting, and allocation flows as a source of personhood signals—not as a stand-alone social network or data broker."
+
+--------------------------------------------------
+6) Section: “Uniqueness Engine under Truth, Capital, and Dignity”
+--------------------------------------------------
+
+Section heading:
+  "Uniqueness Engine under Truth, Capital, and Dignity"
+
+Short intro:
+  "We apply the same three questions here that we apply across the studio."
+
+Use three cards/columns:
+
+Card: Truth
+  Title:
+    "Truth"
+  Text:
+    "The system produces claims that can be checked: what was asserted, in which context, under which rules. Stewards can see when and how uniqueness checks were performed without seeing more about people than is necessary."
+
+Card: Capital
+  Title:
+    "Capital"
+  Text:
+    "Many capital flows depend on fair participation and resistance to abuse. By reducing fake or repeated identities, the Uniqueness Engine helps systems allocate resources more fairly without defaulting to heavy-handed identity programs."
+
+Card: Dignity
+  Title:
+    "Dignity"
+  Text:
+    "People should not have to surrender their entire identity to prove they are real. The Uniqueness Engine is designed to minimize exposure and give participants a say in which attributes are revealed, where, and for how long."
+
+Keep each card to 2–3 lines of text on desktop.
+
+--------------------------------------------------
+7) Section: “How the Uniqueness Engine uses AI”
+--------------------------------------------------
+
+Section heading:
+  "How the Uniqueness Engine uses AI"
+
+Body paragraph:
+  "The Uniqueness Engine is AI-native, but AI does not get to decide who counts as a person in a vacuum. Machine intelligence helps spot patterns and edge cases; humans define the rules, thresholds, and escalation paths."
+
+Use three short items:
+
+Item 1:
+  Title:
+    "Pattern detection"
+  Text:
+    "Models help spot abnormal patterns—repeated attempts, suspicious clusters, or behaviors that suggest automation—so stewards can tighten rules where needed."
+
+Item 2:
+  Title:
+    "Risk scoring under constraints"
+  Text:
+    "AI can suggest risk scores and recommended actions, but those outputs are bounded by policies that define what the system may and may not do with participants."
+
+Item 3:
+  Title:
+    "Escalation, not judgment"
+  Text:
+    "AI can flag and prioritize cases; it cannot unilaterally exclude someone. Critical decisions remain interceptable and reviewable by humans, with logs for why a flag was raised."
+
+Avoid language like “AI takes care of everything” or “AI decides”; keep the emphasis on constrained assistance.
+
+--------------------------------------------------
+8) Section: “What the Uniqueness Engine is / is not”
+--------------------------------------------------
+
+Section heading:
+  "What the Uniqueness Engine is / is not"
+
+Use a two-column pattern if available.
+
+Left column — “The Uniqueness Engine is”:
+
+- "Infrastructure for enforcing one-person-one-presence in governed systems."
+- "A way to connect uniqueness checks to concrete policies without exposing full identities."
+- "A tool we run and test on our own projects before considering any broader use."
+
+Right column — “The Uniqueness Engine is not”:
+
+- "Not a public identity database or social profile system."
+- "Not a replacement for legal or regulatory identity checks where those are required."
+- "Not a tool for bypassing sanctions, KYC, or other compliance obligations."
+
+Below the columns, add a muted disclaimer line:
+
+  "This page describes infrastructure we design and test in our own environments. It is not legal, compliance, or regulatory advice."
+
+--------------------------------------------------
+9) Section: “Where the Uniqueness Engine sits in the broader studio”
+--------------------------------------------------
+
+Section heading:
+  "Where the Uniqueness Engine sits in the broader studio"
+
+Body paragraph:
+  "The Uniqueness Engine is our primary answer to the Dignity question: how people participate in systems without becoming product. It works alongside ventures focused on Truth and Capital so that evidence, flows, and personhood are all treated as first-class concerns."
+
+Optional short list referencing other ventures:
+
+- "Truth · Lumina — physics-aware grading infrastructure."
+- "Capital · Helios — constraint-aware treasury execution."
+- "Dignity · Uniqueness Engine — personhood without exposure."
+
+Below this, reuse existing link / CTA components:
+
+- Label:
+    "Explore all ventures"
+  href:
+    "/ventures"
+
+- Label:
+    "Review our approach"
+  href:
+    "/approach"
+
+--------------------------------------------------
+10) Bottom “Next steps” / CTA block
+--------------------------------------------------
+
+At the bottom of the Uniqueness Engine page (above the footer), add a “next steps” block using the shared pattern you used for Helios and Lumina.
+
+If using <NextStepBlock>, configure approximately as:
+
+  <NextStepBlock
+    nextPage="Standards"
+    description="See the standards and guardrails that shape how personhood infrastructure like the Uniqueness Engine is designed and operated."
+    href="/standards"
+  />
+
+If the page already has a CTA component, keep the component and layout but update:
+
+- Title/label:
+    "Review our standards"
+- Description:
+    "Understand the constraints systems like the Uniqueness Engine must clear before they touch real participants."
+- href:
+    "/standards"
+
+--------------------------------------------------
+11) Hygiene & brand checks for the Uniqueness Engine page
+--------------------------------------------------
+
+In this page file only, ensure:
+
+1) There are **no** occurrences of:
+   - The old domains "Signal", "Value", "Human" as domain names.
+   - The phrase "validate the signal".
+   - Phrases like "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents".
+   - "move fast and break things".
+   - "StackMe", "Stackme Holdings", "Stackme app", or "VSP" as active brand names.
+   - The phrase "the human" used as a noun by itself. Prefer: "people", "participants", "personhood", or "dignity".
+
+2) You do **not**:
+   - Mention specific identity / proof-of-personhood competitors or protocols by name.
+   - Suggest that this system can or should be used to circumvent regulatory requirements.
+   - Promise absolute protection against fraud, bots, or abuse.
+
+3) You **do**:
+   - Clearly articulate “personhood without exposure” as the core idea.
+   - Tie Uniqueness Engine explicitly to Dignity, with clear references to Truth and Capital.
+   - Emphasize AI-native, constraint-aware, internal-first operation.
+   - Maintain the Architect/Judge voice: calm, exact, ethically explicit, with at most 1–2 “you shouldn’t have to…” or similar warmth lines on the page.
+
+Do not modify other pages or routes in this checkpoint.

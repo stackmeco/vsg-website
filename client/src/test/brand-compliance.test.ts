@@ -247,6 +247,89 @@ describe('Brand & Voice Compliance', () => {
     });
   });
 
+  describe('Lumina page v3.0 compliance', () => {
+    const luminaPath = path.join(process.cwd(), 'client/src/pages/ventures/Lumina.tsx');
+    let content: string;
+
+    beforeAll(() => {
+      content = fs.readFileSync(luminaPath, 'utf-8');
+    });
+
+    it('should have correct hero heading', () => {
+      expect(content).toContain('Physics-aware grading infrastructure.');
+    });
+
+    it('should have correct PageMeta title', () => {
+      expect(content).toContain('title="Lumina"');
+    });
+
+    it('should have correct overline with domain label', () => {
+      expect(content).toContain('Lumina · Truth · Venture');
+    });
+
+    it('should have "The problem Lumina exists to solve" section', () => {
+      expect(content).toContain('The problem Lumina exists to solve');
+    });
+
+    it('should have "What Lumina is" section with sensor-level rails', () => {
+      expect(content).toContain('What Lumina is');
+      expect(content).toContain('Sensor-level rails');
+      expect(content).toContain('Evidence engine');
+      expect(content).toContain('Infrastructure, not a marketplace');
+    });
+
+    it('should have "Lumina under Truth, Capital, and Dignity" section', () => {
+      expect(content).toContain('Lumina under Truth, Capital, and Dignity');
+    });
+
+    it('should have "How Lumina uses AI" section', () => {
+      expect(content).toContain('How Lumina uses AI');
+      expect(content).toContain('Computer vision');
+      expect(content).toContain('Anomaly detection');
+      expect(content).toContain('Replayable, not magical');
+    });
+
+    it('should have "What Lumina is / is not" section', () => {
+      expect(content).toContain('What Lumina is / is not');
+    });
+
+    it('should have "Where Lumina sits in the broader studio" section', () => {
+      expect(content).toContain('Where Lumina sits in the broader studio');
+    });
+
+    it('should have cross-links to ventures, process, and insights', () => {
+      expect(content).toContain('href="/ventures"');
+      expect(content).toContain('href="/process"');
+      expect(content).toContain('href="/insights"');
+    });
+
+    it('should have proper disclaimer', () => {
+      expect(content).toContain('not investment, legal, tax, or pricing advice');
+    });
+
+    it('should not contain old domain labels', () => {
+      expect(content).not.toContain('"Signal"');
+      expect(content).not.toContain('"Value"');
+      expect(content).not.toContain('"Human"');
+    });
+
+    it('should have proper data-testid attributes for key sections', () => {
+      const expectedTestIds = [
+        'section-hero',
+        'section-problem',
+        'section-what-lumina-is',
+        'section-domains',
+        'section-ai',
+        'section-is-is-not',
+        'section-studio-context',
+      ];
+      
+      expectedTestIds.forEach(testId => {
+        expect(content).toContain(`data-testid="${testId}"`);
+      });
+    });
+  });
+
   describe('Helios page v3.0 compliance', () => {
     const heliosPath = path.join(process.cwd(), 'client/src/pages/ventures/Helios.tsx');
     let content: string;
