@@ -87,3 +87,13 @@ Preferred communication style: Simple, everyday language.
   - "Three questions we organize around" section with problem-framing titles (Truth · What can be trusted? / Capital · How should value move? / Dignity · How do people participate?)
   - "What VSG is" section emphasizes infrastructure-grade design
   - "How the studio fits together" section with 5 navigation cards: Ventures, Approach, Process, Standards, Insights
+- **Connect Page v3.0 Polish** (December 2024):
+  - Hero: "Talk to us when verification matters." with "Connect · Verifiable Systems Group" overline
+  - Body copy emphasizes limited conversations and structural problems (truth, capital, dignity)
+  - Sidebar with guidance text, topic examples, and expectations section
+  - Clear disclaimer about not providing investment, legal, or tax advice
+- **404 Page v3.0 Polish** (December 2024):
+  - Heading: "This page isn't wired up."
+  - Calm, architectural tone with two-paragraph explanation
+  - Navigation: "Go to overview", "Explore ventures", "See how we build"
+- **Test Count**: 112 passing tests as of December 2024
