@@ -1554,6 +1554,18 @@ describe('Brand & Voice Compliance', () => {
     it('should have scroll-mt offset for anchor navigation', () => {
       expect(content).toContain('scroll-mt-24');
     });
+
+    it('should have exact v3 canonical Purpose line', () => {
+      expect(content).toContain('To democratize institutional-grade leverage.');
+    });
+
+    it('should have exact v3 canonical Vision line with curly quotes around trust', () => {
+      expect(content).toContain('A future where \\u201ctrust\\u201d is an engineered feature, not a gamble.');
+    });
+
+    it('should have exact v3 canonical Mission line', () => {
+      expect(content).toContain('We engineer the infrastructure of verifiable autonomy.');
+    });
   });
 
   describe('P/V/M anchors in navigation and data files', () => {
