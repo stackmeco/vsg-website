@@ -5,6 +5,7 @@ export interface NavChild {
 }
 
 export interface NavItem {
+  key: string;
   label: string;
   href: string;
   children?: NavChild[];
@@ -12,44 +13,50 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   {
+    key: "overview",
     label: "Overview",
     href: "/",
   },
   {
+    key: "ventures",
     label: "Ventures",
     href: "/ventures",
     children: [
-      { label: "All Ventures", href: "/ventures", description: "Our portfolio across Truth, Capital, and Dignity" },
-      { label: "Helios", href: "/ventures/helios", description: "Capital — Non-custodial treasury engine" },
-      { label: "Lumina", href: "/ventures/lumina", description: "Truth — Evidence-backed grading signals" },
-      { label: "Uniqueness Engine", href: "/ventures/uniqueness", description: "Dignity — Sybil-resistant identity verification" },
+      { label: "All Ventures", href: "/ventures", description: "Our portfolio across Truth, Capital, and Dignity." },
+      { label: "Helios", href: "/ventures/helios", description: "Capital venture: non-custodial treasury engine." },
+      { label: "Lumina", href: "/ventures/lumina", description: "Truth venture: verifiable grading infrastructure." },
+      { label: "Uniqueness Engine", href: "/ventures/uniqueness", description: "Dignity venture: personhood without overexposure." },
     ],
   },
   {
+    key: "approach",
     label: "Approach",
     href: "/approach",
     children: [
-      { label: "Approach", href: "/approach", description: "How we sequence pillars, process, and standards" },
-      { label: "Pillars", href: "/approach/pillars", description: "Our foundational principles" },
-      { label: "Process", href: "/approach/process", description: "How we build and validate ventures" },
-      { label: "Standards", href: "/approach/standards", description: "Enterprise-grade quality benchmarks" },
+      { label: "Approach", href: "/approach", description: "How we turn Truth, Capital, and Dignity into systems." },
+      { label: "Pillars", href: "/approach/pillars", description: "Our foundational principles." },
+      { label: "Process", href: "/approach/process", description: "How ventures move from idea to governed system." },
+      { label: "Standards", href: "/approach/standards", description: "Enterprise-grade guardrails and benchmarks." },
     ],
   },
   {
+    key: "studio",
     label: "Studio",
     href: "/studio",
     children: [
-      { label: "Studio", href: "/studio", description: "The VSG innovation engine" },
-      { label: "Purpose", href: "/studio/purpose", description: "Why we exist" },
-      { label: "Vision", href: "/studio/vision", description: "Where we're heading" },
-      { label: "Mission", href: "/studio/mission", description: "What we do every day" },
+      { label: "Studio", href: "/studio", description: "The VSG innovation engine." },
+      { label: "Purpose", href: "/studio/purpose", description: "Why we exist." },
+      { label: "Vision", href: "/studio/vision", description: "Where we're heading." },
+      { label: "Mission", href: "/studio/mission", description: "What we do every day." },
     ],
   },
   {
+    key: "insights",
     label: "Insights",
     href: "/insights",
   },
   {
+    key: "connect",
     label: "Connect",
     href: "/connect",
   },

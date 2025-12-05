@@ -1,0 +1,442 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal
+
+Refactor the ENTIRE top navigation (desktop + mobile) into a SINGLE, premium, config-driven system:
+
+- One `NAV_ITEMS` config defines all top-level items and dropdown entries.
+- Desktop and mobile nav both read from the same config.
+- All dropdowns (Ventures, Approach, Studio) share identical layout, spacing, bullets, and borders.
+- The bar feels “institutional + premium”: minimal, aligned, no jitter, no mismatched borders.
+- Keep existing logo, brand colors, CONNECT button styling, and search icon styling.
+
+Do NOT:
+- Change route paths or introduce new pages.
+- Change global color tokens or font tokens.
+- Introduce new libraries beyond what is already used (if lucide-react/icons are already in use, keep them; otherwise reuse existing icons).
+
+----------------------------------------------------------------
+1) Create a shared nav config
+----------------------------------------------------------------
+
+Create a new file:
+
+  client/src/config/nav.ts
+
+Add this (adapt import paths/types only if your setup requires it; no JSX here):
+
+  export type NavChild = {
+    label: string;
+    href: string;
+    description?: string;
+  };
+
+  export type NavItem = {
+    key: string;
+    label: string;
+    href?: string;         // where the top-level item goes on click
+    children?: NavChild[]; // optional dropdown rows
+  };
+
+  export const NAV_ITEMS: NavItem[] = [
+    {
+      key: "overview",
+      label: "Overview",
+      href: "/",
+    },
+    {
+      key: "ventures",
+      label: "Ventures",
+      href: "/ventures",
+      children: [
+        {
+          label: "All ventures",
+          href: "/ventures",
+          description: "Our portfolio across Truth, Capital, and Dignity.",
+        },
+        {
+          label: "Helios",
+          href: "/ventures/helios",
+          description: "Capital venture: internal execution engine.",
+        },
+        {
+          label: "Lumina",
+          href: "/ventures/lumina",
+          description: "Truth venture: verifiable grading infrastructure.",
+        },
+        {
+          label: "Uniqueness Engine",
+          href: "/ventures/uniqueness",
+          description: "Dignity venture: personhood without overexposure.",
+        },
+      ],
+    },
+    {
+      key: "approach",
+      label: "Approach",
+      href: "/approach",
+      children: [
+        {
+          label: "Approach",
+          href: "/approach",
+          description: "How we turn Truth, Capital, and Dignity into systems.",
+        },
+        {
+          label: "Pillars",
+          href: "/pillars",
+          description: "Our foundational principles.",
+        },
+        {
+          label: "Process",
+          href: "/process",
+          description: "How ventures move from idea to governed system.",
+        },
+        {
+          label: "Standards",
+          href: "/standards",
+          description: "Enterprise-grade guardrails and benchmarks.",
+        },
+      ],
+    },
+    {
+      key: "studio",
+      label: "Studio",
+      href: "/studio",
+      children: [
+        {
+          label: "Studio",
+          href: "/studio",
+          description: "The VSG innovation engine.",
+        },
+        {
+          label: "Purpose",
+          href: "/studio/purpose",
+          description: "Why we exist.",
+        },
+        {
+          label: "Vision",
+          href: "/studio/vision",
+          description: "Where we’re heading.",
+        },
+        {
+          label: "Mission",
+          href: "/studio/mission",
+          description: "What we do every day.",
+        },
+      ],
+    },
+    {
+      key: "insights",
+      label: "INSIGHTS",   // keep uppercase visual treatment
+      href: "/insights",
+    },
+    {
+      key: "connect",
+      label: "CONNECT",    // rendered as CTA, see below
+      href: "/connect",
+    },
+  ];
+
+----------------------------------------------------------------
+2) Build a single GlobalNav component (desktop + mobile)
+----------------------------------------------------------------
+
+Find the current header/nav components (e.g. `SiteHeader`, `MainNav`, `DesktopNav`, `MobileNav`) under `client/src/components`. We will replace them with a single `GlobalNav` that:
+
+- Uses `NAV_ITEMS` for structure.
+- Renders dropdowns in a shared, premium layout.
+- Uses existing logo + CONNECT button + search icon implementations.
+
+Create:
+
+  client/src/components/layout/GlobalNav.tsx
+
+Implement as follows (you can adjust imports to your project; keep the structure and class patterns):
+
+  import { useState } from "react";
+  import { Link, useLocation } from "wouter";
+  import { NAV_ITEMS, NavItem } from "@/config/nav";
+  import { cn } from "@/lib/utils";
+  // Use existing icon set. If lucide-react is already used elsewhere, you can:
+  // import { Menu, X, ChevronDown } from "lucide-react";
+  // Otherwise, reuse your existing menu/close/chevron icons.
+
+  const useActivePath = () => {
+    const [location] = useLocation();
+    return location;
+  };
+
+  type DropdownProps = {
+    item: NavItem;
+    isActive: boolean;
+  };
+
+  function DesktopDropdown({ item, isActive }: DropdownProps) {
+    if (!item.children?.length) return null;
+
+    return (
+      <div className="relative group">
+        <button
+          type="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          className={cn(
+            "inline-flex items-center gap-1 text-sm font-medium transition-colors",
+            isActive
+              ? "text-foreground"
+              : "text-muted-foreground hover:text-foreground"
+          )}
+        >
+          <span>{item.label}</span>
+          {/* Replace with your existing chevron icon */}
+          {/* <ChevronDown className="h-3 w-3" /> */}
+          <span className="mt-[2px] inline-block h-3 w-3 border-b border-r border-current align-middle [transform:rotate(45deg)]" />
+        </button>
+
+        <div className="pointer-events-none absolute left-1/2 top-full z-40 hidden w-[460px] -translate-x-1/2 pt-4 group-hover:pointer-events-auto group-hover:block group-focus-within:pointer-events-auto group-focus-within:block">
+          <div className="rounded-lg border border-border bg-background/95 shadow-xl shadow-black/40 backdrop-blur">
+            <div className="px-5 py-4 space-y-3">
+              {item.children.map((child) => (
+                <Link
+                  key={child.href}
+                  href={child.href}
+                  className="flex items-start gap-3 rounded-md px-2 py-2 transition-colors hover:bg-muted/60"
+                >
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground" />
+                  <span className="flex flex-col">
+                    <span className="text-sm font-medium text-foreground">
+                      {child.label}
+                    </span>
+                    {child.description && (
+                      <span className="text-xs text-muted-foreground leading-snug">
+                        {child.description}
+                      </span>
+                    )}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  function DesktopNav() {
+    const activePath = useActivePath();
+
+    return (
+      <nav className="hidden items-center gap-8 md:flex">
+        {NAV_ITEMS.map((item) => {
+          const isActive =
+            item.href &&
+            (activePath === item.href ||
+              activePath.startsWith(item.href + "/"));
+
+          // CONNECT: reuse existing CTA styling instead of a plain link.
+          if (item.key === "connect") {
+            // Copy the exact CONNECT button classes or component
+            // from your current header implementation and use them here.
+            return (
+              <Link key={item.key} href={item.href ?? "/connect"}>
+                {/* Example structure; replace inner div with your existing CTA */}
+                <div className="rounded-sm px-4 py-2 text-xs font-semibold tracking-[0.25em] uppercase bg-orange-500 text-black hover:bg-orange-400 transition-colors">
+                  {item.label}
+                </div>
+              </Link>
+            );
+          }
+
+          // Simple link (Overview, INSIGHTS) without dropdown
+          if (!item.children?.length) {
+            return (
+              <Link
+                key={item.key}
+                href={item.href ?? "/"}
+                className={cn(
+                  "text-sm font-medium transition-colors",
+                  item.key === "insights"
+                    ? cn(
+                        "tracking-[0.25em] uppercase",
+                        isActive
+                          ? "text-foreground"
+                          : "text-muted-foreground hover:text-foreground"
+                      )
+                    : isActive
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          }
+
+          // Dropdown parent (Ventures, Approach, Studio)
+          return (
+            <DesktopDropdown
+              key={item.key}
+              item={item}
+              isActive={!!isActive}
+            />
+          );
+        })}
+      </nav>
+    );
+  }
+
+  function MobileNav() {
+    const [open, setOpen] = useState(false);
+    const activePath = useActivePath();
+
+    // Replace these with your existing mobile menu icons if you have them.
+    const MenuIcon = () => (
+      <span className="flex h-4 w-4 flex-col justify-between">
+        <span className="h-[1px] w-full bg-foreground" />
+        <span className="h-[1px] w-full bg-foreground" />
+        <span className="h-[1px] w-full bg-foreground" />
+      </span>
+    );
+    const CloseIcon = () => (
+      <span className="relative h-4 w-4">
+        <span className="absolute left-0 top-1/2 h-[1px] w-full -translate-y-1/2 rotate-45 bg-foreground" />
+        <span className="absolute left-0 top-1/2 h-[1px] w-full -translate-y-1/2 -rotate-45 bg-foreground" />
+      </span>
+    );
+
+    return (
+      <div className="md:hidden">
+        <button
+          type="button"
+          className="inline-flex items-center justify-center rounded-md border border-border bg-background px-2 py-1.5 text-xs font-medium"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-label="Toggle navigation"
+        >
+          {open ? <CloseIcon /> : <MenuIcon />}
+        </button>
+
+        {open && (
+          <div className="absolute inset-x-0 top-14 z-40 border-b border-border bg-background/95 pb-4 shadow-lg shadow-black/30 backdrop-blur">
+            <div className="px-4 pt-3 space-y-4">
+              {NAV_ITEMS.map((item) => (
+                <div key={item.key} className="space-y-2">
+                  <Link
+                    href={item.href ?? "/"}
+                    className={cn(
+                      "block text-sm font-medium",
+                      item.key === "insights"
+                        ? cn(
+                            "tracking-[0.25em] uppercase",
+                            activePath === item.href
+                              ? "text-foreground"
+                              : "text-muted-foreground hover:text-foreground"
+                          )
+                        : activePath === item.href
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
+                    )}
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+
+                  {item.children?.length && (
+                    <div className="space-y-1 border-l border-border/40 pl-3">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block text-xs text-muted-foreground hover:text-foreground"
+                          onClick={() => setOpen(false)}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  export function GlobalNav() {
+    return (
+      <header className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur">
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:h-16 sm:px-6 lg:px-8">
+          {/* LEFT: keep the existing logo block exactly as-is (import and place it here). */}
+          <div className="flex items-center gap-3">
+            {/* Example: <Logo /> + wordmark */}
+          </div>
+
+          {/* RIGHT: desktop nav + search + mobile toggle */}
+          <div className="flex items-center gap-4">
+            <DesktopNav />
+            {/* Keep your existing search icon / command palette trigger here if you have one */}
+            <MobileNav />
+          </div>
+        </div>
+      </header>
+    );
+  }
+
+Key points for premium look:
+- Use consistent padding/gap: `gap-8` between top-level items, `px-5 py-4` inside dropdowns.
+- Dropdown card: `rounded-lg border border-border bg-background/95 shadow-xl shadow-black/40 backdrop-blur`.
+- Bullet dot + two-line label/description gives an enterprise, Bloomberg/GS-style feel.
+
+----------------------------------------------------------------
+3) Wire GlobalNav into the app shell
+----------------------------------------------------------------
+
+Find where the current header/nav is rendered (e.g. `AppShell`, `Layout`, or `client/src/App.tsx`).
+
+- Import `GlobalNav`:
+
+    import { GlobalNav } from "@/components/layout/GlobalNav";
+
+- Replace ALL older nav/header components with a single `<GlobalNav />` at the top of the layout:
+
+    function AppShell() {
+      return (
+        <>
+          <GlobalNav />
+          {/* existing <main> / router / footer stay the same */}
+        </>
+      );
+    }
+
+- Remove any now-unused `DesktopNav`, `MobileNav`, or older header components to avoid duplicate bars and conflicting styles.
+
+----------------------------------------------------------------
+4) Visual + behavior QA (must pass)
+----------------------------------------------------------------
+
+After Replit applies the changes, run the dev server and verify:
+
+Desktop
+- Only ONE header bar is visible.
+- Top-level items share identical typography and spacing.
+- Ventures / Approach / Studio dropdowns:
+  - Same width and card style.
+  - Same bullet, padding, and border treatment.
+  - Align cleanly under their triggers with no jitter, gaps, or double borders.
+- INSIGHTS appears uppercase with subtle tracking.
+- CONNECT appears as the same orange CTA as before (copied classes), aligned to the right.
+
+Mobile
+- Tap icon → a single panel slides/drops down; no double menus.
+- Each top-level item appears once; children are indented with a left border.
+- Tapping any link closes the menu.
+- No visual glitch where CONNECT or INSIGHTS drift out of alignment.
+
+General
+- No TypeScript/JSX errors or unused import warnings.
+- No new color tokens introduced beyond what you already use (except the example orange classes, which should be replaced with your existing CONNECT button classes).
+- Interaction feels smooth: dropdowns don’t flicker, and the header looks like one premium, cohesive component instead of stitched-together menus.
+
+Implement exactly these steps and adjust only where necessary to match your existing logo component, CONNECT button classes, search icon, and import paths.
