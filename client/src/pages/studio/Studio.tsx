@@ -29,7 +29,7 @@ const pvm = [
   },
   {
     label: "Vision",
-    line: "A future where trust is an engineered feature, not a gamble.",
+    line: "A future where \u201ctrust\u201d is an engineered feature, not a gamble.",
     description:
       "Today, too many systems depend on blind faith in intermediaries and opaque algorithms. We want a world where Truth, Capital, and Dignity are anchored to evidence, governed flows, and privacy by design—so people can see how systems behave before they depend on them.",
   },

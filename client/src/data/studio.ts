@@ -29,7 +29,7 @@ export const pvm = [
   {
     id: "vision",
     label: "Vision",
-    tldr: "A future where trust is an engineered feature, not a gamble.",
+    tldr: "A future where \u201ctrust\u201d is an engineered feature, not a gamble.",
     href: "/studio#vision",
   },
   {
