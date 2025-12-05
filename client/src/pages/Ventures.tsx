@@ -14,7 +14,7 @@ const ventures = [
     domainLabel: "Capital · Internal venture",
     tagline: "Treasury execution under explicit constraints.",
     description:
-      "Helios is our internal execution engine for digital asset treasuries—routing positions across approved venues under predefined limits so capital stays resilient under stress instead of drifting into hidden exposures.",
+      "Helios is our internal execution engine for digital asset treasuries. It routes positions across approved venues under predefined limits so capital stays resilient under stress instead of drifting into hidden exposures. We do not pool client funds or market yield products—Helios exists to make our own capital more robust.",
     primaryDomain: "Capital",
     secondaryDomains: ["Truth", "Dignity"],
     href: "/ventures/helios",
@@ -25,7 +25,7 @@ const ventures = [
     domainLabel: "Truth · Venture",
     tagline: "Physics-aware grading infrastructure.",
     description:
-      "Lumina turns the condition of physical assets into structured, verifiable signals—captured from your own devices—so grading, insurance, and pricing workflows can rely on evidence instead of one-time, opaque judgments.",
+      "Lumina turns the condition of physical assets into structured, verifiable signals, captured from your own devices. Grading, insurance, and pricing workflows can rely on evidence instead of one-time opaque judgments. We build infrastructure, not a grading house or marketplace.",
     primaryDomain: "Truth",
     secondaryDomains: ["Capital", "Dignity"],
     href: "/ventures/lumina",
@@ -36,7 +36,7 @@ const ventures = [
     domainLabel: "Dignity · Venture",
     tagline: "Personhood without exposure.",
     description:
-      "The Uniqueness Engine enforces one-person-one-presence in governed systems—proving uniqueness in context without demanding full dossiers, over-collecting identity data, or turning people into product.",
+      "The Uniqueness Engine enforces one-person-one-presence in governed systems—proving uniqueness in context without demanding full dossiers or over-collecting identity data. It protects participation without turning people into product or a line item in a centralized registry.",
     primaryDomain: "Dignity",
     secondaryDomains: ["Truth", "Capital"],
     href: "/ventures/uniqueness",
@@ -60,7 +60,7 @@ export default function Ventures() {
     <Layout>
       <PageMeta 
         title="Ventures" 
-        description="Ventures from Verifiable Systems Group that pressure-test our answers to Truth, Capital, and Dignity—run on our own balance sheet and environments first."
+        description="Ventures from Verifiable Systems Group that pressure-test our answers to Truth, Capital, and Dignity—run on our own balance sheet and environments first before becoming patterns we share."
         preloadImage="/hero-texture.png"
       />
       
@@ -88,10 +88,10 @@ export default function Ventures() {
               Ventures, tested on our balance sheet first.
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed mb-4" data-testid="text-hero-body">
-              Each venture is a focused system that answers a specific question about Truth, Capital, or Dignity. We run them on our own balance sheet and environments first, refine them under explicit constraints, and only then share the patterns.
+              Each venture is a focused system built to answer a specific question about Truth, Capital, or Dignity. We run them on our own balance sheet and environments first, under explicit constraints, so they have to work for us before they become patterns we share.
             </p>
             <p className="text-sm text-muted-foreground/80 leading-relaxed" data-testid="text-hero-secondary">
-              You shouldn't have to trust untested rails—we start with our own exposure.
+              You shouldn't have to trust untested rails. These are the places where we push on real risk, evidence, and participation—then turn what survives into standards.
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-8">
               <Button asChild size="lg" data-testid="button-see-process">
@@ -118,7 +118,7 @@ export default function Ventures() {
               Three questions, three proof points.
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed" data-testid="text-three-questions-body">
-              We organize our work around three questions: What can be trusted? How should capital move? How do people participate without overexposure? Helios, Lumina, and the Uniqueness Engine are concrete answers—ventures that turn those questions into running systems.
+              We organize our work around three questions: what can be trusted, how value should move, and how people can participate without overexposure. Helios, Lumina, and the Uniqueness Engine are concrete proofs of those answers, not abstract pillars.
             </p>
           </div>
         </div>
@@ -170,7 +170,7 @@ export default function Ventures() {
       <section className="py-8 bg-card/50 border-y border-border" data-testid="section-supporting-text">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-sm text-muted-foreground/80 leading-relaxed text-center max-w-3xl mx-auto" data-testid="text-supporting">
-            We treat each venture as a live proof of how we think about Truth, Capital, and Dignity. Patterns that hold up under real conditions become part of our shared standards; those that do not are documented, retired, and folded into our internal playbooks.
+            We treat each venture as a live proof of how we think about Truth, Capital, and Dignity. Patterns that hold up under real conditions become part of our shared standards; patterns that do not are documented, retired, and folded back into our internal playbooks.
           </p>
         </div>
       </section>

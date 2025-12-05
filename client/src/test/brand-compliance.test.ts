@@ -351,8 +351,9 @@ describe('Brand & Voice Compliance', () => {
 
     it('should have "Three questions, three proof points" section', () => {
       expect(content).toContain('Three questions, three proof points.');
-      expect(content).toContain('What can be trusted?');
-      expect(content).toContain('How should capital move?');
+      expect(content).toContain('what can be trusted');
+      expect(content).toContain('how value should move');
+      expect(content).toContain('how people can participate without overexposure');
     });
 
     it('should have correct venture data for Helios', () => {
