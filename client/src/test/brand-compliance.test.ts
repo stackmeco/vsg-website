@@ -247,6 +247,89 @@ describe('Brand & Voice Compliance', () => {
     });
   });
 
+  describe('Helios page v3.0 compliance', () => {
+    const heliosPath = path.join(process.cwd(), 'client/src/pages/ventures/Helios.tsx');
+    let content: string;
+
+    beforeAll(() => {
+      content = fs.readFileSync(heliosPath, 'utf-8');
+    });
+
+    it('should have correct hero heading', () => {
+      expect(content).toContain('Treasury execution under explicit constraints.');
+    });
+
+    it('should have correct PageMeta title', () => {
+      expect(content).toContain('title="Helios"');
+    });
+
+    it('should have correct overline with domain label', () => {
+      expect(content).toContain('Helios · Capital · Venture');
+    });
+
+    it('should have "The problem Helios exists to solve" section', () => {
+      expect(content).toContain('The problem Helios exists to solve');
+    });
+
+    it('should have "What Helios is" section with internal-first emphasis', () => {
+      expect(content).toContain('What Helios is');
+      expect(content).toContain('Execution engine');
+      expect(content).toContain('Constraint-first design');
+      expect(content).toContain('Internal-first');
+    });
+
+    it('should have "Helios under Truth, Capital, and Dignity" section', () => {
+      expect(content).toContain('Helios under Truth, Capital, and Dignity');
+    });
+
+    it('should have "How Helios uses AI" section', () => {
+      expect(content).toContain('How Helios uses AI');
+      expect(content).toContain('Monitoring');
+      expect(content).toContain('Simulation');
+      expect(content).toContain('Escalation, not automation');
+    });
+
+    it('should have "What Helios is / is not" section', () => {
+      expect(content).toContain('What Helios is / is not');
+    });
+
+    it('should have "Where Helios sits in the broader studio" section', () => {
+      expect(content).toContain('Where Helios sits in the broader studio');
+    });
+
+    it('should have cross-links to ventures, process, and standards', () => {
+      expect(content).toContain('href="/ventures"');
+      expect(content).toContain('href="/process"');
+      expect(content).toContain('href="/standards"');
+    });
+
+    it('should have proper disclaimer', () => {
+      expect(content).toContain('not investment, legal, tax, or compliance advice');
+    });
+
+    it('should not contain old domain labels', () => {
+      expect(content).not.toContain('"Signal"');
+      expect(content).not.toContain('"Value"');
+      expect(content).not.toContain('"Human"');
+    });
+
+    it('should have proper data-testid attributes for key sections', () => {
+      const expectedTestIds = [
+        'section-hero',
+        'section-problem',
+        'section-what-helios-is',
+        'section-domains',
+        'section-ai',
+        'section-is-is-not',
+        'section-studio-context',
+      ];
+      
+      expectedTestIds.forEach(testId => {
+        expect(content).toContain(`data-testid="${testId}"`);
+      });
+    });
+  });
+
   describe('Insights page v3.0 compliance', () => {
     const insightsPath = path.join(process.cwd(), 'client/src/pages/Insights.tsx');
     let content: string;
