@@ -29,13 +29,13 @@ export const pvm = [
   {
     id: "vision",
     label: "Vision",
-    tldr: "A future where trust is engineered, not assumed.",
+    tldr: "A future where trust is an engineered feature, not a gamble.",
     href: "/studio/vision",
   },
   {
     id: "mission",
     label: "Mission",
-    tldr: "Build governed rails for identity, treasury, and liquidity.",
+    tldr: "We engineer the infrastructure of verifiable autonomy.",
     href: "/studio/mission",
   },
 ] as const;
@@ -121,9 +121,9 @@ export const executionPrinciples = [
     description: "We never hold user funds or control user assets. Our systems are designed so users maintain full sovereignty.",
   },
   {
-    id: "five-stage",
-    name: "Five-Stage Process",
-    description: "Every venture moves through Strategic Definition, Rapid Validation, Verified Build, Controlled Deployment, and Data-Driven Evolution—with clear gates between each stage.",
+    id: "six-stage",
+    name: "Six-Stage Process",
+    description: "Every venture moves through a six-stage runway—Define, Validate, Build, Deploy, Evolve, Learn—with clear gates between each stage so risk is surfaced early, learning compounds, and nothing advances by default.",
   },
 ] as const;
 
