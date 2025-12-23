@@ -1,20 +1,23 @@
 export const pillars = [
   {
-    id: "truth",
-    name: "Truth",
-    description: "Decisions rest on evidence, not stories. We anchor key behaviours to provenance and tamper-evident logs.",
+    id: "verification",
+    name: "Verification",
+    tagline: "Prove it, or it didn't happen.",
+    description: "If it can't be proven, it can't be trusted. If it can be proven, trust becomes irrelevant. We build infrastructure that forces AI to show its work.",
     href: "/approach/pillars",
   },
   {
     id: "capital",
     name: "Capital",
-    description: "Capital works without leaving governed control. Non-custodial rails with explicit limits and rollback paths.",
+    tagline: "Your wealth, working—without leaving your control.",
+    description: "Access without custody. Leverage without liquidation. Defense without compromise. Speed without sacrifice.",
     href: "/approach/pillars",
   },
   {
-    id: "dignity",
-    name: "Dignity",
-    description: "People keep control over how they appear in systems. Proof of presence without turning people into products.",
+    id: "control",
+    name: "Control",
+    tagline: "Autonomy isn't optional.",
+    description: "Your keys. Your data. Your agents. Your rules. We build systems that keep you in control.",
     href: "/approach/pillars",
   },
 ] as const;
@@ -23,19 +26,19 @@ export const pvm = [
   {
     id: "purpose",
     label: "Purpose",
-    tldr: "Democratize institutional-grade leverage.",
+    tldr: "Democratize institutional-grade infrastructure.",
     href: "/studio#purpose",
   },
   {
     id: "vision",
     label: "Vision",
-    tldr: "A future where \u201ctrust\u201d is an engineered feature, not a gamble.",
+    tldr: "A future where trust is engineered, not assumed.",
     href: "/studio#vision",
   },
   {
     id: "mission",
     label: "Mission",
-    tldr: "We engineer the infrastructure of verifiable autonomy.",
+    tldr: "Build the verification, capital, and control layers for autonomous systems.",
     href: "/studio#mission",
   },
 ] as const;
@@ -46,65 +49,65 @@ export const values = [
     name: "Intelligence Augmented",
     shortName: "Intelligence Augmented",
     quote: "Let the machine compute. Let the human connect.",
-    description: "We are AI-native, not AI-dependent. Machines handle speed, volume, and patterning; people define mandates, constraints, and ethics. No fully autonomous loops on critical paths—there is always a human veto, and the system makes that veto easy to exercise.",
+    description: "We are AI-native, not AI-dependent. Machines handle speed, volume, and patterning; people define mandates, constraints, and ethics. No fully autonomous loops on critical paths.",
   },
   {
     id: "signal",
     name: "Seek the Signal",
     shortName: "Seek the Signal",
     quote: "Verify, then trust.",
-    description: "We care about evidence, not vibes. Claims in our systems must trace back to verifiable records—provenance trails, logs, or proofs that can be inspected. We replace 'we believe' with 'we can show,' and we design so others can check us.",
+    description: "We care about evidence, not vibes. Claims in our systems must trace back to verifiable records—provenance trails, logs, or proofs that can be inspected.",
   },
   {
     id: "ambition",
     name: "Engineered Ambition",
     shortName: "Engineered Ambition",
-    quote: "Dream in decades, execute in milliseconds.",
-    description: "We go after structural problems, but we don't gamble. Ambition is paired with guardrails: simulations, phased rollouts, and explicit rollback paths. Speed is allowed only where we can observe, reverse, and learn without hiding the cost.",
+    quote: "Dream in decades. Execute in milliseconds.",
+    description: "We go after structural problems, but we don't gamble. Ambition is paired with guardrails: simulations, phased rollouts, and explicit rollback paths.",
   },
   {
     id: "engine",
     name: "Own the Engine",
     shortName: "Own the Engine",
     quote: "Master the mechanics to rewrite the rules.",
-    description: "If we depend on a system, we must understand how it behaves when things break. We avoid black boxes, document failure modes, and treat dependency as responsibility. We'd rather own fewer systems deeply than rent many we can't explain.",
+    description: "If we depend on a system, we must understand how it behaves when things break. We avoid black boxes, document failure modes, and treat dependency as responsibility.",
   },
   {
     id: "mirror",
     name: "Value is a Mirror",
     shortName: "Value is a Mirror",
     quote: "Serve first, succeed second.",
-    description: "Our upside comes from running better rails, not trapping users. We avoid extractive models that rely on confusion or lock-in. Incentives must mirror outcomes: if someone's leverage, safety, or dignity decrease, we don't get paid more for that.",
+    description: "Our upside comes from running better rails, not trapping users. We avoid extractive models that rely on confusion or lock-in.",
   },
   {
     id: "multiplier",
     name: "Force Multiplier",
     shortName: "Force Multiplier",
     quote: "Level the playing field.",
-    description: "The world is tilted toward incumbents by default. We build tools so individuals and small teams can access institutional-grade leverage without becoming institutions themselves. Our work should increase access, not just amplify those who already hold power.",
+    description: "The world is tilted toward incumbents by default. We build tools so individuals and small teams can access institutional-grade leverage without becoming institutions themselves.",
   },
 ] as const;
 
 export const pillarsInPractice = [
   {
-    id: "truth",
-    name: "Truth",
-    project: "Lumina",
-    description: "AI-native verification infrastructure that anchors outputs to provenance and evidence.",
-    href: "/ventures/lumina",
+    id: "verification",
+    name: "Verification",
+    project: "Axiom",
+    description: "Deterministic AI with cryptographic proof of accuracy.",
+    href: "/ventures/axiom",
   },
   {
     id: "capital",
     name: "Capital",
-    project: "Helios",
-    description: "Non-custodial treasury management with balance-sheet-first positioning for individuals and small operators.",
-    href: "/ventures/helios",
+    project: "Stackme",
+    description: "Non-custodial leverage and borrowing infrastructure.",
+    href: "/ventures/stackme",
   },
   {
-    id: "dignity",
-    name: "Dignity",
+    id: "control",
+    name: "Control",
     project: "Uniqueness Engine",
-    description: "Sybil-resistant identity verification without surveillance.",
+    description: "Privacy-preserving proof of personhood.",
     href: "/ventures/uniqueness",
   },
 ] as const;
@@ -121,9 +124,9 @@ export const executionPrinciples = [
     description: "We never hold user funds or control user assets. Our systems are designed so users maintain full sovereignty.",
   },
   {
-    id: "six-stage",
-    name: "Six-Stage Process",
-    description: "Every venture moves through a six-stage runway—Define, Validate, Build, Deploy, Evolve, Learn—with clear gates between each stage so risk is surfaced early, learning compounds, and nothing advances by default.",
+    id: "verifiable",
+    name: "Verifiable",
+    description: "Every claim traces back to cryptographic proof. No more 'trust me'—only 'verify this.'",
   },
 ] as const;
 
@@ -142,24 +145,23 @@ export const purposeHeuristics = [
 ] as const;
 
 export const visionBroken = [
-  "Trust is assumed, not verified.",
-  "Intermediaries extract value at every step.",
-  "Identity is fragmented across hundreds of databases you don't control.",
-  "Leverage is reserved for the already-wealthy.",
+  "AI hallucinates and no one can prove otherwise.",
+  "Custodians fail and billions disappear.",
+  "Agents act blindly without oversight.",
+  "Trust is taxed at every interaction.",
 ] as const;
 
 export const visionFuture = [
-  "Verification replaces blind faith.",
-  "Non-custodial rails eliminate the need for intermediaries.",
-  "Identity becomes portable, private, and user-controlled.",
-  "Institutional-grade tools become accessible to individuals.",
+  "Verification is ambient—built into every interaction.",
+  "Capital is fluid and defended—always under your control.",
+  "Control is default—your keys, your agents, your rules.",
 ] as const;
 
 export const visionSuccess = [
-  "Individuals can verify any claim without trusting the source.",
-  "Treasury management works for a solo operator as well as it does for a fund.",
-  "One proof of humanity unlocks access everywhere.",
-  "The tools we build become invisible infrastructure—just how things work.",
+  "AI outputs come with cryptographic proof of accuracy.",
+  "Capital works without custody sacrifice.",
+  "Identity verification happens without surveillance.",
+  "Autonomous systems remain accountable to humans.",
 ] as const;
 
 export type Pillar = typeof pillars[number];
