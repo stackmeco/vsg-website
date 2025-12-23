@@ -19,48 +19,50 @@ export default function Hero() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-vsg-gray-900/80 border border-vsg-gray-800 mb-8">
             <span className="w-2 h-2 bg-vsg-capital rounded-full animate-pulse" />
-            <span className="text-sm text-vsg-gray-300">Building the rails for the autonomous economy</span>
+            <span className="text-sm text-vsg-gray-300">Live products protecting $2M+ in assets</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            <span className="gradient-text">The Infrastructure of</span>
+            <span className="gradient-text">Make AI Provable.</span>
             <br />
-            <span className="text-white">Verifiable Autonomy</span>
+            <span className="text-white">Make DeFi Safer.</span>
           </h1>
 
           {/* Sub-headline */}
           <p className="text-lg sm:text-xl text-vsg-gray-300 max-w-3xl mx-auto mb-10 text-balance leading-relaxed">
-            AI agents are rewriting finance, identity, and decision-making. We&apos;re building the rails
-            that keep them accountable&mdash;the verification layer that proves what&apos;s true, the capital
-            infrastructure that preserves your wealth, and the control systems that ensure autonomy
-            isn&apos;t just a promise.
+            We build tools that let you <strong className="text-white">verify AI outputs</strong> with cryptographic proof,
+            <strong className="text-white"> borrow against crypto</strong> without liquidation risk, and
+            <strong className="text-white"> protect DeFi positions</strong> automatically across chains.
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            <Link href="#pillars" className="btn-primary">
-              Explore Our Infrastructure
+            <Link href="#products" className="btn-primary">
+              See What We Build
               <ArrowRight size={18} />
             </Link>
-            <Link href="#products" className="btn-secondary">
-              View Products
+            <Link href="https://app.stackme.xyz" className="btn-secondary" target="_blank" rel="noopener noreferrer">
+              Try Stackme Live
             </Link>
           </div>
 
           {/* Three Pillars Preview */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            <div className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-vsg-verification/10 border border-vsg-verification/20">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            <div className="flex flex-col items-center justify-center gap-1 px-4 py-4 rounded-lg bg-vsg-verification/10 border border-vsg-verification/20">
               <Shield size={18} className="text-vsg-verification" />
-              <span className="text-sm font-medium text-vsg-gray-200">Verification</span>
+              <span className="text-sm font-medium text-vsg-gray-200">AI Verification</span>
+              <span className="text-xs text-vsg-gray-400">Prove outputs are accurate</span>
             </div>
-            <div className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-vsg-capital/10 border border-vsg-capital/20">
+            <div className="flex flex-col items-center justify-center gap-1 px-4 py-4 rounded-lg bg-vsg-capital/10 border border-vsg-capital/20">
               <Coins size={18} className="text-vsg-capital" />
-              <span className="text-sm font-medium text-vsg-gray-200">Capital</span>
+              <span className="text-sm font-medium text-vsg-gray-200">DeFi Tools</span>
+              <span className="text-xs text-vsg-gray-400">Borrow, trade, protect</span>
             </div>
-            <div className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-vsg-control/10 border border-vsg-control/20">
+            <div className="flex flex-col items-center justify-center gap-1 px-4 py-4 rounded-lg bg-vsg-control/10 border border-vsg-control/20">
               <Lock size={18} className="text-vsg-control" />
-              <span className="text-sm font-medium text-vsg-gray-200">Control</span>
+              <span className="text-sm font-medium text-vsg-gray-200">Self-Custody</span>
+              <span className="text-xs text-vsg-gray-400">You keep your keys</span>
             </div>
           </div>
         </div>

@@ -2,19 +2,19 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Verifiable Systems Group | The Infrastructure of Verifiable Autonomy',
-  description: 'Building the verification layer that proves what\'s true, the capital infrastructure that preserves your wealth, and the control systems that ensure autonomy isn\'t just a promise.',
-  keywords: ['AI verification', 'DeFi infrastructure', 'autonomous systems', 'blockchain', 'cryptography', 'non-custodial'],
+  title: 'Verifiable Systems Group | Make AI Provable. Make DeFi Safer.',
+  description: 'Tools to verify AI outputs with cryptographic proof, borrow against crypto without liquidation risk, and protect DeFi positions automatically. Non-custodial. Open source.',
+  keywords: ['AI verification', 'DeFi', 'non-custodial lending', 'liquidation protection', 'crypto borrowing', 'MEV protection'],
   authors: [{ name: 'Verifiable Systems Group' }],
   openGraph: {
     title: 'Verifiable Systems Group',
-    description: 'The Infrastructure of Verifiable Autonomy',
+    description: 'Make AI Provable. Make DeFi Safer.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Verifiable Systems Group',
-    description: 'The Infrastructure of Verifiable Autonomy',
+    description: 'Make AI Provable. Make DeFi Safer.',
   },
 }
 

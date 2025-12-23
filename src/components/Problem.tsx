@@ -5,23 +5,31 @@ import { AlertTriangle, Eye, Zap, Ban } from 'lucide-react'
 const problems = [
   {
     icon: AlertTriangle,
-    title: 'AI Hallucinates',
-    description: 'Models generate confident but false information with no way to verify accuracy.',
+    title: 'AI Makes Things Up',
+    description: 'ChatGPT cited a fake court case. Lawyers got sanctioned. There was no way to verify if the AI\'s sources were real.',
+    solution: 'Axiom',
+    solutionDesc: 'forces AI to cite real sources you can check',
   },
   {
     icon: Eye,
-    title: 'Custodians Fail',
-    description: 'Centralized intermediaries hold your assets hostage to their security and solvency.',
+    title: 'Exchanges Lose Your Money',
+    description: 'FTX. Celsius. Mt. Gox. Billions lost because people trusted intermediaries to hold their crypto.',
+    solution: 'Non-custodial DeFi',
+    solutionDesc: 'your keys, your coins, always',
   },
   {
     icon: Zap,
-    title: 'Agents Act Blindly',
-    description: 'Autonomous systems make decisions without accountability or oversight.',
+    title: 'Liquidations Wipe You Out',
+    description: 'Market crashes 20%? Your leveraged position gets liquidated at the worst possible moment. You lose everything.',
+    solution: 'Stackme + Sentinel',
+    solutionDesc: 'borrow without liquidation, defend positions across chains',
   },
   {
     icon: Ban,
-    title: 'Trust is Taxed',
-    description: 'Every interaction requires trusting opaque intermediaries who extract value.',
+    title: 'DeFi is Slow and Expensive',
+    description: 'On-chain trades take seconds. Meanwhile, someone front-runs you. Gas fees eat your profits.',
+    solution: 'Helios',
+    solutionDesc: 'fast execution with MEV protection',
   },
 ]
 
@@ -36,18 +44,10 @@ export default function Problem() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-white">The Problem</span>
+              <span className="text-white">The Problems We Solve</span>
             </h2>
             <p className="text-xl sm:text-2xl text-vsg-gray-300 leading-relaxed max-w-3xl mx-auto">
-              AI agents will manage trillions in assets. They&apos;ll verify identities, execute trades,
-              and make decisions faster than any human. But here&apos;s the problem:
-            </p>
-          </div>
-
-          {/* Big Statement */}
-          <div className="text-center mb-16">
-            <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-              You can&apos;t verify them.
+              These aren&apos;t hypotheticals. They&apos;ve cost people billions.
             </p>
           </div>
 
@@ -62,20 +62,22 @@ export default function Problem() {
                   <problem.icon className="text-red-400" size={24} />
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">{problem.title}</h3>
-                <p className="text-vsg-gray-400">{problem.description}</p>
+                <p className="text-vsg-gray-400 mb-4">{problem.description}</p>
+                <div className="pt-4 border-t border-vsg-gray-800">
+                  <p className="text-sm">
+                    <span className="text-vsg-capital font-medium">{problem.solution}</span>
+                    <span className="text-vsg-gray-500"> — {problem.solutionDesc}</span>
+                  </p>
+                </div>
               </div>
             ))}
           </div>
 
           {/* Call to Action Statement */}
           <div className="text-center">
-            <p className="text-xl text-vsg-gray-300 mb-4">
-              The current infrastructure asks you to trust&mdash;trust the model, trust the
-              intermediary, trust the system.
-            </p>
             <p className="text-2xl sm:text-3xl font-bold">
-              <span className="text-white">Trust is a tax.</span>{' '}
-              <span className="gradient-text-accent">We&apos;re building the alternative.</span>
+              <span className="text-white">Don&apos;t trust.</span>{' '}
+              <span className="gradient-text-accent">Verify.</span>
             </p>
           </div>
         </div>

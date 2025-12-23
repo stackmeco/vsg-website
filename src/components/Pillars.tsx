@@ -6,44 +6,42 @@ const pillars = [
   {
     id: 'verification',
     icon: Shield,
-    title: 'Verification',
-    tagline: 'Prove it, or it didn\'t happen.',
+    title: 'AI Verification',
+    tagline: 'Know when AI is telling the truth',
     color: 'verification',
     description:
-      'We build infrastructure that forces AI to show its work. Cryptographic proof that outputs are accurate, sources are real, and agents did what they claimed. No more hallucinations. No more "trust me."',
-    principle: 'If it can\'t be proven, it can\'t be trusted. If it can be proven, trust becomes irrelevant.',
+      'AI models hallucinate. They make up sources, invent facts, and sound confident while being completely wrong. We build tools that force AI to cite real, verifiable sources—so you can check before you trust.',
+    useCase: 'Use case: Before acting on AI-generated research, verify that every cited source actually exists and says what the AI claims.',
     products: [
-      { name: 'Axiom', description: 'Deterministic, source-backed AI' },
-      { name: 'Agent Attestation', description: 'Accountability infrastructure for autonomous systems' },
+      { name: 'Axiom', description: 'AI that only cites sources you can verify. Every claim is checkable.', href: '#products' },
     ],
   },
   {
     id: 'capital',
     icon: Coins,
-    title: 'Capital',
-    tagline: 'Your wealth, working—without leaving your control.',
+    title: 'DeFi Tools',
+    tagline: 'Borrow, trade, and protect your crypto',
     color: 'capital',
     description:
-      'We build non-custodial infrastructure for capital efficiency. Borrow against your assets without selling them. Earn yield without custodial risk. Execute at HFT speed with DeFi security. And when markets turn, defend your positions across every chain from one interface.',
-    principle: 'Access without custody. Leverage without liquidation. Defense without compromise. Speed without sacrifice.',
+      'Access liquidity without selling your crypto. Get leverage without the risk of sudden liquidations. Trade fast without getting front-run. And when markets crash, automatically protect your positions across every chain.',
+    useCase: 'Use case: Borrow USDC against your ETH at 0% interest, with no liquidations ever. Use Sentinel to auto-deleverage if the market drops 30%.',
     products: [
-      { name: 'Stackme', description: 'Leverage without liquidation' },
-      { name: 'Helios', description: 'Sub-millisecond execution, on-chain security' },
-      { name: 'Sentinel', description: 'Cross-chain liquidation defense' },
+      { name: 'Stackme', description: 'Borrow against crypto with 0% interest and no liquidations. Ever.', href: 'https://app.stackme.xyz', external: true },
+      { name: 'Helios', description: 'Execute trades in milliseconds with MEV protection. Coming soon.', href: '#products' },
+      { name: 'Sentinel', description: 'Auto-protect DeFi positions across chains. Open source.', href: 'https://github.com/vsg/sentinel', external: true },
     ],
   },
   {
     id: 'control',
     icon: Lock,
-    title: 'Control',
-    tagline: 'Autonomy isn\'t optional.',
+    title: 'Self-Custody',
+    tagline: 'Never give up your keys',
     color: 'control',
     description:
-      'We build systems that keep you in control—of your identity, your capital, and the agents acting on your behalf. Privacy-preserving verification. Non-custodial architecture. Agent oversight that ensures the machines work for you.',
-    principle: 'Your keys. Your data. Your agents. Your rules.',
+      'Every VSG product is non-custodial. We never hold your assets, never have access to your keys, and can\'t freeze your funds. You stay in control. Always.',
+    useCase: 'Use case: Unlike Celsius or FTX, your assets can\'t be lost to our mismanagement—because we never touch them.',
     products: [
-      { name: 'Uniqueness Engine', description: 'Prove personhood without surveillance' },
-      { name: 'Agent Control Infrastructure', description: 'Your agents, your rules' },
+      { name: 'All VSG Products', description: 'Non-custodial by default. Your keys, your crypto.', href: '#products' },
     ],
   },
 ]
@@ -57,10 +55,10 @@ export default function Pillars() {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-            The Three Pillars
+            What We Build
           </h2>
           <p className="text-xl text-vsg-gray-300 max-w-2xl mx-auto">
-            Everything we build rolls up to three foundational truths.
+            Tools that solve real problems for crypto users and AI developers.
           </p>
         </div>
 
@@ -119,9 +117,8 @@ export default function Pillars() {
                     </p>
 
                     <div className="p-4 rounded-lg bg-vsg-black/30 border border-vsg-gray-800 mb-6">
-                      <p className="text-sm text-vsg-gray-400 mb-1">The Principle</p>
-                      <p className="text-vsg-gray-200 font-medium italic">
-                        &ldquo;{pillar.principle}&rdquo;
+                      <p className="text-sm text-vsg-gray-200 italic">
+                        {pillar.useCase}
                       </p>
                     </div>
                   </div>
@@ -133,9 +130,12 @@ export default function Pillars() {
                     </p>
                     <div className="space-y-4">
                       {pillar.products.map((product, productIndex) => (
-                        <div
+                        <a
                           key={productIndex}
-                          className="p-4 rounded-lg bg-vsg-black/40 border border-vsg-gray-800 hover:border-vsg-gray-700 transition-colors group cursor-pointer"
+                          href={product.href}
+                          target={product.external ? '_blank' : undefined}
+                          rel={product.external ? 'noopener noreferrer' : undefined}
+                          className="block p-4 rounded-lg bg-vsg-black/40 border border-vsg-gray-800 hover:border-vsg-gray-700 transition-colors group"
                         >
                           <div className="flex items-start justify-between gap-4">
                             <div>
@@ -151,7 +151,7 @@ export default function Pillars() {
                               className="text-vsg-gray-600 group-hover:text-vsg-accent-light group-hover:translate-x-1 transition-all mt-1"
                             />
                           </div>
-                        </div>
+                        </a>
                       ))}
                     </div>
                   </div>
