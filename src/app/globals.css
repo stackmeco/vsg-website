@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-vsg-black text-vsg-gray-100 antialiased;
+    font-feature-settings: "cv11", "ss01", "ss03";
+  }
+
+  ::selection {
+    @apply bg-vsg-accent/30 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-vsg-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-vsg-gray-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-vsg-gray-600;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-white via-vsg-gray-200 to-vsg-gray-400 bg-clip-text text-transparent;
+  }
+
+  .gradient-text-accent {
+    @apply bg-gradient-to-r from-vsg-accent-light to-vsg-accent bg-clip-text text-transparent;
+  }
+
+  .card {
+    @apply bg-vsg-gray-900/50 border border-vsg-gray-800 rounded-xl backdrop-blur-sm;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:border-vsg-gray-700 hover:bg-vsg-gray-900/70;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-white text-vsg-black font-medium rounded-lg transition-all duration-300 hover:bg-vsg-gray-200 hover:scale-[1.02];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 border border-vsg-gray-700 text-white font-medium rounded-lg transition-all duration-300 hover:border-vsg-gray-500 hover:bg-vsg-gray-900;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+
+  .pillar-verification {
+    @apply border-vsg-verification/30 bg-gradient-to-br from-vsg-verification/5 to-transparent;
+  }
+
+  .pillar-capital {
+    @apply border-vsg-capital/30 bg-gradient-to-br from-vsg-capital/5 to-transparent;
+  }
+
+  .pillar-control {
+    @apply border-vsg-control/30 bg-gradient-to-br from-vsg-control/5 to-transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+/* Grid background pattern */
+.grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Radial gradient overlay */
+.radial-gradient {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 130, 246, 0.15), transparent);
+}
