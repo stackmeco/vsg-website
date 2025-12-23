@@ -1,22 +1,22 @@
 'use client'
 
-import { Code, Zap, Shield } from 'lucide-react'
+import { Target, Telescope, Rocket } from 'lucide-react'
 
-const differentiators = [
+const identityItems = [
   {
-    icon: Code,
-    label: 'Open Source First',
-    value: 'Our core tools are open source. Audit the code, fork it, verify it yourself.',
+    icon: Target,
+    label: 'Purpose',
+    value: 'Democratize institutional-grade infrastructure',
   },
   {
-    icon: Shield,
-    label: 'Non-Custodial Always',
-    value: 'We never hold your assets. Every product is built so you keep your keys.',
+    icon: Telescope,
+    label: 'Vision',
+    value: 'A future where trust is engineered, not assumed',
   },
   {
-    icon: Zap,
-    label: 'Live in Production',
-    value: 'Not a whitepaper. Stackme and Sentinel are running today, protecting real assets.',
+    icon: Rocket,
+    label: 'Mission',
+    value: 'Build the verification, capital, and control layers for autonomous systems',
   },
 ]
 
@@ -28,25 +28,29 @@ export default function WhoWeAre() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-              Built by DeFi Natives
+              Who We Are
             </h2>
             <p className="text-xl text-vsg-gray-300 max-w-3xl mx-auto leading-relaxed">
-              We&apos;ve been building in DeFi since 2020. We&apos;ve seen protocols fail,
-              exchanges collapse, and users lose everything. We build the tools we wish existed.
+              <span className="text-white font-semibold">Verifiable Systems Group</span> is an
+              infrastructure company at the intersection of
+              <span className="text-vsg-accent-light font-medium"> AI</span> and
+              <span className="text-vsg-verification font-medium"> cryptography</span>.
             </p>
           </div>
 
           {/* Key Statement */}
           <div className="text-center mb-16 py-8 border-y border-vsg-gray-800">
             <p className="text-2xl sm:text-3xl text-vsg-gray-200 font-medium">
-              <span className="text-white font-bold">Our thesis:</span> Crypto succeeds when users
-              don&apos;t have to trust anyone&mdash;not exchanges, not protocols, not even us.
+              We don&apos;t build applications. We build the
+              <span className="text-white font-bold"> building blocks</span>&mdash;the
+              verification layers, capital rails, and control systems that the autonomous
+              economy will run on.
             </p>
           </div>
 
-          {/* Differentiator Grid */}
+          {/* Identity Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {differentiators.map((item, index) => (
+            {identityItems.map((item, index) => (
               <div
                 key={index}
                 className="card card-hover p-8 text-center"
@@ -57,7 +61,7 @@ export default function WhoWeAre() {
                 <div className="text-sm font-medium text-vsg-accent-light uppercase tracking-wider mb-3">
                   {item.label}
                 </div>
-                <p className="text-base text-vsg-gray-300">
+                <p className="text-lg text-white font-medium">
                   {item.value}
                 </p>
               </div>

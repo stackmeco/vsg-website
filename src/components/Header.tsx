@@ -5,9 +5,10 @@ import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 
 const navigation = [
-  { name: 'What We Build', href: '#pillars' },
+  { name: 'Infrastructure', href: '#pillars' },
   { name: 'Products', href: '#products' },
-  { name: 'Get Started', href: '#future' },
+  { name: 'Values', href: '#values' },
+  { name: 'Vision', href: '#future' },
 ]
 
 export default function Header() {
@@ -53,9 +54,9 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-            <a href="https://app.stackme.xyz" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm py-2 px-4">
-              Try Stackme
-            </a>
+            <Link href="#contact" className="btn-primary text-sm py-2 px-4">
+              Get in Touch
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -80,15 +81,13 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-            <a
-              href="https://app.stackme.xyz"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="#contact"
               className="btn-primary mt-4 w-full justify-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Try Stackme
-            </a>
+              Get in Touch
+            </Link>
           </div>
         )}
       </nav>

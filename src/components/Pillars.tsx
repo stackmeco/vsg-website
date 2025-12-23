@@ -6,42 +6,44 @@ const pillars = [
   {
     id: 'verification',
     icon: Shield,
-    title: 'AI Verification',
-    tagline: 'Know when AI is telling the truth',
+    title: 'Verification',
+    tagline: 'Prove it, or it didn\'t happen.',
     color: 'verification',
     description:
-      'AI models hallucinate. They make up sources, invent facts, and sound confident while being completely wrong. We build tools that force AI to cite real, verifiable sources—so you can check before you trust.',
-    useCase: 'Use case: Before acting on AI-generated research, verify that every cited source actually exists and says what the AI claims.',
+      'We build infrastructure that forces AI to show its work. Cryptographic proof that outputs are accurate, sources are real, and agents did what they claimed. No more hallucinations. No more "trust me."',
+    principle: 'If it can\'t be proven, it can\'t be trusted. If it can be proven, trust becomes irrelevant.',
     products: [
-      { name: 'Axiom', description: 'AI that only cites sources you can verify. Every claim is checkable.', href: '#products' },
+      { name: 'Axiom', description: 'Deterministic, source-backed AI', href: '#products' },
+      { name: 'Agent Attestation', description: 'Accountability infrastructure for autonomous systems', href: '#products' },
     ],
   },
   {
     id: 'capital',
     icon: Coins,
-    title: 'DeFi Tools',
-    tagline: 'Borrow, trade, and protect your crypto',
+    title: 'Capital',
+    tagline: 'Your wealth, working—without leaving your control.',
     color: 'capital',
     description:
-      'Access liquidity without selling your crypto. Get leverage without the risk of sudden liquidations. Trade fast without getting front-run. And when markets crash, automatically protect your positions across every chain.',
-    useCase: 'Use case: Borrow USDC against your ETH at 0% interest, with no liquidations ever. Use Sentinel to auto-deleverage if the market drops 30%.',
+      'We build non-custodial infrastructure for capital efficiency. Borrow against your assets without selling them. Earn yield without custodial risk. Execute at HFT speed with DeFi security. And when markets turn, defend your positions across every chain from one interface.',
+    principle: 'Access without custody. Leverage without liquidation. Defense without compromise. Speed without sacrifice.',
     products: [
-      { name: 'Stackme', description: 'Borrow against crypto with 0% interest and no liquidations. Ever.', href: 'https://app.stackme.xyz', external: true },
-      { name: 'Helios', description: 'Execute trades in milliseconds with MEV protection. Coming soon.', href: '#products' },
-      { name: 'Sentinel', description: 'Auto-protect DeFi positions across chains. Open source.', href: 'https://github.com/vsg/sentinel', external: true },
+      { name: 'Stackme', description: 'Leverage without liquidation', href: 'https://app.stackme.xyz', external: true },
+      { name: 'Helios', description: 'Sub-millisecond execution, on-chain security', href: '#products' },
+      { name: 'Sentinel', description: 'Cross-chain liquidation defense', href: 'https://github.com/vsg/sentinel', external: true },
     ],
   },
   {
     id: 'control',
     icon: Lock,
-    title: 'Self-Custody',
-    tagline: 'Never give up your keys',
+    title: 'Control',
+    tagline: 'Autonomy isn\'t optional.',
     color: 'control',
     description:
-      'Every VSG product is non-custodial. We never hold your assets, never have access to your keys, and can\'t freeze your funds. You stay in control. Always.',
-    useCase: 'Use case: Unlike Celsius or FTX, your assets can\'t be lost to our mismanagement—because we never touch them.',
+      'We build systems that keep you in control—of your identity, your capital, and the agents acting on your behalf. Privacy-preserving verification. Non-custodial architecture. Agent oversight that ensures the machines work for you.',
+    principle: 'Your keys. Your data. Your agents. Your rules.',
     products: [
-      { name: 'All VSG Products', description: 'Non-custodial by default. Your keys, your crypto.', href: '#products' },
+      { name: 'Uniqueness Engine', description: 'Prove personhood without surveillance', href: '#products' },
+      { name: 'Agent Control Infrastructure', description: 'Your agents, your rules', href: '#products' },
     ],
   },
 ]
@@ -55,10 +57,10 @@ export default function Pillars() {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-            What We Build
+            The Three Pillars
           </h2>
           <p className="text-xl text-vsg-gray-300 max-w-2xl mx-auto">
-            Tools that solve real problems for crypto users and AI developers.
+            Everything we build rolls up to three foundational truths.
           </p>
         </div>
 
@@ -117,8 +119,9 @@ export default function Pillars() {
                     </p>
 
                     <div className="p-4 rounded-lg bg-vsg-black/30 border border-vsg-gray-800 mb-6">
-                      <p className="text-sm text-vsg-gray-200 italic">
-                        {pillar.useCase}
+                      <p className="text-sm text-vsg-gray-400 mb-1">The Principle</p>
+                      <p className="text-vsg-gray-200 font-medium italic">
+                        &ldquo;{pillar.principle}&rdquo;
                       </p>
                     </div>
                   </div>
