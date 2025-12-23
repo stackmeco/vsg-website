@@ -1,6 +1,6 @@
 'use client'
 
-import { Shield, Coins, Lock, ExternalLink, Github } from 'lucide-react'
+import { Shield, Coins, Lock, Github } from 'lucide-react'
 
 const layers = [
   {
@@ -135,7 +135,7 @@ export default function Products() {
                 {layer.products.map((product) => (
                   <div
                     key={product.name}
-                    className="p-4 rounded-lg bg-vsg-black/30 border border-vsg-gray-800 hover:border-vsg-gray-700 transition-all group cursor-pointer"
+                    className="p-4 rounded-lg bg-vsg-black/30 border border-vsg-gray-800 hover:border-vsg-gray-700 transition-all group"
                   >
                     <div className="flex items-start justify-between gap-2 mb-2">
                       <h4 className="font-semibold text-white group-hover:text-vsg-accent-light transition-colors">

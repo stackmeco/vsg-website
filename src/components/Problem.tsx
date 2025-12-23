@@ -6,22 +6,22 @@ const problems = [
   {
     icon: AlertTriangle,
     title: 'AI Hallucinates',
-    description: 'Models generate confident but false information with no way to verify accuracy.',
+    description: 'Models generate confident but false information. No cryptographic proof. No source verification. No accountability.',
   },
   {
     icon: Eye,
     title: 'Custodians Fail',
-    description: 'Centralized intermediaries hold your assets hostage to their security and solvency.',
+    description: 'FTX. Celsius. Mt. Gox. Billions lost because users trusted intermediaries to hold their assets.',
   },
   {
     icon: Zap,
     title: 'Agents Act Blindly',
-    description: 'Autonomous systems make decisions without accountability or oversight.',
+    description: 'Autonomous systems make decisions without oversight. Who controls them? Who\'s accountable when they fail?',
   },
   {
     icon: Ban,
     title: 'Trust is Taxed',
-    description: 'Every interaction requires trusting opaque intermediaries who extract value.',
+    description: 'Every interaction requires trusting opaque intermediaries who extract value. Trust is a tax on the individual.',
   },
 ]
 
@@ -34,25 +34,25 @@ export default function Problem() {
       <div className="relative section-container">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
               <span className="text-white">The Problem</span>
             </h2>
-            <p className="text-xl sm:text-2xl text-vsg-gray-300 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-vsg-gray-300 leading-relaxed max-w-3xl mx-auto">
               AI agents will manage trillions in assets. They&apos;ll verify identities, execute trades,
               and make decisions faster than any human. But here&apos;s the problem:
             </p>
           </div>
 
           {/* Big Statement */}
-          <div className="text-center mb-16">
-            <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+          <div className="text-center mb-12">
+            <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
               You can&apos;t verify them.
             </p>
           </div>
 
           {/* Problem Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
             {problems.map((problem, index) => (
               <div
                 key={index}

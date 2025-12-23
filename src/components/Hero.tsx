@@ -19,7 +19,7 @@ export default function Hero() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-vsg-gray-900/80 border border-vsg-gray-800 mb-8">
             <span className="w-2 h-2 bg-vsg-capital rounded-full animate-pulse" />
-            <span className="text-sm text-vsg-gray-300">Building the rails for the autonomous economy</span>
+            <span className="text-sm text-vsg-gray-300">Building blocks for the autonomous economy</span>
           </div>
 
           {/* Main Headline */}
@@ -32,9 +32,10 @@ export default function Hero() {
           {/* Sub-headline */}
           <p className="text-lg sm:text-xl text-vsg-gray-300 max-w-3xl mx-auto mb-10 text-balance leading-relaxed">
             AI agents are rewriting finance, identity, and decision-making. We&apos;re building the rails
-            that keep them accountable&mdash;the verification layer that proves what&apos;s true, the capital
-            infrastructure that preserves your wealth, and the control systems that ensure autonomy
-            isn&apos;t just a promise.
+            that keep them accountable&mdash;the <strong className="text-white">verification layer</strong> that
+            proves what&apos;s true, the <strong className="text-white">capital infrastructure</strong> that
+            preserves your wealth, and the <strong className="text-white">control systems</strong> that ensure
+            autonomy isn&apos;t just a promise.
           </p>
 
           {/* CTAs */}
@@ -44,23 +45,26 @@ export default function Hero() {
               <ArrowRight size={18} />
             </Link>
             <Link href="#products" className="btn-secondary">
-              View Products
+              View the Stack
             </Link>
           </div>
 
           {/* Three Pillars Preview */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            <div className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-vsg-verification/10 border border-vsg-verification/20">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            <div className="flex flex-col items-center justify-center gap-1 px-4 py-4 rounded-lg bg-vsg-verification/10 border border-vsg-verification/20">
               <Shield size={18} className="text-vsg-verification" />
               <span className="text-sm font-medium text-vsg-gray-200">Verification</span>
+              <span className="text-xs text-vsg-gray-400">Prove AI did what it claims</span>
             </div>
-            <div className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-vsg-capital/10 border border-vsg-capital/20">
+            <div className="flex flex-col items-center justify-center gap-1 px-4 py-4 rounded-lg bg-vsg-capital/10 border border-vsg-capital/20">
               <Coins size={18} className="text-vsg-capital" />
               <span className="text-sm font-medium text-vsg-gray-200">Capital</span>
+              <span className="text-xs text-vsg-gray-400">Wealth without custody sacrifice</span>
             </div>
-            <div className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-vsg-control/10 border border-vsg-control/20">
+            <div className="flex flex-col items-center justify-center gap-1 px-4 py-4 rounded-lg bg-vsg-control/10 border border-vsg-control/20">
               <Lock size={18} className="text-vsg-control" />
               <span className="text-sm font-medium text-vsg-gray-200">Control</span>
+              <span className="text-xs text-vsg-gray-400">Your keys, your agents, your rules</span>
             </div>
           </div>
         </div>

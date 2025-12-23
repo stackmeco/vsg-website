@@ -13,8 +13,8 @@ const pillars = [
       'We build infrastructure that forces AI to show its work. Cryptographic proof that outputs are accurate, sources are real, and agents did what they claimed. No more hallucinations. No more "trust me."',
     principle: 'If it can\'t be proven, it can\'t be trusted. If it can be proven, trust becomes irrelevant.',
     products: [
-      { name: 'Axiom', description: 'Deterministic, source-backed AI' },
-      { name: 'Agent Attestation', description: 'Accountability infrastructure for autonomous systems' },
+      { name: 'Axiom', description: 'Deterministic, source-backed AI', href: '#products' },
+      { name: 'Agent Attestation', description: 'Accountability infrastructure for autonomous systems', href: '#products' },
     ],
   },
   {
@@ -27,9 +27,9 @@ const pillars = [
       'We build non-custodial infrastructure for capital efficiency. Borrow against your assets without selling them. Earn yield without custodial risk. Execute at HFT speed with DeFi security. And when markets turn, defend your positions across every chain from one interface.',
     principle: 'Access without custody. Leverage without liquidation. Defense without compromise. Speed without sacrifice.',
     products: [
-      { name: 'Stackme', description: 'Leverage without liquidation' },
-      { name: 'Helios', description: 'Sub-millisecond execution, on-chain security' },
-      { name: 'Sentinel', description: 'Cross-chain liquidation defense' },
+      { name: 'Stackme', description: 'Leverage without liquidation', href: 'https://app.stackme.xyz', external: true },
+      { name: 'Helios', description: 'Sub-millisecond execution, on-chain security', href: '#products' },
+      { name: 'Sentinel', description: 'Cross-chain liquidation defense', href: 'https://github.com/vsg/sentinel', external: true },
     ],
   },
   {
@@ -42,8 +42,8 @@ const pillars = [
       'We build systems that keep you in control—of your identity, your capital, and the agents acting on your behalf. Privacy-preserving verification. Non-custodial architecture. Agent oversight that ensures the machines work for you.',
     principle: 'Your keys. Your data. Your agents. Your rules.',
     products: [
-      { name: 'Uniqueness Engine', description: 'Prove personhood without surveillance' },
-      { name: 'Agent Control Infrastructure', description: 'Your agents, your rules' },
+      { name: 'Uniqueness Engine', description: 'Prove personhood without surveillance', href: '#products' },
+      { name: 'Agent Control Infrastructure', description: 'Your agents, your rules', href: '#products' },
     ],
   },
 ]
@@ -133,9 +133,12 @@ export default function Pillars() {
                     </p>
                     <div className="space-y-4">
                       {pillar.products.map((product, productIndex) => (
-                        <div
+                        <a
                           key={productIndex}
-                          className="p-4 rounded-lg bg-vsg-black/40 border border-vsg-gray-800 hover:border-vsg-gray-700 transition-colors group cursor-pointer"
+                          href={product.href}
+                          target={product.external ? '_blank' : undefined}
+                          rel={product.external ? 'noopener noreferrer' : undefined}
+                          className="block p-4 rounded-lg bg-vsg-black/40 border border-vsg-gray-800 hover:border-vsg-gray-700 transition-colors group"
                         >
                           <div className="flex items-start justify-between gap-4">
                             <div>
@@ -151,7 +154,7 @@ export default function Pillars() {
                               className="text-vsg-gray-600 group-hover:text-vsg-accent-light group-hover:translate-x-1 transition-all mt-1"
                             />
                           </div>
-                        </div>
+                        </a>
                       ))}
                     </div>
                   </div>

@@ -1,14 +1,6 @@
 'use client'
 
-import {
-  Search,
-  Brain,
-  Cog,
-  TrendingUp,
-  Scale,
-  Heart,
-  Cpu
-} from 'lucide-react'
+import { Cpu, Search, TrendingUp, Cog, Scale, Heart } from 'lucide-react'
 
 const values = [
   {

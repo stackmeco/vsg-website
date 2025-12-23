@@ -31,7 +31,8 @@ export default function WhoWeAre() {
               Who We Are
             </h2>
             <p className="text-xl text-vsg-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Verifiable Systems Group is an infrastructure company at the intersection of
+              <span className="text-white font-semibold">Verifiable Systems Group</span> is an
+              infrastructure company at the intersection of
               <span className="text-vsg-accent-light font-medium"> AI</span> and
               <span className="text-vsg-verification font-medium"> cryptography</span>.
             </p>
