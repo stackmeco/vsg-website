@@ -1,0 +1,133 @@
+This is the **Content Injection Plan (v1.0)**.
+
+I have mapped your new "Infrastructure of Autonomy" copy directly to the existing components in `Overview.tsx`. This update sharpens the message significantly, moving from "Abstract Engineering" to "Active Innovation."
+
+**Instruction:** Copy the blocks below into your `client/src/pages/Overview.tsx` file.
+
+-----
+
+### **1. THE HERO SECTION (The Hook)**
+
+*Replace the existing `<h1>` and `<p>` in the Hero container.*
+
+```tsx
+<div className="max-w-2xl">
+  <p className="text-sm font-mono uppercase tracking-wider text-primary mb-6">
+    Two-founder studio
+  </p>
+  <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-[3.5rem] text-foreground leading-[1.1] tracking-tight mb-6">
+    The Infrastructure of Autonomy.
+  </h1>
+  <p className="text-lg text-foreground/80 leading-relaxed mb-8">
+    We are an innovation engine fusing the speed of AI with the security of Blockchain. 
+    We build the tools that verify truth, preserve wealth, and protect identity.
+  </p>
+
+  <div className="flex flex-wrap gap-3 mb-10">
+    {/* Buttons remain the same */}
+    <Link href="/pipeline">
+      <Button size="lg">See the Pipeline <ArrowRight className="w-4 h-4" /></Button>
+    </Link>
+    <Link href="/system">
+      <Button variant="outline" size="lg">How we work</Button>
+    </Link>
+  </div>
+</div>
+```
+
+-----
+
+### **2. THE DIRECTIVE (Who We Are)**
+
+*Replace the `Card` content in the "VSG Directive" section. This maps your new Purpose/Vision/Mission to the 3-card layout.*
+
+```tsx
+<section className="py-20 bg-card" data-testid="section-directive">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-8">
+      The VSG Directive
+    </p>
+    <div className="grid md:grid-cols-3 gap-6">
+      {/* Card 1: Purpose */}
+      <Card className="bg-background border-border">
+        <CardContent className="p-6">
+          <p className="text-xs font-mono uppercase tracking-wider text-primary mb-1">Purpose</p>
+          <h3 className="font-heading font-semibold text-lg text-foreground mb-3">
+            Democratize Leverage
+          </h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            To democratize institutional-grade leverage. We build tools that give individuals the same financial power as banks, without the intermediaries.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* Card 2: Vision */}
+      <Card className="bg-background border-border">
+        <CardContent className="p-6">
+          <p className="text-xs font-mono uppercase tracking-wider text-primary mb-1">Vision</p>
+          <h3 className="font-heading font-semibold text-lg text-foreground mb-3">
+            Engineered Trust
+          </h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            A future where "Trust" is an engineered feature, not a gamble. We replace blind faith with cryptographic proof and open code.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* Card 3: Mission */}
+      <Card className="bg-background border-border">
+        <CardContent className="p-6">
+          <p className="text-xs font-mono uppercase tracking-wider text-primary mb-1">The Mission</p>
+          <h3 className="font-heading font-semibold text-lg text-foreground mb-3">
+            Verifiable Autonomy
+          </h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            We engineer infrastructure across three pillars: 
+            <span className="block mt-2 text-foreground">• <strong>Validate Signal</strong> (Axiom)</span>
+            <span className="block text-foreground">• <strong>Preserve Value</strong> (Helios)</span>
+            <span className="block text-foreground">• <strong>Protect Identity</strong> (Uniqueness)</span>
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+  </div>
+</section>
+```
+
+-----
+
+### **3. OPERATING PRINCIPLES (How We Work)**
+
+*Replace the `values` constant array at the top of the file with this new set.*
+
+```typescript
+const values = [
+  {
+    title: "Intelligence Augmented (IA)",
+    description: "'Let the machine compute. Let the human connect.' We leverage AI to process data at the speed of Helios, liberating our team to focus on strategy, empathy, and high-level judgment.",
+    icon: <Zap className="w-5 h-5" />,
+  },
+  {
+    title: "Seek the Signal",
+    description: "'Verify, then trust.' In a world of noise, we engineer clarity. We force technology to be deterministic by integrating verified data sources. We rely on cryptographic proof, not faith.",
+    icon: <Eye className="w-5 h-5" />,
+  },
+  {
+    title: "Disciplined Audacity",
+    description: "'Dream in decades, execute in milliseconds.' We build generational technology—from capital engines to optical scanning—with extreme precision and rigorous safety rails.",
+    icon: <Shield className="w-5 h-5" />,
+  },
+  {
+    title: "Own the Engine",
+    description: "'Understand the business to change the business.' We are pilots, not passengers. We require deep financial fluency and a first-principles understanding of how value is created.",
+    icon: <Cog className="w-5 h-5" />,
+  },
+  {
+    title: "Value is a Mirror",
+    description: "'Serve first, succeed second.' We succeed only when our users thrive. We build non-custodial tools that restore power to the user, knowing that true value flows from service.",
+    icon: <Users className="w-5 h-5" />, // Changed icon to Users
+  },
+];
+```
+
+*Note: You may need to import `Zap, Eye, Shield, Cog, Users` from `lucide-react`.*

@@ -1,0 +1,130 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Update the **Ventures index page** so it becomes an on-brand, Truth · Capital · Dignity–aligned overview of Helios, Lumina, and Uniqueness Engine.
+
+File: the page used for the Ventures route (for example `client/src/pages/Ventures.tsx` or similar). Find the component actually rendered for `/ventures` and apply these changes there.
+
+Do NOT change layout primitives, styling tokens, or routes. Only update text content and any local data structures.
+
+---
+
+1) Hero section (top of Ventures page)
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTA). Replace only the text:
+
+- Overline:
+  "Ventures"
+
+- Heading:
+  "Where we prove the rails first."
+
+- Body paragraph:
+  "Each venture is a concrete proof of what we believe about Truth, Capital, and Dignity. We run them on our own balance sheet and infrastructure first, then share the patterns only after they have survived real conditions."
+
+If there is a single primary CTA button, keep its style but label it:
+
+- "View all ventures"
+
+If there is a secondary CTA, use:
+
+- "How we work"
+
+---
+
+2) Ventures grid: card intros aligned with domains
+
+Locate the section that renders the list/grid of ventures (Helios, Lumina, Uniqueness Engine). Keep the layout and card components; update only the text data for each venture.
+
+Use this content for the cards:
+
+**Helios card**
+
+- Overline:
+  "Capital"
+
+- Title:
+  "Helios — resilient capital engine."
+
+- Body:
+  "Helios is the internal execution engine we use to route our own digital asset treasury under explicit limits, so capital can work without surrendering control."
+
+- Keep the existing link/route to the Helios detail page unchanged.
+
+---
+
+**Lumina card**
+
+- Overline:
+  "Truth"
+
+- Title:
+  "Lumina — physics-aware grading."
+
+- Body:
+  "Lumina turns raw card condition into evidence-backed grading signals instead of vibes, tying every result to verifiable inputs you can inspect."
+
+- Keep the existing link/route to the Lumina detail page unchanged.
+
+---
+
+**Uniqueness Engine card**
+
+- Overline:
+  "Dignity"
+
+- Title:
+  "Uniqueness Engine — personhood without exposure."
+
+- Body:
+  "Uniqueness Engine proves one person is present without forcing them to hand over their life story, enabling sybil-resistant participation while keeping dignity and control intact."
+
+- Keep the existing link/route to the Uniqueness Engine detail page unchanged.
+
+Do not change images, icons, or card layout—only update the string literals that populate these cards.
+
+---
+
+3) “How ventures fit the studio” section
+
+Below the ventures grid, add or update a short explainer section using your existing section/heading patterns.
+
+Section heading:
+  "How ventures fit the studio"
+
+Body paragraph:
+  "VSG is a studio, not a product company. Helios, Lumina, and Uniqueness Engine are how we test ideas about Truth, Capital, and Dignity against real constraints. If a pattern does not survive in a venture, it does not graduate into our standards or advice."
+
+Optional second sentence (if there’s room in the layout):
+  "We use the same rails we would recommend to others, and we feel the consequences first."
+
+Use existing typography (e.g., `text-muted-foreground`, `max-w-*`) to keep it visually consistent.
+
+---
+
+4) Optional small AI-native note
+
+If there is a natural place for a short supporting line (e.g., under the “How ventures fit the studio” section), add:
+
+"All of our ventures are AI-native: machine intelligence handles the scanning and simulation; people define the mandates, limits, and veto."
+
+Keep it as a single paragraph; no new component type required.
+
+---
+
+5) Hygiene & brand checks for this file
+
+In the Ventures index page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "game-changing agents", "AI magic"
+  - "StackMe", "Stackme Holdings", or "VSP" as active brand names
+  - any generic “the human” phrasing; prefer “people”, “individuals”, “participants”, or “personhood/dignity”
+
+- Make sure ventures are clearly tagged to domains via overlines:
+  - Helios → Capital
+  - Lumina → Truth
+  - Uniqueness Engine → Dignity
+
+Do not touch other pages or routes in this checkpoint.

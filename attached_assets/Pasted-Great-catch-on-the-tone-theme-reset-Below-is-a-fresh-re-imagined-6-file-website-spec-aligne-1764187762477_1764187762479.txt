@@ -1,0 +1,1124 @@
+Great catch on the tone + theme reset. Below is a **fresh, re-imagined 6-file website spec**, aligned with:
+
+* Two-founder studio
+* AI + Bitcoin + digital scarcity
+* BTC treasury as fuel (not a product)
+* Pipeline vs. Ventures
+* Honest about stage: requirements defined; Helios + stackme have technical architecture; nothing is launched yet
+* Light, human, modern-institutional (no NASA / control center)
+
+You can drop these straight into `/docs/web/` (or equivalent).
+
+---
+
+### `01-site-overview-and-principles.md`
+
+```markdown
+---
+id: vsg-web-01
+name: Site overview & principles
+version: 1.0.0
+owner: Brand + Product
+---
+
+# Verified Systems – Site overview & principles
+
+## 1. Brand & naming
+
+**Legal entity:** Verified Systems Group LLC  
+**Public name:** Verified Systems  
+**Short form:** VSG  
+
+**How to use it in copy:**
+
+- First mention on key pages: “Verified Systems (VSG), a studio of Verified Systems Group LLC…”
+- Ongoing references: “Verified Systems” or “VSG”.
+- Footer & legal: always show **Verified Systems Group LLC**.
+
+**Tagline (short):** Honest systems for an AI-powered economy.  
+
+**Hero line (Overview):** We explore the edge of AI and digital assets — with our own capital on the line.
+
+---
+
+## 2. Why we exist (Purpose, Vision, Mission)
+
+### Purpose
+
+**To explore and build honest systems at the edge of AI, digital assets, and digital scarcity, so people can use new forms of value without losing ownership, clarity, or control.**
+
+### Vision
+
+**A world where people and AI agents can hold and use digital assets with the same clarity and durability as good money: ownership is real, risks are visible, and systems don’t quietly erode what you’ve built.**
+
+### Mission
+
+**To explore the edge of AI and digital assets with our own capital on the line, learn out loud, and graduate only the systems we’d trust with our own balance sheet into Ventures.**
+
+- *Explore* — AI, Bitcoin, and digital scarcity questions worth testing.  
+- *Learn out loud* — Share what we find so others can see what’s real.  
+- *Graduate carefully* — Only turn systems into Ventures when we’d trust them with our own money for the long haul.
+
+---
+
+## 3. What we are at launch
+
+- A **two-founder studio** working at the intersection of **AI, Bitcoin, and digital scarcity**.
+- We run a **Bitcoin treasury** on our own balance sheet.
+- We **borrow stablecoins against BTC** selectively and use that capital to:
+  - Build and test internal strategies, and  
+  - Fund development of our **Pipeline** projects.
+- All three main projects (Helios, stackme, Lumina) and Uniqueness Engine:
+  - Have **requirements defined**.
+  - Helios and stackme have **technical architecture designed**.
+  - No products are launched. No Ventures exist yet.
+
+Everything on the site must make this reality clear.
+
+---
+
+## 4. Primary audiences
+
+- **Builders & founders** in AI, Bitcoin, and digital scarcity.  
+- **Technically minded investors / partners** who care about how things actually work.  
+- **Curious readers** who want to understand what’s real vs. hype in AI + digital assets.
+
+We are **not** selling consumer products on this site and **not** marketing to retail users.
+
+---
+
+## 5. Brand tone & personality
+
+- **Honest:** Clear about what exists now vs. what’s in exploration.
+- **Calm:** No hype, no “moon” language, no fear-based messaging.
+- **Slightly aspirational & inspirational:** It should feel like thoughtful people working on a big, long-term problem.
+- **Technical but human:** We talk about systems and design, but in plain language.
+
+**Words we like:**  
+edge, honest, clarity, ownership, scarcity, balance sheet, systems, pipeline, ventures, sketch, notebook, workbench.
+
+**Words to avoid:**  
+revolutionary, magic, guaranteed, risk-free, live status, dashboard, control center, mission control, fully automated, retail frenzy.
+
+---
+
+## 6. Core values (for copy & behavior)
+
+These should show up naturally in copy, not as slogans everywhere.
+
+1. **Transparency over theater**  
+   Messy truths > polished stories. We label things clearly: idea, exploration, prototype, internal only, or ready.
+
+2. **Capital first, narrative second**  
+   Our own balance sheet is the first test. If we wouldn’t run our own money through it, it doesn’t graduate.
+
+3. **Small, sharp systems**  
+   One small, understandable tool is better than a sprawling, half-finished platform.
+
+4. **Education as self-defense**  
+   We publish what we learn so others can see through hype and understand the real trade-offs.
+
+5. **Next-frontier mindset**  
+   We care about what’s coming next — AI agents, new asset forms, digital scarcity — but we describe them in today’s terms, not science fiction.
+
+---
+
+## 7. Truth & claims guidelines
+
+To avoid overstatement:
+
+- **Always label stage clearly**  
+  - Idea / Explore  
+  - Requirements defined  
+  - Architecture designed  
+  - Prototype / internal tests  
+  - No live users / no external access  
+- **Never imply products are live** unless they are publicly accessible.  
+- **BTC Treasury:**  
+  - Describe as *how we fund ourselves*, not as a product or yield program for others.
+- **Helios, stackme, Lumina, Uniqueness Engine:**  
+  - Call them **Pipeline projects**.  
+  - Emphasize **where they are now**, and **what questions they’re exploring**, not promises.
+
+If in doubt, prefer: “We’re exploring…” over “We do…”.
+
+```
+
+---
+
+### `02-visual-system-light-theme.md`
+
+```markdown
+---
+id: vsg-web-02
+name: Visual system – light theme
+version: 1.0.0
+owner: Design + Frontend
+---
+
+# Visual system – Light theme
+
+## 1. Concept
+
+**Concept:** “The Studio Table.”
+
+- Sunlight, paper, pencils, and diagrams on a table.
+- Feels like two people at a workbench, not a trading floor or mission control.
+- Visual metaphors: notebooks, index cards, rails/flows, simple blueprints.
+
+**Hard no’s:**
+
+- No dark mode.
+- No “NASA control center”, no dashboards, no live tickers, no system-status consoles.
+- No sci-fi neon, 3D robots, or abstract “crypto orb” renders.
+
+---
+
+## 2. Typography
+
+**Goal:** A mix of thoughtful editorial voice and precise system labels.
+
+### 2.1 Typefaces
+
+- **Headings (H1–H3):** `Newsreader` (serif)
+  - Weights: 500–700.
+  - Tone: thoughtful, editorial, “essay about money and systems”.
+- **Body & UI text:** `IBM Plex Sans`
+  - Weights: 400–500.
+  - Tone: clear, technical, unfussy.
+- **Mono / labels / tags:** `IBM Plex Mono`
+  - Use for stage labels, chips, small technical notes.
+
+### 2.2 Scale & styles
+
+- **H1:** clamp(2.4rem, 4vw, 3.4rem), `Newsreader`, 600, line-height ~1.1  
+- **H2:** clamp(1.8rem, 3vw, 2.4rem), `Newsreader`, 600  
+- **H3:** 1.4–1.6rem, `Newsreader`, 500  
+- **Body:** 1rem–1.0625rem, `IBM Plex Sans`, line-height 1.6–1.7  
+- **Small text:** 0.875rem, `IBM Plex Sans` or `IBM Plex Mono`
+
+**Eyebrows / meta labels:**
+
+- `IBM Plex Mono`, all caps, 0.75–0.875rem, letter-spacing +0.06–0.08em.
+
+---
+
+## 3. Color system
+
+### 3.1 Base palette
+
+- **Page background:** `#F7F5F2` – warm paper
+- **Surfaces (cards, panels):** `#FFFFFF` – clean sheet
+- **Primary text:** `#111827`
+- **Secondary text:** `#4B5563`
+- **Dividers / borders:** `#E5E7EB`
+
+### 3.2 Brand accents
+
+- **Primary accent (links, main buttons):** `#1F4B82` – deep, trusted blue  
+- **Secondary accent (Bitcoin / value / emphasis):** `#A05A2C` – burnished copper  
+
+Usage:
+
+- Blue for navigation, primary CTAs, important links.
+- Copper as a subtle highlight: small borders, icons, or underlines on key ideas (e.g. “Bitcoin Treasury”).
+
+### 3.3 Semantic colors (light touch)
+
+We are not building an operational dashboard; semantics are minimal.
+
+- **Info / neutral badges:** background `#F3F4F6`, text `#374151`
+- **Caution / experimental:** background `#FFFBEB`, text `#92400E`
+- **Error (rare):** background `#FEF2F2`, text `#B91C1C`
+
+No big “red/yellow/green status boards.”
+
+---
+
+## 4. Layout
+
+### 4.1 Grid & spacing
+
+- **Content max width:** 1040–1120px.
+- **Horizontal padding:** 16–24px on mobile, 40–64px on desktop.
+- **Vertical rhythm:** 64–96px between major sections.
+- **Grid:** 12-column for desktop; 1-column on mobile.
+
+### 4.2 Hero pattern
+
+For Overview and other main pages:
+
+- **Left column (approx. 6/12):**
+  - Eyebrow
+  - H1
+  - Subhead
+  - Primary + secondary CTAs
+- **Right column (approx. 6/12):**
+  - Static illustration or diagram (no live metrics).
+  - Feels like a sketch/blueprint pinned on a board.
+
+---
+
+## 5. Shape language & components
+
+### 5.1 Cards
+
+- Border radius: 8px
+- Border: 1px solid `#E5E7EB`
+- Background: `#FFFFFF`
+- Padding: 20–24px
+
+### 5.2 Buttons
+
+- **Primary:**
+  - Background: `#1F4B82`
+  - Text: `#FFFFFF`
+  - Border-radius: 999px (pill)
+  - Hover: slightly darker blue, subtle shadow
+- **Secondary:**
+  - Background: transparent or `#FFFFFF`
+  - Border: 1px `#1F4B82` or `#D1D5DB`
+  - Text: `#1F4B82`
+
+### 5.3 Chips / tags
+
+- Background: `#F3F4F6`
+- Text: `#374151` (`IBM Plex Mono`)
+- Border-radius: 999px
+- Padding: 4px 10–12px
+- Content examples:
+  - `STAGE: REQUIREMENTS`
+  - `PROJECT: HELIOS`
+  - `AREA: AI · BITCOIN · SCARCITY`
+
+---
+
+## 6. Imagery & illustration
+
+### 6.1 Illustration style
+
+- Simple vector drawings:
+  - Lines and arrows showing flows (e.g. BTC → Treasury → Pipeline)
+  - Three “rails” or “threads” labeled **AI**, **Bitcoin**, **Digital Scarcity**
+  - Cards or tiles representing Pipeline projects
+
+- Strokes: 1–1.5px in grey (`#9CA3AF`) with touches of blue or copper.
+
+**Avoid:**
+
+- Fake product UI screenshots
+- 3D scenes, over-complex gradients
+- Any UI that looks like a trading terminal or space cockpit
+
+### 6.2 Photography (optional)
+
+- If used, photography should be:
+  - Light, natural, minimal
+  - People working at a table, not staged “corporate” stock
+- Never show more people or scale than the company actually has (two-founder vibe).
+
+---
+
+## 7. Motion
+
+- **General:** Soft, low-key motion.
+  - Fade + small slide (8–12px) on section entrances.
+  - Duration: 150–250ms.
+  - Easing: `ease-out` / standard material curve.
+
+- **Hover:**
+  - Buttons: background and shadow change.
+  - Cards: slight border color shift, tiny lift.
+
+- **No:**
+  - Pulsing status dots
+  - Looping tickers
+  - “Live feed” animations
+
+Respect `prefers-reduced-motion` and fall back to simple state changes.
+
+---
+
+## 8. Implementation notes
+
+- Use `next/font` (or equivalent) to load:
+  - `Newsreader` for headings
+  - `IBM Plex Sans` and `IBM Plex Mono` for body/mono
+- Create design tokens:
+  - `color.bg.page`, `color.bg.surface`, `color.text.primary`, `color.accent.blue`, `color.accent.copper`, etc.
+  - `font.heading`, `font.body`, `font.mono`
+  - `radius.card`, `radius.button`
+- All designs must be checked for WCAG AA contrast.
+
+```
+
+---
+
+### `03-global-layout-and-components.md`
+
+```markdown
+---
+id: vsg-web-03
+name: Global layout & components
+version: 1.0.0
+owner: Design + Frontend
+---
+
+# Global layout & components
+
+## 1. Global shell
+
+### 1.1 Header (desktop)
+
+- **Position:** Sticky at top on scroll.
+- **Height:** ~64–72px.
+- **Content (left to right):**
+  - Logo / wordmark: “Verified Systems”
+  - Primary nav (Overview, System, Pipeline, Ventures, Library, Contact)
+  - Right-aligned CTA: “Contact” (button) or simple link, depending on density.
+
+- **Nav links:**
+  - Font: `IBM Plex Mono`, all caps, 0.875rem
+  - Default: `#111827`
+  - Hover: underline + subtle light background
+  - Active: underline + `#1F4B82`
+
+### 1.2 Header (mobile)
+
+- Collapsed into:
+  - Left: wordmark
+  - Right: menu icon
+- Tapping menu:
+  - Full-screen overlay
+  - Vertical list: large section numbers (01, 02…) + labels
+  - Links use `Newsreader` for labels and `IBM Plex Mono` for small meta.
+
+### 1.3 Footer
+
+- Content:
+  - Left:
+    - “Verified Systems Group LLC”
+    - Small note: “Verified Systems (VSG) is a two-founder studio exploring AI, Bitcoin, and digital scarcity.”
+  - Right:
+    - Links: Library, Status, Privacy, Terms
+- Style:
+  - Top border: 1px `#E5E7EB`
+  - Padding: 24–32px
+
+---
+
+## 2. Common components
+
+### 2.1 Section header
+
+- Optional eyebrow (`IBM Plex Mono`, all caps)
+- H2 (`Newsreader`)
+- Short intro paragraph
+
+### 2.2 Project tile (for Pipeline & Overview)
+
+Structure:
+
+- Top row:
+  - Name (H3, `Newsreader`)
+  - Stage chip (`IBM Plex Mono`, e.g. `STAGE: ARCHITECTURE`)
+- Body:
+  - 1–2 sentence description
+  - Bullet list: “What it’s exploring today”
+- Footer:
+  - Link: “Read more →” (to /pipeline/[slug])
+
+### 2.3 “Next step” block
+
+Used at bottom of main pages:
+
+- Background: `#F9FAFB`
+- Content:
+  - Label: `NEXT`
+  - Line: “Next: [Page Name]”
+  - Short sentence: “See [why go there].”
+  - Button/link: goes to next logical page.
+- Example:  
+  “Next: System — See how Verified Systems actually runs day to day.”
+
+### 2.4 Value card
+
+For core values and functions:
+
+- Icon (24–32px)
+- Title (H3)
+- 1–2 sentence explanation
+- Optional list of concrete behaviors
+
+---
+
+## 3. Page layout patterns
+
+### 3.1 Overview page
+
+- Hero: two-column (text left, illustration right)
+- Sections:
+  - Purpose / Vision / Mission
+  - “What’s on the workbench”
+  - Bitcoin as fuel
+  - Values
+  - Next step → /system
+
+### 3.2 System page
+
+- Hero: single column or two-column
+- Sections:
+  - Bitcoin Treasury Program
+  - Functions (cards)
+  - “From idea to venture” overview
+  - Next step → /pipeline
+
+### 3.3 Pipeline page
+
+- Hero: two-column or centered
+- Sections:
+  - Pipeline stages (horizontal or vertical stepper)
+  - Current projects (tiles for four projects)
+  - Next step → /ventures
+
+### 3.4 Ventures page
+
+- Hero: centered
+- Sections:
+  - “None yet, on purpose”
+  - Criteria to graduate
+  - Future-facing note
+  - Next step → /library
+
+### 3.5 Library page
+
+- Hero: search + filters
+- Layout:
+  - Filters/tags row
+  - List/grid of posts (Insights, Notes, Updates)
+  - Changelog preview
+  - Next step → /contact
+
+### 3.6 Contact page
+
+- Hero: brief intro
+- Layout:
+  - Left: explanation of who should reach out
+  - Right: form
+
+---
+
+## 4. Responsiveness
+
+- Mobile first:
+  - Stack columns vertically
+  - Make CTAs full width
+- Tablet:
+  - Allow 2-column grids for project tiles
+- Desktop:
+  - Use full two-column hero
+  - Use 3–4-column grids where appropriate (Library, values, functions)
+
+---
+
+## 5. Accessibility
+
+- All interactive elements keyboard focusable.
+- Focus styles visible and not just color-based.
+- ARIA labels for nav toggle, hero illustrations (descriptive `alt`).
+- Form fields have labels and error messages.
+
+```
+
+---
+
+### `04-page-templates-and-content.md`
+
+```markdown
+---
+id: vsg-web-04
+name: Page templates & content
+version: 1.0.0
+owner: Brand + Product
+---
+
+# Page templates & core content
+
+This file defines structure + draft copy for each main page.  
+Copy is meant as a starting point; tone and truthfulness must be preserved.
+
+---
+
+## 1. Overview (`/`)
+
+### 1.1 Hero
+
+- **Eyebrow:** AI, Bitcoin & digital scarcity
+- **H1:** We explore the edge of AI and digital assets — with our own capital on the line.
+- **Subhead:**  
+  Verified Systems (VSG) is a two-founder studio working at the intersection of AI, Bitcoin, and digital scarcity. We run a Bitcoin treasury, borrow against it carefully, and use that fuel to design systems we’d trust with our own balance sheet.
+
+- **Primary CTA:** How we work → `/system`  
+- **Secondary CTA:** Read our thesis → `/library`
+
+- **Right-side visual (spec only):**  
+  A simple schematic showing three labeled lines — **AI**, **Bitcoin**, **Digital Scarcity** — flowing into a “Studio” block.
+
+---
+
+### 1.2 Why this exists (Purpose, Vision, Mission)
+
+- **Section label:** Why this exists
+
+Show Purpose, Vision, Mission as three short blocks, using the wording from 01-site-overview.
+
+---
+
+### 1.3 What’s on the workbench
+
+- **Section label:** What we’re working on right now
+- **Intro:**  
+  We’re a lean studio with four projects in our Pipeline. All have requirements; Helios and stackme also have technical architecture. None are live products yet.
+
+- **Tiles (each links to its Pipeline page):**
+
+1. **Helios**  
+   *Stage:* Early development  
+   *Copy:*  
+   Internal BTC-backed strategy engine. We’re designing Helios to automate a small portion of our borrowing into clearly bounded, rule-driven DeFi positions.
+
+2. **stackme**  
+   *Stage:* Early development  
+   *Copy:*  
+   A borrower-first concept for BTC-backed credit. Architecture and flows are being designed around clarity, conservative leverage, and plain-language risk.
+
+3. **Lumina**  
+   *Stage:* Requirements & concept  
+   *Copy:*  
+   Trading cards for real-world assets, with quality and scarcity encoded on-chain. Requirements are defined; we’re exploring system design and grading pipelines.
+
+4. **Uniqueness Engine**  
+   *Stage:* Research & requirements  
+   *Copy:*  
+   Early work on “one-per-person” style signals that could help systems stay fair without sliding into surveillance.
+
+---
+
+### 1.4 Bitcoin as fuel
+
+- **H2:** Bitcoin is our fuel, not our marketing
+- **Body:**  
+  We hold Bitcoin as our primary long-term asset. When it makes sense, we borrow stablecoins against it and use those funds for two things: building our Pipeline and sometimes accumulating more BTC. We don’t run a public yield product; this is how we fund our own work.
+
+---
+
+### 1.5 How we try to behave
+
+- **H2:** How we try to behave
+- **Values list:** Use values from 01-site-overview in card format.
+
+---
+
+### 1.6 Next step
+
+- **Block:** “Next: System — See how Verified Systems actually works day to day.”  
+  **CTA:** `/system`
+
+---
+
+## 2. System (`/system`)
+
+### 2.1 Hero
+
+- **H1:** How Verified Systems actually works.
+- **Subhead:**  
+  Two founders, one balance sheet, a Bitcoin treasury, and a small set of functions that keep us honest: governance, risk, compliance, finance, treasury, operations, and communications.
+
+---
+
+### 2.2 Bitcoin Treasury Program
+
+- **H2:** Bitcoin Treasury Program
+- **Body:**  
+  We hold BTC on our own balance sheet. When the risk/reward looks reasonable, we borrow stablecoins against a portion of that BTC, using reputable on-chain venues. Those borrowed funds either:
+  - fund development time and infrastructure for our projects, or  
+  - let us accumulate more BTC when we believe it’s underpriced.
+
+This is an internal program. We don’t manage anyone else’s assets, and we don’t offer treasury products.
+
+---
+
+### 2.3 Functions
+
+- **H2:** Functions behind the studio
+- **Intro:**  
+  Verified Systems is still just two people, but we think in terms of functions so decisions and responsibilities are clear.
+
+- **Cards (examples):**
+
+1. **Governance & Risk**  
+   How we set thresholds, limits, and “no”s — especially around leverage and new experiments.
+
+2. **Compliance**  
+   How we stay aligned with legal and regulatory constraints in the places we operate.
+
+3. **Finance & Treasury**  
+   How we track every satoshi, loan, and spend, and keep our own books honest.
+
+4. **Operations**  
+   How work moves from idea to requirements to architecture to implementation and review.
+
+5. **Communications & Brand**  
+   How we keep our story in sync with what’s actually true — site updates, Library posts, and corrections when we get something wrong.
+
+---
+
+### 2.4 From idea to Venture
+
+- **H2:** From curiosity to Venture
+- **Body:**  
+  Every project starts as a question. If it survives requirements, architecture, and internal tests — and we’d trust it with our own money long-term — it may graduate into a Venture.
+
+- **Simple step list:** Idea → Requirements → Architecture → Prototype → Internal tests → Venture (or Archive).
+
+---
+
+### 2.5 Next step
+
+- **Block:** “Next: Pipeline — See what’s actually in flight.”  
+  **CTA:** `/pipeline`
+
+---
+
+## 3. Pipeline (`/pipeline`)
+
+### 3.1 Hero
+
+- **H1:** The Pipeline.
+- **Subhead:**  
+  Our R&D studio: projects tied to our BTC treasury, moving through defined stages. All self-funded. None public yet.
+
+---
+
+### 3.2 Pipeline stages
+
+- **H2:** How the Pipeline works
+- **Stages (with short definitions):**
+
+1. **Idea** — A question we think is worth asking.  
+2. **Requirements** — We define what a good answer would look like and what must be true.  
+3. **Architecture** — We design how it could work technically and operationally.  
+4. **Prototype** — We build a minimal version to see where it breaks.  
+5. **Internal tests** — We run it with our own capital under tight limits.  
+6. **Venture or archive** — If it earns long-term trust, it may become a Venture. If not, we write up what we learned.
+
+---
+
+### 3.3 Current projects
+
+- **H2:** Current Pipeline projects
+
+Use tiles for each project with stage chips and short copy:
+
+1. **Helios**  
+   *Chip:* `STAGE: EARLY DEVELOPMENT`  
+   Internal BTC-backed strategy engine. Requirements and architecture defined; implementation and early testing are in progress.
+
+2. **stackme**  
+   *Chip:* `STAGE: EARLY DEVELOPMENT`  
+   A concept for a borrower-first BTC credit app. Requirements and technical architecture are defined; prototypes and flows are being explored.
+
+3. **Lumina**  
+   *Chip:* `STAGE: REQUIREMENTS`  
+   Trading cards that encode real-world qualities and scarcity on-chain. Requirements are in place; system design and data pipelines are being shaped.
+
+4. **Uniqueness Engine**  
+   *Chip:* `STAGE: RESEARCH`  
+   Early research on signals that could help systems enforce “one per person” type rules without centralizing identity data.
+
+Each tile links to `/pipeline/[slug]`.
+
+---
+
+### 3.4 Next step
+
+- **Block:** “Next: Ventures — What it means for something to graduate.”  
+  **CTA:** `/ventures`
+
+---
+
+## 4. Pipeline detail pages
+
+### 4.1 Helios (`/pipeline/helios`)
+
+- **Eyebrow:** Pipeline · Internal strategy
+- **H1:** Helios — BTC-backed strategy, in early development.
+- **Status note:**  
+  Requirements and technical architecture are defined. Implementation and internal testing are in early stages. No external access.  
+
+- **Sections:**
+
+1. **What Helios explores**  
+   Whether a focused, rule-driven BTC-backed strategy can add disciplined returns without turning into a black-box bot.
+
+2. **How we’re approaching it**  
+   - Tight, understandable rules over opaque algorithms  
+   - Clear limits on how much of our borrowing can be routed through Helios  
+   - Monitoring and human review as part of the design
+
+3. **Where it is today**  
+   We have architecture and risk parameters on paper and are beginning implementation and test scaffolding. Until we trust it with meaningful capital, Helios stays internal.
+
+---
+
+### 4.2 stackme (`/pipeline/stackme`)
+
+- **Eyebrow:** Pipeline · Consumer app concept
+- **H1:** stackme — a borrower-first BTC credit concept.
+- **Status note:**  
+  Requirements and architecture are defined. No public app; no users.  
+
+- **Sections:**
+
+1. **What stackme explores**  
+   Whether BTC-backed borrowing can be presented in a way that’s truly clear and non-predatory for borrowers.
+
+2. **How we’re approaching it**  
+   - UX that leads with risk and trade-offs  
+   - Strict leverage limits baked into the design  
+   - AI-assisted explanations written in plain language, with human oversight
+
+3. **Where it is today**  
+   We’re designing flows and interfaces, mapping how stackme would sit on top of internal systems like Helios and our treasury. Everything is still on the drawing board and in prototypes.
+
+---
+
+### 4.3 Lumina (`/pipeline/lumina`)
+
+- **Eyebrow:** Pipeline · RWA trading cards
+- **H1:** Lumina — trading cards for real-world assets.
+- **Status note:**  
+  Requirements defined. Concept and system design in progress. No public mints or marketplace.  
+
+- **Sections:**
+
+1. **What Lumina explores**  
+   How to represent real-world qualities — like the grade of a card — as on-chain data that makes scarcity and quality inspectable, not just claimed.
+
+2. **How we’re approaching it**  
+   - Data-first design: attributes matter more than visuals  
+   - AI-assisted grading ideas, always with human review  
+   - Emphasis on provenance and auditability from the first mint
+
+3. **Where it is today**  
+   We’ve documented what a Lumina card needs to represent and how it might be updated over time. Technical design and experiments with grading pipelines are ongoing.
+
+---
+
+### 4.4 Uniqueness Engine (`/pipeline/uniqueness-engine`)
+
+- **Eyebrow:** Pipeline · Identity research
+- **H1:** Uniqueness Engine — early work on “one-per-person” signals.
+- **Status note:**  
+  Research and requirements. No deployable system.  
+
+- **Sections:**
+
+1. **What Uniqueness Engine explores**  
+   Ways to tell whether the same entity is showing up again without building a central identity database.
+
+2. **How we’re approaching it**  
+   - Combining cryptographic ideas, heuristics, and possibly AI  
+   - Designing for privacy by default  
+   - Keeping it modular so future systems (like Lumina) could plug in without sharing more than they have to
+
+3. **Where it is today**  
+   We’re testing ideas on paper and in small experiments. Right now it’s a research track that may or may not become its own system.
+
+---
+
+## 5. Ventures (`/ventures`)
+
+### 5.1 Hero
+
+- **H1:** Ventures — none yet, by design.
+- **Subhead:**  
+  We only call something a Venture when we’d trust it with our own balance sheet for years, not months. We’re still building toward that.
+
+---
+
+### 5.2 What it takes to graduate
+
+- **H2:** What has to be true
+- **Points (examples):**
+  - It has survived internal tests and real-world stress.  
+  - Governance, risk, and compliance are part of the design, not bolted on.  
+  - We can explain how it works and how it fails in plain language.  
+  - We’re willing to put our names — and capital — behind it publicly.
+
+---
+
+### 5.3 Today
+
+Simple note:  
+> For now, all of our work lives in the Pipeline. When something crosses this bar, it will show up here.
+
+---
+
+### 5.4 Next step
+
+- **Block:** “Next: Library — See what we’re learning along the way.”  
+  **CTA:** `/library`
+
+---
+
+## 6. Library (`/library`)
+
+### 6.1 Hero
+
+- **H1:** Library.
+- **Subhead:**  
+  Essays, notes, and updates from our journey through AI, Bitcoin, and digital scarcity — to help you see what’s real and what’s noise.
+
+- **UI:**  
+  - Search field  
+  - Tag filters (AI, Bitcoin, Treasury, Pipeline, Identity, etc.)
+
+---
+
+### 6.2 Sections
+
+Break into three feeds:
+
+1. **Insights**  
+   Longer essays and frameworks (e.g. your founding thesis on money).
+
+2. **Updates**  
+   Short posts on project milestones, treasury changes, or process tweaks.
+
+3. **Notes**  
+   Less polished thinking: fragments, questions, and post-mortems.
+
+---
+
+### 6.3 Changelog
+
+- **H2:** What changed, when
+- **Table spec:** `Date | Area | Summary`
+- Use to track public shifts in strategy, treasury policy, big project decisions.
+
+---
+
+### 6.4 Next step
+
+- **Block:** “Next: Contact — Reach out if you’re building in similar territory.”  
+  **CTA:** `/contact`
+
+---
+
+## 7. Contact (`/contact`)
+
+### 7.1 Hero
+
+- **H1:** Contact.
+- **Subhead:**  
+  If you’re working near AI, Bitcoin, or digital scarcity — or you see something we’re missing — we’d like to hear from you.
+
+---
+
+### 7.2 Who should reach out
+
+Bullets:
+
+- Builders and researchers in AI, digital assets, and scarcity.  
+- Institutions curious about our trajectory, not shopping for a product.  
+- Skeptics with evidence-backed critiques.
+
+---
+
+### 7.3 Form
+
+Fields (examples):
+
+- Name  
+- Email  
+- “What’s on your mind?” (textarea)  
+- “Anything we should read first?” (links, optional)
+
+Small note:  
+> We’re a two-person studio. If it’s not a fit, we’ll say so quickly. If it is, we’ll reply thoughtfully.
+
+```
+
+---
+
+### `05-navigation-footer-and-routes.md`
+
+```markdown
+---
+id: vsg-web-05
+name: Navigation, footer & routes
+version: 1.0.0
+owner: Product + Frontend
+---
+
+# Navigation, footer & routes
+
+## 1. Primary navigation (desktop)
+
+Order and labels:
+
+1. Overview → `/`
+2. System → `/system`
+3. Pipeline → `/pipeline`
+4. Ventures → `/ventures`
+5. Library → `/library`
+6. Contact → `/contact`
+
+- Font: `IBM Plex Mono`, all caps, 0.875rem
+- Active link: underline + `#1F4B82`
+- Hover: underline + light background (`#F3F4F6`)
+
+## 2. Mobile navigation
+
+- Collapsed into hamburger menu.
+- Full-screen overlay when open:
+  - Large section numbers (01–06)
+  - Labels (Overview, System, etc.)
+  - Tap closes and navigates.
+
+## 3. Routes & URL patterns
+
+- `/` — Overview
+- `/system` — How the studio works
+- `/pipeline` — Pipeline index
+- `/pipeline/helios` — Helios detail
+- `/pipeline/stackme` — stackme detail
+- `/pipeline/lumina` — Lumina detail
+- `/pipeline/uniqueness-engine` — Uniqueness Engine detail
+- `/ventures` — Ventures overview (no items yet)
+- `/library` — Library index
+- `/contact` — Contact
+
+Utility / legal:
+
+- `/status` — Status (simple, manual)
+- `/legal/privacy` — Privacy Policy
+- `/legal/terms` — Terms of Use
+
+## 4. Footer
+
+Standard footer on all pages:
+
+- **Left column:**
+  - “Verified Systems Group LLC”
+  - Small line: “Verified Systems (VSG) is a two-founder studio exploring AI, Bitcoin, and digital scarcity.”
+
+- **Right column:**
+  - Links: Library, Status, Privacy, Terms
+
+- **Other:**
+  - Optional small text: “Nothing on this site is financial advice or an offer of services.”
+
+```
+
+---
+
+### `06-technical-and-accessibility-notes.md`
+
+```markdown
+---
+id: vsg-web-06
+name: Technical & accessibility notes
+version: 1.0.0
+owner: Frontend + Infra
+---
+
+# Technical & accessibility notes
+
+## 1. Stack & architecture
+
+- **Framework:** Next.js 14+ (App Router)
+- **Styling:** Tailwind CSS, configured with tokens from 02-visual-system
+- **Content:** MDX or CMS (e.g. Sanity) for pages and Library
+- **Fonts:** Loaded via `next/font`
+  - `Newsreader` for headings
+  - `IBM Plex Sans` and `IBM Plex Mono` for body/mono
+
+- **Deployment:**  
+  - Static generation (SSG) / incremental static regeneration (ISR) for most pages
+  - No dependency on live on-chain or DeFi data at launch
+
+## 2. Performance
+
+- Target Lighthouse:
+  - Performance ≥ 90
+  - Accessibility ≥ 90
+  - Best Practices ≥ 90
+  - SEO ≥ 90
+
+- Use:
+  - `<Image>` optimization for illustrations
+  - Minimal JavaScript on non-interactive pages
+  - No heavy analytics libraries
+
+## 3. Interactivity
+
+- **Library filters & search:**  
+  - Client-side filtering of posts; simple search (title + tags).
+
+- **Pipeline detail pages:**  
+  - Mostly static content; light progressive enhancement only (e.g. accordions).
+
+- **Status page (`/status`):**  
+  - At launch, static or manually updated text (e.g. “No public systems yet”).  
+  - No real-time status feeds or dashboards.
+
+No mission-control-style interfaces are required.
+
+## 4. Accessibility
+
+- Follow WCAG 2.1 AA at minimum:
+  - Sufficient color contrast for all text.
+  - Semantic HTML structure (landmarks, headings).
+  - Descriptive `alt` text on all non-decorative images.
+  - Forms with associated labels and clear error messaging.
+
+- Respect user preferences:
+  - `prefers-reduced-motion` → reduce transitions to simple opacity changes.
+
+## 5. SEO & metadata
+
+- Per-page `<title>` and `<meta description>` set to reflect:
+  - Two-founder studio
+  - AI, Bitcoin, digital scarcity
+- Open Graph tags for sharing:
+  - Simple card with brand name and short description.
+- `robots.txt` and `sitemap.xml` included.
+
+## 6. Analytics & privacy
+
+- Use a lightweight, privacy-respecting analytics tool (or none at launch).
+- No third-party trackers beyond what is explicitly agreed.
+- Contact form submissions:
+  - Sent to internal email or CRM.
+  - No resale or sharing of data.
+
+## 7. Content maintenance
+
+- Library content and changelog entries should be:
+  - Editable via MDX or CMS.
+  - Clearly dated.
+  - Easy to add without code changes.
+
+- Pipeline and Ventures pages:
+  - Stage labels and status notes editable in content, not hard-coded into components when possible.
+
+```
+
+---
+
+If you’d like, next step I can:
+
+* Tighten or rephrase any specific page’s copy in a more “you” voice, or
+* Add a separate **“content checklist”** for each page so you and devs know exactly what needs to be filled in before launch (thesis link, first Library posts, etc.).

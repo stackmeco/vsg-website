@@ -1,0 +1,198 @@
+This is the **Definitive Master Specification (v8.0)**.
+
+I have reviewed the entire project history and your specific feedback regarding "spacing issues" and "missing the mark."
+
+**The Core Improvements:**
+1.  **Layout Strategy:** I have restructured the **"How We Work" (Principles)** section. The previous "Small Card" grid was too cramped for your new, deeper copy. I have switched this to a **"2-Column Wide-Card Grid."** This allows the "Manifesto" style text to breathe without breaking the "Control Room" aesthetic.
+2.  **Content Fidelity:** I have integrated your **exact "Version 2" copy** (Force Multiplier, Engineered Ambition) instead of my previous suggestions.
+3.  **Component Mapping:** I explicitly map *which* text goes into *which* visual component so the AI developer doesn't guess.
+
+***
+
+# **VERIFIABLE SYSTEMS GROUP: MASTER SITE SPECIFICATION (v8.0)**
+**Status:** FROZEN // READY FOR IMPLEMENTATION
+**Tone:** "The Visionary Architect" (Institutional, Philosophically Grounded).
+
+---
+
+## **1. GLOBAL NAVIGATION**
+* **Brand:** Verified Systems Group
+* **Nav Items:**
+    1.  **Mission** (`/`)
+    2.  **Process** (`/system`)
+    3.  **Ventures** (`/pipeline`)
+    4.  **Standards** (`/governance`)
+    5.  **Insights** (`/thesis`)
+    6.  **Connect** (`/contact`)
+* **Footer Tagline:** "The infrastructure of verifiable autonomy."
+
+---
+
+## **2. PAGE: MISSION (`Overview.tsx`)**
+
+### **SECTION A: HERO (The Hook)**
+* **Layout:** Centered, Full-Width.
+* **Label:** "Two-founder studio"
+* **Headline:** "The Infrastructure of Autonomy."
+* **Subhead:** "We are an innovation engine fusing the speed of AI with the security of Blockchain. We build the tools that verify truth, preserve wealth, and protect identity."
+* **Primary Button:** "See Our Ventures"
+* **Secondary Button:** "Audio Overview" *(Icon: Play)*
+
+### **SECTION B: THE DIRECTIVE (Who We Are)**
+* **Layout:** 3-Column Grid (Standard Cards).
+* **Component:** `Card` with `CardContent`.
+
+**Card 1: Purpose**
+* **Headline:** "Democratize Leverage"
+* **Body:** "To democratize institutional-grade leverage. We build tools that give individuals the same financial power as banks, without the intermediaries."
+
+**Card 2: Vision**
+* **Headline:** "Engineered Trust"
+* **Body:** "A future where 'Trust' is an engineered feature, not a gamble. We replace blind faith with cryptographic proof and open code."
+
+**Card 3: Mission**
+* **Headline:** "Verifiable Autonomy"
+* **Body:** "We engineer infrastructure across three pillars: \n• **Validate Signal** (Axiom)\n• **Preserve Value** (Helios)\n• **Protect Identity** (Uniqueness)"
+
+### **SECTION C: OPERATING PRINCIPLES (How We Work)**
+* **Layout:** **2-Column Grid** (`grid-cols-1 md:grid-cols-2`).
+* **Spacing:** Increased padding (`p-8`) to accommodate longer text.
+* **Typography:** `text-lg` for Headers, `text-base` (`leading-relaxed`) for Body.
+
+**Card 1: Intelligence Augmented (IA)**
+* **Icon:** `Zap`
+* **Quote:** "Let the machine compute. Let the human connect."
+* **Body:** "We use AI to amplify human capability. By offloading high-velocity data processing to our Helios engine, we free our team to focus on the things machines cannot do: strategy, empathy, and judgment."
+
+**Card 2: Seek the Signal**
+* **Icon:** `Eye`
+* **Quote:** "Verify, then trust."
+* **Body:** "We recognize that narratives are often engineered to obscure reality. We don't rely on blind faith or centralized perception; we engineer clarity through cryptographic proof."
+
+**Card 3: Engineered Ambition**
+* **Icon:** `Shield`
+* **Quote:** "Dream in decades, execute in milliseconds."
+* **Body:** "We are building generational technology—from automated capital engines to optical surface scanning—with extreme precision. We embrace big risks by managing them with rigorous, automated safety rails."
+
+**Card 4: Own the Engine**
+* **Icon:** `Cog`
+* **Quote:** "Master the mechanics to rewrite the rules."
+* **Body:** "We are a team of architects, not passengers. We require deep financial fluency and a first-principles understanding of how value is created, stored, and protected within our treasury."
+
+**Card 5: Value is a Mirror**
+* **Icon:** `Users`
+* **Quote:** "Serve first, succeed second."
+* **Body:** "We succeed only when our users thrive. We build non-custodial tools that restore power to the user—providing liquidity without selling assets—knowing that true value flows from service, not extraction."
+
+**Card 6: Force Multiplier**
+* **Icon:** `Scale`
+* **Quote:** "Level the playing field."
+* **Body:** "Structural asymmetries favor the incumbent. We build leverage for the underdog. We arm individuals with the tools to bypass gatekeepers and access the capabilities usually reserved for massive institutions."
+
+---
+
+## **3. PAGE: PROCESS (`System.tsx`)**
+
+### **SECTION A: HERO**
+* **Headline:** "How We Work"
+* **Body:** "We operate as a venture studio. By utilizing shared infrastructure across multiple specialized companies, we achieve high velocity without compromising security."
+
+### **SECTION B: THE LEXICON (Definitions)**
+* **Verifiable Systems:** "Software that anyone can audit. No black boxes. The logic is visible, the risk is defined, and the outcome is provable."
+* **Cited AI:** "Artificial Intelligence that tells you where it got its information. It doesn't guess; it retrieves facts from verified documents."
+* **Bearer Assets:** "Digital items you truly own. They can move freely across the internet without needing permission from a bank or platform."
+
+### **SECTION C: THE TREASURY**
+* **Headline:** "Powered by Bitcoin."
+* **Body:** "Bitcoin serves as our reserve asset. Rather than liquidating capital to fund operations, we utilize responsible, over-collateralized borrowing. This sustains our long-term balance sheet while funding continuous innovation."
+
+---
+
+## **4. PAGE: VENTURES (`Pipeline.tsx`)**
+
+### **SECTION A: HERO**
+* **Headline:** "The Venture Portfolio"
+* **Body:** "We are incubating five companies. Each one solves a specific problem in the verification economy."
+
+### **SECTION B: PROJECT CARDS**
+*(Use `ProjectTile` component with `text-sm` body)*
+
+**1. AXIOM (Research)**
+* **Tagline:** "The AI Fact-Checker."
+* **Body:** "AI models lie because they guess. Axiom fixes this by forcing them to cite verified documents. It makes AI safe for business."
+
+**2. HELIOS (Internal Alpha)**
+* **Tagline:** "The Autonomous Treasury."
+* **Body:** "An automated capital engine. It monitors market volatility 24/7 and manages treasury risk milliseconds faster than any human could."
+
+**3. STACKME (Architecture)**
+* **Tagline:** "Bitcoin-Backed Credit."
+* **Body:** "Borrow cash against Bitcoin without hidden risks. A transparent interface designed to eliminate predatory lending terms."
+
+**4. LUMINA (Specification)**
+* **Tagline:** "Digital Twins for Physical Assets."
+* **Body:** "Linking real-world items (watches, art) to the blockchain via optical scanning. It proves the item is genuine and allows it to be traded globally."
+
+**5. UNIQUENESS (Research)**
+* **Tagline:** "Proof of Human."
+* **Body:** "Proving you are a real person online without scanning your face or giving up private data. The anti-bot layer for the future."
+
+---
+
+## **5. PAGE: STANDARDS (`Governance.tsx`)**
+
+### **SECTION A: HERO**
+* **Headline:** "Safety & Standards"
+* **Body:** "Technology moves fast. Ethics shouldn't. Here are the rules we impose on ourselves to ensure we build responsible systems."
+
+### **SECTION B: COMMITMENTS**
+* **Headline:** "What We Will Never Do"
+* "We never gamble with user funds."
+* "We never sell your data to third parties."
+* "We never launch a product we haven't tested on ourselves first."
+* "We never build 'black boxes' that cannot be audited."
+
+---
+
+## **6. PAGE: INSIGHTS (`Library.tsx`)**
+
+### **SECTION A: HERO**
+* **Headline:** "Insights"
+* **Body:** "The strategic thinking behind our infrastructure. We publish our research, our hypotheses, and our technical learnings."
+
+### **SECTION B: ARTICLES**
+* **"Why AI Hallucinates (And How We Fix It)."**
+* **"The Great Reallocation: The Migration of Capital On-Chain."**
+* **"Autonomous Settlement: Why AI Agents Need Bitcoin."**
+
+---
+
+## **7. PAGE: CONNECT (`Contact.tsx`)**
+
+### **SECTION A: HERO**
+* **Headline:** "Partner With Us."
+* **Body:** "We are actively seeking partners who share our rigorous approach to the digital future."
+
+### **SECTION B: SIDEBAR**
+* **Founders:** "Building in AI Safety, DePIN, or Bitcoin infrastructure."
+* **Investors:** "Seeking deep technical advantage, not short-term speculation."
+* **Institutions:** "Looking to adopt digital asset technologies securely."
+* **Expectations:** "We read every message. If there is a strategic fit, we will reply within 3 business days."
+
+---
+
+### **8. AI DEVELOPER INSTRUCTIONS**
+*Paste this into the AI Agent to execute.*
+
+> **TASK:** Update the website content to match `MASTER_SPEC_v8.md`.
+>
+> **CRITICAL LAYOUT CHANGE:**
+> In `client/src/pages/Overview.tsx`, locate the "Operating Principles" section.
+> * **Current:** `grid-cols-2 lg:grid-cols-3` (Small Cards).
+> * **New:** `grid-cols-1 md:grid-cols-2` (Wide Cards).
+> * **Reason:** The new "Manifesto" text is longer. The cards need to be taller and wider to support the paragraph length without cramping.
+>
+> **STYLE OVERRIDES:**
+> 1.  Force `rounded-sm` to `2px` in Tailwind config.
+> 2.  Set Base Font to `16px`.
+> 3.  Use `text-foreground` (White) for all Body text in Principles cards. Do not use Grey.

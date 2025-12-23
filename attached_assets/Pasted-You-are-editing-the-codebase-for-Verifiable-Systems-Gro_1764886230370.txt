@@ -1,0 +1,81 @@
+You are editing the codebase for **Verifiable Systems Group (VSG)**.
+
+VSG is an **AI-native, cryptography-grounded venture studio** that builds **verifiable systems for capital, identity, and intelligence**, and runs every serious pattern on its **own balance sheet first**.
+
+Brand canon (non-negotiable):
+- Our three domains are **Truth**, **Capital**, and **Dignity** — these replace any older “Signal / Value / Human” framing.
+  - Truth — Make decisions rest on evidence, not stories.
+  - Capital — Make capital work without leaving governed, non-custodial control.
+  - Dignity — Protect people and their personhood; prove eligibility and uniqueness without surveillance.
+- We are **AI-native**: machine intelligence is part of the mechanism and governance loops, not a bolt-on.
+- We are **non-custodial by design** and **balance-sheet-first**.
+- Tone: serious, architectural, ethically explicit; no hype, no memes, no “AI-powered platform” language.
+- Forbidden phrases (rewrite any you find): 
+  - “validate the signal”
+  - “Signal / Value / Human” as pillars
+  - “the human”
+  - “AI-powered platform”
+  - “revolutionary AI”, “game-changing agents”, “AI magic”
+  - casual slang or meme language
+
+Before changing copy or labels, align them with:
+- `docs/brand/VSG-Brand-Voice-System-v3.0.md`
+- `docs/brand/VSG-Identity.md`
+
+Now perform a controlled global user-facing text cleanup:
+
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal:
+Align user-facing text across the app with Brand & Voice System v3.0 and remove old/banned language.
+
+Scope:
+- Only user-facing strings in React components, page files, and shared meta config.
+- Do NOT rename components, variables, routes, or change logic.
+
+Tasks:
+
+1) Global title pattern + default meta
+- Ensure the main HTML `<title>` pattern is: `<Page Title> — Verifiable Systems Group`.
+- Set or update the shared default meta description (used by `<PageMeta>` or equivalent) to:
+
+  “Verifiable Systems Group is an AI-native, cryptography-grounded venture studio. We build verifiable systems for capital, identity, and intelligence, running every serious pattern on our own balance sheet first across Truth, Capital, and Dignity.”
+
+2) Navigation naming
+- In the main layout/nav component, align primary nav items to:
+
+  - Overview → `/`
+  - Ventures → `/ventures`
+  - Approach → `/approach` (or whatever route currently represents the Process/Approach page)
+  - Governance → `/governance` or `/standards` (use existing route, just update label)
+  - Insights → `/insights`
+
+- Under the “Ventures” dropdown, ensure labels clearly show the domain in the subtitle or secondary text, for example:
+  - “Helios — Capital”
+  - “Lumina — Truth”
+  - “Uniqueness Engine — Dignity”
+  - Any VSP/Axiom rails page — “Truth”
+
+3) Phrase remapping (user-facing text only)
+Search user-facing copy and rewrite surrounding sentences to align with v3.0 when you find:
+
+- “validate the signal”  
+  → Replace with language about making decisions rest on **evidence, not stories** (e.g., “We make decisions rest on evidence, not stories, by anchoring outputs to provenance and tamper-evident logs.”)
+
+- “Signal / Value / Human” (or “Signal, Value, Human”) as pillars  
+  → Replace with **Truth, Capital, Dignity** as domains.
+
+- “protect the human”  
+  → Replace with “protect people and their personhood” or “protect people and their dignity”.
+
+- “AI-powered platform”, “revolutionary AI”, “game-changing agents”, “AI magic”  
+  → Replace with phrases like “AI-native infrastructure”, “machine intelligence in the loop”, “structural”, “infrastructure-grade”, “move fast inside guardrails”, or “verifiable”.
+
+- “the human” when used in a generic, dehumanizing way  
+  → Replace with “people”, “individuals”, “you”, “personhood”, or “dignity” depending on context.
+
+4) Safety
+- Do NOT introduce protocol names, specific venues, LTV numbers, wallet topologies, or bank names into public pages.
+- Keep public copy principle-level, non-custodial, conservative, and aligned with the brand docs.
+
+After changes, make sure the app still builds and runs with no TypeScript or runtime errors.

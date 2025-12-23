@@ -1,0 +1,106 @@
+This is the definitive fix.
+
+We are moving from a **"Document Layout"** (scrolling text) to a **"Schematic Layout"** (grid of panels).
+
+In a Control Room, data is **contained**. It doesn't float in a void; it sits inside a monitor or a panel.
+
+Here is the exact prompt to give Replit AI to transform that page into a proper dashboard.
+
+-----
+
+### **The Master Replit Prompt**
+
+**Copy and paste this block into your Replit Agent:**
+
+````markdown
+We need to refactor `client/src/pages/PipelineDetail.tsx` to match the "Institutional Control Room" aesthetic.
+
+**Current Status:** The page looks like a blog post (vertical text).
+**Target Status:** The page must look like a Technical Specification Sheet (Bento Grid).
+
+### EXECUTE THESE CHANGES:
+
+**1. HEADER REFACTOR (THE HUD)**
+* **Background:** Add the `grid_texture.jpg` (imported from assets) as an absolute background with `opacity-20` and `grayscale`, exactly like the Overview Hero.
+* **Layout:** Move the `StageChip` (e.g., "Research") to sit **immediately next** to the `h1` title. It should look like a system status light, not a floating button.
+* **Meta Data:** Ensure the Tagline and Description are tight and contained below the title.
+
+**2. THE BENTO GRID LAYOUT (THE MAIN CONTENT)**
+Replace the vertical list of sections with a CSS Grid.
+* **Container:** `<div className="grid grid-cols-1 lg:grid-cols-3 gap-6">`
+* **Left Column (Span 2):** "Active System State"
+    * Contains two stacked Cards: "Where it is now" and "What we're exploring".
+* **Right Column (Span 1):** "Operational Constraints"
+    * Contains one full-height Card: "What's not happening yet".
+    * **Visual:** Give this card a subtle `bg-destructive/5` tint or `border-destructive/20` to signify "Negative Constraints/Guardrails".
+
+**3. COMPONENT HARDENING**
+* **No Floating Text:** Every list (Current State, Exploring, Not Yet) MUST be wrapped inside a `<Card>`.
+* **Headers:** Inside the cards, use `font-mono text-xs uppercase tracking-wider text-muted-foreground` for the section headers (e.g., "CURRENT STATE").
+* **List Items:** Use the `w-1.5 h-1.5 rounded-[1px] bg-primary` (square dot) for bullets.
+
+**4. CODE STRUCTURE REFERENCE**
+Use this structure for the grid section:
+
+```tsx
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    
+    {/* LEFT COLUMN: Active Data (Span 2) */}
+    <div className="lg:col-span-2 space-y-6">
+      
+      {/* Panel 1: Current State */}
+      <Card className="h-full">
+        <CardContent className="p-6">
+          <h3 className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">
+            System Status
+          </h3>
+          <ul className="space-y-3">
+            {/* Map current state items... */}
+          </ul>
+        </CardContent>
+      </Card>
+
+      {/* Panel 2: Exploration */}
+      <Card className="h-full">
+        <CardContent className="p-6">
+          <h3 className="font-mono text-xs uppercase tracking-wider text-primary mb-4">
+            Active R&D Modules
+          </h3>
+          <ul className="space-y-3">
+            {/* Map exploring items... */}
+          </ul>
+        </CardContent>
+      </Card>
+    </div>
+
+    {/* RIGHT COLUMN: Constraints (Span 1) */}
+    <div className="lg:col-span-1">
+      <Card className="h-full border-destructive/20 bg-destructive/5">
+        <CardContent className="p-6">
+          <h3 className="font-mono text-xs uppercase tracking-wider text-destructive/80 mb-4">
+            Negative Constraints
+          </h3>
+          <ul className="space-y-3">
+            {/* Map not yet items... */}
+          </ul>
+        </CardContent>
+      </Card>
+    </div>
+
+  </div>
+</div>
+````
+
+**Execute this refactor immediately.**
+
+```
+
+***
+
+### **Why this fixes the layout:**
+
+1.  **Containment:** By putting the lists into **Cards**, we define the space. It looks like a "readout."
+2.  **The 2/3 vs 1/3 Split:** This is a classic dashboard ratio. Main data on the left, meta-data/warnings on the right.
+3.  **The "Destructive" Tint:** Making the "Not Happening Yet" column slightly red/tinted visually reinforces that these are **Guardrails**. It adds color logic to the page.
+```

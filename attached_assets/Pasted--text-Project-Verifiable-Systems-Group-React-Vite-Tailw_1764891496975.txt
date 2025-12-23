@@ -1,0 +1,275 @@
+```text
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Align the **Purpose, Vision, and Mission pages** with VSG Brand & Voice System v3.0 and the Truth · Capital · Dignity model.
+
+Each page should:
+
+- Use the canonical line as the hero heading (exact text),
+- Explain what that statement means in practice,
+- Connect it explicitly to Truth, Capital, and Dignity,
+- Stay AI-native, balance-sheet-first, and non-custodial in stance,
+- Avoid any hype, protocol names, tickers, banks, or internal wiring.
+
+Do NOT change global theming, layout primitives, or add/remove any routes. Only update text content, headings, and local structures *inside these three page components*.
+
+---
+
+1) Locate the three pages
+
+Identify the three components that render the Purpose, Vision, and Mission pages. They might be named like:
+
+- `client/src/pages/Purpose.tsx`
+- `client/src/pages/Vision.tsx`
+- `client/src/pages/Mission.tsx`
+
+or similar. Use the router configuration in `client/src/App.tsx` to confirm which components are mounted at:
+
+- `/purpose`
+- `/vision`
+- `/mission`
+
+All changes below apply **only** inside these three page files.
+
+---
+
+2) PURPOSE PAGE — Canon + Content
+
+### 2.1 Hero section
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only the text content.
+
+- Overline:
+  "Purpose"
+
+- Heading (canonical, must be exact):
+  "To democratize institutional-grade leverage."
+
+- Body paragraph:
+  "We exist because most of the world still runs on rails that favour the largest players. They get the best tools, the clearest information, and the safest ways to put capital to work—everyone else gets complexity or risk. Our purpose is to close that gap by building infrastructure that lets individuals and small teams access institutional-grade leverage without surrendering control."
+
+If there is a primary CTA in the hero:
+
+- Label:
+  "See the ventures"
+  → href: `/ventures`
+
+If there is a secondary CTA:
+
+- Label:
+  "How we work"
+  → href: `/approach`
+
+Do not alter layout, background, or components.
+
+### 2.2 “What this means” section
+
+Add or update a section near the top that explains the purpose in practice.
+
+Section heading:
+  "What this means in practice"
+
+Body text (1–2 paragraphs; split into multiple <p> tags if needed):
+
+  "Democratizing institutional-grade leverage does not mean copying institutional products. It means giving people access to the kind of control, clarity, and protection usually reserved for the largest players—without turning them into institutions."
+
+  "In our work, this looks like non-custodial rails, verifiable decision flows, and systems that keep humans in charge of mandates while machines handle the mechanics. You shouldn’t have to choose between keeping your assets idle or handing the keys to a black box."
+
+### 2.3 “How Purpose shows up across the domains”
+
+Add a section that ties Purpose to Truth, Capital, and Dignity.
+
+Section heading:
+  "How it shapes Truth, Capital, and Dignity"
+
+Use three mini-cards or bullets:
+
+- "Truth"
+  Text:
+  "If leverage is going to be shared, the facts underneath it have to be inspectable. We build Truth ventures so decisions—like grading or risk flags—rest on evidence, not just authority."
+
+- "Capital"
+  Text:
+  "If capital is going to work for more people, it has to move without hidden downside. We build Capital ventures so assets can be put to work under explicit limits instead of opaque promises."
+
+- "Dignity"
+  Text:
+  "If leverage is going to be fair, people cannot become the product. We build Dignity ventures so people can participate, prove presence, and protect their time without being over-exposed."
+
+### 2.4 “What this purpose is / is not” block
+
+Add a short “is / is not” explanation.
+
+Small heading:
+  "What this purpose is / is not"
+
+Left side – “This purpose is”:
+- "A design constraint on every venture we run."
+- "A test we apply before we commit capital or time."
+- "A lens for deciding which problems we are willing to work on."
+
+Right side – “This purpose is not”:
+- "Not a slogan for marketing campaigns."
+- "Not a promise of returns, yields, or outcomes."
+- "Not a guarantee that every tool is for everyone."
+
+At the bottom of this section, add a small muted paragraph (e.g., `text-xs text-muted-foreground`):
+
+  "This page describes why we exist as a studio. It is not investment, legal, or tax advice."
+
+---
+
+3) VISION PAGE — Canon + Content
+
+### 3.1 Hero section
+
+Keep hero structure; update text.
+
+- Overline:
+  "Vision"
+
+- Heading (canonical, must be exact):
+  "A future where “trust” is an engineered feature, not a gamble."
+
+- Body paragraph:
+  "Most systems still ask you to take trust on faith: hand over capital, data, or time and hope the rails hold. Our vision is a world where that hope is replaced with engineering—where the flows that matter are verifiable by design, and trust is something you can inspect, not just feel."
+
+If there is a primary CTA:
+
+- Label:
+  "See how we design"
+  → href: `/approach`
+
+Secondary CTA (if present):
+
+- Label:
+  "Explore the ventures"
+  → href: `/ventures`
+
+### 3.2 “What this future looks like” section
+
+Section heading:
+  "What this future looks like"
+
+Body paragraph:
+
+  "In our vision, the systems that matter most—those that move capital, anchor decisions, or govern participation—are observable end to end. They expose enough of their inner workings that stewards can see how they behave on the calmest and worst days, and people can understand how they are being treated."
+
+Add a three-item list for characteristics:
+
+- "Transparent by design"
+  Text:
+  "Key decisions come with evidence: where the inputs came from, how they were transformed, and which limits were enforced."
+
+- "Non-custodial by default"
+  Text:
+  "Control over capital and identity stays as close to the edge as possible. Intermediaries run rails; they do not hold keys."
+
+- "Governed, not improvised"
+  Text:
+  "Systems are built with clear mandates, limits, and rollback paths. Surprises are treated as design failures, not acceptable cost."
+
+### 3.3 “How Vision guides our choices” section
+
+Section heading:
+  "How it guides what we say yes to"
+
+Use 3 bullets:
+
+- "We say yes to systems we can explain under stress."
+- "We say yes to designs that reduce asymmetry between incumbents and individuals."
+- "We say yes to ventures that make it easier to verify first and trust second."
+
+Short muted note at the bottom (optional):
+
+  "If we cannot see how something behaves under stress, we do not build on it."
+
+---
+
+4) MISSION PAGE — Canon + Content
+
+### 4.1 Hero section
+
+Keep hero structure; update text.
+
+- Overline:
+  "Mission"
+
+- Heading (canonical, must be exact):
+  "We engineer the infrastructure of verifiable autonomy."
+
+- Body paragraph:
+  "Our mission is to build the rails that let people and systems act with confidence—because the flows they rely on can be inspected, constrained, and, when necessary, rolled back. We do this by fusing machine intelligence and cryptography, and by running every serious pattern on our own balance sheet first."
+
+Primary CTA:
+
+- Label:
+  "Explore our ventures"
+  → href: `/ventures`
+
+Secondary CTA:
+
+- Label:
+  "Review our approach"
+  → href: `/approach`
+
+### 4.2 “How we pursue this mission” section
+
+Section heading:
+  "How we pursue this mission"
+
+Body paragraph:
+  "We treat “infrastructure of verifiable autonomy” as a job description, not a slogan. It shapes who we hire, which ideas become ventures, and how we respond when systems behave in unexpected ways."
+
+Then three mini-cards or bullets:
+
+- "AI-native, human-governed"
+  Text:
+  "We assume machine intelligence is in the loop from day one. It handles the mechanics; people keep the mandate, the veto, and the accountability."
+
+- "Balance-sheet-first"
+  Text:
+  "We wire serious flows through our own capital and operations first, under conservative limits, so we feel the consequences before anyone else does."
+
+- "Non-custodial by design"
+  Text:
+  "Where capital or identity is involved, we favour architectures where people and institutions keep control of their keys and rights."
+
+### 4.3 “How Mission maps to Truth, Capital, and Dignity”
+
+Section heading:
+  "How it maps to Truth, Capital, and Dignity"
+
+Use three short bullets:
+
+- "Truth — infrastructure that makes key decisions inspectable, from grading outputs to model flags."
+- "Capital — infrastructure that lets assets work within guardrails instead of relying on opaque counterparties."
+- "Dignity — infrastructure that lets people prove enough to participate without over-exposure."
+
+Muted disclaimer at the bottom:
+
+  "This mission describes how we build and operate systems. It does not offer or imply any guarantees of performance or outcomes."
+
+---
+
+5) Hygiene & brand checks for all three files
+
+Within the Purpose, Vision, and Mission page files:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents"
+  - "move fast and break things"
+  - "monetize users", "harvest data"
+  - "StackMe", "Stackme Holdings", or "VSP" as active brand names
+  - generic “the human” phrasing (use “people”, “participants”, “personhood”, or “dignity” instead)
+
+- Ensure each page:
+  - Uses the canonical line as the hero heading *exactly*.
+  - Speaks in the Architect/Judge voice (calm, precise, declarative).
+  - Mentions Truth, Capital, and/or Dignity where appropriate.
+  - Reflects AI-native, balance-sheet-first, non-custodial stance at the level of principles, without protocol names, banks, tickers, or legal-entity wiring.
+```

@@ -1,0 +1,305 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Lumina venture detail page** fully in line with:
+
+- VSG Brand & Voice System v3.0
+- The Truth · Capital · Dignity model
+- The Architect/Judge voice (precise, infrastructural, low-hype)
+- The internal-first, AI-native, non-custodial stance
+
+The Lumina page should:
+
+- Explain clearly what Lumina is and why it exists.
+- Position Lumina explicitly as a **Truth**-domain venture, constrained by Capital and Dignity.
+- Emphasize **evidence, provenance, and repeatability**, not vibes or black-box scores.
+- Make it explicit that Lumina is **infrastructure we run for our own use first**, not a public grading service, fund, or yield product.
+- Connect clearly back to `/ventures`, `/approach`, and `/insights`.
+
+Do NOT change global theming, layout primitives, or add/remove routes. Only update text content, labels, and local data structures in the **Lumina** venture detail page file.
+
+--------------------------------------------------
+1) Locate the Lumina venture detail page
+--------------------------------------------------
+
+Find the component rendered for the Lumina venture route, for example:
+
+- client/src/pages/ventures/Lumina.tsx
+
+or whatever file is used for the `/ventures/lumina` route referenced in the Ventures overview list.
+
+All changes below apply only inside this Lumina venture detail page file.
+
+--------------------------------------------------
+2) Update the hero section
+--------------------------------------------------
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only the strings and hrefs.
+
+Overline:
+  "Truth · Venture"
+
+Heading:
+  "Lumina is physics-aware grading infrastructure."
+
+Body paragraph:
+  "Lumina turns the condition of an asset into evidence you can inspect, not a guess you have to accept. It focuses on one question: how do you turn what a card has actually lived through into repeatable, verifiable signals instead of inconsistent, opaque scores?"
+
+If the hero supports a small secondary line, set it to:
+
+  "We run Lumina against our own collections and internal use cases first, so every pattern we share has survived real handling, imperfections, and edge cases."
+
+Hero CTAs:
+
+- Primary hero CTA:
+  - Label: "Back to ventures"
+  - href: "/ventures"
+
+- Secondary hero CTA (if present):
+  - Label: "See how we work"
+  - href: "/approach"
+
+Do not change hero layout, background, or component types.
+
+--------------------------------------------------
+3) Add / refine the “What Lumina is” section
+--------------------------------------------------
+
+Section heading:
+  "What Lumina is"
+
+Body paragraph:
+  "Lumina is grading infrastructure focused on evidence. It uses sensors and machine intelligence to turn physical wear, defects, and anomalies into structured signals. Those signals can feed decisions about grading, insurance, pricing, and risk—without forcing anyone to trust a single opaque opinion."
+
+If your layout supports bullets or mini-cards under this section, configure three:
+
+Card 1:
+  Title:
+    "Infrastructure, not a logo"
+  Text:
+    "Lumina is designed as rails that other experiences can sit on—mobile flows, marketplace checks, pre-grading tools, inventory workflows—rather than a logo you ship cards to and hope for the best."
+
+Card 2:
+  Title:
+    "Evidence-first"
+  Text:
+    "Everything starts with what can be measured: edges, surfaces, centering, print artifacts, handling scars. If we cannot trace a signal back to a physical or sensor-detected feature, it does not drive a conclusion."
+
+Card 3:
+  Title:
+    "AI-native, but governed"
+  Text:
+    "Machine intelligence does the high-volume patterning and anomaly detection. People define what counts as evidence, what ranges are acceptable, and where uncertainty must be surfaced instead of hidden."
+
+--------------------------------------------------
+4) Add / refine “The problem Lumina addresses”
+--------------------------------------------------
+
+Section heading:
+  "The problem Lumina addresses"
+
+Body paragraph:
+  "Collectors, platforms, and insurers all hit the same wall: condition is critical, but the path from card to grade is often slow, inconsistent, and opaque. You can send two copies of the same card and receive meaningfully different outcomes—with no way to inspect why."
+
+Then add a three-item bullet or card list:
+
+Item 1:
+  Title:
+    "Opaque decisions"
+  Text:
+    "Most grading today happens behind closed doors. You see a label and a number, but not the chain of evidence or the thresholds that led there."
+
+Item 2:
+  Title:
+    "Inconsistent outcomes"
+  Text:
+    "Similar cards can receive different results, even from the same provider. That uncertainty flows directly into pricing, insurance, and trust."
+
+Item 3:
+  Title:
+    "Friction everywhere"
+  Text:
+    "Shipping, wait times, and limited capacity create bottlenecks. Many cards never get evaluated at all, even when condition clearly affects risk."
+
+Keep the tone calm, specific, and non-accusatory.
+
+--------------------------------------------------
+5) Add / refine “How Lumina works (high-level)”
+--------------------------------------------------
+
+This is a conceptual description only. No provider names, model names, or proprietary algorithms.
+
+Section heading:
+  "How Lumina works (high-level)"
+
+Body paragraph:
+  "Lumina is built as a pipeline, not a black box. It starts with how the card is captured, moves through a series of detection and analysis passes, and ends with structured outputs that other systems can use."
+
+Then three bullets or mini-cards:
+
+Card 1:
+  Title:
+    "Capture and context"
+  Text:
+    "Cards are captured with defined setups that control for lighting, angles, and motion. We record enough context so we know what the system saw—and what it could not see."
+
+Card 2:
+  Title:
+    "Detection and signals"
+  Text:
+    "Machine intelligence looks for specific, documented features: edge wear, surface issues, centering drift, printing artifacts, and other condition markers. Each becomes a signal with an explanation, not just a floating score."
+
+Card 3:
+  Title:
+    "Outputs and decisions"
+  Text:
+    "Lumina outputs structured condition signals, not final instructions. Those signals can drive pre-grading decisions, insurance checks, pricing workflows, or human reviews—under rules that can be audited and adjusted."
+
+Optional muted line under this section (using existing small-text style):
+
+  "The goal is not to remove people—it is to give them better, inspectable inputs."
+
+--------------------------------------------------
+6) Add / refine “Lumina and the three questions”
+--------------------------------------------------
+
+Tie Lumina explicitly to Truth, and show how it touches Capital and Dignity.
+
+Section heading:
+  "Lumina and the three questions"
+
+Intro paragraph:
+  "Lumina lives primarily in Truth, but any system that affects asset value and access has consequences for Capital and Dignity too."
+
+Then a three-item format (bullets, mini-cards, or horizontal list):
+
+Item 1:
+  Label:
+    "Truth"
+  Text:
+    "Lumina anchors condition to evidence. Every key signal must trace back to something observable in the capture. If we cannot show where it came from, it should not drive a decision."
+
+Item 2:
+  Label:
+    "Capital"
+  Text:
+    "Condition signals feed into pricing, insurance, and collateral decisions. By making those signals consistent and transparent, we reduce the chance that unseen defects or inconsistent treatment quietly distort risk."
+
+Item 3:
+  Label:
+    "Dignity"
+  Text:
+    "Collectors and platforms deserve to know how their assets are evaluated. Lumina aims to reduce the need to blindly trust, replacing ‘just accept this’ with ‘here is what we saw and how it was interpreted’."
+
+--------------------------------------------------
+7) Add “Use cases Lumina is exploring”
+--------------------------------------------------
+
+Section heading:
+  "Use cases Lumina is exploring"
+
+Body paragraph:
+  "Because Lumina is infrastructure, it can sit underneath different experiences. We focus first on cases where condition uncertainty has the highest impact."
+
+Use three example cards/bullets, written as **explorations**, not product promises:
+
+Use case 1:
+  Title:
+    "Pre-grading decisions"
+  Text:
+    "Helping collectors and platforms decide which assets are worth sending into full grading or insurance workflows—before they spend time and money."
+
+Use case 2:
+  Title:
+    "Inventory and intake checks"
+  Text:
+    "Giving marketplaces and vaults a structured way to flag condition risk on intake, instead of relying solely on manual inspection or after-the-fact disputes."
+
+Use case 3:
+  Title:
+    "Risk and pricing inputs"
+  Text:
+    "Supporting pricing and risk models with consistent, machine-readable condition signals rather than ad-hoc, one-off human impressions."
+
+Avoid language that implies a currently live, general-availability product. Stay in “exploring / supporting / enabling” language.
+
+--------------------------------------------------
+8) Add “What Lumina is / is not”
+--------------------------------------------------
+
+Section heading:
+  "What Lumina is / is not"
+
+Use a two-column or two-list pattern if available.
+
+Left side — “Lumina is”:
+- "Grading infrastructure focused on evidence and repeatability."
+- "A Truth-domain venture that we run on our own collections and internal use cases first."
+- "A way to turn condition into structured signals that other systems and teams can understand."
+
+Right side — “Lumina is not”:
+- "Not a promise that we will grade or insure anyone’s assets."
+- "Not a guarantee of specific valuations, prices, or outcomes."
+- "Not an offer of investment, yield, or securities."
+
+Muted small-text line under this section:
+
+  "This page describes how we build and use Lumina for our own needs. It is not investment, legal, tax, or insurance advice."
+
+--------------------------------------------------
+9) Add cross-links to related pages
+--------------------------------------------------
+
+At the bottom of the Lumina page (just above any global footer), add a “next steps” or cross-link row using existing link or button styles, for example:
+
+- Link 1:
+  Label: "Back to all ventures"
+  href: "/ventures"
+
+- Link 2:
+  Label: "Read related insights"
+  href: "/insights"
+
+- Link 3:
+  Label: "Review our approach"
+  href: "/approach"
+
+If the page uses a shared NextStepBlock component instead, configure it approximately as:
+
+- Title:
+  "See the approach behind Lumina"
+- Description:
+  "Our approach and standards describe how Truth, Capital, and Dignity shape systems like Lumina before they touch anyone else’s decisions."
+- href:
+  "/approach"
+
+Use whichever pattern already exists; do not introduce new components.
+
+--------------------------------------------------
+10) Hygiene & brand checks for the Lumina page
+--------------------------------------------------
+
+In the Lumina venture detail page file only, ensure:
+
+1) There are **no** occurrences of:
+   - The old domains "Signal", "Value", "Human" as domain names.
+   - The phrase "validate the signal" as a tagline or section label.
+   - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents".
+   - "move fast and break things".
+   - "monetize users", "harvest data".
+   - "StackMe", "Stackme Holdings", "Stackme app", or "VSP" as active brand names.
+   - The vague phrase "the human". Prefer: "people", "participants", "collectors", "teams", "personhood", or "dignity".
+
+2) You do **not** mention:
+   - Specific grading company names, protocol names, token tickers, bank names, or legal-entity wiring.
+   - Exact model architectures, datasets, thresholds, or proprietary algorithms.
+   - Any guarantees of grading turnaround times, pricing, liquidity, or investment performance.
+
+3) You **do**:
+   - Clearly position Lumina as a Truth-domain venture constrained by Capital and Dignity.
+   - Emphasize evidence, provenance, and repeatability over hype.
+   - Reiterate internal-first, AI-native, governed stance.
+   - Maintain the Architect/Judge voice: calm, precise, infrastructural, with controlled warmth.
+
+Do not modify other pages or routes in this checkpoint.

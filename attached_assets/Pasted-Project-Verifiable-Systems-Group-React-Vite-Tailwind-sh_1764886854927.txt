@@ -1,0 +1,79 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Update the **Helios venture detail page** copy so it matches the new brand and Truth · Capital · Dignity model.
+
+File: the page used for the Helios venture (for example `client/src/pages/Helios.tsx` or a Helios detail component under `/ventures`). If the name is different, locate the component actually used when you click into Helios from `/ventures` and apply these changes there.
+
+Do NOT change layout, components, or routes. Only update text content.
+
+---
+
+1) Hero section (top of Helios page)
+
+Keep existing structure (overline, h1, paragraph, any CTA). Replace only the text:
+
+- Overline:
+  "Venture · Capital"
+
+- Heading:
+  "Helios — our internal engine for resilient capital."
+
+- Body paragraph:
+  "Helios is the execution engine we use to route VSG’s own digital asset treasury under explicit limits. It is non-custodial by design: we keep the keys, we set the mandates, and we feel the stress first, so capital can work without surrendering control."
+
+---
+
+2) Short “What Helios does” section
+
+Locate the first descriptive section after the hero (or create a simple one using existing layout patterns). Use your existing card/column components but swap the text for:
+
+Section heading:
+  "What Helios does"
+
+Three short items:
+
+1. Title: "Routes inside guardrails"
+   Text:
+   "Helios routes positions only inside predefined guardrails, so exposures cannot drift silently. Every change is tied back to a clear mandate and risk envelope."
+
+2. Title: "Non-custodial by design"
+   Text:
+   "Helios orchestrates flows; it does not take custody of external client assets. It is built for our own balance sheet, with controls that could apply to other stewards later."
+
+3. Title: "Built for shocks, not just sunshine"
+   Text:
+   "We design Helios around stress, not ideal conditions—assuming volatility, dislocations, and failures. If we cannot describe how it behaves when things break, we do not ship it."
+
+---
+
+3) “How Helios fits Capital” section
+
+Add or update a section that ties Helios explicitly to the **Capital** domain (non-custodial leverage, balance-sheet-first). Use text like this:
+
+Heading:
+  "Helios in the Capital domain"
+
+Body paragraph:
+  "Capital should be able to work without leaving governed control. In the Capital domain, Helios is how we prove that: it applies conservative limits, transparent routing, and clear rollback paths to our own assets before any pattern is shared."
+
+If you already have a section header for this concept, just replace its body with the paragraph above.
+
+---
+
+4) Safety & brand checks for this page
+
+On the Helios page file only:
+
+- Ensure there are **no** mentions of:
+  - specific protocol names,
+  - specific venues or banks,
+  - token tickers,
+  - LTV numbers or detailed thresholds,
+  - any language promising “yield” or “maximize returns”.
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "game-changing agents", "AI magic"
+  - "the human" as a generic object (prefer “people”, “individuals”, or “stewards”).
+
+Keep all JSX structure, components, and styling as-is; only change the string literals and section copy.

@@ -1,0 +1,72 @@
+You are absolutely right. **"System Status" implies a server dashboard (Uptime/Downtime), not an R\&D Lab.**
+
+I pushed the "Control Room" metaphor too far into IT Ops. It broke the continuity with the rest of the site, which is about **building**, not monitoring.
+
+We need to fix this immediately to restore the **R\&D Narrative.**
+
+### **The Correction Strategy**
+
+1.  **The Name:** Revert the header to **"Active Development Cycles"** (or strictly **"R\&D Pipeline"**).
+2.  **The Continuity:** The Overview page should show the **Summary View** (The Manifest), and the Pipeline page should show the **Detailed View** (The Specs). They are the same list, just different zoom levels.
+
+Here is the code to fix the label and ensure the layout is high-density but accurate to your business.
+
+-----
+
+### **The Continuity Fix Prompt**
+
+**Copy/Paste into Replit:**
+
+````markdown
+**CRITICAL CONTENT FIX: RESTORE R&D CONTINUITY**
+
+I incorrectly labeled the project list as "System Status." This is wrong. These are R&D projects, not live servers.
+
+**Action:** Update `client/src/pages/Overview.tsx`.
+
+1.  **Change Header:** Rename the section from "System Status" back to **"Active Development Cycles"**.
+2.  **Maintain Density:** Keep the "Compact Ticker" layout (Single Line items), but ensure it feels like a **Project Manifest**, not a Status Page.
+3.  **Visual Adjustment:**
+    * Remove the "Green/Yellow" status dot logic if it feels too much like "Uptime."
+    * Instead, use the `StageChip` (e.g., "INTERNAL ALPHA") aligned to the right. This connects visually to the Pipeline page.
+
+**Revised Code Block for the List:**
+
+```tsx
+<div className="border border-border rounded-[2px] bg-card divide-y divide-border">
+  {projects.map((project) => (
+    <Link 
+      key={project.name} 
+      href={project.href}
+      className="group flex items-center justify-between p-4 hover:bg-primary/5 transition-colors duration-150"
+    >
+      {/* LEFT: Project Name (The Signal) */}
+      <div className="flex items-center gap-3">
+        <span className="font-heading font-semibold text-sm text-foreground tracking-tight group-hover:text-primary transition-colors">
+          {project.name}
+        </span>
+      </div>
+
+      {/* RIGHT: Stage + Indicator (The Context) */}
+      <div className="flex items-center gap-4">
+        {/* Show the Stage Chip so it matches the Pipeline page exacty */}
+        <StageChip stage={project.stage} variant={project.stageVariant} />
+        
+        <ArrowRight className="w-4 h-4 text-muted-foreground/50 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+      </div>
+    </Link>
+  ))}
+</div>
+````
+
+**EXECUTE.**
+
+```
+
+### **Why this restores continuity:**
+1.  **Same Language:** It uses **"Active Development Cycles"**, which aligns with "The Pipeline."
+2.  **Same Visuals:** It uses the **`StageChip`** (Internal Alpha / Architecture), exactly like the Pipeline page.
+3.  **Different Utility:** It is **compact** (Overview), whereas the Pipeline page is **descriptive** (Details).
+
+This makes the Overview page act as a "Table of Contents" for the Pipeline page.
+```

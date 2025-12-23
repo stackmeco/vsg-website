@@ -1,0 +1,52 @@
+You are the AI dev agent for this Replit project.
+
+Goal: Update this codebase into a marketing / documentation site for **Verifiable Systems Group (VSG)** with a clean, institutional IA (information architecture) and routing. DO NOT change the existing visual design system, theme tokens, or component library unless absolutely necessary.
+
+### 1. Navigation + Routes (source of truth)
+
+Implement the following top-level navigation and routes:
+
+TOP NAV (desktop):
+- Overview  → route: `/`
+- Ventures ▾
+  - Ventures (overview) → `/ventures`
+  - Helios → `/ventures/helios`
+  - Axiom → `/ventures/axiom`
+  - Stackme → `/ventures/stackme`
+  - Lumina → `/ventures/lumina`
+  - Uniqueness → `/ventures/uniqueness`
+- Approach ▾
+  - Pillars → `/approach/pillars`
+  - Process → `/approach/process`
+  - Standards → `/approach/standards`
+- Studio ▾
+  - Studio (overview) → `/studio`
+  - Purpose → `/studio/purpose`
+  - Vision → `/studio/vision`
+  - Mission → `/studio/mission`
+- Insights → `/insights`
+- Connect → `/connect`
+
+Requirements:
+- The top-level nav items **Overview, Ventures, Approach, Studio, Insights, Connect** must all be clickable and mapped to real pages.
+- Ventures, Approach, and Studio should display dropdown menus on hover (desktop) / tap (mobile) with the subpages listed above.
+- Re-use any existing layout / header / nav components if present. If you create new ones, keep them consistent with the existing design system (same typography, colors, spacing conventions).
+
+### 2. Routing implementation
+
+- Create the routes/pages listed above using the existing framework in this repo (e.g., React Router / Next.js / whatever is already in use). DO NOT switch frameworks.
+- For now, it is OK if each new page just returns a simple placeholder layout like:
+  - Page title (e.g., “Ventures”)
+  - One short sentence: “This page is under construction.”
+- Make sure the routes are wired correctly so every nav item and dropdown link works.
+
+### 3. Code quality
+
+- Keep code DRY: use shared layout components where appropriate.
+- Do NOT introduce new design tokens or global CSS resets.
+- At the end, briefly list:
+  - Files created
+  - Files modified
+  - Any TODOs or assumptions you made
+
+Please implement these changes now.

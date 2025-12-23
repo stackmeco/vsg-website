@@ -1,0 +1,251 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Helios venture detail page** fully in line with:
+
+- VSG Brand & Voice System v3.0
+- The Truth · Capital · Dignity model
+- The Architect/Judge voice
+- The internal-first, non-custodial, AI-native stance
+
+This page should:
+
+- Explain **what Helios is** in plain, precise language,
+- Position Helios clearly as a **Capital**-domain venture,
+- Emphasize that Helios is an **internal treasury execution engine** used on our own balance sheet,
+- Make it explicit that Helios is **not** a public product, fund, or yield program,
+- Connect clearly back to `/ventures`, `/approach`, `/standards`, and `/insights`.
+
+Do NOT change global theming, layout primitives, or add/remove routes. Only update text content, labels, and local data structures in the **Helios** venture detail page file.
+
+--------------------------------------------------
+1) Locate the Helios venture detail page
+--------------------------------------------------
+
+Find the component rendered for the Helios venture route, for example:
+
+- client/src/pages/ventures/Helios.tsx
+- or the file used for the `/ventures/helios` route referenced in the Ventures overview list.
+
+All changes below apply only inside this Helios venture detail page file.
+
+--------------------------------------------------
+2) Update the hero section
+--------------------------------------------------
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only the strings and hrefs.
+
+Overline:
+  "Capital · Venture"
+
+Heading:
+  "Helios is our resilient treasury execution engine."
+
+Body paragraph:
+  "Helios routes our own digital asset treasury under explicit limits and scenarios. It exists to answer a simple question: how do you keep capital working without handing control to opaque intermediaries or chasing yield that will not survive the worst day?"
+
+If the hero supports a small secondary line, add:
+
+  "We wire Helios through our own balance sheet first, so the earliest mistakes land on us—not on anyone who might later rely on these patterns."
+
+Primary hero CTA:
+
+- Label:
+  "Back to ventures"
+- href:
+  "/ventures"
+
+Secondary hero CTA (if present):
+
+- Label:
+  "See how we work"
+- href:
+  "/approach"
+
+Do not change hero layout, background, or component types.
+
+--------------------------------------------------
+3) Add “What Helios is” section
+--------------------------------------------------
+
+Create or update the first main content block under the hero.
+
+Section heading:
+  "What Helios is"
+
+Body paragraph:
+  "Helios is our internal execution engine for digital asset treasury. It does not hold client funds or run a public strategy. Instead, it coordinates how our own capital moves across approved rails under predefined limits, scenarios, and review gates."
+
+If the layout supports bullets or mini-cards, configure three:
+
+Card 1:
+  Title: "Internal-first"
+  Text: "Helios runs our own treasury, not a public pool. Its first responsibility is to keep our capital resilient under stress—not to maximize short-term yield."
+
+Card 2:
+  Title: "Governed like infrastructure"
+  Text: "Every change Helios makes is bounded by explicit policies, limits, and rollback paths. We treat it like infrastructure, not a trading desk."
+
+Card 3:
+  Title: "Built for the worst day"
+  Text: "Design decisions are evaluated under stress scenarios, not just normal conditions. If a path only works when markets are kind, it does not belong in Helios."
+
+--------------------------------------------------
+4) Add “The problem Helios addresses” section
+--------------------------------------------------
+
+Section heading:
+  "The problem Helios addresses"
+
+Body paragraph:
+  "Most treasuries either sit idle or rely on opaque venues and informal rules. Exposure creeps up, dependencies multiply, and by the time anyone notices, risk is concentrated in ways no one intended. We have seen this pattern up close."
+
+Then add a short bullet list:
+
+- "Unclear exposures"
+  Text: "Positions and counterparty risks sprawl across venues without a coherent view of what can break and how far the blast radius reaches."
+
+- "Yield over resilience"
+  Text: "Decisions are often made to maximize headline yield, not to ensure survival through shocks and liquidity crunches."
+
+- "No rehearsed exits"
+  Text: "Few teams can describe how they would unwind positions under pressure, let alone practice those exits before they are needed."
+
+Keep language calm and specific; no hype phrases.
+
+--------------------------------------------------
+5) Add “How Helios works (high-level)” section
+--------------------------------------------------
+
+This is a conceptual description only. No protocol names, tickers, or exact thresholds.
+
+Section heading:
+  "How Helios works (high-level)"
+
+Body paragraph:
+  "Helios acts as an orchestration layer for our treasury. It does not chase every opportunity; it enforces which moves are allowed, under what conditions, and who must sign off."
+
+Then three bullets or mini-cards:
+
+Card 1:
+  Title: "Policy before position"
+  Text: "We define what types of exposure are allowed, which rails qualify, and how much concentration is acceptable before capital moves."
+
+Card 2:
+  Title: "AI-native monitoring"
+  Text: "Machine intelligence tracks conditions, scenarios, and anomalies at speed, flagging risks and deviations. Humans set the mandates, interpret the signals, and retain the veto."
+
+Card 3:
+  Title: "Drills and rollbacks"
+  Text: "We rehearse how to reduce, pause, or exit positions under stress. If a path cannot be unwound safely in practice, it does not make it into Helios."
+
+Do not reference specific percentages, LTVs, venues, or instruments.
+
+--------------------------------------------------
+6) Add “Helios and the three questions” section
+--------------------------------------------------
+
+Tie Helios explicitly to Truth, Capital, and Dignity.
+
+Section heading:
+  "Helios and the three questions"
+
+Intro paragraph:
+  "Every venture inside VSG is anchored to the same three questions. Helios lives primarily in Capital, but it is constrained by Truth and Dignity as well."
+
+Then a three-item structure (could be bullets, inline cards, or a horizontal list):
+
+Item 1:
+  Label: "Truth"
+  Text: "Helios depends on data and signals we can inspect. We need to see where information comes from, how it is checked, and how it can fail—before we treat it as a basis for moving capital."
+
+Item 2:
+  Label: "Capital"
+  Text: "Helios is built to keep capital resilient. That means explicit limits, concentration controls, and paths for degraded modes—not blind exposure in search of yield."
+
+Item 3:
+  Label: "Dignity"
+  Text: "Helios must not rely on exploiting users, counterparties, or teams. Designs that depend on confusing someone on the other side of a trade do not pass."
+
+--------------------------------------------------
+7) Add “What Helios is / is not” section
+--------------------------------------------------
+
+Clarify boundaries and avoid misinterpretation.
+
+Section heading:
+  "What Helios is / is not"
+
+Use a two-column or two-list pattern if available.
+
+Left side — “Helios is”:
+- "An internal treasury execution engine we run on our own balance sheet."
+- "A way to test resilient capital architectures under explicit guardrails."
+- "A Capital-domain venture constrained by Truth and Dignity."
+
+Right side — “Helios is not”:
+- "Not a public fund, product, or yield program."
+- "Not an offer to manage anyone else’s assets."
+- "Not a promise of specific returns or outcomes."
+
+Muted small-text line under this section:
+
+  "This page describes how we run our own treasury. It is not investment, legal, tax, or compliance advice."
+
+--------------------------------------------------
+8) Add cross-links to related pages
+--------------------------------------------------
+
+At the bottom of the page (just above any global footer), add a small “next steps” or cross-link row, using existing link or button styles, for example:
+
+- Link 1:
+  Label: "Back to all ventures"
+  href: "/ventures"
+
+- Link 2:
+  Label: "Review our standards"
+  href: "/standards"
+
+- Link 3:
+  Label: "Read related insights"
+  href: "/insights"
+
+If the page uses a shared NextStepBlock component instead, configure it roughly as:
+
+- Title:
+  "See the standards that govern Helios"
+
+- Description:
+  "Our standards set the limits and responsibilities that any treasury engine must operate under."
+
+- href:
+  "/standards"
+
+Use whichever pattern already exists in your code; do not introduce new components.
+
+--------------------------------------------------
+9) Hygiene & brand checks for the Helios page
+--------------------------------------------------
+
+In the Helios venture detail page file only, ensure:
+
+1) There are no occurrences of:
+   - The old domains "Signal", "Value", "Human" as domain names,
+   - The phrase "validate the signal",
+   - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents",
+   - "move fast and break things",
+   - "monetize users", "harvest data",
+   - "StackMe", "Stackme Holdings", "Stackme app", or "VSP" as active brand names,
+   - The vague phrase "the human". Prefer: "people", "participants", "teams", "stewards", "personhood", or "dignity".
+
+2) You do NOT mention:
+   - Specific protocol names, token tickers, bank names, or internal legal-entity wiring,
+   - Exact LTVs, leverage ratios, positions, or other internal numeric details.
+
+3) You DO:
+   - Clearly position Helios as a Capital-domain venture,
+   - Emphasize internal-first, non-custodial, AI-native, governed execution,
+   - Maintain the Architect/Judge voice: calm, precise, infrastructural, zero hype.
+
+Do not modify other pages or routes in this checkpoint.

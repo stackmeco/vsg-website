@@ -1,0 +1,104 @@
+Yes, you are exactly right. It is the **boxes (the 3-column grid)**.
+
+The "Industrial Control Room" aesthetic relies on rigid grids. When you try to put "Manifesto" style text (which has nuance and length) into a 3-column card designed for short stats, the text either **truncates (cuts off)** or the card stretches and breaks the visual rhythm.
+
+The 3-column grid forces you to write "Soundbites."
+You want to write "Philosophy."
+
+To fix this without making the text "extreme" (too short), we need to **change the container, not just the text.**
+
+### **The Design Fix: The "Bento" Layout**
+
+Instead of squeezing all three (Purpose, Vision, Mission) into equal narrow columns, we will use a **2-over-1** layout:
+
+  * **Row 1 (50/50 Split):** Purpose & Vision (Shorter text fits here).
+  * **Row 2 (Full Width):** Mission (Longer text with bullet points gets room to breathe).
+
+This solves the spacing issue instantly while keeping the "Control Room" look.
+
+-----
+
+### **REPLIT INSTRUCTIONS (Copy/Paste)**
+
+> **TASK:** Update the "Directive" Section in `client/src/pages/Overview.tsx` to fix text truncation issues.
+>
+> **LAYOUT UPDATE:**
+> Change the `grid-cols-3` layout to a **Bento Grid**:
+>
+>   * **Purpose & Vision:** Side-by-side on desktop (`md:col-span-1`).
+>   * **The Mission:** Full width (`md:col-span-2`).
+>
+> **CODE REPLACEMENT:**
+> Replace the entire `<section data-testid="section-directive">` block with this:
+
+```tsx
+<section className="py-20 bg-card" data-testid="section-directive">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-8">
+      The VSG Directive
+    </p>
+    
+    {/* NEW LAYOUT: 2-Column Grid where Mission spans full width */}
+    <div className="grid md:grid-cols-2 gap-6">
+      
+      {/* 1. PURPOSE */}
+      <Card className="bg-background border-border h-full">
+        <CardContent className="p-8 flex flex-col justify-center h-full">
+          <p className="text-xs font-mono uppercase tracking-wider text-primary mb-2">Purpose</p>
+          <h3 className="font-heading font-semibold text-2xl text-foreground mb-4">
+            Democratize Leverage
+          </h3>
+          <p className="text-base text-muted-foreground leading-relaxed">
+            To democratize institutional-grade leverage. We build tools that give individuals the same financial power as banks, without the intermediaries.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* 2. VISION */}
+      <Card className="bg-background border-border h-full">
+        <CardContent className="p-8 flex flex-col justify-center h-full">
+          <p className="text-xs font-mono uppercase tracking-wider text-primary mb-2">Vision</p>
+          <h3 className="font-heading font-semibold text-2xl text-foreground mb-4">
+            Engineered Trust
+          </h3>
+          <p className="text-base text-muted-foreground leading-relaxed">
+            A future where "Trust" is an engineered feature, not a gamble. We replace blind faith with cryptographic proof and open code.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* 3. MISSION (Full Width for Spacing) */}
+      <Card className="bg-background border-border md:col-span-2">
+        <CardContent className="p-8 md:p-10">
+          <div className="max-w-3xl">
+            <p className="text-xs font-mono uppercase tracking-wider text-primary mb-2">The Mission</p>
+            <h3 className="font-heading font-semibold text-2xl text-foreground mb-6">
+              Verifiable Autonomy
+            </h3>
+            <p className="text-base text-muted-foreground leading-relaxed mb-6">
+              We engineer the infrastructure of autonomy across three critical pillars, ensuring that every system we build is transparent, solvent, and secure.
+            </p>
+            
+            {/* 3-Column Internal Grid for the Pillars */}
+            <div className="grid sm:grid-cols-3 gap-8 pt-4 border-t border-border/50">
+              <div>
+                <h4 className="text-foreground font-semibold mb-2">Validate Signal</h4>
+                <p className="text-sm text-muted-foreground">Forcing AI to be deterministic and source-backed (Axiom).</p>
+              </div>
+              <div>
+                <h4 className="text-foreground font-semibold mb-2">Preserve Value</h4>
+                <p className="text-sm text-muted-foreground">Merging DeFi safety with HFT speed (Stackme & Helios).</p>
+              </div>
+              <div>
+                <h4 className="text-foreground font-semibold mb-2">Protect Identity</h4>
+                <p className="text-sm text-muted-foreground">Proving personhood without surveillance (Uniqueness Engine).</p>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+    </div>
+  </div>
+</section>
+```

@@ -1,0 +1,203 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Lumina venture detail page** fully in line with VSG Brand & Voice System v3.0 and the Truth · Capital · Dignity model.
+
+Lumina must clearly read as:
+- A **Truth** venture,
+- AI-native and evidence-backed,
+- Infrastructure / rails, not a retail grading company,
+- Focused on physics-aware, inspectable grading signals,
+- Not a yield product, fund, or consumer marketplace.
+
+Do NOT change layout primitives, visual design, or routes. Only update text content, headings, and small local data structures in the Lumina page file.
+
+---
+
+1) Locate the Lumina venture page
+
+Find the component used for the Lumina detail route, e.g.:
+
+- `client/src/pages/ventures/Lumina.tsx`
+- or whatever file is rendered for `/ventures/lumina`.
+
+All changes below apply **only** inside this Lumina page file.
+
+---
+
+2) Update the hero section
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTA). Replace only the text:
+
+- Overline:
+  "Lumina · Truth"
+
+- Heading:
+  "Lumina — physics-aware grading."
+
+- Body paragraph:
+  "Lumina turns raw card condition into evidence-backed grading signals instead of vibes. It ties each result to measurable inputs so collectors, marketplaces, and insurers can see how a decision was formed instead of guessing."
+
+If the hero has a primary CTA button, keep the component and styling but set the label to something neutral like:
+
+- "Back to ventures"
+or
+- "View all ventures"
+
+and link it to the `/ventures` route (or whatever route already exists for the ventures index).
+
+No “sign up”, “get graded”, or sales CTAs here—Lumina is infrastructure and rails, not a consumer grading queue.
+
+---
+
+3) “Why Lumina exists” section
+
+Find the first explanatory section under the hero. If one already exists, reuse its structure and replace the copy. If not, create a new section using the same section/typography components used on other venture pages.
+
+Section heading:
+  "Why Lumina exists"
+
+Body text (1–2 paragraphs; split into multiple <p> if your component prefers):
+
+  "Grading a card often means shipping it away, waiting, and hoping that a human eye sees what you see. Results can drift between graders, queues get clogged, and decisions are hard to audit later. Lumina exists to turn that process into something inspectable."
+
+  "Instead of relying on a single opaque score, we start from measurable properties—surface, corners, centering, edges—and anchor each output to the data and models that produced it. The goal is simple: if a grade matters, you should be able to see how it was built."
+
+Keep the tone calm and architectural; no hype adjectives.
+
+---
+
+4) “What Lumina is / is not” block
+
+If the page already has a “What it is / what it’s not” pattern, reuse it and just update the text. Otherwise, create a simple two-column or stacked section using your existing info-card component.
+
+Left column heading:
+  "What Lumina is"
+
+Left column bullets:
+
+  - "Infrastructure for physics-aware grading signals in the trading card ecosystem."
+  - "A Truth-domain venture: anchoring condition to evidence, not to guesswork."
+  - "AI-native and human-governed: machine intelligence reads sensor data; people define thresholds, policies, and dispute paths."
+  - "A way to make grading behaviours inspectable so different parties can understand and audit them."
+
+Right column heading:
+  "What Lumina is not"
+
+Right column bullets:
+
+  - "Not a retail grading queue or standalone grading brand."
+  - "Not a marketplace or vault for holding customer cards."
+  - "Not a guarantee of prices, returns, or investment outcomes."
+  - "Not a black-box model that hides how it reached a result."
+
+Use existing card/grid components and styles; only update headings and copy.
+
+---
+
+5) “How Lumina works (at a distance)” section
+
+Add or update a section that explains mechanics conceptually, without going into protocol names, hardware SKUs, or vendor specifics.
+
+Section heading:
+  "How Lumina works (at a distance)"
+
+Short lead paragraph:
+  "Lumina treats card grading as a measurement and provenance problem, not just an opinion. It builds a chain from how a card was observed to how its condition was scored."
+
+Then use three mini-cards or bullets (reuse an existing pattern):
+
+1) Title: "Evidence first"
+   Text:
+   "Lumina starts from measurable properties—surface, edges, corners, centering—and records the observations and transformations used to score them."
+
+2) Title: "AI-native, governed outputs"
+   Text:
+   "Machine intelligence detects patterns and anomalies in the data; people define which signals matter, how they are weighted, and what happens when something looks off."
+
+3) Title: "Inspectable by design"
+   Text:
+   "Each output is tied back to the inputs and model decisions that created it, so participants can review the path instead of debating a single number in isolation."
+
+Do NOT:
+- Name specific sensor vendors, hardware, or model architectures.
+- Mention protocol names, token tickers, or any financial venue.
+
+Keep it conceptual and on-voice.
+
+---
+
+6) “Who Lumina is for” section
+
+Add or update a section that clarifies the intended users at a high level.
+
+Section heading:
+  "Who Lumina is for"
+
+Use either bullets or three small cards (whichever pattern already exists):
+
+- "Collectors"
+  Text:
+  "Collectors who want more confidence about condition before they decide what to ship, insure, or trade."
+
+- "Marketplaces and platforms"
+  Text:
+  "Marketplaces that need consistent, evidence-backed signals to reduce disputes and price more fairly."
+
+- "Ecosystem builders"
+  Text:
+  "Ecosystem builders who want grading to behave like infrastructure—documented, repeatable, and auditable."
+
+Keep the scope general; do not mention specific partner names or integrations.
+
+---
+
+7) “Where Lumina fits in VSG” section
+
+Add or update a short section that connects Lumina to the rest of the studio.
+
+Section heading:
+  "Where Lumina fits in VSG"
+
+Body paragraph:
+  "Lumina is how we prove the Truth side of our work. It runs alongside Helios in Capital and the Uniqueness Engine in Dignity, showing how AI-native systems can make key decisions inspectable instead of opaque."
+
+Optional short list (if there is a list component here already):
+
+- "Feeds our standards for evidence-backed decisions."
+- "Provides live data for governance and dispute models."
+- "Demonstrates how AI can support, not replace, human judgment."
+
+---
+
+8) Safety & scope disclaimer (bottom of page)
+
+At the bottom of the Lumina page, add a small, muted disclaimer paragraph if the layout supports it (use the same style as the Helios disclaimer—e.g., `text-xs text-muted-foreground`):
+
+  "Lumina is grading infrastructure, not an investment or pricing guarantee. Nothing on this page is investment, legal, or tax advice, and we do not hold or custody customer cards."
+
+One paragraph only; keep it concise.
+
+---
+
+9) Hygiene & brand checks for this file
+
+In the Lumina page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents"
+  - "move fast and break things"
+  - "monetize users", "harvest data"
+  - "StackMe", "Stackme Holdings", or "VSP" as active brand names
+  - generic “the human” phrasing (use “people”, “collectors”, “participants”, “personhood”, or “dignity” instead)
+
+- Ensure Lumina is clearly tied to:
+  - The **Truth** domain.
+  - “AI-native and evidence-backed.”
+  - Infrastructure / rails (not a B2C grading line).
+  - Non-custodial stance around physical assets (we don’t run a vault).
+
+Do not touch any other venture pages or routes in this checkpoint.

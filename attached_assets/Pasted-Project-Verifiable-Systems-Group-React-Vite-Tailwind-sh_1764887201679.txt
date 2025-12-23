@@ -1,0 +1,78 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Update the **Lumina venture detail page** copy so it matches the new brand and Truth · Capital · Dignity model.
+
+File: the page used for the Lumina venture (for example `client/src/pages/Lumina.tsx` or a Lumina detail component under `/ventures`). If the name is different, locate the component actually used when you click into Lumina from `/ventures` and apply these changes there.
+
+Do NOT change layout, components, or routes. Only update text content.
+
+---
+
+1) Hero section (top of Lumina page)
+
+Keep the existing structure (overline, h1, paragraph, CTA if present). Replace only the text:
+
+- Overline:
+  "Venture · Truth"
+
+- Heading:
+  "Lumina — physics-aware grading you can inspect."
+
+- Body paragraph:
+  "Lumina turns raw card condition into evidence-backed grading signals instead of vibes. It ties every score to verifiable inputs—sensor data, checks, and logs—so you can see why a grade happened, not just accept it."
+
+---
+
+2) “What Lumina does” section
+
+Locate the first descriptive section after the hero (or create one using the existing layout pattern). Use your existing card/column components but swap the text for:
+
+Section heading:
+  "What Lumina does"
+
+Three short items:
+
+1. Title: "Evidence-first grading"
+   Text:
+   "Lumina starts from measurements, not impressions. Condition data is captured and processed so the grade can be traced back to what was actually observed."
+
+2. Title: "Consistent, not vibes"
+   Text:
+   "By using a repeatable pipeline, Lumina aims for the same inputs to produce the same outcomes. It reduces the randomness that comes from different days, reviewers, or moods."
+
+3. Title: "Built for AI-native flows"
+   Text:
+   "Lumina is designed for an AI-native world where machines assist, but cannot improvise the rules. Models operate inside clear constraints, and their outputs are anchored to logs you can audit."
+
+---
+
+3) “Lumina in the Truth domain” section
+
+Add or update a section that ties Lumina explicitly to the **Truth** domain.
+
+Heading:
+  "Lumina in the Truth domain"
+
+Body paragraph:
+  "Truth means decisions rest on evidence, not stories. In the Truth domain, Lumina is our proof: it anchors each grading decision to a trail of measurements and checks, so collectors and partners can inspect how a result was formed instead of guessing."
+
+If a similar section already exists, keep the structure and overwrite its text with this paragraph.
+
+---
+
+4) Safety & brand checks for this page
+
+On the Lumina page file only:
+
+- Ensure there are **no** mentions of:
+  - specific grading companies or brands,
+  - specific protocols, venues, or token tickers,
+  - promised yields, payouts, or “maximize” language.
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "game-changing agents", "AI magic"
+  - "the human" as a generic object (prefer “people”, “collectors”, “participants” instead).
+
+Keep all JSX structure, components, and styling as-is; only change the string literals and section copy.

@@ -1,0 +1,138 @@
+This is a significant pivot, but a powerful one. It elevates **VSG** from a "Crypto/Fintech Lab" to a **"Truth Engineering Lab."**
+
+The unifying theme between **Bitcoin** (Digital Assets) and **Hallucination-Free AI** (LLMs) is **Verification**.
+
+  * Bitcoin verifies **Value** (so you can't double-spend).
+  * Your AI verifies **Truth** (so you can't hallucinate).
+
+This makes your brand **stronger**, not broader. You are building **"The Infrastructure of Certainty."**
+
+Here is how to integrate this new system (let's call it **"Axiom"** for now, fitting your Greek naming convention like Helios/Lumina) and fix the verbiage globally.
+
+-----
+
+### **I. The New "Global Definitions" (Verbiage Shift)**
+
+We need to stop saying "Financial Rails" and start saying **"Verifiable Infrastructure."**
+
+**The Pivot:**
+
+  * *Old Scope:* "We build financial systems for AI agents."
+  * *New Scope:* "We engineer deterministic systems for **Value** and **Intelligence**."
+
+**Specific Text Replacements:**
+
+| Location | Current (Too Narrow) | **New Institutional Standard** |
+| :--- | :--- | :--- |
+| **Overview Hero** | "We engineer AI-native financial rails..." | **"We engineer verifiable infrastructure for intelligence and value."** |
+| **Footer / Meta** | "...exploring AI, Digital Assets..." | **"...engineering deterministic systems at the intersection of AI and Economic Assurance."** |
+| **System (Definition)** | "AI: Financial infrastructure built assuming..." | **"AI: Deterministic Intelligence. Systems designed to constrain stochastic models (LLMs) with rigid verification layers, ensuring outputs are auditable, cited, and hallucination-resistant."** |
+| **Mission** | "...navigate the edge of AI and digital assets..." | **"...solve the 'Oracle Problem' for both capital and cognition."** |
+
+-----
+
+### **II. The New Project Entry (`client/src/data/projects.ts`)**
+
+Add this to your `projects` array. This uses "Control Room" language: it focuses on *constraints* and *accuracy*, not "chatting."
+
+```typescript
+  {
+    name: "Axiom",
+    stage: "Prototype",
+    stageVariant: "prototype",
+    description: "A deterministic inference layer designed to eliminate hallucination. It forces LLMs to cite verified internal data structures before generating output.",
+    exploring: [
+      "Retrieval-Augmented Generation (RAG) with strict citation enforcement",
+      "Adversarial testing against known logic traps",
+      "Mechanistic interpretability (tracing 'why' the model said X)"
+    ],
+    href: "/pipeline/axiom",
+  },
+```
+
+-----
+
+### **III. The New "Pipeline Detail" Data (`PipelineDetail.tsx`)**
+
+You need a details page for this. Notice how we frame "Chat" as "Querying" to sound more professional.
+
+```typescript
+  axiom: {
+    name: "Axiom",
+    stage: "Prototype",
+    stageVariant: "prototype",
+    tagline: "High-integrity LLM reasoning with enforced citation.",
+    description: "Standard LLMs are probabilistic engines—they guess the next word. Axiom is a constraint layer that forces the model to anchor every claim to a cryptographically verified record. It turns 'creative writing' into 'auditable reporting'.",
+    currentState: [
+      "Core RAG architecture functional",
+      "Citation enforcement layer active (refuses to answer without source)",
+      "Internal dogfooding for VSG research summaries"
+    ],
+    exploring: [
+      "Automated fact-checking loops",
+      "Connecting the 'Truth' layer (Axiom) to the 'Value' layer (Helios)",
+      "Latency optimization for real-time verification"
+    ],
+    notYet: [
+      "No public API",
+      "Not a general-purpose chatbot",
+      "Restricted domain knowledge only"
+    ],
+    nextProject: { name: "Helios", href: "/pipeline/helios" },
+  },
+```
+
+-----
+
+### **IV. The Library Article (The Strategic Bridge)**
+
+You need to explain *why* a "Finance/Bitcoin" shop is building an LLM.
+**The Argument:** You cannot have autonomous agents handling money if they hallucinate. Therefore, solving hallucination is a prerequisite for your financial roadmap.
+
+**Add to `client/src/data/articles.ts`:**
+
+```typescript
+  {
+    title: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate",
+    excerpt: "In creative writing, hallucination is a feature. In automated treasury management, it is a felony. Why we are building our own inference layer before letting agents touch the balance sheet.",
+    date: "December 15, 2025",
+    type: "Insight",
+    tags: ["AI Safety", "Determinism", "Infrastructure"],
+    slug: "insolvency-of-fiction",
+    content: [
+      {
+        heading: "I. The Probabilistic Trap",
+        paragraphs: [
+          "Current Large Language Models (LLMs) are stochastic parrots. They do not know truth; they know probability. For a poem, an 80% probability of coherence is acceptable. For a clearing engine settling $10M in Bitcoin, a 0.01% error rate is catastrophic.",
+          "We realized that we could not build 'Helios' (our treasury engine) on top of standard APIs like OpenAI's GPT-4 without a 'governor'—a mechanical layer that constrains the model's creativity."
+        ]
+      },
+      {
+        heading: "II. Engineering Constraints",
+        paragraphs: [
+          "We are building 'Axiom' not to compete with ChatGPT, but to restrain it. Axiom treats the LLM as a reasoning engine, not a knowledge base.",
+          "It forces the model to query a verified database (our internal ledger or legal docs), retrieve the specific hash of the data, and construct an answer *only* using those blocks. If the data isn't there, the system is engineered to fail silently rather than invent a plausible lie."
+        ]
+      },
+      {
+        heading: "III. Truth as an Asset Class",
+        paragraphs: [
+          "In a world flooded with synthetic media, verifiable truth becomes the scarcest asset class. By linking our financial verification (Bitcoin) with our semantic verification (Axiom), we are building a closed loop: systems that can verify what they own, and verify what they know."
+        ]
+      }
+    ]
+  },
+```
+
+### **V. Summary of the "Institutional" Fix**
+
+By adding this project, you fix a potential branding confusion. You are no longer "Crypto Bros." You are **"Systems Architects."**
+
+  * **Bitcoin** prevents financial hallucination (fake money).
+  * **Axiom** prevents cognitive hallucination (fake facts).
+
+**Action:**
+
+1.  Update `projects.ts` with the **Axiom** entry.
+2.  Update `Overview.tsx` hero text to: **"Engineering verifiable systems for intelligence and value."**
+3.  Add the "Insolvency of Fiction" article to `articles.ts`. This bridges the gap perfectly.

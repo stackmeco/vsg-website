@@ -1,0 +1,93 @@
+You are the AI dev agent for this project.
+
+Checkpoint 1 (global nav + routing) is already implemented. The information architecture and routes are correct, but the recent changes introduced visual and motion inconsistencies:
+
+- Some transitions and animations do NOT match the existing feel of the site.
+- New color combinations are hard to read and feel off-brand.
+- Some new pages/layouts do not look cohesive with the rest of the site.
+
+Your job now is a DESIGN CLEANUP PASS that restores visual cohesion and readability WITHOUT changing the information architecture.
+
+### HARD CONSTRAINTS (DO NOT BREAK THESE)
+1. DO NOT change the nav structure or the set of routes.
+2. DO NOT remove or rename any existing pages.
+3. DO NOT switch frameworks or major libraries.
+4. DO NOT introduce a new color palette or font stack.
+5. DO NOT add heavy new animations or page transitions.
+
+### 1. Use the existing design system as the single source of truth
+
+- Find the file(s) where the core design tokens or theme are defined, such as:
+  - tailwind.config, theme/tokens file, or global CSS variables.
+- Treat the existing brand palette, typography, border radius, and shadows in those files as the **authoritative source of truth**.
+- From this point forward, all colors, shadows, and transitions on new pages/components should use these existing tokens/classes.
+
+### 2. Remove / normalize ad-hoc colors
+
+The previous agent likely hard-coded extra colors and gradients.
+
+- Search the codebase for:
+  - Hard-coded hex colors (e.g. “#” in JSX/TSX files).
+  - Tailwind-style classes like bg-*, text-*, border-* that are NOT part of the original palette.
+  - Random gradients (e.g. bg-gradient-to-r from-XXX to-YYY) that weren’t used before Checkpoint 1.
+
+For each offender:
+- Replace ad-hoc colors with the closest matching existing theme colors.
+- Remove gradients from nav, dropdowns, and content areas unless gradients were already part of the original design language.
+- Ensure all text colors have good contrast against their backgrounds (e.g. primary text on primary surface, not low-contrast gray on gray).
+
+Goal: all pages and nav elements should feel like they are using a single, coherent palette.
+
+### 3. Normalize transitions and motion
+
+We want subtle, consistent motion—not a mix of random durations and easings.
+
+- Search for transition-related classes and styles:
+  - duration-*, ease-*, transition-*, animate-*, transform, etc.
+- For navigation items, dropdowns, and basic UI interactions:
+  - Use a single, subtle default (e.g. “transition-all duration-150 ease-out” or whatever matches the existing components).
+  - Remove overly long durations (e.g. duration-500+ on small UI hovers).
+  - Remove heavy transforms like large translate/scale that don’t match the existing site (e.g. big slides, big scales).
+- Do NOT add new page-level transition systems here. Just make micro-interactions consistent and subtle.
+
+Goal: hover states and dropdowns should feel smooth and minimal, matching the rest of the site’s original behavior.
+
+### 4. Make dropdown menus visually match the rest of the site
+
+Focus on the navigation dropdowns that were added:
+
+- Ensure dropdown background color matches the existing “surface” / “card” background color used elsewhere in the site.
+- Ensure text color matches the standard body text color.
+- Reuse the same shadow/border style as other panels or menus (e.g., existing dropdowns, tooltips, or cards).
+- Remove any unique flashy styling (unusual gradients, neon accents, etc.) unless they already existed in the original design.
+
+If there is a pre-existing menu/dropdown/panel component, prefer reusing that style and structure instead of custom styling.
+
+### 5. Ensure all new pages use the primary layout
+
+All the new routes created at Checkpoint 1 should feel like part of the same app.
+
+- Identify the primary layout / page wrapper component used by the original pages (e.g. MainLayout, Layout, or similar).
+- Ensure all new pages (Ventures, Approach pages, Studio pages, Insights, Connect) are using this same layout wrapper.
+- Normalize:
+  - Max-width / content width
+  - Vertical spacing between sections
+  - Background color
+
+Remove any per-page background hacks or custom wrappers added during routing work that deviate from the main layout.
+
+### 6. Quick readability & contrast pass
+
+- Check that text is never placed on top of busy backgrounds or low-contrast color pairs.
+- For navigation and dropdowns, ensure active/hover states are clearly visible but still on-brand (e.g. slight color shift, underline, or subtle background, not low-contrast text).
+- Avoid using muted grays for primary content text on dark backgrounds; stick to the primary text token.
+
+### 7. Summary and notes
+
+When you’re done, provide a short summary in comments or in your final response:
+
+- Files modified
+- Any new helper components created (if any)
+- Any remaining visual TODOs you recommend but did not implement
+
+Again: you MUST keep the current IA and routing intact. Focus only on restoring a cohesive, readable visual and motion system that matches the original feel of the site.

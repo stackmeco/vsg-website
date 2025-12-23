@@ -1,0 +1,78 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Update the **Uniqueness Engine** venture detail page copy to match the new brand and Truth · Capital · Dignity model.
+
+File: the page used for the Uniqueness Engine venture (for example `client/src/pages/Uniqueness.tsx` or a Uniqueness detail component under `/ventures`). If the name is different, locate the component actually used when you click into Uniqueness Engine from `/ventures` and apply these changes there.
+
+Do NOT change layout, components, or routes. Only update text content.
+
+---
+
+1) Hero section (top of Uniqueness Engine page)
+
+Keep the existing structure (overline, h1, paragraph, CTA if present). Replace only the text:
+
+- Overline:
+  "Venture · Dignity"
+
+- Heading:
+  "Uniqueness Engine — personhood without exposure."
+
+- Body paragraph:
+  "Uniqueness Engine proves that one person is present without forcing them to hand over their life story. It enables sybil-resistant access and participation using privacy-preserving proofs, so people can move through systems with their dignity and control intact."
+
+---
+
+2) “What Uniqueness Engine does” section
+
+Locate the first descriptive section after the hero (or create one using the existing layout pattern). Use your existing card/column components but swap the text for:
+
+Section heading:
+  "What Uniqueness Engine does"
+
+Three short items:
+
+1. Title: "One person, one presence"
+   Text:
+   "Uniqueness Engine focuses on presence, not surveillance. It lets a system know that one real person is behind an action, without exposing everything about who they are."
+
+2. Title: "Proofs, not profiles"
+   Text:
+   "Instead of building central profiles, Uniqueness Engine uses privacy-preserving proofs so people can demonstrate eligibility or uniqueness without being turned into a product in someone else’s database."
+
+3. Title: "Built for governed systems"
+   Text:
+   "Uniqueness Engine is designed for systems that need rules and protections, not chaos. It slots into governed environments where access matters, but dignity and privacy must stay protected."
+
+---
+
+3) “Uniqueness Engine in the Dignity domain” section
+
+Add or update a section that ties Uniqueness Engine explicitly to the **Dignity** domain.
+
+Heading:
+  "Uniqueness Engine in the Dignity domain"
+
+Body paragraph:
+  "Dignity means people keep control over how they appear in systems. In the Dignity domain, Uniqueness Engine is our proof: it lets networks enforce ‘one person, one presence’ and other rules of participation without demanding full exposure, keeping personhood ahead of profiling."
+
+If a similar section already exists, keep the structure and overwrite its text with this paragraph.
+
+---
+
+4) Safety & brand checks for this page
+
+On the Uniqueness Engine page file only:
+
+- Ensure there are **no** mentions of:
+  - specific identity vendors, KYC providers, or government ID systems by name,
+  - specific protocols, venues, or token tickers,
+  - any language promising “frictionless onboarding” at the cost of privacy.
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "game-changing agents", "AI magic"
+  - "the human" as a generic object (prefer “people”, “participants”, “personhood”, or “dignity”).
+
+Keep all JSX structure, components, and styling as-is; only change the string literals and section copy.

@@ -1,0 +1,269 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Run a repo-wide polish pass on user-facing copy so everything is aligned with:
+- VSG Brand & Voice System v3.0
+- The Truth · Capital · Dignity model
+- The Architect/Judge voice (precise, infrastructural, low-hype)
+- AI-native, internal-first, non-custodial stance
+
+Scope: Only update user-facing text in React components and data files under client/src. Do NOT change component structures, routing, types, or styles, unless needed to fix a typo caused by the edits.
+
+Concretely: Work in
+- client/src/**/*.tsx
+- client/src/data/**/*.ts
+
+Do NOT touch:
+- config files
+- package.json
+- build tooling
+- non-React code outside client/src
+
+--------------------------------------------------
+1) Remove legacy domain model (Signal / Value / Human)
+--------------------------------------------------
+
+Search across client/src for legacy domain headings and phrases related to the old three-pillar model.
+
+1.1 Domain headings
+
+Look for headings or labels that use the old model as proper nouns, such as:
+
+- "Signal", "Value", "Human" when used as section / card titles in a list.
+- Example patterns:
+  - `<h2>Signal</h2>`
+  - `<h3>Signal – …</h3>`
+  - lists like "Signal · Value · Human"
+
+For any of these, update them to:
+
+- "Truth"
+- "Capital"
+- "Dignity"
+
+Use the new triad as appropriate to context:
+
+- Truth → anything that deals with evidence, provenance, inspection, grading, verification (e.g. Lumina).
+- Capital → anything related to treasuries, flows, risk limits, leverage (e.g. Helios).
+- Dignity → anything related to people, participation, personhood, access, or uniqueness (e.g. Uniqueness Engine).
+
+Do NOT change occurrences of “signal”, “value”, or “human” that are clearly generic lowercase words in sentences. Only fix headings, labels, and obvious domain references.
+
+1.2 Phrases like "Validate the signal"
+
+Search for the exact phrase:
+
+- "validate the signal"
+- "Validate the signal"
+
+Replace with more precise language that maps to Truth without sounding like an old domain name. For example:
+
+- "anchor claims in verifiable evidence"
+- "make the underlying facts inspectable"
+
+Choose whichever variant fits best per context, but keep the meaning: evidence over vibes.
+
+--------------------------------------------------
+2) Remove creepy / off-brand "the human" usages
+--------------------------------------------------
+
+Search for:
+
+- "the human" (case insensitive)
+
+For each occurrence:
+
+- If used to mean “people in general”, rewrite to “people” or “participants”.
+- If used in a domain-like sense (e.g., "Signal, Value, the human"), convert to the new triad or remove entirely, as appropriate.
+
+Example rewrites:
+
+- "protect the human" → "protect people" or "protect their dignity" (depending on context).
+- "the human in the loop" → "people in the loop" or "human judgment in the loop".
+
+Ensure the new phrasing stays aligned with the Truth / Capital / Dignity framing and the Architect/Judge tone.
+
+--------------------------------------------------
+3) Strip generic AI hype and fix AI language
+--------------------------------------------------
+
+Search for the following phrases in user-facing text:
+
+- "AI-powered"
+- "AI powered"
+- "revolutionary"
+- "disruptive"
+- "game-changing"
+- "AI magic"
+- "AI does the rest"
+- "move fast and break things"
+- "hypergrowth"
+
+For each, rewrite to fit VSG’s AI-native stance:
+
+- Use phrases like:
+  - "AI-native"
+  - "machine intelligence in the loop"
+  - "AI handles the mechanics; people own the mandate"
+  - "we use machine intelligence to surface risk and enforce constraints"
+
+Rules:
+- Emphasize AI as **infrastructure**, not spectacle.
+- Emphasize constraints, governance, and human veto.
+- Never suggest AI is magic or fully autonomous.
+
+Example transformation:
+
+- "An AI-powered platform that revolutionizes grading" →  
+  "AI-native infrastructure for grading that uses machine intelligence to standardize captures and surface anomalies under clear constraints."
+
+Make sure replacements read naturally in context and keep sentences lean.
+
+--------------------------------------------------
+4) Remove legacy brand names and confusion (StackMe / VSP)
+--------------------------------------------------
+
+Search for these strings:
+
+- "StackMe"
+- "Stackme"
+- "Stackme app"
+- "Stackme Holdings"
+- "Stackme Holding"
+- "VSP "
+- "VSP-"
+- "VSP "
+
+For any user-facing text referencing old brand names in the current public site:
+
+- Replace with "Verifiable Systems Group" or "VSG" if you need a shorter label.
+- If the reference is historical or no longer relevant (e.g. "StackMe Holdings LLC was previously…"), remove or tighten it so the current public site doesn’t talk about outdated internal names.
+
+Exceptions:
+- If a page is clearly a legal or archival note that must mention a previous name, keep it but ensure it’s framed as historical and not current (e.g., “formerly operated under the name…”). However, avoid putting this in user-facing marketing copy.
+
+--------------------------------------------------
+5) Unify Truth · Capital · Dignity references
+--------------------------------------------------
+
+Search for any remaining list-like references to the three domains in public copy.
+
+- Convert any old references (Signal/Value/Human) into the new triad:
+  - Truth · Capital · Dignity
+
+Ensure consistency:
+
+- Capitalize the three terms when used as the abstract domains:
+  - "Truth, Capital, and Dignity"
+- Use them sparingly and only where the triad is explicitly being introduced or referenced.
+
+Where relevant (e.g., Overview, Ventures index, Approach pages), make sure the triad is described clearly in one short paragraph:
+
+- Truth → evidence / what can be trusted
+- Capital → how value moves
+- Dignity → how people participate without overexposure
+
+If you find multiple slightly different explanations, converge them into one consistent phrasing across the site, adjusted only as needed by context.
+
+--------------------------------------------------
+6) Tighten hero and section intros (length + tone)
+--------------------------------------------------
+
+For the main hero sections on:
+
+- Overview / Studio page
+- Ventures index page
+- Helios page
+- Lumina page
+- Uniqueness Engine page
+- Approach page
+- Process page
+
+Do the following:
+
+1) Keep each hero body paragraph in the range of ~40–80 words.
+2) Ensure tone is:
+   - Calm, precise, architectural.
+   - No exclamation marks in heroes.
+   - At most one “you shouldn’t have to…” or similar warm line per hero.
+3) Make sure each hero:
+   - States plainly what the page is about in the first sentence.
+   - Includes own-balance-sheet-first or internal-first positioning where relevant.
+   - Avoids hype adjectives and vague promises.
+
+If a hero body feels too long or repetitive, cut filler rather than adding more qualifiers.
+
+--------------------------------------------------
+7) Light pass on outer-ring pages (Connect / Terms / Privacy / 404)
+--------------------------------------------------
+
+Within client/src:
+
+- Find the Connect or Contact page, any 404 page, and any Terms/Privacy pages that render user-facing text.
+
+For these:
+
+- Ensure there are no references to old names (StackMe, VSP, etc.).
+- Ensure there is no language that accidentally sounds like:
+  - An investment offer
+  - Yield / return promises
+  - Legal, tax, or regulatory advice
+
+For Connect/Contact:
+
+- Keep tone precise and reserved but not cold. Example pattern:
+  - "Tell us what you’re trying to verify, protect, or build. We take on a limited number of external conversations and prioritize work where verifiable autonomy matters."
+
+For Terms/Privacy:
+
+- Don’t try to rewrite the entire legal structure; just:
+  - Fix any obviously outdated brand names.
+  - Remove any hype-y or marketing language.
+  - Ensure any disclaimers are clear that nothing on the site is investment, legal, or tax advice.
+
+--------------------------------------------------
+8) General hygiene rules for this pass
+--------------------------------------------------
+
+While editing, follow these rules:
+
+- User-facing copy only:
+  - Do not rename components, variables, or TypeScript types unless absolutely necessary to fix a typo.
+- No new sections:
+  - Don’t add or remove major sections or components, just refine strings.
+- Keep brand canon intact:
+  - Do not change the canonical Purpose / Vision / Mission wording.
+  - Do not change the core one-line description of VSG if already aligned to v3.
+- No emojis, no memes, no slang.
+- Prefer second-person address ("you") only where there is a clear Warm On-Ramp moment; otherwise, keep things declarative and neutral.
+
+--------------------------------------------------
+9) Final checks
+--------------------------------------------------
+
+After the edits:
+
+1) Ensure the code still compiles:
+   - Run the dev server and confirm the app builds without TypeScript or JSX errors.
+
+2) Spot-check the following pages in the browser:
+   - /
+   - /ventures
+   - /ventures/helios
+   - /ventures/lumina
+   - /ventures/uniqueness
+   - /approach
+   - /process
+   - /standards
+   - /insights
+   - /connect (or equivalent)
+   - terms/privacy routes if present
+
+3) Confirm:
+   - No old triad (Signal/Value/Human) visible as domain names.
+   - No legacy brand names in public-facing copy.
+   - No AI hype phrases.
+   - All heroes feel consistent in tone and length with the v3 voice.
+
+Only commit these copy changes once the app builds cleanly and the above pages pass visual and content inspection.

@@ -1,0 +1,15 @@
+[
+  {
+    "id": "c266b900f1476ff5",
+    "timestamp": "2025-11-28T15:41:54.839Z",
+    "ip": "127.0.0.1",
+    "userAgent": "curl/8.14.1",
+    "name": "Test User",
+    "email": "test@example.com",
+    "organization": null,
+    "role": null,
+    "subject": "Test Subject",
+    "message": "This is a test message with at least 20 characters",
+    "consent": false
+  }
+]

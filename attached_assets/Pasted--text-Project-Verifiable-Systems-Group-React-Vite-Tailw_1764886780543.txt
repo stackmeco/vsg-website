@@ -1,0 +1,109 @@
+````text
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Add a simple **brand lint** script so we can automatically catch banned phrases (old pillars, hypey AI language, creepy “the human”, etc.) before shipping.
+
+This step only adds a Node script and an npm script. It does NOT change any React components or pages.
+
+---
+
+1) Create `scripts/brandLint.js`
+
+If the `scripts` folder does not exist at the project root, create it.
+
+Add a new file: `scripts/brandLint.js` with this exact content:
+
+```js
+// scripts/brandLint.js
+const fs = require("fs");
+const path = require("path");
+
+// Scan inside client/src and docs/brand for brand drift
+const ROOTS = [
+  path.join(__dirname, "..", "client", "src"),
+  path.join(__dirname, "..", "docs", "brand"),
+];
+
+const BANNED = [
+  "Signal / Value / Human",
+  "Signal, Value, Human",
+  "validate the signal",
+  "AI-powered platform",
+  "revolutionary AI",
+  "game-changing agents",
+  "AI magic",
+  "move fast and break things",
+  "monetize users",
+  "harvest data",
+  "the human", // we prefer "people", "individuals", or "personhood/dignity"
+];
+
+function walk(dir, files = []) {
+  if (!fs.existsSync(dir)) return files;
+
+  for (const entry of fs.readdirSync(dir)) {
+    const full = path.join(dir, entry);
+    const stat = fs.statSync(full);
+    if (stat.isDirectory()) {
+      walk(full, files);
+    } else if (/\.(tsx|ts|jsx|js|md|mdx)$/.test(entry)) {
+      files.push(full);
+    }
+  }
+  return files;
+}
+
+function lint() {
+  let errorCount = 0;
+  const files = ROOTS.flatMap((root) => walk(root));
+
+  for (const file of files) {
+    const content = fs.readFileSync(file, "utf8");
+    BANNED.forEach((phrase) => {
+      if (content.includes(phrase)) {
+        console.error(`❌ Found banned phrase "${phrase}" in ${file}`);
+        errorCount++;
+      }
+    });
+  }
+
+  if (errorCount > 0) {
+    console.error(`\nBrand lint failed with ${errorCount} issue(s).`);
+    process.exit(1);
+  } else {
+    console.log("✅ Brand lint passed (no banned phrases found).");
+  }
+}
+
+lint();
+````
+
+---
+
+2. Add an npm script in `package.json`
+
+In the root `package.json`, add this to the `"scripts"` section (or merge it if `"scripts"` already exists):
+
+```json
+"scripts": {
+  "brand:lint": "node scripts/brandLint.js"
+}
+```
+
+If there are other scripts already defined, just add `"brand:lint"` alongside them, making sure commas are correct.
+
+---
+
+3. How to use (for you, not to code):
+
+From the project root you can now run:
+
+```bash
+npm run brand:lint
+```
+
+and it will fail if any banned phrases are still present.
+
+```
+::contentReference[oaicite:0]{index=0}
+```

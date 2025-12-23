@@ -1,0 +1,213 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Harden the **edge pages and legal language** so the site is:
+
+- Brand-aligned with VSG Brand & Voice System v3.0,
+- Clear that nothing is investment / legal / tax advice,
+- Clear that VSG is NOT a fund, exchange, wallet, or yield product,
+- Consistent in how 404 / empty states talk about Truth · Capital · Dignity,
+- Free of old names like “StackMe Holdings”, “Stackme”, or “VSP” on these pages.
+
+Do NOT change global theming, layout primitives, or add/remove routes.
+Only touch:
+- The 404 / NotFound page,
+- Any “Legal”, “Disclaimer”, or “Terms” style page that already exists,
+- Optionally a small shared disclaimer snippet (if the codebase already has a good place for it).
+
+---
+
+1) Locate the 404 / NotFound page
+
+Find the component that renders for unknown routes, for example:
+
+- `client/src/pages/NotFound.tsx`
+- or a `NotFound` component used in `client/src/App.tsx` for the catch-all route.
+
+All changes in this step apply **only** inside that 404/NotFound page file.
+
+---
+
+2) Update the 404 / NotFound hero copy
+
+Keep the current layout and styling (headline, subtext, button). Replace only text.
+
+- Heading:
+  "This path doesn’t exist in our system."
+
+- Body paragraph:
+  "You’ve reached a route that doesn’t map to any of our current rails. If you typed a URL directly, check it for typos—or use the links below to get back to the parts of the studio that exist."
+
+Primary button:
+
+- Label:
+  "Back to the studio"
+- href:
+  `/` (root)
+
+If there is a secondary link/button, use:
+
+- Label:
+  "Explore our ventures"
+- href:
+  `/ventures`
+
+Do not change layout, spacing, or icons—only text and hrefs if needed.
+
+---
+
+3) Add a small “helpful links” block to 404 (optional, if layout supports it)
+
+If the 404 page already has space for a small link list or cards (e.g., a 2–3 link row under the hero), configure it to point to key sections:
+
+Use existing list/card components, with labels like:
+
+- "Overview" → `/`
+- "Approach" → `/approach`
+- "Ventures" → `/ventures`
+- "Insights" → `/insights`
+
+If the page currently has **no** space for such a block, do not add new layout primitives. Only configure if there is already a pattern for this.
+
+---
+
+4) Locate any existing Legal / Disclaimer / Terms page
+
+Search for a page that looks like:
+
+- `client/src/pages/Legal.tsx`
+- `client/src/pages/Disclaimer.tsx`
+- `client/src/pages/Terms.tsx`
+- or a route configured in `client/src/App.tsx` like `/legal`, `/disclaimer`, `/terms`.
+
+If you find multiple, pick the one that is actually routed and visible. We will treat that as the **main legal/disclaimer** page.
+
+All changes below apply **only** inside that file.
+
+---
+
+5) Update the Legal/Disclaimer page hero
+
+Keep layout and styling; update text.
+
+- Overline:
+  "Legal & Disclaimers"
+
+- Heading:
+  "How to read this site safely."
+
+- Body paragraph:
+  "This site explains how Verifiable Systems Group thinks and operates. It does not offer investment, legal, or tax advice, and it does not invite you to deposit assets, buy securities, or rely on us as a custodian or adviser."
+
+If there is a primary CTA in this hero, re-label it to a neutral navigation target, for example:
+
+- Label:
+  "Back to the studio"
+- href:
+  `/`
+
+If there is a secondary CTA, you can either remove it or point it to `/approach`. Do not create anything that looks like “Get started” / “Invest now”.
+
+---
+
+6) Add core disclaimer sections to Legal/Disclaimer
+
+Use your existing typography components (section headings, paragraphs, lists). Add the following sections, adjusting only for minor JSX differences (e.g., `<p>` vs `<Text>`):
+
+### Section A — “Informational only”
+
+Heading:
+  "Informational only"
+
+Paragraphs:
+
+  "Everything on this site is for informational purposes only. It describes how we structure and operate our own systems and ventures at Verifiable Systems Group."
+
+  "Nothing here is an offer to sell or a solicitation of an offer to buy any security or financial product, and nothing here should be used to make investment, legal, or tax decisions."
+
+### Section B — “No advisory relationship”
+
+Heading:
+  "No advisory relationship"
+
+Paragraphs:
+
+  "Viewing this site does not create an advisory, fiduciary, client, or professional relationship between you and Verifiable Systems Group."
+
+  "Unless we have a separate, written agreement that says otherwise, we are not acting as your investment adviser, broker, lawyer, or tax professional."
+
+### Section C — “No custody, no yield products”
+
+Heading:
+  "No custody, no yield products"
+
+Paragraphs:
+
+  "We do not operate an exchange, wallet, vault, pooled fund, or yield product for the public."
+
+  "We build and run internal systems and ventures. When we talk about capital, treasuries, or balances, we are describing how we handle our own money and infrastructure—not inviting you to deposit assets with us."
+
+### Section D — “Forward-looking and evolving”
+
+Heading:
+  "Forward-looking statements and changes"
+
+Paragraphs:
+
+  "Some parts of this site describe goals, plans, or expectations. These are forward-looking and may change as we learn. They are not guarantees of future performance or outcomes."
+
+  "We may update or remove content without notice. You should not rely on any single page here as a permanent description of our systems or views."
+
+### Section E — “Do your own verification”
+
+Heading:
+  "Do your own verification"
+
+Paragraphs:
+
+  "You should independently verify any information that matters to you. This includes technical claims, risk descriptions, and any statements about systems that move capital or govern participation."
+
+  "If you have questions about how something is worded or what it means, contact us before acting on it."
+
+---
+
+7) Optional shared disclaimer snippet (only if there is a clear place for it)
+
+If the codebase already has a shared layout or footer component (for example: `client/src/components/Footer.tsx` or `client/src/layouts/MainLayout.tsx`) and there is an existing small-text legal line, update only that line.
+
+Do NOT add a new global component unless there is already a similar structure.
+
+Update a single short line, for example:
+
+- Current (example): “All rights reserved.”
+- New:
+
+  "Nothing on this site is investment, legal, or tax advice. © Verifiable Systems Group."
+
+Keep typography (font size, color) as-is; only change the string.
+
+If there is **no** existing footer/legal line, skip this step. Do not add new layout.
+
+---
+
+8) Global hygiene on these files
+
+In the 404/NotFound page, the Legal/Disclaimer page, and any footer/legal line you touched:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents"
+  - "move fast and break things"
+  - "monetize users", "harvest data"
+  - "StackMe", "Stackme Holdings", "Stackme app", or "VSP" as active brand names
+  - generic “the human” phrasing (use “people”, “participants”, “stewards”, “communities”, “personhood”, or “dignity” instead)
+
+- Ensure all new content:
+  - Matches the v3.0 voice (calm, precise, Architect/Judge),
+  - Makes clear this is informational, not advisory,
+  - Makes clear VSG is not a custodial platform, fund, or yield product,
+  - Does not mention any specific protocol names, tokens, banks, or legal entity wiring.
+
+Do not touch any other pages or routes in this checkpoint.

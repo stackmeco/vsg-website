@@ -1,0 +1,168 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Update the **Studio / About** page so it becomes the canonical public overview of VSG, aligned with VSG Brand & Voice System v3.0 (Truth · Capital · Dignity, AI-native, balance-sheet-first).
+
+File: the page used for the “Studio” or “About” route (for example `client/src/pages/Studio.tsx` or `client/src/pages/About.tsx`). Find the component actually rendered for `/studio` (or equivalent) and apply these changes there.
+
+Do NOT change layout primitives, styling tokens, or routes. Only update text content and any local data structures.
+
+---
+
+1) Hero section (who we are)
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTA). Replace only the text:
+
+- Overline:
+  "AI-native venture studio"
+
+- Heading:
+  "We engineer the infrastructure of verifiable autonomy."
+
+- Body paragraph:
+  "Verifiable Systems Group is an AI-native, cryptography-grounded venture studio. We build systems for capital, identity, and intelligence, run them on our own balance sheet first, and only share patterns once they have survived real stress."
+
+If there is a single primary CTA button, keep its style but make the label something on-voice, e.g.:
+
+- "Explore the ventures"
+
+---
+
+2) “What VSG is / is not” block
+
+Right under the hero, add or update a simple two-column or stacked block using your existing section component.
+
+Use this content (keep headings as shown, adapt body to the existing typography):
+
+Left column heading:
+  "What VSG is"
+
+Left column body (short paragraph + bullets):
+
+  "Verifiable Systems Group (VSG) is an AI-native, cryptography-grounded venture studio that builds verifiable systems for capital, identity, and intelligence — on our own balance sheet first."
+
+  Bullets:
+  - "We design architectures that embed verifiability from the foundation."
+  - "We prove them in our own ventures and internal systems before sharing patterns."
+  - "We operate under explicit constraints, governance, and rollback mechanisms."
+
+Right column heading:
+  "What VSG is not"
+
+Right column body (bullets only is fine):
+
+  - "Not a generic AI startup chasing trends or scale without safeguards."
+  - "Not a consultancy selling advice without ownership of the outcomes."
+  - "Not a custodial platform, yield product, or DeFi protocol pooling external funds."
+
+---
+
+3) Truth · Capital · Dignity triptych
+
+Below the “What VSG is / is not” block, add or update a three-card section for the domains. Use the same card/grid layout style you used on other pages.
+
+Section heading:
+  "Three domains we operate in"
+
+Three cards:
+
+1) Title: "Truth"
+   Body:
+   "Truth means decisions rest on evidence, not stories. We anchor key behaviours to provenance and tamper-evident logs so you can inspect how an outcome was formed instead of guessing."
+
+2) Title: "Capital"
+   Body:
+   "Capital should be able to work without leaving governed control. In Capital, we run our own treasury through non-custodial rails with explicit limits, observability, and rollback paths."
+
+3) Title: "Dignity"
+   Body:
+   "Dignity means people keep control over how they appear in systems. We enable proof of presence and eligibility without turning people into products in someone else’s database."
+
+---
+
+4) Purpose · Vision · Mission section (canonical lines)
+
+Add a section near the middle of the page that surfaces the canonical Purpose, Vision, and Mission. Use your existing section/heading styles and 3-card layout.
+
+Section heading:
+  "Purpose, vision, and mission"
+
+Three cards:
+
+1) Card title:
+   "Purpose — why we exist"
+
+   Card body (include both the short line and one supporting sentence):
+
+   - Short line:
+     "To democratize institutional-grade leverage."
+
+   - Supporting sentence:
+     "We exist to dismantle the barriers between individuals and elite financial tools, moving power from centralized gatekeepers to the edge so smaller actors can audit, control, and compound without extraction."
+
+2) Card title:
+   "Vision — the world we want"
+
+   Card body:
+
+   - Short line:
+     "A future where trust is an engineered feature, not a gamble."
+
+   - Supporting sentence:
+     "We are working toward a world where systems are auditable by default, intelligence is anchored to facts, and financial assets work for you without leaving your control."
+
+3) Card title:
+   "Mission — what we do"
+
+   Card body:
+
+   - Short line:
+     "We engineer the infrastructure of verifiable autonomy."
+
+   - Supporting sentence:
+     "We combine cryptography and machine intelligence to validate evidence, preserve capital under non-custodial control, and protect personhood without surveillance."
+
+Keep the copy tight and declarative; do not add hype adjectives.
+
+---
+
+5) “How we work” (balance-sheet-first, AI-native stance)
+
+Add or update a short “How we work” section near the bottom of the page.
+
+Section heading:
+  "How we work"
+
+Three bullets or mini-cards:
+
+1) Title: "Balance-sheet-first"
+   Text:
+   "We wire new rails through our own balance sheet and operations first so we feel the stress and failure modes directly before anyone else adopts the pattern."
+
+2) Title: "AI-native, human-governed"
+   Text:
+   "Machine intelligence scans, simulates, and flags anomalies; people define mandates, limits, and veto. AI is part of the mechanism, not the boss."
+
+3) Title: "Non-custodial by design"
+   Text:
+   "Our systems orchestrate workflows, proofs, and controls. They do not pool client funds or seize keys."
+
+---
+
+6) Hygiene & brand checks for this file
+
+In the Studio/About page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "game-changing agents", "AI magic"
+  - "StackMe", "Stackme Holdings", or "VSP" as active brand names
+  - any generic “the human” phrasing; prefer “people”, “individuals”, “participants”, or “personhood/dignity”
+
+- Make sure the page explicitly mentions:
+  - “Truth, Capital, and Dignity”
+  - “AI-native”
+  - “run on our own balance sheet first”
+  - “non-custodial by design”
+
+Do not touch other pages or routes in this checkpoint.

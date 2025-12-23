@@ -1,0 +1,286 @@
+```text
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Approach page** (`/approach`) in line with:
+
+- VSG Brand & Voice System v3.0
+- Truth · Capital · Dignity (three beams)
+- The three structural layers:
+  - Pillars (Principles)
+  - Process (Six-stage venture path)
+  - Standards (Quality & risk)
+- External-safety rules (no detailed plumbing, no protocol names, no tickers, no entity wiring)
+
+We want `/approach` to be the *map* page:
+
+- In one screen, explain **how VSG builds and governs** ventures.
+- Show how **Truth / Capital / Dignity** frame the work.
+- Show how **Pillars / Process / Standards** hang together and link to their pages.
+
+Do NOT:
+- Change or add routes.
+- Change global theming (colors, typography, primitives).
+- Mention specific protocols, banks, tickers, or LTV numbers.
+- Use “Signal / Value / Human”, “validate the signal”, “StackMe / VSP”, or “the human” as a noun.
+
+--------------------------------------------------
+1) Locate the Approach page component
+--------------------------------------------------
+
+Find the component mapped to `/approach`, for example:
+
+- `client/src/pages/Approach.tsx`
+- or `client/src/pages/HowWeBuild.tsx`
+- or similar referenced in `client/src/App.tsx`.
+
+We’ll call it `ApproachPage` in this spec. Apply changes to whichever file actually renders `/approach`.
+
+--------------------------------------------------
+2) PageMeta – title + description
+--------------------------------------------------
+
+Inside the Approach page, locate `<PageMeta ... />` and set:
+
+- `title`:
+    "Approach"
+- `description`:
+    "How Verifiable Systems Group designs and governs AI-native ventures across Truth, Capital, and Dignity using clear pillars, a six-stage process, and enforceable standards."
+
+Keep `preloadImage` and any other props unchanged.
+
+--------------------------------------------------
+3) Hero section – clear map of “how we build”
+--------------------------------------------------
+
+In the top hero of the Approach page:
+
+3.1 Overline
+
+Set the overline (small label above the heading) to:
+
+  "How we build and govern"
+
+3.2 Heading (`<h1>`)
+
+Set the main heading to:
+
+  "A governed approach to AI-native systems."
+
+3.3 Hero body copy (two short paragraphs)
+
+Replace existing hero text with:
+
+Paragraph 1 (~45–60 words):
+
+  "We build systems for decisions that cannot afford guesswork. Our approach is simple to say and strict to execute: define what must never happen, design rails that make it hard to happen by accident, and run everything on our own balance sheet before anyone else depends on it."
+
+Paragraph 2 (~35–45 words, one warmth line):
+
+  "You shouldn’t have to reverse-engineer how a critical system behaves. Our approach is documented, testable, and enforced through three layers—Pillars, Process, and Standards—so Truth, Capital, and Dignity are protected by design, not just by intention."
+
+Keep all JSX structure, containers, and Tailwind classes; only change text nodes.
+
+3.4 Hero CTAs (if present)
+
+If the hero renders two buttons or links:
+
+Primary CTA:
+- Label:
+    "View the six-stage process"
+- `href`:
+    "/process"
+
+Secondary CTA:
+- Label:
+    "See our pillars"
+- `href`:
+    "/pillars"
+
+Reuse existing Button components / variants; only update labels and `href`.
+
+--------------------------------------------------
+4) Section: “Three beams: Truth, Capital, Dignity”
+--------------------------------------------------
+
+Find the first explanatory section under the hero that currently introduces “domains”, “pillars”, or similar. Reuse the layout (likely a 2–3 column band or stacked text).
+
+Section heading:
+
+  "Three beams: Truth, Capital, Dignity"
+
+Short intro (~25–35 words):
+
+  "Everything in the studio hangs off three beams. They keep the portfolio coherent even as individual ventures evolve."
+
+Then add/update three mini-descriptions (as text blocks or cards, depending on existing markup):
+
+Truth
+- Label:
+    "Truth"
+- Copy (~30–40 words):
+
+  "How do we know what is actually happening? Truth systems turn messy inputs into evidence and records people can inspect and reuse. Lumina lives here, starting with condition for physical assets like trading cards."
+
+Capital
+- Label:
+    "Capital"
+- Copy:
+
+  "How should capital behave under stress while people keep control? Capital systems define how assets move, what limits they respect, and how risk is surfaced early instead of hiding in footnotes. Helios lives here."
+
+Dignity
+- Label:
+    "Dignity"
+- Copy:
+
+  "How do people prove enough about themselves to participate safely without overexposure? Dignity systems protect identity, access, and personhood. The Uniqueness Engine lives here."
+
+Keep any existing icons; only replace text. Do NOT use the words “Signal / Value / Human”.
+
+--------------------------------------------------
+5) Section: “Three layers of the approach”
+--------------------------------------------------
+
+Locate or create (by reusing an existing section band) a three-card section that will point to `/pillars`, `/process`, and `/standards`. Reuse the current cards/grid; only update headings, text, and links.
+
+Section heading:
+
+  "Three layers of the approach"
+
+Optional short intro (~30–40 words):
+
+  "We keep the studio predictable by separating what never changes from what can evolve. Pillars set the non-negotiables, Process defines how ventures move, Standards encode the minimum quality bar."
+
+Then configure the three cards as follows (adapt property names if you use a `sections` array):
+
+Card 1 — Pillars
+- Title:
+    "Pillars"
+- Subtitle / label (if present):
+    "What we refuse to compromise on"
+- Body (~40–55 words):
+
+  "Pillars are the principles we will not trade away for speed, convenience, or trend cycles. They define how we treat Truth, Capital, and Dignity when no one is watching, and they constrain which ventures we will even consider."
+
+- CTA label:
+    "Read the pillars"
+- CTA `href`:
+    "/pillars"
+
+Card 2 — Process
+- Title:
+    "Process"
+- Subtitle:
+    "The six-stage venture path"
+- Body (~40–55 words):
+
+  "Every venture moves through the same six-stage path: Define, Validate, Build, Deploy, Evolve, Learn. Each stage has explicit entry/exit criteria, so ventures either earn the right to advance or are archived with their lessons captured."
+
+- CTA label:
+    "View the six stages"
+- CTA `href`:
+    "/process"
+
+Card 3 — Standards
+- Title:
+    "Standards"
+- Subtitle:
+    "The quality and risk framework"
+- Body (~40–55 words):
+
+  "Standards describe the quality bar, risk controls, and review rhythms that apply to every system we run, regardless of domain. They cover how we log behaviour, respond to incidents, and decide when something is safe enough to carry real stakes."
+
+- CTA label:
+    "Review our standards"
+- CTA `href`:
+    "/standards"
+
+Keep card component classes (borders, spacing, etc.) unchanged.
+
+--------------------------------------------------
+6) Section: “Six stages at a glance” (preview of /process)
+--------------------------------------------------
+
+If the Approach page already lists “steps” or “phases”, reuse that layout (e.g., a vertical or horizontal list). Otherwise, repurpose any existing multi-step section. This is a **preview** of `/process`, not a full duplicate.
+
+Section heading:
+
+  "The six stages at a glance"
+
+Short intro (~30–40 words):
+
+  "Process is where ambition meets discipline. Every venture moves through the same six stages, with clear criteria for entering and leaving each one."
+
+Then list the six stages with short one-liners. Make sure names **exactly** match what you use in `Process.tsx` (we’ve been using these):
+
+1. **Define** – "Clarify the problem, who it is for, and when the venture should not exist."
+2. **Validate** – "Run small, low-risk experiments to test the core assumptions first."
+3. **Build** – "Engineer in short, verifiable increments with checks and failure paths designed in."
+4. **Deploy** – "Launch under explicit guardrails, observability, and rollback—not as a cliff jump."
+5. **Evolve** – "Refine based on live behaviour, telemetry, and incidents instead of wishful thinking."
+6. **Learn** – "Capture lessons into studio standards so knowledge compounds instead of resetting."
+
+This list should be *text-only* (no detailed diagrams, no protocol names).
+
+--------------------------------------------------
+7) Section: “What we refuse to do”
+--------------------------------------------------
+
+If the Approach page has a “risk” or “principles” band, reuse that. Otherwise, repurpose any callout section with a different background to emphasize non-negotiables.
+
+Section heading:
+
+  "What we refuse to do"
+
+Bullet list (3–4 items, each a short sentence):
+
+- "We do not pool client funds or market Helios as a yield product."
+- "We do not treat identity or behaviour data as something to harvest or resell."
+- "We do not ship systems whose failure modes we cannot describe in plain language."
+- "We do not hide risk in opaque models or uninspectable integrations."
+
+Closing sentence (~25–35 words):
+
+  "These constraints exist so that when we talk about Truth, Capital, and Dignity, they describe how our systems behave in practice—not just how we wish they behaved."
+
+No protocol names, tickers, bank names, or numeric limits in this section.
+
+--------------------------------------------------
+8) Hygiene pass on Approach page
+--------------------------------------------------
+
+In the Approach page file:
+
+1) Remove or replace ANY remaining references to:
+   - “Signal / Value / Human”
+   - “validate the signal”
+   - “StackMe / Stackme Holdings / VSP”
+   - “the human” as a noun
+   - “AI-powered platform”, “revolutionary”, “game-changing”, “disruptive”
+
+2) Ensure AI language follows v3 rules:
+   - Use: “AI-native”, “machine intelligence”, “intelligence augmentation”.
+   - Avoid: “magic”, “AI does the rest”, “we sprinkle AI across the stack”.
+
+3) Check there is at most **one** warmth line with “you” (we already added one in the hero). Do not add more.
+
+4) Confirm any references to the three beams use:
+   - “Truth”, “Capital”, “Dignity” (capitalized),
+   - Not “domains” if it feels abstract; “beams” or “lanes” is fine.
+
+--------------------------------------------------
+9) Final QA
+--------------------------------------------------
+
+After edits, run the dev server and open `/approach`:
+
+- Hero clearly tells a new visitor *how* VSG builds and governs systems.
+- The Truth · Capital · Dignity section is present and consistent with Overview/Ventures.
+- The “Three layers” section has working links to `/pillars`, `/process`, and `/standards`.
+- The six-stage preview text matches the actual Process page stage names.
+- The “What we refuse to do” band reads as a clear, institutional-grade statement of constraints.
+
+Only commit once `/approach` feels like a clean, premium “how we work” map you’d be comfortable sharing with an institutional partner, a regulator, or a senior technical audience.
+```

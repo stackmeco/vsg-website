@@ -1,0 +1,257 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the VSG **Ventures overview page** fully in line with:
+
+- VSG Brand & Voice System v3.0
+- The Truth · Capital · Dignity model
+- The Architect/Judge voice
+- The internal-first, non-custodial, AI-native stance
+
+This page should:
+
+- Introduce **what “ventures” are** inside VSG,
+- Clearly position each current venture (Helios, Lumina, Uniqueness Engine) against its **primary domain**:
+  - Helios → Capital
+  - Lumina → Truth
+  - Uniqueness Engine → Dignity
+- Make it explicit that ventures are **run on our own balance sheet first** and are **not** public products, offers, or yield programs,
+- Provide clear navigation to each venture’s detail page and back to Approach / Insights.
+
+Do NOT change global theming, layout primitives, or add/remove routes. Only update copy, labels, and local data structures in the Ventures overview page file.
+
+--------------------------------------------------
+1) Locate the Ventures overview page
+--------------------------------------------------
+
+Find the component used for the main “Ventures” route, for example:
+
+- client/src/pages/Ventures.tsx
+
+or whatever file is rendered at `/ventures` in client/src/App.tsx and linked as “Ventures” in the main nav.
+
+All changes below apply only inside this Ventures overview page file.
+
+--------------------------------------------------
+2) Update the hero section
+--------------------------------------------------
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only the strings and hrefs as specified.
+
+Overline:
+  "Ventures"
+
+Heading:
+  "Where we test what deserves to scale."
+
+Body paragraph:
+  "Ventures are where we wire hard ideas through real systems under Truth, Capital, and Dignity. We run them on our own balance sheet first, under explicit guardrails, before any pattern is allowed to influence how other people move value, prove reality, or participate."
+
+If the hero supports a second small line, add:
+
+  "If a venture cannot survive our constraints, it does not move forward—no matter how appealing the story sounds."
+
+Hero CTAs:
+
+- Primary CTA label:
+  "See how we work"
+  href: "/approach"
+
+- Secondary CTA label:
+  "Read field notes"
+  href: "/insights"
+
+Do not change hero layout, background, or component types.
+
+--------------------------------------------------
+3) Introduce “How we think about ventures”
+--------------------------------------------------
+
+Add or update the first content section under the hero.
+
+Section heading:
+  "How we think about ventures"
+
+Body paragraph:
+  "Each venture is an answer to a specific failure we have lived through—unreliable information, fragile capital, or systems that treat people as exhaust. Ventures are not brands we pitch; they are testbeds where we find out which architectures deserve to become rails."
+
+If the layout supports bullets or mini-cards, configure three:
+
+Card 1:
+  Title: "Run on our balance sheet"
+  Text: "We route our own operations and capital through ventures first so the blast radius of early mistakes is ours, not anyone else’s."
+
+Card 2:
+  Title: "Governed like infrastructure"
+  Text: "Every venture follows the same six-stage runway—Define, Validate, Build, Deploy, Evolve, Learn—with explicit limits, stewards, and rollback paths."
+
+Card 3:
+  Title: "Anchored to the three domains"
+  Text: "Each venture primarily serves Truth, Capital, or Dignity, while respecting the others. No system gets a free pass on any domain."
+
+--------------------------------------------------
+4) Configure the ventures list data structure
+--------------------------------------------------
+
+Locate the local array or data structure that defines the ventures rendered on this page (e.g. `const ventures = [...]`).
+
+Replace or normalize it to something equivalent to:
+
+const ventures = [
+  {
+    id: "lumina",
+    name: "Lumina",
+    domain: "truth",
+    domainLabel: "Truth",
+    tagline: "Physics-aware grading for assets that cannot afford guesswork.",
+    description:
+      "Lumina turns raw condition into verifiable, consistent signals using sensor data and governed machine intelligence. It is where we explore how to anchor asset quality and risk to evidence instead of opinion.",
+    href: "/ventures/lumina",
+  },
+  {
+    id: "helios",
+    name: "Helios",
+    domain: "capital",
+    domainLabel: "Capital",
+    tagline: "Resilient digital asset treasury, wired for the worst day.",
+    description:
+      "Helios is our internal execution engine for routing digital assets under strict limits and scenarios. It exists to test how capital can stay productive without handing control to opaque intermediaries or chasing unsustainable yield.",
+    href: "/ventures/helios",
+  },
+  {
+    id: "uniqueness",
+    name: "Uniqueness Engine",
+    domain: "dignity",
+    domainLabel: "Dignity",
+    tagline: "Personhood without exposure.",
+    description:
+      "Uniqueness Engine is infrastructure for proving that one person is present without forcing them to hand over their life story. It explores how networks can resist bots and duplicates while preserving participants’ dignity and privacy.",
+    href: "/ventures/uniqueness",
+  },
+];
+
+If your existing structure uses different property names, adapt the keys but keep the content.
+
+Do NOT add more ventures than actually exist in the router. Only include live pages.
+
+--------------------------------------------------
+5) Ventures card layout copy
+--------------------------------------------------
+
+Locate the JSX that maps over the ventures list to render cards or rows.
+
+For each venture card:
+
+- Use `name` as the card title.
+- Show a small domain label/badge using `domainLabel` with existing badge styling, e.g. “Truth”, “Capital”, “Dignity”.
+- Show `tagline` as a short, bold-ish line under the title (if your card design has a subtitle slot).
+- Show `description` as the body/excerpt text.
+
+The card CTA (button or link) should:
+
+- Label:
+  "View venture"
+- href:
+  the venture’s `href` (e.g. "/ventures/lumina").
+
+Do not alter the card component type, icons, or layout; just wire the fields above.
+
+--------------------------------------------------
+6) Optional domain filter or legend (if present)
+--------------------------------------------------
+
+If the Ventures page already has domain filters, chips, or a legend:
+
+- Update them to align with the new domains.
+
+Example filter config:
+
+const domainFilters = [
+  { id: "all", label: "All" },
+  { id: "truth", label: "Truth" },
+  { id: "capital", label: "Capital" },
+  { id: "dignity", label: "Dignity" },
+];
+
+- Ensure ventures use `domain` values "truth" | "capital" | "dignity" so filters work.
+- Under the filter row, add a muted explanatory line (e.g. text-xs text-muted-foreground):
+
+  "Truth covers how we anchor reality. Capital covers how value survives stress. Dignity covers how systems treat people’s time and personhood."
+
+If no filters exist, skip this and leave layout as-is.
+
+--------------------------------------------------
+7) “What ventures are / are not” section
+--------------------------------------------------
+
+Add a clarifying block near the lower half of the page.
+
+Section heading:
+  "What ventures are / are not"
+
+Use a two-column or two-list pattern if available.
+
+Left side — “Ventures are”:
+- "Internal testbeds for architectures we may turn into long-lived rails."
+- "Run on our own balance sheet and operations first."
+- "Constrained by Truth, Capital, and Dignity from day one."
+
+Right side — “Ventures are not”:
+- "Not offers of yield, products, or services to the public."
+- "Not promises of specific returns or outcomes."
+- "Not advice or a template for anyone else’s compliance."
+
+Muted small-text line under this section:
+
+  "This page describes how we run our own ventures. It is not investment, legal, tax, or compliance advice."
+
+--------------------------------------------------
+8) Bottom CTA / NextStepBlock for Ventures
+--------------------------------------------------
+
+If there is a NextStepBlock or similar CTA at the bottom of the Ventures page, update its content to connect into the rest of the structure.
+
+Recommended:
+
+Title:
+  "See the guardrails behind our ventures"
+
+Description:
+  "Our approach and standards describe the runway and constraints every venture must clear before it can touch Truth, Capital, or Dignity at scale."
+
+href:
+  "/approach"
+
+If the component supports only `nextPage` and `href`, use:
+
+- nextPage: "Approach"
+- href: "/approach"
+
+Do not change the component type or layout.
+
+--------------------------------------------------
+9) Hygiene & brand checks for Ventures page
+--------------------------------------------------
+
+In the Ventures overview page file only, ensure:
+
+1) There are no occurrences of:
+   - The old domains "Signal", "Value", "Human" as domain names,
+   - The phrase "validate the signal" as a tagline,
+   - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents",
+   - "move fast and break things",
+   - "monetize users", "harvest data",
+   - "StackMe", "Stackme Holdings", "Stackme app", or "VSP" as active brand names,
+   - The vague phrase "the human". Prefer: "people", "participants", "communities", "stewards", "personhood", or "dignity".
+
+2) You do NOT mention:
+   - Specific protocol names, token tickers, bank names, or internal legal-entity wiring,
+   - Exact position sizes, LTVs, exposures, or other internal numeric details.
+
+3) You DO:
+   - Clearly align Helios with Capital, Lumina with Truth, and Uniqueness Engine with Dignity,
+   - Reiterate that ventures are internal-first and constraint-driven,
+   - Maintain the Architect/Judge voice: calm, precise, infrastructural, zero hype.
+
+Do not modify other pages or routes in this checkpoint.

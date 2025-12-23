@@ -1,0 +1,93 @@
+**CRITICAL CONFIGURATION UPDATE: DEFINE ANIMATION PHYSICS**
+
+The components are trying to use `animate-flash` and `ease-mechanical`, but they are not defined in the Tailwind config.
+
+**Action:** Update `tailwind.config.ts`. Replace the `theme.extend` block with this complete configuration that includes the Control Room physics.
+
+```typescript
+// In tailwind.config.ts
+theme: {
+  extend: {
+    // 1. CONTROL ROOM GEOMETRY (Machined Edges)
+    borderRadius: {
+      lg: "4px",
+      md: "2px",
+      sm: "1px",
+    },
+    
+    // 2. CONTROL ROOM PALETTE (Mapped to CSS Variables)
+    colors: {
+      background: "hsl(var(--background))",
+      foreground: "hsl(var(--foreground))",
+      card: {
+        DEFAULT: "hsl(var(--card))",
+        foreground: "hsl(var(--card-foreground))",
+      },
+      popover: {
+        DEFAULT: "hsl(var(--popover))",
+        foreground: "hsl(var(--popover-foreground))",
+      },
+      primary: {
+        DEFAULT: "hsl(var(--primary))",
+        foreground: "hsl(var(--primary-foreground))",
+      },
+      secondary: {
+        DEFAULT: "hsl(var(--secondary))",
+        foreground: "hsl(var(--secondary-foreground))",
+      },
+      muted: {
+        DEFAULT: "hsl(var(--muted))",
+        foreground: "hsl(var(--muted-foreground))",
+      },
+      accent: {
+        DEFAULT: "hsl(var(--accent))",
+        foreground: "hsl(var(--accent-foreground))",
+      },
+      destructive: {
+        DEFAULT: "hsl(var(--destructive))",
+        foreground: "hsl(var(--destructive-foreground))",
+      },
+      border: "hsl(var(--border))",
+      input: "hsl(var(--input))",
+      ring: "hsl(var(--ring))",
+    },
+
+    // 3. CONTROL ROOM PHYSICS (Timing & Curves)
+    transitionDuration: {
+      DEFAULT: "150ms", // Global speed limit
+    },
+    transitionTimingFunction: {
+      DEFAULT: "cubic-bezier(0.4, 0, 0.2, 1)",
+      "mechanical": "cubic-bezier(0.2, 0, 0, 1)", // Snap effect
+    },
+
+    // 4. CONTROL ROOM ANIMATIONS (The Missing Keyframes)
+    keyframes: {
+      "accordion-down": {
+        from: { height: "0" },
+        to: { height: "var(--radix-accordion-content-height)" },
+      },
+      "accordion-up": {
+        from: { height: "var(--radix-accordion-content-height)" },
+        to: { height: "0" },
+      },
+      // THE DATA FLASH (Used for dates/updates)
+      "flash": {
+        "0%": { opacity: "0.2", color: "hsl(var(--primary))" }, // Ignite Orange
+        "50%": { opacity: "1", color: "#ffffff" }, // Flash White
+        "100%": { opacity: "0.6", color: "hsl(var(--muted-foreground))" }, // Settle Gray
+      },
+      // THE SYSTEM PULSE (Used for loading/active monitoring)
+      "pulse-glow": {
+        "0%, 100%": { opacity: "1", boxShadow: "0 0 5px hsl(var(--primary)/0.2)" },
+        "50%": { opacity: "0.5", boxShadow: "0 0 2px hsl(var(--primary)/0.1)" },
+      }
+    },
+    animation: {
+      "accordion-down": "accordion-down 0.2s ease-out",
+      "accordion-up": "accordion-up 0.2s ease-out",
+      "flash": "flash 0.8s ease-out forwards",
+      "pulse-glow": "pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+    },
+  },
+},

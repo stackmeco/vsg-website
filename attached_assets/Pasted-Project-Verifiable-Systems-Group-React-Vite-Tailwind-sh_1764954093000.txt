@@ -1,0 +1,323 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the Insights page (`/insights`) in line with:
+
+- VSG Identity and VSG Brand & Voice System v3.0
+- Truth · Capital · Dignity as the three beams
+- Pillars / Process / Standards as the structural frame
+- External safety rules (no detailed plumbing, no protocol names, no tickers, no entity wiring)
+- Updated language (no “Signal / Value / Human”, no “validate the signal”, no “the human” as a noun)
+
+We want `/insights` to be:
+
+- The place where we publish **memos, notes, and logs** from the studio.
+- Focused on **how VSG applies its standards and approach in practice**.
+- Clean, scannable, and aligned with the rest of the site’s IA and voice.
+
+Do NOT:
+- Change or add routes.
+- Change global theming (colors, typography, layout primitives).
+- Mention specific protocols, banks, tickers, venues, or LTV numbers.
+- Use “Signal / Value / Human”, “validate the signal”, “protect the human”, “AI-powered platform”, or hype words like “revolutionary” / “game-changing”.
+- Add more than ONE warmth line using “you” on this page.
+
+--------------------------------------------------
+1) Locate or create the Insights page component
+--------------------------------------------------
+
+1. In `client/src/App.tsx`, find the route for `/insights`.
+
+   - If it exists, note which component it renders (e.g., `InsightsPage` in `client/src/pages/Insights.tsx`).
+   - If it does NOT exist yet:
+     - Create `client/src/pages/Insights.tsx`.
+     - Wire it in as the route for `/insights` in `App.tsx` using the same pattern as other pages.
+
+2. For the rest of this spec, apply changes to the component that renders `/insights` (call it `InsightsPage`).
+
+--------------------------------------------------
+2) PageMeta – title + description
+--------------------------------------------------
+
+Inside the Insights page, add or update `<PageMeta ... />` so that:
+
+- `title`: `"Insights"`
+- `description`: `"Notes, memos, and logs from Verifiable Systems Group on how we design, govern, and operate AI-native systems across Truth, Capital, and Dignity."`
+
+Keep `preloadImage` and any other props consistent with other pages (e.g., `/hero-texture.png`).
+
+Example:
+
+  <PageMeta
+    title="Insights"
+    description="Notes, memos, and logs from Verifiable Systems Group on how we design, govern, and operate AI-native systems across Truth, Capital, and Dignity."
+    preloadImage="/hero-texture.png"
+  />
+
+--------------------------------------------------
+3) Hero section – what Insights is
+--------------------------------------------------
+
+In the top hero section of `/insights`:
+
+3.1 Overline
+
+Set the overline (small label above the heading) to:
+
+  "Notes from the studio"
+
+3.2 Heading (`<h1>`)
+
+Set the main heading to:
+
+  "Insights from systems that have to hold up."
+
+3.3 Hero body copy (two short paragraphs)
+
+Replace the existing hero text with:
+
+Paragraph 1:
+
+  "Insights is where we share memos, notes, and logs from running AI-native systems under real constraints. Expect field reports, architectural patterns, and lessons from stress tests—not slogans."
+
+Paragraph 2 (this is the single warmth line for this page):
+
+  "You shouldn’t have to guess how we think once real Truth, Capital, and Dignity are on the line. These pieces show how our standards and approach behave in practice."
+
+Keep existing JSX structure and Tailwind classes; only update the text.
+
+3.4 Hero CTAs (if present)
+
+If the hero renders two buttons or links, configure them as:
+
+Primary CTA:
+- Label:
+    "See how we build"
+- `href`:
+    "/approach"
+
+Secondary CTA:
+- Label:
+    "Read our standards"
+- `href`:
+    "/standards"
+
+Reuse existing Button components / variants; only change labels and `href`.
+
+--------------------------------------------------
+4) Section: “What you’ll find here”
+--------------------------------------------------
+
+Below the hero, ensure there is a short explainer section (reuse an existing section-intro layout).
+
+Section heading:
+
+  "What you’ll find here"
+
+Body copy (one paragraph + bulleted list):
+
+Paragraph:
+
+  "This is not a generic blog. It’s a working notebook for systems that must not fail silently. Each piece should map back to our pillars, process, and standards."
+
+Bullet list (3–4 items):
+
+- "Field notes from running ventures inside the studio."
+- "Memos on architecture, governance, and risk decisions."
+- "Post-incident reflections and what changed as a result."
+- "Patterns we think are ready to reuse across Truth, Capital, and Dignity."
+
+Use the same typography utilities as similar intro sections on other pages.
+
+--------------------------------------------------
+5) Core content: list of entries (static, v3 voice)
+--------------------------------------------------
+
+If there is already a posts/entries array (e.g., `const posts = [...]`), reuse it and only update the content.
+
+If not, create a simple posts array at the top of the file:
+
+  const insightsEntries = [
+    {
+      title: "Designing systems that can admit failure",
+      category: "Standards · Truth",
+      summary:
+        "Why we require every system to define what must never happen, how we would detect it, and what we do next—before a single user relies on it.",
+      href: "#",
+    },
+    {
+      title: "Running treasury drills without external promises",
+      category: "Standards · Capital",
+      summary:
+        "How we run internal exercises on our own balance sheet to see how capital would behave under stress, without offering products or pooling outside funds.",
+      href: "#",
+    },
+    {
+      title: "Proving personhood without overexposure",
+      category: "Standards · Dignity",
+      summary:
+        "Why we treat participation and personhood as design constraints, and how we avoid collecting more about someone’s life than a system actually needs.",
+      href: "#",
+    },
+  ];
+
+Notes:
+
+- `href` can stay `"#"` as a placeholder if there are no detail pages yet.
+- If you already have a routing pattern for posts (e.g., `/insights/:slug`), update `href` values to match that pattern instead of `"#"`.
+
+Render these entries in a card/grid layout consistent with other pages. For example:
+
+  <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+    {insightsEntries.map((entry) => (
+      <article
+        key={entry.title}
+        className="flex flex-col justify-between rounded-xl border bg-card/60 p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+      >
+        <div className="space-y-2">
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            {entry.category}
+          </p>
+          <h2 className="text-sm font-semibold tracking-tight sm:text-base">
+            {entry.title}
+          </h2>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            {entry.summary}
+          </p>
+        </div>
+        <div className="mt-4">
+          <a
+            href={entry.href}
+            className="text-xs font-medium uppercase tracking-[0.18em] text-primary"
+          >
+            Read note
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+
+Do not change the global grid/theming; adapt classes to match existing cards if needed.
+
+--------------------------------------------------
+6) Optional filters/tags band (use existing UI only)
+--------------------------------------------------
+
+If `/insights` already has a filter/tag bar (chips, buttons, etc.), keep the UI but update the labels to match the new framing.
+
+Examples of label text to use (no new components):
+
+- "All"
+- "Truth"
+- "Capital"
+- "Dignity"
+- "Standards"
+- "Field notes"
+
+Only update label strings; do not change filter logic in this checkpoint.
+
+If no filter UI exists, skip this step—do NOT add new components.
+
+--------------------------------------------------
+7) Section: “How we choose what to publish”
+--------------------------------------------------
+
+Add a simple explanatory section (reuse a standard text band layout).
+
+Section heading:
+
+  "How we choose what to publish"
+
+Body copy (two paragraphs):
+
+Paragraph 1:
+
+  "We only publish when something has changed how we design or operate. That might be an incident, a stress test, or a pattern that has survived enough contact with reality to be worth sharing."
+
+Paragraph 2:
+
+  "Each piece should map back to our pillars, process, and standards. If we cannot explain what changed in the studio because of it, it belongs in an internal log—not on this page."
+
+No “you” language here (we already used the single warmth line in the hero).
+
+--------------------------------------------------
+8) Section: “Tying back to the rest of the studio”
+--------------------------------------------------
+
+Add a short band that connects Insights back to the other core pages. Reuse a simple layout (e.g., three mini-items).
+
+Section heading:
+
+  "Tying back to the rest of the studio"
+
+Body content: three short inline items or stacked rows, for example:
+
+- "Pillars – The principles that constrain which systems we build in the first place."
+- "Process – The six-stage path every venture follows before it becomes infrastructure."
+- "Standards – The quality and risk bar systems must clear before they carry real stakes."
+
+If you already have a `NextStepBlock` on this page, you can skip adding more CTAs in this section; keep this text-only.
+
+--------------------------------------------------
+9) Bottom CTA – back into the core site
+--------------------------------------------------
+
+At the bottom of the Insights page, use your existing `NextStepBlock` (or equivalent) to guide visitors back into the core “how we work” content.
+
+Configure it as:
+
+  <NextStepBlock
+    nextPage="Studio"
+    description="See how these notes connect back to the studio’s purpose, vision, and mission."
+    href="/studio"
+  />
+
+If there is already a `NextStepBlock`, update its props as above; do not change styling.
+
+--------------------------------------------------
+10) Hygiene pass on Insights page
+--------------------------------------------------
+
+In the Insights page file:
+
+1) Remove or replace ANY references to:
+   - “Signal / Value / Human” as domains.
+   - “validate the signal”.
+   - “protect the human”.
+   - “AI-powered platform”, “revolutionary”, “game-changing”, “disruptive”.
+   - “StackMe”, “Stackme Holdings”, “VSP”.
+
+2) Ensure AI language follows v3 rules:
+   - Use: “AI-native”, “machine intelligence”, “Intelligence Augmented (IA)” where needed.
+   - Avoid: “magic”, “AI does the rest”, “we sprinkle AI across the stack”.
+
+3) Warmth:
+   - Keep exactly ONE warmth line using “you” on this page (the hero paragraph above).
+   - Do not add extra “you shouldn’t…” lines elsewhere.
+
+4) Domain terms:
+   - When you refer to the beams, use “Truth, Capital, and Dignity” (capitalized).
+   - Do not call them “Signal / Value / Human”.
+
+5) Content consistency:
+   - Ensure the categories and copy on this page are consistent with the rest of the site.
+   - If you create/update `insightsEntries`, make sure titles and summaries feel on-brand (exact, architectural, ethically explicit).
+
+--------------------------------------------------
+11) Final QA
+--------------------------------------------------
+
+After making these edits, run the dev server and open `/insights`:
+
+- The hero clearly states what Insights is and how it fits the studio.
+- “What you’ll find here” sets expectations (memos, notes, logs—not generic marketing).
+- The entries grid renders cleanly with on-brand titles and summaries.
+- Any filters/tags (if present) use labels aligned to Truth/Capital/Dignity and standards.
+- “How we choose what to publish” explains the bar for appearing here.
+- “Tying back to the rest of the studio” reinforces Pillars / Process / Standards.
+- The bottom CTA points back to `/studio`.
+- There are no remaining references to Signal/Value/Human, “validate the signal”, “protect the human”, or hype phrases.
+- Tone matches VSG: serious, architectural, ethically explicit, one controlled warmth line, no memes or slang.
+
+Only commit once `/insights` feels like a premium, coherent notebook for the studio—something you’d be comfortable pointing an institutional partner or regulator to as “how we think, in public.”

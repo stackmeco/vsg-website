@@ -1,0 +1,239 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Studio / About page** fully in line with VSG Brand & Voice System v3.0 and the Truth · Capital · Dignity model.
+
+This page should:
+
+- Clearly explain what VSG is (AI-native, cryptography-grounded venture studio),
+- Show how Truth · Capital · Dignity frame the work,
+- Explain how the venture studio actually operates (internal-first, governed, non-custodial),
+- Make explicit what VSG is *not* (not a fund, not a yield platform, not a consultancy),
+- Connect naturally to Ventures, Approach, Governance, and Insights.
+
+Do NOT change layout primitives, visual design, or routes. Only update text content, headings, and small local data structures in the Studio page file.
+
+---
+
+1) Locate the Studio / About page
+
+Find the component used for the “Studio” or “About” route, for example:
+
+- `client/src/pages/Studio.tsx`
+- `client/src/pages/About.tsx`
+- or whatever file is rendered for `/studio` or `/about` in `client/src/App.tsx` and linked from the nav as “Studio”.
+
+All changes below apply **only** inside this Studio/About page file.
+
+---
+
+2) Update the hero section
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only the text.
+
+- Overline:
+  "Studio"
+
+- Heading:
+  "The studio behind the rails."
+
+- Body paragraph (single paragraph; split into multiple <p> tags only if your component requires it):
+  "Verifiable Systems Group is an AI-native, cryptography-grounded venture studio that builds infrastructure for verifiable autonomy. We run patterns on our own balance sheet first across Truth, Capital, and Dignity before they become rails anyone else can rely on."
+
+Hero CTAs:
+
+- Primary CTA label:
+  "Explore our ventures"
+  → Link to `/ventures`.
+
+- Secondary CTA label:
+  "See how we work"
+  → Link to `/approach`.
+
+Keep the existing button components, icons, and styles; only update labels and hrefs if needed.
+
+---
+
+3) “Who we are” section
+
+Add or update the first substantive section under the hero to explain what VSG is in plain, on-voice language.
+
+Section heading:
+  "Who we are"
+
+Body text (1–2 paragraphs; use multiple <p> tags if needed):
+
+  "We are an architect’s office for digital infrastructure. Instead of shipping generic tools or chasing hype cycles, we design and operate systems for capital, identity, and intelligence that must not fail silently."
+
+  "We fuse machine intelligence and cryptography to build rails where behaviours can be inspected, limits are explicit, and people keep control over how they participate. We don’t just publish patterns—we run them ourselves first."
+
+No company location, legal-entity wiring, or protocol names here. Keep it conceptual.
+
+---
+
+4) “What we believe” section
+
+Add or update a section that anchors to Purpose, Vision, and Mission without rewriting the canonical lines.
+
+Section heading:
+  "What we believe"
+
+Use a short intro plus three sub-points:
+
+Intro paragraph:
+  "Our work is guided by a simple set of beliefs about how modern systems should behave."
+
+Then three bullets or mini-cards:
+
+1) Title: "Leverage should be democratized."
+   Text:
+   "Institutional-grade tools for protecting and growing value should not be reserved for the largest players. We design for individuals and small teams with real scar tissue, not just institutions."
+
+2) Title: "Trust should be engineered."
+   Text:
+   "If a decision or flow matters, it should rest on evidence you can inspect—not opaque narratives or black-box scores. Truth is something you can verify, not just something you are told."
+
+3) Title: "People should not be the product."
+   Text:
+   "Participation should not require over-exposure. We design systems where people can prove enough to participate while keeping personhood and time protected."
+
+Do not restate full Purpose/Vision/Mission here; they live in the dedicated Purpose/Vision/Mission page(s). This section is a high-level expression of the same logic.
+
+---
+
+5) “Three domains” section (Studio view)
+
+Add or update a section that explains Truth, Capital, and Dignity specifically from the studio’s perspective.
+
+Section heading:
+  "Three domains we design for"
+
+Intro paragraph:
+  "Every venture we run has a home domain. That gives us clarity about what it is responsible for protecting."
+
+Then three cards (reuse your existing 3-card component):
+
+1) Title: "Truth"
+   Text:
+   "Does this system rest on evidence solid enough to depend on? We build Truth ventures to make key decisions—like grading or risk flags—inspectable instead of opaque."
+
+2) Title: "Capital"
+   Text:
+   "Can capital move through this system without hidden downside? We build Capital ventures to make assets work without handing the keys to intermediaries."
+
+3) Title: "Dignity"
+   Text:
+   "Does this system protect people’s personhood and time? We build Dignity ventures to let people prove presence and rights without being turned into products."
+
+No mention of Signal/Value/Human. Only Truth, Capital, Dignity.
+
+---
+
+6) “How a venture becomes real” section
+
+Add or update a section that ties the studio’s operating model to the Process/Approach content.
+
+Section heading:
+  "How a venture becomes real"
+
+Body paragraph:
+  "We do not treat ideas as assets. To become a venture, an idea must clear our domain questions, survive the six-stage runway, and prove itself under governed experiments on our own balance sheet."
+
+Under this, use a three-step summary (not the full six stages; that lives on `/process`):
+
+- "1. Test the questions"
+  Text:
+  "Does it hold true? Does capital survive the worst day? Does it protect dignity under stress? If not, we don’t build it."
+
+- "2. Run the runway"
+  Text:
+  "The idea moves through our six-stage path—Define, Validate, Build, Deploy, Evolve, Recurse—with limits, artefacts, and reviews at each step."
+
+- "3. Prove it under stress"
+  Text:
+  "We wire it through our own systems first, under conservative limits, and keep it only if it survives real conditions and improves on what we already have."
+
+Add a compact link under this section:
+
+- Label:
+  "Read the full Process"
+- href:
+  `/process`.
+
+---
+
+7) “How we operate (and what we are not)” section
+
+Add or update a combined section that explains the operating model and clarifies what VSG is not.
+
+Section heading:
+  "How we operate (and what we are not)"
+
+Intro paragraph:
+  "We run VSG as a focused studio, not a general-purpose agency or fund. That means clear boundaries around what we do—and what we refuse to do."
+
+Then use a split “is / is not” layout (reuse any two-column or list pattern you already have):
+
+Left side – “How we operate” (What we are):
+
+- "We run ventures on our own balance sheet first under conservative limits."
+- "We build AI-native systems where machines handle the mechanics and people keep the veto."
+- "We design for non-custodial control wherever capital or identity is involved."
+- "We publish patterns and standards once they’ve survived real conditions—not just simulations."
+
+Right side – “What we are not”:
+
+- "Not a custodial exchange, wallet, or vault provider."
+- "Not a pooled investment vehicle, yield product, or fund."
+- "Not a generic consultancy or agency taking hourly briefs."
+- "Not a place where users hand over their keys or identities in exchange for promises."
+
+At the bottom of this section, add a muted disclaimer paragraph (e.g., `text-xs text-muted-foreground`):
+
+  "Nothing on this page is investment, legal, or tax advice. It describes how we choose to operate, not a recommendation for anyone else’s structure."
+
+---
+
+8) “Where to go next” / navigation bridge
+
+Use whatever “NextStepBlock” or CTA components you already use on other pages to guide people into the core flows.
+
+Recommended configuration if there is a single block:
+
+- Title:
+  "See how this shows up in practice"
+
+- Description:
+  "Explore the ventures, approach, and insights that put these principles under real conditions."
+
+- href:
+  `/ventures`
+
+If the component supports a secondary link within the same block, use a concise inline link to `/insights` or `/approach`. If not, keep it simple and just point to `/ventures`.
+
+Do not add new components; just adjust props.
+
+---
+
+9) Hygiene & brand checks for this file
+
+In the Studio/About page file only:
+
+- Ensure there are **no** occurrences of:
+  - "Signal / Value / Human"
+  - "validate the signal"
+  - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents"
+  - "move fast and break things"
+  - "monetize users", "harvest data"
+  - "StackMe", "Stackme Holdings", or "VSP" as active brand names
+  - generic “the human” phrasing (use “people”, “participants”, “personhood”, or “dignity” instead)
+
+- Ensure the page clearly reinforces:
+  - VSG as an AI-native, cryptography-grounded venture studio.
+  - The line: “Infrastructure for verifiable autonomy.” (already used on Home; you don’t have to repeat the exact phrase here but the meaning must align).
+  - Truth, Capital, and Dignity as the three domains.
+  - Balance-sheet-first, non-custodial, AI-native, human-governed stance.
+  - Clear boundaries: not a fund, not a yield platform, not a generic consultancy, not custodial.
+
+Do not touch other pages or routes in this checkpoint.

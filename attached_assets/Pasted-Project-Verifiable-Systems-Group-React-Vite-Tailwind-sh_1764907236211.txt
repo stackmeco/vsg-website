@@ -1,0 +1,229 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Do a final **polish pass on the Connect/Contact experience and the 404 page** so they:
+
+- Match VSG Brand & Voice System v3.0
+- Reflect the Truth · Capital · Dignity framing implicitly (without over-explaining)
+- Use the Architect/Judge voice (precise, calm, non-salesy)
+- Are clear about what kinds of conversations we actually want
+- Avoid any language that could be misread as investment, legal, or tax advice
+
+Do NOT change:
+
+- Form fields, validation, or submission logic
+- Page routing or layout primitives
+- Legal disclaimers or privacy/terms structures
+
+Only update user-facing text (headings, paragraphs, helper text, button labels) in the **Connect/Contact page** and the **404/not-found page**.
+
+--------------------------------------------------
+1) Locate Connect / Contact and 404 pages
+--------------------------------------------------
+
+1.1 Connect / Contact page
+
+Find the component that renders the “contact us” / “connect” route, e.g.:
+
+- client/src/pages/Connect.tsx
+- client/src/pages/Contact.tsx
+- or whichever component is mapped to "/connect" (or similar) in client/src/App.tsx.
+
+This is the “outer ring” page where users can reach out.
+
+1.2 404 / NotFound page
+
+Find the component used for “not found” routes, e.g.:
+
+- client/src/pages/NotFound.tsx
+- client/src/pages/404.tsx
+
+or whatever component is rendered as a catch-all in App.tsx.
+
+All changes below apply only to those two pages.
+
+--------------------------------------------------
+2) Connect page – hero and framing
+--------------------------------------------------
+
+On the Connect page:
+
+2.1 PageMeta
+
+If this page uses <PageMeta> (or equivalent), set:
+
+- title:
+    "Connect"
+- description:
+    "Connect with Verifiable Systems Group about verifiable autonomy—where truth, capital, and dignity are at stake. We prioritize conversations where infrastructure, not slogans, is the problem."
+
+Keep preloadImage or other props unchanged.
+
+2.2 Hero overline
+
+Set the small overline (if present) to:
+
+  "Connect · Verifiable Systems Group"
+
+2.3 Hero heading
+
+Set the main <h1> to:
+
+  "Talk to us when verification matters."
+
+2.4 Hero body (1–2 short paragraphs)
+
+Replace the hero body copy with:
+
+First paragraph (~30–45 words):
+
+  "We’re a studio for verifiable autonomy, not a high-volume agency. We take on a limited number of conversations where the core problem is structural: how truth is proven, how capital moves, or how people participate without overexposure."
+
+Second paragraph (~20–30 words):
+
+  "If you’re facing those questions in a serious way, we’re interested. If you just need generic AI or marketing, we’re probably not the right fit."
+
+Keep layout and classes the same; just update the text.
+
+2.5 Call-to-action text around the form
+
+If there is a short sentence above the form, update it to something like:
+
+  "Tell us what you’re trying to verify, protect, or build. Be as specific as you can—what’s at stake if this system is wrong, brittle, or opaque?"
+
+If there are separate helper labels near form fields (e.g., “Project description”), you can add small helper text where it fits:
+
+- For a “Topic” or “Reason” field:
+  - Helper:
+    "Examples: grading infrastructure, treasury rails, personhood in a network."
+
+- For a “Message” or “Details” field:
+  - Helper:
+    "What’s the system? Who does it serve? What goes wrong if it fails silently?"
+
+Do not change field names or their types—only optional helper text.
+
+2.6 Submit button text
+
+If the submit button label is something generic like “Submit” or “Send”, update it to:
+
+  "Send message"
+
+Do not add extra text or icons; keep it simple.
+
+--------------------------------------------------
+3) Connect page – expectations and disclaimers
+--------------------------------------------------
+
+Below the form (or in a small sidebar/footnote), add or refine a short expectations block. Use existing typography components (e.g., <p>, <small>).
+
+Suggested block:
+
+Heading (if the layout uses one for small sections):
+  "What to expect"
+
+Body (2–3 short lines):
+
+  "We review incoming messages for clear alignment with our work on Truth, Capital, or Dignity. We can’t respond to every inquiry or provide individual investment, legal, or tax advice."
+
+Add a muted note (small text):
+
+  "Nothing on this site or in our replies should be treated as financial, legal, or tax advice."
+
+Do NOT alter any existing formal legal notices—this is just user-facing expectation setting.
+
+--------------------------------------------------
+4) 404 / NotFound page – voice and guidance
+--------------------------------------------------
+
+On the 404 / NotFound component:
+
+4.1 Heading
+
+Set the main heading to:
+
+  "This page isn’t wired up."
+
+4.2 Body copy
+
+Replace the body paragraph(s) with two short lines:
+
+First line (~15–25 words):
+
+  "Either this page never existed or it hasn’t been wired into the current site. In either case, there’s nothing verifiable here yet."
+
+Second line (~15–25 words):
+
+  "Use the links below to get back to the parts of the system that are live and inspectable."
+
+Tone: calm, a bit architectural, not jokey. No exclamation points.
+
+4.3 Navigation back to main areas
+
+If the 404 already has a “Back home” link, keep it and refine text. If not, add a small list of links using existing button/link components.
+
+Buttons or links (use whichever pattern is already present):
+
+- Label:
+    "Go to overview"
+  href:
+    "/"
+
+- Label:
+    "Explore ventures"
+  href:
+    "/ventures"
+
+- Label:
+    "See how we build"
+  href:
+    "/approach"
+
+Do not change the layout or styling—just ensure the labels and hrefs are as above.
+
+--------------------------------------------------
+5) Hygiene & brand checks on these pages
+--------------------------------------------------
+
+In the Connect and 404 components:
+
+1) Ensure there are **no**:
+   - References to "Signal, Value, Human" as domains.
+   - Phrases like "AI-powered platform", "revolutionary", "game-changing".
+   - Old brands: "StackMe", "Stackme Holdings", "Stackme app", "VSP".
+   - Uses of "the human" as a noun; prefer “people” or “participants”.
+
+2) Ensure:
+   - Connect page clearly sets expectations:
+     - Limited number of conversations.
+     - Focused on structural/verification problems.
+     - No implication of investment/legal/tax advice.
+   - 404 page:
+     - Stays calm and functional.
+     - Points back to valid routes clearly.
+     - Matches the overall visual style and tone.
+
+3) Keep warmth controlled:
+   - Connect page: a bit more human than the rest (direct “you” language is fine).
+   - 404 page: minimal warmth, mainly structural guidance.
+
+--------------------------------------------------
+6) Final checks
+--------------------------------------------------
+
+After making these edits:
+
+1) Ensure both files compile:
+   - No TypeScript or JSX errors.
+
+2) Run the dev server and verify:
+   - "/connect" (or equivalent) renders with the new hero copy, helper text, and expectations block.
+   - The form fields and logic still behave exactly as before.
+   - The 404 page shows the new heading, copy, and navigation links.
+
+3) Confirm:
+   - No off-brand language slipped in on these pages.
+   - The tone matches the rest of the polished site.
+
+Only commit once Connect and 404 feel consistent with the Overview, Ventures, Helios, Lumina, Uniqueness Engine, Approach, Process, and Standards pages.

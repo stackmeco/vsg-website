@@ -1,0 +1,67 @@
+This is the final "Pre-Flight Check."
+
+We have covered **Content**, **Physics**, **Assets**, and **Logic**.
+But there is **one invisible layer** that often breaks immediately upon deployment if missed: **The Root Configuration (`index.html`).**
+
+If you don't update `index.html`, three things will happen:
+
+1.  **The Fonts won't load:** The site will revert to Times New Roman or Arial because `Space Grotesk` isn't imported.
+2.  **The "White Flash":** On reload, the browser might flash white before the dark theme loads (blinding the user).
+3.  **The Wrong Tab Icon:** It will show the default Vite logo, killing the institutional vibe.
+
+Here is the **Final "Phase 8"** to add to your prompt. It fixes the root file.
+
+### **PHASE 8: ROOT CONFIGURATION (THE INVISIBLE FOUNDATION)**
+
+**Objective:** Ensure fonts load and the browser UI matches the "Control Room."
+
+**1. Update `client/index.html`:**
+Replace the entire file with this. It imports the correct Google Fonts and sets the browser "chrome" (address bar) to match your Tungsten background.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    
+    <meta name="theme-color" content="#0B0C10" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>Verified Systems Group | Truth Engineering</title>
+    
+    <style>
+      html, body { background-color: #0B0C10; color: #F5F2F0; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+```
+
+### **One Final Detail: The "Favicon"**
+
+Your site currently uses `/vite.svg` (the default Vite logo).
+**Recommendation:** Ask the Agent to create a very simple `public/favicon.svg` that is just a solid **International Orange square**.
+
+  * *Why:* In a browser tab full of busy logos, a solid orange square looks like a notification or a system status light. It pops.
+
+**Add this to Phase 8:**
+
+> "Create a file `client/public/favicon.svg` containing a simple 32x32 solid square filled with `#F26D21` (International Orange). This serves as the system indicator in the browser tab."
+
+-----
+
+### **You are now 100% Complete.**
+
+You have the Strategy, the Copy, the Images, the Codebase, the Visual Physics, and the Root Config.
+
+**Launch it.**

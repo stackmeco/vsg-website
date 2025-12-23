@@ -1,0 +1,103 @@
+You are editing the codebase for **Verifiable Systems Group (VSG)**.
+
+VSG is an **AI-native, cryptography-grounded venture studio** that builds **verifiable systems for capital, identity, and intelligence**, and runs every serious pattern on its **own balance sheet first**.
+
+Brand canon (non-negotiable):
+- Our three domains are **Truth**, **Capital**, and **Dignity** — these replace any older “Signal / Value / Human” framing.
+  - Truth — Make decisions rest on evidence, not stories.
+  - Capital — Make capital work without leaving governed, non-custodial control.
+  - Dignity — Protect people and their personhood; prove eligibility and uniqueness without surveillance.
+- We are **AI-native**: machine intelligence is part of the mechanism and governance loops, not a bolt-on.
+- We are **non-custodial by design** and **balance-sheet-first**.
+- Tone: serious, architectural, ethically explicit; no hype, no memes, no “AI-powered platform” language.
+- Forbidden phrases (rewrite any you find): 
+  - “validate the signal”
+  - “Signal / Value / Human” as pillars
+  - “the human”
+  - “AI-powered platform”
+  - “revolutionary AI”, “game-changing agents”, “AI magic”
+  - casual slang or meme language
+
+Before changing copy or labels, align them with:
+- `docs/brand/VSG-Brand-Voice-System-v3.0.md`
+- `docs/brand/VSG-Identity.md`
+
+Now update the **Ventures index** page to reflect Brand & Voice System v3.0 and the Truth · Capital · Dignity model.
+
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in `client/src/App.tsx`).
+
+File to edit: the page that renders the `/ventures` route (for example `client/src/pages/Ventures.tsx` or similar). If the component name or path is different, locate the file actually used for `/ventures` and apply these changes there.
+
+Goal:
+Make the Ventures index page clearly present VSG as an AI-native **venture studio**, and show each venture with:
+- A domain label (Truth / Capital / Dignity)
+- A short, v3.0-aligned description
+- A clear “run on our balance sheet first” stance
+
+Keep the existing layout and styling primitives; change text content only.
+
+Tasks:
+
+1) Page intro / hero for `/ventures`
+- At the top of the Ventures page, ensure there is an intro block (title + short paragraph).
+- Use this content (adapt to existing JSX structure):
+
+  Title:
+  “Ventures”
+
+  Body paragraph:
+  “Verifiable Systems Group is an AI-native venture studio. We run each venture on our own balance sheet first as a living proof of what our rails can sustain across Truth, Capital, and Dignity.”
+
+- Keep existing Tailwind/shadcn classes and layout wrappers; only swap the string literals.
+
+2) Domain badges / labels on venture cards
+- For each venture card rendered on `/ventures`, add a small domain label or subtitle that clearly shows which domain it belongs to.
+- Use this mapping when you detect the venture by name or slug:
+
+  - If the venture name contains “Helios” → domain label: “Capital”
+  - If the venture name contains “Lumina” → domain label: “Truth”
+  - If the venture name contains “Uniqueness” → domain label: “Dignity”
+  - If the venture name contains “VSP” or “Axiom” or “Verifiable Systems Protocol” → domain label: “Truth”
+
+- Implementation detail: you can use a small uppercase caption, badge, or muted subtitle under the venture name, reusing existing typography utilities (e.g., `text-xs uppercase tracking-[0.2em] text-muted-foreground`) to match the rest of the site.
+
+3) Venture blurbs (short descriptions)
+Update the description text for each known venture to the following style. Keep them to ~2–3 sentences. Do NOT add protocol names, venues, token tickers, or LTV numbers.
+
+- **Helios (Capital)**  
+  Description to use (adapt to your existing JSX, but keep meaning):
+
+  “Helios is our internal execution engine for VSG’s own digital asset treasury. It routes positions under explicit limits so capital can work without surrendering custody, operating as a non-custodial engine with observability and rollback built in.”
+
+- **Lumina (Truth)**  
+  Description:
+
+  “Lumina is physics-aware grading infrastructure for cards and other physical assets. It ties every score to verifiable evidence—sensor readings, anomaly checks, and provenance logs—so grades rest on proof instead of stories or vibes.”
+
+- **Uniqueness Engine (Dignity)**  
+  Description:
+
+  “Uniqueness Engine proves ‘one person, one presence’ without turning people into products. Privacy-preserving proofs let individuals access governed systems and benefits without handing over their full identity.”
+
+- **VSP / Axiom rails (Truth)**  
+  Description (use this for any venture on the page that represents verifiable rails / protocol work, e.g., Verifiable Systems Protocol, Axiom rails, etc.):
+
+  “Our verifiable rails for digital artefacts and AI-native flows anchor outputs to provenance and integrity checks. They make it possible to inspect how a decision or result was formed, so automated systems can be audited instead of guessed at.”
+
+- If there are additional ventures, follow the same pattern: one domain, a clear pain, and a mechanism description rooted in v3.0 language.
+
+4) Balance-sheet-first stance
+- Add one short line somewhere near the top or bottom of the Ventures page reinforcing the balance-sheet-first stance, for example:
+
+  “Every venture here runs on our own balance sheet first, so you can see how the rails behave before deciding what to trust.”
+
+5) Safety & constraints
+- Do NOT add or expose:
+  - Specific protocol names
+  - Yield promises
+  - Exact thresholds, LTV numbers, or venue configurations
+  - Wallet topologies or bank names
+
+- Ensure there is no remaining reference to “Signal / Value / Human”, “validate the signal”, or “the human” in the Ventures page after edits.
+
+Keep JSX structure, card components, and classes intact — update only string literals and, where needed, add simple domain labels within existing card layouts.

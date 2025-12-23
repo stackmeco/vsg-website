@@ -1,0 +1,82 @@
+This is the "Deep State" audit. We are looking for the things that are not just "wrong," but **sub-optimal** for a Tier-1 Engineering brand.
+
+I have identified **5 Final "Ghost" Issues** that are still lingering in the code structure or micro-copy. These are the details that distinguish a "reskinned template" from a "proprietary interface."
+
+-----
+
+### **I. The "404" Page is Generic (The "Dead End" Risk)**
+
+  * **Current State:** `client/src/pages/not-found.tsx` likely says "Page Not Found" with a standard button.
+  * **The Vibe Kill:** It looks like a broken website.
+  * **The Fix:** It should look like a **System Error**.
+      * **Headline:** "404: SIGNAL LOST" or "INVALID VECTOR"
+      * **Body:** " The requested path does not exist within the verified architecture."
+      * **Button:** "Return to Console" (instead of "Back Home").
+
+### **II. The "Read More" Link (The Blog Trope)**
+
+  * **Current State:** In `InsightCard.tsx` and `Pipeline.tsx`, the links likely say **"Read more"** with an arrow.
+  * **The Vibe Kill:** "Read more" is for blogs and news sites. Institutional tools don't ask you to "read"; they allow you to **"Access"** or **"View."**
+  * **The Fix:** Change all instances of "Read more" to **"Access Entry"** or **"View Analysis"**. It sounds like you are opening a file, not a story.
+
+### **III. The "Studio Metrics" Labels (The Defensive Tone)**
+
+  * **Current State:** In `Overview.tsx` (Sidebar):
+      * *"2 Founders (Full ownership)"* -\> Sounds defensive/proud.
+      * *"100% Self-funded"* -\> Sounds like a bootstrap startup.
+  * **The Fix:** Use **Balance Sheet Terms**.
+      * Change "Full ownership" to **"Equity: Undiluted"**. (Financial term).
+      * Change "100% Self-funded" to **"Capitalization: Proprietary"**. (Institutional term).
+
+### **IV. The "Next Step" Softness**
+
+  * **Current State:** In `NextStepBlock.tsx`:
+      * *"See how Verified Systems operates..."*
+      * *"Reach out if you'd like to connect."*
+  * **The Vibe Kill:** "See how" and "like to connect" are conversational.
+  * **The Fix:**
+      * System: **"Review Operational Architecture."**
+      * Contact: **"Initiate Communication Channel."**
+
+### **V. The Browser Title (The Invisible Brand)**
+
+  * **Current State:** `index.html` likely defaults to "Vite App" or just "Verified Systems."
+  * **The Fix:** Set the `<title>` to: **"Verified Systems | Truth Engineering"**.
+  * **Favicon:** Ensure the favicon isn't the Vite logo. Even a blank orange square is better than the default.
+
+-----
+
+### **The Final "God Mode" Prompt**
+
+This is the last code block you will need. It hunts down these specific "ghosts" and hardens them.
+
+```markdown
+**FINAL DEEP-STATE POLISH**
+Objective: Eliminate all remaining "Blog/Startup" artifacts.
+
+### 1. REFACTOR THE 404 PAGE (`client/src/pages/not-found.tsx`)
+* **Headline:** Change "Page not found" to **"404: SIGNAL LOST"**.
+* **Body:** Change to: **"The requested trajectory is invalid. Return to operational parameters."**
+* **Buttons:** Change "Back to Overview" to **"Return to Console"**.
+
+### 2. HARDEN MICRO-COPY (Global Find/Replace)
+* **In `InsightCard.tsx` & `ProjectTile.tsx`:**
+    * Replace text "Read more" with **"Access Entry"**.
+* **In `Overview.tsx` (Metrics Sidebar):**
+    * Change "Full ownership" to **"Equity: Undiluted"**.
+    * Change "100% Self-funded" to **"Capitalization: Proprietary"**.
+* **In `NextStepBlock.tsx` (and usages):**
+    * If `nextPage="Contact"`, change description to **"Open communication channel."**
+    * If `nextPage="System"`, change description to **"Review operational architecture."**
+
+### 3. BROWSER IDENTITY (`client/index.html`)
+* **Title:** Set `<title>Verified Systems | Truth Engineering</title>`.
+* **Meta Theme:** Ensure `<meta name="theme-color" content="#0B0C10" />` (Tungsten).
+
+### 4. VISUAL PHYSICS CHECK
+* **In `index.css`:** Ensure `.hover-elevate` does NOT use `transform: translateY`. It should only modify `border-color` and `background-color`. We want "Glow," not "Lift."
+
+**EXECUTE.**
+```
+
+**Once this runs, you have reached the theoretical limit of how "Institutional" a website can feel.**

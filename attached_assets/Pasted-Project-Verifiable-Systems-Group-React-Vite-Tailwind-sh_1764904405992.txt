@@ -1,0 +1,217 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Align the **Ventures index page** (`/ventures`) with:
+
+- VSG Brand & Voice System v3.0
+- The Truth · Capital · Dignity model
+- The Architect/Judge voice (precise, infrastructural, low-hype)
+- The AI-native, internal-first, non-custodial stance
+
+This page should:
+
+- Introduce ventures as **proofs of how we answer Truth, Capital, and Dignity**, not as “products” to buy.
+- Make it clear all ventures are **run on our own balance sheet / in our own environments first**.
+- Present each venture card (Helios, Lumina, Uniqueness Engine) with:
+  - A domain label (Truth / Capital / Dignity)
+  - A tight tagline
+  - A concise, mechanics-forward description
+- Avoid all legacy language (Signal/Value/Human, StackMe, VSP, generic AI hype).
+
+Do NOT change global theming, layout primitives, or add/remove routes. Only update the Ventures index page file and any local data file it uses.
+
+--------------------------------------------------
+1) Locate the Ventures index page and data
+--------------------------------------------------
+
+1. Find the React component that renders the **/ventures** route, e.g.:
+
+   - client/src/pages/Ventures.tsx
+   - or similar, as referenced in client/src/App.tsx.
+
+2. If the page uses a separate data file for ventures (for example `client/src/data/ventures.ts` or a `const ventures = [...]` inside the page), you may edit that data structure as described below, but do not change its TypeScript types or export shape.
+
+All instructions below apply to:
+
+- The Ventures page component (layout + hero + section intro).
+- The ventures list data (titles, labels, descriptions, hrefs).
+
+--------------------------------------------------
+2) Update PageMeta on /ventures
+--------------------------------------------------
+
+In the Ventures page component, locate the `PageMeta` (or equivalent) and set:
+
+- title:
+    "Ventures"
+- description:
+    "Ventures from Verifiable Systems Group that pressure-test our answers to Truth, Capital, and Dignity—run on our own balance sheet and environments first."
+
+Keep `preloadImage` or other props as they are.
+
+Do not modify imports or component structure; only update the string props.
+
+--------------------------------------------------
+3) Hero section – clarify what “Ventures” means
+--------------------------------------------------
+
+Keep the existing layout (background texture, columns, etc.) but replace only text and hrefs.
+
+Overline:
+  "Ventures · Studio"
+
+Main heading:
+  "Ventures, tested on our balance sheet first."
+
+Body paragraph:
+  "Each venture is a focused system that answers a specific question about Truth, Capital, or Dignity. We run them on our own balance sheet and environments first, refine them under explicit constraints, and only then share the patterns."
+
+Optional warmth line under the body (if layout supports a second paragraph):
+  "You shouldn’t have to trust untested rails—we start with our own exposure."
+
+Hero CTAs:
+
+Primary CTA button:
+  Label:
+    "See how we build"
+  href:
+    "/process"
+
+Secondary CTA (if present):
+  Label:
+    "Read field notes"
+  href:
+    "/insights"
+
+Do not change hero layout or component types—only these strings and hrefs.
+
+--------------------------------------------------
+4) Section intro above the ventures grid
+--------------------------------------------------
+
+If there is a short intro above the ventures list/grid, replace it with:
+
+Heading:
+  "Three questions, three proof points."
+
+Intro paragraph:
+  "We organize our work around three questions: What can be trusted? How should capital move? How do people participate without overexposure? Helios, Lumina, and the Uniqueness Engine are concrete answers—ventures that turn those questions into running systems."
+
+Keep this to a single paragraph (≤70 words).
+
+If there is no such intro currently, add this block immediately above the ventures grid/list using existing typography components (e.g., <h2>, <p>, or shared section header components).
+
+--------------------------------------------------
+5) Update the ventures list data
+--------------------------------------------------
+
+Locate the data structure that drives the ventures cards, for example:
+
+- `const ventures = [...]` in the Ventures page; or
+- `export const ventures = [...]` in client/src/data/ventures.ts.
+
+Do NOT change its TypeScript type or how it is exported/imported—only update the string fields and hrefs.
+
+For each venture, configure as follows (adapt field names to match existing structure — e.g. `name`, `label`, `tagline`, `description`, `href`):
+
+1) Helios
+
+- name:
+    "Helios"
+- label (short meta line under/above title, if present):
+    "Capital · Internal venture"
+- tagline (if there is a short subtitle field):
+    "Treasury execution under explicit constraints."
+- description:
+    "Helios is our internal execution engine for digital asset treasuries—routing positions across approved venues under predefined limits so capital stays resilient under stress instead of drifting into hidden exposures."
+- href (card link target):
+    "/ventures/helios"
+
+2) Lumina
+
+- name:
+    "Lumina"
+- label:
+    "Truth · Venture"
+- tagline:
+    "Physics-aware grading infrastructure."
+- description:
+    "Lumina turns the condition of physical assets into structured, verifiable signals—captured from your own devices—so grading, insurance, and pricing workflows can rely on evidence instead of one-time, opaque judgments."
+- href:
+    "/ventures/lumina"
+
+3) Uniqueness Engine
+
+- name:
+    "Uniqueness Engine"
+- label:
+    "Dignity · Venture"
+- tagline:
+    "Personhood without exposure."
+- description:
+    "The Uniqueness Engine enforces one-person-one-presence in governed systems—proving uniqueness in context without demanding full dossiers, over-collecting identity data, or turning people into product."
+- href:
+    "/ventures/uniqueness"
+
+Keep any icon references, accent colors, or layout-related properties as they are. Only change text and paths.
+
+--------------------------------------------------
+6) Optional supporting text below the ventures grid
+--------------------------------------------------
+
+If the page has a small explanatory paragraph or note under the ventures grid (or you can add one without changing layout), use:
+
+Paragraph:
+  "We treat each venture as a live proof of how we think about Truth, Capital, and Dignity. Patterns that hold up under real conditions become part of our shared standards; those that do not are documented, retired, and folded into our internal playbooks."
+
+Keep this as a single paragraph. If there is already copy there, replace it; do not add a second long block.
+
+--------------------------------------------------
+7) Bottom “Next steps” / CTA block on /ventures
+--------------------------------------------------
+
+At the bottom of the Ventures page, above the footer, use the same CTA pattern used elsewhere (e.g. <NextStepBlock>).
+
+Configure it as:
+
+  <NextStepBlock
+    nextPage="Approach"
+    description="See how we decide which questions become ventures—and how they move through our six-stage runway."
+    href="/approach"
+  />
+
+If the page already has a CTA component, keep the component and layout but update its text to match the same intent:
+
+- Title/label:
+    "Explore our approach"
+- Description:
+    "See how ventures like Helios, Lumina, and the Uniqueness Engine move from concept to governed systems."
+- href:
+    "/approach"
+
+--------------------------------------------------
+8) Hygiene & brand checks for /ventures
+--------------------------------------------------
+
+In the Ventures page file and any associated data file:
+
+1) Ensure there are **no** occurrences of:
+   - The old domains "Signal", "Value", "Human" as domain names.
+   - The phrase "validate the signal".
+   - Phrases like "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents".
+   - "move fast and break things".
+   - "StackMe", "Stackme Holdings", "Stackme app", or "VSP" as active brand names.
+   - The standalone phrase "the human" as a noun; prefer “people”, “participants”, or “personhood”.
+
+2) Ensure you do **not**:
+   - Describe any venture as a fund, yield product, or public investment offering.
+   - Mention specific protocols, tickers, bank names, or wiring details on this index page.
+   - Make promises about returns, grades, or regulatory outcomes.
+
+3) Ensure you **do**:
+   - Explicitly frame ventures as being run on our own balance sheet / environments first.
+   - Tie each venture clearly to one of: Truth, Capital, Dignity (via labels/taglines).
+   - Maintain the Architect/Judge voice: calm, precise, infrastructural, with at most one “you shouldn’t have to…” style warmth line in the hero or section intro.
+
+Do not modify other pages or routes in this checkpoint.

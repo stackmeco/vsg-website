@@ -1,0 +1,69 @@
+To answer directly: **No.**
+
+**"Flipping" (like a slot machine or a clock) is a marketing gimmick.** It implies gambling, chance, or sales hype ("Look at our numbers go up\!").
+
+For a **Truth Engineering Lab** and an **Institutional Control Room**, your data shouldn't "spin." It should **"resolve."**
+
+Here is the distinction and the correct motion for this specific aesthetic.
+
+### **1. The Wrong Motion: "The Slot Machine"**
+
+  * **What it is:** The numbers roll over (0 $\to$ 1 $\to$ 2 $\to$ 3...).
+  * **The Vibe:** SaaS Sales, Kickstarter campaigns, Casinos.
+  * **Why avoid it:** It creates a "Casino" subconscious association. Since you deal with Bitcoin and Capital, you want to distance yourself from gambling physics.
+
+### **2. The Correct Motion: "The Telemetry Decode"**
+
+  * **What it is:** The number flickers or cycles through random characters for a split second before "locking" onto the truth. Or, it simply fades in with a slight "glitch."
+  * **The Vibe:** Encryption, Decryption, Sensor Reading, Satellite uplink.
+  * **Why use it:** It reinforces **Axiom** (Truth) and **Lumina** (Physics). It looks like the system is *measuring* the value live, not just displaying a static marketing number.
+
+-----
+
+### **How to implement the "Control Room" Load**
+
+Instead of a flip, use a **"Scramble Reveal"** or a **"Fast Count."**
+
+**Option A: The "Scramble" (Best for 'Truth Engineering')**
+The text starts as random symbols (`#`, `?`, `0`) and resolves to `5`.
+
+  * *Duration:* 300ms.
+  * *Feeling:* Computing... Verified.
+
+**Option B: The "Power On" (Best for 'Hardware')**
+The number starts at 0 opacity and slightly larger scale (1.1x), then instantly snaps to 100% opacity and 1.0 scale.
+
+  * *Duration:* 100ms.
+  * *Feeling:* A monitor turning on.
+
+### **The Code Recommendation**
+
+If you want the numbers to feel alive without looking cheap, use this simple **"Monospace Count Up"** (Linear, no rolling).
+
+Add this logic to your `StatBlock.tsx`:
+
+```tsx
+// A simple hook or logic to increment the number from 0 to Final
+// BUT: Keep it purely monospace and extremely fast (500ms max)
+
+import { useEffect, useState } from "react";
+
+export function StatBlock({ value, label, subtext }: any) {
+  // If value is a number (like "5" or "100"), animate it.
+  // If it's text, leave it static.
+  
+  return (
+    <div className="space-y-1">
+      <p className="text-4xl sm:text-5xl font-heading font-bold tracking-tight text-primary tabular-nums">
+        {/* The "tabular-nums" class is critical. It prevents the text from jittering left/right while counting. */}
+        {value} 
+      </p>
+      <p className="text-sm font-medium text-foreground">{label}</p>
+      <p className="text-xs text-muted-foreground">{subtext}</p>
+    </div>
+  );
+}
+```
+
+**Verdict:**
+Leave them **static** or use a **very fast (300ms) scramble.** Do not use a slot-machine roll. Stability is the ultimate luxury.

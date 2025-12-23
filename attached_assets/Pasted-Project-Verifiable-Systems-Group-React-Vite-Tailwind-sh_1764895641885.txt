@@ -1,0 +1,271 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Ventures overview page** fully in line with:
+
+- VSG Brand & Voice System v3.0
+- The Truth · Capital · Dignity model
+- The Architect/Judge voice (precise, infrastructural, low-hype)
+- The internal-first, AI-native, non-custodial stance
+
+This page should:
+
+- Present VSG as an AI-native venture studio with a focused set of ventures.
+- Introduce each venture (Helios, Lumina, Uniqueness Engine) clearly and consistently.
+- Show how each venture maps to **Truth, Capital, Dignity**.
+- Make it explicit that ventures are **run on our own balance sheet and systems first**.
+- Avoid any language that implies investment products, yield, or public offerings.
+- Connect clearly to the individual venture pages and to `/approach` and `/process`.
+
+Do NOT change global theming, layout primitives, or add/remove routes. Only update copy, labels, and local data structures in the **Ventures** overview page file.
+
+--------------------------------------------------
+1) Locate the Ventures overview page
+--------------------------------------------------
+
+Find the component rendered for the main “Ventures” route, for example:
+
+- client/src/pages/Ventures.tsx
+
+or whichever file is used for the `/ventures` route linked from the main nav.
+
+All changes below apply only inside this Ventures overview page file.
+
+--------------------------------------------------
+2) Update the hero section
+--------------------------------------------------
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only the text and hrefs.
+
+Overline:
+  "Ventures"
+
+Heading:
+  "Each venture is a proof of how we think."
+
+Body paragraph:
+  "Every venture inside VSG starts with a failure we have lived—uninspectable flows, brittle treasuries, extractive identity checks—and then moves through our six-stage runway under Truth, Capital, and Dignity. We run them on our own balance sheet and systems first, so they are infrastructure we rely on, not ideas we only pitch."
+
+If the hero supports a small secondary line, set it to:
+
+  "If a venture cannot survive our guardrails, it never leaves the whiteboard."
+
+Hero CTAs:
+
+- Primary CTA:
+  Label: "See how we work"
+  href: "/approach"
+
+- Secondary CTA (if present):
+  Label: "Review the process"
+  href: "/process"
+
+Do not change hero layout, background, or component types.
+
+--------------------------------------------------
+3) Define / update the ventures list data structure
+--------------------------------------------------
+
+If the page uses a local `ventures` array or similar data structure to render cards, update it to the following shape and content (adapt to your actual prop names, but keep the text):
+
+Use something conceptually like:
+
+  const ventures = [
+    {
+      slug: "helios",
+      name: "Helios",
+      domainLabel: "Capital · Venture",
+      tagline: "Treasury execution under explicit constraints.",
+      description:
+        "Helios is our internal execution engine for digital asset treasuries. It focuses on one task: routing positions across approved venues under predefined risk limits, so capital remains resilient under stress instead of quietly drifting toward hidden exposures.",
+      primaryDomain: "Capital",
+      secondaryDomains: ["Truth", "Dignity"],
+      href: "/ventures/helios",
+    },
+    {
+      slug: "lumina",
+      name: "Lumina",
+      domainLabel: "Truth · Venture",
+      tagline: "Physics-aware grading infrastructure.",
+      description:
+        "Lumina turns the condition of an asset into evidence you can inspect, not a guess you have to accept. It uses sensors and machine intelligence to convert wear, defects, and anomalies into structured signals that can feed grading, insurance, and pricing decisions.",
+      primaryDomain: "Truth",
+      secondaryDomains: ["Capital", "Dignity"],
+      href: "/ventures/lumina",
+    },
+    {
+      slug: "uniqueness",
+      name: "Uniqueness Engine",
+      domainLabel: "Dignity · Venture",
+      tagline: "Personhood without exposure.",
+      description:
+        "Uniqueness Engine is infrastructure for one-person-one-presence—helping systems distinguish real participants from duplicates and automation without turning identity into surveillance or lock-in.",
+      primaryDomain: "Dignity",
+      secondaryDomains: ["Truth", "Capital"],
+      href: "/ventures/uniqueness",
+    },
+  ];
+
+Key rules:
+
+- Do NOT reintroduce the old “Signal / Value / Human” domains.
+- Domain labels should use “Truth · Venture”, “Capital · Venture”, “Dignity · Venture” as shown above.
+- Keep descriptions short enough for a card but on-voice (infrastructural, low hype).
+
+Leave the card rendering layout and styling unchanged; only update the underlying data so the UI uses the new text.
+
+--------------------------------------------------
+4) Update the ventures card layout copy
+--------------------------------------------------
+
+In the JSX that renders each venture card:
+
+- Ensure the card shows:
+  - Venture name.
+  - domainLabel (e.g., “Capital · Venture”).
+  - tagline.
+  - a short description paragraph.
+  - a link to the detail page.
+
+Use text patterns like:
+
+Name line:
+  "{venture.name}"
+
+Domain / meta line (muted, small):
+  "{venture.domainLabel}"
+
+Tagline (bold or medium-weight):
+  "{venture.tagline}"
+
+Description (regular body):
+  "{venture.description}"
+
+CTA button / link:
+  Label:
+    "View venture"
+  href:
+    venture.href
+
+If there is room for a small “domains” chip row (Truth, Capital, Dignity), use the following rendering logic:
+
+- Always render the primaryDomain prominently (e.g., a filled chip).
+- Optionally render secondaryDomains as outline chips.
+
+Example labeling (adjust to existing components; do NOT introduce new design primitives):
+
+- Primary chip text: "Capital"
+- Secondary chip texts: "Truth", "Dignity"
+
+Keep visual treatment consistent across all ventures.
+
+--------------------------------------------------
+5) Add / refine an “How ventures fit together” section
+--------------------------------------------------
+
+Below the hero and above the individual venture cards, add (or refine) a short explanatory section.
+
+Section heading:
+  "How these ventures fit together"
+
+Body paragraph:
+  "Each venture sits in a different part of the stack, but they share the same spine: systems that must not fail silently. Helios focuses on how capital moves under stress. Lumina focuses on whether information about condition can be trusted. Uniqueness Engine focuses on who is present and how they are treated. Together, they pressure-test our answers to Truth, Capital, and Dignity."
+
+Optional one-line list (if layout allows):
+
+- "Helios · Capital: Resilient treasury execution."
+- "Lumina · Truth: Evidence-first condition signals."
+- "Uniqueness Engine · Dignity: Personhood without overexposure."
+
+Use existing typography and spacing utilities; do not change layout primitives.
+
+--------------------------------------------------
+6) Add / refine an “Internal-first” note
+--------------------------------------------------
+
+Add a small, clearly readable note either above or below the ventures grid, using existing small-text / muted style.
+
+Suggested text:
+
+  "We run these ventures on our own balance sheet and infrastructure first. This overview describes how we build and use them internally; it is not an offer of investment, yield, or services to the public."
+
+This reinforces the internal-first, non-offering stance.
+
+--------------------------------------------------
+7) Optional: Group ventures by primary domain (if layout supports)
+--------------------------------------------------
+
+If the current layout already supports grouping or section headers, you may lightly group the ventures by primary domain. Do NOT introduce new, complex layout; reuse existing patterns.
+
+For example:
+
+Group heading:
+  "Capital · Ventures"
+  - Helios card
+
+Group heading:
+  "Truth · Ventures"
+  - Lumina card
+
+Group heading:
+  "Dignity · Ventures"
+  - Uniqueness Engine card
+
+If grouping complicates the existing layout or conflicts with current design, skip grouping and keep a simple grid or list. The main requirement is that the domainLabel and chips clearly communicate which question each venture is primarily answering.
+
+--------------------------------------------------
+8) Bottom “Next steps” / cross-links
+--------------------------------------------------
+
+At the bottom of the Ventures page (just above any global footer), add a “next steps” or cross-link row using existing link or button styles, for example:
+
+- Link 1:
+  Label: "Review our approach"
+  href: "/approach"
+
+- Link 2:
+  Label: "See the full process"
+  href: "/process"
+
+- Link 3:
+  Label: "Read field notes"
+  href: "/insights"
+
+If the page uses a shared NextStepBlock component instead, configure it approximately as:
+
+  <NextStepBlock
+    nextPage="Approach"
+    description="See how ventures move through our six-stage runway under Truth, Capital, and Dignity before they touch anyone else’s decisions."
+    href="/approach"
+  />
+
+Do not change the component type or layout; only update props and copy.
+
+--------------------------------------------------
+9) Hygiene & brand checks for the Ventures overview page
+--------------------------------------------------
+
+In the Ventures overview page file only, ensure:
+
+1) There are **no** occurrences of:
+   - The old domains "Signal", "Value", "Human" as domain names.
+   - The phrase "validate the signal".
+   - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents".
+   - "move fast and break things".
+   - "monetize users", "harvest data".
+   - "StackMe", "Stackme Holdings", "Stackme app", or "VSP" as active brand names.
+   - The vague phrase "the human". Prefer: "people", "participants", "collectors", "teams", "personhood", or "dignity".
+
+2) You do **not**:
+   - Mention specific protocol names, token tickers, bank names, or internal legal-entity wiring.
+   - Promise yields, returns, or any performance of capital, grading outcomes, or identity systems.
+   - Market Helios, Lumina, or Uniqueness Engine as public products, funds, or services.
+
+3) You **do**:
+   - Present the three ventures as internal-first proofs of how VSG thinks and builds.
+   - Clearly connect each venture to Truth, Capital, and Dignity (with one primary domain).
+   - Maintain the Architect/Judge voice: calm, precise, infrastructural, with controlled warmth.
+   - Align all taglines and descriptions with the individual venture detail pages you already updated.
+
+Do not modify other pages or routes in this checkpoint.

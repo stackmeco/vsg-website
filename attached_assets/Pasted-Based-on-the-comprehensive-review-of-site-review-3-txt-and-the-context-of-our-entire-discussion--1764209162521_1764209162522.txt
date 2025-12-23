@@ -1,0 +1,85 @@
+Based on the comprehensive review of `site_review (3).txt` and the context of our entire discussion, here is the final audit.
+
+**Verdict:** **98% Complete.**
+The site successfully embodies the "Institutional Control Room" aesthetic and the "Truth Engineering" pivot. The structure, tone, and data architecture are excellent.
+
+However, there are **4 specific items** that appear to be **missed or inconsistent** based on the provided review file. These must be fixed to achieve 100% compliance with the "Max Thinking" directive.
+
+-----
+
+### **I. What Was Missed (The Punch List)**
+
+#### **1. The "Thesis" Article Count is Still Wrong**
+
+  * **Evidence:** In **Section 7** , only **two** articles are listed:
+    1.  "The Insolvency of Fiction"
+    2.  "The Verification Standard"
+  * **The Issue:** We explicitly agreed to add a **3rd article** ("Machine-Native Settlement") to balance the grid layout and make the studio look active.
+  * **Status:** **MISSING.**
+  * **Fix:** You must add the "Machine-Native Settlement" article to `client/src/data/articles.ts`.
+
+#### **2. The "Lumina" Description is Outdated**
+
+  * **Evidence:** In **Section 4** (Project 4: Lumina) and **Section 5** (Lumina Detail) , the description still says:
+    > *"Trading cards encoding real-world qualities..."*
+  * **The Issue:** We agreed to pivot this to **"Optical verification and digital bearer instruments."** The "Trading Cards" verbiage destroys the "Hard Tech/Physics" vibe we just built.
+  * **Status:** **MISSING.**
+  * **Fix:** Update `client/src/data/projects.ts` with the "Optical Physics Engine" copy I provided earlier.
+
+#### **3. The "Helios" Stage Inconsistency**
+
+  * **Evidence:** In **Section 4** (Project 2: Helios) , the stage is listed as **"Early Development"**.
+  * **The Issue:** We agreed to standardize the vocabulary to **"Internal Alpha"** to match the Governance model and avoid generic terms.
+  * **Status:** **MISSING.**
+  * **Fix:** Update the `stage` field in `projects.ts` to "Internal Alpha" and ensure `StageChip.tsx` supports the `internal` variant (Orange).
+
+#### **4. The "Stackme" Capitalization**
+
+  * **Evidence:** In **Section 4** (Project 3) and throughout the review file, it is written as **"stackme"** (lowercase).
+  * **The Issue:** We agreed to capitalize it to **"Stackme"** to look like a proper noun/product, not a startup username.
+  * **Status:** **MISSING.**
+  * **Fix:** Global Find/Replace "stackme" $\rightarrow$ "Stackme" in UI labels.
+
+-----
+
+### **II. What Was Successfully Implemented (The Wins)**
+
+  * **The "Truth Engineering" Pivot:** Confirmed in Section 1 . "Bitcoin verifies Value, Axiom verifies Truth." This is the core strategic win.
+  * **The Visual Physics (Implied):** While I cannot see the live CSS in a text file, Section 12 confirms the "Institutional Control Room" aesthetic notes: `duration-150`, `hover:border-primary/50`. This indicates the developer received the instruction.
+  * **The Functional Wiring:** Section 8 shows the server route for `/api/contact` is set up to log submissions. This is a massive improvement over the dead frontend form.
+  * **The "Workbench" Removal:** Section 2 shows the headline is still "What's on the workbench." **Wait.**
+      * *Correction:* This was supposed to be changed to **"Active Development Cycles."**
+      * **Status:** **MISSING.** (Add this to the fix list).
+
+-----
+
+### **III. The Final "Delta" Instruction**
+
+Here is the exact block to give your developer/agent to close these final 5 gaps.
+
+```markdown
+FINAL PUNCH LIST (DO NOT SKIP):
+
+1.  **Lumina Copy Update (Crucial):**
+    In `client/src/data/projects.ts`, replace the description for Lumina with:
+    "Digital bearer instruments for physical assets. Features a proprietary optical physics engine for anti-spoofing and surface topology verification."
+    *Stop saying 'Trading Cards'.*
+
+2.  **Thesis Grid Balance:**
+    In `client/src/data/articles.ts`, add the 3rd article:
+    **Title:** "Machine-Native Settlement: Why AI Agents Will Reject Legacy Banking"
+    **Excerpt:** "Autonomous software requires financial rails that operate with the same deterministic logic as the code itself. Why the API economy is migrating to bearer assets."
+    **Tags:** ["AI Agents", "Settlement", "Infrastructure"]
+
+3.  **Vocabulary Standardization:**
+    * Rename "stackme" to **"Stackme"** (Capitalized) everywhere.
+    * Change Helios stage to **"Internal Alpha"** (was "Early Development").
+    * Change Overview Section Header from "What's on the workbench" to **"Active Development Cycles"**.
+
+4.  **Visual Polish:**
+    * Ensure `StageChip` for "Internal Alpha" uses the **Orange/Warning** color variant to signify "Capital at Risk."
+
+EXECUTE.
+```
+
+**Once these 5 text changes are made, the site is 100% aligned with your vision.**

@@ -1,0 +1,81 @@
+Here is the **Massive Delta Prompt**.
+
+Copy and paste the block below directly into your Replit Agent. It contains every single structural, tonal, and technical change we discussed, organized into a step-by-step execution plan.
+
+-----
+
+````markdown
+You are an expert Systems Architect and Senior Frontend Engineer. We are upgrading the Verified Systems Group (VSG) website from a "Startup MVP" to an "Institutional Control Room."
+
+I need you to execute a comprehensive "Delta" update across the codebase. Follow these 5 Phases strictly.
+
+### PHASE 1: THE "CONTROL ROOM" VISUAL PHYSICS (CSS & TAILWIND)
+**Objective:** Remove "soft" consumer feel; add "hard" engineering feel.
+
+1.  **Tighten Time:** Perform a global find-and-replace. Change all instances of `duration-300` and `duration-500` to `duration-150`. We want snaps, not drifts.
+2.  **Flatten Elevation:** In `client/src/index.css`, modify the `.hover-elevate` utility classes.
+    * **Remove:** Any `transform: translateY(...)` or `box-shadow` properties on hover.
+    * **Add:** A border-color change instead. On hover, elements should gain `border-primary/50` or a subtle `bg-accent/5` fill. Do not move elements spatially.
+3.  **Fix Modals:** In `Dialog.tsx` and `Sheet.tsx`, replace `slide-in-from-bottom` with `fade-in` or `zoom-in-95`. Windows should appear, not slide.
+4.  **Contrast:** In `StageChip.tsx`, ensure the text color for colored chips uses `font-medium` or `font-semibold` to pass accessibility on dark backgrounds.
+
+### PHASE 2: DATA STRUCTURE UPDATES (CONTENT ENGINE)
+**Objective:** Pivot verbiage to "Truth Engineering" and add the new Axiom project.
+
+1.  **Update `client/src/data/projects.ts`:**
+    * **Add Project "Axiom":**
+        ```typescript
+        {
+          name: "Axiom",
+          stage: "Prototype",
+          stageVariant: "prototype",
+          description: "A deterministic inference layer designed to eliminate hallucination. It forces LLMs to cite verified internal data structures before generating output.",
+          exploring: [
+            "Retrieval-Augmented Generation (RAG) with strict citation enforcement",
+            "Adversarial testing against known logic traps",
+            "Mechanistic interpretability"
+          ],
+          href: "/pipeline/axiom",
+        }
+        ```
+    * **Update Project "Lumina" (The Physics Pivot):**
+        * Change `description` to: "Lumina links high-value physical inventory to on-chain rails. We are architecting a proprietary optical physics engine that utilizes smartphone cameras to verify surface topology and material response, ensuring the digital asset is anchored to a proven physical reality."
+        * Change `exploring` to: ["Photometric stereo for anti-spoofing", "Real-time material analysis on edge devices", "On-chain provenance tracking"].
+
+2.  **Update `client/src/data/articles.ts`:**
+    * Ensure we have exactly **3 Articles** to balance the grid. Use these 3 entries:
+        1.  **"The Insolvency of Fiction"** (Topic: Why Financial AI cannot hallucinate).
+        2.  **"The Verification Standard"** (Topic: Macro/Fiscal Dominance).
+        3.  **"Machine-Native Settlement"** (Topic: Why AI agents need bearer assets/Bitcoin, not banks).
+
+### PHASE 3: PAGE VERBIAGE REFACTOR (TONE SHIFT)
+**Objective:** Remove "Startup" language; insert "Systems" language.
+
+1.  **`client/src/pages/Overview.tsx`:**
+    * **Hero Body:** Update to: "We engineer deterministic systems for **Value, Intelligence, and Physical Reality** — with our own capital on the line. Bitcoin verifies value; our AI verifies truth."
+    * **Section Header:** Rename "What's on the workbench" to **"Active Development Cycles"**.
+    * **Section Body:** Change "None are live products yet" to **"None are currently accepting external capital or users."**
+2.  **`client/src/pages/Contact.tsx`:**
+    * **Investors Bullet:** Change to: **"Capital partners focused on technical architecture and first-principles engineering."** (Remove the "not just pitch decks" comment).
+3.  **`client/src/pages/System.tsx`:**
+    * **Definition (AI):** Update to: "**Deterministic Intelligence.** Systems designed to constrain stochastic models (LLMs) with rigid verification layers."
+4.  **`client/src/components/Footer.tsx`:**
+    * Ensure tagline reads: **"Engineering deterministic systems at the intersection of AI and Economic Assurance."**
+
+### PHASE 4: PIPELINE DETAILS (DEEP DIVE)
+**Objective:** Ensure the Detail pages match the Data.
+
+1.  **`client/src/pages/PipelineDetail.tsx`:**
+    * Add the `axiom` project details logic (Tagline: "High-integrity LLM reasoning with enforced citation.").
+    * Update the `lumina` project details to match the new "Optical Physics Engine" description provided in Phase 2. Replace "Trading Cards" with **"Digital bearer instruments."**
+    * Update `uniqueness-engine` Tagline to: **"Sybil-resistance signals without biometric surveillance."**
+
+### PHASE 5: TECHNICAL WIRING (FUNCTIONALITY)
+**Objective:** No dead ends.
+
+1.  **Backend Route:** In `server/routes.ts`, create a POST route `/api/contact`. It should accept the form body. For now, log it to the server console with a high-visibility timestamp (e.g., `console.log("📨 CONTACT FORM:", req.body)`), and return a 200 OK status.
+2.  **Frontend Wiring:** Update `ContactForm.tsx`. Remove the "dummy" console log. Make it actually `await apiRequest("POST", "/api/contact", formData)`. Handle the success/error states based on that network request.
+3.  **SEO:** Ensure `PageMeta.tsx` points `og:image` to a valid path (even if we keep the default placeholder for this exact second, ensure the code logic is correct).
+
+**EXECUTE ALL PHASES.**
+````

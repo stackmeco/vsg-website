@@ -1,0 +1,63 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Update the **Governance / Standards** page copy only.
+
+File: the page used for Governance/Standards (for example `client/src/pages/Standards.tsx` or `client/src/pages/Governance.tsx`). If the file name is different, locate the component actually used for the Governance/Standards route and apply these changes there.
+
+Goal:
+Make Governance/Standards read like a precise, sober spec: governed experiments, non-custodial, balance-sheet-first, explicit limits, stewards, and rollback. No hype.
+
+Tasks:
+
+1) Hero section
+
+Keep existing JSX and classes; replace only the text.
+
+- Overline:
+  "Governance & Standards"
+
+- Heading:
+  "How we constrain what we build."
+
+- Body paragraph:
+  "We run governed experiments on our own balance sheet first. Every serious system we operate has explicit limits, named stewards, and observable behaviours, so risk is modelled up front instead of discovered by accident."
+
+2) Core principles section
+
+Locate the main body section that describes how you operate (or create a simple section below the hero) and replace its content with a short list of principles. Use your existing card/list components, but swap the text for the following:
+
+Heading:
+"Operating principles"
+
+Principle 1:
+- Title: "Non-custodial by design"
+- Text: "We do not pool client funds or take custody of external assets. Our systems orchestrate workflows and verification; you keep the keys and the veto."
+
+Principle 2:
+- Title: "Balance-sheet-first"
+- Text: "We wire new rails through our own balance sheet before anyone else touches them, so we feel the stress, edge cases, and failure modes directly."
+
+Principle 3:
+- Title: "Governed experiments"
+- Text: "Every launch is a governed experiment: defined scope, explicit limits, named stewards, and pre-agreed rollback paths—not a bet pushed into production."
+
+Principle 4:
+- Title: "Observability over opacity"
+- Text: "We treat logs, provenance, and monitoring as first-class. You should be able to see how a system behaved, not reverse-engineer it from damage."
+
+Principle 5:
+- Title: "Conservative by default"
+- Text: "We prefer constraints, caps, and safety margins over stretch. We would rather leave upside on the table than expose users to unbounded downside."
+
+3) Short closing / reassurance
+
+At the bottom of the page, add or update a short closing paragraph:
+
+"These standards apply across Truth, Capital, and Dignity. If a system cannot be described in terms of its limits, stewards, and failure handling, we do not ship it."
+
+4) Safety
+
+- Do NOT mention protocol names, venues, token tickers, LTV numbers, wallet layouts, or bank names on this page.
+- Ensure there are no occurrences of “Signal / Value / Human”, “validate the signal”, hypey AI language, or casual slang in this file after edits.
+
+Keep all React structure, components, and styling; only update string literals and headings.

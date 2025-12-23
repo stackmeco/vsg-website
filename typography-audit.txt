@@ -1,0 +1,427 @@
+# VERIFIABLE SYSTEMS GROUP (VSG) - TYPOGRAPHY & DESIGN AUDIT
+# Generated: December 2025
+# Design System: VOS v3.0 (Industrial Control Room)
+
+================================================================================
+TYPOGRAPHY SYSTEM
+================================================================================
+
+FONT FAMILIES:
+- Headings: Space Grotesk (Variable weight: 500-700)
+- Body: Manrope (Variable weight: 400-600)
+- Mono/Labels: IBM Plex Mono (400-500)
+
+BASE SIZE: 14px (VOS v3.0 specification)
+Note: Not 16px. This is intentional for the dense, control-room aesthetic.
+
+================================================================================
+TEXT HIERARCHY SPECIFICATION
+================================================================================
+
+LEVEL 1 - PAGE TITLES (H1):
+- Font: Space Grotesk
+- Weight: Bold (700)
+- Size: text-3xl sm:text-4xl (1.875rem / 2.25rem)
+- Color: text-foreground
+- Tracking: tracking-tight
+- Line-height: leading-tight
+- Usage: One per page, hero section only
+
+LEVEL 2 - SECTION HEADERS (H2):
+- Font: Space Grotesk
+- Weight: Semibold (600)
+- Size: text-xl sm:text-2xl (1.25rem / 1.5rem)
+- Color: text-foreground
+- Tracking: Default
+- Usage: Major section dividers
+
+LEVEL 3 - CARD TITLES (H3):
+- Font: Space Grotesk
+- Weight: Semibold (600)
+- Size: text-lg or text-base (1.125rem / 1rem)
+- Color: text-foreground
+- Usage: Card headers, subsections
+
+LEVEL 4 - ITEM HEADERS (H4):
+- Font: Space Grotesk (or default with font-semibold)
+- Weight: Semibold (600)
+- Size: text-base (1rem)
+- Color: text-foreground
+- Usage: List item titles, inline headers
+
+================================================================================
+BODY TEXT VARIANTS
+================================================================================
+
+BODY PRIMARY:
+- Font: Manrope (default sans)
+- Weight: Regular (400)
+- Size: text-base (1rem = 14px at root)
+- Color: text-foreground or text-foreground/80
+- Line-height: leading-relaxed (1.625)
+- Usage: Primary content paragraphs
+
+BODY SECONDARY:
+- Font: Manrope
+- Weight: Regular (400)
+- Size: text-sm (0.875rem)
+- Color: text-muted-foreground
+- Line-height: leading-relaxed
+- Usage: Descriptions, supporting content
+
+BODY TERTIARY:
+- Font: Manrope
+- Weight: Regular (400)
+- Size: text-xs (0.75rem)
+- Color: text-muted-foreground
+- Usage: Disclaimers, fine print, timestamps
+
+================================================================================
+MONOSPACE TEXT
+================================================================================
+
+EYEBROWS/LABELS:
+- Font: IBM Plex Mono (font-mono)
+- Weight: Regular (400)
+- Size: text-[10px] or text-xs
+- Transform: uppercase
+- Tracking: tracking-widest or tracking-wider
+- Color: text-muted-foreground or text-primary
+- Usage: Section eyebrows, status labels
+
+STAGE CHIPS:
+- Font: IBM Plex Mono
+- Weight: Medium (500)
+- Size: text-xs
+- Transform: uppercase
+- Tracking: tracking-wider
+- Usage: Status badges, stage indicators
+
+DATA VALUES:
+- Font: IBM Plex Mono
+- Weight: Bold (700)
+- Size: text-4xl (2.25rem)
+- Color: text-foreground or text-primary
+- Usage: Stats, metrics, numbers
+
+================================================================================
+SPECIAL TEXT TREATMENTS
+================================================================================
+
+QUOTES (Operating Principles):
+- Font: Manrope (inherits)
+- Style: italic
+- Size: text-base
+- Color: text-primary
+- Format: Wrapped in quotation marks
+- Usage: Principle quotes in Mission page
+
+TAGLINES:
+- Font: Space Grotesk (font-heading)
+- Weight: Semibold
+- Size: text-lg
+- Color: text-foreground
+- Usage: Venture taglines
+
+DISCLAIMERS:
+- Font: Manrope
+- Style: italic (sometimes)
+- Size: text-xs or text-sm
+- Color: text-muted-foreground
+- Usage: Legal notes, caveats
+
+================================================================================
+COLOR PALETTE
+================================================================================
+
+FOREGROUND COLORS:
+- text-foreground: HSL(30 5% 90%) - Primary text, headings
+- text-foreground/80: 80% opacity - Hero subtext
+- text-muted-foreground: HSL(220 5% 75%) - Secondary text, descriptions
+
+ACCENT COLORS:
+- text-primary: HSL(25 95% 53%) - Signal orange, highlights, links
+- text-destructive: HSL(0 70% 50%) - Error states, prohibitions
+
+BACKGROUND COLORS:
+- bg-background: HSL(222 15% 5%) - Page background (tungsten)
+- bg-card: HSL(222 15% 7%) - Elevated panels
+- bg-secondary: HSL(222 15% 10%) - Input fields, subtle backgrounds
+- bg-primary: HSL(25 95% 53%) - Primary buttons, accents
+- bg-primary/10: 10% opacity - Icon backgrounds, subtle highlights
+- bg-primary/5: 5% opacity - Hover states
+
+BORDER COLORS:
+- border-border: HSL(222 15% 12%) - Default borders
+- border-primary/30: 30% opacity - Hover state borders
+
+================================================================================
+SPACING TOKENS
+================================================================================
+
+SECTION SPACING:
+- py-20: Section padding (5rem = 80px)
+- py-20 lg:py-28: Hero sections (5rem / 7rem)
+
+BLOCK SPACING:
+- mb-10: After section headers (2.5rem)
+- mb-8: After titles (2rem)
+- mb-6: Standard paragraph spacing (1.5rem)
+- mb-4: Tight paragraph spacing (1rem)
+
+CARD SPACING:
+- p-6: Standard card padding (1.5rem)
+- p-8: Large card padding (2rem)
+- p-8 md:p-10: Extra-large cards (2rem / 2.5rem)
+
+GAP SPACING:
+- gap-6: Grid/flex gaps (1.5rem)
+- gap-4: Compact gaps (1rem)
+- gap-3: Tight gaps (0.75rem)
+- gap-2: Minimal gaps (0.5rem)
+
+================================================================================
+BORDER RADIUS
+================================================================================
+
+VOS v3.0 SPECIFICATION:
+- --radius: 2px (machined edges)
+- Tailwind class: rounded-[2px]
+
+USAGE:
+- All cards, buttons, inputs use 2px radius
+- Exception: Status dots use rounded-full (perfect circles)
+- Exception: Avatar images use rounded-full
+
+================================================================================
+TRANSITION TIMING
+================================================================================
+
+MECHANICAL EASING:
+- Curve: cubic-bezier(0.4, 0, 0.2, 1)
+- Tailwind class: ease-mechanical (custom defined)
+- Duration: 150ms (duration-150)
+
+USAGE:
+- All hover states
+- Border color changes
+- Background color changes
+- Text color changes
+
+PATTERN:
+transition-colors duration-150 ease-mechanical
+
+================================================================================
+RESPONSIVE BREAKPOINTS
+================================================================================
+
+TAILWIND DEFAULTS:
+- sm: 640px
+- md: 768px
+- lg: 1024px
+- xl: 1280px
+
+COMMON PATTERNS:
+- text-3xl sm:text-4xl (Mobile: 1.875rem, Desktop: 2.25rem)
+- text-xl sm:text-2xl (Mobile: 1.25rem, Desktop: 1.5rem)
+- grid md:grid-cols-2 lg:grid-cols-3 (Responsive columns)
+- hidden lg:block (Desktop-only elements)
+- py-20 lg:py-28 (Section padding)
+
+================================================================================
+GRID SYSTEMS
+================================================================================
+
+PAGE CONTAINER:
+- max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
+- Maximum width: 80rem (1280px)
+- Horizontal padding: 1rem / 1.5rem / 2rem
+
+CONTENT GRIDS:
+- grid md:grid-cols-2 gap-6 (Two columns)
+- grid md:grid-cols-3 gap-6 (Three columns)
+- grid md:grid-cols-2 lg:grid-cols-3 gap-6 (Responsive)
+- grid lg:grid-cols-[1fr,320px] gap-12 (Main + sidebar)
+
+BENTO LAYOUT (Directive section):
+- grid md:grid-cols-2 gap-6
+- First two items: md:col-span-1
+- Third item: md:col-span-2 (full width)
+
+================================================================================
+ICON SYSTEM
+================================================================================
+
+ICON LIBRARY: Lucide React
+
+SIZE SCALE:
+- w-3 h-3: Extra small (12px) - Inline, arrows
+- w-4 h-4: Small (16px) - Secondary icons, list items
+- w-5 h-5: Medium (20px) - Primary icons, card headers
+
+ICON CONTAINERS:
+- w-10 h-10 rounded-[2px] bg-primary/10 (Card header icons)
+- w-8 h-8 rounded-full bg-primary/10 (Step numbers)
+
+ICON COLORS:
+- text-primary: Active/highlighted icons
+- text-foreground: Default icons
+- text-muted-foreground: Subtle/inactive icons
+- text-destructive: Warning/error icons
+
+================================================================================
+BUTTON STYLES
+================================================================================
+
+PRIMARY (Default):
+- Background: bg-primary
+- Text: text-primary-foreground
+- Size: Controlled by variant (sm, default, lg, icon)
+- Hover: Built-in elevation
+
+GHOST:
+- Background: transparent
+- Text: text-foreground
+- Hover: bg-primary/5
+
+OUTLINE:
+- Border: border-border
+- Background: transparent
+- Hover: bg-primary/5
+
+SIZE VARIANTS:
+- sm: Compact, text-xs
+- default: Standard
+- lg: Large, font-mono text-xs uppercase tracking-wider
+- icon: Square, icon only
+
+================================================================================
+FORM FIELD STYLES
+================================================================================
+
+INPUT/TEXTAREA:
+- Background: bg-secondary
+- Border: border-border
+- Border-radius: rounded-[2px]
+- Focus: focus-visible:border-primary focus-visible:ring-primary
+
+LABELS:
+- Font: font-medium
+- Size: text-sm
+- Color: text-foreground
+- Margin: mb-2
+
+HELPER TEXT:
+- Size: text-xs
+- Color: text-muted-foreground
+
+ERROR TEXT:
+- Size: text-xs
+- Color: text-destructive
+
+================================================================================
+CARD COMPONENT PATTERNS
+================================================================================
+
+STANDARD CARD:
+```
+<Card className="bg-background border-border hover:border-primary/30 
+                transition-colors duration-150 ease-mechanical">
+  <CardContent className="p-6">
+    ...
+  </CardContent>
+</Card>
+```
+
+ELEVATED CARD:
+```
+<Card className="bg-card border-border hover:border-primary/30 
+                transition-colors duration-150 ease-mechanical">
+  <CardContent className="p-8">
+    ...
+  </CardContent>
+</Card>
+```
+
+SIDEBAR CARD:
+```
+<div className="bg-card/80 backdrop-blur-sm border border-border 
+               rounded-[2px] p-6">
+  ...
+</div>
+```
+
+================================================================================
+LINK STYLES
+================================================================================
+
+INLINE LINKS:
+- Color: text-primary (or inherits with hover:text-primary)
+- Transition: transition-colors
+- No underline by default
+- Underline on hover (optional)
+
+NAVIGATION LINKS:
+- Color: text-foreground
+- Hover: text-primary
+- Active: text-primary with indicator
+
+FOOTER LINKS:
+- Size: text-xs
+- Color: text-muted-foreground
+- Hover: text-foreground
+
+================================================================================
+BADGE/CHIP STYLES
+================================================================================
+
+STAGE CHIPS:
+```typescript
+const variantStyles = {
+  research: "bg-primary/15 text-primary border-primary/30",
+  internal: "bg-status-warning/15 text-status-warning border-status-warning/30",
+  architecture: "bg-chart-2/15 text-chart-2 border-chart-2/30",
+  specification: "bg-muted text-muted-foreground border-border",
+};
+```
+
+FILTER BADGES:
+- Active: variant="default" (bg-primary)
+- Inactive: variant="outline" (border only)
+- Cursor: cursor-pointer
+
+================================================================================
+DARK MODE NOTES
+================================================================================
+
+VOS v3.0 is dark-only. There is no light mode toggle.
+
+All colors are optimized for dark backgrounds:
+- Text colors are light (90% luminosity foreground)
+- Muted text is 75% luminosity for legibility
+- Primary orange (#F26D21) provides high contrast
+- Card surfaces are slightly elevated from background
+
+================================================================================
+ACCESSIBILITY COMPLIANCE
+================================================================================
+
+COLOR CONTRAST:
+- text-foreground on bg-background: Passes WCAG AA
+- text-muted-foreground on bg-background: Passes at 75% luminosity
+- text-primary on bg-background: Passes WCAG AA
+- text-primary-foreground on bg-primary: Passes WCAG AA
+
+FOCUS INDICATORS:
+- All interactive elements have visible focus states
+- focus-visible:ring-primary provides clear indication
+- Focus states use primary orange color
+
+FONT SIZING:
+- Minimum body text: 14px (0.875rem at 16px base)
+- Labels/mono: 10px minimum (text-[10px])
+- All text can scale with user preferences
+
+================================================================================
+END OF TYPOGRAPHY AUDIT
+================================================================================

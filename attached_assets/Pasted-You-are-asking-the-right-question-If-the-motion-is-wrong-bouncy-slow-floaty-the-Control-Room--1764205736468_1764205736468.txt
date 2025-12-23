@@ -1,0 +1,69 @@
+You are asking the right question. If the motion is wrong (bouncy, slow, floaty), the "Control Room" illusion breaks instantly.
+
+For an **Institutional Control Room**, motion must follow the **"Snap Physics"** rule. Real machinery doesn't "ease in and out" gently; it actuates. It clicks. It is binary.
+
+Here is the specific **Motion Protocol** to add to your Agent prompt. This ensures your interface feels like a tool, not a movie.
+
+### **The Motion Protocol (Add this to the prompt)**
+
+#### **1. The Speed Limit: 150ms (The "Blink" Rule)**
+
+  * **Concept:** Human reaction time is \~200ms. If an interface waits 500ms to fade in a menu, it feels "heavy" or "laggy." If it snaps in 100-150ms, it feels "wired" directly to the brain.
+  * **Action:** You already have the "Global Find/Replace" for duration. This is correct. **Do not change it.**
+
+#### **2. The Easing Curve: "Mechanical" vs. "Organic"**
+
+  * **Status Quo (Consumer):** `ease-in-out`. This starts slow, speeds up, and slows down. It mimics nature (like a leaf falling). It feels "soft."
+  * **The Fix (Institutional):** `ease-out`. Start fast, stop hard. Or `linear` for continuous data.
+  * **Instruction for Agent:**
+    > "In `tailwind.config.ts`, extend the `transitionTimingFunction` to add a 'mechanical' ease: `'mechanical': 'cubic-bezier(0.2, 0, 0, 1)'`. This creates a high-velocity snap effect. Set this as the default for all transitions if possible, or apply it to key interactive elements."
+
+#### **3. The "Loading" State (Kill the Spinner)**
+
+  * **The Problem:** A spinning circle (`animate-spin`) looks like YouTube buffering. It implies "waiting."
+  * **The Control Room Fix:** Use a **Blinking Cursor** or a **Progress Bar**.
+  * **Visual:** `_` flashing at the end of a text line, or a thin orange line shooting across the top of a card.
+  * **Instruction for Agent:**
+    > "Identify any usage of `Loader2` or `Spinner` icons. Replace them with a custom `BlinkingCursor` component (a simple `span` that toggles opacity). Loading states should look like data stream interruptions, not buffering."
+
+#### **4. Scroll Animations (The "No Drift" Rule)**
+
+  * **The Problem:** Many modern sites have sections "fade up and float in" as you scroll down. This is purely decorative and signals "Marketing Site."
+  * **The Control Room Fix:** **Static Persistence.** Information should just *be there*. Stable. Reliable.
+  * **Instruction for Agent:**
+    > "Ensure no 'scroll-triggered' entrance animations (like `fade-up` or `aos`) are used on main content blocks. Data must be static and stable."
+
+-----
+
+### **Updated "Phase 6" for the Master Prompt**
+
+Update **Phase 6** in your Master Prompt to include these specific motion directives.
+
+```markdown
+### PHASE 6: MICRO-PHYSICS & MOTION (FINAL POLISH)
+**Objective:** Enforce "Mechanical" timing and remove "Organic" lags.
+
+1.  **Terminal Text Selection:**
+    In `client/src/index.css`, add: `::selection { background-color: hsl(25 95% 53% / 0.2); color: #ffffff; }`
+
+2.  **Dark Mode Scrollbars:**
+    Override `::-webkit-scrollbar` to be 8px wide, background `hsl(222 15% 5%)`, thumb square and `hsl(222 15% 15%)`.
+
+3.  **Hard-Stop Toasts:**
+    In `client/src/components/ui/toast.tsx`: Replace `slide-in` classes with `fade-in-0` and `zoom-in-95`. Notifications must snap, not slide.
+
+4.  **Mechanical Easing:**
+    In `tailwind.config.ts`, extend `theme.transitionTimingFunction`:
+    `'mechanical': 'cubic-bezier(0.2, 0, 0, 1)'`.
+    *Apply this class to the `ProjectTile` and `ValueCard` hover states.*
+
+5.  **The "Anti-Spinner" Rule:**
+    If any loading states exist, do not use a rotating circle. Use a pulsing opacity (`animate-pulse`) on a static rectangular skeleton.
+```
+
+### **Summary**
+
+  * **Standard Site:** Floats, glides, bounces, spins.
+  * **VSG Site:** Snaps, pulses, blinks, loads.
+
+**You are ready. Execute the prompt.**

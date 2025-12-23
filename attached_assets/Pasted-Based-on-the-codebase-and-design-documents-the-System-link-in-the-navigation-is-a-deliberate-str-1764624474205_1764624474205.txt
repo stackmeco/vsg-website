@@ -1,0 +1,30 @@
+Based on the codebase and design documents, the "System" link in the navigation is a deliberate, strategic rebranding of a traditional **"About Us"** or **"Company"** page.
+
+It exists to reinforce the **"Industrial Control Room"** aesthetic and the **"Truth Engineering"** brand identity. Instead of describing a group of people, it describes the company as a machine.
+
+Here is the detailed breakdown of why "System" is used:
+
+### 1. It Frames the Company as an "Operating System"
+The content of the `/system` page describes the organization not as a "team" but as a set of **functional components**.
+* [cite_start]**Evidence:** The page headline is **"How Verified Systems actually works"**[cite: 135].
+* [cite_start]**Content:** It breaks the company down into "Functions" like Governance, Compliance, Treasury, and Operations [cite: 141-145].
+* **Why:** This aligns with the "deterministic" brand voice. It implies that the company operates with the reliability and predictability of software, rather than the variability of human whims.
+
+### 2. It Houses the "Lexicon" (Definitions)
+The "System" page acts as the documentation for the specialized language used throughout the site.
+* [cite_start]**Evidence:** It contains a "Terms we use, defined plainly" section[cite: 136].
+* [cite_start]**Content:** It defines core concepts like "Verifiable Systems," "Deterministic Intelligence," and "Digital Assets" [cite: 136-138].
+* **Why:** In a technical system, you define your variables first. Placing this under "System" tells the user, "Here are the parameters for how we think."
+
+### 3. It Reveals the "Power Source" (Treasury)
+A key differentiator for VSG is that it is self-funded via a Bitcoin treasury. The "System" page explains this financial engine.
+* [cite_start]**Evidence:** The "Bitcoin Treasury Program" section explains the "Collateral Loop" (Holding BTC $\rightarrow$ Borrowing Stablecoins $\rightarrow$ Funding R&D)[cite: 139].
+* **Why:** This proves the "Proof of Capital" operating principle. It shows the *fuel* that powers the system.
+
+### 4. It Replaces "About Us" with "Architecture"
+Most companies have an "About" page with photos of the founders. VSG is anonymous and focuses on the work.
+* [cite_start]**Evidence:** The text explicitly states, "Verified Systems is still just two people, but we think in terms of functions so decisions and responsibilities are clear"[cite: 141].
+* **Why:** Calling it "System" shifts the focus from *who* (the founders) to *how* (the architecture). It elevates the structure above the individuals.
+
+**Summary:**
+"System" is in the navigation because **VSG positions itself as a piece of infrastructure, not a service provider.** A piece of infrastructure doesn't have an "About" page; it has a "System Specification."

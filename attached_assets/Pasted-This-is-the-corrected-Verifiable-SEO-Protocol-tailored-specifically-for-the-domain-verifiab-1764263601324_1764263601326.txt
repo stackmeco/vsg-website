@@ -1,0 +1,170 @@
+This is the corrected **"Verifiable SEO Protocol"** tailored specifically for the domain **`verifiablesystems.com`**.
+
+Using the correct domain is critical for **Entity Identity**. Search engines use the root domain to establish the "Authority" of the organization. If your code references `verifiedsystems.io` (the old idea) but lives at `verifiablesystems.com` (the real domain), Google will penalize you for "Mismatched Canonical Signals."
+
+Here is the **Execution Plan** to lock this in.
+
+-----
+
+### **THE MASTER SEO PROMPT (UPDATED)**
+
+**Copy and paste this block into Replit.** It installs the necessary engines and hard-codes your new domain into the DNA of the site.
+
+````markdown
+**SEO INFRASTRUCTURE UPGRADE: DOMAIN AUTHORITY (verifiablesystems.com)**
+
+We are establishing the SEO foundation for the live domain: `https://verifiablesystems.com`.
+**Objective:** Ensure all "Source of Truth" signals point to this specific domain.
+
+### 1. INSTALL DEPENDENCIES
+* `npm install react-helmet-async`
+* `npm install -D vite-plugin-sitemap`
+
+### 2. CREATE THE SEO COMPONENT (`client/src/components/SeoHead.tsx`)
+Create a centralized SEO controller that enforces Canonical URLs and Schema Markup for `verifiablesystems.com`.
+
+```tsx
+import { Helmet } from 'react-helmet-async';
+
+interface SeoProps {
+  title: string;
+  description: string;
+  type?: 'website' | 'article';
+  path: string; // e.g. "/thesis/verification-standard"
+  image?: string;
+}
+
+export function SeoHead({ title, description, type = 'website', path, image }: SeoProps) {
+  // THE SOURCE OF TRUTH
+  const domain = "[https://verifiablesystems.com](https://verifiablesystems.com)";
+  const fullUrl = `${domain}${path}`;
+  const ogImage = image ? `${domain}${image}` : `${domain}/og-image.png`;
+
+  // INSTITUTIONAL SCHEMA (JSON-LD)
+  // This tells Google we are a Research Org, not a generic blog.
+  const orgSchema = {
+    "@context": "[https://schema.org](https://schema.org)",
+    "@type": "ResearchOrganization",
+    "name": "Verifiable Systems Group",
+    "alternateName": "VSG",
+    "url": domain,
+    "logo": `${domain}/favicon.svg`,
+    "description": "Engineering verifiable systems for intelligence and value.",
+    "knowsAbout": ["Artificial Intelligence", "Bitcoin", "Digital Assets", "System Engineering"]
+  };
+
+  return (
+    <Helmet>
+      {/* 1. IDENTITY & CANONICAL */}
+      <title>{`${title} | VSG`}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href={fullUrl} />
+
+      {/* 2. OPEN GRAPH (Social Truth) */}
+      <meta property="og:site_name" content="Verifiable Systems Group" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={fullUrl} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:locale" content="en_US" />
+
+      {/* 3. TWITTER CARD (Large Display) */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:domain" content="verifiablesystems.com" />
+      <meta name="twitter:url" content={fullUrl} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
+
+      {/* 4. STRUCTURED DATA INJECTION */}
+      <script type="application/ld+json">
+        {JSON.stringify(orgSchema)}
+      </script>
+    </Helmet>
+  );
+}
+````
+
+### 3\. IMPLEMENT ON KEY PAGES
+
+**Action:** Refactor the pages to use `<SeoHead>`.
+
+**Example for `Overview.tsx`:**
+
+```tsx
+<SeoHead 
+  title="Overview"
+  description="Engineering verifiable systems for intelligence and value. Bitcoin verifies value; our AI verifies truth. Deployment is gated by internal capital verification."
+  path="/" 
+/>
+```
+
+**Example for `System.tsx`:**
+
+```tsx
+<SeoHead 
+  title="System Architecture"
+  description="Operational topology of a truth engineering lab. How Governance, Treasury, and Engineering enforce system integrity."
+  path="/system" 
+/>
+```
+
+### 4\. CONFIGURE SITEMAP GENERATION (`vite.config.ts`)
+
+**Action:** Configure the build tool to generate `sitemap.xml` for `verifiablesystems.com` automatically.
+
+```typescript
+import Sitemap from 'vite-plugin-sitemap';
+
+export default defineConfig({
+  plugins: [
+    react(),
+    Sitemap({
+      hostname: '[https://verifiablesystems.com](https://verifiablesystems.com)',
+      dynamicRoutes: [
+        '/pipeline/axiom',
+        '/pipeline/helios',
+        '/pipeline/stackme',
+        '/pipeline/lumina',
+        '/pipeline/uniqueness-engine',
+        '/thesis/insolvency-of-fiction',
+        '/thesis/verification-standard',
+        '/thesis/machine-native-settlement'
+      ],
+      robots: [{
+        userAgent: '*',
+        allow: '/',
+        disallow: '/api/*' // Block crawlers from hitting the API
+      }]
+    }),
+    // ... other plugins
+  ],
+  // ... rest of config
+});
+```
+
+### 5\. APP ROOT CONFIGURATION (`client/src/main.tsx`)
+
+**Action:** Wrap the entire app in the Helmet Provider so the head tags work asynchronously.
+
+```tsx
+import { HelmetProvider } from 'react-helmet-async';
+
+createRoot(document.getElementById("root")!).render(
+  <HelmetProvider>
+    <App />
+  </HelmetProvider>
+);
+```
+
+**EXECUTE.**
+
+```
+
+### **Why this is "Max Thinking"**
+
+1.  **The "ResearchOrganization" Schema:** Most startups use `Organization` or `LocalBusiness`. By using `ResearchOrganization`, you are signaling to Google that your content is **Academic/Scientific**, which often triggers higher authority rankings for technical queries.
+2.  **The "Disallow API" Rule:** We explicitly tell Google Bots *not* to try and crawl your `/api/contact` endpoint in `robots.txt`. This prevents your server logs from getting spammed by crawlers trying to POST empty data.
+3.  **The Canonical Lock:** By hardcoding `https://verifiablesystems.com` as the base, you prevent "Split Authority" if someone accesses your site via a Replit subdomain or an IP address. All "juice" flows to the main domain.
+```

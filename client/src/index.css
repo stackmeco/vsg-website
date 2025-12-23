@@ -1,0 +1,711 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* VSG Industrial Control Room - Tungsten & Signal Palette */
+:root {
+  /* --- GEOMETRY & PHYSICS --- */
+  --radius: 2px; /* MACHINED EDGES. No organic curves. */
+  
+  /* Spacing Scale (Mechanical) */
+  --space-section: 5rem;      /* 80px - Between major sections */
+  --space-block: 2.5rem;      /* 40px - Between content blocks */
+  --space-card: 1.5rem;       /* 24px - Card internal padding */
+  --space-element: 1rem;      /* 16px - Between elements */
+  --space-tight: 0.5rem;      /* 8px - Tight spacing */
+  
+  /* Icon Sizes (Standardized) */
+  --icon-lg: 1.25rem;         /* 20px - Primary icons */
+  --icon-md: 1rem;            /* 16px - Secondary icons */
+  --icon-sm: 0.75rem;         /* 12px - Inline icons */
+  
+  /* Status Colors (Industrial Palette Only) */
+  --status-active: 25 95% 53%;      /* Orange - Active/Primary */
+  --status-nominal: 220 10% 60%;    /* Silver - Normal/Info */
+  --status-warning: 45 90% 50%;     /* Amber - Warning */
+  --status-critical: 0 70% 50%;     /* Red - Critical */
+  --status-success: 142 50% 45%;    /* Muted Green - Success */
+  
+  /* --- ELEVATION SYSTEM --- */
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+  --opaque-button-border-intensity: 9;
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+
+  /* --- THE VOID (Backgrounds) --- */
+  /* Deep, warm charcoal (Tungsten). NOT blue. NOT pure black. */
+  /* Represents: Matte metal casing. */
+  --background: 222 15% 5%;
+  --foreground: 30 5% 90%; /* Off-white/Silver for legibility */
+
+  /* --- SURFACE LAYERS (Panels) --- */
+  /* Distinct from background via Lightness, not Hue. */
+  --card: 222 15% 7%;
+  --card-foreground: 30 5% 90%;
+  --card-border: 222 15% 12%; /* Structural steel gray */
+  
+  --popover: 222 15% 6%;
+  --popover-foreground: 30 5% 96%;
+  --popover-border: 222 15% 15%;
+
+  /* --- THE SIGNAL (Primary Action) --- */
+  /* International Orange / Safety Amber. */
+  /* Represents: "System Active", "Caution", "High Voltage". */
+  --primary: 25 95% 53%;      /* #F26D21 */
+  --primary-foreground: 222 47% 11%; /* Dark contrast text on orange */
+
+  /* --- THE STRUCTURE (Secondary) --- */
+  /* Functional mechanics. Visible but ignored. */
+  --secondary: 222 15% 10%;
+  --secondary-foreground: 30 5% 80%;
+
+  --muted: 222 15% 10%;
+  --muted-foreground: 220 5% 75%; /* Boosted from 55% to 75% for legibility at small sizes */
+
+  /* --- ALERTS & STATES --- */
+  --accent: 25 95% 53%; /* Same as primary for hover states */
+  --accent-foreground: 222 47% 11%;
+  
+  --destructive: 0 70% 50%; /* Critical Failure Red */
+  --destructive-foreground: 0 0% 98%;
+  
+  --border: 222 15% 12%; /* Hairline dividers */
+  --input: 222 15% 10%;  /* Input fields darker than cards */
+  --ring: 25 95% 53%;    /* Hard orange focus ring */
+
+  /* --- DATA VISUALIZATION PALETTE --- */
+  /* High contrast, discernible on dark backgrounds */
+  --chart-1: 25 95% 53%;  /* Orange (Primary Data) */
+  --chart-2: 220 10% 70%; /* Silver (Secondary Data) */
+  --chart-3: 220 10% 35%; /* Steel (Baseline Data) */
+  --chart-4: 45 90% 50%;  /* Warning Yellow */
+  --chart-5: 0 70% 50%;   /* Alert Red */
+
+  /* --- SIDEBAR SYSTEM --- */
+  --sidebar: 222 15% 4%;
+  --sidebar-foreground: 30 5% 90%;
+  --sidebar-primary: 25 95% 53%;
+  --sidebar-primary-foreground: 222 47% 11%;
+  --sidebar-accent: 222 15% 10%;
+  --sidebar-accent-foreground: 25 95% 53%;
+  --sidebar-border: 222 15% 12%;
+  --sidebar-ring: 25 95% 53%;
+
+  /* --- UTILITY VARIABLES --- */
+  --accent-warm: 25 95% 53%;
+  --accent-warm-foreground: 222 47% 11%;
+  --color-success: 142 69% 48%;
+  --color-warning: 45 90% 50%;
+  --color-data: 220 10% 70%;
+
+  /* --- TYPOGRAPHY --- */
+  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* --- SHADOWS --- */
+  --shadow-2xs: 0px 2px 0px 0px hsl(222 15% 5% / 0.3);
+  --shadow-xs: 0px 2px 0px 0px hsl(222 15% 5% / 0.4);
+  --shadow-sm: 0px 2px 0px 0px hsl(222 15% 5% / 0.5), 0px 1px 2px -1px hsl(222 15% 5% / 0.4);
+  --shadow: 0px 2px 0px 0px hsl(222 15% 5% / 0.6), 0px 1px 2px -1px hsl(222 15% 5% / 0.5);
+  --shadow-md: 0px 2px 0px 0px hsl(222 15% 5% / 0.7), 0px 2px 4px -1px hsl(222 15% 5% / 0.5);
+  --shadow-lg: 0 18px 40px rgba(15, 23, 42, 0.5);
+  --shadow-xl: 0px 2px 0px 0px hsl(222 15% 5% / 0.9), 0px 8px 10px -1px hsl(222 15% 5% / 0.7);
+  --shadow-2xl: 0px 2px 0px 0px hsl(222 15% 5% / 1);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  /* --- COMPUTED BORDERS --- */
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l - 5) / alpha);
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+/* FORCE DARK MODE CONSISTENCY */
+.dark {
+  --background: 222 15% 5%;
+  --foreground: 30 5% 90%;
+  /* Inherits rest from root */
+}
+
+/* --- GLOBAL MICRO-INTERACTIONS --- */
+
+/* 1. Terminal Text Selection - Orange Signal */
+::selection {
+  background-color: hsl(var(--primary) / 0.2);
+  color: hsl(var(--foreground));
+  -webkit-text-fill-color: hsl(var(--foreground));
+}
+
+/* 2. Engineered Scrollbars - Square, Industrial */
+::-webkit-scrollbar {
+  width: 8px;
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border: 1px solid hsl(var(--background));
+  border-radius: 0px; /* Square - no organic curves */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5); /* Orange signal on hover */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* ACCESSIBILITY: Focus-visible styles for keyboard navigation (WCAG 2.1 AA) */
+  /* Form fields (input, textarea, select) handle their own focus via Tailwind border-primary */
+  :focus-visible:not(input):not(textarea):not(select) {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+
+  /* Remove default focus for mouse users, keep for keyboard */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Form fields use border change instead of outline */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+  }
+
+  /* Ensure buttons and interactive elements have visible focus */
+  button:focus-visible,
+  a:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.15);
+  }
+
+  /* 1. VOS PROFESSIONAL GRADE TYPOGRAPHY */
+  html {
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px; /* VOS v3.0: Balanced - technical density with readability */
+    letter-spacing: -0.015em; /* VOS: Manrope precision tracking */
+    color: hsl(var(--foreground));
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* 2. COMFORTABLE BODY TEXT */
+  /* NOTE: Removed text-base from global p rule - font sizes should be set explicitly
+     on each element to avoid cascade conflicts with utility classes like text-xs. 
+     Each component controls its own typography. */
+  p {
+    @apply leading-relaxed; 
+    margin-bottom: 0.75rem;
+  }
+
+  /* 3. DISTINCT HEADINGS */
+  /* NOTE: Only set font-family, weight, and tracking globally.
+     Font SIZES and COLORS should be set explicitly per-element to avoid cascade conflicts.
+     Components control their own heading sizes via classes like text-3xl, text-xl, etc. */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    @apply tracking-tight text-foreground;
+  }
+
+  /* 4. METADATA (The "Small" Text) */
+  /* NOTE: Font sizes should be controlled by explicit size classes (text-sm, text-base, etc.)
+     NOT by color classes. Removed the forced text-sm on .text-muted-foreground as it was
+     overriding all intentional sizing and breaking the typography hierarchy. */
+
+  /* 5. SEMANTIC TYPOGRAPHY CLASSES */
+  /* All sizes proportional to 15px base (see tailwind.config.ts) */
+  /* Formula: desired_px / 15 = rem value */
+  
+  /* Eyebrow: 14px (0.9333rem) uppercase tracked - readable section labels */
+  .type-eyebrow {
+    @apply text-eyebrow font-mono uppercase text-muted-foreground;
+  }
+  
+  /* Telemetry: 12px (0.8rem) - ONLY for clocks, timestamps, technical data */
+  .type-telemetry {
+    @apply text-telemetry font-mono tabular-nums text-muted-foreground;
+  }
+  
+  /* Caption: 13px (0.8667rem) - Minimum for readable text */
+  .type-caption {
+    @apply text-caption text-muted-foreground;
+  }
+  
+  /* Body: 14px (0.9333rem) - Standard body text */
+  .type-body {
+    @apply text-body text-foreground leading-relaxed;
+  }
+  
+  /* Body Large: 16px (1.0667rem) - Prominent paragraphs */
+  .type-body-lg {
+    @apply text-body-lg text-foreground leading-relaxed;
+  }
+  
+  /* Legacy label class (uses eyebrow token) */
+  .text-label {
+    @apply text-eyebrow font-mono uppercase text-muted-foreground/70;
+  }
+
+  /* 6. DATA & NUMBERS */
+  .data-text {
+    @apply font-mono tabular-nums tracking-tight;
+  }
+
+  /* 7. UTILITIES */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  /* 8. DATA LISTS */
+  /* NOTE: Removed text-base and text-muted-foreground - font size and color
+     should be inherited from parent or set explicitly to avoid conflicts. */
+  ul, ol {
+    @apply my-4 ml-4 list-disc;
+  }
+  li {
+    @apply mb-1.5;
+  }
+
+  /* 9. TABLE DENSITY */
+  td, th {
+    @apply p-2;
+  }
+
+  /* 10. CARD DENSITY */
+  /* NOTE: Removed [class*="CardContent"] selector as it was overriding explicit padding.
+     Card padding should be controlled by the component itself (p-6, p-4, etc.) */
+
+  /* 11. INPUT PHYSICS - Terminal caret */
+  input, textarea {
+    caret-color: hsl(var(--primary));
+  }
+}
+
+@layer components {
+  /* Subtle dot grid for engineering workspace feel */
+  /* Mobile: Reduced opacity for text legibility */
+  .dot-grid {
+    background-image: radial-gradient(circle, hsl(var(--foreground) / 0.02) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Desktop: Slightly stronger grid presence */
+  @media (min-width: 768px) {
+    .dot-grid {
+      background-image: radial-gradient(circle, hsl(var(--foreground) / 0.035) 1px, transparent 1px);
+    }
+  }
+
+  /* Blueprint/engineering graph paper grid */
+  .line-grid {
+    background-image: 
+      linear-gradient(to right, hsl(var(--foreground) / 0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--foreground) / 0.015) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  @media (min-width: 768px) {
+    .line-grid {
+      background-image: 
+        linear-gradient(to right, hsl(var(--foreground) / 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, hsl(var(--foreground) / 0.025) 1px, transparent 1px);
+    }
+  }
+
+  /* 3. Background Grid Texture - Engineering Blueprint */
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, hsl(222 15% 12% / 0.2) 1px, transparent 1px),
+                      linear-gradient(to bottom, hsl(222 15% 12% / 0.2) 1px, transparent 1px);
+  }
+
+  @media (min-width: 768px) {
+    .bg-grid-pattern {
+      background-image: linear-gradient(to right, hsl(222 15% 12% / 0.3) 1px, transparent 1px),
+                        linear-gradient(to bottom, hsl(222 15% 12% / 0.3) 1px, transparent 1px);
+    }
+  }
+}
+
+/* === CONTROL ROOM ANIMATION SYSTEM === */
+/* Industrial micro-animations for data displays */
+
+/* 1. FLASH - Terminal date/timestamp flicker */
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-flash {
+  animation: flash 2s ease-in-out infinite;
+}
+
+/* 2. GLOW-PULSE - Status indicator breathing */
+@keyframes glow-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 4px hsl(var(--primary) / 0.4);
+    opacity: 1;
+  }
+  50% { 
+    box-shadow: 0 0 12px hsl(var(--primary) / 0.7);
+    opacity: 0.9;
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* 2b. HEARTBEAT - VOS v3.0 Loading State (Anti-Spinner) */
+/* Bars pulse opacity instead of spinning. Signals "Processing Data". */
+@keyframes heartbeat {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* 3. DATA-TICK - Numeric value update simulation */
+/* VOS v3.0: No Y-axis movement. Use opacity/brightness only. */
+@keyframes data-tick {
+  0%, 100% { opacity: 1; filter: brightness(1); }
+  10% { opacity: 0.7; filter: brightness(1.2); }
+  20% { opacity: 1; filter: brightness(1); }
+}
+
+.animate-data-tick {
+  animation: data-tick 4s ease-out infinite;
+}
+
+/* 4. SCAN-LINE - CRT monitor effect for headers */
+@keyframes scan-line {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+.animate-scan-line::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    hsl(var(--primary) / 0.02) 2px,
+    hsl(var(--primary) / 0.02) 4px
+  );
+  pointer-events: none;
+  animation: scan-line 8s linear infinite;
+}
+
+/* 5. CURSOR-BLINK - Terminal cursor for inputs */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* 6. STATUS-GLOW - Active status indicator */
+.status-glow {
+  box-shadow: 0 0 8px hsl(var(--primary) / 0.5);
+}
+
+/* 7. MECHANICAL TIMING - Industrial easing curve */
+.ease-mechanical {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/**
+ * Using the elevate system.
+ * Automatic contrast adjustment.
+ *
+ * <element className="hover-elevate" />
+ * <element className="active-elevate-2" />
+ *
+ * // Using the tailwind utility when a data attribute is "on"
+ * <element className="toggle-elevate data-[state=on]:toggle-elevated" />
+ * // Or manually controlling the toggle state
+ * <element className="toggle-elevate toggle-elevated" />
+ *
+ * Elevation systems have to handle many states.
+ * - not-hovered, vs. hovered vs. active  (three mutually exclusive states)
+ * - toggled or not
+ * - focused or not (this is not handled with these utilities)
+ *
+ * Even without handling focused or not, this is six possible combinations that
+ * need to be distinguished from eachother visually.
+ */
+@layer utilities {
+
+  /* Hide ugly search cancel button in Chrome until we can style it properly */
+  input[type="search"]::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+
+  /* Placeholder styling for contentEditable div */
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+
+  /* .no-default-hover-elevate/no-default-active-elevate is an escape hatch so consumers of
+   * buttons/badges can remove the automatic brightness adjustment on interactions
+   * and program their own. */
+  .no-default-hover-elevate {}
+
+  .no-default-active-elevate {}
+
+
+  /**
+   * Toggleable backgrounds go behind the content. Hoverable/active goes on top.
+   * This way they can stack/compound. Both will overlap the parent's borders!
+   * So borders will be automatically adjusted both on toggle, and hover/active,
+   * and they will be compounded.
+   */
+  .toggle-elevate::before,
+  .toggle-elevate-2::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    /*border-radius: inherit;   match rounded corners */
+    border-radius: inherit;
+    z-index: -1;
+    /* sits behind content but above backdrop */
+  }
+
+  .toggle-elevate.toggle-elevated::before {
+    background-color: var(--elevate-2);
+  }
+
+  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
+  .border.toggle-elevate::before {
+    inset: -1px;
+  }
+
+  /* Does not work on elements with overflow:hidden! */
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative;
+    z-index: 0;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    /*border-radius: inherit;   match rounded corners */
+    border-radius: inherit;
+    z-index: 999;
+    /* sits in front of content */
+  }
+
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+
+  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
+    inset: -1px;
+  }
+}
+
+/* ===== NAVIGATION MENU - TAB STYLE ===== */
+/* Mechanical Snap Protocol: 150ms, cubic-bezier(0.4, 0, 0.2, 1), no vertical movement */
+
+.nav-menu-root {
+  position: relative;
+  z-index: 50;
+}
+
+.nav-menu-container {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.nav-menu-triggers-row {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  z-index: 100;
+}
+
+/* Each menu item (tab) - list item container */
+.nav-menu-item {
+  position: relative;
+  background: transparent;
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+}
+
+/* === SHARED NAV BUTTON: All nav items use this for consistent sizing === */
+.nav-button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1), 
+              background-color 150ms cubic-bezier(0.4, 0, 0.2, 1), 
+              color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover state for all nav buttons - Mechanical Snap with elevate overlay */
+.nav-button:hover {
+  background: var(--elevate-1, rgba(255,255,255, 0.04));
+  border-color: hsl(var(--primary) / 0.3);
+}
+
+/* Active/pressed state */
+.nav-button:active {
+  background: var(--elevate-2, rgba(255,255,255, 0.09));
+}
+
+/* Active page state for non-dropdown buttons */
+.nav-button-active {
+  background: hsl(var(--primary) / 0.1);
+  border-color: hsl(var(--primary) / 0.3);
+}
+
+/* Trigger specific styling - no border, let wrapper handle it */
+.nav-menu-trigger {
+  border: 1px solid transparent;
+}
+
+.nav-menu-trigger[data-state="open"] {
+  color: hsl(var(--primary));
+}
+
+/* === STATE: Dropdown is open, but this tab is NOT active === */
+/* Show subtle orange underline for inactive dropdown tabs */
+.nav-menu-item[data-dropdown-open="true"]:not([data-dropdown-active="true"]) .nav-menu-trigger {
+  border-bottom-color: hsl(var(--primary) / 0.32);
+}
+
+/* === STATE: This tab IS the active dropdown === */
+/* Background matches card, no individual border - wrapper draws it */
+.nav-menu-item[data-dropdown-active="true"] {
+  z-index: 110;
+}
+
+.nav-menu-item[data-dropdown-active="true"] .nav-menu-trigger {
+  background: hsl(var(--card)) !important;
+  color: hsl(var(--primary));
+  border-color: transparent !important;
+}
+
+/* Viewport wrapper - contains both trigger overlay and panel */
+.nav-menu-viewport-wrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/* The dropdown panel - simple card background, no border */
+.nav-menu-viewport {
+  width: 100%;
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: none;
+  border-radius: 0 0 2px 2px;
+}
+
+/* === UNIFIED BORDER: Draw one continuous border around active tab + panel === */
+/* This pseudo-element on the menu item draws the complete tab shape */
+.nav-menu-item[data-dropdown-active="true"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Extend down to cover the viewport */
+  bottom: calc(-1 * var(--radix-navigation-menu-viewport-height, 0px));
+  border: 1px solid hsl(var(--primary) / 0.32);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 105;
+  background: hsl(var(--card));
+}
+
+/* Position the trigger content above the border overlay */
+.nav-menu-item[data-dropdown-active="true"] .nav-menu-trigger {
+  position: relative;
+  z-index: 106;
+}
+
+/* Container styling when open */
+.nav-menu-open {
+  background: transparent;
+}
+
+.nav-menu-content {
+  width: 100%;
+  position: relative;
+  z-index: 106;
+}
+
+/* Terminal Text Selection - Developer/Hacker Polish */
+::selection {
+  background-color: hsl(var(--primary) / 0.2);
+  color: hsl(var(--foreground));
+}
+
+/* HUD Texture Overlay - For background images */
+/* Applied via inline styles in hero sections for precise control */
+/* Standard treatment: opacity 0.08-0.15, grayscale(100%) contrast(120%) */
+.bg-texture-overlay {
+  filter: grayscale(100%) contrast(120%);
+  opacity: 0.12;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}

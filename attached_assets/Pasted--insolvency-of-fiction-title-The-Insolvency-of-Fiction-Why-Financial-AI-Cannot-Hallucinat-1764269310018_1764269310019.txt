@@ -1,0 +1,34 @@
+"insolvency-of-fiction": {
+    title: "The Insolvency of Fiction: Why Financial AI Cannot Hallucinate",
+    date: "December 15, 2025",
+    type: "Insight",
+    tags: ["AI Safety", "Determinism", "Infrastructure"],
+    description: "In creative writing, variance is a feature. In automated treasury management, it is a felony. We analyze the friction between probabilistic models and deterministic settlement.",
+    publishedTime: "2025-12-15",
+    content: [
+      {
+        heading: "I. The Probabilistic Trap",
+        paragraphs: [
+          "Contemporary Large Language Models (LLMs) operate on probabilistic engines. They optimize for plausibility, not veracity. While an 80% coherence rate is acceptable for creative generation, it is systemically fatal for financial infrastructure.",
+          "A clearing engine settling $10M in Bitcoin cannot tolerate 'creativity.' Standard APIs (like GPT-4) introduce non-deterministic variance into the settlement layer. If an autonomous agent cannot distinguish between a confirmed transaction hash and a predicted one, it cannot act as a fiduciary.",
+          "We determined that building 'Helios' (our treasury engine) on raw model outputs would create unacceptable counterparty risk. Without a mechanical governor, the model's ability to hallucinate becomes a solvency vector."
+        ],
+      },
+      {
+        heading: "II. Engineering Constraints: The Axiom Protocol",
+        paragraphs: [
+          "We are engineering 'Axiom' not to compete with general-purpose reasoning models, but to constrain them. Axiom treats the LLM as a semantic processor, not a knowledge base.",
+          "The system enforces a 'Citation-or-Silence' protocol. It forces the model to query cryptographically verified internal ledgers or legal documentation, retrieve specific data blocks, and construct answers exclusively using that retrieved context.",
+          "Crucially, Axiom inhibits the model's ability to bridge gaps with fabrication. If the verified data is absent, the system is engineered to fail silently rather than invent a plausible lie. In high-stakes finance, a 'null' response is infinitely superior to a false positive."
+        ],
+      },
+      {
+        heading: "III. Truth as the Ultimate Asset Class",
+        paragraphs: [
+          "We are entering an era of infinite synthetic media and zero-cost content generation. In this environment, verifiable truth transitions from a commodity to a scarce asset class.",
+          "By linking our financial verification (Bitcoin/Helios) with our semantic verification (Axiom), VSG is architecting a closed loop: systems that can mathematically prove what they own, and structurally verify what they know.",
+          "This is not just safety features; it is the prerequisite for the autonomous economy."
+        ],
+      },
+    ],
+  },

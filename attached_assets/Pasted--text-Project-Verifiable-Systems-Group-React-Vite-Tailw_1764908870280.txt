@@ -1,0 +1,297 @@
+```text
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Do a focused **final polish on the Lumina venture detail page** so it:
+
+- Reads as the canonical explanation of Lumina as the **Truth** venture.
+- Clearly positions Lumina as **infrastructure**, not a grading house or marketplace.
+- Emphasizes evidence, physics/sensors, and verifiable grading over “AI magic”.
+- Uses VSG Brand & Voice System v3.0 and the **Truth · Capital · Dignity** model.
+- Avoids creepy phrasing (“the human”) and banned terms (“AI-powered”, “validate the signal”, etc.).
+
+Do NOT:
+
+- Change routing, layout primitives, or component structure.
+- Add/remove major sections or components.
+- Mention specific partners, protocols, or commercial deals.
+- Suggest Lumina is a grading service you can ship cards to, or a marketplace.
+
+Only update user-facing text and any local data/constants used by the Lumina page.
+
+--------------------------------------------------
+1) Locate the Lumina venture page
+--------------------------------------------------
+
+Find the component that renders the Lumina detail route, for example:
+
+- client/src/pages/ventures/Lumina.tsx
+- client/src/pages/Lumina.tsx
+
+or whichever file is mapped to `/ventures/lumina` in `client/src/App.tsx`.
+
+If this page imports a small Lumina-specific data object/array (e.g. `luminaSections`, `highlights`), you may update the string fields there as well, but keep the shapes and types the same.
+
+--------------------------------------------------
+2) PageMeta – Truth framing, infrastructure-first
+--------------------------------------------------
+
+In the Lumina page component, locate `<PageMeta>` (or equivalent) and set:
+
+- title:
+    "Lumina · Truth"
+- description:
+    "Lumina is verifiable grading infrastructure for physical assets—using sensors, physics, and machine intelligence to turn condition into evidence that people can inspect, not just a one-line opinion."
+
+Keep `preloadImage` and any other props unchanged.
+
+--------------------------------------------------
+3) Hero section – what Lumina is, in one screen
+--------------------------------------------------
+
+In the main hero section:
+
+3.1 Overline
+
+Set the small overline (if present) to:
+
+  "Lumina · Truth venture"
+
+3.2 Heading
+
+Set the main `<h1>` to:
+
+  "Grading that starts with evidence."
+
+3.3 Hero body (2 short paragraphs)
+
+Replace the hero body text with:
+
+Paragraph 1 (~35–50 words):
+
+  "Lumina is verifiable grading infrastructure for physical assets like trading cards. It uses sensors, physics, and machine intelligence to capture the state of an item and turn it into structured evidence—so people can make decisions based on what is actually measured, not just a one-time opinion."
+
+Paragraph 2 (~25–35 words):
+
+  "We build Lumina as rails, not a grading house or marketplace. It is meant to plug into existing grading, insurance, and trading workflows without taking custody of assets or becoming the arbiter of taste."
+
+No exclamation points. Keep existing classes and layout; only update text.
+
+3.4 Hero CTAs
+
+If the hero has buttons/links, set them to:
+
+Primary CTA:
+- Label:
+    "Back to ventures"
+- href:
+    "/ventures"
+
+Secondary CTA (if present):
+- Label:
+    "See our approach"
+- href:
+    "/approach"
+
+If a different secondary href is already wired (e.g. `/process`), keep the href but update the label to something like “See how we build”.
+
+--------------------------------------------------
+4) Section: “What Lumina is (and is not)”
+--------------------------------------------------
+
+Find the first descriptive section below the hero and reuse its layout.
+
+4.1 Section heading
+
+  "What Lumina is"
+
+4.2 Body paragraph (~55–75 words):
+
+  "Lumina is how we address the Truth question for physical assets: what can actually be known, and shown, about their condition? It captures measurable features—surface, edges, corners, centering—as structured data tied to a specific item at a specific time. That data becomes a foundation for grading, insurance, and pricing, without forcing anyone to trust a single black-box verdict."
+
+If the layout supports a contrasting “not” box or list, use it for:
+
+Subheading (small):
+
+  "What Lumina is not"
+
+Bulleted list (3 items max):
+
+  - "Not a grading house you ship cards to."
+  - "Not a marketplace or auction platform."
+  - "Not a one-size-fits-all score or investment recommendation."
+
+Keep it compact and within the existing visual pattern.
+
+--------------------------------------------------
+5) Section: “How Lumina works (public-safe abstraction)”
+--------------------------------------------------
+
+Locate the section that currently describes mechanics, steps, or features. Reuse that structure (cards, steps, bullets) and update the copy to high-level, protocol-agnostic language.
+
+Section heading:
+
+  "How Lumina works"
+
+Short intro (~25–35 words):
+
+  "Lumina turns physical condition into structured evidence through three simple phases: capture, compute, and share."
+
+Then map the existing cards/columns/steps to:
+
+Card / Step 1 – Capture
+- Title:
+    "Capture"
+- Body:
+    "A device—often a phone with a guided flow—captures images and sensor data of the item. Lumina enforces consistent angles, lighting checks, and basic quality gates so the raw inputs are usable."
+
+Card / Step 2 – Compute
+- Title:
+    "Compute"
+- Body:
+    "Machine intelligence and physics-aware models analyze the captured data for features and anomalies. The output is structured: measurements, flags, and confidence ranges tied to that specific item at that specific moment."
+
+Card / Step 3 – Share
+- Title:
+    "Share"
+- Body:
+    "The results are packaged as a verifiable record that can travel with the asset—into grading workflows, insurance flows, or marketplaces—without Lumina taking custody or dictating a final price or grade."
+
+If your layout supports four cards and you need a fourth, add:
+
+Card / Step 4 – Re-check
+- Title:
+    "Re-check"
+- Body:
+    "Over time, the same item can be scanned again. Lumina makes it easy to compare states, track damage, and see how condition has changed instead of relying on memory or one-off notes."
+
+Avoid any references to specific models, providers, or protocols. No “AI-powered” phrasing—keep it as “machine intelligence” or “models”.
+
+--------------------------------------------------
+6) Section: “Where Lumina sits in VSG”
+--------------------------------------------------
+
+Use the section that talks about context or “why this matters” inside the studio, or repurpose the closest existing section.
+
+Section heading:
+
+  "Where Lumina sits in the studio"
+
+Body paragraph (~50–70 words):
+
+  "Lumina lives in the Truth lane. It is a proof that we can turn physical reality into evidence people can inspect and reuse, instead of relying on opaque, subjective calls. Standards from the studio define how Lumina records and exposes data; insights from Lumina feed back into how we think about provenance, logs, and tamper-evidence in other ventures."
+
+If the layout allows a one-line note, you can add:
+
+  "If the evidence isn’t clear enough to inspect and reuse, it doesn’t meet the bar for Lumina."
+
+Keep this as a single short sentence.
+
+--------------------------------------------------
+7) Section: “Who Lumina is for”
+--------------------------------------------------
+
+If there is a lower section that currently describes audiences/users or use cases, reuse it.
+
+Section heading:
+
+  "Who Lumina is for"
+
+Body paragraph (~55–75 words):
+
+  "Lumina is for people and organizations who depend on condition and authenticity: graders, marketplaces, insurers, vaults, and serious collectors. It gives them a way to anchor decisions in shared evidence, not just screenshots or opinions. We design it so they can integrate it into their own workflows and rules, instead of handing control to another silo."
+
+Keep this general—no specific partner names, no promises.
+
+--------------------------------------------------
+8) Section: “What we share publicly” (optional)
+--------------------------------------------------
+
+If the Lumina page has a section that can be used for “public artifacts” or “what we publish”, reuse it.
+
+Section heading:
+
+  "What we share publicly"
+
+Body paragraph (~45–65 words):
+
+  "We share Lumina through specs, flows, and sample records—not through hype. Over time, we expect third parties to adopt the same evidence formats for their own grading, insurance, and trading systems. Our role is to maintain the rails and integrity of the data, not to own every decision built on top of it."
+
+If there is no natural place for this section, skip adding a new one; only update existing copy.
+
+--------------------------------------------------
+9) Disclaimer / clarity block near bottom
+--------------------------------------------------
+
+Before the bottom CTA (or in an existing muted note area), add or refine a short disclaimer using existing small-text styles:
+
+  "Lumina is grading infrastructure, not an offer to grade or insure assets on your behalf. Nothing on this page is investment, legal, or tax advice, and no specific guarantees about card values or outcomes are implied."
+
+Plain language; no heavy legalese.
+
+--------------------------------------------------
+10) Bottom CTA / Next step
+--------------------------------------------------
+
+At the bottom of the Lumina page, use the existing CTA component (likely `<NextStepBlock>`). Configure it to flow users back into the hub or into Standards:
+
+Option A (recommended for consistency with Helios):
+
+  <NextStepBlock
+    nextPage="Ventures"
+    description="See how Lumina sits alongside Helios and the Uniqueness Engine as one of our three concrete proofs of Truth, Capital, and Dignity."
+    href="/ventures"
+  />
+
+Option B (if your global flow prefers Lumina → Standards):
+
+  <NextStepBlock
+    nextPage="Standards"
+    description="Review the standards that shape how systems like Lumina are allowed to collect, store, and expose evidence."
+    href="/standards"
+  />
+
+Choose one based on how other venture detail pages are wired. Do not add additional CTAs.
+
+--------------------------------------------------
+11) Hygiene & brand checks for Lumina page
+--------------------------------------------------
+
+Within the Lumina component (and any Lumina-specific data):
+
+1) Ensure there are **no**:
+
+   - Mentions of "Signal, Value, Human" as domain names.
+   - Phrases like "validate the signal".
+   - “AI-powered platform”, “revolutionary”, “game-changing”, “disruptive”.
+   - Old brands: "StackMe", "Stackme Holdings", "Stackme app", "VSP".
+   - "the human" as a noun; use “people”, “participants”, “collectors”, etc.
+   - Language that implies Lumina is a grading house you mail cards to, or a marketplace.
+
+2) Ensure:
+
+   - It is clear Lumina is **infrastructure** that others can build on or integrate, not a silo that must own every interaction.
+   - Tone is calm, architectural, and grounded in evidence (Architect/Judge).
+   - Any mention of AI is framed as “machine intelligence in the loop” and tied to measurement and analysis, not “magic.”
+
+3) Warmth:
+
+   - At most one “You shouldn’t have to…”-style line.
+   - Everything else should feel like a serious, technically competent explanation you could show to partners and lawyers.
+
+--------------------------------------------------
+12) Final checks
+--------------------------------------------------
+
+After edits:
+
+1) Ensure the Lumina page compiles (no TypeScript/JSX errors).
+2) Run the dev server and visit `/ventures/lumina`:
+   - Hero clearly states what Lumina is and that it’s infrastructure.
+   - Sections “What Lumina is”, “How Lumina works”, and “Where Lumina sits” are coherent and on-voice.
+   - No hype, no creepy phrasing, no old brands.
+   - CTA flows cleanly to either `/ventures` or `/standards`.
+
+Only commit once Lumina feels like a precise, sober explanation of your Truth venture that fully matches VSG v3 voice and the rest of the site.
+```

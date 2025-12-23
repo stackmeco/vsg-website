@@ -1,0 +1,363 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the Studio / About page (the main “who we are” page) in line with:
+
+- VSG Identity and VSG Brand & Voice System v3.0
+- Canonical Purpose, Vision, Mission (v3)
+- Truth · Capital · Dignity as the three beams
+- Pillars / Process / Standards as the structural frame
+- External safety rules (no detailed plumbing, no protocol names, no tickers, no entity wiring)
+- Updated language (no “Signal / Value / Human”, no “validate the signal”, no “the human” as a noun)
+
+We want this page to:
+
+- Clearly explain **what VSG is** (AI-native, cryptography-grounded venture studio).
+- Show **why we exist** (Purpose), **what world we want** (Vision), **what we do** (Mission).
+- Connect VSG to **Truth / Capital / Dignity** and **Pillars / Process / Standards**.
+- Lightly preview ventures (Helios, Lumina, Uniqueness Engine) without implementation plumbing.
+
+Do NOT:
+- Change or add routes.
+- Change global theming (colors, typography, layout primitives).
+- Mention specific protocols, banks, tickers, venues, or LTV numbers.
+- Use “Signal / Value / Human”, “validate the signal”, “protect the human”, “AI-powered platform”, or hype words like “revolutionary” / “game-changing”.
+- Add more than ONE warmth line using “you” on this page.
+
+--------------------------------------------------
+1) Locate the Studio / About page component
+--------------------------------------------------
+
+1. In `client/src/App.tsx`, find the route that serves as the main “who we are / studio” page. Likely candidates:
+   - Path: `/studio`, `/about`, or `/overview`
+   - Component name: `Studio`, `About`, `Overview`, or similar
+   - It may also be the default landing page if you already split “Approach” / “Process” / “Standards” out.
+
+2. Open the component that renders that route. For the rest of this spec, assume it is `StudioPage` in something like `client/src/pages/Studio.tsx`. Apply the changes to whichever file actually renders the studio/about page.
+
+Do not change routing; just update content in that page component.
+
+--------------------------------------------------
+2) PageMeta – title + description
+--------------------------------------------------
+
+Inside the Studio page, locate `<PageMeta ... />` and set:
+
+- `title`: `"Studio"`
+- `description`: `"Who Verifiable Systems Group is: an AI-native, cryptography-grounded venture studio building the infrastructure of verifiable autonomy across Truth, Capital, and Dignity—run on our own balance sheet first."`
+
+Keep `preloadImage` and any other props unchanged.
+
+--------------------------------------------------
+3) Hero section – the studio in one glance
+--------------------------------------------------
+
+In the top hero of the Studio page:
+
+3.1 Overline
+
+Set the overline (small label above the heading) to:
+
+  "AI-native venture studio"
+
+3.2 Heading (`<h1>`)
+
+Set the main heading to:
+
+  "The studio behind verifiable autonomy."
+
+3.3 Hero body copy (two paragraphs)
+
+Replace existing hero text with:
+
+Paragraph 1:
+
+  "Verifiable Systems Group is an AI-native, cryptography-grounded venture studio. We design and run systems where Truth, Capital, and Dignity are protected by construction, not by handshakes—starting on our own balance sheet before anyone else depends on them."
+
+Paragraph 2 (this is the single warmth line):
+
+  "You shouldn’t have to choose between safety and leverage. We built VSG after hitting that wall ourselves, and every venture we ship is shaped by that experience."
+
+Keep all JSX structure, containers, and Tailwind classes; only change the text nodes.
+
+3.4 Hero CTAs (if present)
+
+If the hero renders two buttons or links:
+
+Primary CTA:
+- Label:
+    "See how we build"
+- `href`:
+    "/approach"
+
+Secondary CTA:
+- Label:
+    "Read our standards"
+- `href`:
+    "/standards"
+
+Reuse the existing Button components / variants; only update labels and `href`.
+
+--------------------------------------------------
+4) Section: “What VSG is”
+--------------------------------------------------
+
+Find the first explanatory section under the hero that describes the company. Reuse its layout (e.g., two-column text, or a single column with bullets).
+
+Section heading:
+
+  "What Verifiable Systems Group is"
+
+Body copy (short intro paragraph + two bullet lists):
+
+Intro paragraph:
+
+  "Verifiable Systems Group (VSG) is a studio for systems that must not fail silently. We fuse machine intelligence and cryptography to build AI-native, non-custodial infrastructure—tested first on our own balance sheet, then shared as patterns and ventures."
+
+Then two compact lists:
+
+Label:
+  "We are:"
+
+Items (bulleted or inline, depending on existing style):
+
+- "An AI-native studio that assumes machine intelligence from day one."
+- "Cryptography-grounded: we think in proofs, logs, and constraints."
+- "Balance-sheet-first: we run our own patterns before we offer them to anyone."
+- "Focused on Truth, Capital, and Dignity as the beams that hold the work together."
+
+Label:
+  "We are not:"
+
+Items:
+
+- "A consultancy selling bespoke advice without skin in the game."
+- "A custodial platform, yield product, or asset pool."
+- "A generic “AI startup” chasing hype without guardrails."
+- "An agency that rebuilds the same thing differently for each client."
+
+Use existing typography utilities for section headings and bullets; do not change layout primitives.
+
+--------------------------------------------------
+5) Section: “Purpose · Vision · Mission”
+--------------------------------------------------
+
+Locate any section that currently tries to state Purpose/Vision/Mission. Reuse that layout (columns, cards, or vertical stack). If none exists, create a simple three-card grid.
+
+Section heading:
+
+  "Purpose, vision, and mission"
+
+Optional short intro:
+
+  "These are the canonical lines. They anchor every narrative—from how we describe VSG in a sentence to how we design a venture or negotiate a constraint."
+
+Then define a small data structure, for example:
+
+  const pvm = [
+    {
+      label: "Purpose",
+      line: "To democratize institutional-grade leverage.",
+      description:
+        "We exist to dismantle the barriers that keep individuals from using the same caliber of tools as large institutions. Verifiable systems, non-custodial control, and clear constraints should be accessible without needing a boardroom or a trading desk.",
+    },
+    {
+      label: "Vision",
+      line: "A future where trust is an engineered feature, not a gamble.",
+      description:
+        "Today, too many systems depend on blind faith in intermediaries and opaque algorithms. We want a world where Truth, Capital, and Dignity are anchored to evidence, governed flows, and privacy by design—so people can see how systems behave before they depend on them.",
+    },
+    {
+      label: "Mission",
+      line: "We engineer the infrastructure of verifiable autonomy.",
+      description:
+        "Our mission is to design and operate AI-native, cryptography-grounded systems where decisions, capital, and participation are constrained by construction. That infrastructure shows up in our ventures and in the patterns we publish once they have survived our own stress tests.",
+    },
+  ];
+
+Render as three cards or columns. Example mapping (adapt classes to your project):
+
+  <div className="grid gap-6 md:grid-cols-3">
+    {pvm.map((item) => (
+      <div
+        key={item.label}
+        className="flex flex-col justify-between rounded-xl border bg-card/60 p-6 shadow-sm backdrop-blur"
+      >
+        <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          {item.label}
+        </p>
+        <h2 className="mt-3 text-sm font-semibold tracking-tight sm:text-base">
+          {item.line}
+        </h2>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+          {item.description}
+        </p>
+      </div>
+    ))}
+  </div>
+
+Do not change your grid system or theme; only the content.
+
+--------------------------------------------------
+6) Section: “How the studio operates”
+--------------------------------------------------
+
+Add or update a section that explains how VSG is structured at a high level.
+
+Section heading:
+
+  "How the studio operates"
+
+Short intro:
+
+  "We keep VSG predictable by separating what never changes from what can evolve, and by running everything on our own balance sheet before we promote it to shared infrastructure."
+
+Then define a small array and render three short items (cards or stacked rows, depending on existing layout):
+
+  const studioOps = [
+    {
+      title: "Balance-sheet-first",
+      body:
+        "We test every pattern on our own capital and infrastructure before anyone else depends on it. That means we feel the upside and the downside of our designs directly, and we retire ideas that do not hold under stress.",
+    },
+    {
+      title: "Three beams: Truth, Capital, Dignity",
+      body:
+        "Every venture lives at the intersection of Truth, Capital, and Dignity. Truth systems handle evidence and explanation, Capital systems handle non-custodial flows and limits, and Dignity systems handle personhood and participation without overexposure.",
+    },
+    {
+      title: "Three layers: Pillars, Process, Standards",
+      body:
+        "Pillars define what we refuse to compromise on. Process describes our six-stage venture path. Standards define the quality and risk bar systems must clear before they carry real stakes. Together, they make the studio’s behaviour inspectable.",
+    },
+  ];
+
+Render them using your existing card / list pattern (consistent with other pages).
+
+--------------------------------------------------
+7) Section: “Ventures inside the studio”
+--------------------------------------------------
+
+Locate any section on this page that lists ventures (Helios, Lumina, Uniqueness Engine, etc.). Reuse the existing grid and links; **do not change routes or hrefs**. Only update the text strings.
+
+If there is a ventures array (for example `const ventures = [...]`), update its objects to something like:
+
+  const ventures = [
+    {
+      name: "Helios",
+      role: "Capital beam",
+      description:
+        "Our internal execution engine for digital asset treasury. Helios focuses on preserving capital under constraints, making it easier to understand how positions behave under stress while remaining under governed, non-custodial control.",
+      // keep existing href/icon
+    },
+    {
+      name: "Lumina",
+      role: "Truth beam",
+      description:
+        "Physics-aware grading infrastructure for physical collectibles. Lumina turns messy real-world condition into consistent, inspectable signals that help people make decisions without trusting a black-box score.",
+    },
+    {
+      name: "Uniqueness Engine",
+      role: "Dignity beam",
+      description:
+        "Privacy-preserving personhood verification. The Uniqueness Engine proves that a participant is a real, singular person without forcing them to expose more about their life than is necessary to join.",
+    },
+  ];
+
+Important:
+
+- Keep the existing `href` / route values for each venture card.
+- Do not add technical implementation details, protocol names, or tickers.
+- Do not mention “yield” or offer any financial product language here.
+
+Render with your existing ventures component.
+
+--------------------------------------------------
+8) Section: “Who this studio is for”
+--------------------------------------------------
+
+Add a concise section that names the audience. Reuse a simple text layout (no new complex components).
+
+Section heading:
+
+  "Who this studio is for"
+
+Body copy (one paragraph + bullet list):
+
+Paragraph:
+
+  "We build for people and teams who already carry real risk and want systems that make that risk more inspectable—not for those looking for shortcuts or speculation."
+
+Bullets (3–4 items):
+
+- "Operators and founders who have felt the cost of opaque systems first-hand."
+- "Stewards of capital who care as much about drawdowns and downside paths as upside."
+- "Builders who want AI-native systems that can explain themselves under stress."
+- "Partners who prefer clear constraints and logs over slogans and promises."
+
+No “you” language here (we already used the single warmth line in the hero).
+
+--------------------------------------------------
+9) Bottom CTA – connect back to Approach
+--------------------------------------------------
+
+At the bottom of the Studio page, ensure the next-step CTA guides visitors into “how we work”.
+
+If you have a `NextStepBlock` or similar component on this page, configure it as:
+
+  <NextStepBlock
+    nextPage="Approach"
+    description="See how our pillars, process, and standards turn into governed, AI-native systems."
+    href="/approach"
+  />
+
+Do not change the component’s styling; only its props.
+
+--------------------------------------------------
+10) Hygiene pass on Studio page
+--------------------------------------------------
+
+In the Studio page file:
+
+1) Remove or replace ANY remaining references to:
+   - “Signal / Value / Human” as domains.
+   - “validate the signal”.
+   - “protect the human”.
+   - “AI-powered platform”, “revolutionary”, “game-changing”, “disruptive”.
+   - “StackMe”, “Stackme Holdings”, “VSP”.
+
+2) Ensure AI language follows v3 rules:
+   - Use: “AI-native”, “machine intelligence”, “Intelligence Augmented (IA)” where needed.
+   - Avoid: “magic”, “AI does the rest”, “we sprinkle AI across the stack”.
+
+3) Warmth:
+   - Keep exactly ONE warmth line using “you” on this page (the hero paragraph above).
+   - Do not add additional “you shouldn’t…” lines elsewhere.
+
+4) Domain terms:
+   - When you refer to the three beams, use “Truth, Capital, and Dignity” (capitalized).
+   - Do not call them “Signal / Value / Human”.
+
+5) Content consistency:
+   - Ensure Purpose / Vision / Mission match the latest v3 wording at a conceptual level.
+   - Check that venture descriptions align with the Helios / Lumina / Uniqueness pages (high-level, no plumbing).
+   - Check spelling and capitalization (e.g., “AI-native”, “Verifiable Systems Group”, “Helios”, “Lumina”).
+
+--------------------------------------------------
+11) Final QA
+--------------------------------------------------
+
+After making these edits, run the dev server and open the Studio / About page:
+
+- The hero clearly explains that VSG is an AI-native, cryptography-grounded venture studio.
+- The “What VSG is” section draws a sharp line between what we are and are not.
+- The Purpose / Vision / Mission section feels canonical and works as a reference for other pages.
+- The “How the studio operates” section cleanly ties in Truth / Capital / Dignity and Pillars / Process / Standards.
+- The ventures section previews Helios / Lumina / Uniqueness Engine without going into protocol-level detail.
+- The “Who this studio is for” section feels focused and aligned with the brand.
+- The bottom CTA leads to `/approach`.
+- There are no remaining references to Signal/Value/Human, “validate the signal”, “protect the human”, or hype phrases.
+- Tone matches VSG: serious, architectural, ethically explicit, one controlled warmth line, no memes or slang.
+
+Only commit once this page feels like a premium, institutional-grade “who we are” map—something you’d be comfortable sharing with a senior technical leader, an institutional partner, or a regulator as the entry point to VSG.

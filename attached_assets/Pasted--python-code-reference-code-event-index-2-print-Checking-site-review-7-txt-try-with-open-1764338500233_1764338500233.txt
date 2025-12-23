@@ -1,0 +1,105 @@
+```python?code_reference&code_event_index=2
+print("Checking site_review (7).txt")
+try:
+    with open("site_review (7).txt", "r") as f:
+        content = f.read()
+        print(f"Occurrences of 'Verified Systems': {content.count('Verified Systems')}")
+        print(f"Occurrences of 'Verifiable Systems': {content.count('Verifiable Systems')}")
+        # Print some context if found
+        if "Verified Systems" in content:
+            print("Context for 'Verified Systems':")
+            lines = content.split('\n')
+            for i, line in enumerate(lines):
+                if "Verified Systems" in line:
+                    print(f"Line {i+1}: {line.strip()}")
+except FileNotFoundError:
+    print("site_review (7).txt not found")
+
+print("\nChecking site_review (5).txt")
+try:
+    with open("site_review (5).txt", "r") as f:
+        content = f.read()
+        print(f"Occurrences of 'Verified Systems': {content.count('Verified Systems')}")
+        print(f"Occurrences of 'Verifiable Systems': {content.count('Verifiable Systems')}")
+         # Print some context if found
+        if "Verified Systems" in content:
+            print("Context for 'Verified Systems':")
+            lines = content.split('\n')
+            for i, line in enumerate(lines):
+                if "Verified Systems" in line:
+                    print(f"Line {i+1}: {line.strip()}")
+except FileNotFoundError:
+    print("site_review (5).txt not found")
+
+```
+
+```text?code_stdout&code_event_index=2
+Checking site_review (7).txt
+Occurrences of 'Verified Systems': 0
+Occurrences of 'Verifiable Systems': 0
+
+Checking site_review (5).txt
+Occurrences of 'Verified Systems': 6
+Occurrences of 'Verifiable Systems': 3
+Context for 'Verified Systems':
+Line 6: Site: Verified Systems Group (VSG) Marketing Website
+Line 17: LEGAL ENTITY: Verified Systems Group LLC - Manager-managed Wyoming LLC
+Line 119: Headline: "How Verified Systems actually works"
+Line 343: Body: "Verified Systems Group LLC is a manager-managed Wyoming LLC, foreign-qualified in Massachusetts."
+Line 452: - Logo: "Verified Systems Group" (links to /)
+Line 458: - Company: "Verified Systems Group LLC"
+
+```
+
+No, it is not yet consistent. A review of your current site content (`site_review (5).txt`) shows that the old name **"Verified Systems"** is still hardcoded in several critical areas, particularly in legal definitions, headers, and footers.
+
+To make the branding **"Ideal"** (consistent with **Verifiable Systems Group**), you need to execute a final Find & Replace for these specific instances:
+
+### **The "Verified" Leak List (Fix These):**
+
+1.  **Legal Entity Name (Governance Page)**
+
+      * *Current:* "Verified Systems Group LLC is a manager-managed Wyoming LLC..."
+      * *Fix:* Change to **"Verifiable Systems Group LLC"**.
+
+2.  **System Page Hero**
+
+      * *Current:* "How Verified Systems actually works"
+      * *Fix:* Change to **"How Verifiable Systems actually works"** (or the "Operational Topology" headline we discussed).
+
+3.  **Header / Logo**
+
+      * *Current:* Logo text often defaults to "Verified Systems Group" in `Header.tsx`.
+      * *Fix:* Ensure the `<span>` in the Header component reads **"Verifiable Systems Group"**.
+
+4.  **Footer Copyright**
+
+      * *Current:* "Verified Systems Group LLC"
+      * *Fix:* Update to **"Verifiable Systems Group LLC"**.
+
+5.  **Meta Tags / SEO**
+
+      * *Current:* `og:site_name` likely says "Verified Systems".
+      * *Fix:* Update `PageMeta.tsx` to use **"Verifiable Systems"**.
+
+### **The Fix Prompt**
+
+Run this in Replit to catch any stragglers:
+
+```markdown
+**BRAND CONSISTENCY CHECK: "VERIFIED" -> "VERIFIABLE"**
+
+We need to ensure the rebrand is 100% complete.
+
+**Action:** Perform a Global Find for the string "Verified Systems".
+**Replace with:** "Verifiable Systems".
+
+**Specific Targets to Check:**
+1. `client/src/components/Header.tsx` (Logo Text)
+2. `client/src/components/Footer.tsx` (Copyright)
+3. `client/src/pages/Governance.tsx` (Legal Entity Name)
+4. `client/src/pages/System.tsx` (Hero Headline)
+5. `client/src/components/PageMeta.tsx` (SEO Site Name)
+
+**EXECUTE.**
+```

@@ -1,0 +1,1585 @@
+You’re right to push on this—Pillars is one of the most “exposed” pages for serious partners, so it needs to be insanely tight.
+
+Below is a **fully improved version** of my last answer:
+
+* Sharper, more institutional voice (confident, not chest-beating).
+* Clearer structure + scannability based on best practices for values/”pillars” pages.
+* Definitions tuned to how **verifiability** and **non-custodial** are actually used in industry.
+
+I’ll give you:
+
+1. **Updated `/pillars` page spec** (copy + structure).
+2. **Cleaned-up Replit agent prompt** (more direct, still surgical).
+
+---
+
+## 1. Refined `/pillars` page – content & structure
+
+### 1.1 PageMeta
+
+Same intent, slightly crisper description:
+
+```tsx
+<PageMeta
+  title="Pillars"
+  description="The three pillars that govern every venture at Verifiable Systems Group: verifiable systems, non-custodial rails, and governed experiments."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+---
+
+### 1.2 Hero – calm, decisive, not “brand fluff”
+
+**Overline**
+
+> Approach · Pillars
+
+**Heading**
+
+> The constraints that govern what we build.
+
+**Body**
+
+```text
+Pillars are not slogans here. They are hard constraints on what we will build, how we will operate it, and when we will shut it down. Every VSG venture is evaluated against three pillars: verifiable systems, non-custodial rails, and governed experiments.
+```
+
+**Support line**
+
+```text
+If a venture can’t hold these pillars, it doesn’t ship — no matter how attractive the market looks.
+```
+
+This matches the “values that cost you money are real values” framing that high-trust orgs use.
+
+---
+
+### 1.3 Section – “Why pillars, not slogans”
+
+Purpose: explain *why this page exists* to someone evaluating risk/governance.
+
+**Heading**
+
+> Why pillars, not slogans
+
+**Paragraph**
+
+```text
+Most companies publish values that never touch their systems. We use pillars as design tools and governance levers. They describe what “acceptable” looks like, which trade-offs we will make, and which opportunities we will decline.
+```
+
+**Bullets (short, action-oriented)**
+
+* **Design lever** — If a design conflicts with a pillar, the design changes.
+* **Decision check** — Reviews start with “does this uphold the pillars?” before growth or UX.
+* **External signal** — Partners can use these pillars as a checklist for fit.
+
+---
+
+### 1.4 Pillar 1 – Verifiable Systems
+
+Ground this in observability/verification practice, not just vibes.
+
+**Subheading**
+
+> 1 · Verifiable Systems
+
+**Tagline**
+
+> Systems you can inspect under stress.
+
+**Definition**
+
+```text
+A system is verifiable when its critical behaviours can be inspected, tested, and, where it matters, formally or empirically proven. Capital flows, access controls, and decision paths must be visible—not buried in opaque services or one-off scripts.
+```
+
+**What this means in practice**
+
+* We favour architectures where **risk-critical logic is explicit and auditable**, not hidden inside black-box vendors.
+* **Instrumentation and logging are first-class features**, designed up front, not bolted on after launch.
+* We design for **post-incident reconstruction** — it must be possible to understand what happened and why.
+
+**What we say no to**
+
+* Systems that rely on **unobservable third-party decision engines** for risk-critical outcomes.
+* Designs where **key controls exist only in policy docs**, not enforced in code or configuration.
+
+**Signals you’ll notice**
+
+* Early questions like **“how will we prove this works?”** and “what does failure look like on the wire?”.
+* You receive **concrete artefacts** — diagrams, invariants, test and telemetry plans — not only slideware.
+
+---
+
+### 1.5 Pillar 2 – Non-custodial Rails
+
+Align with how non-custodial is defined in crypto/regulatory guides: control of keys and assets stays with the user / institution, not the service.
+
+**Subheading**
+
+> 2 · Non-custodial Rails
+
+**Tagline**
+
+> Control stays with institutions and users.
+
+**Definition**
+
+```text
+Non-custodial rails are financial and identity rails where institutions and individuals retain control of keys and governance. Our systems orchestrate workflows, verification, and coordination; they do not take custody of client assets.
+```
+
+**What this means in practice**
+
+* We design around **self-custody or institution-custody**, not VSG custody, for production systems.
+* We avoid flows where VSG would need to **hold client keys, sweep balances, or intermediate order flow**.
+* When a bank, custodian, or CEX is involved, their role is **explicit in architecture and governance**, not implied.
+
+**What we say no to**
+
+* Ventures that require VSG to **pool client assets, run omnibus accounts, or custody funds** as a core behaviour.
+* Designs where **risk-critical custody decisions depend on a single opaque platform** we can’t audit.
+
+**Signals you’ll notice**
+
+* Architecture sessions obsess over **“who holds what, where, and under which controls.”**
+* Diagrams clearly separate **orchestration vs. custody**, so your legal/compliance teams see where responsibility lives.
+
+---
+
+### 1.6 Pillar 3 – Governed Experiments
+
+Tie this to disciplined experimentation: clear hypotheses, constraints, exits.
+
+**Subheading**
+
+> 3 · Governed Experiments
+
+**Tagline**
+
+> Experiments with boundaries, not bets without brakes.
+
+**Definition**
+
+```text
+We treat ventures as governed experiments. Each initiative has a thesis, a risk budget, clear constraints, and exit criteria. Launching something new is not a one-way bet; it is a structured test that can be paused, rolled back, or shut down.
+```
+
+**What this means in practice**
+
+* We document **theses, assumptions, and risk budgets** before scaling or broad rollout.
+* Experiments run with **guardrails**: scoped cohorts, controlled environments, and explicit rollback paths.
+* Outcomes feed back into **standards and process**, so the organisation learns, not just the team.
+
+**What we say no to**
+
+* Launches that **cannot be rolled back, contained, or monitored** if something goes wrong.
+* Ventures that **cannot state a falsifiable thesis** — where “success” and “failure” look the same.
+
+**Signals you’ll notice**
+
+* Roadmaps include **decision gates, kill switches, and review points**, not just launch milestones.
+* We are comfortable saying **“not yet”** or **“this stays internal”** when something isn’t ready.
+
+---
+
+### 1.7 Section – “How the pillars show up across VSG”
+
+Tie Pillars back into the rest of the spine so the page doesn’t feel orphaned.
+
+**Heading**
+
+> How the pillars show up across VSG
+
+**Paragraph**
+
+```text
+The pillars are not a side project. They are threaded through how we choose ventures, how we build them, and how we run them over time.
+```
+
+**Three inline items (each with a link)**
+
+* **In the venture process** — We use the pillars to decide which ideas enter the pipeline and which exit at each stage.
+  *(Link “venture process” → `/process`.)*
+* **In standards** — When a pattern or control repeatedly upholds a pillar, it becomes part of our standards library.
+  *(Link “standards” → `/standards`.)*
+* **In ventures** — Ventures that remain in the portfolio are the ones that can express these pillars in their architecture and governance.
+  *(Link “ventures” → `/ventures`.)*
+
+Layout-wise: on desktop this can be a simple three-column grid; on mobile it stacks as a list.
+
+---
+
+### 1.8 CTA – Next step
+
+Use the existing pattern:
+
+```tsx
+<NextStepBlock
+  nextPage="Process"
+  description="See how ventures move through our six-stage process under these pillars."
+  href="/process"
+/>
+```
+
+---
+
+## 2. Refined Replit AI prompt (Pillars checkpoint)
+
+Here’s a cleaned-up, more directive prompt. It does the same job as the last one, but with less noise and clearer boundaries for the agent.
+
+```text
+Project: Verifiable-Systems-Group
+Stack: React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx
+
+Checkpoint: Implement the /pillars page as part of the “Approach” cluster.
+
+Goal
+Create a full Pillars page that explains VSG’s three pillars (Verifiable Systems, Non-custodial Rails, Governed Experiments) in clear, scannable language. Match the layout and feel of /process and /studio. Do NOT change global theming or navigation structure.
+
+Only touch:
+- The component used for the /pillars route (create it if needed).
+- Wiring for /pillars in App.tsx (if not already present).
+
+----------------------------------------------------------------
+1) Locate or create the Pillars page component
+----------------------------------------------------------------
+
+- If a Pillars page already exists, update that file.
+- If it doesn’t, create client/src/pages/Pillars.tsx.
+- Wire /pillars to this component in client/src/App.tsx using the same pattern as /process and /standards.
+
+Wrap the contents in the same outer layout used by other main pages (same max-width container, vertical spacing, etc.).
+
+----------------------------------------------------------------
+2) PageMeta
+----------------------------------------------------------------
+
+At the top of the Pillars component, add:
+
+  <PageMeta
+    title="Pillars"
+    description="The three pillars that govern every venture at Verifiable Systems Group: verifiable systems, non-custodial rails, and governed experiments."
+    preloadImage="/hero-texture.png"
+  />
+
+----------------------------------------------------------------
+3) Hero section
+----------------------------------------------------------------
+
+Use the same hero structure as /process (same classes; only change text):
+
+- Overline: "Approach · Pillars"
+- Heading: "The constraints that govern what we build."
+- Body paragraph:
+
+  "Pillars are not slogans here. They are hard constraints on what we will build, how we will operate it, and when we will shut it down. Every VSG venture is evaluated against three pillars: verifiable systems, non-custodial rails, and governed experiments."
+
+- Supporting line under the body:
+
+  "If a venture can’t hold these pillars, it doesn’t ship — no matter how attractive the market looks."
+
+----------------------------------------------------------------
+4) Section: “Why pillars, not slogans”
+----------------------------------------------------------------
+
+Add a section with:
+
+Heading:
+  "Why pillars, not slogans"
+
+Paragraph:
+  "Most companies publish values that never touch their systems. We use pillars as design tools and governance levers. They describe what “acceptable” looks like, which trade-offs we will make, and which opportunities we will decline."
+
+Below that, render a small unordered list:
+
+  - "Design lever — If a design conflicts with a pillar, the design changes."
+  - "Decision check — Reviews start with “does this uphold the pillars?” before growth or UX."
+  - "External signal — Partners can use these pillars as a checklist for fit."
+
+Use the same typography utilities as other body sections (text-sm or text-base with text-muted-foreground).
+
+----------------------------------------------------------------
+5) Three pillar sections
+----------------------------------------------------------------
+
+Create three subsections stacked vertically, one per pillar. Keep heading hierarchy and spacing consistent.
+
+5.1 Verifiable Systems
+
+Heading:
+  "1 · Verifiable Systems"
+
+Tagline (small text near the heading, e.g. muted, uppercase or italic):
+  "Systems you can inspect under stress."
+
+Definition paragraph:
+  "A system is verifiable when its critical behaviours can be inspected, tested, and, where it matters, formally or empirically proven. Capital flows, access controls, and decision paths must be visible—not buried in opaque services or one-off scripts."
+
+Then three small sub-blocks with labels and bullet lists:
+
+Label: "What this means in practice"
+Bullets:
+  - "We favour architectures where risk-critical logic is explicit and auditable, not hidden inside black-box vendors."
+  - "Instrumentation and logging are first-class features, designed up front, not bolted on after launch."
+  - "We design for post-incident reconstruction — it must be possible to understand what happened and why."
+
+Label: "What we say no to"
+Bullets:
+  - "Systems that rely on unobservable third-party decision engines for risk-critical outcomes."
+  - "Designs where key controls exist only in policy docs, not enforced in code or configuration."
+
+Label: "Signals you’ll notice"
+Bullets:
+  - "Early questions like “how will we prove this works?” and “what does failure look like on the wire?”."
+  - "You receive concrete artefacts — diagrams, invariants, and test and telemetry plans — not only slideware."
+
+5.2 Non-custodial Rails
+
+Heading:
+  "2 · Non-custodial Rails"
+
+Tagline:
+  "Control stays with institutions and users."
+
+Definition paragraph:
+  "Non-custodial rails are financial and identity rails where institutions and individuals retain control of keys and governance. Our systems orchestrate workflows, verification, and coordination; they do not take custody of client assets."
+
+Label: "What this means in practice"
+Bullets:
+  - "We design around self-custody or institution-custody, not VSG custody, for production systems."
+  - "We avoid flows where VSG would need to hold client keys, sweep balances, or intermediate order flow."
+  - "When a bank, custodian, or exchange is involved, their role is explicit in architecture and governance, not implied."
+
+Label: "What we say no to"
+Bullets:
+  - "Ventures that require VSG to pool client assets, run omnibus accounts, or custody funds as a core behaviour."
+  - "Designs where risk-critical custody decisions depend on a single opaque platform we cannot audit."
+
+Label: "Signals you’ll notice"
+Bullets:
+  - "Architecture sessions focus on who holds what, where, and under which controls."
+  - "Diagrams clearly separate orchestration from custody, so responsibilities are visible to legal and compliance teams."
+
+5.3 Governed Experiments
+
+Heading:
+  "3 · Governed Experiments"
+
+Tagline:
+  "Experiments with boundaries, not bets without brakes."
+
+Definition paragraph:
+  "We treat ventures as governed experiments. Each initiative has a thesis, a risk budget, clear constraints, and exit criteria. Launching something new is not a one-way bet; it is a structured test that can be paused, rolled back, or shut down."
+
+Label: "What this means in practice"
+Bullets:
+  - "We document theses, assumptions, and risk budgets before scaling or broad rollout."
+  - "Experiments run with guardrails: scoped cohorts, controlled environments, and explicit rollback paths."
+  - "Outcomes feed back into standards and process, so the organisation learns, not just the team."
+
+Label: "What we say no to"
+Bullets:
+  - "Launches that cannot be rolled back, contained, or monitored if something goes wrong."
+  - "Ventures that cannot state a falsifiable thesis — where success and failure would look the same."
+
+Label: "Signals you’ll notice"
+Bullets:
+  - "Roadmaps include decision gates, kill switches, and review points, not just launch dates."
+  - "We are comfortable saying “not yet” or “this stays internal” when something isn’t ready."
+
+Use consistent spacing and typography between all three pillars.
+
+----------------------------------------------------------------
+6) Section: “How the pillars show up across VSG”
+----------------------------------------------------------------
+
+Add a section with heading:
+
+  "How the pillars show up across VSG"
+
+Paragraph:
+  "The pillars are not a side project. They are threaded through how we choose ventures, how we build them, and how we run them over time."
+
+Below that, create three small items (a simple stacked list on mobile, 3-column grid on desktop). Use the existing Link component for inline links:
+
+  - "In the venture process — We use the pillars to decide which ideas enter the pipeline and which exit at each stage." (link “venture process” to /process)
+  - "In standards — When a pattern or control repeatedly upholds a pillar, it becomes part of our standards library." (link “standards” to /standards)
+  - "In ventures — Ventures that remain in the portfolio are the ones that can express these pillars in their architecture and governance." (link “ventures” to /ventures)
+
+----------------------------------------------------------------
+7) NextStepBlock CTA
+----------------------------------------------------------------
+
+At the bottom of the page, reuse NextStepBlock:
+
+  <NextStepBlock
+    nextPage="Process"
+    description="See how ventures move through our six-stage process under these pillars."
+    href="/process"
+  />
+
+----------------------------------------------------------------
+8) Quality checks
+----------------------------------------------------------------
+
+After implementing:
+
+1) Run the dev server and visit /pillars on desktop and mobile.
+   - Layout, max-width, spacing, and typography should match /process and /studio.
+   - All sections (hero, why pillars, three pillars, “how they show up”, CTA) should render with no TypeScript or runtime errors.
+
+2) Open the main navigation and hover over “Approach”.
+   - Confirm the “Pillars” item still appears and routes to /pillars.
+
+3) Confirm no other pages, themes, or nav groups were modified in this checkpoint.
+```
+
+If you’re happy with this, your next move is just: paste that into Replit, run the checkpoint, and then we can move on to Purpose/Vision/Mission pages using the same level of rigor.
+
+Got you — I went back over the whole Purpose / Vision / Mission spec and treated it like a tiny internal RFP: tightened the language, made the “core statements” sharper, and aligned tone to B2B / venture-studio best practices (short, specific, future-oriented, clear about who/what/how).
+
+Below is the **upgraded spec** *and* a cleaned-up **Replit prompt** you can paste straight in.
+
+---
+
+## 1. Refined Studio Pages – Purpose / Vision / Mission
+
+All three:
+
+* Use the same **layout skeleton** as `Studio.tsx` / `Process.tsx` (PageMeta, PageShell, max-width, familiar spacing).
+* Have **one crisp “core line”** (short enough to be quotable) plus supporting sections — this matches modern guidance that these statements should be brief, concrete, and people-focused.
+* Tone: **confident, precise, slightly institutional**, with a bit more warmth on Purpose, altitude on Vision, and operational clarity on Mission.
+
+---
+
+### 1.1 `/purpose` – Why VSG exists
+
+**PageMeta**
+
+```tsx
+<PageMeta
+  title="Purpose"
+  description="Why Verifiable Systems Group exists: to raise the trust floor of software-mediated financial and AI systems."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+#### Hero
+
+**Overline**
+
+> Studio · Purpose
+
+**Heading**
+
+> Why Verifiable Systems Group exists.
+
+**Core purpose line** (short, quotable):
+
+```text
+VSG exists to raise the trust floor of high-impact digital systems.
+```
+
+**Body paragraph**
+
+```text
+We believe financial, identity, and AI infrastructure should be as inspectable as any other critical system. Verifiability—not opacity—is what earns durable trust from institutions, regulators, and the people they serve.
+```
+
+This mirrors how purpose is framed as the “reason for being beyond profit” in current strategy literature.
+
+---
+
+#### Section: “The problem we wake up to solve”
+
+**Heading**
+
+> The problem we wake up to solve
+
+**Paragraph**
+
+```text
+Most critical digital systems still run on opaque code paths, implicit trust, and manual governance. The gap between how much power software has and how little of it can be inspected is where risk, mistrust, and regulatory friction live.
+```
+
+**Bullets**
+
+* **Opaque infrastructure** — Capital, identity, and AI decisions often move through systems that can’t be meaningfully inspected by the people accountable for them.
+* **Compliance as drag, not design input** — Regulation is usually treated as an after-the-fact constraint, not a design requirement wired in from the start.
+* **Experimentation without guardrails** — New fintech and AI systems are launched as bets, not governed experiments, making it harder to contain failures or learn cleanly from them.
+
+---
+
+#### Section: “The change we are here to make”
+
+**Heading**
+
+> The change we are here to make
+
+**Paragraph**
+
+```text
+Our purpose is fulfilled when verification, non-custodial design, and real governance feel normal, not niche. When that happens, risk conversations get clearer—and good systems become easier to green-light.
+```
+
+**Bullets**
+
+* Make **verifiable systems** the default expectation for high-impact software, not an optional extra.
+* Normalize **non-custodial rails** so control stays with institutions and users, not hidden intermediaries.
+* Turn **experiments into governed loops** where failures are contained and lessons become shared standards.
+
+---
+
+#### “Purpose in one line”
+
+Add a small muted callout near the end:
+
+```text
+In one line: VSG exists to make high-impact digital systems verifiable, non-custodial, and governable by design.
+```
+
+(13 words, clean and reusable.)
+
+---
+
+#### CTA
+
+```tsx
+<NextStepBlock
+  nextPage="Vision"
+  description="See the future state we’re working toward if we do our job well."
+  href="/vision"
+/>
+```
+
+---
+
+### 1.2 `/vision` – The future state you’re steering toward
+
+**PageMeta**
+
+```tsx
+<PageMeta
+  title="Vision"
+  description="The future VSG is working toward: a world where verifiable, non-custodial, governed systems are the default rails for finance, identity, and AI."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+#### Hero
+
+**Overline**
+
+> Studio · Vision
+
+**Heading**
+
+> A world where verification is the default, not the exception.
+
+**Core vision line** (tight future picture):
+
+```text
+We envision a digital economy where critical systems are verifiable by default and custody stays where it belongs.
+```
+
+**Body paragraph**
+
+```text
+We imagine institutions, builders, and individuals relying on verifiable, non-custodial systems as readily as today’s payment networks or cloud platforms. Regulators see live evidence instead of slideware. Experiments run under real governance, not “ship and hope.”
+```
+
+This matches guidance that vision should describe a desired future state over a 5–10 year horizon.
+
+---
+
+#### Section: “Five–ten years out: what changes if we succeed”
+
+**Heading**
+
+> Five–ten years out: what changes if we succeed
+
+**Bullets (by audience)**
+
+* **For institutions** — Critical flows (capital, identity, AI decisions) run on **auditable rails**. Risk and compliance teams can query systems, not just policies.
+* **For builders** — Designing for **verifiability, non-custody, and governance** is standard engineering practice, not edge-case work reserved for “regulated” projects.
+* **For individuals** — People hold keys and gain verifiable assurances about how systems use their assets and data.
+* **For regulators and partners** — Supervisory conversations are grounded in **shared evidence and live telemetry**, not static documents.
+
+---
+
+#### Section: “What will feel different day to day”
+
+**Heading**
+
+> What will feel different day to day
+
+**Paragraph**
+
+```text
+A credible vision should eventually feel boring. If we succeed, the interesting part won’t be whether systems are verifiable, but what new things become safe to build on top of them.
+```
+
+**Bullets**
+
+* “Is this verifiable?” becomes as routine a question as “Is this secure?”.
+* Non-custodial architectures qualify for **serious partnerships and regulated use-cases**, not just hobby scale.
+* New ventures inherit **battle-tested governance patterns** instead of reinventing control every time.
+
+---
+
+#### Cross-links
+
+Muted line before CTA:
+
+```text
+Our purpose explains why this matters today. Our mission explains how we’re pursuing it right now.
+```
+
+Use inline `<Link>` components: **purpose** → `/purpose`, **mission** → `/mission`.
+
+---
+
+#### CTA
+
+```tsx
+<NextStepBlock
+  nextPage="Mission"
+  description="See what we are actually doing today to move toward this vision."
+  href="/mission"
+/>
+```
+
+---
+
+### 1.3 `/mission` – What you actually do right now
+
+**PageMeta**
+
+```tsx
+<PageMeta
+  title="Mission"
+  description="What Verifiable Systems Group does today: designing, building, and operating verification-first ventures on non-custodial rails with real governance."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+Best-practice mission = **what you do, for whom, and how** — concise and action-oriented.
+
+#### Hero
+
+**Overline**
+
+> Studio · Mission
+
+**Heading**
+
+> What we do, and for whom, right now.
+
+**Core mission line** (first sentence, styled bold in the UI):
+
+```text
+Our mission is to design, build, and operate verification-first ventures that let institutions and individuals use non-custodial rails with the governance and reliability they require.
+```
+
+**Supporting paragraph**
+
+```text
+We do this by running a focused venture studio, maintaining shared standards, and investing in the research, infrastructure, and capital strategy needed to keep experimentation safe and aligned with real-world constraints.
+```
+
+---
+
+#### Section: “How we pursue this mission”
+
+**Heading**
+
+> How we pursue this mission
+
+**Bullets**
+
+* **Studio model** — We originate and co-build ventures where verifiable systems, non-custodial rails, and governed experiments are the starting point, not a retrofit.
+* **Shared standards** — We maintain patterns, playbooks, and reference architectures so each new venture benefits from what the others have already learned.
+* **Conservative capital strategy** — We use an internal, Bitcoin-anchored treasury program to fund R&D and infrastructure under conservative limits — without pooling client assets or offering yield products.
+* **Partnerships with serious counterparts** — We work with institutions, infrastructure providers, and builders who care about governance as much as growth.
+
+(No protocol/vendor names → stays generic and safe.)
+
+---
+
+#### Section: “Who we serve”
+
+**Heading**
+
+> Who we serve
+
+**Intro**
+
+```text
+We work best with teams who see governance and verification as enablers, not just constraints.
+```
+
+**Bullets**
+
+* **Regulated and regulation-adjacent institutions** that need verifiable, non-custodial infrastructure they can stand behind.
+* **Infrastructure and protocol teams** who want verification-first design and governance to be part of their adoption story.
+* **Experienced builders and operators** who care more about durable systems than one-off launches.
+
+---
+
+#### Cross-link + CTA
+
+Muted line:
+
+```text
+Our vision describes the future state we’re aiming at. Our venture portfolio shows where this mission is already at work.
+```
+
+Links: **vision** → `/vision`, **venture portfolio** → `/ventures`.
+
+Then:
+
+```tsx
+<NextStepBlock
+  nextPage="Ventures"
+  description="Explore how the mission shows up in specific ventures inside VSG."
+  href="/ventures"
+/>
+```
+
+---
+
+## 2. Improved Replit AI checkpoint prompt (Studio: Purpose / Vision / Mission)
+
+Here’s a **refined, more surgical** prompt that bakes in all of the above and minimizes ambiguity for the agent.
+
+You can paste this straight into Replit:
+
+```text
+Project: Verifiable-Systems-Group
+Stack: React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx
+
+Checkpoint: Implement /purpose, /vision, and /mission pages under the Studio cluster.
+
+Goal
+Create full Purpose, Vision, and Mission pages that match the layout and tone of existing Studio/Approach pages. Each page should have:
+- A PageMeta block
+- A hero with overline, heading, and core one-line statement
+- 1–3 short sections with bullets
+- A bottom CTA using NextStepBlock
+
+DO NOT:
+- Change global theming
+- Change main nav groupings
+- Add protocol/vendor names or specific counterparties
+- Modify any routes except wiring /purpose, /vision, and /mission if needed
+
+Only touch:
+- The page components for /purpose, /vision, /mission
+- Their route entries in client/src/App.tsx (if missing)
+
+----------------------------------------------------------------
+1) Locate or create the three page components
+----------------------------------------------------------------
+
+- Look for Purpose, Vision, and Mission page components in client/src/pages.
+- If any exist, update their content as below.
+- If a page does not exist, create client/src/pages/Purpose.tsx, Vision.tsx, or Mission.tsx and wire the routes in client/src/App.tsx using the same pattern as /studio and /process.
+
+All three pages should:
+- Import and use PageMeta
+- Use the same outer layout / max-width container and spacing as Studio.tsx or Process.tsx
+
+----------------------------------------------------------------
+2) /purpose page content
+----------------------------------------------------------------
+
+In the Purpose page component:
+
+2.1 PageMeta:
+
+  <PageMeta
+    title="Purpose"
+    description="Why Verifiable Systems Group exists: to raise the trust floor of software-mediated financial and AI systems."
+    preloadImage="/hero-texture.png"
+  />
+
+2.2 Hero (reuse hero structure from Studio/Process; only change text):
+
+- Overline: "Studio · Purpose"
+- Heading: "Why Verifiable Systems Group exists."
+- Core purpose line (render as a prominent paragraph, e.g. font-semibold):
+
+  "VSG exists to raise the trust floor of high-impact digital systems."
+
+- Body paragraph:
+
+  "We believe financial, identity, and AI infrastructure should be as inspectable as any other critical system. Verifiability—not opacity—is what earns durable trust from institutions, regulators, and the people they serve."
+
+- Supporting line:
+
+  "Our purpose is to prove that verification-first, non-custodial, governed systems are not only possible, but preferable for institutions and the people they serve."
+
+2.3 Section: “The problem we wake up to solve”
+
+Heading:
+  "The problem we wake up to solve"
+
+Paragraph:
+  "Most critical digital systems still run on opaque code paths, implicit trust, and manual governance. The gap between how much power software has and how little of it can be inspected is where risk, mistrust, and regulatory friction live."
+
+Bullets:
+  - "Opaque infrastructure — Capital, identity, and AI decisions often move through systems that can’t be meaningfully inspected by the people accountable for them."
+  - "Compliance as drag, not design input — Regulation is usually treated as an after-the-fact constraint, not a design requirement wired in from the start."
+  - "Experimentation without guardrails — New fintech and AI systems are launched as bets, not governed experiments, making it harder to contain failures or learn cleanly from them."
+
+2.4 Section: “The change we are here to make”
+
+Heading:
+  "The change we are here to make"
+
+Paragraph:
+  "Our purpose is fulfilled when verification, non-custodial design, and real governance feel normal, not niche. When that happens, risk conversations get clearer—and good systems become easier to green-light."
+
+Bullets:
+  - "Make verifiable systems the default expectation for high-impact software, not an optional extra."
+  - "Normalize non-custodial rails so control stays with institutions and users, not hidden intermediaries."
+  - "Turn experiments into governed loops where failures are contained and lessons become shared standards."
+
+2.5 One-line summary (muted)
+
+Add a small, muted line near the end:
+
+  "In one line: VSG exists to make high-impact digital systems verifiable, non-custodial, and governable by design."
+
+2.6 CTA
+
+  <NextStepBlock
+    nextPage="Vision"
+    description="See the future state we’re working toward if we do our job well."
+    href="/vision"
+  />
+
+----------------------------------------------------------------
+3) /vision page content
+----------------------------------------------------------------
+
+In the Vision page component:
+
+3.1 PageMeta:
+
+  <PageMeta
+    title="Vision"
+    description="The future VSG is working toward: a world where verifiable, non-custodial, governed systems are the default rails for finance, identity, and AI."
+    preloadImage="/hero-texture.png"
+  />
+
+3.2 Hero:
+
+- Overline: "Studio · Vision"
+- Heading: "A world where verification is the default, not the exception."
+- Core vision line (prominent paragraph):
+
+  "We envision a digital economy where critical systems are verifiable by default and custody stays where it belongs."
+
+- Body paragraph:
+
+  "We imagine institutions, builders, and individuals relying on verifiable, non-custodial systems as readily as today’s payment networks or cloud platforms. Regulators see live evidence instead of slideware. Experiments run under real governance, not “ship and hope.”"
+
+- Supporting line:
+
+  "Our vision is a digital economy where people can see how critical systems behave, who controls what, and what happens when things go wrong."
+
+3.3 Section: “Five–ten years out: what changes if we succeed”
+
+Heading:
+  "Five–ten years out: what changes if we succeed"
+
+Bullets:
+  - "For institutions — Critical flows (capital, identity, AI decisions) run on auditable rails. Risk and compliance teams can query systems, not just policies."
+  - "For builders — Designing for verifiability, non-custody, and governance is standard practice, not edge-case work for “regulated” projects."
+  - "For individuals — People hold keys and gain verifiable assurances about how systems use their assets and data."
+  - "For regulators and partners — Supervisory conversations are grounded in shared evidence and live telemetry, not static documents."
+
+3.4 Section: “What will feel different day to day”
+
+Heading:
+  "What will feel different day to day"
+
+Paragraph:
+  "A credible vision should eventually feel boring. If we succeed, the interesting part won’t be whether systems are verifiable, but what new things become safe to build on top of them."
+
+Bullets:
+  - "“Is this verifiable?” becomes as routine a question as “Is this secure?”."
+  - "Non-custodial architectures qualify for serious partnerships and regulated use-cases, not just hobby scale."
+  - "New ventures inherit battle-tested governance patterns instead of reinventing control every time."
+
+3.5 Cross-links (muted line):
+
+  "Our purpose explains why this matters today. Our mission explains how we’re pursuing it right now."
+
+- Link "purpose" to /purpose.
+- Link "mission" to /mission.
+
+3.6 CTA
+
+  <NextStepBlock
+    nextPage="Mission"
+    description="See what we are actually doing today to move toward this vision."
+    href="/mission"
+  />
+
+----------------------------------------------------------------
+4) /mission page content
+----------------------------------------------------------------
+
+In the Mission page component:
+
+4.1 PageMeta:
+
+  <PageMeta
+    title="Mission"
+    description="What Verifiable Systems Group does today: designing, building, and operating verification-first ventures on non-custodial rails with real governance."
+    preloadImage="/hero-texture.png"
+  />
+
+4.2 Hero:
+
+- Overline: "Studio · Mission"
+- Heading: "What we do, and for whom, right now."
+- Core mission line (first sentence; style bold or as a dedicated paragraph):
+
+  "Our mission is to design, build, and operate verification-first ventures that let institutions and individuals use non-custodial rails with the governance and reliability they require."
+
+- Supporting paragraph:
+
+  "We do this by running a focused venture studio, maintaining shared standards, and investing in the research, infrastructure, and capital strategy needed to keep experimentation safe and aligned with real-world constraints."
+
+4.3 Section: “How we pursue this mission”
+
+Heading:
+  "How we pursue this mission"
+
+Bullets:
+  - "Studio model — We originate and co-build ventures where verifiable systems, non-custodial rails, and governed experiments are the starting point, not a retrofit."
+  - "Shared standards — We maintain patterns, playbooks, and reference architectures so each new venture benefits from what the others have already learned."
+  - "Conservative capital strategy — We use an internal, Bitcoin-anchored treasury program to fund R&D and infrastructure under conservative limits — without pooling client assets or offering yield products."
+  - "Partnerships with serious counterparts — We work with institutions, infrastructure providers, and builders who care about governance as much as growth."
+
+4.4 Section: “Who we serve”
+
+Heading:
+  "Who we serve"
+
+Intro:
+  "We work best with teams who see governance and verification as enablers, not just constraints."
+
+Bullets:
+  - "Regulated and regulation-adjacent institutions that need verifiable, non-custodial infrastructure they can stand behind."
+  - "Infrastructure and protocol teams who want verification-first design and governance to be part of their adoption story."
+  - "Experienced builders and operators who care more about durable systems than one-off launches."
+
+4.5 Cross-link + CTA
+
+Muted line:
+
+  "Our vision describes the future state we’re aiming at. Our venture portfolio shows where this mission is already at work."
+
+- Link "vision" to /vision.
+- Link "venture portfolio" to /ventures.
+
+Then:
+
+  <NextStepBlock
+    nextPage="Ventures"
+    description="Explore how the mission shows up in specific ventures inside VSG."
+    href="/ventures"
+  />
+
+----------------------------------------------------------------
+5) Routing & navigation
+----------------------------------------------------------------
+
+- Ensure /purpose, /vision, and /mission are wired in client/src/App.tsx, using the same routing pattern as /studio, /process, and /pillars.
+- Do NOT change the nav structure or group names; just confirm that the existing Studio dropdown items (Purpose, Vision, Mission) point to these routes.
+
+----------------------------------------------------------------
+6) Quality checks
+----------------------------------------------------------------
+
+After implementing:
+
+1) Run the dev server and visit /purpose, /vision, and /mission on desktop and mobile:
+   - Layout, max-width, spacing, and typography should match /studio and /process.
+   - All headings, paragraphs, and bullet lists render correctly.
+   - There are no placeholder texts or "..." strings.
+
+2) Open the main nav and check the Studio dropdown:
+   - Clicking Purpose, Vision, and Mission routes to the correct pages without 404s.
+
+3) Confirm there are no TypeScript or runtime errors and that no other pages, styles, or routes were modified inadvertently.
+```
+
+If you want, next step after this checkpoint is **Overview / Home** so all these pieces get braided into a single “at a glance” narrative.
+
+
+
+Love this stage we’re in. Let’s tighten the Overview/Home so it feels *sharp*, modern, and perfectly on-brand — and clean up the Replit prompt so the agent can’t get confused.
+
+Below is a **fully improved** version of:
+
+1. The **Overview / Home page content & structure**
+2. A **cleaner, more surgical Replit prompt** for this checkpoint
+
+I’ve made sure the structure still tracks modern B2B homepage best practices: clear value prop in the hero, limited CTAs, early clarification of “what is this?”, and scannable sections that support decision-making rather than decoration.
+
+---
+
+## 1. Upgraded Overview / Home Page Spec
+
+### 1.1 Page meta
+
+Keep meta focused and descriptive — short, specific, and aligned with how people will actually search.
+
+**PageMeta:**
+
+```tsx
+<PageMeta
+  title="Verifiable Systems Group"
+  description="Verifiable Systems Group is a venture studio that builds verifiable autonomy infrastructure—systems where AI, capital, and identity flows are observable, governed, and non-custodial by design."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+---
+
+### 1.2 Hero – “The infrastructure of verifiable autonomy”
+
+Make the hero **tight and loaded**: one strong headline, one supporting paragraph, and **two non-competing CTAs** (primary + secondary). That’s right in line with current hero UX guidance.
+
+**Overline:**
+
+> `VERIFIABLE SYSTEMS GROUP · VENTURE STUDIO`
+
+**Headline:**
+
+> `The infrastructure of verifiable autonomy.`
+
+**Subheadline / body:**
+
+```text
+We fuse the speed of intelligence automation with the assurances of modern cryptography to build systems where truth is provable, capital works without leaving your control, and identity is protected by design.
+```
+
+**Primary CTA (solid button):**
+
+* Label: `Explore our ventures`
+* `href="/ventures"`
+
+**Secondary CTA (ghost/outline):**
+
+* Label: `How we work`
+* `href` should match the existing **Approach Overview** route already used in the nav (let Replit read that from the router, not invent a new path).
+
+Keep existing hero layout, background texture, and Tailwind/shadcn structure; only swap text and button targets.
+
+---
+
+### 1.3 Section: “What is Verifiable Systems Group?”
+
+People should understand *what you are* within a few seconds of scrolling.
+
+**Heading:**
+
+> `What is Verifiable Systems Group?`
+
+**Body (one concise paragraph):**
+
+```text
+Verifiable Systems Group (VSG) is a venture studio for verifiable systems—where critical behaviours can be inspected instead of hidden inside black boxes. We combine AI, cryptography, and non-custodial rails to build infrastructure that shifts power from centralized gatekeepers to the edge. Our work spans information, capital, and identity, but the mandate is constant: engineer trust as a feature, not a gamble.
+```
+
+Layout: reuse the same container + typography pattern as your intro sections (e.g., on Process/Studio).
+
+---
+
+### 1.4 Section: “Three ways we work”
+
+This mirrors your IA and gives a **clear mental map**: Ventures → Approach → Studio.
+
+**Heading:**
+
+> `Three ways we work`
+
+Use a 3-card grid (stacked on mobile) reusing existing card components.
+
+**Card 1 — Ventures**
+
+* Title: `Ventures`
+
+* Body:
+
+  ```text
+  We incubate and operate a small, high-conviction portfolio of ventures that prove what verifiable systems can do in production—before we ever recommend an approach to anyone else.
+  ```
+
+* Link text: `View ventures →`
+
+* `href="/ventures"`
+
+---
+
+**Card 2 — Approach**
+
+* Title: `Approach`
+
+* Body:
+
+  ```text
+  We apply a disciplined six-stage pipeline—from Define and Validate through Deploy, Evolve, and Recurse—grounded in clear standards, repeatable controls, and an explicit capital strategy.
+  ```
+
+* Link text: `See how we work →`
+
+* `href`: whichever route is already wired for the **Approach overview** in your nav.
+
+---
+
+**Card 3 — Studio**
+
+* Title: `Studio`
+
+* Body:
+
+  ```text
+  We work with a small number of aligned teams to architect verifiable systems, clarify mandates, and embed governance so the infrastructure can withstand both scale and scrutiny.
+  ```
+
+* Link text: `Meet the studio →`
+
+* `href`: the existing Studio overview route.
+
+---
+
+### 1.5 Section: “Where we focus” (Signal · Value · Human)
+
+This is your “three pillars” of *what* you touch, in plain language.
+
+**Heading:**
+
+> `Where we focus`
+
+Three equal-weight text columns:
+
+**1. Signal**
+
+* Label: `Signal`
+* Copy:
+
+  ```text
+  Verified intelligence and information flows. We design systems that force AI and data pipelines to be source-backed, inspectable, and resistant to synthetic noise.
+  ```
+
+*(Note: I removed “Axiom” from the public copy so you’re not talking about a venture before its external story is ready.)*
+
+---
+
+**2. Value**
+
+* Label: `Value`
+* Copy:
+
+  ```text
+  Non-custodial capital and risk infrastructure. We build rails—proven first on our own balance sheet—where assets can work without leaving governed environments, and where risk limits are encoded instead of implied.
+  ```
+
+No mention of multi-sig, specific assets, or protocols; just the design philosophy.
+
+---
+
+**3. Human**
+
+* Label: `Human`
+* Copy:
+
+  ```text
+  Identity and uniqueness without surveillance. We explore architectures like the Uniqueness Engine to prove that a person or asset is “one-of-one” without exposing who they are or how they live.
+  ```
+
+Safe, high-level; no internal plumbing.
+
+---
+
+### 1.6 Section: “Current ventures”
+
+This is your high-level product shelf. It should feel *productized* but not oversharing.
+
+**Heading:**
+
+> `Current ventures`
+
+Use your existing venture card pattern or a simple 3-card layout:
+
+---
+
+#### Card: Helios
+
+* Title: `Helios`
+
+* Tagline:
+
+  ```text
+  An internal execution engine for VSG’s own digital asset treasury.
+  ```
+
+* Bullets:
+
+  * `Optimizes VSG’s treasury across approved venues under strict, pre-defined risk limits.`
+  * `Uses governed automation with human oversight to respond to market volatility without acting as a broker, exchange, or fund manager for others.`
+  * `Designed to be auditable and policy-driven, not discretionary or opaque.`
+
+* Link: `Learn more →` → `/ventures/helios` (or future route; okay if temporarily a placeholder).
+
+All language clearly internal, not an external product or yield offering.
+
+---
+
+#### Card: Lumina
+
+* Title: `Lumina`
+
+* Tagline:
+
+  ```text
+  Physics-aware grading infrastructure for the trading card ecosystem.
+  ```
+
+* Bullets:
+
+  * `Turns raw card condition into instant, consistent pre-grading signals using mobile sensors and anomaly detection.`
+  * `Helps collectors, marketplaces, and graders make better decisions before they ship or slab assets.`
+  * `Built as software-first infrastructure, not hardware-locked kiosks.`
+
+* Link: `Learn more →` → `/ventures/lumina`
+
+---
+
+#### Card: Uniqueness Engine (VSP)
+
+* Title: `Uniqueness Engine (VSP)`
+
+* Tagline:
+
+  ```text
+  Digital scarcity infrastructure for the AI age.
+  ```
+
+* Bullets:
+
+  * `Architects a “Global Uniqueness Layer” so critical events—like financing an asset—can be proven to have happened once without exposing underlying data.`
+  * `Uses privacy-preserving cryptography to help institutions coordinate against fraud without pooling customer information.`
+  * `Focuses first on high-impact domains: credit, democracy, and identity.`
+
+* Link: `Learn more →` → `/ventures/uniqueness-engine` or `/ventures/vsp` (choose whatever matches your routing scheme).
+
+**Safety rules for this section (baked into the Replit prompt below):**
+
+* No protocol names, LTV numbers, tickers, bridge names, or wallet topology.
+* Everything framed as **VSG’s internal infrastructure**, not client capital management.
+
+---
+
+### 1.7 Section: “Who we work with”
+
+This makes it obvious if someone is “your person” without feeling salesy.
+
+**Heading:**
+
+> `Who we work with`
+
+**Intro paragraph:**
+
+```text
+We partner with teams that need verifiable systems more than they need another dashboard.
+```
+
+**Bullets:**
+
+* `Institutions and startups facing high stakes around capital, identity, or AI-driven decisions.`
+* `Builders exploring non-custodial rails who need clear risk, governance, and regulatory narratives—not just code.`
+* `Operators and policymakers who want to understand what verifiable infrastructure makes possible before it becomes mandatory.`
+
+---
+
+### 1.8 Closing CTA: “Talk to the studio”
+
+Simple, calm, and aligned with B2B CTA best practices: action-oriented but not “buy now.”
+
+**Heading:**
+
+> `Talk to the studio`
+
+**Body:**
+
+```text
+If you’re building, regulating, or operating in any domain where verification, autonomy, and long-term resilience matter, we’d like to hear from you.
+```
+
+**Button:**
+
+* Label: `Start a conversation`
+* `href`: your existing contact/intake route (e.g., `/connect` or whatever is currently wired).
+
+---
+
+### 1.9 Safety recap (for you, and for the agent)
+
+On this page:
+
+* ✅ OK to say:
+
+  * You have an internal treasury engine.
+  * You work on non-custodial rails and governance.
+  * You operate ventures like Helios, Lumina, Uniqueness Engine.
+* ❌ Not OK to say:
+
+  * Which specific protocols/bridges/assets you use.
+  * Any LTV, leverage, or risk thresholds.
+  * Wallet structures, banks, legal entities, or any “playbook” details.
+
+This keeps the homepage at the **strategy and product** layer, not the **playbook** layer.
+
+---
+
+## 2. Refined Replit AI Checkpoint Prompt (Overview / Home)
+
+Here’s a **cleaner, more directive** prompt for the Replit agent, based on everything above.
+
+You can paste this directly:
+
+```text
+Project: Verifiable-Systems-Group
+Stack: React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx
+
+CHECKPOINT: Update the Overview / Home page (route "/") so it clearly explains what VSG is, how we work (Ventures · Approach · Studio), and what the current ventures are—without exposing internal treasury or protocol-level details.
+
+SCOPE
+
+• Only modify the page component used for the homepage (e.g., client/src/pages/Overview.tsx, or whatever file is mapped to "/").
+• Do NOT change:
+  – Global theming
+  – Layout primitives
+  – Navigation structure or routes (other than text/hrefs inside this page’s buttons/links).
+• Do NOT add protocol names, tickers, risk metrics, or internal diagrams.
+
+------------------------------------------------------------
+1) PageMeta
+------------------------------------------------------------
+
+In the home/overview page component, ensure PageMeta is present and set to:
+
+  <PageMeta
+    title="Verifiable Systems Group"
+    description="Verifiable Systems Group is a venture studio that builds verifiable autonomy infrastructure—systems where AI, capital, and identity flows are observable, governed, and non-custodial by design."
+    preloadImage="/hero-texture.png"
+  />
+
+Keep existing background/hero image behavior.
+
+------------------------------------------------------------
+2) Hero section
+------------------------------------------------------------
+
+Reuse the existing hero layout and classes. Only update text and button targets:
+
+Overline:
+  "VERIFIABLE SYSTEMS GROUP · VENTURE STUDIO"
+
+Main heading:
+  "The infrastructure of verifiable autonomy."
+
+Subheadline (one paragraph):
+  "We fuse the speed of intelligence automation with the assurances of modern cryptography to build systems where truth is provable, capital works without leaving your control, and identity is protected by design."
+
+Primary CTA button:
+  – Label: "Explore our ventures"
+  – href: "/ventures"
+
+Secondary CTA button:
+  – Label: "How we work"
+  – href: use the same route that the navigation already uses for the “Approach Overview” item (do not invent a new path).
+
+Do not change hero styling—only the text and hrefs.
+
+------------------------------------------------------------
+3) “What is Verifiable Systems Group?” section
+------------------------------------------------------------
+
+Directly below the hero, create or update a section with:
+
+Heading:
+  "What is Verifiable Systems Group?"
+
+Body paragraph:
+  "Verifiable Systems Group (VSG) is a venture studio for verifiable systems—where critical behaviours can be inspected instead of hidden inside black boxes. We combine AI, cryptography, and non-custodial rails to build infrastructure that shifts power from centralized gatekeepers to the edge. Our work spans information, capital, and identity, but the mandate is constant: engineer trust as a feature, not a gamble."
+
+Use the same container width, typography, and spacing pattern as other intro sections (e.g., on Process or Studio).
+
+------------------------------------------------------------
+4) “Three ways we work” section
+------------------------------------------------------------
+
+Add a three-card section (reuse any existing card/grid components):
+
+Section heading:
+  "Three ways we work"
+
+Card: Ventures
+  Title: "Ventures"
+  Body: "We incubate and operate a small, high-conviction portfolio of ventures that prove what verifiable systems can do in production—before we ever recommend an approach to anyone else."
+  Link label: "View ventures →"
+  href: "/ventures"
+
+Card: Approach
+  Title: "Approach"
+  Body: "We apply a disciplined six-stage pipeline—from Define and Validate through Deploy, Evolve, and Recurse—grounded in clear standards, repeatable controls, and an explicit capital strategy."
+  Link label: "See how we work →"
+  href: the existing Approach overview route (reuse the same path used in the nav for Approach Overview).
+
+Card: Studio
+  Title: "Studio"
+  Body: "We work with a small number of aligned teams to architect verifiable systems, clarify mandates, and embed governance so the infrastructure can withstand both scale and scrutiny."
+  Link label: "Meet the studio →"
+  href: the existing Studio overview route.
+
+Keep the layout responsive: 3 columns on desktop, stacked on mobile, matching other 3-card sections on the site.
+
+------------------------------------------------------------
+5) “Where we focus” section (Signal · Value · Human)
+------------------------------------------------------------
+
+Add a 3-column text section:
+
+Section heading:
+  "Where we focus"
+
+Column 1:
+  Label: "Signal"
+  Text: "Verified intelligence and information flows. We design systems that force AI and data pipelines to be source-backed, inspectable, and resistant to synthetic noise."
+
+Column 2:
+  Label: "Value"
+  Text: "Non-custodial capital and risk infrastructure. We build rails—proven first on our own balance sheet—where assets can work without leaving governed environments, and where risk limits are encoded instead of implied."
+
+Column 3:
+  Label: "Human"
+  Text: "Identity and uniqueness without surveillance. We explore architectures like the Uniqueness Engine to prove that a person or asset is “one-of-one” without exposing who they are or how they live."
+
+Important:
+  • Do NOT introduce specific protocol names, tickers, or risk metrics.
+  • This section is conceptual, not implementation detail.
+
+------------------------------------------------------------
+6) “Current ventures” section
+------------------------------------------------------------
+
+Add a ventures section with 3 cards. Reuse your venture card style if it exists.
+
+Section heading:
+  "Current ventures"
+
+Card: Helios
+  Title: "Helios"
+  Tagline: "An internal execution engine for VSG’s own digital asset treasury."
+  Bullets:
+    • "Optimizes VSG’s treasury across approved venues under strict, pre-defined risk limits."
+    • "Uses governed automation with human oversight to respond to market volatility without acting as a broker, exchange, or fund manager for others."
+    • "Designed to be auditable and policy-driven, not discretionary or opaque."
+  Link: "Learn more →" → use /ventures/helios or the existing Helios route if it exists; otherwise keep the link non-clickable for now.
+
+Card: Lumina
+  Title: "Lumina"
+  Tagline: "Physics-aware grading infrastructure for the trading card ecosystem."
+  Bullets:
+    • "Turns raw card condition into instant, consistent pre-grading signals using mobile sensors and anomaly detection."
+    • "Helps collectors, marketplaces, and graders make better decisions before they ship or slab assets."
+    • "Built as software-first infrastructure, not hardware-locked kiosks."
+  Link: "Learn more →" → /ventures/lumina (or whatever route is used for Lumina).
+
+Card: Uniqueness Engine (VSP)
+  Title: "Uniqueness Engine (VSP)"
+  Tagline: "Digital scarcity infrastructure for the AI age."
+  Bullets:
+    • "Architects a “Global Uniqueness Layer” so critical events—like financing an asset—can be proven to have happened once without exposing underlying data."
+    • "Uses privacy-preserving cryptography to help institutions coordinate against fraud without pooling customer information."
+    • "Focuses first on high-impact domains: credit, democracy, and identity."
+  Link: "Learn more →" → /ventures/uniqueness-engine or /ventures/vsp (match existing routing).
+
+Safety constraints for this section:
+  • No protocol names, asset tickers, LTV targets, or wallet structures.
+  • All language must describe VSG’s internal infrastructure, not client fund management or public yield products.
+
+------------------------------------------------------------
+7) “Who we work with” section
+------------------------------------------------------------
+
+Add a short audience section:
+
+Heading:
+  "Who we work with"
+
+Intro paragraph:
+  "We partner with teams that need verifiable systems more than they need another dashboard."
+
+Bullets:
+  • "Institutions and startups facing high stakes around capital, identity, or AI-driven decisions."
+  • "Builders exploring non-custodial rails who need clear risk, governance, and regulatory narratives—not just code."
+  • "Operators and policymakers who want to understand what verifiable infrastructure makes possible before it becomes mandatory."
+
+------------------------------------------------------------
+8) Closing CTA – “Talk to the studio”
+------------------------------------------------------------
+
+At the bottom of the page, add a final CTA block:
+
+Heading:
+  "Talk to the studio"
+
+Body:
+  "If you’re building, regulating, or operating in any domain where verification, autonomy, and long-term resilience matter, we’d like to hear from you."
+
+Button:
+  Label: "Start a conversation"
+  href: use the existing contact/intake route (for example, "/connect" or whatever path is already used on the site for contact).
+
+Reuse the same CTA styling as other call-to-action sections.
+
+------------------------------------------------------------
+9) Content hygiene & QA
+------------------------------------------------------------
+
+Before finishing:
+
+• Remove or rewrite any remaining placeholder copy or "..." strings on the home/overview page.
+• Confirm there are no references to:
+  – Specific DeFi protocols or bridges
+  – Tokens/tickers
+  – Risk/leverages numbers
+  – Internal wallet, bank, or entity structures
+• Run the dev server and verify:
+  – "/" loads with the updated hero and sections.
+  – Layout and typography still match the rest of the site.
+  – No TypeScript or runtime errors were introduced.
+  – Navigation and mobile nav behave exactly as before (this checkpoint must not change nav behavior).
+```
+
+Once this is implemented, the homepage will:
+
+* Feel **cohesive** with Studio / Process / Ventures.
+* Present a **crisp, modern B2B story** (clear value prop, simple hero, focused CTAs).
+* Stay completely **safe** in terms of what you’re disclosing.
+
+When you’ve pushed this to Replit and eyeballed it, we can pick off the next high-leverage target (Ventures detail pages or Insights/Library) and keep tightening the whole experience.
+

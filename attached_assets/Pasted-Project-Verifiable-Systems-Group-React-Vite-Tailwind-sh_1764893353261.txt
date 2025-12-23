@@ -1,0 +1,291 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the **Standards page** fully in line with:
+
+- VSG Brand & Voice System v3.0,
+- The Truth · Capital · Dignity model,
+- The “Governance / Standards / Risk pages” tone (formal, sober, spec-like),
+- The non-custodial, AI-native, balance-sheet-first stance.
+
+This page should:
+
+- Explain what “standards” mean at VSG (guardrails we commit to for ourselves),
+- Show how Truth, Capital, and Dignity show up as standards,
+- Clarify that these are **internal operating standards**, not marketing copy, and not legal/investment advice,
+- Connect clearly to `/approach`, `/process`, and `/insights`.
+
+Do NOT change global theming, layout primitives, or add/remove routes. Only update text content, headings, and any local data structures in the **Standards** page file.
+
+Tone: **Governance mode** — formal, precise, sober, low warmth (Level 1–2 only). No hype, no scars, no analogies beyond what’s required.
+
+---
+
+1) Locate the Standards page
+
+Find the component used for the Standards route, for example:
+
+- `client/src/pages/Standards.tsx`
+
+or whatever file is rendered at `/standards` in `client/src/App.tsx` and linked from the navigation (often under Approach).
+
+All changes below apply **only** inside this Standards page file.
+
+---
+
+2) Update the hero section
+
+Keep the existing hero JSX and classes (overline, h1, paragraph, background, CTAs). Replace only text and hrefs as specified.
+
+- Overline:
+  "Governance & Standards"
+
+- Heading:
+  "The guardrails we commit to."
+
+- Body paragraph:
+  "Standards are how we turn principles into requirements. They describe how our systems are expected to behave under Truth, Capital, and Dignity—what is allowed, what is not, and who is responsible when something needs to change."
+
+If there is a primary hero CTA, configure:
+
+- Primary CTA label:
+  "See our approach"
+  → href: `/approach`
+
+If there is a secondary CTA, configure:
+
+- Secondary CTA label:
+  "View the six-stage runway"
+  → href: `/process`
+
+Keep layout and component types unchanged.
+
+---
+
+3) “Why we publish standards” section
+
+Add or update the first content block under the hero.
+
+Section heading:
+  "Why we publish standards"
+
+Body text (1–2 paragraphs):
+
+  "Systems that move truth, capital, or participation need more than intent—they need constraints that can be inspected. We publish standards so it is clear how we expect our own rails to behave, which risks we accept, and which behaviours are out of bounds."
+
+  "These standards apply to our internal ventures and infrastructure first. They are the baseline we hold ourselves to before anyone else can rely on our patterns."
+
+No examples with protocol names, tickers, or bank names.
+
+---
+
+4) “How a standard is structured” section
+
+Describe what a “standard” looks like at VSG.
+
+Section heading:
+  "How a standard is structured"
+
+Use a short intro paragraph plus bullets or mini-cards (reuse existing layout patterns):
+
+Intro paragraph:
+  "Each standard follows the same basic shape so stewards and builders know what is being required and why."
+
+Bullets / mini-cards:
+
+- "Scope"
+  Body:
+  "Defines which systems, ventures, or processes it applies to, and which domains it touches—Truth, Capital, Dignity, or a combination."
+
+- "Controls & limits"
+  Body:
+  "Specifies the behaviours that must be enforced, the limits that may not be exceeded, and how those limits are measured or checked."
+
+- "Stewardship & review"
+  Body:
+  "Names accountable roles, review cadence, and the conditions under which the standard must be revisited or tightened."
+
+No hard numbers or exact thresholds; keep those out of the public site.
+
+---
+
+5) “Standards for Truth, Capital, and Dignity” section
+
+This section shows how each domain shows up in standards. It is high-level, not a full spec.
+
+Section heading:
+  "Standards for Truth, Capital, and Dignity"
+
+Intro paragraph:
+  "Different systems surface different risks. We group standards around the three questions that underlie our work."
+
+Then three domain sub-blocks (columns or stacked cards):
+
+Block 1 — Truth
+
+- Title:
+  "Truth — evidence you can inspect"
+- Body:
+  "Truth standards require that critical claims are anchored to evidence that can be traced and challenged. Inputs must be documented, sources must be inspectable, and key paths must not depend on unverifiable feeds or opaque logic."
+
+You may add 2–3 short bullets:
+
+- "Document how critical facts are captured and stored."
+- "Ensure important decisions can be traced back to identifiable inputs."
+- "Avoid dependencies on unverified or unbounded external signals."
+
+Block 2 — Capital
+
+- Title:
+  "Capital — resilience over yield"
+- Body:
+  "Capital standards prioritize survival and resilience over raw yield. They require explicit limits on exposures, clear escalation paths when those limits are approached, and defined behaviours for degraded or stressed conditions."
+
+Optional bullets:
+
+- "Define which risks are acceptable and which are not."
+- "Specify how exposures are measured and monitored."
+- "Require documented actions when conditions breach predefined thresholds."
+
+Do not mention specific percentages, venues, or instruments.
+
+Block 3 — Dignity
+
+- Title:
+  "Dignity — protect time and personhood"
+- Body:
+  "Dignity standards require that participation does not depend on over-exposure, coercive lock-in, or turning people into the product. Identity-related flows must minimize data collected, retain user control where possible, and avoid hidden incentives built on exploitation."
+
+Optional bullets:
+
+- "Limit the amount of personal information required for participation."
+- "Avoid designs that make exit unreasonably costly or risky."
+- "Require clarity on how people’s data and contributions are used."
+
+---
+
+6) “Stewards and accountability” section
+
+This section explains who is responsible without naming specific people.
+
+Section heading:
+  "Stewards and accountability"
+
+Body paragraph:
+  "Every standard has a steward. Stewards are accountable for keeping the standard accurate, ensuring it is applied where it should be, and initiating changes when reality or risk moves."
+
+If you have an existing list or card layout, add 3 short items:
+
+- "Clear ownership"
+  Body:
+  "Each standard is assigned to a steward role, not an anonymous group. Ownership is explicit."
+
+- "Regular review"
+  Body:
+  "Standards are reviewed on a fixed cadence or when triggered by incidents, architectural changes, or external shifts."
+
+- "Documented decisions"
+  Body:
+  "Changes, exceptions, and waivers are documented so we can see why a decision was made and what it impacted."
+
+No personal names; only roles.
+
+---
+
+7) “Change management” section
+
+Explain how standards evolve.
+
+Section heading:
+  "Change management"
+
+Body paragraph:
+  "Standards are living documents. When incidents, audits, or new information reveal gaps, we treat that as a requirement to update the standard—not to ignore it."
+
+Then 3 bullets/mini-cards:
+
+- "Triggering events"
+  Body:
+  "Incidents, near-misses, new failure modes, or significant environmental changes trigger a review of affected standards."
+
+- "Structured updates"
+  Body:
+  "Changes move through a defined review process before they are adopted, including impact assessment on existing systems."
+
+- "Versioned record"
+  Body:
+  "Standards are versioned so stewards can see what changed, when it changed, and which systems were built under which assumptions."
+
+Keep language dry and precise.
+
+---
+
+8) “What these standards are / are not” section
+
+Clarify that these are internal operating standards, not offers or advice.
+
+Section heading:
+  "What these standards are / are not"
+
+Use a two-column or two-list pattern if available:
+
+Left side — “What these standards are”
+- "Internal operating requirements we apply to our own ventures and systems."
+- "Constraints that shape how we design, build, and run infrastructure."
+- "A way to make our expectations and responsibilities explicit."
+
+Right side — “What these standards are not”
+- "Not a guarantee of specific outcomes, returns, or performance."
+- "Not a legal, regulatory, or compliance manual for third parties."
+- "Not investment, legal, or tax advice."
+
+Muted small-text line under this section:
+
+  "This page describes how we choose to govern our own work. It does not constitute advice and should not be used as the sole basis for any decision."
+
+---
+
+9) Bottom CTA / NextStepBlock for Standards
+
+If there is a “NextStepBlock” or similar CTA already at the bottom of the Standards page, update its props/text to:
+
+- Title:
+  "See how standards show up in practice"
+
+- Description:
+  "Our insights highlight incidents, changes, and lessons from running our own rails under these guardrails."
+
+- href:
+  `/insights`
+
+Do not change the component type or layout; only adjust props/strings.
+
+(If the file already uses a slightly different prop naming for NextStepBlock, adapt accordingly but keep the content.)
+
+---
+
+10) Hygiene & brand checks for this file
+
+In the Standards page file only:
+
+1. Ensure there are **no** occurrences of:
+   - "Signal / Value / Human" as domain labels,
+   - "validate the signal" as a phrase,
+   - "AI-powered platform", "revolutionary AI", "AI magic", "game-changing agents",
+   - "move fast and break things",
+   - "monetize users", "harvest data",
+   - "StackMe", "Stackme Holdings", "Stackme app", or "VSP" as active brand names,
+   - the vague phrase “the human”; prefer “people”, “participants”, “stewards”, “communities”, “personhood”, or “dignity”.
+
+2. Do NOT mention:
+   - Specific protocol names, token tickers, bank names, or internal legal-entity wiring,
+   - Exact LTV thresholds, exposure limits, or position sizes,
+   - Detailed treasury topologies.
+
+3. Confirm:
+   - Truth, Capital, and Dignity are present and clearly framed as domains of standards,
+   - The tone is formal, precise, and governance-oriented (Governance/Standards/Risk mode from v3.0),
+   - No hype language or salesy CTAs.
+
+Do not touch any other pages or routes in this checkpoint.

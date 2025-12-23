@@ -1,0 +1,117 @@
+This is an **Enterprise-Grade Code Audit** of the provided codebase.
+
+While the **aesthetic** has successfully moved to "Institutional," the **underlying engineering** exhibits several "Startup" patterns that would not pass a rigorous security or compliance review (SOC2 / ISO 27001).
+
+If you are positioning yourself as a "Verifiable Systems" lab, your own code must be unimpeachable.
+
+Here are the **4 Critical Vulnerabilities** and **3 Architectural Debts** found in the source.
+
+-----
+
+### **I. Critical Security & Compliance Vulnerabilities**
+
+#### **1. The PII Logging Violation (GDPR/CCPA Risk)**
+
+  * **Location:** `server/routes.ts`
+  * **The Issue:** You are logging raw user input directly to the server console:
+    ```typescript
+    console.log("[Contact Form Submission]", {
+      name: validated.name,
+      email: validated.email, // <--- PII (Personally Identifiable Information)
+      ...
+    });
+    ```
+  * **Why this fails Enterprise Review:** In a production environment, logs are often aggregated (Datadog, AWS CloudWatch). Storing unencrypted PII in logs is a massive compliance violation. If you get hacked, your *logs* become a leak source.
+  * **The Fix:** **Redact PII** in logs. Only log the *metadata* (timestamp, subject category) or a hashed identifier. Never log the raw email or message body unless ephemeral.
+
+#### **2. Missing Rate Limiting (DoS Vector)**
+
+  * **Location:** `server/routes.ts`
+  * **The Issue:** The `/api/contact` route has **zero protection** against automation. A simple script could hit this endpoint 10,000 times a second, crashing your server or flooding your inbox/downstream service.
+  * **Why this fails:** "Verifiable Systems" must be robust. An unprotected open API endpoint is a rookie error.
+  * **The Fix:** Install `express-rate-limit` and apply it to the API routes.
+    ```typescript
+    import rateLimit from 'express-rate-limit';
+    const contactLimiter = rateLimit({
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 5 // Limit each IP to 5 requests per window
+    });
+    app.post("/api/contact", contactLimiter, async (req, res) => { ... });
+    ```
+
+#### **3. Manual SEO DOM Manipulation (Fragility)**
+
+  * **Location:** `client/src/components/PageMeta.tsx`
+  * **The Issue:** You are manually creating and appending DOM elements (`document.createElement("meta")`) inside a `useEffect`.
+  * **Why this fails:** This is "brittle" code. It creates race conditions where old meta tags might linger when navigating between pages, causing SEO crawlers (Google/Twitter bots) to read the wrong data.
+  * **The Fix:** Use **`react-helmet-async`**. It is the industry standard for managing the document head in React. It handles the cleanup and deduplication of tags automatically.
+
+#### **4. Unused Dependencies (Supply Chain Risk)**
+
+  * **Location:** `package.json` vs `ContactForm.tsx`
+  * **The Issue:** Your `package.json` lists `react-hook-form` and `@hookform/resolvers`. However, your `ContactForm.tsx` uses manual `useState` and custom validation logic (`validateForm`).
+  * **Why this fails:** You are shipping 40kb+ of unused JavaScript to the client. It increases bundle size and attack surface for no reason.
+  * **The Fix:** Either refactor `ContactForm` to actually use `react-hook-form` (Recommended for performance/cleanliness) or uninstall the library.
+
+-----
+
+### **II. Architectural Polish (The "Engineering" Standard)**
+
+#### **1. The "Magic String" Problem**
+
+  * **Location:** `client/src/data/projects.ts`
+  * **The Issue:** You are repeating string literals like `"prototype"`, `"research"`, `"internal"`.
+  * **The Fix:** Use a **TypeScript Enum** or a constant object.
+    ```typescript
+    export const STAGE = {
+      INTERNAL: "Internal Alpha",
+      ARCH: "Architecture",
+      PROTO: "Prototype"
+    } as const;
+    ```
+    This prevents typos (e.g., typing "internal alpha" vs "Internal Alpha") which would break your `StageChip` color mapping.
+
+#### **2. Hardcoded API URLs**
+
+  * **Location:** `client/src/components/ContactForm.tsx`
+  * **The Issue:** You fetch `"/api/contact"`.
+  * **The Fix:** Abstract this into a configuration file or environment variable constant. If you ever change your backend structure (e.g., move to a separate API subdomain `api.verifiedsystems.io`), you shouldn't have to hunt through UI components to fix URL paths.
+
+#### **3. Lack of Error Boundary on Widgets**
+
+  * **Location:** `App.tsx`
+  * **The Issue:** You have a global Error Boundary (likely), but individual complex components (like the Project Grid or Thesis List) should have their own boundaries.
+  * **The Scenario:** If one malformed project entry crashes the `ProjectTile`, the *entire page* crashes white.
+  * **The Fix:** Wrap the main content areas in localized Error Boundaries so the rest of the "Control Room" stays online even if one panel fails.
+
+-----
+
+### **III. Recommended "Refactor" Prompt**
+
+If you want to bring the code up to the same level as the design, run this prompt in Replit.
+
+```markdown
+**ENGINEERING AUDIT: REMEDIATION PLAN**
+
+We need to harden the codebase for Enterprise Security and Performance standards.
+
+**1. SECURITY: Rate Limiting**
+* Install `express-rate-limit`.
+* In `server/routes.ts`, apply a limiter to the `/api/contact` route (Max 5 requests per 15 mins per IP).
+
+**2. COMPLIANCE: Redact Logs**
+* In `server/routes.ts`, modify the `console.log` for contact submissions.
+* DO NOT log the `email` or `message` content.
+* Log only: `timestamp`, `subject`, and a hash of the email (or just "redacted").
+
+**3. PERFORMANCE: Dependency Cleanup**
+* Refactor `client/src/components/ContactForm.tsx` to use `react-hook-form` and `zodResolver` (since we already installed them).
+* Remove the manual `useState` and `validateForm` logic. This reduces re-renders and standardizes our form architecture.
+
+**4. STABILITY: Meta Tags**
+* Install `react-helmet-async`.
+* Refactor `PageMeta.tsx` to use `<Helmet>` instead of manual DOM manipulation.
+* Wrap `App` in `<HelmetProvider>`.
+
+Execute these 4 steps to pass the SOC2 readiness check.
+```

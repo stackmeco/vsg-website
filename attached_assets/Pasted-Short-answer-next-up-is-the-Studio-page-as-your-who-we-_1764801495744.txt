@@ -1,0 +1,427 @@
+Short answer: next up is the **Studio page as your “who we are / what we do” front door**, wired into your identity (purpose/vision/pillars) and the ventures we just stood up.
+
+Right now you have:
+
+* ✅ Nav (desktop + mobile)
+* ✅ Process (6-stage pipeline)
+* ✅ Ventures overview
+* ✅ Helios / Stackme / Lumina detail pages
+
+What’s still missing (and what almost every serious B2B / venture-studio site leans on) is a **clear, scannable Studio/About page** that:
+
+* States **who VSG is** and **what kind of venture studio you are**.
+* Connects to **portfolio & process** (Ventures + Process pages).
+* Mirrors your **purpose / vision / mission / pillars** at a high level (details can live on dedicated pages later).
+
+So this checkpoint is:
+
+> **Checkpoint – Make `/studio` your identity “spine”**
+
+Below is:
+
+1. A content/structure spec for `Studio.tsx`.
+2. An exact Replit prompt like the others.
+
+---
+
+## 1. Studio page – content & structure
+
+Assume route: `/studio` → `client/src/pages/Studio.tsx` (or whatever you already use).
+
+### 1.1 Page meta
+
+Use `PageMeta` like on Process/Ventures:
+
+```tsx
+<PageMeta
+  title="Studio"
+  description="Verifiable Systems Group is a verification-first venture studio that designs, builds, and governs systems on non-custodial rails for institutions and ecosystems."
+  preloadImage="/hero-texture.png"
+/>
+```
+
+This hits: who you are, your specialty, and who you’re for (institutions + ecosystems) in one line, which is exactly what best-practice mission/vision guidance suggests.
+
+---
+
+### 1.2 Hero – “who we are” in one breath
+
+**Overline:**
+
+> Verifiable Systems Group
+
+**Heading:**
+
+> A verification-first venture studio.
+
+**Body copy:**
+
+```text
+Verifiable Systems Group (VSG) is a small, focused studio that designs and operates systems where behaviour can be inspected, not guessed. We build on non-custodial rails, keep governance explicit, and treat every venture as an experiment that has to earn its place in the portfolio.
+```
+
+Underneath, a short supporting line to frame the rest of the page:
+
+```text
+The Studio is where we define our thesis, choose what to build, and decide how ventures like Helios, Stackme, and Lumina move from idea to governed infrastructure.
+```
+
+---
+
+### 1.3 Section: “What we do”
+
+This is basically your **service / capability map**, but described at a principles level (not “packages”).
+
+**Heading:**
+
+> What we do
+
+Grid: 3 cards (`md:grid-cols-3`), each a simple shadcn `Card` with title + body.
+
+1. **Systems Architecture & Research**
+
+   ```text
+   We map the real-world constraints around capital, identity, and regulation, then design systems that make those constraints explicit. That includes verification flows, risk boundaries, and the rails needed for institutions to stay in control.
+   ```
+
+2. **Venture Studio & Incubation**
+
+   ```text
+   We run a repeatable process for turning hypotheses into ventures. Each venture enters with a clear thesis, moves through our six-stage pipeline, and is either graduated into shared infrastructure or archived with its lessons preserved.
+   ```
+
+3. **Standards, Playbooks & Governance**
+
+   ```text
+   We turn what we learn into reusable standards: patterns, controls, and playbooks that can be applied across ventures. This is how we avoid solving the same problem twice and how external partners can evaluate how we work.
+   ```
+
+This maps very cleanly to how serious venture studios describe themselves: **thesis**, **venture-building process**, and **reusable playbooks/standards**.
+
+---
+
+### 1.4 Section: “Who we’re for”
+
+This is for prospective partners, banks, infra providers, etc.
+
+**Heading:**
+
+> Who we’re for
+
+Short intro:
+
+```text
+We exist for institutions and ecosystems that care about verification, not just velocity.
+```
+
+Bullets (or 3 horizontal chips):
+
+* **Financial institutions & fintechs** — who need non-custodial, audit-ready rails instead of opaque black boxes.
+* **Market and infrastructure providers** — building exchanges, marketplaces, and rails where authenticity, risk, or capital flows must be explainable.
+* **Ecosystems & protocols** — that want to see real-world use-cases built on top of their primitives under conservative, governed conditions.
+
+---
+
+### 1.5 Section: “How the Studio is structured”
+
+Link Studio → Ventures + Process in a single visual.
+
+**Heading:**
+
+> How the Studio is structured
+
+Body:
+
+```text
+We keep the Studio small and focused. Most of the complexity lives in the ventures and the systems they rely on.
+```
+
+Then a 3-column “structure” block:
+
+1. **The Studio**
+
+   ```text
+   A core team focused on thesis, architecture, standards, and governance. The Studio sets the bar for what we build and how risk is managed.
+   ```
+
+2. **Ventures**
+
+   ```text
+   Individual ventures like Helios, Stackme, and Lumina that explore specific opportunities. Each one competes for capital, attention, and risk budget.
+   ```
+
+3. **Standards & Library**
+
+   ```text
+   A growing set of standards, playbooks, and patterns that capture what works. This is how we avoid re-learning the same lesson in three different places.
+   ```
+
+Underneath, add two inline links:
+
+* “See the venture portfolio → /ventures”
+* “See the six-stage venture process → /process”
+
+This matches best-practice venture studio storytelling: clearly explain **structure**, not just logos or buzzwords.
+
+---
+
+### 1.6 Section: “Our pillars” (summary, not the full handbook)
+
+Here we surface your identity pillars in a **compressed** way, with a path to deeper pages later (Purpose/Vision/Mission/Pillars).
+
+**Heading:**
+
+> Our pillars
+
+Intro:
+
+```text
+Underneath the ventures and tooling, the Studio is anchored on a small number of pillars. They show up in everything we design and every venture we approve.
+```
+
+3 bullets (match the identity doc we crafted conceptually):
+
+1. **Verifiable Systems**
+
+   ```text
+   Critical behaviours must be observable, testable, and, where it matters, provable. We optimise for systems you can reason about under stress.
+   ```
+
+2. **Non-custodial Rails**
+
+   ```text
+   Wherever possible, we keep key and asset control with institutions and users. Our systems orchestrate workflows; they do not take custody.
+   ```
+
+3. **Governed Experiments**
+
+   ```text
+   We treat ventures as governed experiments with explicit limits, not permanent products. Risk budgets, constraints, and exit criteria are part of the design.
+   ```
+
+Below that, one line that sets up future pages:
+
+```tsx
+<p className="mt-4 text-sm text-muted-foreground">
+  Our purpose, vision, and mission expand on these pillars and how we apply them over time.
+</p>
+```
+
+Later we’ll hang `/purpose`, `/vision`, `/mission` pages off that sentence.
+
+---
+
+### 1.7 CTA: keep the path going
+
+Use `NextStepBlock` to route people into either Ventures or Standards.
+
+Example:
+
+```tsx
+<NextStepBlock
+  nextPage="Ventures"
+  description="See how the Studio’s thesis shows up in specific ventures."
+  href="/ventures"
+/>
+```
+
+---
+
+## 2. Exact Replit AI prompt – Studio page checkpoint
+
+Here’s the “just do this” prompt for Replit:
+
+---
+
+**Prompt – Implement/Refine the Studio Page as VSG’s Identity Spine**
+
+> **Project:** `Verifiable-Systems-Group` (React + Vite + Tailwind + shadcn/ui, routing via `wouter` in `client/src/App.tsx`).
+>
+> **Goal**
+> Update the `/studio` page so it acts as the primary “who we are / what we do” page for Verifiable Systems Group. It should connect clearly to Process and Ventures, summarise our pillars, and stay public-safe (no implementation details, no promises of yield, no suggestion we manage client funds).
+
+---
+
+### 2.1 Locate/define the Studio page
+
+```text
+1. Find the component used for the `/studio` route (likely something like client/src/pages/Studio.tsx).
+2. If the page already exists, keep its file and route but replace the inner content as specified below.
+3. If it does not exist yet, create Studio.tsx and wire `/studio` to it in client/src/App.tsx, following the pattern used for Process and Ventures.
+```
+
+---
+
+### 2.2 Add/Update PageMeta
+
+```text
+At the top of the Studio component, use PageMeta exactly like Process.tsx:
+
+<PageMeta
+  title="Studio"
+  description="Verifiable Systems Group is a verification-first venture studio that designs, builds, and governs systems on non-custodial rails for institutions and ecosystems."
+  preloadImage="/hero-texture.png"
+/>
+
+Keep the existing hero background / texture usage consistent with other pages.
+```
+
+---
+
+### 2.3 Hero section content
+
+```text
+Keep the same container and layout pattern as Process.tsx (same padding, max-width, etc.). Only update the text content:
+
+- Overline: "Verifiable Systems Group"
+- Heading: "A verification-first venture studio."
+- Body paragraph:
+
+  "Verifiable Systems Group (VSG) is a small, focused studio that designs and operates systems where behaviour can be inspected, not guessed. We build on non-custodial rails, keep governance explicit, and treat every venture as an experiment that has to earn its place in the portfolio."
+
+- Supporting line under the body:
+
+  "The Studio is where we define our thesis, choose what to build, and decide how ventures like Helios, Stackme, and Lumina move from idea to governed infrastructure."
+```
+
+---
+
+### 2.4 “What we do” section
+
+```text
+Below the hero, add a section titled "What we do".
+
+- Use a 3-column card grid on desktop (md:grid-cols-3), stacked on mobile.
+- Use shadcn Card components already used elsewhere if available.
+
+Define three cards:
+
+1) Title: "Systems Architecture & Research"
+   Body:
+   "We map the real-world constraints around capital, identity, and regulation, then design systems that make those constraints explicit. That includes verification flows, risk boundaries, and the rails needed for institutions to stay in control."
+
+2) Title: "Venture Studio & Incubation"
+   Body:
+   "We run a repeatable process for turning hypotheses into ventures. Each venture enters with a clear thesis, moves through our six-stage pipeline, and is either graduated into shared infrastructure or archived with its lessons preserved."
+
+3) Title: "Standards, Playbooks & Governance"
+   Body:
+   "We turn what we learn into reusable standards: patterns, controls, and playbooks that can be applied across ventures. This is how we avoid solving the same problem twice and how external partners can evaluate how we work."
+```
+
+---
+
+### 2.5 “Who we’re for” section
+
+```text
+Add a new section titled "Who we’re for".
+
+- Intro paragraph:
+
+  "We exist for institutions and ecosystems that care about verification, not just velocity."
+
+- Then render either a bullet list or three smaller blocks with:
+
+  - "Financial institutions & fintechs — who need non-custodial, audit-ready rails instead of opaque black boxes."
+  - "Market and infrastructure providers — building exchanges, marketplaces, and rails where authenticity, risk, or capital flows must be explainable."
+  - "Ecosystems & protocols — that want to see real-world use-cases built on top of their primitives under conservative, governed conditions."
+```
+
+---
+
+### 2.6 “How the Studio is structured” section
+
+```text
+Add a section titled "How the Studio is structured".
+
+- Intro paragraph:
+
+  "We keep the Studio small and focused. Most of the complexity lives in the ventures and the systems they rely on."
+
+- Below that, render three columns (md:grid-cols-3) with headings and body text:
+
+  1) Heading: "The Studio"
+     Body: "A core team focused on thesis, architecture, standards, and governance. The Studio sets the bar for what we build and how risk is managed."
+
+  2) Heading: "Ventures"
+     Body: "Individual ventures like Helios, Stackme, and Lumina that explore specific opportunities. Each one competes for capital, attention, and risk budget."
+
+  3) Heading: "Standards & Library"
+     Body: "A growing set of standards, playbooks, and patterns that capture what works. This is how we avoid re-learning the same lesson in three different places."
+
+- Under the three columns, add two inline links or buttons using the existing Link component:
+
+  - "See the venture portfolio" → href="/ventures"
+  - "See the six-stage venture process" → href="/process"
+```
+
+---
+
+### 2.7 “Our pillars” summary section
+
+```text
+Add a section titled "Our pillars".
+
+- Intro paragraph:
+
+  "Underneath the ventures and tooling, the Studio is anchored on a small number of pillars. They show up in everything we design and every venture we approve."
+
+- Then list three pillars (either as bullets or small cards):
+
+  1) Title: "Verifiable Systems"
+     Body: "Critical behaviours must be observable, testable, and, where it matters, provable. We optimise for systems you can reason about under stress."
+
+  2) Title: "Non-custodial Rails"
+     Body: "Wherever possible, we keep key and asset control with institutions and users. Our systems orchestrate workflows; they do not take custody."
+
+  3) Title: "Governed Experiments"
+     Body: "We treat ventures as governed experiments with explicit limits, not permanent products. Risk budgets, constraints, and exit criteria are part of the design."
+
+- Below the list, add:
+
+  <p className="mt-4 text-sm text-muted-foreground">
+    Our purpose, vision, and mission expand on these pillars and how we apply them over time.
+  </p>
+```
+
+---
+
+### 2.8 NextStepBlock CTA
+
+```text
+At the bottom of Studio.tsx, add a NextStepBlock (reusing the existing component):
+
+<NextStepBlock
+  nextPage="Ventures"
+  description="See how the Studio’s thesis shows up in specific ventures."
+  href="/ventures"
+/>
+
+Keep styling consistent with how NextStepBlock is used on other pages.
+```
+
+---
+
+### 2.9 Quality checks
+
+```text
+After implementing:
+
+1. Run the dev server and visit /studio on desktop and mobile.
+2. Confirm:
+   - Page uses the same general layout (max-width, padding, typography scale) as /process and /ventures.
+   - All new text renders correctly and there are no TypeScript or runtime errors.
+   - Inline links to /ventures and /process work and match the main navigation routes.
+3. Confirm no global theming, nav structure, or other pages were changed in this checkpoint.
+```
+
+---
+
+Once this is in, the “spine” of the site becomes:
+
+* Studio → who we are / what we do / pillars
+* Process → how ventures move
+* Ventures → what’s currently in the portfolio
+
+**Next next** after this Studio checkpoint (just so you can see ahead):
+we’ll do a **small, focused checkpoint to spin out `/purpose`, `/vision`, and `/mission`** as lightweight sub-pages, linked from Studio, without cluttering the main nav.

@@ -1,0 +1,117 @@
+You are absolutely right. **"Early Development" is a leak.** It is a generic placeholder term that does not exist in your defined **Governance** model or your **R\&D Process**.
+
+You currently have **three conflicting vocabularies** for "Stages" across the site. This creates cognitive dissonance.
+
+1.  **The Governance Page says:** "Idea $\rightarrow$ Prototype $\rightarrow$ Internal $\rightarrow$ Venture"
+2.  **The Pipeline Page says:** "Strategic Definition $\rightarrow$ Rapid Validation $\rightarrow$ Verified Build..."
+3.  **The Project Chips say:** "Early Development," "Requirements," "Research."
+
+**This is messy.** An institutional system uses **one** taxonomy.
+
+Here is the **Max Thinking** audit of every remaining inconsistency, followed by the solution to standardize everything.
+
+-----
+
+### **I. The "Stage" Integrity Audit**
+
+**The Fix:** We will standardize all project "Stages" to match your **Governance Stage-Gates** (the most authoritative source).
+
+  * **Helios:**
+      * *Current:* "Early Development" (Generic)
+      * *New:* **"Internal Alpha"** (Matches "Internal" stage, implies dogfooding).
+  * **Stackme:**
+      * *Current:* "Early Development" (Generic)
+      * *New:* **"Architecture"** (Matches "The Verified Build" phase).
+  * **Lumina:**
+      * *Current:* "Requirements" (Okay, but passive)
+      * *New:* **"Specification"** (Engineering term for finalized requirements).
+  * **Uniqueness Engine:**
+      * *Current:* "Research" (Good, keep it).
+  * **Axiom:**
+      * *Current:* "Prototype" (Good, matches Governance).
+
+**Action:** We must update `projects.ts` and the `StageChip.tsx` allowed variants to reflect this stricter vocabulary.
+
+-----
+
+### **II. The "Micro-Failures" (Forensic Details)**
+
+I searched for every phrase that felt "soft," "unfinished," or "inconsistent."
+
+#### **1. The Lowercase "stackme"**
+
+  * **Location:** Throughout the site (`projects.ts`, `Overview.tsx`, `PipelineDetail.tsx`).
+  * **The Issue:** You write "stackme" (lowercase).
+  * **Why it looks cheap:** Unless you are extremely famous (like "eBay"), lowercase names look like early-2010s web apps. In a list with "Helios" and "Axiom" (Greek, Grand), "stackme" looks like a toy.
+  * **The Fix:** Capitalize it. **"Stackme"**. It looks like a proper noun, not a username.
+
+#### **2. The "Coming Soon" Artifact**
+
+  * **Location:** `Governance.tsx` .
+  * **The Issue:** `[Governance structure diagram — coming soon]`
+  * **The Verdict:** Never ship "Coming Soon" on an institutional site. It screams "Under Construction."
+  * **The Fix:** **Delete the placeholder.** The text description above it ("Manager," "COO," "Fundamental Decisions") is sufficient and professional. Do not apologize for missing graphics.
+
+#### **3. The "Story" vs. "Signal"**
+
+  * **Location:** `System.tsx` -\> "Communications & Brand" .
+  * **Current:** "How we keep our **story** in sync..."
+  * **Critique:** "Story" implies fiction or marketing spin.
+  * **The Fix:** "How we ensure external **signal** matches internal state."
+
+#### **4. The "Changelog" Context Error**
+
+  * **Location:** `Library.tsx` (The Thesis Page) .
+  * **The Issue:** You have a "Changelog" at the bottom of your "Thesis" page.
+  * **Critique:** A Thesis page is for high-level philosophy. A Changelog is for low-level site updates. Mixing them dilutes the intellectual weight of the Thesis.
+  * **The Fix:** Move the **Changelog** to the **System** page (where you talk about "Operations"). It belongs with the "How we work" content, not the "What we think" content.
+
+-----
+
+### **III. The Updated "Massive Delta" Prompt**
+
+This prompt fixes the "Early Development" issue, standardizes the vocabulary, and polishes the final 1%.
+
+**Copy/Paste this to your Replit Agent:**
+
+```markdown
+We are doing the FINAL "Institutional Polish" pass. We need to fix inconsistent terminology and remove "soft" language.
+
+### 1. STANDARDIZE "STAGES" (The Governance Vocabulary)
+The term "Early Development" is banned. We will use precise engineering states.
+
+**A. Update `client/src/components/StageChip.tsx`:**
+Update the `StageVariant` type and `variantStyles` map to support these keys:
+`"research"`, `"specification"`, `"architecture"`, `"prototype"`, `"internal"`, `"production"`.
+* Map "specification" to the blue/secondary style.
+* Map "internal" to the amber/warning style (implies caution/dogfooding).
+
+**B. Update `client/src/data/projects.ts`:**
+* **Helios:** Change stage to **"Internal Alpha"** (variant: `internal`).
+* **Stackme:** Change name to **"Stackme"** (Capitalized). Change stage to **"Architecture"** (variant: `architecture`).
+* **Lumina:** Change stage to **"Specification"** (variant: `specification`).
+* **Axiom:** Keep as "Prototype".
+* **Uniqueness Engine:** Keep as "Research".
+
+### 2. REMOVE "COMING SOON" ARTIFACTS
+* In `client/src/pages/Governance.tsx`: Delete the div containing "[Governance structure diagram — coming soon]". If the diagram isn't ready, show nothing.
+
+### 3. VERBIAGE PRECISION (NO "STORIES")
+* **In `client/src/pages/System.tsx` (Communications & Brand):**
+    * Change: "How we keep our story in sync..."
+    * To: "How we ensure external **signal** strictly matches internal system state and telemetry."
+* **In `client/src/pages/Overview.tsx`:**
+    * Ensure the section header is **"Active Development Cycles"** (not Workbench).
+    * Ensure the body text says **"None are currently accepting external capital."**
+
+### 4. ARCHITECTURE CLEANUP
+* **Move the Changelog:**
+    * Remove the `Changelog` section from `client/src/pages/Library.tsx` (Thesis).
+    * Add the `Changelog` section to the bottom of `client/src/pages/System.tsx`. It fits better with "Operations."
+
+### 5. FINAL TECHNICAL CHECKS
+* **Contact Form:** Ensure `server/routes.ts` handles `/api/contact` and logs the body to the console (or a file) so data isn't lost.
+* **Global Find/Replace:** Check for any remaining lowercase instances of "stackme" and capitalize them to "Stackme" in titles/headers.
+
+Execute these changes to align the system with the "Truth Engineering" directive.
+```

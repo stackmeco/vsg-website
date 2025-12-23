@@ -1,0 +1,44 @@
+Yes, there are two critical steps you must take in Replit to make the www work. Just adding the DNS record isn't enough; Replit needs to know to "listen" for that address, and your code needs to know it's the valid domain.
+1. Infrastructure: Tell Replit to Listen (Required)
+Even if DNS points to Replit, Replit will reject the connection until you explicitly link the www address.
+ * Open your Replit project.
+ * Click on the "Custom Domains" tool (where you linked verifiablesystems.com).
+ * Click "Add Domain" (or the + button).
+ * Type: www.verifiablesystems.com
+ * Click Link.
+   * Replit will verify the CNAME record you just added. If it's propagated, it will issue a certificate and start working.
+2. Codebase: Update the "Allowed Origins" (Critical for Security)
+I reviewed your code export (site_code_export.txt), and it currently blocks the new domain. It is hardcoded to allow the old .io domain. You need to update it, or your contact forms and APIs will fail when accessed via www.
+Update 1: Fix API Security (server/routes.ts)
+ * Current Code: Allows verifiedsystems.io (Old).
+ * Action: Update the allowed origins list to include your new .com domains.
+Copy/Paste this prompt into Replit:
+**CRITICAL CONFIG UPDATE: DOMAIN WHITELIST**
+
+We have switched domains to `verifiablesystems.com`. We need to update the server security to allow traffic from the new domain and its `www` subdomain.
+
+**Action:** Update `server/routes.ts`.
+Find the `allowedOrigins` or `allowedHosts` array (likely lines 58-63) and update it to:
+
+```typescript
+const allowedHosts = [
+  "localhost:5000",
+  "0.0.0.0",
+  "verifiablesystems.com",
+  "[www.verifiablesystems.com](https://www.verifiablesystems.com)",
+  // Keep Replit dev domains if needed
+];
+
+Update 2: Fix SEO Canonical Tags (client/src/components/PageMeta.tsx)
+ * Current Code: const BASE_URL = "https://verifiedsystems.io";
+ * Action: Change this to the new domain so Google doesn't get confused.
+Add this to the prompt:
+**Action:** Update `client/src/components/PageMeta.tsx`.
+Change the constant:
+`const BASE_URL = "https://verifiablesystems.com";`
+
+Summary Checklist
+ * [ ] Replit Dashboard: Added www.verifiablesystems.com to Custom Domains.
+ * [ ] Replit Code: Updated server/routes.ts (Security Whitelist).
+ * [ ] Replit Code: Updated PageMeta.tsx (SEO Base URL).
+Once these are done, your site will work on both www and the root domain.

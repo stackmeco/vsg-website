@@ -1,0 +1,345 @@
+# VERIFIABLE SYSTEMS GROUP (VSG) - TECHNICAL CODE REVIEW
+# Generated: December 2025
+# Stack: React + TypeScript + Vite + Express + Tailwind CSS
+
+================================================================================
+TECHNOLOGY STACK
+================================================================================
+
+Frontend:
+- React 18 with TypeScript
+- Vite (build tool, dev server, HMR)
+- Wouter (client-side routing)
+- TanStack Query (server state management)
+- Tailwind CSS + shadcn/ui components
+- Radix UI primitives (accessibility)
+- Lucide React (icons)
+- Framer Motion (animations)
+
+Backend:
+- Express.js (HTTP server)
+- Drizzle ORM (PostgreSQL ready)
+- Zod (validation)
+- File-based contact storage (data/contacts.json)
+
+Design System:
+- VOS v3.0 (Industrial Control Room Aesthetic)
+- Space Grotesk (headings)
+- Manrope (body)
+- IBM Plex Mono (code/labels)
+
+================================================================================
+FILE STRUCTURE
+================================================================================
+
+client/
+├── src/
+│   ├── components/
+│   │   ├── ui/                    # shadcn/ui components
+│   │   ├── Layout.tsx             # Page wrapper with Header/Footer
+│   │   ├── Header.tsx             # Navigation bar
+│   │   ├── Footer.tsx             # Site footer
+│   │   ├── AudioModal.tsx         # Audio briefing dialog
+│   │   ├── ContactForm.tsx        # Form with validation
+│   │   ├── InsightCard.tsx        # Article preview cards
+│   │   ├── ProjectTile.tsx        # Venture cards
+│   │   ├── StageChip.tsx          # Status badges
+│   │   ├── StatBlock.tsx          # Metric displays
+│   │   ├── StepCard.tsx           # Process step cards
+│   │   ├── ValueCard.tsx          # Feature cards
+│   │   ├── NextStepBlock.tsx      # Page navigation CTA
+│   │   └── PageMeta.tsx           # SEO meta tags
+│   ├── data/
+│   │   ├── projects.ts            # Venture data
+│   │   ├── articles.ts            # Insight articles
+│   │   ├── articleContent.ts      # Full article content
+│   │   └── searchIndex.ts         # Command palette data
+│   ├── pages/
+│   │   ├── Overview.tsx           # Mission page (/)
+│   │   ├── System.tsx             # Process page (/process)
+│   │   ├── Pipeline.tsx           # Ventures page (/ventures)
+│   │   ├── PipelineDetail.tsx     # Venture detail (/ventures/:slug)
+│   │   ├── Governance.tsx         # Standards page (/standards)
+│   │   ├── Library.tsx            # Insights page (/insights)
+│   │   ├── InsightDetail.tsx      # Article detail (/insights/:slug)
+│   │   ├── Contact.tsx            # Connect page (/connect)
+│   │   └── not-found.tsx          # 404 page
+│   ├── hooks/
+│   │   └── use-toast.ts           # Toast notifications
+│   ├── lib/
+│   │   ├── queryClient.ts         # TanStack Query config
+│   │   └── utils.ts               # Utility functions
+│   ├── App.tsx                    # Router configuration
+│   ├── main.tsx                   # Entry point
+│   └── index.css                  # Tailwind + CSS variables
+
+server/
+├── index-dev.ts                   # Development server
+├── index-prod.ts                  # Production server
+├── routes.ts                      # API endpoints
+├── storage.ts                     # Data storage interface
+└── vite.ts                        # Vite middleware
+
+shared/
+└── schema.ts                      # Shared types & Zod schemas
+
+================================================================================
+ROUTING CONFIGURATION
+================================================================================
+
+// App.tsx routes
+<Route path="/" component={Overview} />
+<Route path="/process" component={System} />
+<Route path="/ventures" component={Pipeline} />
+<Route path="/ventures/:slug" component={PipelineDetail} />
+<Route path="/standards" component={Governance} />
+<Route path="/insights" component={Library} />
+<Route path="/insights/:slug" component={InsightDetail} />
+<Route path="/connect" component={Contact} />
+<Route path="/privacy" component={PrivacyPolicy} />
+<Route path="/terms" component={TermsOfService} />
+<Route component={NotFound} />
+
+================================================================================
+DATA MODELS
+================================================================================
+
+PROJECT INTERFACE (projects.ts):
+```typescript
+interface Project {
+  slug: string;              // URL-friendly identifier
+  name: string;              // Display name (e.g., "Axiom", "Uniqueness")
+  stage: string;             // Human-readable stage
+  stageVariant: StageVariant; // research | internal | architecture | specification
+  tagline: string;           // Short description
+  description: string;       // Full description
+  currentState: string[];    // What's done
+  exploring: string[];       // What's in progress
+  notYet: string[];          // What's not built yet
+  relatedArticle?: string;   // Link to related insight
+  nextProjectSlug?: string;  // Next project in sequence
+  texture?: "axiom" | "lumina" | "default"; // Background variant
+}
+```
+
+ARTICLE INTERFACE (articles.ts):
+```typescript
+interface LibraryItem {
+  title: string;
+  excerpt: string;
+  date: string;              // e.g., "Dec 15, 2025"
+  type: "Insight" | "Note" | "Update";
+  tags: string[];
+  slug: string;
+}
+```
+
+CONTACT SCHEMA (schema.ts):
+```typescript
+const contactFormSchema = z.object({
+  name: z.string().min(2),
+  email: z.string().email(),
+  organization: z.string().optional(),
+  role: z.string().optional(),
+  subject: z.string().min(5),
+  message: z.string().min(20),
+  consent: z.boolean().refine(val => val === true),
+});
+```
+
+================================================================================
+CSS DESIGN TOKENS (index.css)
+================================================================================
+
+GEOMETRY:
+--radius: 2px                    # Machined edges (no organic curves)
+
+SPACING SCALE (Mechanical):
+--space-section: 5rem            # 80px between sections
+--space-block: 2.5rem            # 40px between blocks
+--space-card: 1.5rem             # 24px card padding
+--space-element: 1rem            # 16px between elements
+--space-tight: 0.5rem            # 8px tight spacing
+
+ICON SIZES:
+--icon-lg: 1.25rem               # 20px primary icons
+--icon-md: 1rem                  # 16px secondary icons
+--icon-sm: 0.75rem               # 12px inline icons
+
+THE VOID (Backgrounds):
+--background: 222 15% 5%         # Deep tungsten charcoal
+--foreground: 30 5% 90%          # Off-white/silver
+
+SURFACE LAYERS:
+--card: 222 15% 7%               # Elevated panel
+--card-border: 222 15% 12%       # Structural steel gray
+--popover: 222 15% 6%
+
+THE SIGNAL (Primary):
+--primary: 25 95% 53%            # #F26D21 (International Orange)
+--primary-foreground: 222 47% 11%
+
+SECONDARY/MUTED:
+--secondary: 222 15% 10%
+--muted: 222 15% 10%
+--muted-foreground: 220 5% 75%   # Boosted for legibility
+
+TYPOGRAPHY:
+--font-sans: 'Manrope'
+--font-heading: 'Space Grotesk'
+--font-mono: 'IBM Plex Mono'
+
+STATUS COLORS:
+--status-active: 25 95% 53%      # Orange
+--status-nominal: 220 10% 60%    # Silver
+--status-warning: 45 90% 50%     # Amber
+--status-critical: 0 70% 50%     # Red
+--status-success: 142 50% 45%    # Muted Green
+
+================================================================================
+COMPONENT PATTERNS
+================================================================================
+
+STAGE CHIP VARIANTS:
+- research: Orange background (primary)
+- internal: Yellow/amber tone
+- architecture: Blue-ish neutral
+- specification: Gray/silver
+
+CARD HOVER BEHAVIOR:
+- Border transitions: border-primary/30 on hover
+- Timing: 150ms ease-mechanical
+- No layout shifts
+
+BUTTON PATTERNS:
+- Primary: Orange background, dark text
+- Ghost: Transparent, hover reveals background
+- Outline: Border only, fills on hover
+
+LOADING STATES:
+- InsightCardSkeleton: Pulse animation with 150ms delay
+- Skeleton components for content placeholders
+
+================================================================================
+API ENDPOINTS
+================================================================================
+
+POST /api/contact
+- Body: ContactFormSchema
+- Rate limited: 10 requests per 15 minutes per IP
+- Origin validation for CSRF protection
+- Saves to data/contacts.json
+- Returns: { success: boolean, message: string }
+
+================================================================================
+SECURITY MEASURES
+================================================================================
+
+1. Rate Limiting (routes.ts)
+   - Map-based IP tracking
+   - 5-minute cleanup interval for memory management
+   - 10 requests per 15 minutes per IP
+
+2. Origin Validation
+   - ALLOWED_ORIGIN environment variable
+   - Validates Origin header on POST requests
+
+3. Form Validation
+   - Zod schemas in shared/schema.ts (single source of truth)
+   - Server-side validation before storage
+
+4. CSP Headers
+   - WebSocket connections allowed for Vite HMR in development
+   - Script and style policies configured
+
+5. No Sensitive Data Exposure
+   - Contact form has no GET endpoint
+   - File-based storage with atomic writes
+
+================================================================================
+SEO IMPLEMENTATION
+================================================================================
+
+PageMeta Component:
+- Helmet-async for meta tag management
+- Unique title per page
+- Meta descriptions for each route
+- Open Graph tags for social sharing
+
+JSON-LD Schema:
+- Organization schema with founders
+- Logo and description
+- Social profiles
+
+PWA Support:
+- manifest.json with Tungsten palette colors
+- Add to Home Screen enabled
+- App icons configured
+
+================================================================================
+ACCESSIBILITY
+================================================================================
+
+1. Semantic HTML
+   - Proper heading hierarchy (h1 -> h2 -> h3)
+   - ARIA labels on interactive elements
+   - data-testid attributes for testing
+
+2. Focus Management
+   - focus-visible:border-primary on form fields
+   - Ring styles for keyboard navigation
+
+3. Color Contrast
+   - Muted foreground boosted to 75% for legibility
+   - Primary orange passes WCAG on dark backgrounds
+
+4. Dialog Accessibility
+   - DialogTitle for screen readers
+   - aria-describedby on modal content
+
+================================================================================
+MOTION PROTOCOL
+================================================================================
+
+Easing: cubic-bezier(0.4, 0, 0.2, 1) (ease-mechanical)
+Transitions: 150ms for hover states
+Animations: No scroll-triggered animations
+Loading: Pulsing cursor states instead of spinners
+
+================================================================================
+KNOWN TECHNICAL DECISIONS
+================================================================================
+
+1. Wouter over React Router
+   - Smaller bundle size
+   - Simpler API for this use case
+
+2. File-based Contact Storage
+   - No database provisioned yet
+   - Atomic write operations with error handling
+   - Future: Email notifications via Resend (deferred)
+
+3. In-Memory Rate Limiting
+   - Simple Map-based tracking
+   - Cleanup interval prevents memory leaks
+   - Suitable for single-instance deployment
+
+4. VOS v3.0 Design System
+   - 14px base (not 16px)
+   - Industrial Control Room aesthetic
+   - Dark-only theme (no light mode)
+
+================================================================================
+ENVIRONMENT VARIABLES
+================================================================================
+
+Required for Production:
+- ALLOWED_ORIGIN: CORS origin validation (e.g., "https://verifiablesystems.com")
+
+Development (auto-configured):
+- NODE_ENV: "development"
+- REPLIT_CONNECTORS_HOSTNAME: For GitHub integration
+
+================================================================================
+END OF CODE REVIEW
+================================================================================

@@ -1,0 +1,258 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Do a focused **final polish on the Overview / Studio landing page** (the “home” page) so that it is the cleanest, most canonical expression of:
+
+- VSG Brand & Voice System v3.0
+- Truth · Capital · Dignity
+- AI-native, internal-first, non-custodial stance
+- Architect/Judge voice (precise, infrastructural, low-hype)
+
+This page should be the clearest “single screen” answer to:
+- What is VSG?
+- What questions do we organize around (Truth, Capital, Dignity)?
+- How do Ventures, Approach/Process, and Standards fit together?
+
+Do NOT change layout primitives, components, or routing. Only update the text content and any local data structures this page uses.
+
+--------------------------------------------------
+1) Locate the Overview / Studio landing page
+--------------------------------------------------
+
+Find the React component that renders the primary landing route ("/"), for example:
+
+- client/src/pages/Overview.tsx
+- client/src/pages/Studio.tsx
+- client/src/pages/Home.tsx
+
+or whichever component is mapped to path="/" in client/src/App.tsx.
+
+All edits below apply only inside that file and any small data arrays defined inside it (or a clearly-associated data file, if the page imports one specifically for its section cards).
+
+--------------------------------------------------
+2) Update PageMeta on the landing page
+--------------------------------------------------
+
+Locate the <PageMeta> (or equivalent) used on this page and set:
+
+- title:
+    "Verifiable Systems Group"
+- description:
+    "Verifiable Systems Group is an AI-native, cryptography-grounded venture studio. We engineer the infrastructure of verifiable autonomy across Truth, Capital, and Dignity—run on our own balance sheet first."
+
+Keep any preloadImage or other props as they are; only update these strings.
+
+--------------------------------------------------
+3) Hero section – make it canon, concise, and on-voice
+--------------------------------------------------
+
+In the main hero for this page:
+
+3.1 Overline
+
+Set the small overline text (if present) to:
+
+  "Verifiable Systems Group · Studio"
+
+3.2 Main heading
+
+Set the main <h1> to:
+
+  "The infrastructure of verifiable autonomy."
+
+3.3 Hero body
+
+Replace the hero body copy with **two short paragraphs**:
+
+First paragraph (~40–60 words):
+
+  "Verifiable Systems Group (VSG) is an AI-native, cryptography-grounded venture studio. We design and run systems where behaviors are inspectable, capital moves under explicit constraints, and people participate without becoming product—starting with our own balance sheet and environments before any pattern becomes a public claim."
+
+Second paragraph (~25–35 words), which can be in the same <p> if your layout wants a single block, or as a second <p> directly below:
+
+  "You shouldn’t have to trust untested rails. We organize everything we build around three questions: what can be trusted, how should capital move, and how do people keep their dignity online."
+
+Make sure there are no exclamation marks in the hero. Keep classes/layout the same; just change the text.
+
+3.4 Hero CTAs
+
+Adjust the hero buttons/links as follows:
+
+Primary CTA:
+- Label:
+    "Explore ventures"
+- href:
+    "/ventures"
+
+Secondary CTA (if present):
+- Label:
+    "See how we build"
+- href:
+    "/approach"
+
+Do not add or remove buttons—only update labels and hrefs to match this intent.
+
+--------------------------------------------------
+4) Section: “What VSG is”
+--------------------------------------------------
+
+If the page has a “What we are” / “About the studio” section near the top, refine that copy to a tight canonical block.
+
+Section heading:
+  "What VSG is"
+
+Body paragraph (~50–70 words):
+
+  "VSG is an AI-native, cryptography-grounded venture studio. We run every pattern on our own balance sheet first. We engineer systems where truth is provable, capital moves under constraints instead of vibes, and participation does not require overexposure. Our work is infrastructure-grade by design: precise, governed, and built to handle failure modes, not hide them."
+
+If the section currently includes extra fluff or repeated definitions, trim those so this single paragraph carries the weight. Do not change the section’s layout or component structure.
+
+--------------------------------------------------
+5) Section: “Three questions we organize around” (Truth · Capital · Dignity)
+--------------------------------------------------
+
+Find the section that introduces the studio’s pillars/domains. If there isn’t one explicitly, use the existing three-card layout on this page that most closely matches this function and repurpose it. Keep the layout and icons; just update headings and copy.
+
+Section heading:
+  "Three questions we organize around"
+
+Intro paragraph (~30–45 words):
+
+  "Instead of generic pillars, we use three questions to orient our work. Every venture, standard, and experiment has to answer at least one of them clearly—and it needs a way to prove that answer under stress."
+
+Then configure the three cards/columns as:
+
+Card 1 – Truth
+- Title:
+    "Truth · What can be trusted?"
+- Body (2–3 lines):
+    "We care about what can be proven, not just stated. Truth here means evidence: provenance trails, logs, and behaviors you can inspect and replay—not black-box scores or unverifiable feeds."
+
+Card 2 – Capital
+- Title:
+    "Capital · How should value move?"
+- Body:
+    "We focus on how value moves under constraints: limits, buffers, and clear paths for rollback. Capital should work without leaving governed control, not drift into opaque, brittle exposures."
+
+Card 3 – Dignity
+- Title:
+    "Dignity · How do people participate?"
+- Body:
+    "People should not have to surrender their whole identity to show up. Dignity means personhood without exposure: proving enough to participate without becoming the product of the system."
+
+Keep each card’s body copy short enough to stay to 2–3 lines on desktop.
+
+--------------------------------------------------
+6) Section: “How Ventures, Approach, Process, and Standards fit together”
+--------------------------------------------------
+
+Locate the section that currently describes the studio “map” (if present), or the closest equivalent (e.g., a three or four-column grid describing Ventures, Process, etc.). Reuse that layout but update the copy and labels as follows.
+
+Section heading:
+  "How the studio fits together"
+
+Short intro (~25–35 words):
+
+  "We don’t ship in isolation. Ventures, our six-stage runway, and our standards framework reinforce each other—so every new system has a path from concept to governed operation, with clear reasons to exist."
+
+Then set the cards/columns to:
+
+Card: Ventures
+- Title:
+    "Ventures"
+- Body:
+    "Concrete systems that answer specific questions about Truth, Capital, or Dignity—run on our own balance sheet or environments first, then offered as patterns once they survive real conditions."
+- Link label:
+    "Explore ventures"
+- href:
+    "/ventures"
+
+Card: Approach & Process
+- Title:
+    "Approach & Process"
+- Body:
+    "The way ideas become governed systems: from questions and constraints to our six-stage runway of Define, Validate, Build, Deploy, Evolve, and Learn."
+- Link label:
+    "See how we build"
+- href:
+    "/approach"
+
+Card: Standards
+- Title:
+    "Standards & Guardrails"
+- Body:
+    "The reference point for what must be true before systems touch real value or real people—limits, stewards, and playbooks that shape how we operate."
+- Link label:
+    "Review standards"
+- href:
+    "/standards"
+
+If a fourth card already exists (e.g., Insights), keep it and just update text:
+
+Card: Insights
+- Title:
+    "Insights"
+- Body:
+    "Field notes, drills, and memos from running our own systems—what held up, what didn’t, and how we adjusted."
+- Link label:
+    "Read insights"
+- href:
+    "/insights"
+
+Do not add new components; just tune any existing descriptive cards to match this content.
+
+--------------------------------------------------
+7) Tighten any remaining long copy on this page
+--------------------------------------------------
+
+Still within the Overview/Studio landing page:
+
+- Scan for any multi-paragraph blocks on this page that:
+  - Repeat the same idea already captured in the hero, “What VSG is”, or the three-question/triad section.
+  - Use hype-y language (revolutionary, disruptive, etc.) or vague phrases (ecosystem, AI magic, etc.).
+
+For those blocks:
+- Trim redundant lines so each section has **one clear job**.
+- Replace any hype-y adjectives with concrete mechanics-focused phrasing, consistent with v3 voice.
+- Ensure the total word count per major section (excluding cards) stays reasonably tight:
+  - Hero body: ~65–90 words across 1–2 paragraphs.
+  - “What VSG is”: ~50–70 words.
+  - Three-question intro: ~30–45 words.
+  - Studio map intro: ~25–35 words.
+
+Do not add new sections.
+
+--------------------------------------------------
+8) Hygiene / brand checks (Overview page only)
+--------------------------------------------------
+
+On this page, ensure:
+
+- No remaining mentions of:
+  - Signal / Value / Human as domain names.
+  - “validate the signal”.
+  - “AI-powered platform”, “revolutionary AI”, “AI magic”.
+  - “StackMe”, “Stackme Holdings”, “VSP” as current brands.
+
+- At most one “you shouldn’t have to…” or similar warmth line in the hero and one more (max) elsewhere on the page.
+
+- Purpose / Vision / Mission are either:
+  - Not repeated here at length; OR
+  - If referenced briefly, exactly aligned with v3 wording.
+
+--------------------------------------------------
+9) Final check
+--------------------------------------------------
+
+After edits:
+
+1) Ensure the file compiles (no TypeScript/JSX errors).
+2) Run the dev server and visit "/" in the browser.
+3) Confirm:
+   - Hero clearly says what VSG is and does.
+   - Truth · Capital · Dignity are introduced exactly once, clearly and consistently.
+   - Ventures / Approach / Standards / Insights are linked and described in a way that feels coherent and on-voice.
+   - No old domain model or brand names are visible.
+
+Only commit these changes once the page renders cleanly and feels consistent with the rest of the updated site.

@@ -1,0 +1,106 @@
+Nice, that’s a *great* checkpoint to be at. Replit has now ingested:
+
+* ✅ Desktop nav spec
+* ✅ Mobile nav spec
+* ✅ Process page cleanup spec (the MD you pasted)
+
+So we can treat those as “implemented” and build from *this* state.
+
+Let me do two things for you:
+
+1. **Confirm what that MD spec actually did to `Process.tsx` (no gotchas)**
+2. **Propose the *next* focused checkpoint so we keep momentum and cohesion**
+
+---
+
+## 1. What that MD spec changes (sanity check)
+
+The markdown you pasted is essentially a **human-readable change log** for `Process.tsx` + a small Standards fix. If Replit followed it correctly, you now have:
+
+### On `/process`:
+
+* **Hero is tightened + on-brand**
+
+  * Overline: “How ventures move inside VSG”
+  * Headline: “A six-stage runway for verifiable ventures.”
+  * Body: explicit about the pipeline and compounding knowledge.
+
+* **Six stages are now single-word + consistent**
+
+  ```ts
+  const stages = [
+    { name: "Define",   focus: "Strategy & Alignment",   description: "…" },
+    { name: "Validate", focus: "Risk & Signal",          description: "…" },
+    { name: "Build",    focus: "Security & Quality",     description: "…" },
+    { name: "Deploy",   focus: "Governed Launch",        description: "…" },
+    { name: "Evolve",   focus: "Data & Optimization",    description: "…" },
+    { name: "Recurse",  focus: "Institutional Memory",   description: "…" },
+  ];
+  ```
+
+  And the paragraph under the grid makes it clear ventures **don’t auto-graduate**, they’re either:
+
+  * Adopted as durable infrastructure
+  * Wrapped in ongoing governance
+  * Archived with lessons integrated back into standards
+
+* **Definitions (“Verifiable Systems”, “Deterministic AI”, “Non-custodial Rails”) are sharp**
+
+  * Each is 1–2 sentences
+  * All emphasize *inspectability* and *non-custodial* control
+
+* **Bitcoin section is clearly internal-treasury-only**
+
+  * Heading: “Bitcoin as long-term reserve, not a trading thesis.”
+  * Explains borrowing *conservatively* to fund R&D and infra
+  * Ends with: “This is an internal treasury program. We do not pool client funds, manage outside capital, or offer yield products.”
+
+* **All `...` placeholders removed**
+
+  * Everything is full sentences, which will reduce the “this feels half-done” sensation across the page.
+
+### On `/standards`:
+
+* The broken CTA at the bottom now points to `/insights` instead of `/library`.
+  That alone removes one obvious “this site is half-built” papercut.
+
+So: from a structural point of view, that MD spec is *good*: it doesn’t mess with layout, it just makes content and copy production-grade and safe.
+
+If anything feels off visually now, it’ll be:
+
+* Minor line wrapping / text density
+* How Process now contrasts with other, still-placeholder pages (Pillars, Ventures, etc.)
+
+Which leads to…
+
+---
+
+## 2. Best next checkpoint from *this* state
+
+You’ve now:
+
+* Cleaned up **Process**
+* Brought **desktop + mobile nav** into a unified, shadcn-style system
+* Fixed at least one obvious 404/CTA issue in **Standards**
+
+The next thing that will make the *entire* site feel less “messy” is:
+
+> **Checkpoint – “Ventures Spine”**
+> A. Cohesive `/ventures` overview page
+> B. A real, public-safe `/ventures/helios` detail page
+
+Why this is the highest leverage next move:
+
+* The nav now has a **Ventures** dropdown that looks serious; clicking into those links and hitting placeholders will feel extra rough.
+* Helios is the one venture you already have a safe, high-level story for (internal capital engine, BTC reserve, no client capital, no yield products).
+* Once the Helios page is real, we can “stub” the other ventures (Stackme, Lumina, etc.) with one-paragraph summaries and proper sections, so nothing feels like a blank.
+
+If you’re good with that, the very next thing I can do for you in the next message is:
+
+* Give you a **full content spec + TSX structure** for:
+
+  * `client/src/pages/ventures/index.tsx` (or whatever your `Ventures` overview page is called)
+  * `client/src/pages/ventures/Helios.tsx` (public-safe Helios page)
+* And then a **Replit agent prompt** at the same fidelity as the Process one (very explicit, zero guesswork).
+
+That will bring **nav → Process → Ventures → Helios** into alignment, and the site will start to feel like a coherent system instead of a mix of finished and unfinished pieces.

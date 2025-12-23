@@ -1,0 +1,304 @@
+Project: Verifiable-Systems-Group (React + Vite + Tailwind + shadcn/ui, routing via wouter in client/src/App.tsx).
+
+Goal for this checkpoint
+
+Bring the Standards page (`/standards`) in line with:
+
+- VSG Identity and VSG Brand & Voice System v3.0
+- Truth · Capital · Dignity as the three beams
+- Pillars / Process / Standards as the three structural layers
+- External safety rules (no detailed plumbing, no protocol names, no tickers, no entity wiring)
+- Updated language (no “Signal / Value / Human”, no “validate the signal”, no “the human” as a noun)
+
+We want `/standards` to read like a clear, institutional-grade **quality and risk framework** for systems that carry real stakes. It should explain how we design, operate, and review AI-native, non-custodial systems across Truth, Capital, and Dignity.
+
+Do NOT:
+- Change or add routes.
+- Change global theming (colors, typography, layout primitives).
+- Mention specific protocols, banks, tickers, venues, or LTV numbers.
+- Use “Signal / Value / Human”, “validate the signal”, “protect the human”, “AI-powered platform”, or hype words like “revolutionary” / “game-changing”.
+- Add more than one warmth line using “you”.
+
+--------------------------------------------------
+1) Locate the Standards page component
+--------------------------------------------------
+
+1. In `client/src/App.tsx`, find the route for `/standards`.
+2. Open the component that renders that route (for example `client/src/pages/Standards.tsx`).
+
+Apply all changes in this spec only to the component that renders `/standards`.
+
+--------------------------------------------------
+2) PageMeta – title + description
+--------------------------------------------------
+
+Inside the Standards page, locate `<PageMeta ... />` and set:
+
+- `title`: `"Standards"`
+- `description`: `"How Verifiable Systems Group defines quality, risk, and governance for AI-native, non-custodial systems across Truth, Capital, and Dignity before they carry real stakes."`
+
+Keep `preloadImage` and any other props unchanged.
+
+--------------------------------------------------
+3) Hero section – what “standards” mean here
+--------------------------------------------------
+
+In the top hero section of the Standards page:
+
+3.1 Overline
+
+Set the overline (small label above the heading) to:
+
+  "Quality and risk framework"
+
+3.2 Heading (`<h1>`)
+
+Set the main heading to:
+
+  "Standards for systems that carry real stakes."
+
+3.3 Hero body copy (two short paragraphs)
+
+Replace the existing hero body text with:
+
+Paragraph 1:
+
+  "These standards define what has to be true before we let a system touch real decisions, real capital, or real lives. They apply across Truth, Capital, and Dignity, whether the venture is a small experiment or a long-lived piece of infrastructure."
+
+Paragraph 2 (this is the single warmth line):
+
+  "You should not have to reverse-engineer how a critical system behaves under stress. Our standards make behaviours, limits, and responses explicit, so reliability is enforced by design instead of assumed."
+
+Keep the existing JSX structure, containers, and Tailwind classes; only update text nodes.
+
+3.4 Hero CTAs (if present)
+
+If the hero exposes primary/secondary CTAs, configure them as:
+
+Primary CTA:
+- Label: `"See the six-stage process"`
+- `href`: `"/process"`
+
+Secondary CTA:
+- Label: `"Read the pillars"`
+- `href`: `"/pillars"`
+
+Reuse existing Button components / variants; only adjust text and `href`.
+
+--------------------------------------------------
+4) Intro: what “standards” cover
+--------------------------------------------------
+
+Immediately under the hero, ensure there is a short intro section (or add one using the existing section-intro layout).
+
+Section heading:
+
+  "What these standards cover"
+
+Body copy:
+
+  "Standards are the minimum bar every system must clear. They define how we design, test, operate, and review AI-native systems before and after launch. They apply across the portfolio, regardless of whether we are working in Truth, Capital, or Dignity."
+
+Use the same typography utilities as other section intros; do not change layout or theming.
+
+--------------------------------------------------
+5) Core content: three categories of standards
+--------------------------------------------------
+
+Create or update a small data structure for three categories of standards, and render them as cards in a grid (similar to other pages). If a `sections` or `categories` array already exists, reuse it and only update content.
+
+Add or replace with:
+
+  const standardCategories = [
+    {
+      name: "Design standards",
+      summary:
+        "How systems must be specified before a single line of code ships.",
+      details: [
+        "Every system has a clear purpose, threat model, and definition of what must never happen.",
+        "Truth, Capital, and Dignity risks are identified explicitly in the design, not as an afterthought.",
+        "Critical behaviours are modeled up front with clear success, failure, and rollback paths.",
+      ],
+    },
+    {
+      name: "Operational standards",
+      summary:
+        "How systems must behave, be observed, and be supported once they run.",
+      details: [
+        "Every system ships with logging, monitoring, and alerting appropriate to its impact and complexity.",
+        "There are named stewards for each system, with clear responsibilities and escalation paths.",
+        "Changes follow a governed process with review, testing, and, where possible, staged rollout.",
+      ],
+    },
+    {
+      name: "Risk and incident standards",
+      summary:
+        "How we surface, triage, and learn from risk, anomalies, and failures.",
+      details: [
+        "We maintain documented playbooks for incidents, including communication and decision ownership.",
+        "Incidents, near-misses, and anomalies are logged and reviewed on a regular cadence.",
+        "Lessons from incidents are fed back into design patterns, checklists, and the six-stage process.",
+      ],
+    },
+  ];
+
+Render them with your existing card/grid component. For example (adapt classes to your project):
+
+  <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+    {standardCategories.map((category) => (
+      <div
+        key={category.name}
+        className="flex flex-col justify-between rounded-xl border bg-card/60 p-6 shadow-sm backdrop-blur"
+      >
+        <div className="space-y-3">
+          <h2 className="text-base font-semibold tracking-tight">
+            {category.name}
+          </h2>
+          <p className="text-sm text-muted-foreground">
+            {category.summary}
+          </p>
+          <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+            {category.details.map((item) => (
+              <li key={item} className="flex gap-2">
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-muted-foreground/60" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    ))}
+  </div>
+
+Do not change the overall layout/theming; just wire this data into the existing pattern.
+
+--------------------------------------------------
+6) Section: “Governed experiments, not bets”
+--------------------------------------------------
+
+Add or update a section that describes how standards apply to experiments and changes.
+
+Section heading:
+
+  "Governed experiments, not bets"
+
+Body copy (two paragraphs):
+
+Paragraph 1:
+
+  "We treat changes as governed experiments, not one-way bets. Before we launch, we specify what we are testing, how we will observe it, and what conditions trigger rollback or additional review."
+
+Paragraph 2:
+
+  "For higher-stakes systems, we require progressive exposure, defence in depth, and explicit kill switches. Standards ensure that ambition is paired with constraints, so systems can evolve without putting Truth, Capital, or Dignity at unacceptable risk."
+
+Keep typography consistent with other mid-page sections.
+
+--------------------------------------------------
+7) Section: “Truth, Capital, Dignity in practice”
+--------------------------------------------------
+
+Add a short band that connects Standards explicitly to the three beams. Reuse an existing simple layout (three mini-columns, or a vertical stack on mobile).
+
+Section heading:
+
+  "Truth, Capital, Dignity in practice"
+
+Then three short items (not full cards, just concise copy):
+
+- Truth:
+    "Standards require that decisions and outputs are anchored to evidence, logs, and explanations that can be inspected, not just inferred."
+
+- Capital:
+    "Standards require non-custodial control, clear limits, and documented responses for stress and failure before assets are exposed to real risk."
+
+- Dignity:
+    "Standards require that participation and personhood are protected by design, avoiding unnecessary collection or exposure of identity and behaviour."
+
+Keep this section text-only; no diagrams or protocol names.
+
+--------------------------------------------------
+8) Section: “What we refuse to ship”
+--------------------------------------------------
+
+Add or update a callout band that lists systems that do not meet standards. Use a visual style similar to the “What we refuse to do” band on `/approach`.
+
+Section heading:
+
+  "What we refuse to ship"
+
+Bullet list (4–5 items, each one sentence):
+
+- "Systems without clear owners, review rhythms, and incident paths."
+- "Systems that cannot explain their critical decisions in terms of evidence and constraints."
+- "Systems without logging or monitoring proportional to their impact."
+- "Systems that depend on hidden assumptions we cannot test or observe."
+- "Systems that expose more about a person’s life than is required for them to participate."
+
+Closing sentence:
+
+  "If a proposal cannot meet these standards, we either redesign it under tighter constraints or decline it before it ever reaches production."
+
+Do not mention specific technologies, venues, or legal entities here.
+
+--------------------------------------------------
+9) Next-step CTA at the bottom
+--------------------------------------------------
+
+At the bottom of the Standards page, ensure the next-step CTA points at `/insights` (we previously aligned this):
+
+- Use the existing `NextStepBlock` (or equivalent).
+- Configure it as:
+
+  <NextStepBlock
+    nextPage="Insights"
+    description="Read notes and updates on how we apply these standards in practice."
+    href="/insights"
+  />
+
+Do not change the component’s styling; only its props.
+
+--------------------------------------------------
+10) Hygiene pass on Standards page
+--------------------------------------------------
+
+In the Standards page file:
+
+1) Remove or replace ANY remaining references to:
+   - “Signal / Value / Human” as domains.
+   - “validate the signal”.
+   - “protect the human”.
+   - “AI-powered platform”, “revolutionary”, “game-changing”, “disruptive”.
+   - “StackMe”, “Stackme Holdings”, “VSP”.
+
+2) Ensure AI language follows v3 rules:
+   - Use: “AI-native”, “machine intelligence”, “Intelligence Augmented (IA)” where needed.
+   - Avoid: “magic”, “AI does the rest”, “we sprinkle AI across the stack”.
+
+3) Warmth:
+   - Keep exactly one warmth line using “you” on this page (the hero paragraph above). Do not add additional “you shouldn’t…” lines elsewhere.
+
+4) Domain terms:
+   - When you refer to the three beams, use “Truth, Capital, and Dignity” (capitalized).
+   - Do not call them “Signal / Value / Human”.
+
+5) Content consistency:
+   - Ensure headings and terminology match the rest of the site (e.g., “six-stage process” matches `/process`).
+   - Check spelling and capitalization carefully (e.g., “AI-native”, “Verifiable Systems Group”).
+
+--------------------------------------------------
+11) Final QA
+--------------------------------------------------
+
+After making these edits, run the dev server and open `/standards`:
+
+- The hero clearly states that this page defines the quality and risk framework.
+- The three standards categories (Design, Operational, Risk and incident) are visible and clearly described.
+- The “Governed experiments, not bets” section reads as a disciplined, institutional stance on change.
+- The “Truth, Capital, Dignity in practice” section ties standards back to the three beams.
+- The “What we refuse to ship” band reads as a concrete, enforceable constraint set.
+- The bottom CTA points to `/insights` and renders correctly.
+- There are no remaining references to Signal/Value/Human, “validate the signal”, “protect the human”, or hype phrases.
+- Tone matches VSG: serious, architectural, ethically explicit, one controlled warmth line, no memes or slang.
+
+Only commit once `/standards` feels like a premium, institutional-grade statement of how VSG systems must behave before they carry real stakes—suitable for an internal handbook, an institutional partner, or a regulator.
